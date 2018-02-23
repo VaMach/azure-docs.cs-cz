@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Vytvoření virtuální sítě pomocí rozhraní příkazového řádku Azure
 
@@ -66,11 +66,11 @@ Všechny virtuální sítě mít jeden nebo více předpony adres, které jsou j
 
 Vrácená další část informací **addressPrefix** z *10.0.0.0/24* pro *výchozí* zadaná v příkazu podsíť. Virtuální síť obsahuje nula nebo více podsítí. Příkaz vytvořit jednu podsíť s názvem *výchozí*, ale nebyla určena žádná předpona adresy podsítě. Předponu adresy není zadán pro virtuální síť nebo podsíť, Azure definuje 10.0.0.0/24 jako předpona adresy pro první podsíť, ve výchozím nastavení. V důsledku toho podsíť zahrnuje 10.0.0.0-10.0.0.254, ale pouze 10.0.0.4-10.0.0.254 jsou k dispozici, protože první čtyři adresy (0-3) a poslední adresa v jednotlivých podsítích si vyhrazuje Azure.
 
-## <a name="create-virtual-machines"></a>Vytváření virtuálních počítačů
+## <a name="create-virtual-machines"></a>Vytvoření virtuálních počítačů
 
 Virtuální síť umožňuje několik typů prostředků Azure, aby soukromě vzájemně komunikovat. Virtuální počítač je jeden typ prostředku, který můžete nasadit do virtuální sítě. Vytvořte dva virtuální počítače ve virtuální síti, abyste mohli ověřit a pochopit, jak funguje komunikace mezi virtuálními počítači ve virtuální síti v pozdější fázi.
 
-Vytvoření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. Následující příklad vytvoří virtuální počítač s názvem *myVm1*. Pokud se klíče SSH již neexistují v umístění klíče výchozí, vytvoří příkaz je. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`. `--no-wait` Možnost vytvoří virtuální počítač na pozadí, abyste mohli pokračovat k dalšímu kroku.
+Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#az_vm_create). Následující příklad vytvoří virtuální počítač s názvem *myVm1*. Pokud se klíče SSH již neexistují v umístění klíče výchozí, vytvoří příkaz je. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`. `--no-wait` Možnost vytvoří virtuální počítač na pozadí, abyste mohli pokračovat k dalšímu kroku.
 
 ```azurecli-interactive 
 az vm create \
@@ -81,7 +81,7 @@ az vm create \
   --no-wait
 ```
 
-Azure automaticky vytvoří virtuální počítač *výchozí* podsíť *myVirtualNetwork* virtuální sítě, protože virtuální sítě existuje ve skupině prostředků a žádné virtuální sítě nebo podsíť je zadána v příkazu. Azure DHCP automaticky přiřadit 10.0.0.4 k virtuálnímu počítači během vytváření, protože se jedná o první dostupnou adresu v *výchozí* podsítě. Umístění, které virtuální počítač je vytvořen v musí být stejné umístění, které virtuální sítě v existuje. Virtuální počítač nemusí být ve stejné skupině prostředků jako virtuální počítač, když je v tomto článku.
+Azure automaticky vytvoří virtuální počítač *výchozí* podsíť *myVirtualNetwork* virtuální sítě, protože virtuální sítě existuje ve skupině prostředků a žádné virtuální sítě nebo podsíť je zadána v příkazu. Azure DHCP automaticky přiřadit 10.0.0.4 k virtuálnímu počítači během vytváření, protože se jedná o první dostupnou adresu v *výchozí* podsítě. Umístění, které virtuální počítač je vytvořen v musí být stejné umístění, které virtuální sítě v existuje. Virtuální počítač nemusí být ve stejné skupině prostředků jako virtuální síť, i když je v tomto článku.
 
 Vytvořte druhý virtuální počítač. Ve výchozím nastavení, Azure vytvoří také tento virtuální počítač v *výchozí* podsítě.
 

@@ -1,6 +1,6 @@
 ---
 title: "Osvědčené postupy zabezpečení Azure a vzory | Microsoft Docs"
-description: "Článek poskytuje základní informace o osvědčených postupech zabezpečení Azure a vzory a kurátorované seznam osvědčené postupy zabezpečení pro různé prostředky Azure."
+description: "Článek obsahuje seznam zabezpečení Azure osvědčené postupy a vzory pro různými prostředky Azure."
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -12,38 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: terrylan
-ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 2/16/2018
+ms.author: 
+ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Osvědčené postupy zabezpečení Azure a vzory
-Máme aktuálně následující osvědčené postupy zabezpečení Azure a vzory články. Nezapomeňte navštívit tento web pravidelně zobrazíte aktualizace našich rostoucí seznam zabezpečení Azure osvědčených postupů a vzorů:  
 
-* [Osvědčené postupy zabezpečení sítě Azure](azure-security-network-security-best-practices.md)
-* [Zabezpečení dat Azure a šifrování osvědčené postupy](azure-security-data-encryption-best-practices.md)
-* [Osvědčené postupy zabezpečení řízení správy identit a přístupu](azure-security-identity-management-best-practices.md)
-* [Osvědčené postupy pro zabezpečení Internetu věcí](azure-security-iot-best-practices.md)
-* [Osvědčené postupy zabezpečení azure IaaS] (azure iaas.md zabezpečení)
 * [Osvědčené postupy zabezpečení Azure hranic](../best-practices-network-security.md)
+* [Osvědčené postupy zabezpečení databáze Azure](azure-database-security-best-practices.md)
+* [Zabezpečení dat Azure a šifrování osvědčené postupy](azure-security-data-encryption-best-practices.md)
+* [Osvědčené postupy zabezpečení řízení správy identit Azure a přístup](azure-security-identity-management-best-practices.md)
+* [Osvědčené postupy zabezpečení sítě Azure](azure-security-network-security-best-practices.md)
+* [Osvědčené postupy zabezpečení provozu Azure](azure-operational-security-best-practices.md)
+* [Azure PaaS osvědčených postupů](https://docs.microsoft.com/azure/security/security-paas-deployments) 
+* [Azure Service Fabric osvědčené postupy zabezpečení](security-best-practices-and-patterns.md)
+* [Doporučené postupy pro zabezpečení virtuálního počítače Azure](azure-service-fabric-security-best-practices.md)
 * [Implementace zabezpečené hybridní síťové architektury v Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS osvědčených postupů] (https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Osvědčené postupy pro zabezpečení Internetu věcí](azure-security-iot-best-practices.md)* [databáze PaaS zabezpečení v Azure](security-paas-applications-using-sql.md)
+* [Zabezpečení PaaS webové a mobilní aplikace pomocí služby Azure App Service](security-paas-applications-using-app-services.md)
+* [Zabezpečení webových a mobilních aplikací PaaS pomocí Azure Storage](security-paas-applications-using-storage.md)
+* [Osvědčené postupy zabezpečení pro úlohy IaaS v Azure](azure-security-iaas.md)
 
-Azure poskytuje zabezpečené platformy, na které můžete sestavit vaše řešení. Poskytujeme také službách a technologiích zabezpečit vaše řešení v Azure. Z důvodu k dispozici mnoho možností řada z vás mají znělá zájem o co Microsoft doporučuje, jako nejlepší postupy a vzory pro zlepšení zabezpečení.
 
-Jsme váš zájem pochopit a jste vytvořili kolekci dokumentů, které popisují způsobů, jak, zadaný kontext správné pro zlepšení zabezpečení Azure nasazení.
 
-V těchto osvědčené postupy a vzory články probereme kolekce osvědčených postupů a vzorů užitečné pro konkrétní témata. Tyto doporučené postupy a vzory jsou odvozené z našich zkušeností s těmito technologiemi a prostředí zákazníků, jako sami.
-
-Pro každý osvědčený postup se snažíme vysvětlují:
-
-* Co je osvědčeným postupem
-* Proč chcete povolit tento osvědčený postup
-* Pokud se nepodaří povolit osvědčený postup, co může být výsledkem
-* Možné alternativy doporučené postupy
-* Jak můžete informace o povolení osvědčený postup
-
-Těšíme se na včetně mnoha další články o zabezpečení Azure architektura a osvědčených postupech. Pokud jsou témata, která chcete zahrnout, dejte nám vědět diskusní oblasti v dolní části této stránky.

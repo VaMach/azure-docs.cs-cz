@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Řešení potíží s synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -43,6 +43,10 @@ Zkontrolujte installer.log a zjistěte příčinu selhání instalace.
 > [!Note]  
 > Instalace agenta se nezdaří, pokud váš počítač je nastavit tak, aby používat službu Microsoft Update a není spuštěna služba Windows Update.
 
+<a id="agent-installation-on-DC"></a>**Instalace agenta selže na řadič domény služby Active Directory** Pokud akci a nainstalujte agenta synchronizace na řadič domény služby Active Directory, kde je vlastníkem této role primárního řadiče domény Windows Server 2008 R2 nebo nižší než verze operačního systému, můžete narazit problém kde synchronizace Instalace agenta se nezdařilo.
+
+Chcete-li vyřešit, přeneste roli primárního řadiče domény do jiné domény Řadič spuštěný Windows serveru 2012 R2 nebo novější a pak instalaci synchronizace.
+
 <a id="agent-installation-websitename-failure"></a>**Instalace agenta selže s touto chybou: "Úložiště synchronizace Agent byl předčasně ukončen"**  
 Tento problém může dojít, pokud se změnil název výchozí web služby IIS. Chcete-li tento problém obejít, přejmenujte na výchozí web služby IIS jako "výchozí webový server" a opakujte instalaci. Tento problém bude opraven v budoucí aktualizaci agenta. 
 
@@ -51,6 +55,8 @@ Pokud server není uveden v seznamu **registrované servery** pro synchronizačn
 1. Přihlaste se k serveru, který chcete zaregistrovat.
 2. Otevřete Průzkumníka souborů a potom přejděte do instalačního adresáře nástroje agenta synchronizace úložiště (výchozí umístění je C:\Program Files\Azure\StorageSyncAgent). 
 3. Spusťte ServerRegistration.exe a dokončete průvodce registrace serveru se službou Sync úložiště.
+
+
 
 <a id="server-already-registered"></a>**Registrace serveru zobrazí následující zprávu během instalace agenta Azure Sync souboru: "Tento server je již zaregistrována"** 
 
@@ -95,9 +101,7 @@ Pokud chcete vytvořit koncový bod cloudu, váš uživatelský účet musí mí
 
 Následující předdefinované role nemá požadovaná oprávnění Authorization Microsoft:  
 * Vlastník
-* Správce přístupu uživatelů
-
-Chcete-li zjistit, jestli vaše uživatelská role účet má potřebná oprávnění:  
+* Správce přístupu uživatelů k určení, zda vaše uživatelská role účet má potřebná oprávnění:  
 1. Na portálu Azure vyberte **skupiny prostředků**.
 2. Vyberte skupinu prostředků, kde je umístěn účet úložiště a pak vyberte **přístup k ovládacímu prvku (IAM)**.
 3. Vyberte **role** (například vlastníka nebo přispěvatele) pro váš uživatelský účet.
@@ -105,11 +109,24 @@ Chcete-li zjistit, jestli vaše uživatelská role účet má potřebná oprávn
     * **Přiřazení role** by měl mít **čtení** a **zápisu** oprávnění.
     * **Definice role** by měl mít **čtení** a **zápisu** oprávnění.
 
-<a id="server-endpoint-createjobfailed"></a>**Vytvoření koncového bodu serveru selže s touto chybou: "MgmtServerJobFailed" (kód chyby:-2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Vytvoření koncového bodu serveru selže s touto chybou: "MgmtServerJobFailed" (kód chyby:-2134375898)**                                                                                                                    
 K tomuto problému dochází, pokud cesta ke koncovému bodu serveru je na systémovém svazku a cloud vrstvení je povoleno. Cloud vrstvení není podporována na systémovém svazku. Chcete-li vytvořit koncový bod serveru na systémovém svazku, zakažte vrstvení při vytváření serveru koncového bodu cloudu.
 
 <a id="server-endpoint-deletejobexpired"></a>**Odstranění koncového bodu serveru selže s touto chybou: "MgmtServerJobExpired"**                
 K tomuto problému dochází, pokud server je offline nebo nemá připojení k síti. Pokud server již není k dispozici, zrušte registraci serveru na portálu, který bude server koncové body odstranit. Pokud chcete odstranit koncové body serveru, postupujte podle kroků popsaných v [zrušit registraci serveru s Azure souboru Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Nejde otevřít stránku vlastnosti koncový bod serveru nebo aktualizovat zásady vrstvení cloudu**
+
+Tento problém může dojít, pokud dojde k selhání operace správy na serveru koncového bodu. Pokud stránka Vlastnosti koncový bod serveru nelze otevřít na portálu Azure, aktualizuje se koncový bod serveru pomocí příkazů prostředí PowerShell ze serveru může tento problém vyřešit. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Pokud soubor vytvořili přímo v mé sdílenou složku Azure přes protokol SMB nebo prostřednictvím portálu, jak dlouho trvá souboru pro synchronizaci servery ve skupině synchronizace?**  

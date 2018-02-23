@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Jak spouštět javový aplikační server na virtuálním počítači vytvořeném pomocí modelu klasického nasazení
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Instalace byla dokončena. výsledkem Tomcat, které jsou spuštěny na virtuál
 
 ## <a name="to-create-a-virtual-machine"></a>Vytvoření virtuálního počítače
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).  
-2. Klikněte na tlačítko **nový**, klikněte na tlačítko **výpočetní**, pak klikněte na tlačítko **zobrazit všechny** v **vybrané aplikace**.
+2. Klikněte na tlačítko **vytvořit prostředek**, klikněte na tlačítko **výpočetní**, pak klikněte na tlačítko **zobrazit všechny** v **vybrané aplikace**.
 3. Klikněte na tlačítko **JDK**, klikněte na tlačítko **JDK 8** v **JDK** podokně.  
    Virtuální počítač bitové kopie, které podporují **JDK 6** a **JDK 7** jsou k dispozici, pokud máte starší aplikace, které nejsou připravené ke spuštění v JDK 8.
 4. V podokně JDK 8 vyberte **Classic**, pak klikněte na tlačítko **vytvořit**.
@@ -93,7 +93,7 @@ Tomcat spuštěna z externích počítačů najdete potřebujete vytvořit konco
 2. Klikněte na tlačítko **virtuálních počítačů (klasické)**.
 3. Klikněte na název virtuálního počítače, který je spuštěn aplikační server Java.
 4. Klikněte na **Koncové body**.
-5. Klikněte na tlačítko **Přidat**.
+5. Klikněte na tlačítko **Add** (Přidat).
 6. V **přidání koncového bodu** dialogové okno:
    1. Zadejte název pro koncový bod; například **HttpIn**.
    2. Vyberte **TCP** protokolu.
@@ -121,7 +121,7 @@ Tomcat spuštěna z externích počítačů najdete potřebujete vytvořit konco
 10. Na **název** obrazovky, zadejte název pravidla, jako například **HttpIn** (název pravidla nemusí odpovídat názvu koncového bodu, ale) a potom klikněte na **Dokončit**.  
     ![Nový název příchozí pravidlo][NewRuleName]
 
-V tomto okamžiku by měla být váš web Tomcat viditelný z externího prohlížeče. V okně adresa v prohlížeči zadejte adresu URL ve formátu  **http://*vaše\_DNS\_název*. cloudapp.net**, kde ***vaše\_DNS\_název*** je název DNS, který jste zadali při vytváření virtuálního počítače.
+V tomto okamžiku by měla být váš web Tomcat viditelný z externího prohlížeče. V okně adresa v prohlížeči zadejte adresu URL ve formátu **http://*vaše\_DNS\_název*. cloudapp.net**, kde ***vaše\_DNS\_název*** je název DNS, který jste zadali při vytváření virtuálního počítače.
 
 ## <a name="application-lifecycle-considerations"></a>Aspekty životního cyklu aplikací
 * Můžete vytvořit vlastní webový archiv aplikace (WAR) a přidejte ho do **webapps** složky. Například vytvoření základní dynamického webového projektu Java služby stránky (JSP) a exportovat jako soubor WAR. Zkopírujte WAR Apache Tomcat **webapps** složky na virtuálním počítači, spusťte v prohlížeči.
@@ -131,7 +131,7 @@ V tomto okamžiku by měla být váš web Tomcat viditelný z externího prohlí
 
     Výhodou vytvoření Tomcat automatické spuštění je, že je spuštěn při restartování virtuálního počítače (například po instalaci aktualizace softwaru, které vyžadují restartování).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Můžete informace o jiných služeb (například Azure Storage, služby service bus a SQL Database), které chcete zahrnout s vaší aplikací v jazyce Java. Zobrazit informace, které jsou k dispozici na [středisko pro vývojáře Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png

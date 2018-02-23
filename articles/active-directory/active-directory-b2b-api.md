@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Spolupráce Azure Active Directory s B2B rozhraní API a přizpůsobení
 
-Narazili jsme mnoho zákazníků, řekněte nám, chtějí-li k přizpůsobení procesu pozvánku způsobem, který je nejvhodnější pro jejich organizace. Naše rozhraním API můžete to udělat jen. [https://Developer.microsoft.com/Graph/Docs/API-Reference/V1.0/Resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Narazili jsme mnoho zákazníků, řekněte nám, chtějí-li k přizpůsobení procesu pozvánku způsobem, který je nejvhodnější pro jejich organizace. Naše rozhraním API můžete to udělat jen. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Možnosti pozvánku rozhraní API
 Rozhraní API nabízí tyto možnosti:
@@ -77,7 +77,7 @@ Rozhraní API můžete spustit v následujících režimech ověřování:
 V tomto režimu kdo používá rozhraní API musí mít oprávnění pro být vytvoření pozvánky B2B.
 
 ### <a name="app-only-mode"></a>Jenom režim aplikace
-V kontextu pouze aplikace musí aplikace User.ReadWrite.All nebo Directory.ReadWrite.All oborů této pozvánky proběhla úspěšně.
+V kontextu pouze aplikace musí aplikace oboru User.Invite.All této pozvánky proběhla úspěšně.
 
 Další informace najdete v části: https://graph.microsoft.io/docs/authorization/permission_scopes
 
@@ -98,7 +98,7 @@ Můžete použít následující možnosti:
 
 Můžete se taky podívat na odkaz na pozvánku k rozhraní API v [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

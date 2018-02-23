@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Zřizování a katalog nové klienty používání aplikace pro každého klienta vzor SaaS
 
@@ -30,7 +30,7 @@ Tento článek má dvě hlavní části:
 * Kurz, který označuje ukázkový kód prostředí PowerShell, který provede zřizování a do katalogu
     * Tento kurz používá aplikace SaaS ukázka Wingtip lístky přizpůsobit samostatné aplikace na vzor klienta.
 
-## <a name="application-per-tenant-pattern"></a>Aplikaci za klienta vzor
+## <a name="standalone-application-per-tenant-pattern"></a>Samostatné aplikace za klienta vzor
 Samostatné aplikace na vzor klienta je jedním z několika vzory pro víceklientské aplikace SaaS.  V tomto vzoru se zřizuje samostatné aplikace pro každého klienta. Aplikace se skládá z úrovně součásti aplikace a SQL database.  Každá aplikace klienta se dá nasadit v rámci předplatného od dodavatele.  Alternativně Azure nabízí [spravovaných aplikací programu](https://docs.microsoft.com/en-us/azure/managed-applications/overview) ve kterém aplikace lze nasadit v rámci předplatného klienta a spravovat dodavatelem jménem klienta. 
 
    ![vzor aplikace za klienta](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Každý klient vyžaduje novou skupinu prostředků Azure, které musí být vyt
 
 V tomto kurzu se naučíte:
 * Zřídit katalog
-* Registrace klienta databáze, nasazení dříve v katalogu
+* Zaregistrovat ukázkové databáze klienta, které jste nasadili dříve v katalogu
 * Zřídit další klienta a její registrace v katalogu
 
 Šablonu Azure Resource Manager slouží k nasazení a konfigurace aplikace, vytvořit databázi klienta a následným importem souboru bacpac soubor, který chcete provést jeho inicializaci. Žádost o import může ve frontě pro několik minut, než je reagovali.
@@ -148,3 +148,5 @@ V tomto kurzu jste se dozvěděli:
 > * Postup nasazení Wingtip lístky SaaS samostatné aplikace.
 > * O servery a databáze, které tvoří aplikace.
 > * Postup odstranění ukázkové prostředky zastavit související fakturace.
+
+Můžete prozkoumat použití katalogu pro podporu různých scénářů napříč klienta pomocí verze databáze za klienta [aplikace SaaS lístky Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

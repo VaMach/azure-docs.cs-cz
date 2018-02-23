@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: cfed3617f20074f361629c65f14ce38c1012c702
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Spuštění úloh MapReduce s Hadoop v HDInsight pomocí prostředí PowerShell
 
@@ -30,14 +30,14 @@ Tento dokument poskytuje příklad použití Azure PowerShell a spusťte úlohu 
 
 ## <a id="prereq"></a>Požadavky
 
-* **Cluster Azure HDInsight (Hadoop v HDInsight)**
+* Cluster Azure HDInsight (Hadoop v HDInsight)
 
   > [!IMPORTANT]
   > HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Pracovní stanice s prostředím Azure PowerShell**.
 
-## <a id="powershell"></a>Spustit úlohu MapReduce pomocí Azure PowerShell
+## <a id="powershell"></a>Spustit úlohu MapReduce
 
 Prostředí Azure PowerShell poskytuje *rutiny* které umožňují vzdáleně spouštět úlohy MapReduce v HDInsight. Interně, prostředí PowerShell provádí volání REST na [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (dříve se označovaly jako Templeton) spuštěná na clusteru HDInsight.
 

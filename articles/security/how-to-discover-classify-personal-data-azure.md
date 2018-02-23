@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Zjistit, identifikovat a klasifikovat osobních údajů v Microsoft Azure
 
@@ -59,22 +59,22 @@ To je zvláště užitečné, pokud chcete najít, nebo změňte osobních údaj
 
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
 
-2. Vyberte **další služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
+2. Vyberte **všechny služby**, zadejte **uživatelů a skupin** v textovém poli a potom vyberte **Enter**.
 
    ![jak najít profil uživatele a informace o práci](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. Na **uživatelů a skupin** vyberte **uživatelé**.
 
-  ![Otevírání uživatelů a skupin](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Otevírání uživatelů a skupin](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. Na **uživatelé a skupiny - Uživatelé** okně vyberte uživatele ze seznamu a poté v okně pro vybraného uživatele, vyberte možnost **profil** zobrazíte informace o profilu uživatele, který může obsahovat osobní data.
 
-  ![Vyberte uživatele](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![Vyberte uživatele](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Pokud potřebujete přidat nebo změnit informace o profilu uživatele, můžete tak učinit a pak na panelu příkazů vyberte **uložit.**
 6. V okně pro vybraného uživatele, vyberte **informace o pracovních** zobrazíte informace o práci uživatele, který může obsahovat osobní data.
 
- ![informace o zobrazení zaměstnání](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![informace o zobrazení zaměstnání](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Pokud potřebujete přidat nebo změnit informace o práci uživatelů, můžete tak učinit a pak na panelu příkazů vyberte **uložit.**
 
@@ -187,7 +187,7 @@ Další podrobné pokyny k vytváření dotazů SQL, najdete v článku [dotazy 
 
 Pokud jste pro Azure Cosmos DB nové a chcete se dozvíte, jak k vytvoření databáze, přidejte do kolekce a přidat data, navštivte [Cosmos databázi Azure: sestavení webové aplikace SQL API](../cosmos-db/create-sql-api-dotnet.md) rychlý úvodní kurz. Pokud chcete to udělat v jiném jazyce než v rozhraní .NET, například Java nebo Python, právě vyberte upřednostňovaný jazyk po získání do lokality.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Použití Azure sdílené přístupové podpisy úložiště omezit přístup k datům v HDInsight
 
@@ -216,7 +216,7 @@ Pokud máte existující cluster založený na Linuxu, můžete přidat SAS k **
    > [!IMPORTANT]
    > Změna se projeví až po restartování několik služeb.
 
-6. V Ambari webového uživatelského rozhraní, vyberte **HDFS** ze seznamu na levé straně a potom vyberte **restartujte všechny vliv** z **služby akce** rozevíracím seznamu na pravé straně. Po zobrazení výzvy vyberte __odpovídat restartujte všechny__.
+6. V Ambari webového uživatelského rozhraní, vyberte **HDFS** ze seznamu na levé straně a potom vyberte **restartujte všechny vliv** z **služby akce** rozevíracím seznamu na pravé straně. Po zobrazení výzvy vyberte __potvrďte restartujte všechny__.
 
     Tento postup opakujte pro MapReduce2 a YARN.
 

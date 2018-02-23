@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Omezení prostředků Azure SQL Database
 
@@ -114,7 +114,16 @@ Můžete zvýšit nebo snížit fondu elastické databáze podle prostředků vy
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Jaký je maximální počet serverů a databází?
 
-Maximální počet serverů za předplatné na oblast je 21. Maximální počet databází na serveru je 5 000. Jsou to analýza velikosti zavedených experimentálně podle datové části Doporučené omezení, analýzy kolekce logické hlavní telemetrie a několik další aspekty. Můžete požádat na tato omezení překročí zadaný zůstat v rámci svojí kvóty DTU. Jak velká počet databází a servery, je problém, který se setkají kolekce statistik prostředků v logické hlavní a kolizí na operace správy. Tyto problémy nejsou závažné; zvýší se latence.
+| Maximum | Hodnota |
+| :--- | :--- |
+| Databáze na serveru | 5000 |
+| Počet serverů za předplatné podle oblastí | 21 |
+|||
+
+> [!IMPORTANT]
+> Jako počet databází, se blíží limitu na serveru, může objevit následující:
+> <br> • Latence zvýšení ve spuštění dotazů v hlavní databázi.  To zahrnuje zobrazení statistiky využití prostředků, jako je například sys.resource_stats.
+> <br> • Zvýšení latence v operacích správy a vykreslování portálu hlediska, které se týkají databáze na serveru.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Co se stane, když se dosáhne databáze a limitů elastického fondu prostředků?
 

@@ -4,7 +4,7 @@ description: "Vysvětluje funkci automatizované zálohování pro SQL Server 20
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Automatizované zálohování v2 pro SQL Server 2016 virtuální počítače Azure (Resource Manager)
 
@@ -71,22 +71,22 @@ Následující tabulka popisuje možnosti, které mohou být konfigurovány pro 
 | **Automatizované zálohování** | Povolí nebo zakáže (zakázáno) | Povolí nebo zakáže automatizované zálohování pro virtuální počítač Azure SQL Server 2016 Standard nebo Enterprise. |
 | **Doba uchování dat** | 1 až 30 dní (30 dní) | Počet dní uchování záloh. |
 | **Účet úložiště** | Účet služby Azure Storage | Účet úložiště Azure pro ukládání souborů automatizovaného zálohování do úložiště objektů blob. Kontejner se vytvoří v tomto umístění pro uložení všechny záložní soubory. Zásady vytváření názvů záložní soubor obsahuje date, time a GUID databáze. |
-| **Šifrování** |Povolí nebo zakáže (zakázáno) | Povolí nebo zakáže šifrování. Když je povolené šifrování, certifikátů používaných pro obnovení zálohy jsou umístěné v zadaný účet úložiště ve stejné **automaticbackup** kontejneru pomocí stejné zásady vytváření názvů. Pokud se změní heslo, se toto heslo se vygeneruje nový certifikát, ale pořád starý certifikát pro obnovení předchozí zálohy. |
-| **Heslo** |Heslo | Heslo pro šifrovací klíče. Toto je pouze vyžaduje, pokud je povolené šifrování. Chcete-li obnovit šifrované zálohování, musí mít správné heslo a související certifikátu, který byl použit v době, kdy bylo provedeno zálohování. |
+| **Šifrování** |Povolí nebo zakáže (zakázáno) | Povolí nebo zakáže šifrování. Když je povolené šifrování, certifikátů používaných pro obnovení zálohy jsou umístěné v zadaný účet úložiště. Používá stejný **automaticbackup** kontejner s stejné zásady vytváření názvů. Pokud se změní heslo, se toto heslo se vygeneruje nový certifikát, ale pořád starý certifikát pro obnovení předchozí zálohy. |
+| **Heslo** |Heslo | Heslo pro šifrovací klíče. Toto heslo je jenom potřeba, pokud je povolené šifrování. Chcete-li obnovit šifrované zálohování, musí mít správné heslo a související certifikátu, který byl použit v době, kdy bylo provedeno zálohování. |
 
 ### <a name="advanced-settings"></a>Upřesnit nastavení
 
 | Nastavení | Rozsah (výchozí) | Popis |
 | --- | --- | --- |
-| **Zálohování databáze systému** | Povolí nebo zakáže (zakázáno) | Když je povolené, tato funkce bude také zálohování databází systému: hlavní server, databázi MSDB a modelu. Pro databázi MSDB a Model databáze ověřte, zda je v režimu úplného obnovení zálohy protokolu, které mají být provedeny, chcete-li. Zálohy protokolů se nikdy provádějí pro hlavní server. A jsou provedeny žádné zálohy pro databázi TempDB. |
-| **Plán zálohování** | Ruční nebo automatické (Automated) | Ve výchozím nastavení plán zálohování automaticky určí založené na protokolu růst. Ruční plán zálohování umožňuje uživateli zadat časový interval pro zálohy. V takovém případě zálohování bude vždy jen probíhat na zadané četnosti a během zadaného časového okna pro daný den. |
-| **Četnost úplné zálohování** | Denně nebo týdně | Četnost úplné zálohy. V obou případech bude zahájena úplné zálohy během okna další naplánovanou dobu. Pokud je vybraná týdně, zálohování může zahrnovat více dní, dokud všechny databáze úspěšně zálohovali. |
+| **Zálohování databáze systému** | Povolí nebo zakáže (zakázáno) | Když je povolené, tato funkce také zálohuje databáze systému: hlavní server, databázi MSDB a modelu. Pro databázi MSDB a Model databáze ověřte, zda je v režimu úplného obnovení zálohy protokolu, které mají být provedeny, chcete-li. Zálohy protokolů se nikdy provádějí pro hlavní server. A jsou provedeny žádné zálohy pro databázi TempDB. |
+| **Backup Schedule** | Ruční nebo automatické (Automated) | Ve výchozím nastavení plán zálohování je automaticky určeno, založené na protokolu růst. Ruční plán zálohování umožňuje uživateli zadat časový interval pro zálohy. V takovém případě zálohování, až na zadané četnosti a během zadaného časového okna pro daný den. |
+| **Četnost úplné zálohování** | Denně nebo týdně | Četnost úplné zálohy. V obou případech úplné zálohování začít během okna další naplánovanou dobu. Pokud je vybraná týdně, zálohování může zahrnovat více dní, dokud všechny databáze úspěšně zálohovali. |
 | **Čas spuštění úplného zálohování** | 00:00 – 23:00 (01:00) | Počáteční čas daný den, během které úplné zálohování lze provést. |
 | **Úplné zálohování časový interval** | 1 – 23 hodin (1 hodina) | Doba trvání časový interval daný den, během které úplné zálohování lze provést. |
 | **Četnost záloh protokolu** | 5 – 60 minut (60 minut) | Četnost záloh protokolu. |
 
 ## <a name="understanding-full-backup-frequency"></a>Principy četnost úplné zálohování
-Je důležité si uvědomit rozdíl mezi denní nebo týdenní úplné zálohování. V této snahy můžeme provede dva ukázkové scénáře.
+Je důležité si uvědomit rozdíl mezi denní nebo týdenní úplné zálohování. Vezměte v úvahu následující dva ukázkové scénáře.
 
 ### <a name="scenario-1-weekly-backups"></a>Scénář 1: Týdenní zálohy
 Máte virtuální počítač na serveru SQL, který obsahuje počet velmi velké databáze.
@@ -98,13 +98,13 @@ V pondělí povolíte automatizované zálohování v2 s následujícím nastave
 - Úplné zálohování počáteční čas: **01:00**
 - Úplné zálohování časové okno: **1 hodina**
 
-To znamená, že dalším dostupném časovém intervalu zálohování je úterý v 1: 00 1 hodinu. V té době zahájíte automatizovaného zálohování, zálohování databází jeden najednou. V tomto scénáři jsou dostatečně velký, že úplné zálohy dokončí pro první databáze několik databází. Ale po jedné hodině všechny databáze byly zálohovány.
+To znamená, že dalším dostupném časovém intervalu zálohování je úterý v 1: 00 1 hodinu. V té době začne automatizovaného zálohování, zálohování databází jeden najednou. V tomto scénáři jsou dostatečně velké na to, pro první databáze několika dokončit úplné zálohy databáze. Ale po jedné hodině všechny databáze byly zálohovány.
 
-V takovém případě automatizovaného zálohování bude zahájeno zálohování databází zbývající další den středa v 1: 00 1 hodinu. Pokud nejsou všechny databáze byly zálohovány v tento čas, pokusí se znovu další den ve stejnou dobu. To bude pokračovat, dokud všechny databáze byly úspěšně zálohovány.
+Pokud k tomu dojde, začne automatizovaného zálohování, zálohování databází zbývající další den středa v 1: 00 pro jednu hodinu. Pokud nejsou všechny databáze byly zálohovány v tento čas, se pokusí znovu další den ve stejnou dobu. Tento postup se opakuje, dokud všechny databáze byly úspěšně zálohovány.
 
-Jakmile ho znovu dosáhne úterý, bude automatizovaného zálohování začít zálohovat všechny databáze ještě jednou.
+Po znovu se dosáhne úterý, automatizované zálohování začne znovu zálohování všech databází.
 
-Tento scénář popisuje automatizovaného zálohování bude fungovat pouze v rámci určeného časového období, a každou databázi, budou zálohovány jednou za týden. To také ukazuje, že je možné pro zálohy do zahrnovat více dní v případě, kde není možné dokončit všechny zálohy za jeden den.
+Tento scénář popisuje automatizovaného zálohování funguje pouze v rámci určeného časového období, a každé databázi je zálohovat jednou za týden. To také ukazuje, že je možné pro zálohy do zahrnovat více dní v případě, kde není možné dokončit všechny zálohy za jeden den.
 
 ### <a name="scenario-2-daily-backups"></a>Scénář 2: Denní zálohy
 Máte virtuální počítač na serveru SQL, který obsahuje počet velmi velké databáze.
@@ -116,9 +116,9 @@ V pondělí povolíte automatizované zálohování v2 s následujícím nastave
 - Úplné zálohování počáteční čas: 22:00
 - Úplné zálohování časové okno: 6 hodin
 
-To znamená, že dalším dostupném časovém intervalu zálohování je pondělí na 22: 00 6 hodin. V té době zahájíte automatizovaného zálohování, zálohování databází jeden najednou.
+To znamená, že dalším dostupném časovém intervalu zálohování je pondělí na 22: 00 6 hodin. V té době začne automatizovaného zálohování, zálohování databází jeden najednou.
 
-Pak úterý v 10 6 hodin, budou úplné zálohy všech databází spusťte znovu.
+Úterý v 10 6 hodin, úplné zálohy všech databází spusťte znovu.
 
 > [!IMPORTANT]
 > Při plánování denní zálohy, doporučujeme, abyste naplánovali široké časové okno zajistit, že všechny databáze lze zálohovat v rámci této doby. To je obzvláště důležité v případě, kdy máte velké množství dat. Chcete-li zálohovat.
@@ -182,7 +182,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"></a>Ověřte aktuální nastavení
+### <a id="verifysettings"></a> Ověřte aktuální nastavení
 Pokud jste povolili automatizované zálohování při zřizování, můžete použít PowerShell ke kontrole aktuální konfigurace. Spustit **Get-AzureRmVMSqlServerExtension** příkaz a zkontrolujte **AutoBackupSettings** vlastnost:
 
 ```powershell
@@ -321,7 +321,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Automatizované zálohování v2 nakonfiguruje spravovaného zálohování na virtuálních počítačích Azure. Proto je důležité [najdete v dokumentaci pro spravovanou zálohu](https://msdn.microsoft.com/library/dn449496.aspx) pochopit chování a důsledky.
 
 Můžete najít další zálohování a obnovení pokyny pro SQL Server na virtuálních počítačích Azure v následujícím tématu: [zálohování a obnovení pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).

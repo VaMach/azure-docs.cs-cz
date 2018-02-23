@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Vazby pro odolná funkce (Azure Functions)
 
@@ -42,8 +42,8 @@ Když píšete orchestrator funkce v skriptovací jazyky (například na portál
 }
 ```
 
-* `orchestration`je název orchestration. Toto je hodnota, které musí klienti používat, když chtějí spusťte nové instance této funkce produktu orchestrator. Tato vlastnost je nepovinná. Pokud není zadaný, použije se název funkce.
-* `version`představuje popisek verze nástroje orchestration. Klienti, kteří spustit novou instanci třídy orchestration musí obsahovat odpovídající verze popisku. Tato vlastnost je nepovinná. Pokud není zadaný, použije se prázdný řetězec. Další informace o Správa verzí, naleznete v části [Správa verzí](durable-functions-versioning.md).
+* `orchestration` je název orchestration. Toto je hodnota, které musí klienti používat, když chtějí spusťte nové instance této funkce produktu orchestrator. Tato vlastnost je nepovinná. Pokud není zadaný, použije se název funkce.
+* `version` představuje popisek verze nástroje orchestration. Klienti, kteří spustit novou instanci třídy orchestration musí obsahovat odpovídající verze popisku. Tato vlastnost je nepovinná. Pokud není zadaný, použije se prázdný řetězec. Další informace o Správa verzí, naleznete v části [Správa verzí](durable-functions-versioning.md).
 
 > [!NOTE]
 > Nastavení hodnot pro `orchestration` nebo `version` vlastnosti se nedoporučuje v tuto chvíli.
@@ -116,8 +116,8 @@ Pokud používáte portál Azure pro vývoj, aktivační události aktivity defi
 }
 ```
 
-* `activity`je název aktivity. Toto je hodnota, která orchestrator funkce používaná k volání této funkce aktivity. Tato vlastnost je nepovinná. Pokud není zadaný, použije se název funkce.
-* `version`je verze popisek aktivity. Orchestrator funkce, které vyvolání aktivity musí obsahovat odpovídající verze popisku. Tato vlastnost je nepovinná. Pokud není zadaný, použije se prázdný řetězec. Další informace najdete v tématu [Správa verzí](durable-functions-versioning.md).
+* `activity` je název aktivity. Toto je hodnota, která orchestrator funkce používaná k volání této funkce aktivity. Tato vlastnost je nepovinná. Pokud není zadaný, použije se název funkce.
+* `version` je verze popisek aktivity. Orchestrator funkce, které vyvolání aktivity musí obsahovat odpovídající verze popisku. Tato vlastnost je nepovinná. Pokud není zadaný, použije se prázdný řetězec. Další informace najdete v tématu [Správa verzí](durable-functions-versioning.md).
 
 > [!NOTE]
 > Nastavení hodnot pro `activity` nebo `version` vlastnosti se nedoporučuje v tuto chvíli.
@@ -172,7 +172,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 ## <a name="orchestration-client"></a>Orchestration klienta
 
-Vazba klienta orchestration umožňuje psát funkcích, které interakci s funkcemi produktu orchestrator. Například může fungovat v instancích orchestration tímto způsobem:
+Vazba klienta orchestration umožňuje psát funkcích, které interakci s funkcemi produktu orchestrator. Můžete například fungovat v instancích orchestration následujícími způsoby:
 * Je spusťte.
 * Dotaz na stav.
 * Ukončení nich.
@@ -192,8 +192,8 @@ Pokud používáte skriptovací jazyky (například *.csx* soubory) pro vývoj, 
 }
 ```
 
-* `taskHub`-Použít ve scénářích, kdy několik funkce aplikace sdílet stejný účet úložiště, ale musí být od sebe navzájem oddělené. Pokud není zadáno, výchozí hodnota z `host.json` se používá. Tato hodnota musí odpovídat hodnotě používané funkce orchestrator cíl.
-* `connectionName`-Název nastavení aplikace, který obsahuje připojovací řetězec účet úložiště. Účet úložiště reprezentována tento připojovací řetězec musí být stejný jako ten, používá funkce orchestrator cíl. Pokud není zadaný, se používá účet úložiště výchozí připojovací řetězec pro funkce aplikace.
+* `taskHub` -Použít ve scénářích, kdy několik funkce aplikace sdílet stejný účet úložiště, ale musí být od sebe navzájem oddělené. Pokud není zadáno, výchozí hodnota z `host.json` se používá. Tato hodnota musí odpovídat hodnotě používané funkce orchestrator cíl.
+* `connectionName` -Název nastavení aplikace, který obsahuje připojovací řetězec účet úložiště. Účet úložiště reprezentována tento připojovací řetězec musí být stejný jako ten, používá funkce orchestrator cíl. Pokud není zadaný, se používá účet úložiště výchozí připojovací řetězec pro funkce aplikace.
 
 > [!NOTE]
 > Ve většině případů doporučujeme, abyste vynechejte tyto vlastnosti a závisí na výchozí chování.

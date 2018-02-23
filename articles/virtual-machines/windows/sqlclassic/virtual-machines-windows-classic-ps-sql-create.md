@@ -4,7 +4,7 @@ description: "Obsahuje kroky a skriptů prostředí PowerShell pro vytvoření v
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Zřízení virtuálního počítače s SQL serverem pomocí Azure PowerShell (klasické)
 
@@ -76,7 +76,7 @@ Váš virtuální počítač SQL Server bude hostován v rámci cloudové služb
    ```
 
    > [!NOTE]
-   > Pokud budete potřebovat nový účet úložiště, název účtu úložiště všechna malá nejprve vytvořte pomocí příkazu New-AzureStorageAccount jako v následujícím příkladu:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Pokud budete potřebovat nový účet úložiště, název účtu úložiště všechna malá nejprve vytvořte pomocí příkazu New-AzureStorageAccount jako v následujícím příkladu: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Přiřadit název cílového účtu úložiště k **$staccount**. Potom pomocí **Set-AzureSubscription** nastavte předplatné a aktuální účet úložiště.
 
@@ -195,7 +195,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Po přihlášení k počítači pomocí vzdálené plochy, nakonfigurujte podle pokynů v systému SQL Server [kroky pro konfiguraci připojení k systému SQL Server ve virtuálním počítači Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Můžete najít další pokyny pro zřizování virtuálních počítačů pomocí prostředí PowerShell ve [virtuální počítače dokumentaci](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

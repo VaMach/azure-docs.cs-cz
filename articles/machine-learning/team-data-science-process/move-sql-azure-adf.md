@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Přesun dat z místního serveru SQL do SQL Azure s Azure Data Factory
 Toto téma ukazuje, jak pro přesun dat z databáze serveru SQL místní databázi SQL Azure přes Azure Blob Storage pomocí Azure Data Factory (ADF).
@@ -61,12 +61,12 @@ Tento kurz předpokládá, že máte:
 >
 >
 
-## <a name="upload-data"></a>Nahrát data do SQL serveru na místě
+## <a name="upload-data"></a> Nahrát data do SQL serveru na místě
 Používáme [datovou sadu NYC taxíkem](http://chriswhong.com/open-data/foil_nyc_taxi/) k předvedení proces migrace. Je NYC taxíkem datová sada k dispozici, jak je uvedeno v tomto příspěvku v úložišti objektů blob v Azure [NYC taxíkem Data](http://www.andresmh.com/nyctaxitrips/). Data má dva soubory, trip_data.csv souboru, který obsahuje podrobnosti o cestě, a trip_far.csv soubor, který obsahuje podrobnosti o tarif placené pro každou cestu. Ukázka a popis tyto soubory jsou uvedeny v [NYC taxíkem služebních cest datovou sadu popis](sql-walkthrough.md#dataset).
 
 Můžete přizpůsobit postup uvedený v tomto poli na sadu svoje vlastní data, nebo postupujte podle kroků, jak je popsáno pomocí NYC taxíkem datovou sadu. Datová sada NYC taxíkem nahrát do místní databáze systému SQL Server, postupujte podle pokynů uvedených v [hromadně importovat Data do databáze serveru SQL](sql-walkthrough.md#dbload). Tyto pokyny jsou pro systém SQL Server na virtuální počítač Azure, ale postup pro odesílání na místní SQL Server je stejný.
 
-## <a name="create-adf"></a>Vytvoření služby Azure Data Factory
+## <a name="create-adf"></a> Vytvoření služby Azure Data Factory
 Pokyny pro vytvoření nové Azure Data Factory a skupiny prostředků v [portál Azure](https://portal.azure.com/) jsou k dispozici [vytvoření služby Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Název nové instance ADF *adfdsp* a pojmenujte vytvoření skupiny prostředků *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalace a konfigurace se Brána pro správu dat
@@ -105,7 +105,7 @@ Na základě JSON definice v tabulkách použijte tyto názvy:
 Tři definice tabulek jsou potřeba pro tento kanál ADF:
 
 1. [Místní tabulky SQL](#adf-table-onprem-sql)
-2. [Tabulka objektů BLOB](#adf-table-blob-store)
+2. [Tabulka objektů BLOB ](#adf-table-blob-store)
 3. [SQL Azure Table](#adf-table-azure-sql)
 
 > [!NOTE]
@@ -113,7 +113,7 @@ Tři definice tabulek jsou potřeba pro tento kanál ADF:
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>Místní tabulky SQL
+### <a name="adf-table-onprem-sql">Místní tabulky SQL</a>
 Definice tabulky pro místní systém SQL Server je zadán v následujícím souboru JSON:
 
         {
@@ -148,7 +148,7 @@ Kopírování názvem definici JSON tabulky do souboru *onpremtabledef.json* sou
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>Tabulka objektů BLOB
+### <a name="adf-table-blob-store">Tabulka objektů BLOB </a>
 Definice tabulky pro výstupní umístění objektu blob je v následujícím (mapuje ingestovaný data z místně do objektu blob Azure):
 
         {
@@ -178,7 +178,7 @@ Kopírování názvem definici JSON tabulky do souboru *bloboutputtabledef.json*
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL Azure Table
+### <a name="adf-table-azure-sql">SQL Azure Table</a>
 Definice tabulky SQL Azure výstupu v následujícím (toto schéma mapuje dat pocházejících z objektu blob):
 
     {

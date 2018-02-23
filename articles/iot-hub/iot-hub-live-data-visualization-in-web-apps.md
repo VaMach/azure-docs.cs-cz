@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Vizualizovat data snímačů v reálném čase ze služby Azure IoT hub pomocí funkce Web Apps služby Azure App Service
 
@@ -49,7 +49,7 @@ V tomto kurzu zjistěte, jak k vizualizaci dat snímačů v reálném čase, kte
 
 ## <a name="create-a-web-app"></a>Vytvoření webové aplikace
 
-1. V [portál Azure](https://ms.portal.azure.com/), klikněte na tlačítko **nový** > **Web + mobilní** > **webové aplikace**.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **vytvořit prostředek** > **Web + mobilní** > **webové aplikace**.
 2. Zadejte název jedinečné úlohy ověřte předplatné, zadejte skupinu prostředků a umístění, vyberte **připnout na řídicí panel**a potom klikněte na **vytvořit**.
 
    Doporučujeme vám, vyberte stejné umístění, jako vaší skupiny prostředků. To pomáhá zajistit s rychlost zpracování a snižuje náklady na přenos dat.
@@ -115,7 +115,7 @@ Měli byste vidět data v reálném čase teploty a vlhkosti ze služby IoT hub.
 > [!NOTE]
 > Zkontrolujte, jestli že ukázkové aplikace běží na vašem zařízení. Pokud není, zobrazí se prázdný graf, najdete podrobné pokyny v části [nastavit vaše zařízení](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Webové aplikace jste úspěšně použili k vizualizaci dat snímačů v reálném čase ze služby IoT hub.
 
 Alternativní způsob k vizualizaci dat ze služby Azure IoT Hub, najdete v části [pomocí Power BI k vizualizaci dat snímačů v reálném čase ze služby IoT hub](iot-hub-live-data-visualization-in-power-bi.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Další informace o funkcích ve verzi preview
 Toto téma popisuje, jak používat funkce, které jsou aktuálně ve verzi preview.
@@ -26,7 +26,7 @@ Toto téma popisuje, jak používat funkce, které jsou aktuálně ve verzi prev
 ## <a name="group-writeback"></a>Zpětný zápis skupin
 Možnosti pro zpětný zápis skupin v volitelné funkce umožňuje zpětný zápis **skupiny Office 365** do doménové struktury s Exchange nainstalované. Toto je skupinu, která řídí se vždy hlavním v cloudu. Pokud máte místní Exchange, pak můžete napsat zpět tyto skupiny do místního uživatele s poštovní schránky systému Exchange místně odesílat a přijímat e-maily z těchto skupin.
 
-Další informace o skupiny Office 365 a jejich použití naleznete [zde](http://aka.ms/O365g).
+Další informace o skupiny Office 365 a jejich použití naleznete [zde](https://aka.ms/O365g).
 
 Skupiny služby Office 365 je reprezentován jako distribuční skupiny v místní službě AD DS. Vaše místní Exchange server musí být na serveru Exchange 2013 kumulativní aktualizaci 8 (vydané v března 2015) nebo Exchange 2016 rozpoznat tento nový typ skupiny.
 

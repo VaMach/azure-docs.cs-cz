@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Prozkoumejte možnosti předkonfigurovaného řešení vzdáleného monitorování
 
@@ -31,6 +31,7 @@ V tomto kurzu se naučíte:
 > * Reakce na alarm
 > * Aktualizace firmwaru v zařízení
 > * Uspořádání vaše prostředky
+> * Zastavit a spustit Simulovaná zařízení
 
 Následující video ukazuje návod řešení vzdáleného monitorování:
 
@@ -230,6 +231,16 @@ Hodnoty značky můžete použít pro vytvoření filtrů.
 
 Operátor Contoso teď můžete dotazovat zařízení podle operačního team aniž by bylo nutné změnit všechno na zařízeních.
 
+## <a name="stop-simulated-devices"></a>Zastavit Simulovaná zařízení
+
+V nabídce nastavení můžete použít k zastavení Simulovaná zařízení. To pomáhá snížit náklady na testování a prohlížení řešení. Spuštění nebo zastavení Simulovaná zařízení:
+
+1. Vyberte **nastavení** ikonu.
+
+1. Potom přepněte **systémem** zapnout nebo vypnout:
+
+    ![Nabídka Nastavení](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se dozvěděli na:
@@ -239,6 +250,7 @@ V tomto kurzu jste se dozvěděli na:
 > * Reakce na alarm
 > * Aktualizace firmwaru v zařízení
 > * Uspořádání vaše prostředky
+> * Zastavit a spustit Simulovaná zařízení
 
 Teď, když jste prozkoumali řešení vzdáleného monitorování, další informace o pokročilých funkcí řešení vzdáleného monitorování jsou navrhované další kroky:
 

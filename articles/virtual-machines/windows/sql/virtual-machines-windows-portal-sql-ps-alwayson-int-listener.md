@@ -4,7 +4,7 @@ description: "Naslouchací procesy skupiny dostupnosti nakonfigurujte na modelu 
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Nakonfigurovat jeden nebo více vždy na dostupnosti naslouchací procesy skupiny - Resource Manager
 Toto téma ukazuje, jak:
@@ -28,13 +28,13 @@ Toto téma ukazuje, jak:
 
 Naslouchací proces skupiny dostupnosti je název virtuální sítě, který klienti připojovat k pro přístup k databázi. Nástroj pro vyrovnávání zatížení na virtuálních počítačích Azure, obsahuje IP adresu pro naslouchací proces. Nástroje pro vyrovnávání zatížení směruje provoz do instance systému SQL Server, která naslouchá na portu testu. Skupiny dostupnosti se obvykle používá interní nástroj. K nástroji pro vyrovnávání zatížení interní Azure můžete hostovat jednu nebo více IP adres. Každou IP adresu používá port konkrétní test. Tento dokument ukazuje, jak pomocí prostředí PowerShell vytvořit nástroj pro vyrovnávání zatížení nebo přidejte IP adresy do existující Vyrovnávání zatížení pro skupiny dostupnosti systému SQL Server. 
 
-Umožňuje přiřadit k nástroji pro vyrovnávání zatížení pro vnitřní více IP adres je nové do Azure a je dostupný jenom v modelu Resource Manager. Tuto úlohu dokončit, musíte mít skupinu dostupnosti systému SQL Server, který je nasazen na virtuálních počítačích Azure v modelu Resource Manager. Virtuální počítače systému SQL Server musí patřit do stejné skupiny dostupnosti. Můžete použít [šablony aplikace Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) pro automatické vytvoření skupiny dostupnosti ve službě Správce prostředků Azure. Tato šablona automaticky vytvoří skupiny dostupnosti, včetně nástroje pro vyrovnávání zatížení pro vnitřní za vás. Pokud dáváte přednost, můžete [ruční konfigurace skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Umožňuje přiřadit k nástroji pro vyrovnávání zatížení pro vnitřní více IP adres je nové do Azure a je dostupný jenom v modelu Resource Manager. Tuto úlohu dokončit, musíte mít skupinu dostupnosti systému SQL Server, který je nasazen na virtuálních počítačích Azure v modelu Resource Manager. Virtuální počítače systému SQL Server musí patřit do stejné skupiny dostupnosti. Můžete použít [šablony aplikace Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) pro automatické vytvoření skupiny dostupnosti ve službě Správce prostředků Azure. Tato šablona automaticky vytvoří skupiny dostupnosti, včetně nástroje pro vyrovnávání zatížení pro vnitřní za vás. Pokud dáváte přednost, můžete [ruční konfigurace skupiny dostupnosti Always On](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Toto téma vyžaduje vaše skupiny dostupnosti jsou již nakonfigurována.  
 
 Související témata:
 
-* [Konfigurace skupin dostupnosti AlwaysOn na virtuálním počítači Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Konfigurace skupin dostupnosti AlwaysOn na virtuálním počítači Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Nakonfigurujte připojení VNet-to-VNet s použitím Azure Resource Manageru a prostředí PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
@@ -98,7 +98,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Ukázkový skript: Přidat IP adresu existující Vyrovnávání zatížení s prostředí PowerShell
+## <a name="Add-IP"></a> Ukázkový skript: Přidat IP adresu existující Vyrovnávání zatížení s prostředí PowerShell
 Pokud chcete použít více než jedné skupiny dostupnosti, přidejte další IP adresu nástroji pro vyrovnávání zatížení. Každou IP adresu vyžaduje vlastní pravidla Vyrovnávání zatížení, port testu a front port.
 
 Front-end port je port, který aplikace použít pro připojení k instanci systému SQL Server. IP adresy pro skupiny dostupnosti jinou můžete použít stejný port front-endu.
@@ -196,7 +196,7 @@ Všimněte si, že následující pokyny na naslouchací proces skupiny dostupno
 
 
 ## <a name="for-more-information"></a>Další informace
-Další informace najdete v tématu [skupiny dostupnosti nakonfigurujte Always On ve virtuálním počítači Azure ručně](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Další informace najdete v tématu [skupiny dostupnosti nakonfigurujte Always On ve virtuálním počítači Azure ručně](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>Rutiny prostředí PowerShell
 Pomocí následující rutiny prostředí PowerShell k vytvoření interní nástroj pro virtuální počítače Azure.

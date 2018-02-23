@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Vytvoření IoT hraničním zařízením, která funguje jako brána transparentní – náhled
 
@@ -63,7 +63,7 @@ Můžete použít ukázkové prostředí Powershell a skriptů Bash popsané v [
 
 1. Klonování SDK služby Microsoft Azure IoT a knihovny pro C z Githubu:
 
-   ```
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -75,7 +75,7 @@ Můžete použít ukázkové prostředí Powershell a skriptů Bash popsané v [
 
 Vytvořte nový certifikát zařízení:
 
-   ```
+   ```bash
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
@@ -83,14 +83,14 @@ Se vytváří nové soubory:.\certs\new-edge-device.* obsahuje veřejný klíč 
  
 V `certs` adresáře, spusťte následující příkaz získat úplný řetěz veřejný klíč zařízení:
 
-   ```
+   ```bash
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
 ### <a name="powershell"></a>PowerShell
 
 Vytvořte nový certifikát zařízení: 
-   ```
+   ```powershell
    New-CACertsEdgeDevice myGateway
    ```
 
@@ -115,7 +115,7 @@ Zadejte informace o zařízení a certifikátu do hraniční IoT runtime.
  
 V systému Linux pomocí Bash výstup:
 
-   ```
+   ```bash
    sudo iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -126,7 +126,7 @@ V systému Linux pomocí Bash výstup:
 
 V systému Windows pomocí prostředí PowerShell výstup:
 
-   ```
+   ```powershell
    iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -135,15 +135,11 @@ V systému Windows pomocí prostředí PowerShell výstup:
         --owner-ca-cert-file {full path}/RootCA.pem
    ```
 
-Ve výchozím nastavení ukázkové skripty nenastavujte přístupové heslo soukromého klíče zařízení. Pokud jste nastavili heslo, přidejte následující parametr:
-
-   ```
-   --device-ca-passphrase {passphrase}
-   ```
+Ve výchozím nastavení ukázkové skripty nenastavujte přístupové heslo soukromého klíče zařízení. Pokud jste nastavili heslo, přidejte následující parametr: `--device-ca-passphrase {passphrase}`.
 
 Skript vyzve k nastavit heslo pro certifikát agenta okraj. Modul runtime IoT Edge restartujte po tento příkaz:
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -155,7 +151,7 @@ První, má aplikace podřízené zařízení tak, aby důvěřoval **IoT hub vl
 
 Například pro aplikace .NET, můžete přidat následující fragment kódu důvěřovat certifikátu ve formátu PEM uložené v cestě `certPath`. V závislosti na tom, kterou verzi skript, který jste použili cesta odkazuje buď `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) nebo `RootCA.pem` (Powershell).
 
-   ```
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...

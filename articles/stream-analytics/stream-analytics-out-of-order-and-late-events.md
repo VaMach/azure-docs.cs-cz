@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Důležité informace pořadí událostí Azure Stream Analytics
 
@@ -71,7 +71,10 @@ Události, které dorazí mimo pořadí, ale v rámci interval tolerance pořad�
 
 Když Stream Analytics změní události, které jsou přijaty v rámci interval tolerance pořadí se na více systémů, výstup tohoto dotazu zpožděn interval tolerance mimo pořadí.
 
-### <a name="example"></a>Příklad
+### <a name="early-events"></a>Časná události
+Při zpracování aplikace doby, události, jejichž doba aplikace je více než 5 minut před jejich čas doručení jsou vyřazeny nebo upravena podle možnosti konfigurace vybrané.
+
+### <a name="example"></a>Příklad:
 
 * Pozdní tolerance příchodem = 10 minut<br/>
 * Tolerance mimo pořadí = 3 minut<br/>
@@ -132,7 +135,7 @@ Azure Stream Analytics implementuje pomocí této funkce [TIMESTAMP BY OVER](htt
 ## <a name="get-help"></a>Podpora
 O další pomoc, zkuste [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Úvod do služby Stream Analytics](stream-analytics-introduction.md)
 * [Začínáme s Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Škálování úlohy Stream Analytics](stream-analytics-scale-jobs.md)

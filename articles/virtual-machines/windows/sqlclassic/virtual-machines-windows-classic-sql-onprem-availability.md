@@ -4,7 +4,7 @@ description: "Tento kurz používá prostředky, které jsou vytvořené pomocí
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Rozšířit místní vždy na skupiny dostupnosti do Azure
 Skupiny dostupnosti Always On zajištění vysoké dostupnosti pro skupiny databáze přidáním sekundární repliky. Povolit tyto repliky přebírání služeb při selhání databáze v případě selhání. Kromě toho může být používají k přesměrování zpracování úloh pro čtení nebo úlohy zálohování.
@@ -65,7 +65,7 @@ V této části se dozvíte, jak používat **Průvodce přidáním Azure replik
    | **Potvrzení hesla** |Potvrďte heslo nového účtu |
    | **Virtual Network** |Zadejte virtuální síť Azure, nový virtuální počítač by měl použít. Další informace o virtuálních sítích najdete v tématu [Přehled virtuálních sítí](../../../virtual-network/virtual-networks-overview.md). |
    | **Podsíť virtuální sítě** |Zadejte podsíť virtuální sítě, které by měl používat nový virtuální počítač |
-   | **Domény** |Potvrďte správnost předem vyplněná hodnota pro doménu |
+   | **Domain** |Potvrďte správnost předem vyplněná hodnota pro doménu |
    | **Uživatelské jméno domény** |Zadejte účet, který je ve skupině místních správců na uzlech místního clusteru |
    | **Heslo** |Zadejte heslo pro uživatelské jméno domény |
 8. Klikněte na tlačítko **OK** se ověřit nastavení nasazení.
@@ -89,7 +89,7 @@ V této části se dozvíte, jak používat **Průvodce přidáním Azure replik
 ## <a name="create-an-availability-group-listener"></a>Vytvořte naslouchací proces skupiny dostupnosti
 Po vytvoření skupiny dostupnosti, měli byste vytvořit naslouchací proces pro klienty pro připojení k repliky. Naslouchací procesy směrují příchozí připojení k primární nebo sekundární repliku jen pro čtení. Další informace o naslouchací procesy najdete v tématu [nakonfigurovat modul pro naslouchání ILB pro skupiny dostupnosti Always On v Azure](../classic/ps-sql-int-listener.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Kromě použití **Průvodce přidáním Azure repliky** rozšířit vaše vždy na skupiny dostupnosti do Azure, může také přesunete některé úlohy SQL serveru úplně do Azure. Abyste mohli začít, najdete v části [zřizování virtuálního počítače systému SQL Server na platformě Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Další témata související se systémem SQL Server ve virtuálních počítačích Azure, najdete v části [systému SQL Server na virtuálních počítačích Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

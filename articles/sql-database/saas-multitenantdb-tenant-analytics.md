@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analytics mezi klienta pomocí extrahovaná data
 
@@ -76,7 +76,7 @@ Předpokladem dokončení tohoto kurzu je splnění následujících požadavků
 - Adresář Wingtip SaaS skripty a aplikace [zdrojový kód](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) se stáhnou z Githubu. Nezapomeňte *odblokovat soubor zip* před extrahování její obsah. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 - Power BI Desktop je nainstalována. [Stáhněte si Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Zřízená dávku další klienty, najdete v článku [ **kurzu zřizování klientů**](saas-multitenantdb-provision-and-catalog.md).
-- Účtu úlohy a úlohy účtu databáze byly vytvořeny. Najdete v příslušné kroky [ **schématu správu kurzu**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Úlohy agenta a úlohy agenta databáze byly vytvořeny. Najdete v příslušné kroky [ **schématu správu kurzu**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Vytvořit data pro ukázku
 
@@ -90,7 +90,7 @@ V tomto kurzu provedení analýzy na prodejní data lístku. V aktuální krok g
 Často jsou množství transakcí horizontálně dělené databáze, které drží všechna data klientů. Musí agregovat data klienta z horizontálně dělené databáze do jednoho analytics úložiště. Agregace umožňuje efektivní dotazování data. V tomto kurzu databázi Azure SQL Database slouží k uložení agregovaná data.
 
 V následujících krocích nasazení úložišti analýzy, která se nazývá **tenantanalytics**. Můžete také nasadit předdefinovaných tabulek, které jsou naplněny později v tomto kurzu:
-1. V prostředí PowerShell ISE otevřete *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
+1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Nastavte proměnnou $DemoScenario ve skriptu tak, aby odpovídaly zvoleného analytics úložiště. Pro účely učení, se doporučuje databáze SQL bez columnstore.
     - Chcete-li použít SQL database bez columnstore, nastavte **$DemoScenario** = **2**
     - Chcete-li používat databázi SQL s columnstore, nastavte **$DemoScenario** = **3**  
@@ -228,7 +228,7 @@ Dříve prohloubit analýzy chcete zjistit, že prodej lístků mívají sklony 
 
 Jste zaznamenali trendů v datech klienta z aplikací Wingtip lístky SaaS víceklientské databáze. Můžete zamýšlené další způsoby, které aplikace může informovat obchodních rozhodnutí pro dodavatele aplikací SaaS. Dodavatelé můžete lépe nahrazovat potřebám svým klientům. Zpravidla v tomto kurzu má vybavený můžete pomocí nástrojů, které jsou potřeba provádět analýzy dat klienta na základě kterých vaše firmám rozhodnutí řízené daty.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 
@@ -241,7 +241,7 @@ V tomto kurzu jste se naučili:
 
 Blahopřejeme!
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
 - [Elastické úlohy](sql-database-elastic-jobs-overview.md).

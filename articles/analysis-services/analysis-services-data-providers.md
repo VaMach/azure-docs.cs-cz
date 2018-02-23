@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 02/21/2018
 ms.author: owend
-ms.openlocfilehash: 870d430d1926859894f452e0af812d794272a9e6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2149330eb711fea76a144f5ec748ae6760c7746a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klientské knihovny pro připojení k Azure Analysis Services
 
@@ -29,10 +29,23 @@ Knihovny klienta jsou nezbytné pro klientské aplikace a nástroje pro připoje
 
 |Ke stažení  |Verze  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
+
+## <a name="amo-and-adomd-on-nuget"></a>AMO a ADOMD na NuGet
+
+Analysis Services Management Objects (AMO) a ADOMD klientské knihovny jsou k dispozici jako instalovat balíčky z [NuGet.org](https://www.nuget.org/). 
+
+|Balíček  |Verze  | 
+|---------|---------|
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
+
+Doporučuje se, že migrujete NuGet odkazů místo pomocí Instalační služby MSI. 
+
+Sestavení balíčku NuGet AssemblyVersion podle sémantické verze: hlavní. MENŠÍ. OPRAVA. Odkazy NuGet načíst očekávaná verze i v případě, že je různé verze v mezipaměti GAC (pocházející z instalace Instalační služby MSI). Oprava se zvýší pro jednotlivé verze. Verze AMO a ADOMD jsou uchovány v synchronizaci.
 
 ## <a name="understanding-client-libraries"></a>Principy klientské knihovny
 
@@ -66,15 +79,16 @@ Klientské knihovny pro připojení klientů se liší od zprostředkovatelů da
  Při připojování k databázi, jsou podobné vlastnosti řetězec připojení pro všechny tři knihovny. Téměř jakoukoli připojovacího řetězce je definována pro ADOMD.NET pomocí [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) funguje i pro AMO a Analysis Services OLE DB Provider (MSOLAP). Další informace najdete v tématu [vlastnosti připojovacího řetězce &#40; Služba Analysis Services &#41; ](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
-##  <a name="bkmk_LibUpdate"></a>Určení verze klienta knihovny   
+##  <a name="bkmk_LibUpdate"></a> Určení verze klienta knihovny   
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
 1.  Přejděte do části `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140` (Soubor > Nový > Jiné). Pokud máte více než jednu složku a zvolte vyšší číslo.
   
-2.  Klikněte pravým tlačítkem na **msolap140.dll** > **vlastnosti** > **podrobnosti**.  
+2.  Klikněte pravým tlačítkem na **msolap.dll** > **vlastnosti** > **podrobnosti**. Pokud název msolap140.dll knihovnu dll, je starší než nejnovější verzi a je potřeba upgradovat.
     
     ![Podrobnosti ke knihovně klienta](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### <a name="amo"></a>AMO
 
@@ -87,6 +101,6 @@ Klientské knihovny pro připojení klientů se liší od zprostředkovatelů da
 2. Klikněte pravým tlačítkem na **Microsoft.AnalysisServices.AdomdClient** > **vlastnosti** > **podrobnosti**.  
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Připojit pomocí aplikace Excel](analysis-services-connect-excel.md)    
 [Propojení s Power BI](analysis-services-connect-pbi.md)

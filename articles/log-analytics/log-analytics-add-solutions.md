@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Přidat řešení pro správu Azure Log Analytics do pracovního prostoru
 
@@ -46,8 +46,7 @@ Azure marketplace obsahuje seznam [řešení pro správu pro analýzy protokolů
 
 ## <a name="add-a-management-solution"></a>Přidat řešení pro správu
 1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého předplatného Azure.
-2. V **nový** okno pod **Marketplace**, vyberte **monitorování + správu**.
-3. V **monitorování + správu** okně klikněte na tlačítko **zobrazit všechny**.  
+2. Vyberte **vytvořit prostředek** > **monitorování + správu** > **zobrazit všechny**.  
     ![Monitorování + okna Správa](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. Napravo od **řešení pro správu**, klikněte na tlačítko **Další**.
 5. V **řešení pro správu** okně vybrat řešení pro správu, který chcete přidat do pracovního prostoru.  

@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Šablony Azure Resource Manageru
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: Koncepty
   items:
     - name: Databáze bez serveru
@@ -342,6 +344,8 @@
           href: logging.md
         - name: Správa klíčů a konzistence
           href: manage-account.md
+        - name: Řízení přístupu
+          href: access-control.md
         - name: Azure Storage Explorer
           href: storage-explorer.md
         - name: Zabezpečení

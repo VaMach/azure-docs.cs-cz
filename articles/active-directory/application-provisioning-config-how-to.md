@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Postup konfigurace zřizování uživatelů k aplikaci Galerie Azure AD
 
@@ -31,7 +31,7 @@ Na portálu Azure **zřizování** klikněte v levém navigačním podokně pro 
 
 Pokud ručně režimu jen pro zobrazí pro danou aplikaci, znamená to, že žádné automatické Azure AD zřizování konektor zatím nebyla vytvořena pro aplikaci. Nebo znamená to, že aplikace nepodporuje rozhraní API správy požadovaného uživatele, na kterém k vytvoření konektoru služby Automatické zřizování.
 
-Pokud chcete požádat o podporu pro automatické zřizování pro danou aplikaci, můžete vyplnit požadavek na <http://aka.ms/aadapprequest>.
+Pokud chcete požádat o podporu pro automatické zřizování pro danou aplikaci, můžete vyplnit žádosti o pomocí [Azure Active Directory aplikace požadavky](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Konfigurace aplikace pro automatické zřizování
 
@@ -50,6 +50,6 @@ Kurzy aplikace naleznete na adrese [seznamu kurzy o tom, jak integrovat SaaS apl
 
 Důležité vzít v úvahu při nastavování zřizování být zkontrolujte a nakonfigurujte mapování atributů a pracovních postupů, které definují, které uživatele (nebo skupiny) vlastnosti toku z Azure AD k aplikaci. To zahrnuje nastavení "odpovídající vlastnost", které použít k jednoznačné identifikaci a odpovídají uživatele nebo skupiny mezi těmito dvěma systémy. Další informace o tomto důležité procesu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Přizpůsobení mapování atributů zřizování pro aplikace SaaS ve službě Azure Active Directory uživatelů](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Správa aplikací pomocí služby Azure Active Directory
 Mimo pracovní postup nebo obsahu firmy mají dva základní požadavky pro všechny aplikace:
@@ -78,7 +78,7 @@ Při správě aplikací a povolení jednotného přihlašování pomocí služby
 * Ověřování se provádí na uživatele v místě (například AD) nebo účet Azure AD.
 * Autorizace se spouští na Azure AD přiřazení a ochrany zásady zajistit konzistentní přivětivé uživatelské prostředí a umožňuje přidat přiřazení, umístění a podmínky MFA na všechny aplikace, bez ohledu na jeho vnitřní funkce.
 
-Je důležité si uvědomit, že budou způsob autorizaci přijaty na cílové aplikace se liší v závislosti na tom, jak se aplikace integrované s Azure AD.
+Je důležité si uvědomit, který způsob, jakým budou autorizaci přijaty na cílové aplikace, se liší v závislosti na tom, jak se aplikace integrované s Azure AD.
 
 * **Aplikace je předem integrovaných poskytovatelem služby** jako je Office 365 a Azure, jedná se o aplikace založena přímo na Azure AD a spoléhat na něm pro jejich komplexní funkce pro správu identit a přístupu. Pomocí informací v adresáři a vystavování tokenů je povolen přístup k těmto aplikacím.
 * **Aplikace je předem integrovaných společností Microsoft a vlastních aplikací** Toto jsou nezávislé cloudové aplikace, které spoléhají na adresář interní aplikace a může pracovat nezávisle na Azure AD. Po vydání aplikace konkrétní pověření namapován na účet aplikace je povolen přístup k těmto aplikacím. V závislosti na možnosti aplikací může být pověření federační token nebo uživatelské jméno a heslo pro účet, který byl dříve zajištěny v aplikaci.
@@ -90,13 +90,13 @@ Například pokud uživatel připojí vaší organizace, budete muset vytvořit 
 V rámci moderní firmy IT oddělení nemají často informace všech cloudových aplikací, které jsou používány. Ve spojení s Cloud App Discovery Azure AD poskytuje řešení ke zjištění těchto aplikací.
 
 ## <a name="account-management"></a>Správa účtů
-Správa účtů v různých aplikacích obvyklým je ruční proces provádí IT nebo podporují osobní v organizaci. Azure AD plně automatizované správy účtů mezi všechny zprostředkovatele integrované aplikace služby a tyto aplikace předem integrované společností Microsoft podpora zajišťování automatizované uživatele nebo SAML JIT.
+Správa účtů v různých aplikacích obvyklým je ruční proces provádí IT nebo pracovníci podpory v organizaci. Správa účtů Azure AD plně automatizuje napříč všechny zprostředkovatele integrované aplikace služby a tyto aplikace předem integrované Microsoft podpora zřizování automatizované uživatelů nebo SAML JIT zřizování.
 
 ## <a name="automated-user-provisioning"></a>Zřizování automatizované uživatelů
 Některé aplikace poskytují rozhraní automatizace pro vytváření a odebrání (nebo deaktivace) účtů. Pokud zprostředkovatele nabízí takového rozhraní, je využít Azure AD. To snižuje provozní náklady, protože úlohy správy dojít automaticky a zvyšuje zabezpečení vašeho prostředí, protože se sníží riziko neoprávněného přístupu.
 
 ## <a name="access-management"></a>Správa přístupu
-Pomocí služby Azure AD můžete spravovat přístup k aplikacím pomocí jednotlivých nebo pravidlo řízené přiřazení. Můžete taky delegovat přístup správu odpovídajícím lidem v organizaci zajistit nejlepší dohledu a snížení zatížení na technickou podporu.
+S Azure AD můžete spravovat přístup k aplikacím pomocí jednotlivých nebo pravidlo řízené přiřazení. Můžete taky delegovat přístup správu odpovídajícím lidem v organizaci zajistit nejlepší dohledu a snížení zatížení na technickou podporu.
 
 ## <a name="on-premises-applications"></a>Místní aplikace
 Předdefinovaných proxy aplikace umožňuje publikování aplikací pro vaše uživatele, což je místní i konzistentní přístup k prostředí s moderní cloudové aplikace a výhody z možnosti monitorování, vytváření sestav a zabezpečení služby Azure AD.

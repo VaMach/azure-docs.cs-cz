@@ -1,6 +1,6 @@
 ---
 title: "Integrace mapy služeb s nástrojem System Center Operations Manager | Microsoft Docs"
-description: "Mapa služeb je Operations Management Suite řešení, které automaticky zjistí součásti aplikace v systémech Windows a Linux a mapuje komunikace mezi službami. Tento článek popisuje pomocí mapy služeb pro automatické vytvoření diagramy distribuované aplikace v nástroji Operations Manager."
+description: "Service Map je řešení v Azure, které automaticky zjišťuje komponenty aplikací v systémech Windows a Linux a mapuje komunikace mezi těmito službami. Tento článek popisuje pomocí mapy služeb pro automatické vytvoření diagramy distribuované aplikace v nástroji Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrace mapy služeb s nástrojem System Center Operations Manager
   > [!NOTE]
   > Tato funkce je ve verzi public preview.
   > 
   
-Mapy Operations Management Suite služby automaticky vyhledá součásti aplikace v systémech Windows a Linux a mapuje komunikace mezi službami. Mapa služeb umožňuje zobrazit vaše servery způsob, jak si myslíte z nich, jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi žádné připojení TCP architektura žádnou konfiguraci vyžaduje kromě instalaci agenta. Další informace najdete v tématu [mapy služeb dokumentaci](operations-management-suite-service-map.md).
+Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Mapa služeb umožňuje zobrazit vaše servery způsob, jak si myslíte z nich, jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi žádné připojení TCP architektura žádnou konfiguraci vyžaduje kromě instalaci agenta. Další informace najdete v tématu [mapy služeb dokumentaci](operations-management-suite-service-map.md).
 
 Díky této integraci mezi mapy služeb a System Center Operations Manager můžete automaticky vytvořit diagramy distribuované aplikace v nástroji Operations Manager, které jsou založeny na map dynamické závislostí v mapy služeb.
 
 ## <a name="prerequisites"></a>Požadavky
 * Skupinu pro správu nástroje Operations Manager (2012 R2 nebo novější), je Správa u sady serverů.
-* Prostoru Operations Management Suite s řešením mapy služby povolena.
+* Pracovní prostor analýzy protokolů s řešením mapy služby povolena.
 * Sada serverů (alespoň jeden), které spravuje nástroj Operations Manager a odesílání dat do mapy služeb. Servery se systémy Windows a Linux jsou podporovány.
-* Objekt služby s přístupem k předplatnému Azure, která je přidružena k pracovnímu prostoru služby Operations Management Suite. Další informace, přejděte na [vytvoření instančního objektu](#creating-a-service-principal).
+* Objekt služby s přístupem k předplatnému Azure, který je přidružen pracovní prostor analýzy protokolů. Další informace, přejděte na [vytvoření instančního objektu](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Nainstalujte sadu management pack mapy služeb
 Povolit integraci mezi nástrojem Operations Manager a Service Map importováním Microsoft.SystemCenter.ServiceMap komplet sady management pack (Microsoft.SystemCenter.ServiceMap.mpb). Komplet sady management pack z si můžete stáhnout [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Sada obsahuje následující sady management Pack:
@@ -55,7 +55,7 @@ Při konfiguraci integrace mapy služeb, postupujte takto:
 
     ![Okno Konfigurace připojení](media/oms-service-map/scom-config-spn.png)
 
-3. V **výběr předplatného** okno, vyberte předplatné, skupinu prostředků Azure (ten, který obsahuje pracovní prostor služby Operations Management Suite) a pracovní prostor služby Operations Management Suite a pak klikněte na tlačítko **Další**.
+3. V **výběr předplatného** oken, vyberte předplatné, skupinu prostředků Azure (ten, který obsahuje pracovní prostor analýzy protokolů) a pracovní prostor analýzy protokolů a pak klikněte na tlačítko **Další**.
 
     ![Pracovní prostor Operations Manager konfigurace](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Při konfiguraci integrace mapy služeb, postupujte takto:
 
     ![Skupinu konfigurace nástroje Operations Manager](media/oms-service-map/scom-config-group.png)
 
-6. Volitelné: Vyberte fond zdrojů serveru pro správu ke komunikaci s Operations Management Suite a pak klikněte na tlačítko **přidání prostoru**.
+6. Volitelné: Vyberte fond zdrojů serveru pro správu ke komunikaci s analýzy protokolů a pak klikněte na tlačítko **přidání prostoru**.
 
     ![Operace fondu zdrojů Configuration Manager](media/oms-service-map/scom-config-pool.png)
 
-    Může trvat několik minut, konfigurace a registrace pracovní prostor služby Operations Management Suite. Po dokončení své konfigurace, Operations Manager zahájí první synchronizace mapy služeb z Operations Management Suite.
+    Může trvat několik minut, konfigurace a registrace pracovní prostor analýzy protokolů. Po dokončení své konfigurace, Operations Manager zahájí první synchronizace mapy služeb.
 
     ![Operace fondu zdrojů Configuration Manager](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Monitorování mapy služeb
-Až se připojí pracovní prostor služby Operations Management Suite, novou složku, mapy služeb, se zobrazí v **monitorování** podokně konzoly nástroje Operations Manager.
+Až se připojí pracovní prostor analýzy protokolů novou složku, mapy služeb, se zobrazí v **monitorování** podokně konzoly nástroje Operations Manager.
 
 ![V podokně monitorování nástroje Operations Manager](media/oms-service-map/scom-monitoring.png)
 
 Mapa služeb složka obsahuje čtyři uzly:
-* **Aktivní výstrahy**: uvádí všechny aktivní výstrahy o komunikaci mezi nástrojem Operations Manager a mapy služeb.  Všimněte si, že tyto výstrahy nejsou Operations Management Suite výstrahy se synchronizované do nástroje Operations Manager. 
+* **Aktivní výstrahy**: uvádí všechny aktivní výstrahy o komunikaci mezi nástrojem Operations Manager a mapy služeb.  Všimněte si, že tyto výstrahy nejsou analýzy protokolů výstrahy se synchronizované do nástroje Operations Manager. 
 
 * **Servery**: seznam monitorovaných serverů, které jsou nakonfigurovány pro synchronizaci z mapy služeb.
 
@@ -103,7 +103,7 @@ Mapa služeb složka obsahuje čtyři uzly:
     ![Diagram distribuovaných aplikací nástroje Operations Manager](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Upravit nebo odstranit pracovní prostor
-Můžete upravit nebo odstranit nakonfigurované prostoru prostřednictvím **přehled mapy služby** podokně (**správy** podokně > **Operations Management Suite**  >  **Služby mapy**). Teď můžete konfigurovat jenom jeden pracovní prostor služby Operations Management Suite.
+Můžete upravit nebo odstranit nakonfigurované prostoru prostřednictvím **přehled mapy služby** podokně (**správy** podokně > **Operations Management Suite**  >  **Služby mapy**). Teď můžete konfigurovat jenom jeden pracovní prostor analýzy protokolů.
 
 ![V podokně pracovní prostor upravit služby Operations Manager](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ Pravidlo, _Microsoft.SystemCenter.ServiceMapImport.Rule_, vytvoření pravideln�
 ## <a name="known-issues-and-limitations"></a>Známé problémy a omezení
 
 Současný návrh uvede následující problémy a omezení:
-* Můžete připojit pouze k jedné pracovní prostor služby Operations Management Suite.
+* Můžete připojit pouze k jedné pracovní prostor analýzy protokolů.
 * I když přidáte servery do skupin serverů mapy služby ručně pomocí **vytváření** podokně mapy pro tyto servery není synchronizovaná okamžitě.  Bude se synchronizovat ze služby mapy při příštím synchronizačním cyklu.
 * Pokud provedete změny diagramy distribuované aplikace vytvořené sady management pack, tyto změny budou přepsány pravděpodobně na příští synchronizaci s mapy služeb.
 

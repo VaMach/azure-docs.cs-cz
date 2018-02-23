@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB grafu .NET API: Stažení a poznámky k verzi
 
@@ -32,7 +32,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="release-notes"></a>Poznámky k verzi
 
-### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-Preview
+Doporučujeme používat ovladač Gremlin open source pro platformu .NET, Gremlin.Net. Zjistěte, jak začít pracovat [Cosmos databázi Azure: vytvoření grafu aplikace pomocí rozhraní .NET a rozhraní Graph API](create-graph-dotnet.md).
+
+### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
 
 #### <a name="bug-fixes"></a>Opravy chyb
 * Opravte volitelně načíst `appsettings.json` (`netstandard1.6`)
@@ -41,11 +43,11 @@ ms.lasthandoff: 12/11/2017
 * Přepněte Microsoft.Azure.Graphs Cílová platforma AnyCPU.
 * Odebrat Mono sestavení z `net461` manifest balíčku.
 
-### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-Preview
+### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-preview
 
 #### <a name="whats-new"></a>Co je nového
-* Přidaná podpora pro`.netstandard 1.6`
-  * Vyžaduje`Microsoft.Azure.DocumentDB.Core >= 1.5.1`
+* Přidaná podpora pro `.netstandard 1.6`
+  * Vyžaduje `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
 * Přidat novou `gremlin-groovy` analyzátor, který má nahradit existující analyzátor. Tento analyzátor podporuje podmnožinu na Tinkerpop `gremlin-groovy` syntaxe a zahrnuje:
   * Vylepšené analýzy výkonu pomocí 2 x.
   * Vyřešit řadu problémů souvisejících s znak uvozovací znaky řetězce, nesprávnému zpracování literálových hodnot a jiné nesrovnalosti v původním analyzátor.
@@ -57,18 +59,18 @@ ms.lasthandoff: 12/11/2017
 * Odebrané podpory pro rozhraní .NET Framework 4.5.1
 
 * Nový analyzátor zarovnaná s `gremlin-groovy` gramatika. V důsledku toho jsou některé výrazy, které dříve fungovaly nejednoznačný pro nový analyzátor. Jeden případ Poznámka:
-  * `in`a `as` jsou vyhrazená slova v `gremlin-groovy`, takže tyto kroky musí být kvalifikovaný pomocí `.in()` nebo `.as()` předejdete chyby syntaxe. Příklad: `g.V().repeat(in()).times(2)`  ->  _vyvolá chybu syntaxe_  
+  * `in` a `as` jsou vyhrazená slova v `gremlin-groovy`, takže tyto kroky musí být kvalifikovaný pomocí `.in()` nebo `.as()` předejdete chyby syntaxe. Příklad: `g.V().repeat(in()).times(2)`  ->  _vyvolá chybu syntaxe_  
  `g.V().repeat(__.in()).times(2)` -> _úspěšné_
 
-### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-Preview
+### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-preview
 
-### <a name="a-name022-preview022-preview"></a><a name="0.2.2-preview"/>0.2.2-Preview
+### <a name="a-name022-preview022-preview"></a><a name="0.2.2-preview"/>0.2.2-preview
 
-### <a name="a-name021-preview021-preview"></a><a name="0.2.1-preview"/>0.2.1-Preview
+### <a name="a-name021-preview021-preview"></a><a name="0.2.1-preview"/>0.2.1-preview
 
-### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-Preview
+### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-preview
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 * Verze preview počáteční.
 
 ## <a name="release--retirement-dates"></a>Verze & vyřazení kalendářních dat
@@ -82,13 +84,13 @@ Každá žádost o Azure DB Cosmos pomocí vyřazeno sady SDK budou odmítnuty s
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
-| [0.3.1-Preview](#0.3.1-preview) |17 říjen 2017 |--- |
-| [0.3.0-Preview](#0.3.0-preview) |2. října 2017 |--- |
-| [0.2.4-Preview](#0.2.4-preview) |4 srpen 2017 |--- |
-| [0.2.2-Preview](#0.2.2-preview) |23 června 2017 |--- |
-| [0.2.1-Preview](#0.2.2-preview) |8 června 2017 |--- |
-| [0.2.0-Preview](#0.2.2-preview) |10. května 2017 |--- |
-| [0.1.0-Preview](#0.1.0-preview) |8 může 2017 |--- |
+| [0.3.1-preview](#0.3.1-preview) |17 říjen 2017 |--- |
+| [0.3.0-preview](#0.3.0-preview) |2. října 2017 |--- |
+| [0.2.4-preview](#0.2.4-preview) |4 srpen 2017 |--- |
+| [0.2.2-preview](#0.2.2-preview) |23 června 2017 |--- |
+| [0.2.1-preview](#0.2.2-preview) |8 června 2017 |--- |
+| [0.2.0-preview](#0.2.2-preview) |10. května 2017 |--- |
+| [0.1.0-preview](#0.1.0-preview) |8 může 2017 |--- |
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 Další informace o rozhraní API služby Azure DB Cosmos grafu naleznete v tématu [Úvod do Azure Cosmos DB: rozhraní Graph API](graph-introduction.md). 

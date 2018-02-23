@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Škálování vašeho nasazení volaných potřeby s agenty, virtuální počítač Azure
 
@@ -91,7 +91,7 @@ V tomto kurzu provedete následující:
             }
      ```
 
-    Dokončený instanční objekt by měl používat `id` pole pro **ID předplatného**, `appId` hodnota **ID klienta**, `password` pro **tajný klíč klienta**a adresu URL pro **koncový bod tokenu OAuth 2.0** z `https://login.windows.net/<tenant_value>`. Vyberte **přidat** přidat objekt služby a potom nakonfigurovat modul plug-in používat nově vytvořené pověření.
+    Dokončený instanční objekt by měl používat `id` pole pro **ID předplatného**, `appId` hodnota **ID klienta**, `password` pro **tajný klíč klienta**, a `tenant` pro **ID klienta**. Vyberte **přidat** přidat objekt služby a potom nakonfigurovat modul plug-in používat nově vytvořené pověření.
 
     ![Konfigurace Azure instančního objektu](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -130,7 +130,7 @@ Vyberte **ověřte šablony** ověřte konfiguraci a potom vyberte **Uložit** u
 2. Zadejte `demoproject1` pro název a vyberte **volný styl projektu**, pak vyberte **OK**.
 3. V **Obecné** , zvolte **omezit, kde je možné spustit projekt** a typ `ubuntu` v **výraz popisku**. Zobrazí výzvu k potvrzení, že popisek obsloužených konfigurace cloudu vytvořili v předchozím kroku. 
    ![Nastavení úloh](./media/jenkins-azure-vm-agents/job-config.png)
-4. V **správu zdrojového kódu** vyberte **Git** a přidejte následující adresu URL do **adresu URL úložiště** pole:`https://github.com/spring-projects/spring-petclinic.git`
+4. V **správu zdrojového kódu** vyberte **Git** a přidejte následující adresu URL do **adresu URL úložiště** pole: `https://github.com/spring-projects/spring-petclinic.git`
 5. V **sestavení** vyberte **přidat krok sestavení**, pak **vyvolání nejvyšší úrovně cíle Maven**. Zadejte `package` v **cíle** pole.
 6. Vyberte **Uložit** Uložit definici úlohy.
 
@@ -142,7 +142,7 @@ Vyberte **ověřte šablony** ověřte konfiguraci a potom vyberte **Uložit** u
 
 ![Výstup konzoly](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [CI/CD do Azure App Service](java-deploy-webapp-tutorial.md)

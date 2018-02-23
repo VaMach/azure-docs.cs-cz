@@ -1,6 +1,6 @@
 ---
 title: "Ochrana nasazení vícevrstvé SAP NetWeaver aplikace pomocí Azure Site Recovery | Microsoft Docs"
-description: "Tento článek popisuje, jak k ochraně nasazení SAP NetWeaver aplikace pomocí Azure Site Recovery"
+description: "Tento článek popisuje, jak k ochraně nasazení SAP NetWeaver aplikace pomocí Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
@@ -14,107 +14,107 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1ee472498bdefc4eeb9863670e5480326b5ba6d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Ochrana nasazení vícevrstvé SAP NetWeaver aplikace pomocí Azure Site Recovery
+# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>K nasazení aplikace SAP NetWeaver vícevrstvé chránit pomocí Site Recovery
 
-Většina nasazení SAP velké a střední má určitou formu řešení zotavení po havárii.  Význam robustní a možností intenzivního testování řešení zotavení po havárii zvýšilo další základní obchodní procesy přesunu do aplikace, jako je SAP.  Azure Site Recovery byl otestovaný a integrované se službou aplikace SAP, překračuje možnosti většina řešení zotavení po havárii v místě, na nižší celkové náklady na vlastnictví (TCO) než konkurenční řešení.
-S Azure Site Recovery můžete:
-* Povolení ochrany místně spuštěných produkčních aplikací SAP NetWeaver a jiných než NetWeaver pomocí replikace komponent do Azure
-* Povolení ochrany v Azure spuštěných produkčních aplikací SAP NetWeaver a jiných než NetWeaver pomocí replikace komponent do jiného datového centra Azure
-* Zjednodušení migrace na cloud pomocí Site Recovery migrací nasazení SAP do Azure
-* Zjednodušení upgradů, testování a vytváření prototypů projektů SAP pomocí vytváření produkčního klonu na vyžádání pro účely testování aplikací SAP.
+Většina nasazení SAP velikosti a středně velké použít nějaký způsob řešení zotavení po havárii. Význam řešení zotavení po havárii robustní a možností intenzivního testování zvýšilo jako další základní obchodní procesy přesunou do aplikací, jako SAP. Azure Site Recovery byl otestován a integrovat s aplikacemi SAP. Site Recovery překračuje možnosti většinu řešení zotavení po havárii v místě a na nižší celkové náklady na vlastnictví (TCO) než konkurenční řešení.
 
-Tento článek popisuje, jak k ochraně nasazení SAP NetWeaver aplikací pomocí [Azure Site Recovery](site-recovery-overview.md). Tento článek popisuje osvědčené postupy pro ochranu replikace do jiné datové centrum Azure pomocí Azure Site Recovery, podporované scénáře a konfigurace a jak provádět převzetí služeb při selhání, jak testovací nasazení SAP NetWeaver třívrstvá v Azure převzetí služeb při selhání (podrobněji obnovení po havárii) a skutečné převzetí služeb při selhání.
+Site Recovery můžete:
+* **Povolit ochranu SAP NetWeaver a bez NetWeaver produkční aplikace, které běží místně** replikace součástí do Azure.
+* **Povolit ochranu SAP NetWeaver a bez NetWeaver výrobní aplikace, které běží na Azure** replikace součástí do jiného datového centra Azure.
+* **Zjednodušení migrace na cloud** pomocí Site Recovery migrací nasazení SAP do Azure.
+* **Zjednodušení SAP upgrade projektu, testování a při vytváření prototypu** vytvořením provozní klonovat na vyžádání pro testování aplikací SAP.
 
+Tento článek popisuje, jak k ochraně nasazení SAP NetWeaver aplikací s použitím [Azure Site Recovery](site-recovery-overview.md). Článek popisuje osvědčené postupy pro ochrana nasazení SAP NetWeaver třívrstvá v Azure replikace do jiné datové centrum Azure pomocí Site Recovery. Popisuje Podporované scénáře a konfigurace a jak provést testovací převzetí služeb při selhání (podrobněji obnovení po havárii) a skutečné převzetí služeb při selhání.
 
 ## <a name="prerequisites"></a>Požadavky
-Než začnete, ujistěte se, že rozumíte následující:
+Než začnete, ujistěte se, že budete vědět, jak provést tyto úlohy:
 
-1. [Replikaci virtuálního počítače do Azure](azure-to-azure-walkthrough-enable-replication.md)
-2. Postup [návrh k síti pro obnovení](site-recovery-azure-to-azure-networking-guidance.md)
-3. [Provádění převzetí služeb při selhání do Azure](azure-to-azure-walkthrough-test-failover.md)
-4. [Provádění převzetí služeb při selhání do Azure](site-recovery-failover.md)
-5. Postup [replikace řadiče domény](site-recovery-active-directory.md)
-6. Postup [replikaci systému SQL Server](site-recovery-sql.md)
+* [Replikace virtuálního počítače do Azure](azure-to-azure-walkthrough-enable-replication.md)
+* [Návrh k síti pro obnovení](site-recovery-azure-to-azure-networking-guidance.md)
+* [Provést testovací převzetí služeb Azure](azure-to-azure-walkthrough-test-failover.md)
+* [Proveďte převzetí služeb při selhání do Azure](site-recovery-failover.md)
+* [Replikace řadiče domény](site-recovery-active-directory.md)
+* [Replikace SQL Serveru](site-recovery-sql.md)
 
 ## <a name="supported-scenarios"></a>Podporované scénáře
-S Azure Site Recovery můžete implementovat řešení zotavení po havárii pro následující scénáře:
-* SAP systémy s operačním systémem v jedné datové centrum Azure replikovat na jiné datové centrum Azure (Azure do Azure DR), jak je navržen [zde](https://aka.ms/asr-a2a-architecture).
-* SAP systémy s operačním systémem místními VMWare (nebo fyzický) servery replikující se do zotavení po Havárii lokality v datovém centru Azure (VMware do Azure DR), který vyžaduje další součásti, jako je navržen [zde](https://aka.ms/asr-v2a-architecture).
-* SAP systémy s operačním systémem místními technologie Hyper-V replikovat zotavení po Havárii lokality v datovém centru Azure (Hyper-V-do Azure DR), který vyžaduje další součásti, jako je navržen [zde](https://aka.ms/asr-h2a-architecture).
+Site Recovery můžete použít k implementaci řešení zotavení po havárii v následujících scénářích:
+* SAP systémy s operačním systémem v jedné datové centrum Azure, které se replikují do jiné datové centrum Azure (zotavení po havárii Azure do Azure). Další informace najdete v tématu [Azure do Azure replikace architektura](https://aka.ms/asr-a2a-architecture).
+* SAP systémy s operačním systémem na VMware (nebo fyzický) servery místní této replikovat do lokality obnovení po havárii v datovém Azure (zotavení po havárii VMware do Azure). Tento scénář vyžaduje některé další součásti. Další informace najdete v tématu [architektura replikace VMware do Azure](https://aka.ms/asr-v2a-architecture).
+* SAP systémy s operačním systémem místními technologie Hyper-V, které se replikují do lokality obnovení po havárii v datovém Azure (zotavení po havárii technologie Hyper-V-do Azure). Tento scénář vyžaduje některé další součásti. Další informace najdete v tématu [architektura replikace technologie Hyper-V-do Azure](https://aka.ms/asr-h2a-architecture).
 
-Tento dokument používá prvním případě - Azure-Azure zotavení po Havárii – k předvedení funkcí pro obnovení po havárii SAP Azure Site Recovery. Replikace Azure Site Recovery je nezávislá na aplikace, proces popsaný by měl obsahovat také další scénáře.
+V tomto článku používáme k předvedení funkcí Site Recovery pro obnovení po havárii SAP scénáře zotavení po havárii Azure do Azure. Protože replikace Site Recovery není specifické pro aplikaci, proces, který je popsán se očekává se rovněž vztahují na jiné scénáře.
 
 ### <a name="required-foundation-services"></a>Požadované foundation services
-Tento scénář dokumentace všechny byl nasazen s následujícími službami foundation nasazení:
-* ExpressRoute nebo Site-to-Site virtuální privátní síť (VPN)
-* Alespoň jeden řadič domény služby Active Directory a DNS serveru běží v Azure
+Ve scénáři, které v tomto článku probereme jsou nasazeny následující služby foundation:
+* Azure ExpressRoute nebo Azure VPN Gateway
+* Alespoň jeden řadič domény služby Active Directory a DNS server, který běží v Azure
 
-Je doporučeno, je před nasazením Azure Site Recovery navázáno infrastruktury výše.
-
+Doporučujeme vytvoření této infrastruktury, před nasazením Site Recovery.
 
 ## <a name="typical-sap-application-deployment"></a>Typické nasazení aplikace SAP
-Velké SAP zákazníci obvykle nasazovat mezi 6 až 20 jednotlivých aplikací SAP.  Většina těchto aplikací jsou založeny na moduly SAP NetWeaver ABAP nebo Java.  Podpora tyto základní NetWeaver aplikace jsou mnoho modulů menší samostatné konkrétní jiný - NetWeaver SAP a obvykle některé aplikace bez SAP.  
+Velké SAP zákazníci obvykle nasazovat mezi 6 a nejvíce 20 jednotlivých aplikací SAP. Většina těchto aplikací jsou založeny na moduly SAP NetWeaver ABAP nebo Java. Mnoho modulů samostatné menší, konkrétní jiný - NetWeaver SAP a obvykle některé aplikace bez SAP podporují tyto aplikace NetWeaver jádra.  
 
-Je důležité pro všechny aplikace SAP, spuštěný v na šířku a k určení režimu nasazení (vrstvy 2 nebo 3 úrovně), verze, opravy, velikosti, změn rychlostí a požadavky na disku trvalost inventáře.
+Je důležité k inventarizaci všechny aplikace SAP, které běží ve vašem prostředí. Potom určení režimu nasazení (dvouvrstvá nebo třívrstvá), verze, opravy, velikosti, sazby změn a trvalost na disku.
 
-![Vzor nasazení](./media/site-recovery-sap/sap-typical-deployment.png)
+![Diagram typický vzor nasazení SAP](./media/site-recovery-sap/sap-typical-deployment.png)
 
-Vrstvu trvalosti SAP databáze by měly být chráněné pomocí nativních nástrojů databázového systému, jako je například SQL Server AlwaysOn, Oracle DataGuard nebo HANA systému replikace. Vrstva klienta není také chráněný službou Azure Site Recovery, ale je důležité vzít v úvahu témata, které mají vliv tato vrstva například zpoždění šíření záznamů DNS, zabezpečení a vzdáleného přístupu do datového centra zotavení po Havárii.
+Vrstvu trvalosti databázi SAP Chraňte pomocí nativních nástrojů databázového systému, jako je například replikace systému SQL Server AlwaysOn, Oracle Data Guard nebo SAP HANA. Jako v databázové vrstvě SAP vrstvě klienta není chráněný pomocí Site Recovery. Je důležité vzít v úvahu faktory, které ovlivňují tuto vrstvu. Faktory patří zpoždění šíření DNS, zabezpečení a vzdáleného přístupu do datového centra obnovení po havárii.
 
-Azure Site Recovery je doporučené řešení pro aplikační vrstvu, včetně (A) SCS. Celkové prostředí nasazení SAP součástí jiné aplikace, jako je například aplikace NetWeaver SAP a bez SAP aplikace a také by měly být chráněné službou Azure Site Recovery.
+Site Recovery je doporučené řešení pro aplikační vrstvu, včetně pro SAP SCS a ASC. Jiné aplikace, jako je například aplikace NetWeaver SAP a aplikace, bez SAP, součástí celkového prostředí nasazení SAP. Měli byste je chránit pomocí Site Recovery.
 
 ## <a name="replicate-virtual-machines"></a>Replikace virtuálních počítačů
-Postupujte podle [v tomto návodu](azure-to-azure-walkthrough-enable-replication.md) k zahájení replikace všech SAP aplikace virtuálních počítačů do datového centra Azure zotavení po Havárii.
+Pokud chcete spustit všechny SAP aplikace virtuální počítače replikující se do datového centra obnovení po havárii Azure, postupujte podle pokynů v [replikace virtuálního počítače do Azure](azure-to-azure-walkthrough-enable-replication.md).
 
-Pokud používáte statickou IP adresu, můžete zadat IP, který chcete virtuální počítač v části síťové rozhraní karty v nastavení výpočtů a sítě trvat.
+Pokud používáte statickou IP adresu, můžete zadat IP adresu, kterou chcete virtuální počítač tak, aby. Chcete-li nastavit adresu IP, přejděte na **výpočty a síť nastavení** > **karty síťového rozhraní**.
 
-![Cílové IP](./media/site-recovery-sap/sap-static-ip.png)
+![Snímek obrazovky, který ukazuje, jak nastavit privátní IP adresy v podokně karty rozhraní sítě obnovení lokality](./media/site-recovery-sap/sap-static-ip.png)
 
+## <a name="create-a-recovery-plan"></a>Vytvoření plánu obnovení
+Plán obnovení podporuje sekvencování různé úrovně ve vícevrstvé aplikace při selhání. Sekvencování se usnadní zachování konzistence aplikace. Když vytvoříte plán obnovení pro vícevrstvé webové aplikace, dokončete kroky popsané v tématu [vytvořit plán obnovení pomocí Site Recovery](site-recovery-create-recovery-plans.md).
 
-## <a name="creating-a-recovery-plan"></a>Vytvoření plánu obnovení
-Plán obnovení umožňuje pořadí převzetí služeb při selhání v různých vrstvách vícevrstvé aplikace, proto zachování konzistence aplikace. Postupujte podle kroků popsaných [sem](site-recovery-create-recovery-plans.md) při vytváření plánu obnovení vícevrstvých webových aplikací.
-
-### <a name="adding-scripts-to-the-recovery-plan"></a>Probíhá přidávání skriptů do plánu obnovení
-Musíte udělat některé operace na virtuálních počítačích Azure post převzetí služeb při selhání a testovací převzetí služeb při selhání pro vaše aplikace fungovat správně. Je možné automatizovat převzetí služeb při selhání operaci post například aktualizaci položky DNS a změna vazby a připojení, přidáním příslušných skriptů v plánu obnovení, jak je popsáno v [v tomto článku](site-recovery-how-to-add-vmmscript.md).
+### <a name="add-scripts-to-the-recovery-plan"></a>Přidat skripty do plánu obnovení
+Pro vaše aplikace fungovat správně může být zapotřebí provést některé operace na virtuálních počítačích Azure po převzetí nebo během testovací převzetí služeb. Je možné automatizovat některé operace post-převzetí služeb při selhání. Například můžete aktualizovat záznam DNS a změnit vazby a připojení přidáním příslušných skriptů do plánu obnovení.
 
 ### <a name="dns-update"></a>DNS update
-Pokud DNS je nakonfigurován pro dynamické aktualizace DNS, pak po spuštění virtuálních počítačů obvykle aktualizovat DNS s novou IP Adresou. Pokud chcete přidat explicitní kroku aktualizovat DNS s nové IP adresy virtuálních počítačů a pak přidejte tuto [skript pro aktualizaci IP ve službě DNS](https://aka.ms/asr-dns-update) jako akce post na skupiny plánu obnovení.  
+Pokud je server DNS nakonfigurovaný pro aktualizace dynamického DNS, virtuálních počítačů obvykle aktualizovat DNS novou IP adresu při spuštění. Pokud chcete přidat na explicitní krok pro aktualizace DNS pomocí nové IP adresy virtuálních počítačů, přidejte [skript pro aktualizaci IP adresa ve službě DNS](https://aka.ms/asr-dns-update) jako akci post-převzetí služeb při selhání u skupiny plánu obnovení.  
 
 ## <a name="example-azure-to-azure-deployment"></a>Příklad nasazení Azure do Azure
-Scénář je znázorněn na obrázku níže DR Azure do Azure Azure Site Recovery:
-* Primární datové centrum se Singapur (Azure jihovýchodní Asie) a zotavení po Havárii datacenter je Hongkong (Azure východní Asie).  V tomto scénáři se tak, že dva virtuální počítače se systémem SQL Server AlwaysOn v synchronním režimu v Singapur poskytuje místní vysokou dostupnost.
-* ASC sdílené složky souborů slouží k poskytování HA pro SAP jediné body selhání. ASC sdílené složky souboru nevyžaduje sdíleného disku clusteru a aplikace, jako je SIOS nejsou požadovány.
-* Ochrany DR pro vrstvu databázového systému je dosaženo pomocí asynchronní replikaci.
-* Tento scénář popisuje "symetrický DR" – termín, který používá k popisu řešení zotavení po Havárii, které je repliku přesný provozních, proto řešení zotavení po Havárii SQL Server má místní vysokou dostupnost. Použití symetrický zotavení po Havárii není povinné pro vrstvu databáze a mnoho zákazníků využít flexibilitu nasazení cloudu rychle vytvářet místní vysoké dostupnosti uzlu po události zotavení po Havárii.
-* Diagram znázorňuje vrstvy serveru SAP NetWeaver ASC a aplikaci replikovat pomocí Azure Site Recovery.
+Následující diagram znázorňuje scénáře zotavení po havárii Site Recovery Azure do Azure:
 
-![Scénář replikace](./media/site-recovery-sap/sap-replication-scenario.png)
+![Diagram scénáře replikace Azure do Azure](./media/site-recovery-sap/sap-replication-scenario.png)
 
-## <a name="doing-a-test-failover"></a>Provádění testovací převzetí služeb
-Postupujte podle [v tomto návodu](azure-to-azure-walkthrough-test-failover.md) provedete testovací převzetí služeb.
+* Primární datové centrum se Singapur (Azure jihovýchodní Asie). Datacenter obnovení po havárii se Hongkong (Azure východní Asie). V tomto scénáři poskytuje dva virtuální počítače se systémem SQL Server AlwaysOn v synchronním režimu v Singapur místní vysokou dostupnost.
+* Sdílené složky SAP ASC poskytuje vysokou dostupnost pro SAP jediné body selhání. Sdílené složky ASC nevyžaduje sdíleného disku clusteru. Aplikace, jako je SIOS nejsou požadované.
+* Ochrana pro obnovení po havárii pro vrstvu databázového systému je dosaženo pomocí asynchronní replikaci.
+* Tento scénář popisuje "zotavení po havárii symetrický." Tento termín popisuje řešení zotavení po havárii, která je k přesný repliku produkčního. Zotavení po havárii řešení systému SQL Server má místní vysokou dostupnost. Zotavení po havárii symetrický není povinné pro databázové vrstvě. Mnoho zákazníků využít flexibilitu nasazení cloudu rychle sestavíte místní vysokou dostupnost uzlu po o událost obnovení po havárii.
+* Diagram znázorňuje SAP NetWeaver ASC a aplikační server vrstvu replikovat pomocí Site Recovery.
 
-1.  Přejděte na portál Azure a vyberte svůj trezor služeb zotavení.
-2.  Klikněte na plán obnovení, které jsou vytvořené pro aplikace SAP (s).
-3.  Klikněte na "Testovací převzetí služeb".
-4.  Vyberte bod obnovení a virtuální síť Azure ke spuštění procesu testovací převzetí služeb při selhání.
-5.  Jakmile sekundární prostředí zapnutý, můžete provést vaše ověření.
-6.  Po dokončení se k ověření, klikněte na 'vyčistit testovací převzetí služeb při selhání a pro vyčištění prostředí převzetí služeb při selhání.
+## <a name="run-a-test-failover"></a>Spuštění testovacího převzetí služeb při selhání
 
-## <a name="doing-a-failover"></a>Převzetím služeb
-Postupujte podle [v tomto návodu](site-recovery-failover.md) při dělají převzetí služeb při selhání.
+1.  Na portálu Azure vyberte svůj trezor služeb zotavení.
+2.  Vyberte plán obnovení, který jste vytvořili pro aplikace SAP.
+3.  Vyberte **testovací převzetí služeb při selhání**.
+4.  Chcete-li zahájit proces testovací převzetí služeb při selhání, vyberte bod obnovení a virtuální síť Azure.
+5.  Po sekundární prostředí, proveďte ověření.
+6.  Po dokončení ověření pro čištění prostředí převzetí služeb při selhání, vyberte **vyčistit testovací převzetí služeb při selhání**.
 
-1.  Přejděte na portál Azure a vyberte svůj trezor služeb zotavení.
-2.  Kliknutím na vytvořit pro aplikace SAP plánu obnovení.
-3.  Klikněte na 'Převzetí služeb při selhání'.
-4.  Vyberte bod obnovení se spustit proces převzetí služeb při selhání.
+Další informace najdete v tématu [testovací převzetí služeb při selhání do Azure ve službě Site Recovery](site-recovery-test-failover-to-azure.md).
+
+## <a name="run-a-failover"></a>Spuštění převzetí služeb při selhání
+
+1.  Na portálu Azure vyberte svůj trezor služeb zotavení.
+2.  Vyberte plán obnovení, který jste vytvořili pro aplikace SAP.
+3.  Vyberte **převzetí služeb při selhání**.
+4.  Chcete-li zahájit proces převzetí služeb při selhání, vyberte bod obnovení.
+
+Další informace najdete v tématu [převzetí služeb při selhání ve službě Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Další postup
-Další informace o vytváření řešení zotavení po havárii pro nasazení SAP NetWeaver pomocí Azure Site Recovery v [tento dokument White Paper](http://aka.ms/asr-sap). V dokumentu White Paper také popisuje doporučení pro různé architektury SAP, jsou uvedené podporované aplikací a typů virtuálních počítačů pro SAP v Azure a popisuje možné testování plány pro vaše řešení pro zotavení po havárii.
-
-Další informace o [replikace dalších zatížení](site-recovery-workload.md) pomocí Site Recovery.
+* Další informace o vytváření řešení zotavení po havárii pro nasazení SAP NetWeaver pomocí Site Recovery najdete v tématu ke stažení dokumentu white paper [SAP NetWeaver: vytváření řešení zotavení po havárii s Azure Site Recovery](http://aka.ms/asr-sap). V dokumentu white paper popisuje doporučení pro různé architektury SAP, jsou uvedené podporované aplikací a typů virtuálních počítačů pro SAP v Azure a popisuje možnosti testování plán pro vaše řešení pro zotavení po havárii.
+* Další informace o [replikace dalších zatížení](site-recovery-workload.md) pomocí Site Recovery.

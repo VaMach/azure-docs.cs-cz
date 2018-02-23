@@ -49,7 +49,7 @@
             - name: Použití Beeline
               href: ../hadoop/apache-hadoop-use-hive-beeline.md
               maintainContext: true
-            - name: Použití cURL
+            - name: Použití rozhraní REST API
               href: ../hadoop/apache-hadoop-use-hive-curl.md
               maintainContext: true
             - name: Použití Azure Powershell
@@ -227,6 +227,12 @@
             - name: Použití rozhraní Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Škálování clusteru HDInsight
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: Použití externích úložišť metadat
+          href: ../hdinsight-use-external-metadata-stores.md
+          maintainContext: true
         - name: Správa protokolů pro cluster HDInsight
           href: ../hdinsight-log-management.md
           maintainContext: true

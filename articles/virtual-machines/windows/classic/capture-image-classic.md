@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Zachycení image virtuálního počítače Azure s Windows vytvořeného pomocí modelu klasického nasazení
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ Před zachycením bitové kopie virtuálního počítače Azure, se doporučuje 
 
    ![Spusťte nástroj Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Nástroj Sysprep vypne virtuální počítač, který změní stav virtuálního počítače na portálu Azure **Zastaveno**.
-6. Na portálu Azure klikněte na tlačítko **virtuálních počítačů (klasické)** a vyberte virtuální počítač, který chcete zaznamenat. **Image virtuálních počítačů (klasické)** skupina je uvedena v části **výpočetní** při prohlížení **další služby**.
+6. Na portálu Azure klikněte na tlačítko **virtuálních počítačů (klasické)** a vyberte virtuální počítač, který chcete zaznamenat. **Image virtuálních počítačů (klasické)** skupina je uvedena v části **výpočetní** při prohlížení **všechny služby**.
 
 7. Na panelu příkazů klikněte na tlačítko **zaznamenat**.
 
@@ -74,7 +74,7 @@ Před zachycením bitové kopie virtuálního počítače Azure, se doporučuje 
     ![Zachycení Image úspěšné](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Další postup
-Obrázek je připravený k použití pro vytvoření virtuálního počítače. To provedete tak, že vyberete vytvoříte virtuální počítač **další služby** položky nabídky v dolní části nabídky služeb, pak **Image virtuálních počítačů (klasické)** v **výpočetní** skupiny. Pokyny najdete v tématu [vytvořit virtuální počítač z bitové kopie](createportal.md).
+Obrázek je připravený k použití pro vytvoření virtuálního počítače. To provedete tak, že vyberete vytvoříte virtuální počítač **všechny služby** položky nabídky v dolní části nabídky služeb, pak **Image virtuálních počítačů (klasické)** v **výpočetní** skupiny. Pokyny najdete v tématu [vytvořit virtuální počítač z bitové kopie](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

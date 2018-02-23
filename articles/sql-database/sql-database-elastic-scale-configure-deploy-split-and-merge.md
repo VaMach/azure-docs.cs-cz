@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Nasazení služby dělení a slučování
 Nástroj pro rozdělení sloučení umožňuje přesun dat mezi horizontálně dělené databáze. V tématu [přesouvání dat mezi instancemi cloudu databáze](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -39,8 +39,8 @@ Soubory jsou umístěny v adresáři s názvem **Microsoft.Azure.SqlDatabase.Ela
 2. Zajistěte, aby váš server Azure SQL DB povolovalo Azure Services pro připojení k němu. Na portálu v **nastavení brány Firewall**, zkontrolujte **povolit přístup ke službám Azure** nastavení je **na**. Klikněte na ikonu "uložit".
    
    ![Povolené služby][1]
-3. Vytvoření účtu úložiště Azure, který se použije pro výstup diagnostiky. Přejděte na portálu Azure. V levém panelu klikněte na **nový**, klikněte na tlačítko **Data + úložiště**, pak **úložiště**.
-4. Vytvoření cloudové služby Azure, která bude obsahovat služby rozdělení sloučení.  Přejděte na portálu Azure. V levém panelu klikněte na **nový**, pak **výpočetní**, **Cloudová služba**, a **vytvořit**. 
+3. Vytvoření účtu úložiště Azure, který se použije pro výstup diagnostiky. Přejděte na portálu Azure. V levém panelu klikněte na **vytvořit prostředek**, klikněte na tlačítko **Data + úložiště**, pak **úložiště**.
+4. Vytvoření cloudové služby Azure, která bude obsahovat služby rozdělení sloučení.  Přejděte na portálu Azure. V levém panelu klikněte na **vytvořit prostředek**, pak **výpočetní**, **Cloudová služba**, a **vytvořit**. 
 
 ## <a name="configure-your-split-merge-service"></a>Konfigurace služby rozdělení sloučení
 ### <a name="split-merge-service-configuration"></a>Konfigurace služby rozdělení sloučení
@@ -128,7 +128,7 @@ Všimněte si, že pro produkční nasazení samostatné certifikáty prosím by
 3. Klikněte na tlačítko **řídicí panel**.
 4. Vyberte pracovní prostředí a potom klikněte na **nahrát nový pracovní nasazení**.
    
-   ![Pracovní][3]
+   ![Fázování][3]
 5. V dialogovém okně zadejte označení nasazení. Pro 'Balíček' i 'konfiguraci, klikněte na tlačítko 'Z Local' a vyberte **SplitMergeService.cspkg** soubor a váš soubor .cscfg, který jste nakonfigurovali dříve.
 6. Ujistěte se, že na zaškrtávací políčko s názvem bez přípony **nasadit, i když jedna nebo víc rolí obsahuje jednu instanci** je zaškrtnuté.
 7. Klikněte na tlačítko značek v pravém dolním zahájíte nasazení. Jeho trvat několik minut na dokončení očekávejte.

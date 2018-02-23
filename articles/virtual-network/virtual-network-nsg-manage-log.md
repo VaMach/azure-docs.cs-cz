@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Analýza protokolu pro skupiny zabezpečení sítě (NSG)
 
@@ -44,9 +44,9 @@ Pro čtení [přehled protokol činnosti Azure](../monitoring-and-diagnostics/mo
 
 Musí být povoleno protokolování diagnostiky pro *každý* NSG, které chcete shromažďovat data. [Přehled o Azure diagnostické protokoly](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) článek vysvětluje, kde lze odesílat diagnostické protokoly. Pokud nemáte existující skupina NSG, proveďte kroky v [vytvořit skupinu zabezpečení sítě](virtual-networks-create-nsg-arm-pportal.md) článek k jeho vytvoření. Můžete povolit NSG diagnostické protokolování pomocí kteréhokoli z následujících metod:
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
-Povolení protokolování, přihlášení, které budou používat portál [portál](https://portal.azure.com). Klikněte na tlačítko **další služby**, pak zadejte *skupin zabezpečení sítě*. Vyberte NSG, které chcete povolit protokolování. Postupujte podle pokynů pro jiný výpočetní prostředky v [povolení diagnostických protokolů na portálu](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) článku. Vyberte **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, nebo obě kategorie protokolů.
+Povolení protokolování, přihlášení, které budou používat portál [portál](https://portal.azure.com). Klikněte na tlačítko **všechny služby**, pak zadejte *skupin zabezpečení sítě*. Vyberte NSG, které chcete povolit protokolování. Postupujte podle pokynů pro jiný výpočetní prostředky v [povolení diagnostických protokolů na portálu](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) článku. Vyberte **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, nebo obě kategorie protokolů.
 
 ### <a name="powershell"></a>PowerShell
 

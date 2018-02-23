@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Funkce Always Encrypted: Chrání citlivá data v databázi SQL a ukládat šifrovací klíče v úložišti certifikátů systému Windows
 
@@ -46,9 +46,9 @@ V tomto kurzu budete potřebovat:
 * [Rozhraní .NET framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) nebo novější (v klientském počítači).
 * Sadu [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
-## <a name="create-a-blank-sql-database"></a>Vytvořit prázdnou databázi SQL
+## <a name="create-a-blank-sql-database"></a>Vytvoření prázdné databáze SQL
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
-2. Klikněte na tlačítko **nové** > **Data + úložiště** > **databáze SQL**.
+2. Klikněte na tlačítko **vytvořit prostředek** > **Data + úložiště** > **SQL Database**.
 3. Vytvoření **prázdné** databáze s názvem **Klinika** na nový nebo existující server. Podrobné pokyny k vytvoření databáze na portálu Azure, najdete v části [svoji první databázi Azure SQL](sql-database-get-started-portal.md).
    
     ![Vytvoření prázdné databáze](./media/sql-database-always-encrypted/create-database.png)
@@ -60,7 +60,7 @@ Později v tomto kurzu budete potřebovat připojovací řetězec. Po vytvořen�
    
     ![Zkopírujte připojovací řetězec](./media/sql-database-always-encrypted/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Připojení k databázi pomocí SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Připojit se k databázi pomocí SSMS
 Otevřete aplikaci SSMS a připojení k serveru s databází Klinika.
 
 1. Otevřete aplikaci SSMS. (Klikněte na tlačítko **připojit** > **databázový stroj** otevřete **připojit k serveru** okno, pokud není otevřený).
@@ -503,7 +503,7 @@ Pomocí aplikace SSMS přístup k datům ve formátu prostého textu, můžete p
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po vytvoření databáze, která používá vždycky šifrovaná, můžete provést následující akce:
 
 * Tuto ukázku spusťte z jiného počítače. Nebude mít přístup k šifrovacím klíčům, tak, aby ho nebudete mít přístup k datům ve formátu prostého textu a nespustí úspěšně.

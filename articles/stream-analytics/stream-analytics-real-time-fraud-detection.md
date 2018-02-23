@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Začněte používat Azure Stream Analytics: odhalování podvodů v reálném čase
 
@@ -61,7 +61,7 @@ Analyzovat datový proud je *ingestování* do Azure. Typické způsob pro nač�
 ### <a name="create-a-namespace-and-event-hub"></a>Vytvořit obor názvů a události rozbočovače
 V tomto postupu vytvoříte na obor názvů centra událostí a poté přidejte centra událostí do daného oboru názvů. Obory názvů centra událostí se používají k logickému seskupení souvisejících událostí sběrnice instancí. 
 
-1. Přihlaste se k portálu Azure a klikněte na tlačítko **nový** > **Internet věcí** > **centra událostí**. 
+1. Přihlaste se k portálu Azure a klikněte na tlačítko **vytvořit prostředek** > **Internet věcí** > **centra událostí**. 
 
 2. V **vytvoření oboru názvů** podokně, zadejte název oboru názvů, jako `<yourname>-eh-ns-demo`. Můžete použít libovolný název pro obor názvů, ale název musí být platné adresy URL a musí být jedinečný v Azure. 
     
@@ -149,7 +149,7 @@ Než začnete TelcoGenerator aplikace, musíte ho nakonfigurovat tak, aby se bud
 
 Některá pole klíče, které budete používat v této aplikaci zjišťování podvodů v reálném čase jsou následující:
 
-|**záznam**|Definice|
+|**záznam**|**Definice**|
 |----------|--------------|
 |`CallrecTime`|Časové razítko pro volání počáteční čas. |
 |`SwitchNum`|Přepínač telefonní používaná k připojení volání. V tomto příkladu přepínače jsou řetězce, které představují země původu (USA, Čína, UK, Německu nebo Austrálie). |
@@ -165,7 +165,7 @@ Teď, když máte datový proud událostí volání, můžete nastavit úlohu sl
 
 ### <a name="create-the-job"></a>Vytvoření úlohy 
 
-1. Na portálu Azure klikněte na tlačítko **nový** > **Internet věcí** > **úlohy služby Stream Analytics**.
+1. Na portálu Azure klikněte na tlačítko **vytvořit prostředek** > **Internet věcí** > **úlohy služby Stream Analytics**.
 
 2. Název úlohy `sa_frauddetection_job_demo`, určete předplatné, skupinu prostředků a umístění.
 

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Zálohování a obnovení šifrovaných virtuálních počítačů s Azure Backup
 V tomto článku bude zmíněn kroky pro zálohování a obnovení virtuálních počítačů (VM) pomocí Azure Backup. Také poskytuje podrobnosti o podporovaných scénářích, požadavky a řešení potíží pro chybových případech.
@@ -48,7 +48,7 @@ V tomto článku bude zmíněn kroky pro zálohování a obnovení virtuálních
 Pomocí následujících kroků nastavte cíle zálohování, definovat zásady, konfigurovat položky a spustit zálohování.
 
 ### <a name="configure-backup"></a>Konfigurace zálohování
-1. Pokud již máte otevřete trezoru služeb zotavení, pokračujte dalším krokem. Pokud nemáte trezoru služeb zotavení otevřít, ale jste na webu Azure portal, na **rozbočovače** nabídce vyberte možnost **Procházet**.
+1. Pokud již máte otevřete trezoru služeb zotavení, pokračujte dalším krokem. Pokud nemáte trezoru služeb zotavení otevřít, ale jste na portálu Azure, vyberte **všechny služby**.
 
    a. V seznamu prostředků zadejte **Recovery Services**.
 
@@ -65,10 +65,10 @@ Pomocí následujících kroků nastavte cíle zálohování, definovat zásady,
 3. Na **zálohování** dlaždice, vyberte **cíl zálohování**.
 
       ![Okno scénář](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
-4. V části **kde běží vaše úloha?**, vyberte **Azure**. V části **co chcete zálohovat?**, vyberte **virtuální počítač**. Potom vyberte **OK**.
+4. V části **kde běží vaše úloha?**, vyberte **Azure**. V části **co chcete zálohovat?**, vyberte **virtuální počítač**. Pak vyberte **OK**.
 
    ![Otevřené okno Scénář](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-5. V části **vyberte zásady zálohování**, vyberte zásadu zálohování, které chcete použít pro trezor. Potom vyberte **OK**.
+5. V části **vyberte zásady zálohování**, vyberte zásadu zálohování, které chcete použít pro trezor. Pak vyberte **OK**.
 
       ![Výběr zásady zálohování](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
 
@@ -98,7 +98,7 @@ Pokud máte virtuální počítače již probíhá zálohování do trezoru slu�
 
 ## <a name="provide-permissions-to-backup"></a>Zadejte oprávnění k zálohování
 Pomocí následujících kroků k poskytování odpovídající oprávnění pro přístup k trezoru klíčů a zálohování virtuálních počítačů šifrované zálohování.
-1. Vyberte **další služby**a vyhledejte **klíče trezory**.
+1. Vyberte **všechny služby**a vyhledejte **klíče trezory**.
 
     ![Trezory klíčů](./media/backup-azure-vms-encryption/search-key-vault.png)
     

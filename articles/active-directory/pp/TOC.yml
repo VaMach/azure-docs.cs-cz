@@ -23,6 +23,10 @@
       items:
         - name: Z virtuálního počítače s Linuxem
           href: msi-tutorial-linux-vm-access-arm.md
+    - name: Použití MSI virtuálního počítače pro přístup ke službě Azure Cosmos DB
+      items:
+        - name: Z virtuálního počítače s Linuxem
+          href: msi-tutorial-linux-vm-access-cosmosdb.md
     - name: Použití MSI virtuálního počítače pro přístup k úložišti Azure
       items:
         - name: Z virtuálního počítače s Linuxem pomocí přístupového klíče

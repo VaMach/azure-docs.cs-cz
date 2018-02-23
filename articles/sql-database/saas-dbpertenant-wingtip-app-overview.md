@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Úvod do příklad aplikace SaaS více klientů databáze SQL
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Úvod k aplikaci SaaS více klientů, která používá databázi za vzor klienta s databází SQL
 
-*Wingtip SaaS* aplikace je víceklientské ukázkovou aplikaci, která demonstruje jedinečných výhod databáze SQL. Aplikace používá vzorec SaaS aplikace databází na tenanta k poskytování služeb více tenantům. Tato aplikace je určená k prezentují funkce databáze SQL Azure, které umožňují SaaS scénáře, včetně několika vzory návrhu a správu SaaS. Pro rychlé zprovoznění, nasadí aplikaci Wingtip SaaS za méně než pět minut!
+*Wingtip SaaS* aplikace je víceklientské ukázkovou aplikaci. Aplikace používá databázi za klienta, vzor aplikací SaaS, k obsluhovat několik klientů. Aplikace umožňující prezentovat funkce databáze SQL Azure, které umožňují SaaS scénářů používání několika vzory návrhu a správu SaaS. Pro rychlé zprovoznění, nasadí aplikaci Wingtip SaaS za méně než pět minut!
 
-Jsou k dispozici v aplikaci zdrojový kód a správu skriptů [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
+Jsou k dispozici v aplikaci zdrojový kód a správu skriptů [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Než začnete, podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty správy Wingtip lístků.
 
 ## <a name="application-architecture"></a>Architektura aplikace
 
@@ -48,13 +48,13 @@ Po nasazení aplikace, prozkoumejte následující kurzy, které sestavení po p
 |[Sledování a správa výkonu](saas-dbpertenant-performance-monitoring.md)| Zjistěte, jak používat monitorování funkcí služby SQL Database a jak nastavit upozornění při překročení prahové hodnoty výkonu. |
 |[Monitorování s analýzy protokolů (OMS)](saas-dbpertenant-log-analytics.md) | Další informace o použití [analýzy protokolů](../log-analytics/log-analytics-overview.md) monitorování velké množství prostředků, napříč více fondů. |
 |[Obnovení jednoho klienta](saas-dbpertenant-restore-single-tenant.md)| Zjistěte, jak k obnovení databázi klienta do předchozího bodu v čase. Kroky k obnovení databázi paralelní ponechat stávající databázi klienta online, jsou také zahrnuté. |
-|[Správa schématu klienta](saas-tenancy-schema-management.md)| Zjistěte, jak aktualizovat schéma a aktualizovat referenční data napříč všichni klienti Wingtip SaaS. |
-|[Spustit analytics ad-hoc](saas-tenancy-adhoc-analytics.md) | Vytvoření databáze analýzy ad-hoc a spusťte v reálném čase distribuované dotazy mezi všechny klienty.  |
-|[Spusťte klienta analytics](saas-tenancy-tenant-analytics.md) | Extrahování dat klienta do služby analytics databáze nebo data warehouse ke spuštění v režimu offline analytické dotazy. |
+|[Správa schématu databáze klienta](saas-tenancy-schema-management.md)| Zjistěte, jak aktualizovat schéma a aktualizovat referenční data mezi databázemi všechny klienta. |
+|[Spuštění klienta mezi distribuovaných dotazů](saas-tenancy-cross-tenant-reporting.md) | Vytvoření databáze analýzy ad-hoc a spusťte v reálném čase distribuované dotazy mezi všechny klienty.  |
+|[Spustit analýzy dat extrahovaných klienta](saas-tenancy-tenant-analytics.md) | Extrahování dat klienta do analytics databáze nebo datového skladu pro offline analytické dotazy. |
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-- [Pokyny a tipů, například aplikace SaaS víceklientské Azure SQL Database](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Obecné Rady a tipy při nasazení a používání příklad Wingtip lístky SaaS aplikace](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Nasazení aplikace Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)

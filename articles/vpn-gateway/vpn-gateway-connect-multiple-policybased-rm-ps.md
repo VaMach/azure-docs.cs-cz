@@ -1,6 +1,6 @@
 ---
 title: "Připojit k více místně na základě zásad zařízení VPN Azure VPN Gateway: Azure Resource Manager: prostředí PowerShell | Microsoft Docs"
-description: "Tento článek vás provede konfigurací Azure brány sítě VPN založené na směrování pro více na základě zásad zařízení VPN pomocí Azure Resource Manageru a prostředí PowerShell."
+description: "Konfigurace služby Azure na základě trasy VPN gateway k více na základě zásad zařízení VPN pomocí Azure Resource Manageru a prostředí PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: db4d8837fb5c5d15364422e957e4914966215674
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Připojení brány Azure VPN k více místně na základě zásad zařízení VPN pomocí prostředí PowerShell
 
@@ -35,7 +35,7 @@ Zásady - *oproti* zařízení VPN založené na směrování se liší v jak se
 Následující diagramy zvýrazněte dva modely:
 
 ### <a name="policy-based-vpn-example"></a>Příklad sítě VPN založené na zásadách
-![na základě zásad](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
+![policy-based](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
 
 ### <a name="route-based-vpn-example"></a>Příklad sítě VPN založené na směrování
 ![založené na směrování](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
@@ -45,9 +45,9 @@ V současné době Azure podporuje oba režimy brány sítě VPN: brány sítě 
 
 |                          | **Brána sítě VPN PolicyBased** | **Brána sítě VPN RouteBased**               |
 | ---                      | ---                         | ---                                      |
-| **Služba Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
+| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **Verze IKE**          | IKEv1                       | IKEv2                                    |
-| **Max. Připojení S2S** | **1**                       | Basic nebo Standard: 10<br> HighPerformance: 30 |
+| **Max. Připojení S2S** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
 
 Pomocí vlastních zásad protokolu IPsec/IKE, teď můžete konfigurovat Azure brány sítě VPN založené na směrování a použít na základě předpony provoz selektory spolu s možností "**PolicyBasedTrafficSelectors**", pro připojení k místní zařízení VPN na základě zásad. Díky této funkci můžete pro připojení z virtuální sítě Azure a brány VPN k více místně na základě zásad zařízení VPN nebo brány firewall odebrání limit jednoho připojení z aktuální Azure na základě zásad VPN Gateway.
@@ -146,7 +146,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 > Musíte vytvořit zásady protokolu IPsec/IKE. Chcete-li povolit možnost "UsePolicyBasedTrafficSelectors" k připojení.
 
 Následující příklad vytvoří zásadu protokolu IPsec/IKE se tyto algoritmy a parametry:
-* IKEv2: DHGroup24 AES256, SHA384
+* IKEv2: AES256, SHA384, DHGroup24
 * Protokol IPsec: AES256, SHA256, PFS24 SA životnost 3600 sekund & 2048KB
 
 ```powershell
@@ -211,7 +211,7 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po dokončení připojení můžete do virtuálních sítí přidávat virtuální počítače. Kroky jsou uvedeny v tématu [Vytvoření virtuálního počítače](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Také zkontrolujte [zásady Konfigurace protokolu IPsec/IKE pro připojení S2S VPN nebo VNet-to-VNet](vpn-gateway-ipsecikepolicy-rm-powershell.md) Další informace o vlastních zásad protokolu IPsec/IKE.

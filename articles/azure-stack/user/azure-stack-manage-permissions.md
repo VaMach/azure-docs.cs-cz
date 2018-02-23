@@ -3,8 +3,8 @@ title: "Správa oprávnění k prostředkům na uživatele v Azure zásobníku |
 description: "Jako správce služeb nebo klienta zjistěte, jak ke správě oprávnění RBAC."
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: dfec5648ff383fd98965c1918cdab6472bb3c17f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control"></a>Správa řízení přístupu na základě rolí
 
@@ -36,6 +37,6 @@ Uživatel v zásobníku Azure může být čtečky, vlastníka nebo přispěvate
 3. V **uživatelé** okně klikněte na tlačítko **role**.
 4. V **role** okně klikněte na tlačítko **přidat** se přidat oprávnění pro uživatele.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 

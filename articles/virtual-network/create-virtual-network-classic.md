@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Vytvoření virtuální sítě (klasické) s několika podsítěmi
 
@@ -39,10 +39,10 @@ Vytvoříte virtuální sítě (klasické) pomocí [portál Azure](#portal), [ro
 ## <a name="portal"></a>Portál
 
 1. V internetovém prohlížeči, přejděte na [portál Azure](https://portal.azure.com). Přihlaste se pomocí vaší [účet Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Pokud účet Azure nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Klikněte na tlačítko **+ nový** na portálu.
-3. Zadejte *virtuální síť* v **vyhledávání na webu Marketplace** pole v horní části **nový** okno, které se zobrazí.  Klikněte na tlačítko **virtuální síť** při zobrazí ve výsledcích hledání.
-4. Vyberte **Classic** v **vybrat model nasazení** pole **virtuální sítě** okno, které se zobrazí, pak klikněte na tlačítko **vytvořit**. 
-5. Zadejte následující hodnoty **vytvořit virtuální síť (klasická)** okna a potom klikněte na **vytvořit**:
+2. Klikněte na tlačítko **vytvořit prostředek** na portálu.
+3. Zadejte *virtuální síť* v **vyhledávání na webu Marketplace** pole v horní části **nový** podokně, který se zobrazí. Klikněte na tlačítko **virtuální síť** při zobrazí ve výsledcích hledání.
+4. Vyberte **Classic** v **vybrat model nasazení** pole **virtuální sítě** podokně, který se zobrazí, pak klikněte na tlačítko **vytvořit**. 
+5. Zadejte následující hodnoty **vytvořit virtuální síť (klasická)** podokně a pak klikněte na **vytvořit**:
 
     |Nastavení|Hodnota|
     |---|---|
@@ -55,13 +55,13 @@ Vytvoříte virtuální sítě (klasické) pomocí [portál Azure](#portal), [ro
 
     Pokud jste Azure ještě nepoužívali, další informace o [skupiny prostředků](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [odběry](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), a [umístění](https://azure.microsoft.com/regions) (také označuje jako *oblasti*).
 4. Na portálu můžete vytvořit jenom jednu podsíť, když vytvoříte virtuální síť. V tomto kurzu vytvoříte druhou podsíť po vytvoření virtuální sítě. Můžete vytvořit později přístupné z Internetu prostředky v **veřejné** podsítě. Můžete také vytvořit prostředky, které nejsou přístupné z Internetu v **privátní** podsítě. Chcete-li vytvořit druhou podsíť, zadejte **myVnet** v **vyhledávání prostředků** pole v horní části stránky. Klikněte na tlačítko **myVnet** při zobrazí ve výsledcích hledání.
-5. Klikněte na tlačítko **podsítě** (v **nastavení** část) na **vytvořit virtuální síť (klasická)** okno, které se zobrazí.
-6. Klikněte na tlačítko **+ přidat** na **myVnet - podsítě** okno, které se zobrazí.
-7. Zadejte **privátní** pro **název** na **přidat podsíť** okno. Zadejte **10.0.1.0/24** pro **rozsahu adres**.  Klikněte na **OK**.
-8. Na **myVnet - podsítě** okně uvidíte **veřejné** a **privátní** podsítě, které jste vytvořili.
+5. Klikněte na tlačítko **podsítě** (v **nastavení** část) na **vytvořit virtuální síť (klasická)** podokně, který se zobrazí.
+6. Klikněte na tlačítko **+ přidat** na **myVnet - podsítě** podokně, který se zobrazí.
+7. Zadejte **privátní** pro **název** na **přidat podsíť** podokně. Zadejte **10.0.1.0/24** pro **rozsahu adres**.  Klikněte na **OK**.
+8. Na **myVnet - podsítě** podokně se zobrazí **veřejné** a **privátní** podsítě, které jste vytvořili.
 9. **Volitelné**: Po dokončení tohoto kurzu můžete chtít odstranit prostředky, které jste vytvořili, tak, aby vám zbytečně nenabíhaly poplatky za používání:
-    - Klikněte na tlačítko **přehled** na **myVnet** okno.
-    - Klikněte **odstranit** ikonu na **myVnet** okno.
+    - Klikněte na tlačítko **přehled** na **myVnet** podokně.
+    - Klikněte **odstranit** ikonu na **myVnet** podokně.
     - Potvrďte odstranění, klikněte na tlačítko **Ano** v **virtuální sítě odstranit** pole.
 
 ## <a name="azure-cli"></a>Azure CLI

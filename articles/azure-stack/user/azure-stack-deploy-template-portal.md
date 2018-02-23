@@ -3,8 +3,8 @@ title: "Nasazení šablony na portálu v Azure zásobníku | Microsoft Docs"
 description: "Další informace o použití portálu Azure zásobníku pro nasazení šablon."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: eafa60f2-16c9-4ef1-b724-47709e9ea29e
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 630d86ed7e3558ae2c8a62f4e1a94f10ca11812d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 30c077747685ad7617148e9130926120420b098b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Nasazení šablony pomocí portálu Azure zásobníku
 
@@ -35,6 +36,6 @@ Správce prostředků šablony nasazení a zřizování všechny prostředky pro
 5. Klikněte na tlačítko **skupiny prostředků**, vyberte existující skupinu prostředků nebo vytvořte novou a potom klikněte na **OK**.
 6. Klikněte na možnost **Vytvořit**. Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Nasazení šablon pomocí PowerShellu](azure-stack-deploy-template-powershell.md)
 

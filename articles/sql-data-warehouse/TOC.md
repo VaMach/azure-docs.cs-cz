@@ -23,6 +23,7 @@
 ### [Architektura MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Úrovně výkonu](performance-tiers.md)
 ### [Jednotky datového skladu](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Škálování na více instancí, pozastavení, obnovení](sql-data-warehouse-manage-compute-overview.md)
 ### [Zálohy datového skladu](sql-data-warehouse-backups.md)
 ### [Auditování](sql-data-warehouse-auditing-overview.md)
 ### [Omezení kapacity](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## Monitorování a ladění
-### [Pokyny](resource-classes-for-workload-management.md)
+### [Správa úloh](resource-classes-for-workload-management.md)
 ### [Komprese columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitorování](sql-data-warehouse-manage-monitor.md)
 ### [Řešení problémů](sql-data-warehouse-troubleshoot.md)

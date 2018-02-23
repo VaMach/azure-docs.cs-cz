@@ -1,6 +1,6 @@
 ---
 title: "Připojit virtuální síť k více lokalitám pomocí brány sítě VPN a prostředí PowerShell: Classic | Microsoft Docs"
-description: "Tento článek vás provede s více lokalit místní připojení k virtuální síti pomocí brány sítě VPN pro model nasazení classic."
+description: "Připojte víc lokalit místní klasické virtuální sítě pomocí brány VPN."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Přidat připojení Site-to-Site k virtuální síti s existující připojení brány sítě VPN (klasické)
 
@@ -206,6 +206,6 @@ Příklad návratový:
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o branách VPN najdete v tématu [informace o branách VPN](vpn-gateway-about-vpngateways.md).

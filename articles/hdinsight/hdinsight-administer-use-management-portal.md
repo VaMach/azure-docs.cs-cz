@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Správa clusterů Hadoop založených na systému Windows v prostředí HDInsight pomocí portálu Azure
 
@@ -43,7 +43,7 @@ Je nutné, abyste před zahájením tohoto článku měli tyto položky:
 1. Přihlaste se k [https://portal.azure.com](https://portal.azure.com).
 2. Po otevření portálu můžete:
 
-   * Klikněte na tlačítko **nový** v levé nabídce na vytvoření nového clusteru:
+   * Klikněte na tlačítko **vytvořit prostředek** v levé nabídce na vytvoření nového clusteru:
 
        ![tlačítko Nový cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Klikněte na tlačítko **clustery HDInsight** v levé nabídce.
@@ -352,11 +352,11 @@ Připojte se ke clusteru pomocí vzdálené plochy a použijte příkazový řá
 1. Připojte se ke clusteru pomocí vzdálené plochy.
 2. Z plochy, klikněte dvakrát na **Hadoop příkazového řádku**.
 
-    ![HDI. HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Další informace o Hadoop příkazů najdete v tématu [Hadoop příkazy odkaz](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Název složky v předchozím snímku obrazovky má číslo verze Hadoop vložených. Číslo verze lze změnit v závislosti na verzi Hadoop komponenty nainstalované v clusteru. Proměnné prostředí Hadoop můžete použít k odkazování na těchto složek. Například:
+Název složky v předchozím snímku obrazovky má číslo verze Hadoop vložených. Číslo verze lze změnit v závislosti na verzi Hadoop komponenty nainstalované v clusteru. Proměnné prostředí Hadoop můžete použít k odkazování na těchto složek. Příklad:
 
     cd %hadoop_home%
     cd %hive_home%
@@ -365,7 +365,7 @@ Název složky v předchozím snímku obrazovky má číslo verze Hadoop vložen
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste se naučili postup vytvoření clusteru HDInsight pomocí portálu a otevřete nástroj příkazového řádku Hadoop. Další informace naleznete v následujících článcích:
 
 * [Spravovat HDInsight pomocí prostředí Azure PowerShell](hdinsight-administer-use-powershell.md)

@@ -1,7 +1,7 @@
 ---
-title: "Průvodce vydavatele Azure Marketplace"
+title: "Průvodce AppSource vydavatele a Azure Marketplace"
 description: "Podrobný průvodce a publikování kontrolní seznamy pro nové vydavatelé pro Azure Marketplace"
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: 
 author: ellacroi
 manager: msmbaldwin
@@ -14,17 +14,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-marketplace-publisher-guide"></a>Průvodce vydavatele Azure Marketplace
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Průvodce AppSource vydavatele a Azure Marketplace
 
-Vítejte v Průvodci vydavatele Marketplace. Tato příručka je určená ke candidate a existující vydavatelů pochopit, jak využívat Azure Marketplace a obchodní poutače AppSource seznam svých aplikací a služeb růst své firmy ve spolupráci se společností Microsoft. Na konci tohoto průvodce můžete další informace o každé z těchto témat a vědět, kde najít podrobnější informace:
+Vítá vás [Azure Marketplace](https://azuremarketplace.microsoft.com) a [AppSource](https://appsource.microsoft.com) Průvodce vydavatele. Tato příručka je určená ke vydavatelů nových nebo stávajících pochopit, jak využít Azure Marketplace a obchodní poutače AppSource, kroky potřebné k publikování aplikací a služeb a jak pro růst společnosti ve spolupráci se společností Microsoft. Na konci tohoto průvodce můžete další informace o každé z těchto témat a vědět, kde najít podrobnější informace:
 
-- Jaké jsou výhody účastní Marketplace
+- Jaké jsou výhody výpis v jednom z marketplace obchodní poutače
 - Co jsou Azure Marketplace a AppSource
 - Jak využít tyto obchodní poutače
 - Je nejvhodnější pro nabídek a služeb, které výkladní skříň 
@@ -36,30 +36,33 @@ Vítejte v Průvodci vydavatele Marketplace. Tato příručka je určená ke can
 - Tom, jak optimalizovat v seznamu a používat prostředky, přejděte na trh na disku vliv
 - Kde pro nápovědu a podporu otázky o Azure Marketplace, AppSource, nebo tato příručka pro publikování, kontaktujte tým služby Marketplace na  **cloudmarketplace@microsoft.com** . 
 
-## <a name="the-benefits-of-participating-in-marketplace"></a>Výhody účasti v Marketplace.
+## <a name="benefits-of-participating-in-the-marketplace"></a>Výhody účasti v marketplace.
 
-Marketplace je launchpadu pro společné aktivity, přejděte na trh se společností Microsoft a setrvačníku pro růst podniku. Pomocí spuštění povýšení, generování vyžádání a joint prodeje a marketingu, lze portfoliu nabídku Marketplace základnu vaší firmy stroje cloudu. Neexistují žádné poplatky za účasti v Marketplace. Naším cílem je s nejlepší řešení, které nabízí naše ekosystém partnerů připojení zákazníků společnosti Microsoft.
+Azure Marketplace a AppSource jsou spuštění body pro společné aktivity, přejděte na trh se společností Microsoft a setrvačníku pro růst podniku. Pomocí spuštění povýšení, generování vyžádání a joint prodeje a marketingu, vaše marketplace výpisech může být základnu vaší firmy stroje cloudu. Neexistují žádné poplatky za účasti v marketplace. Naším cílem je nejlepší řešení a služby, které nabízí naše ekosystém partnerů připojení zákazníků společnosti Microsoft.
 
-Využijte možnosti Marketplace pro růst společnosti:
+Využijte možnosti marketplace pro růst společnosti:
 
-- **Generovat zájemců a prodejních příležitostí.** Zadejte nové trhy s rozšířené celém portfoliu řešení na Cloudová platforma společnosti Microsoft. Prodeje a mezi prodává nabídky Marketplace. 
-- **Obchodní hodnotu zvýšit a zvýšení velikosti zakázky se stávající a nové zákazníky.** Růst pozornosti velikost a adresa zákazníka problémové body při přesunu úloh do cloudu. Zvýšit pozornosti ziskovosti prodávané kompletních řešení. 
-- **Získání prakticky uplatnitelných informací.** Váš úspěch je naše úspěch. Přehledné prostřednictvím portálu pro partnery cloudu na co provádí, co vás vygenerování a jak maximalizovat aktivit kampaně.
+- **Generovat zájemců a prodejních příležitostí.** Zadejte nové trhy s rozšířené celém portfoliu řešení na Cloudová platforma společnosti Microsoft. Prodeje a mezi prodává nabídky marketplace. 
+- **Obchodní hodnotu zvýšit a zvýšení velikosti zakázky se stávající a nové zákazníky.** Růst pozornosti velikost a adresa zákazníka problémové body při přesunu úloh do cloudu. Snižte prodejní cykly a zvýšit pozornosti ziskovosti prodávané kompletních řešení tento cíl konkrétní úlohy a scénáře odvětví.
+- **Získání prakticky uplatnitelných informací.** Váš úspěch je naše úspěch. Přehledné na výkon vaší výpisech prostřednictvím portálu pro partnery cloudu. Zjistěte, co provádí, co vás vygenerování a jak maximalizovat aktivit kampaně.
+
+>[!NOTE]
+>Aplikace, které rozšiřují Office bude statistika přístup přes aplikace Office procesu publikování.
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Co jsou Azure Marketplace a AppSource?
 
-Společnost Microsoft poskytuje dva odlišné obchodní poutače Marketplace, které umožňují partnery seznamu nabídky, povolte zkušební verze a transact přímo s zákazníků společnosti Microsoft a ekosystém: – Azure Marketplace (https://azuremarketplace.microsoft.com) a ([AppSource] https://appsource.microsoft.com). Tyto obchodní poutače povolit zákazníkům najít, zkuste a zakoupit aplikace a služby, které urychlit jejich digitální transformace a pomůže vydavatelů rozvoji svého podnikání zvýšením přístup k zákazníků a ekosystém partnerů společnosti Microsoft.
+Společnost Microsoft poskytuje dvě obchodní poutače odlišné marketplace, umožňujících partnery seznamu nabídky, povolte zkušební verze a transact přímo s zákazníků společnosti Microsoft a ekosystém: – Azure Marketplace (https://azuremarketplace.microsoft.com) a ([AppSource] https://appsource.microsoft.com). Tyto obchodní poutače povolit zákazníkům najít, zkuste a zakoupit aplikace a služby, které urychlit jejich digitální transformace a pomůže vydavatelů rozvoji svého podnikání zvýšením přístup k zákazníků a ekosystém partnerů společnosti Microsoft.
  
-Obchodní poutače Marketplace je zarovnán cílové skupiny a cloudu produkty společnosti Microsoft, které pomáhají uživatelům najít přesně to, co potřebují. Každý výkladní skříň nabízí specializované možnosti publikování, můžete maximalizovat publikování investic shrnuté v následující tabulce:
+Obchodní poutače marketplace je zarovnán cílové skupiny a cloudu produkty společnosti Microsoft, které pomáhají uživatelům najít požadované. Každý výkladní skříň nabízí specializované možnosti publikování, můžete maximalizovat publikování investic shrnuté v následující tabulce:
 
 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Cílové skupiny     |Odborníci v oblasti IT, vývojáři (specialisty role zahrnují DBAs, zajištění bezpečnosti, DevOps, atd.)    | Řádek obchodní rozhodnutí ve firmě (specialisty role zahrnují nákup, výrobní, monitorování účtů, atd.)      |
-|Integrovaný rozšíření     |Azure         | Azure, Dynamics 365, Office 365, Power BI a výkonu aplikací       |
-|Typy řešení a služby     |  Řešení infrastruktury a odborníky v oblasti služeb   | Dokončení řádku obchodních aplikací a odborníky v oblasti služeb        |
-|Možnosti publikování     |  Obraťte se na mě, konzultační služby nabízejí, zkušební verze, virtuálního počítače, šablony řešení a spravovaných aplikacích       |  Obraťte se na mě konzultace ohledně nabídky služeb nebo zkušební verze       |
-|Prostředí v aplikaci     | Portál Azure a rozhraní příkazového řádku         | Office 365, Dynamics 365 Power BI Office klientské aplikace       |
+|Vytvořené s nástroji nebo rozšiřovat     |Azure         | Azure, Dynamics 365, Office 365, Power BI a výkonu aplikací       |
+|Typy řešení a služby     |  Řešení infrastruktury a odborníky v oblasti služeb   | Dokončení řádku obchodní cloudové aplikace, doplňky Office 365 a odborníky v oblasti služeb        |
+|Možnosti publikování     |  Obraťte se na mě, konzultační služby nabízejí, zkušební verze, virtuálního počítače, šablony řešení a spravovaných aplikacích       |  Bezplatná zkušební verze, získat nyní, Test jednotky, obraťte se na mě konzultace ohledně nabídky služeb      |
+|V aplikaci prostředí poskytuje uživatelům přístup k aplikacím a službám v kontextu jejich aplikace  | Portál Azure a rozhraní příkazového řádku         | Office 365, Dynamics 365 Power BI Office klientské aplikace       |
 
 ## <a name="leveraging-these-storefronts"></a>Využití těchto obchodní poutače
 
@@ -75,44 +78,50 @@ Zaujmout IT profesionálům a vývojářům cloudu prostřednictvím **Azure Mar
 |**Požadavkům mechanismus škálovatelné nasazení služby a aplikace třetích stran**   | Umožňuje vytváření a konfiguraci škálovatelná nasazení na třetí strany aplikací a služeb        |
 |**Vyžaduje nové aplikace a služby integrovat a pracovat s existující řešení**  |   Snadno se integruje služby a aplikace třetích stran s existující řešení v Azure      |
 
-Zapojení podnikoví uživatelé s využitím **AppSource** ke zjištění a zkuste to řádku Business SaaS aplikace a služby: 
+Zaujmout podnikoví uživatelé na **AppSource** najít, zkuste a get-obchodní aplikace SaaS a implementaci služby pomoci jednotky obchodní výsledky a zkrátit čas na hodnotu:: 
 
 
 |Potřeba zákazníka  |AppSource  |
 |---------|---------|
-|**Chce rozšířit funkce Dynamics 365, Office 365, Power BI a výkonu aplikací**   |  Umožňuje zákazníkům třetí strany aplikací a služeb můžete použít k rozšíření funkce cloudové platformy Microsoft       |
-|**Najde ho náročné ke zjišťování vpravo aplikace nebo služby**    |   Poskytuje centralizované ke zjišťování a zkušební verze aplikace a služby, moduly a další      |
-|**Potřebuje průmyslové podnikovým řešení**   | Umožňuje řešení pro každé odvětví, aby zákazníci mohli najít požadované        |
-|**Vyžaduje řešení pro specifické pro firmy**    | Umožňuje řešení pro každý řádek obchodní a obchodní problém, včetně služeb zákazníkům, oddělení lidských zdrojů, operace a mnoho dalších        |
+|**Hledá podniková řešení, které pracují s produkty společnosti Microsoft již používají** | Povolit zákazníkům třetí strany aplikací a služeb můžete použít k rozšíření cloudových aplikací společnosti Microsoft a technologie.       |
+|**Schopnost snadno najít právo vpravo řešení nebo implementace služby.**    |   Poskytuje centralizované ke zjištění, zkušební verze a získat aplikace a služby, moduly a další      |
+|**Oborové obchodní řešení pro jejich konkrétní obchodní problémy podpory**   | Poskytuje oborový dokončení začátku do konce řešení, která pomůžou konkrétní požadavky na adresu napříč mnoha odvětví     |
+|**Aplikacemi a pomáhá zvýšit produktivitu, efektivitu a podnikových statistik**    | Poskytuje aplikace pro obchodních, včetně služeb zákazníkům, oddělení lidských zdrojů, operace a mnoho dalších        |
+| **Přizpůsobí aplikace jejich jedinečných situaci partnera zkušeného implementace** | Poskytuje katalog konzultace ohledně nabídky služeb pro řešení založená na Dynamics 365, Power BI, PowerApps a 3. stran aplikací jsou k dispozici na AppSource pomohou podnikoví uživatelé najít konzultace ohledně služeb návrhu zajistit předvídatelný výstupy |
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Seznámení s rozdíly mezi obchodní poutače
 
-Výběr výkladní skříň začíná identifikace cílovou skupinu pro vaši nabídku: Azure Marketplace zarovnán potřeby Odborníci v oblasti IT a vývojářům, a AppSource je firemním uživatelům. Pokud vaše řešení cílem i cílové skupiny, stačí jednou publikovat v obou obchodní poutače v seznamu.
+Výběr výkladní skříň začíná identifikace cílovou skupinu pro vaši nabídku: Azure Marketplace zarovnán potřeby Odborníci v oblasti IT a vývojářům, a AppSource je potřebám podnikoví uživatelé. Pokud vaše řešení cílem i cílové skupiny, stačí jednou publikovat v obou obchodní poutače v seznamu.
  
 Vezměte v úvahu další výhody každý výkladní skříň:
 
 |StoreFront výhody  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Flexibilita fakturace**    | Pro virtuální počítače použijte fakturace možnosti "Platím průběžně", smlouvách Microsoft enterprise nebo přímé prodeje modely web. Cenová možnosti zahrnují také odběru úroveň Free, kde je soustavně volné nabídky, jakož i odběr akci nyní, který je promotionally volné po omezenou dobu, po jejímž uplynutí převede na placené předplatné. 'Přineste vlastní licence' aktivace je také možnost pro podporu vydavatele pro obě možnosti fakturace, ve scénářích tam, kde jsou nasazené virtuální počítače pomocí aplikace Azure (např. šablona řešení nebo spravované aplikace), se účtují zřízené všechny prostředky Azure přímo zákazníkovi | AppSource nabízí bezproblémové zřizování zkušební prostředí ale aktuálně nenabízí obchodování povolena možnost publikování; To umožňuje vám využít aktuální řazení a fakturace infrastruktury bez další investice nebo změny        |
-|**Usnadnění připojení s dalšími partnery**     |Azure Marketplace, momentálně nepovoluje vydavatele a propojit nabídku služby poskytovatele nebo doručení partnery         |  Nezávislí dodavatelé softwaru, systémy integrátorem a spravované poskytovatelů služeb může být propojený pro konkrétní implementace scénáře, podpora spolupráce prodávané nové zákazníky      |
+|**Flexibilita fakturace**    | Pro virtuální počítače použijte fakturace možnosti "Platím průběžně", smlouvách Microsoft enterprise nebo přímé prodeje modely web. Cenová možnosti zahrnují také odběru úroveň Free, kde je soustavně volné nabídky, jakož i odběr akci nyní, který je promotionally volné po omezenou dobu, po jejímž uplynutí převede na placené předplatné. 'Přineste vlastní licence' aktivace je také možnost pro podporu vydavatele pro obě možnosti fakturace, ve scénářích tam, kde jsou nasazené virtuální počítače pomocí aplikace Azure (např. šablona řešení nebo spravované aplikace), se účtují zřízené všechny prostředky Azure přímo zákazníkovi | AppSource nabízí zřizování zkušební prostředí ale aktuálně nenabízí obchodování povolena možnost publikování; To umožňuje vám využít aktuální řazení a fakturace infrastruktury bez další investice nebo změny        |
+|**Usnadnění připojení s dalšími partnery**     |Momentálně nepovoluje vydavatele propojení služby poskytovatele nebo doručení partnery nabídku Azure Marketplace, ale tato funkce se spustí v 2018         |  Nezávislí dodavatelé softwaru, systémy integrátorem a spravované poskytovatelů služeb může být propojený pro konkrétní implementace scénáře, podpora spolupráce prodávané nové zákazníky      |
 |**Automation**     |    Azure Marketplace, momentálně nepovoluje vydavatele a propojit nabídku služby poskytovatele nebo doručení partnery     | Využívejte automatizované SaaS doplňku zřizování a pomocí šablony řešení můžete automatizovat scénáře nasazení a kolekce založené na SaaS dat        |Nezávislí dodavatelé softwaru, systémy integrátorem a spravované poskytovatelů služeb může být propojený pro konkrétní implementace scénáře, podpora spolupráce prodávané nové zákazníky
 |**Více typů cloudu**     |   Publikovat veřejný cloud a místní řešení prostřednictvím Azure zásobníku nebo publikovat ve službě Azure Government a místní cloudů, včetně Číně a Německo      |    AppSource aktuálně nenabízí podporu pro zásobník Azure, Azure Government nebo místního cloudech     |
-|**Prezentace v kontextu zákazníkům**     |  Zpřístupnění řešení v Azure-portal možnosti kontextové vyhledávání (virtuálních počítačů a šablon řešení)       |  Zpřístupnění řešení v prostředí v aplikaci pro produkty společnosti Microsoft       |
+|**Prezentace v kontextu zákazníkům**     |  Zpřístupnění řešení v Azure-portal možnosti kontextové vyhledávání (virtuálních počítačů a šablon řešení)       |  Dosažení více zákazníků prostřednictvím prostředí v aplikaci pro produkty společnosti Microsoft, například Dynamics 365, Power BI a Office 365    |
 
 ## <a name="select-a-publishing-option"></a>Vyberte publikování možnost
 
 Každý výkladní skříň podporuje více možnosti publikování a typech nabídek: seznam, zkušební verze a Transact. Vyberte typ nabídky, který nejlépe představuje vaše aplikace a podrobnosti ze služby. Všechny možnosti publikování získáte přístup k vést sdílení partnery. 
 
+Tato část vás provede možnosti dostupné pro vás v obou obchodní poutače. 
+
 
 |**Možnost publikování**  | **Typ nabídky** | **Výkladní skříň**  |
 |---------|---------|---------|
-|**Seznam**    |    Obraťte se na mě konzultace ohledně služby     |  Azure Marketplace, AppSource       |
+|seznam    |    Obraťte se na mě konzultace ohledně služby     |  Azure Marketplace, AppSource       |
 |**Zkušební verze**   |     Uvolněte zkušební verze, zkušební verze SaaS, interaktivní ukázku, Test jednotky    |  Azure Marketplace, AppSource       |
 |**Příkaz Transact**     |   Virtuální počítač, šablona řešení spravované aplikace      |    Azure Marketplace     |
 
 ### <a name="list"></a>SEZNAM
 
 Použití **kontaktujte mi** při zapojení úrovni zkušební verze nebo transakce není možné. Výhodou tohoto přístupu je, že umožňuje vydavatelé s řešení na trhu pro okamžitě začne zájemce, které můžete by měla vycházet do základní nabídky zahájíte setrvačníku vaší firmy. Nevýhodou je ale, že je omezená, porovnání s jinými typy nabídka zákaznické engagement.
+
+>[!IMPORTANT]
+>Obraťte se na Me není typu doporučené výpis a musí být použit pouze v situacích, kde neexistuje žádný způsob, jak vytvořit zkušební prostředí. Zákaznické engagement je nejvhodnější zkušební verzi a nabízí Transact. Pokud máte libovolného typu zkušební verze, naše procesu registrace vám pomohou jednu z těchto možností, v závislosti na vašem scénáři.
 
 Když nabídku se primárně skládá z profesionální služby (např. hodnocení, implementace, pracovních konferencí), použijte **konzultace ohledně služby** nabízejí typu. Nabídka oboru, doba trvání a cena musí být vyřešeny, musí být pro jednoho zákazníka a musí se provést na místě.
 
@@ -122,7 +131,7 @@ Poskytuje prostředí zkušební verze zvyšuje úroveň engagement nabízí zá
  
 Všechny možnosti zkušební verze jsou nasazeny do zkušební verze prostředí nebo předplatné Azure, nikoli do prostředí nebo předplatné Azure zákazníka. Zkušební verze by měl být zákazníka vedla bez jakékoli další nákupy a minimální, pokud existuje, další konfiguraci k dokončení jednoduchou případ použití. Zkušební verze musí zahrnovat bezplatnou podporou aspoň po dobu trvání zkušebního období. Uživatelé zkušební verze by měla vycházet a monitorovat podél záměrné vyhodnocení cesty pro dosažení co nejlepších výsledků. Vydavatelé se doporučuje použít Marketplace zájemců i intelligence v aplikaci vydavatele vlastní ke sledování a správě uživatelé zkušební verze.
 
-Existují 3 typických scénářích zkušební verze:
+Existují 4 typických scénářích zkušební verze:
 
 
 |**Zkušební verze možnost**  |**Klíčové výhody**  |**Výběrem této možnosti Pokud...**  |
@@ -131,7 +140,8 @@ Existují 3 typických scénářích zkušební verze:
 **Vyzkoušejte**     |     Umožňuje zákazník zkuste svůj produkt před jejich zakoupení a poskytuje návodné vašeho řešení na předem nakonfigurovaná instalační program |   Řešení je virtuální počítač, šablona řešení nebo SaaS aplikace pomocí jednoho klienta, nebo je složitý zřídit nebo nemáte metodu pro zkušební verzi převést na placené nabídku |
 |**Interaktivní Demo**    |  Umožňuje zákazníkům zobrazíte vašeho produktu v akci bez složitost instalačního programu       |    Řešení vyžaduje složité nastavení, která může být obtížné zajistit v zkušebního období     |
 
-#### <a name="free-trial"></a>Zkusit zdarma
+
+#### <a name="free-trial"></a>Bezplatná zkušební verze
 
 Použití **bezplatná zkušební verze** při řešení nebo aplikace nabízí zkušební verzi volné zkuste, založené na SaaS. Tato možnost jednotky vysoké kvality zájemců od zúčastněných zákazníků, umožňují spustit setrvačníku vaší firmy. Bezplatné zkušební verze lze zobrazit jako omezené použití nebo zkušebními účty omezenou dobu trvání a by měla obsahovat volání k činnosti pro urychlení převod na placené použijte váš software.
 
@@ -159,7 +169,10 @@ V Azure Marketplace, používat **virtuální počítač** při nasazení řeše
 
 Použijte **šablona řešení Azure** při řešení vyžaduje další automatizaci nasazení a konfigurace nad rámec tohoto virtuálního zařízení. Řešení šablon můžete automatizovat zřizování jeden nebo více prostředků virtuálního počítače a kromě toho můžete zřizovat prostředky sítě a úložiště. Šablony řešení může poskytnout výhody automatizace na jednu virtuální počítače a také celé řešení založené na IaaS prostředí. Další informace o vytváření šablony řešení [zde](https://github.com/MicrosoftDocs/azure-docs).
 
-Použití aplikace spravované v Azure při nasazení virtuálního počítače nebo celé řešení založené na IaaS předplatné zákazníka při vydavatele nebo zákazníka, které řešení pro správu pomocí 3. stran, například na serveru nebo MSP. Další informace o [vytváření aplikace spravované podle zde](https://docs.microsoft.com/azure/managed-applications/overview). Seznam častých dotazů najdete v tématu [Azure Marketplace – nejčastější dotazy](https://azure.microsoft.com/marketplace/faq/).
+Použijte **spravované aplikace Azure** při nasazení virtuálního počítače nebo celé řešení založené na IaaS předplatné zákazníka při vydavatele nebo zákazníka, které řešení pro správu pomocí 3. stran, například na serveru nebo MSP. Další informace o [vytváření aplikace spravované podle zde](https://docs.microsoft.com/azure/managed-applications/overview). Seznam častých dotazů najdete v tématu [Azure Marketplace – nejčastější dotazy](https://azure.microsoft.com/marketplace/faq/).
+
+>[!NOTE]
+> Spravované aplikace musí být nasadit přes marketplace. Pokud vám záleží hlavně webovými servery zákazníka, Všimněte si, že budou moci oslovení zákazníkům také zajímat, pokud máte realizace povolili sdílení.
 
 ### <a name="azure-certified"></a>Azure Certified
 
@@ -197,11 +210,11 @@ Naopak pokud povolíte Bring Your Own License jako možnost:
 |Vaše náklady na licence     | Licence poplatek vyjednal a účtují podle vydavatele        |
 |---------|---------|
 |Náklady na používání Azure (D1 nebo 1jader)    | 0.14 za hodinu         |
-|**Společnost Microsoft se fakturuje zákazníka**     | **0.14 za hodinu**        |
+|**Společnost Microsoft se fakturuje zákazníka**     | 0.14 za hodinu        |
 
 V tomto scénáři bills Microsoft 0.14 za hodinu pro použití publikované bitovou kopii virtuálního počítače. 
 
-|**Účty Microsoft**    |   **0.14 za hodinu**      |
+|**Účty Microsoft**    |   0.14 za hodinu      |
 |---------|---------|
 |Microsoft udržuje náklady na používání Azure     |    0.14 za hodinu     |
 |Microsoft udržuje 0 % vaše náklady na licence     |  0,00 Kč za hodinu       |
@@ -227,7 +240,7 @@ Každý zákazník se smlouvou Enterprise může přidat Azure do své smlouvy p
 |---------|---------|---------|
 |**Zásady zapojení**    | Zkontrolujte Azure Marketplace zapojení zásady [sem] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Seznam, zkušební verze, Transact        |
 |**Integrace s Microsoft**    | Azure Marketplace nabízí by měl využít nebo rozšíření služby Microsoft Azure, jako jsou výpočty, sítě nebo úložiště a zarovnat do existující kategorie Azure Marketplace například databáze, zabezpečení, sítě, atd. Úplný seznam [zde](https://azuremarketplace.microsoft.com/marketplace/apps).        | Seznam, zkušební verze, Transact        |
-|**Cílová skupina**    | Azure Marketplace nabízí musí být pro IT profesionály, vývojáři cloudu nebo jiné role technické zákazníka.       |  Seznam, zkušební verze, Transact 
+|Cílová skupina    | Azure Marketplace nabízí musí být pro IT profesionály, vývojáři cloudu nebo jiné role technické zákazníka.       |  Seznam, zkušební verze, Transact 
 |**Vést správy**    | Přijímat zájemců z Marketplace, je nutné povolit aplikaci CRM (Marketo, Microsoft Dynamics nebo Salesforce) tak, aby přijímal realizace data.        |   Seznam, zkušební verze, Transact      |
 |**Zásady ochrany osobních údajů a podmínky použití**     |   Musí být dostupný přes veřejnou adresu URL vaší zásady ochrany osobních údajů a podmínky použití je nutné zadat jako text během publikování.      |   Seznam, zkušební verze, Transact      |
 |**Podpora**     |  Vaši nabídku musí obsahovat adresu URL veřejně dostupné podpory, kde pomoc zákazníkům. Zkušební verze musí být zadána v bez dalších nákladů podpory pro zkušební období.       |  Zkušební verze, Transact       |
@@ -252,7 +265,7 @@ Každý zákazník se smlouvou Enterprise může přidat Azure do své smlouvy p
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Konkrétní požadavky na konzultace ohledně publikování služby
 
 
-|**Požadavky** |**Podrobnosti**  |**Možnost publikování**  |
+|Požadavky |**Podrobnosti**  |**Možnost publikování**  |
 |---------|---------|---------|
 |**Vlastnosti nabídky služeb**     | Konzultace ohledně služby musí být doručené jako pevné oboru, pevné doby trvání, pevné ceny (nebo volné) zapojení, především předprodejní zaměřené na konkrétní, omezené na jednoho zákazníka a prováděné na místě        |    Seznam     |
 |**Požadavky na partnera pro konzultační služby**    |   **Pouze AppSource.**  Dynamics 365 pro zákaznické Engagement [stříbrným nebo Gold cloudu zákazníka relace správy Competency](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 pro finanční a operace Enterprise edition: Silver nebo [Enterprise prostředek plánování] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) Gold competency a minimální výnosy od $25K v cloudu Operace v koncové dobu 12 měsíců. Dynamics 365 Finance a operace, Business edition: sloužit jako [poskytovatele cloudové služby (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) nebo [digitální partnera z záznamu (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) pro alespoň jednoho odběratele. Power BI: Splňují kritéria [partnerských řešení] (20Incentives.pdf file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & %). PowerApps: K dispozici řešení – partnera představením (https://powerapps.microsoft.com/en-us/partner-showcase/) |    Seznam     |
@@ -295,7 +308,22 @@ Pro jednoho klienta aplikace několika způsoby:
 - Vývoj každého zákazníka, Test jednotky.
 - Vytvoření ukázkové víceklientské ukázkovou aplikaci pomocí jednotného přihlašování
 
-## <a name="cloud-partner-portal-pre-publishing-checklist"></a>Portál pro partnery cloudu předem publikování kontrolní seznam
+##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publikování procesy produktu pro systém Office, Dynamics a Power BI
+Pro AppSource aplikace, které rozšiřují Office, Dynamics a Power BI můžete použít další informace o specifických požadavků v určitém dokumentaci v této části. 
+
+
+|Produkt |Informace o publikování  |
+|---------|---------|
+|Office 365     |    Zkontrolujte [publikování proces a pokyny]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 Finance a operace  |   Při sestavování Enterprise Edition, zkontrolujte [publikování proces a pokyny](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365 pro zákaznické Engagement |Zkontrolujte [publikování proces a pokyny](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource) |
+|Power BI   |     Zkontrolujte [publikování proces a pokyny.]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)    |
+|Cortana Intelligence     |    Další informace o [Cortana v AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)     |
+|AppSource konzultace ohledně nabídky     |  Zkontrolujte [pokyny a zjistěte, jak odeslat vaši nabídku.]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+
+
+
+## <a name="cloud-partner-portal-pre-publishing-checklist-for-azure-marketplace"></a>Portál pro partnery cloudu předem publikování kontrolní seznam pro Azure Marketplace
 
 Před zahájením procesu publikování, je vhodné se seznámit s součásti požadované pro sestavení nabídku. K dokončení vytvoření nabízejí pracovní postup publikování v portálu pro partnery cloudu se vyžadují následující artefakty. 
 
@@ -309,7 +337,7 @@ Před zahájením procesu publikování, je vhodné se seznámit s součásti po
 |**Země nebo oblast dostupnosti**   | Vše        |
 |**Doba zapojení**     |   Konzultační služby      |
 |**Použít odvětví, kategorie a hledaná klíčová slova**     |  Vše       |
-|**Loga společnosti (48 × 48, 216 x 216)**     |  Konzultační služby       |
+|**Company Logos (48x48, 216x216)**     |  Konzultační služby       |
 |**Video přehled produktu (volitelné)**  |  Vše       |
 |**Snímky obrazovky (max. 5, 1280 × 720)**   |    Vše     |
 |**Marketing dokumentů (Max3)**    |  Vše       |
@@ -364,7 +392,7 @@ Před zahájením procesu publikování, je vhodné se seznámit s součásti po
 
 |Budete potřebovat publikování artefaktů  |Pro tento typ nabídky  |
 |---------|---------|
-|**Číslo verze**     |    Příkaz Transact ' aplikace Azure (šablony řešení a spravované aplikace)     |
+|Číslo verze     |    Příkaz Transact ' aplikace Azure (šablony řešení a spravované aplikace)     |
 |**Soubor balíčku, která obsahuje všechny soubory šablony a createUIDefinitionFile**   |Příkaz Transact ' aplikace Azure (šablony řešení a spravované aplikace)         |
 |**Podrobnosti operačního systému**    |   Příkaz Transact se virtuální počítače      |
 |**Porty a protokoly v použití**    |  Příkaz Transact se virtuální počítače       |
@@ -388,7 +416,7 @@ V této části vám vysvětlíme kroky: stane vydavatele v Azure Marketplace a 
 
 Prostřednictvím celý proces Marketplace publikování použijete e-mailovou adresu, která slouží k identifikaci účtu webu Marketplace. Tato e-mailová adresa musí být zaregistrovaný jako ID společnosti Microsoft a se použije pro oba [Microsoft Developer Center](https://developer.microsoft.com/) a [portál pro partnery cloudu](https://cloudpartner.azure.com/). Byste měli mít pouze jeden účet Microsoft ID pro Azure Marketplace a AppSource nabídkami a důrazně doporučujeme, aby sdíleny s jinými službami nebo nabízí.
 
-E-mailová adresa, vybraná by měl být ve vaší podnikové domény a řídí váš IT tým. Zkontrolujte příloha: pokyny pro vytváření ID společnosti Microsoft a Správa účtu webu Marketplace, příloha: pokyny pro Microsoft IDs v AAD federovaných domén pro pokyny před vytvořením ID. 
+E-mailová adresa, vybraná by měl být ve vaší podnikové domény a řídí váš IT tým. Přečtěte si v částech [pokyny a jak Tos](#Guidelines-and-How-Tos) včetně pokynů pro vytvoření ID společnosti Microsoft k správě účtu webu Marketplace a pokyny pro Microsoft IDs v AAD federovaných domén pro pokyny před vytvořením ID. 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>Odeslání formuláře navrženém Marketplace.
 Jako součást procesu registrace Marketplace musíte odeslat navrženém formuláře, odeslání informací o aplikaci nebo nabídky služeb, informace vaší společnosti a úroveň podpory, který bude poskytovat.  
@@ -423,175 +451,6 @@ Pomocí účtu webu Marketplace (ID služeb Microsoft) pro přístup k váš pro
 
 Podrobné informace o tom, jak pomocí portálu pro partnery cloudu, naleznete [Další](https://cloudpartner.azure.com/#Learn) nabídky v rámci portálu a klikněte na tlačítko v dokumentaci k oddílu. 
 
-## <a name="how-to-grow-your-business-with-marketplace"></a>Postupy pro růst společnosti Marketplace
-
-Následující osvědčené postupy v marketing pomůže můžete nastavit pro úspěch s přejděte na trh a iniciativami společné Sell Microsoft, stejně jako maximalizovat vaše obchodní výhody přes Marketplace. [Microsoft Partner sítě (MPN)](https://partner.microsoft.com/membership) je brána pro všechny bez Marketplace související marketing a programové prostředky. 
-
-Kvalitu aplikace publikace a zavázala k zákazníka zaměřená na vyžádání generování a partnerské engagement nápovědy jednotky zákazníka růstu pro vaši organizaci. Účastnit tyto aktivity pomůže Microsoftu rozšířit pracovní přejděte na trh a klíče řešení funkce napříč obchodní poutače marketplace. 
-
-Tato část vás provede procesem marketing osvědčené postupy pro nabídku, podle následující kontrolní seznam:
-
-- Jste jehož optimalizován Moje výpis přesměrovat provoz a engagement.
-- Vytvořili jste zasílání zpráv na tento web využití jedinečný cílová stránka, přesměrovat provoz na můj tržišti.
-- Jste publikovaný disk nebo jiné zkušební verze, aby zákazníci mohou mít Moje nabídka živý běh v Azure.
-- I naplánování a vytvořené vlastní marketing a reklamními nabídkami kampaně sledování jednotky a engagement.
-- Generování realizace na vyžádání I tak, aby pokaždé, když se někdo slouží k otestování nebo nasazení Moje aplikace, se zobrazí jejich název a kontaktní informace o povolení.
-- I jste se naučili o a propojená s partnera prostředky, které jsou k dispozici pro mě prostřednictvím [Microsoft Partner sítě (MPN)](https://partner.microsoft.com/membership).
-
-### <a name="create-a-great-listing"></a>Vytvoření skvělé výpis
-
-Výpis v marketplace někdy může být vaše první interakci s potenciálních zákazníků. Jako první dojem má být silné a něco cílovou skupinu chce zpracovat. Existují některé základní věci, které může provádět, abyste měli tento první dojem v marketplace skvělé!
-
-- **Najít:** napsat popis vaše nabídka pomocí klíčová slova a podmínky vaší kupujících bude hledat. 
-- **Být visual:** bitové kopie a videa pomůže zobrazit uživatele klíčové funkce a můžete ilustrují prostředí. Vezměte v úvahu co můžete zobrazit, pomáhá poskytovat vaše nabízená hodnota nebo odpovědi na otázky vaší kupujících nejvyšší.
-- **Zadejte prostředí:** zákazníkům jako a zkuste to před jejich zakoupení. Zájemců z ukázky, zkušební verze, generovány a test jednotky prokázat povede k více obchodů zákazníka. Čím silnější zkušební prostředí můžete zadat znamená vyšší realizace, které vytvoříte. Jsme zjistili disku (v průměru) vede výsledek na 40 % uzavřený nabídky.
-- **Pomůže cílovou skupinu Další:** při by doporučujeme, aby váš prostor Přehled jednoduchých a, k dispozici je také dostatek místa tak, aby odkazoval na další zdroje informací o vašem produkt. Použít tento prostor pro doručení stručné zprávy o jaké jsou vaše produktu a jak je vyhovuje potřebám vašeho zákazníka. není třeba obávat pro přesměrování je na další materiály, které další informace. Bonusové, pokud tyto studijních materiálů nebo odkazy můžete sledovat do obsahu marketingové strategie, takže je může být konzistentně vydavatelských vede.
-- **Využít hodnocení & recenze:** umožňují zákazníkům prodeji určitého produktu za vás. Hájící zákazníka zájmy lze největších ovladač prodeje a je často, kde přejděte kupující před jejich další informace o vašem produkt. S více silné recenze vám také pomůže zvýšit vaši nabídku ve výsledcích hledání a do klíčové vybrané oblasti.
-
-### <a name="build-a-great-landing-page"></a>Sestavení skvělé cílová stránka
-Cílová stránka na webu společnosti je brány z vaší aktivity generování vyžádání k vaší marketplace výpis v Azure Marketplace. 
-
-Začněte určením svých cílů. Pro vaše řešení Marketplace rozhodněte, kdo je zákazníkovi cíl a jakou akci chcete provést. Ukázka akce by 'Test jednotky naše řešení' nebo "Nyní získat řešení." Cílová stránka může využít napříč více marketingové strategie se cokoli z události, webová vysílání a sociálních médií dokumenty White Paper, technické školení a tiskové zprávy. Více konzistentní jste ve vašem zasílání zpráv a výzva k akci, tím snazší řešení bude najít.
-
-Až budete mít připravený plán kampaň, postupujte podle těchto osvědčené postupy a zvažte co abyste se vyhnuli při vytváření stránky maximalizovat efektivitu cílová stránka: 
-
-
-|Osvědčený postup  |Způsoby předejít  |
-|---------|---------|
-|**Vyjádřete, jaký zákazníka problém řeší řešení a jak můžete využít Azure, aby bylo dojít**    |  Selhání propojí způsoby, ve kterém řešení plus Azure spolupracují       |
-|**Vytvořit adresu URL krátký, snadno zapamatovat**    |    Dlouhé adresy URL nejsou snadno zapamatovatelný a jsou těžko najít     |
-|**Přidejte příslušné visual obsah: zákazník názory video nebo řešení architektury jsou doporučené postupy**   |   Pomocí příliš mnoho textu provádět cílovou skupinu ladit a zastavit seznamovat se s vámi      |
-|**Vytvoření jasnou výzvu k akci pro přesměrování návštěvníky na stránku katalogu Marketplace.**    |   Na stránce s příliš mnoho odkazů nebo možných akcí       |
-|**Uveďte volání akce v záhlaví nebo jasně vymezen části**    |  Vložení odkazy na vaše Marketplace výpis v odstavec textu       |
-|**Zkoumání nejlepší klíčová slova a optimalizovat stránka pro hledání**    | Za předpokladu, že název produktu vygeneruje vyšší pořadí hledání        |
-|**Využít klíčová slova z reklamní kampaně**    |  Použití mnoha různých klíčová slova ve webových vlastností se doplní vaše investice inzerování       |
-|**Blokovat názvy příslušných produktů a klíčová slova "nad násobek.**     | Vytváření uživatelů posunutím zobrazit, jaké produktu nebo řešení jsou předvádění        |
-|**Ověření řešení pomocí značky dokumentů (například Azure Certified *) a v souladu s Microsoft branding pokyny**    |    Pomocí zrušit schválení Microsoft značky dokumentů     |
-
-* Další informace o [certifikované Azure oznámení "BADGE"](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Microsoft Partner sítě (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) může přístup další prostředky pro branding prostřednictvím [Brand centrální](https://microsoft.sharepoint.com/teams/brandcentral) a přístup [Logo Tvůrce](https://logobuilder.partner.microsoft.com) nástroj. Chcete-li další informace o připojení, klikněte sem [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
-
-### <a name="promoting-your-new-offer"></a>Povýšení vaší nové nabídky
-
-#### <a name="building-an-effective-marketing-campaign"></a>Vytváření efektivní marketingové kampaně
-Marketingovou kampaň je řada aktivit, propagační nebo marketingové svoji zaměřené na cílovou skupinu požadované akce nebo výsledek. Před navržením kampaň, měli byste provést tyto akce:
-
-#### <a name="know-your-audience"></a>Vědět, cílová skupina
-
-Nejprve ověří, kdo je kupující a kdo je Vlivná osoba? Svoji a volání akce pro každou skupinu se můžou lišit. Položte si následující otázky vyhodnocení:
-
-- Přes nákupu rozhodnutí kolik řízení má kupující? 
-- Kolik vliv Vlivná osoba mít? 
-- Co vliv Vlivná osoba? 
-- Jejich k ovlivnění rozpočet nebo řešení, které je vybráno? 
-
-Znalost odpovědi na tyto otázky vám pomůže rozhodnout o investice vašeho odběru a jak se bude distribuovat vašeho odběru.
-
-#### <a name="define-where-your-audience-learns"></a>Zadejte, kde zjišťuje cílová skupina
-
-Kupující jsou 90 % způsob, jakým prostřednictvím cesty na době navštíví na trhu. Kupující získat to daleko hotová v procesu rozhodování získávání informací o řešení a vyhodnocení možností předem. Chcete navrhnout kampaň, která je cílem je možné, kde získat informace odběrateli a vlivné osoby. Všechny cílové skupiny pro každou odvětví, vertical nebo kategorie se liší. Nemá cílovou skupinu další online, e-mailem na veletrzích, prostřednictvím sociálních médií nebo konverzace s důvěryhodné poradci? V závislosti na tom, kde a jak cílovou skupinu zjišťuje budete chtít návrhu aktivity a distribuovat vaší marketingové dolarů odpovídajícím způsobem. Kombinace těchto svoji stane strategie kampaně.
-
-#### <a name="create-clear-campaign-goals"></a>Vytvoření cíle zrušte kampaně
-
-Musíte určit úspěšný kampaň marketplace a vytvořit zrušte klíčové ukazatele výkonu. Můžete spustit několik kampaní s jiného elementu end cíle. Samozřejmě všechny chceme růst prodeje. Ultimate koncoví cílem je vyšší akvizice výnosy nebo zákazníků. Však může být marketingových kampaní vázáno cíle v dalších fázích nákupní cyklu.
-
-Například pokud je nově spuštěn produkt v našem Marketplace můžete zjistit, že váš výběr je nejlépe stráví education cílovou skupinu a realizace generace. Úspěch může být definovaná počet zájemce získané z vašeho seznamu marketplace. V takovém případě vaší marketingové svoji (a úvodní stránka) by se zaměřit na kreslení zákazníků k vaší tržišti.
-
-Pokud máte sadu zkušební v marketplace a víte, že produkt vyžaduje určité úrovně engagement a před nákupu, může být vaším cílem kampaně, které stáhli počet pokusů. V takovém případě CTA pro vaše svoji kampaň se by prudce zaměřit na podporu zkušební verze v marketplace. 
-
-Pokud produkt nebo kategorie je dobře známé a budete mít možnosti Nákup v marketplace, které se můžete rozhodnout pro zkušební krok přeskočit a přímé cílovou skupinu přímo na odkaz na vaši 'koupit' v marketplace.
-
-Na víc vyspělých bodu v historii vaši nabídku můžete rozhodnout pro kampaň zaměřit na upselling zákazníkovi základní a v takovém případě zvýšena jednotky akce směrem k nákupu v Marketplace. Vaše svoji by zaměřit se na podporu zákazníkům 'koupit' v marketplace. Klíčový ukazatel výkonu může být výnosy generované přes Marketplace.
-
-Ať vaši nabídku vyspělosti a cílů vaší organizace, zachování zaměřují se na tento cíl a mapování na sadu integrované marketingové strategie zarovnání na tento cíl je klíč k maximalizaci vaší kampaně efektivitu.
-
-Jako součást se nové vydavatele v Azure Marketplace doporučujeme dodržet jste některé zdarma výhody Marketplace GTM. Zásadní by měl myslíte o tom, jak využít tyto výhody ve vaší strategii kampaně. Umožní náš marketing tým vědět cílů kampaň marketplace a akci požadované cílové skupiny. Tyto úkoly do práce do plánu jsme můžete přizpůsobit.
-
-Pro další podporu přejděte na trhu, včetně šablon, webový obsah, školení a nástroje k podpoře vaší návštěvě obchodní [www. MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) další obsah na kampaň vytváření a marketingu osvědčené postupy, najdete v článku [inteligentní partnera Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), programu Microsoft Partner Network.
-
-#### <a name="marketplace-gtm-benefits"></a>Výhody GTM Marketplace.
-
-Nové seznamy v Marketplace začnou oprávněni přijímat zdarma výhody GTM Marketplace. Jakmile se v seznamu uvedena, náš tým obchodní specialisty a bude oslovení vám nastartujte tyto aktivity. Není co pro vás kromě případu, kdy se použije s námi, jakmile jsme oslovení. 
-
-Aktivity, které poskytujeme lišit v závislosti na vaší stav řešení v našem marketplace. Výhody výrazně zvýšit nabídky, které jsou součástí zkušební prostředí a transact možnosti v rámci marketplace.
-
-Pokud chcete maximalizovat dopad tyto aktivity, by doporučujeme mít plán spuštění připravena ke spouštění. Můžete využít cílová stránka pro mnohá z těchto svoji. Všimněte si, že OCP katalogu (jeden komerční partnera katalog) výhody členů programu Microsoft Partner Network. 
-
-![Výhody GTM Marketplace.](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
-
-Podpora, včetně šablony, webový obsah, školení a nástroje k podpoře vaší firmě, najdete v článku [Microsoft přejděte na trhu](https://www.microsoftgotomarket.com).
-
-#### <a name="enable-lead-sharing"></a>Povolit sdílení vést
-
-Ujistěte se, do vaší nabídky Marketplace je povolena Správa realizace, abyste dostávali kontaktní informace o vašich zákazníků Marketplace. Tyto zájemce poskytují základ pro dosah pro vyžádání generování kampaně, prodejní pohyby pole pracovníků a informace o tom, jak je provádění vaši nabídku. 
-
-Doporučené postupy pro používání těchto zájemců patří:
-
-- Zařazování zájemců a vyhodnocování je jako prodejních příležitostí
-- Vydavatelských k zadání prodejní kanál
-- Zarovnat se vaše celková strategie na kampaň
-
-Tyto zájemce předvedení zájem velmi cílový uživatel do vaší nabídky Marketplace a technologie a proto by měly být považovány jako způsob, jak vyhledat potenciálně vysoce pověření zákazníků. Pokud zájemce je vytvořen v Marketplace, vytvoří se v poli prodejce Microsoft CRM podobné realizace. 
-
-Ale zájemců Marketplace se liší od prodejce kvalifikovaný zájemce Microsoft, které jsou funkcí společně prodávané programu. Níže najdete další informace o tom, jak přístup programu společné zákazník. 
-
-#### <a name="promote-your-business-through-microsoft"></a>Podpora obchodní činnosti prostřednictvím společnosti Microsoft
-
-Existuje mnoho osoby a týmy v rámci společnosti Microsoft, jehož jediným cílem je podporovat našich partnerů a snížit tření, které máte v prodávané s námi. Teď, když jste uvedli v našem marketplace jste otevřeli přístup k naší marketplace programy a prostředkům. 
-
-Pokud jste již nezaregistrovali jste až [Microsoft Partner sítě (MPN)](https://partner.microsoft.com), měl by být vaším prvním krokem. MPN nabízí pokyny pro navigaci Microsoft se z nové obchodní příležitosti, připojení se týmy nebo partnery, informace o řešení a školení růst vaší skillset.
-Nejlepší další kroky, jak postupovat při otevřete přístup k i další výhody partnera a jsou prostředky:
-
-1.  Využívání vaše [základní výhody](https://partner.microsoft.com/en-US/membership/core-benefits) jako součást naše Microsoft Partner Network, obdržíte sadu základních výhod, které můžete ušetřit čas a peníze při posílení schopnosti, lepší sloužit zákazníků a sestavení připojení k plně využít váš obchodní potenciální.
-
-2.  Vám vaše [cloudové platformy Competency](https://partner.microsoft.com/en-us/membership/cloud-platform-competency) získávat competency umožňuje rozlišit sami v rámci sítě obsáhlou partnera společnosti Microsoft a také ukazují technické znalosti a k zákaznickým úspěch trhu. Získávat competency je také předpokladem pro mnoho programů klíče partnera jako společné zákazník.
-
-3.  Stát [společné prodává připravené](https://partner.microsoft.com/en-US/reach-customers/promote-your-business) tento program umožňuje spolupracovat přímo s prodejci Microsoft a dalšími partnery na příležitosti zákazníka cíl a účet plánování. Řešení se zobrazí na našem prodejci v katalogu jejich řešení a naše prodejci jsou nízkou spolupráce a vyhrál s vámi.
-
-#### <a name="merchandising"></a>Prodeje 
-Jako součást procesu publikování považována za jaký typ nabídky k vytvoření a možnost výběru kategorie pro vaši nabídku Azure Marketplace. Ujistěte se, že vyberte kategorii, které je přesný pro vaše řešení tak, aby se zobrazí přesně pro potenciální zákazníky. 
-
-V Azure Marketplace budete moci využívat pro vybrané aplikace. Když povolíte zkušební verze a Transact funkce. Zkontrolujte Marketplace GTM výhody pochopit, jak souvisí vybrané aplikace v rámci své výhody přejděte na trh. 
-
-Vybrané aplikace jsou zvolit v závislosti na kterých aplikace poskytují mají zákazníci maximální pohodlí pro uživatele a využívá vysoce kvalitního partnerem marketingové zapojení. To zahrnuje přehlednost seznam, spolehlivost technologie a růstu využití platformy zákazníků a vaše úroveň zapojení vytváření vysoce kvalitního marketingové materiály. 
-
-Pokud chcete maximalizovat pravděpodobnost vaší aplikace se vybrané, měli byste investovat do úspěch vaší nabídky marketplace a zvažte následující přístupy k zajištění činnost skvělé zákazník vaši nabídku: 
-
-- Ujistěte se, že jsou vaše marketing artefakty nahrávat a zobrazování správně
-- Připojení [Microsoft Partner Network](https://partner.microsoft.com/membership) a zapojit ekosystém partnerů
-- Jednotka vysoké kvality provoz do vaší nabídky v Azure Marketplace vytvořením vysoce kvalitního vyžádání generování kampaně
-- Ujistěte se, že vaše řešení Azure a aplikace jsou dostupné v Azure Marketplace
-- Růst spotřeby vašeho webu Azure Marketplace nabízí řídí vyžádání, poskytnete vysoké kvality zákaznický servis, a poskytuje včasné aktualizace na produkt
-
-## <a name="analytics-and-reporting"></a>Analýzy a vytváření sestav
-
-V části Statistika cloudu portál pro partnery se zobrazí souhrnné informace o výkonu vaši nabídku. Sestavy zahrnuté v této části jsou:  
-- Souhrn snímek objednávky
-- Využití
-- Nasazení
-- Trendy zákazníka na domovské stránce Statistika
-- Podrobné objednávky, použití a data zákazníků
-- Objednávek a zobrazí jako měsíční souhrn nebo jako zobrazení šestiměsíční trend využití
-- Využití nebo objednávky rozříznut několik kritérií
-
-Podrobné sestavy zobrazit údaje zákazníka, jako je název společnosti a zeměpisnou polohu dolů PSČ, abyste mohli porovnání zákazníků a odpovídajícím způsobem vaše prodejci. Následující seznam obsahuje konkrétní atributy, které poskytujeme o vašim zákazníkům:
-- Prodejce
-- Jméno
-- Příjmení
-- E-mail
-- Název společnosti
-- Datum transakce
-- Název předplatného
-- Id předplatného Azure (pouze srážek daně ze MZDY zákazníci)
-- Název Instance cloudu
-- Počet pořadí
-- Zákazník země oblast
-- Město zákazníka
-- Jazyková verze komunikaci zákazníků
-- PSČ zákazníka
-
-Osvědčeným postupem informace v těchto sestavách je odsouhlasení s vlastními daty interní a použít ho k pomoci určit priority vaše akce marketingové kampaně. 
-
-Části Analytics cloudu partnera portálu statistika poskytuje bohaté řídicí panel podle Power BI, který vám umožní zobrazit provoz na stránku podrobností aplikace. Probíhající způsobem se zavádějí nové funkce pro tento řídicí panel. V rámci portálu pro partnery cloudu je také dokumentace na Microsoft Campaigns, mechanismus, pomocí kterého můžete nastavit kampaně a sledování je v rámci portálu.
 
 ## <a name="getting-support"></a>Získání podpory
 
@@ -600,7 +459,7 @@ Toto je seznam možností podpory pro Azure Marketplace:
 **Azure Marketplace obecné dotazy:**
 |Podpora kanálu |Popis |
 |---------|---------|
-|E-mailu:cloudmarketplace@microsoft.com     |  Podpora registrace distribučního seznamu. Použít pro požadavky registrace, nastavení zjišťování relací a architektura návrhu relací (reklamy) s partnery.        |
+|E-mailu: cloudmarketplace@microsoft.com     |  Podpora registrace distribučního seznamu. Použít pro požadavky registrace, nastavení zjišťování relací a architektura návrhu relací (reklamy) s partnery.        |
 
 **Azure Marketplace publikování podpory:**
 
@@ -633,9 +492,9 @@ Amp-testdrive@microsoft.com |   Poskytuje přístup registrace k testu jednotek.
 
 |Podpora kanálu  |Popis  |
 |---------|---------|
-|E-mailu:cosell@microsoft.com    |  Poskytuje podporu pro připojování procesy a otázky týkající se programu společné zákazník. Na základě v tichomořském časovém pásmu.        |
-|E-mailu:gtm@microsoft.com    |  Poskytuje podporu pro výhody přejděte na trh a program otázky. Pracovní dobu v tichomořském časovém pásmu.        |
-|E-mailu:CEBrand@Microsoft.com     |  Odpovědi na otázky o brand používání pro Azure loga a značka.       |
+|E-mailu: cosell@microsoft.com    |  Poskytuje podporu pro připojování procesy a otázky týkající se programu společné zákazník. Na základě v tichomořském časovém pásmu.        |
+|E-mailu: gtm@microsoft.com    |  Poskytuje podporu pro výhody přejděte na trh a program otázky. Pracovní dobu v tichomořském časovém pásmu.        |
+|E-mailu: CEBrand@Microsoft.com     |  Odpovědi na otázky o brand používání pro Azure loga a značka.       |
 
 ## <a name="guidelines-and-how-tos"></a>Pokyny a postupy
 
@@ -644,7 +503,7 @@ Amp-testdrive@microsoft.com |   Poskytuje přístup registrace k testu jednotek.
 Při vytváření účtu společnosti, postupujte podle následujících pokynů, pokud víc než jedna osoba potřebovat přístup k účtu přihlášením pomocí účtu Microsoft, který otevírá účet.
 
 >[!IMPORTANT]
->Povolit více uživatelům přístup k účtu Dev Center, doporučujeme pomocí služby Azure Active Directory přiřadit role pro jednotlivé uživatele, kteří mohou mít přístup k účtu po přihlášení pomocí svých osobních přihlašovací údaje Azure AD. Další informace najdete [pokyny AAD federované domény](#guidance-with-aad-federated-domains). Vytvoření účtu Microsoft pomocí e-mailovou adresu, které patří doména vaší společnosti, ale není v příkladu jeden individual'for windowsapps@fabrikam.com.
+>Povolit více uživatelům přístup k účtu Dev Center, doporučujeme pomocí služby Azure Active Directory přiřadit role pro jednotlivé uživatele, kteří mohou mít přístup k účtu po přihlášení pomocí svých osobních přihlašovací údaje Azure AD. Další informace najdete [pokyny AAD federované domény](#guidance-with-aad-federated-domains). Vytvoření účtu Microsoft pomocí e-mailovou adresu, která patří do domény vaší společnosti, ale nechcete jeden uživatel například windowsapps@fabrikam.com.
 
 - Omezte přístup k tomuto účtu Microsoft na nejmenší možný počet vývojáři.
 - Nastavte distribučního seznamu podnikovému e-mailu, který zahrnuje všechny uživatele, kteří potřebují přístup k vývojářský účet a přidat tuto e-mailovou adresu ke svým bezpečnostním údajům. To umožňuje všechny zaměstnance v seznamu, můžete získat zabezpečovací kódy, v případě potřeby a spravovat bezpečnostní údaje účtu Microsoft. Pokud nastavení distribučního seznamu není vhodná, vlastník jednotlivé e-mailový účet se bude muset být k dispozici pro přístup k a sdílet bezpečnostní kód po zobrazení výzvy (například při přidání nových bezpečnostních údajů k účtu nebo když musí být přístup z nového zařízení).

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Jak zachytit klasický virtuální počítač s Linuxem jako image
 > [!IMPORTANT]
@@ -76,7 +76,7 @@ Tento postup předpokládá, že jste vytvořili virtuální počítač Azure po
     ```azurecli
     azure vm shutdown myVM
     ```
-   V případě potřeby můžete zobrazit seznam všech virtuálních počítačů ve vašem předplatném vytvořily s použitím`azure vm list`
+   V případě potřeby můžete zobrazit seznam všech virtuálních počítačů ve vašem předplatném vytvořily s použitím `azure vm list`
 
    > [!NOTE]
    > Pokud používáte portál Azure, vyberte virtuální počítač a klikněte na tlačítko **Zastavit** vypnutí virtuálního počítače.
@@ -98,7 +98,7 @@ Tento postup předpokládá, že jste vytvořili virtuální počítač Azure po
    azure vm image list
    ```
 
-   Na [portál Azure](http://portal.azure.com), nová bitová kopie se zobrazí v **Image virtuálních počítačů (klasické)** který patří do **výpočetní** služby. Dostanete **Image virtuálních počítačů (klasické)** kliknutím _další služby_ v dolní části Azure služby seznamu a pak vyhledávání **výpočetní** služby.   
+   Na [portál Azure](http://portal.azure.com), nová bitová kopie se zobrazí v **Image virtuálních počítačů (klasické)** který patří do **výpočetní** služby. Dostanete **Image virtuálních počítačů (klasické)** kliknutím **všechny služby** v horní části Azure služby seznamu a pak vyhledávání **výpočetní** služby.   
 
    ![Zachycení Image úspěšné](./media/capture-image/VMCapturedImageAvailable.png)
 

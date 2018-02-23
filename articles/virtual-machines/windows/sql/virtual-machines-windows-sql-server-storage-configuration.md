@@ -4,7 +4,7 @@ description: "Toto téma popisuje, jak Azure konfiguruje úložiště pro virtu�
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguraci úložiště pro virtuální počítače serveru SQL
 Když konfigurujete image virtuálního počítače systému SQL Server v Azure, pomáhá automatizovat konfiguraci úložiště na portálu. Jedná se o připojení k virtuálnímu počítači, zpřístupnění této úložiště pro SQL Server a nakonfigurovat jej pro optimalizaci pro vašim požadavkům na výkon konkrétní úložiště.
@@ -132,7 +132,7 @@ Následující tabulka popisuje možnosti Typ tři úlohy dostupné a jejich odp
 
 | Typ úlohy | Popis | Optimalizace |
 | --- | --- | --- |
-| **Obecné** |Výchozí nastavení, která podporuje většinu úloh |Žádný |
+| **Obecné** |Výchozí nastavení, která podporuje většinu úloh |Žádné |
 | **Zpracování transakcí** |Optimalizuje úložiště pro standardní úlohy databází OLTP |Příznak trasování. 1117<br/>Příznak trasování 1118 |
 | **Datového skladu** |Optimalizuje úložiště pro úlohy analýz a generování sestav |Příznak trasování 610<br/>Příznak trasování. 1117 |
 
@@ -141,5 +141,5 @@ Následující tabulka popisuje možnosti Typ tři úlohy dostupné a jejich odp
 >
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další témata související se systémem SQL Server ve virtuálních počítačích Azure, najdete v části [systému SQL Server na virtuálních počítačích Azure](virtual-machines-windows-sql-server-iaas-overview.md).

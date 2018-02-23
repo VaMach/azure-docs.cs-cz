@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Správa výstrah pro virtuální počítače Azure
 Výstrahy jsou odpovědi ze služby, aby byla splněny nebo překročení prahová hodnota události. Zároveň budete vědět, když může být kritické nízkými náklady obchodní problémy spuštění. Výstrahy obvykle nedojde k podle plánu, a proto je užitečné vědět, co nejdříve po generována výstraha. Například pokud se nezdaří úlohy zálohování nebo obnovení, zobrazení výstrahy do pěti minut selhání. Na řídicím panelu trezoru na dlaždici zálohování výstrahy zobrazuje kritická a úroveň pro upozornění události. V nastavení zálohování výstrah můžete zobrazit všechny události. Ale co dělat v případě výstrahu při práci na samostatné problém? Pokud si nejste jisti, když se stane, výstrahy, může to být méně závažné potíže, nebo ji mohl ohrozit zabezpečení dat. Pokud chcete mít jistotu, že oprávnění uživatelé by se měl dozvědět výstrahy – když dojde, nakonfigurujte službu pro odeslání oznámení o výstrahách e-mailem. Podrobnosti o nastavení e-mailová oznámení najdete v tématu [konfigurace oznámení](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,9 +70,9 @@ Nastavení e-mailová oznámení pro výstrahy
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Jaké typy výstrah jsou k dispozici pro zálohování virtuálních počítačů Azure IaaS?
    | Úroveň výstrahy | Zasílání upozornění |
    | --- | --- |
-   | Kritické |Selhání zálohování, obnovení selhání |
-   | Upozornění |Žádné |
-   | Informační |Žádné |
+   | Kritická | selhání zálohování, obnovení selhání |
+   | Upozornění | pro úlohy zálohování proběhla úspěšně. upozornění (např: některé zapisovače se nezdařila při vytváření snímku) |
+   | Informační | v současné době jsou k dispozici pro zálohování virtuálních počítačů Azure informační výstrahu. |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Dochází k situacím, že se e-mail neodešle, i když jsou oznámení nakonfigurovaná?
 Existují situacích, kde se neposílají výstrahu, i když oznámení správně nakonfigurovaný. V následujících situacích e-mailu s oznámení neodešlou předejdete výstrahy nepůsobily:
@@ -149,7 +149,7 @@ Pomocí **sloupce** tlačítko, můžete povolit v seznamu se zobrazí na dalš�
 | Volající |Kdo nebo co názvem nebo aktivuje událost. může být systém nebo uživatel |
 | Časové razítko |Čas, kdy byla aktivována událost |
 | Skupina prostředků |Skupina přidružených prostředků |
-| Typ prostředku |Interní typ prostředku používaný správcem prostředků |
+| Typ prostředku |Typ interního zdroje, který používá Resource Manager |
 | ID předplatného |ID související předplatného |
 | Kategorie |Kategorie události |
 | ID korelace |ID společné souvisejících událostí |
@@ -196,7 +196,7 @@ Výstrahy na základě událostí se vztahují následující omezení:
 2. Tato funkce je ve verzi Preview. [Další informace](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Výstrahy jsou odesílány z "alerts-noreply@mail.windowsazure.com". Momentálně nelze upravit odesílatelem e-mailu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Protokoly událostí povolit skvělé postmortální a auditování podpory u operací zálohování. Jsou zaznamenány následující operace:
 
 * Registrace
@@ -209,7 +209,7 @@ Protokoly událostí povolit skvělé postmortální a auditování podpory u op
 * Přidání zásad
 * Odstranit zásady
 * Aktualizace zásady
-* Zrušení úlohy
+* Zrušit úlohu
 
 Široká vysvětlení události, operace a protokoly auditu napříč službami Azure, najdete v článku [zobrazení událostí a protokolů auditování](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: c6c1a1483191e654c245eb3f05ee9e8406510b08
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 38a2d6e6c8594def54ac42546d0cb547445334ed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Příklad topologií Storm a součásti pro Apache Storm v HDInsight
 
@@ -35,7 +35,7 @@ Následuje seznam příkladů vytvořen a spravován společností Microsoft pro
 | [Zpracování událostí z Azure Event Hubs se Storm v HDInsight (C#)][844d1d81] |Event Hubs |C# a Java |
 | [Zpracování událostí z Azure Event Hubs se Stormem v HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
 | [Zpracování dat snímačů vehicle ze služby Event Hubs pomocí Storm v HDInsight][246ee964] |Události rozbočovače, Cosmos DB úložiště Azure Blob (WASB) |C#, Java |
-| [Extrakce, transformace a načítání (ETL) z Azure Event Hubs k HBase, používat Storm v HDInsight][b4b68194] |Služba Event Hubs, HBase |C# |
+| [Extrakce, transformace a načítání (ETL) z Azure Event Hubs k HBase, používat Storm v HDInsight][b4b68194] |Event Hubs, HBase |C# |
 | [Šablona projektu topologie C# Storm pro práci se službami Azure z Storm v HDInsight][ce0c02a2] |Event Hubs, Cosmos databáze, SQL databáze, HBase, SignalR |C#, Java |
 | [Škálovatelnost srovnávacích testů pro čtení z Azure Event Hubs pomocí Storm v HDInsight][d6c540e3] |Propustnost zpráv, Event Hubs, databáze SQL |C#, Java |
 | [Používat jazyk Python se Storm v HDInsight](apache-storm-develop-python-topology.md) |Součásti Python s topologií tok |Python |

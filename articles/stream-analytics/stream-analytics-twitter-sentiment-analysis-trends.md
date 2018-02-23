@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analýzy v reálném čase postojích Twitter v Azure Stream Analytics
 
@@ -51,7 +51,7 @@ Ukázkové aplikace vygeneruje události a jejich nabízených oznámení do cen
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Vytvoření centra událostí obor názvů a centra událostí
 V tomto postupu vytvoříte na obor názvů centra událostí a poté přidejte centra událostí do daného oboru názvů. Obory názvů centra událostí se používají k logickému seskupení souvisejících událostí sběrnice instancí. 
 
-1. Přihlaste se k portálu Azure a klikněte na tlačítko **nový** > **Internet věcí** > **centra událostí**. 
+1. Přihlaste se k portálu Azure a klikněte na tlačítko **vytvořit prostředek** > **Internet věcí** > **centra událostí**. 
 
 2. V **vytvoření oboru názvů** okno, zadejte název oboru názvů, jako `<yourname>-socialtwitter-eh-ns`. Můžete použít libovolný název pro obor názvů, ale název musí být platné adresy URL a musí být jedinečný v Azure. 
     
@@ -200,7 +200,7 @@ Následující postup dokumenty obou přístupů.
 
 Teď, když jsou události tweet streamování v reálném čase z Twitteru, můžete nastavit úlohu služby Stream Analytics k analýze těchto událostí v reálném čase.
 
-1. Na portálu Azure klikněte na tlačítko **nový** > **Internet věcí** > **úlohy služby Stream Analytics**.
+1. Na portálu Azure klikněte na tlačítko **vytvořit prostředek** > **Internet věcí** > **úlohy služby Stream Analytics**.
 
 2. Název úlohy `socialtwitter-sa-job` a určete předplatné, skupinu prostředků a umístění.
 
@@ -377,7 +377,7 @@ Pro účely tohoto kurzu vyhledejte témata, která jsou uveden více než 20 v�
 ## <a name="get-support"></a>Získat podporu
 Pro další pomoc, vyzkoušejte naše [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Úvod do služby Azure Stream Analytics](stream-analytics-introduction.md)
 * [Začínáme používat službu Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Škálování služby Stream Analytics](stream-analytics-scale-jobs.md)

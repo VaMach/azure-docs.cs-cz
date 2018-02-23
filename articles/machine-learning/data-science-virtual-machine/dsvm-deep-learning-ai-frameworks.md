@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Architektura AI a hloubkového učení
 [Datové vědy virtuálního počítače](http://aka.ms/dsvm) (DSVM) a [počítač hloubkového učení](http://aka.ms/dsvm/deeplearning) podporuje mnoho hloubkové learning rozhraní k sestavení aplikace umělé Intelligence (AI) s prediktivní analýzy a kognitivní možnosti jako bitovou kopii a znalosti jazyka. 
@@ -67,7 +67,7 @@ Zde jsou uvedeny podrobnosti na všechny hloubkového učení rozhraní, které 
 |    |           |
 | ------------- | ------------- |
 | Co je to?   | Hloubkové learning framework      |
-| Podporované DSVM edice      | Linux     |
+| Podporované DSVM edice      | Ubuntu     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | Je nainstalovaný Caffe `/opt/caffe`.    |
 | Odkazy na ukázky      | Ukázky jsou součástí `/opt/caffe/examples`.      |
 | Na DSVM souvisejících nástrojích      | Caffe2      |
@@ -87,7 +87,7 @@ Otevře se nové okno prohlížeče s ukázka poznámkových bloků.
 |    |           |
 | ------------- | ------------- |
 | Co je to?   | Hloubkové learning framework      |
-| Podporované DSVM edice      | Linux     |
+| Podporované DSVM edice      | Ubuntu     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | Je nainstalovaný Caffe2 `/opt/caffe2`. Je také k dispozici pro Python 2.7 (_kořenové_) conda prostředí.     |
 | Odkazy na ukázky      | Ukázka poznámkové bloky Jupyter jsou zahrnuty     |
 | Na DSVM souvisejících nástrojích      | Caffe      |
@@ -114,7 +114,7 @@ V terminálu, aktivovat verzi jazyka Python chcete (_kořenové_ nebo _py35_) sp
 |    |           |
 | ------------- | ------------- |
 | Co je to?   | Architektura hloubkové learning pro H2O      |
-| Podporované DSVM edice      | Linux     |
+| Podporované DSVM edice      | Ubuntu     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | Hloubkové horních je nainstalován v `/dsvm/tools/deep_water`.   |
 | Odkazy na ukázky      | Ukázky jsou dostupné prostřednictvím hloubkového horních serveru.      |
 | Na DSVM souvisejících nástrojích      | H2O, šumivého horních      |
@@ -145,7 +145,7 @@ Potom spusťte prohlížeč a připojení k `http://localhost:54321`.
 |    |           |
 | ------------- | ------------- |
 | Co je to?   | Přímý učení systému z NVIDIA pro rychlé cvičení hloubkové learning modely      |
-| Podporované DSVM edice      | Linux     |
+| Podporované DSVM edice      | Ubuntu     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | ČÍSLIC je nainstalován v `/dsvm/tools/DIGITS` a je k dispozici služba byla požádána _číslic_.   |
 ### <a name="how-to-use--run-it"></a>Jak se použít nebo ji spustit?  
 
@@ -173,7 +173,7 @@ Službu spusťte trvá přibližně jednu minutu. Spustit webový prohlížeč a
 |    |           |
 | ------------- | ------------- |
 | Co je to?   | Hloubkové learning framework      |
-| Podporované DSVM edice      | Linux     |
+| Podporované DSVM edice      | Ubuntu     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | Theano je nainstalován v Python 2.7 (_kořenové_), a také Python 3.5 (_py35_) prostředí.   |
 | Na DSVM souvisejících nástrojích      | Keras      |
 | Jak se použít nebo ji spustit?    | V terminálu aktivujte verzi Pythonu (kořenové nebo py35), spusťte python a pak importovat theano. V Jupyter vyberte Python 2.7 nebo 3.5 jádra a pak importovat theano.  |
@@ -185,7 +185,42 @@ Službu spusťte trvá přibližně jednu minutu. Spustit webový prohlížeč a
 |    |           |
 | ------------- | ------------- |
 | Co je to?   | Hloubkové learning framework      |
-| Podporované DSVM edice      | Linux     |
+| Podporované DSVM edice      | Ubuntu     |
 | Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | Je nainstalovaný svítilnou `/dsvm/tools/torch`. PyTorch je nainstalován v Python 2.7 (_kořenové_), a také Python 3.5 (_py35_) prostředí.   |
 | Odkazy na ukázky      | Ukázky svítilnou jsou umístěné na `/dsvm/samples/torch`. Ukázky PyTorch jsou umístěné na `/dsvm/samples/pytorch`.      |
 
+
+## <a name="pytorch"></a>PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| Co je to?   | Hloubkové learning framework      |
+| Podporované DSVM edice      | Linux     |
+| Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | PyTorch je nainstalován v Python 3.5 (_py35_) prostředí.   |
+| Odkazy na ukázky      | Ukázka poznámkové bloky Jupyter jsou zahrnuty a ukázky najdete také v /dsvm/samples/pytorch.      |
+| Na DSVM souvisejících nástrojích      | Torch      |
+
+### <a name="how-to-use--run-it"></a>Jak se použít nebo ji spustit?  
+
+V terminálu, spusťte _python_, pak importovat svítilnou. V Jupyter vyberte jádra Python 3.5 a poté importovat svítilnou.
+
+
+## <a name="mxnet-model-server"></a>MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| Co je to?   | Serveru k vytvoření koncových bodů protokolu HTTP pro MXNet a ONNX modely      |
+| Podporované DSVM edice      | Linux     |
+| Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | _mxnet. model serveru_ je k dispozici v terminálu.   |
+| Odkazy na ukázky      | Vyhledejte aktuální ukázky na [stránka MXNet Model serveru](https://github.com/awslabs/mxnet-model-server).    |
+| Na DSVM souvisejících nástrojích      | MXNet      |
+
+## <a name="tensorflow-serving"></a>TensorFlow slouží
+
+|    |           |
+| ------------- | ------------- |
+| Co je to?   | Serveru ke spuštění inferencing na TensorFlow modelu      |
+| Podporované DSVM edice      | Linux     |
+| Jak je ho nakonfigurovaná a nainstalovaná na DSVM?  | _tensorflow_model_server_ jsou k dispozici v terminálu.   |
+| Odkazy na ukázky      | Ukázky jsou k dispozici [online](https://www.tensorflow.org/serving/).      |
+| Na DSVM souvisejících nástrojích      | TensorFlow      |

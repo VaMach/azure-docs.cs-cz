@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Jádra pro poznámkový blok Jupyter na clustery Spark v Azure HDInsight 
 
@@ -80,16 +80,16 @@ Zde naleznete několik výhod nového jádrech pomocí poznámkového bloku Jupy
    
     Následující tabulka uvádí různé Magic, které jsou k dispozici prostřednictvím jádrech.
 
-   | Magic | Příklad | Popis |
+   | Magic | Příklad: | Popis |
    | --- | --- | --- |
-   | Pomoc |`%%help` |Vytvoří tabulku všechny dostupné Magic s příklad a popis |
+   | nápověda |`%%help` |Vytvoří tabulku všechny dostupné Magic s příklad a popis |
    | Informace o |`%%info` |Výstupy informací o relaci pro aktuální koncový bod Livy |
-   | Konfigurace |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Nakonfiguruje parametry pro vytvoření relace. Příznak force (-f) je povinný, pokud je relace již bylo vytvořeno, který zajistí, že je relace vyřadit a vytvořit znovu. Podívejte se na [/sessions POST na Livy text žádosti](https://github.com/cloudera/livy#request-body) pro seznam platných parametrů. Parametry musí být předán jako řetězec formátu JSON a musí být na další řádek po magic, jak je znázorněno v příkladu sloupec. |
+   | konfigurovat |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Nakonfiguruje parametry pro vytvoření relace. Příznak force (-f) je povinný, pokud je relace již bylo vytvořeno, který zajistí, že je relace vyřadit a vytvořit znovu. Podívejte se na [/sessions POST na Livy text žádosti](https://github.com/cloudera/livy#request-body) pro seznam platných parametrů. Parametry musí být předán jako řetězec formátu JSON a musí být na další řádek po magic, jak je znázorněno v příkladu sloupec. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Provede dotaz Hive proti sqlContext. Pokud `-o` parametr se předává, výsledek dotazu je uchován v %% lokální kontext Python jako [Pandas](http://pandas.pydata.org/) dataframe. |
    | místní |`%%local`<br>`a=1` |Všechny kód na další řádek je spustit místně. Kód musí být platný kód Python2 i bez ohledu na jádra, který používáte. Ano, i v případě, že jste vybrali **PySpark3** nebo **Spark** jádra při vytváření poznámkového bloku, pokud použijete `%%local` magic v buňce, dané buňky musí mít pouze platný kód Python2... |
    | Protokoly |`%%logs` |Protokoly pro aktuální relaci Livy výstupy. |
-   | Odstranit |`%%delete -f -s <session number>` |Odstraní relaci konkrétní aktuální Livy koncového bodu. Poznámka: nelze odstranit iniciovaného relace pro jádra sám sebe. |
-   | Čištění |`%%cleanup -f` |Odstraní všechny relace pro aktuální Livy koncový bod, včetně relace tento poznámkový blok. Příznak force -f je povinný. |
+   | odstraňovat |`%%delete -f -s <session number>` |Odstraní relaci konkrétní aktuální Livy koncového bodu. Nelze odstranit iniciovaného relace pro jádra sám sebe. |
+   | Vyčištění |`%%cleanup -f` |Odstraní všechny relace pro aktuální Livy koncový bod, včetně relace tento poznámkový blok. Příznak force -f je povinný. |
 
    > [!NOTE]
    > Kromě Magic přidal jádra PySpark, můžete také použít [předdefinované Magic IPython](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), včetně `%%sh`. Můžete použít `%%sh` magic spouštět skripty a blok kódu na headnode clusteru.
@@ -100,7 +100,7 @@ Zde naleznete několik výhod nového jádrech pomocí poznámkového bloku Jupy
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parametry podporovány s %% sql magic
 `%%sql` Magic podporuje různé parametry, které můžete použít k řízení druh výstup, která se zobrazí při spuštění dotazů. Následující tabulka uvádí výstup.
 
-| Parametr | Příklad | Popis |
+| Parametr | Příklad: | Popis |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Tento parametr použijte pro uchování v výsledek dotazu, %% lokální kontext Python, jako [Pandas](http://pandas.pydata.org/) dataframe. Název proměnné dataframe je název proměnné, které zadáte. |
 | -q |`-q` |Použijte k vypnutí možnosti vizualizace pro buňky. Pokud nechcete automaticky vizualizovat obsah buňky a chcete jen zaznamenat jako dataframe, potom použijte `-q -o <VARIABLE>`. Pokud chcete vypnout vizualizace bez zaznamenávání výsledky (například pro spuštění příkazu jazyka SQL, jako je třeba `CREATE TABLE` příkaz), použijte `-q` bez zadání `-o` argument. |
@@ -160,7 +160,6 @@ Nové jádrech jsou v vyvíjející se fáze a bude pro dospělé v čase. To m�
 * [Spark s BI: Provádějte interaktivní analýzy dat pomocí Sparku v HDInsight pomocí nástrojů BI](apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight pro analýzu teploty v budově pomocí dat HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight pro sestavení aplikací datových proudů v reálném čase](apache-spark-eventhub-streaming.md)
 * [Analýza protokolu webu pomocí Sparku v HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Vytvoření a spouštění aplikací

@@ -16,11 +16,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Správa administrativních jednotek ve službě Azure AD - verzi public preview
 Tento článek popisuje administrativních jednotek – nový kontejner služby Active Directory Azure prostředků, které lze použít pro delegování oprávnění ke správě přes podmnožiny uživatelů a použití zásady na určitou podskupinu uživatelů. Administrativních jednotek v Azure Active Directory, povolte centrální správcům delegovat oprávnění pro místní správce nebo nastavení zásad na nejnižší úrovni.
@@ -28,7 +28,7 @@ Tento článek popisuje administrativních jednotek – nový kontejner služby 
 To je užitečné v organizacích s nezávislé rozdělení, například velké školy, která se skládá z mnoha autonomního škol (Business školy, školní inženýrství atd.), které jsou na sobě nezávislé. Takové rozdělení mají své vlastní správce IT, kteří řízení přístupu, Správa uživatelů a nastavit zásady speciálně pro jejich dělení. Centrální správci chcete mít možnost udělit tyto oddělení oprávnění správci přes uživatele v jejich konkrétní oddělení. Přesněji řečeno v tomto příkladu, centrální správce můžete, například vytvořit správce jednotku pro konkrétní školní (Business školní) a jeho naplnění pouze podnikoví uživatelé školní. Jinými slovy, pak centrální správce můžete přidat školní obchodní pracovníky IT k roli vymezená udělte pracovníků IT firmy školní administrativní oprávnění jen přes školní správní organizační jednotky.
 
 > [!IMPORTANT]
-> Role pro správu Správce obor jednotky můžete přiřadit pouze v případě, že povolíte Azure Active Directory Premium. Další informace najdete v tématu [Začínáme s Azure AD Premium](active-directory-get-started-premium.md).
+> Použití administrativních jednotek vyžaduje správce s oborem správy jednotky mít licenci Azure Active Directory Premium a Azure Active Directory Basic licencí pro všechny uživatele v jednotce pro správu. Další informace najdete v tématu [Začínáme s Azure AD Premium](active-directory-get-started-premium.md).
 >
 
 
@@ -39,5 +39,5 @@ V této verzi preview můžete vytvořit a spravovat administrativních jednotek
 
 Další informace o požadavcích na software a instalace modulu Azure AD a informace o rutiny modulu Azure AD pro správu administrativních jednotek, včetně syntaxe, popisy parametrů a příklady naleznete v tématu [Azure Active Prostředí PowerShell Directory](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Edice služby Azure Active Directory](active-directory-editions.md)

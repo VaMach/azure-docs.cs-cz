@@ -3,8 +3,8 @@ title: "Spravovat vypršení platnosti webového obsahu v síti pro doručován�
 description: "Zjistěte, jak spravovat platnost obsahu Azure webové aplikace nebo cloudové služby, ASP.NET nebo služby IIS v Azure CDN."
 services: cdn
 documentationcenter: .NET
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Spravovat vypršení platnosti webového obsahu v síti pro doručování obsahu Azure
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.lasthandoff: 12/21/2017
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Soubory z jakékoli veřejně přístupné počátek webový server může do mezipaměti v Azure Content Delivery Network (CDN), dokud uplynutí jejich time to live (TTL). Hodnota TTL je dáno `Cache-Control` hlavičku HTTP odpovědi ze zdrojového serveru. Tento článek popisuje, jak nastavit `Cache-Control` hlavičky pro funkci webové aplikace Microsoft Azure App Service, Azure Cloud Services, aplikace ASP.NET a weby Internetové informační služby (IIS), které jsou nakonfigurované podobně. Můžete nastavit `Cache-Control` záhlaví buď pomocí konfiguračních souborů nebo prostřednictvím kódu programu. 
+Soubory z veřejně přístupná počátek webových serverů můžete do mezipaměti v Azure Content Delivery Network (CDN), dokud uplynutí jejich time to live (TTL). Hodnota TTL je dáno `Cache-Control` hlavičku HTTP odpovědi ze zdrojového serveru. Tento článek popisuje, jak nastavit `Cache-Control` hlavičky pro funkci webové aplikace Microsoft Azure App Service, Azure Cloud Services, aplikace ASP.NET a weby Internetové informační služby (IIS), které jsou nakonfigurované podobně. Můžete nastavit `Cache-Control` záhlaví buď pomocí konfiguračních souborů nebo prostřednictvím kódu programu. 
 
-Nastavení mezipaměti na portálu Azure můžete také ovládat nastavením [CDN ukládání do mezipaměti pravidla](cdn-caching-rules.md). Pokud nastavíte jeden nebo více ukládání do mezipaměti pravidla a nastavte své chování ukládání do mezipaměti na **přepsat** nebo **vynechat mezipaměti**, zadaný počátečního nastavení ukládání do mezipaměti popsané v tomto článku jsou ignorovány. Informace o obecné koncepty ukládání do mezipaměti najdete v tématu [průběh ukládání do mezipaměti](cdn-how-caching-works.md).
+Nastavení mezipaměti na portálu Azure můžete také ovládat nastavením [CDN ukládání do mezipaměti pravidla](cdn-caching-rules.md). Pokud vytvoříte jeden nebo více ukládání do mezipaměti pravidla a nastavte své chování ukládání do mezipaměti na **přepsat** nebo **vynechat mezipaměti**, zadaný počátečního nastavení ukládání do mezipaměti popsané v tomto článku jsou ignorovány. Informace o obecné koncepty ukládání do mezipaměti najdete v tématu [průběh ukládání do mezipaměti](cdn-how-caching-works.md).
 
 > [!TIP]
 > Můžete nastavit žádné TTL na soubor. V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní, pokud jste nastavili ukládání do mezipaměti pravidla na portálu Azure. Toto výchozí nastavení TTL se vztahuje pouze na obecné webové doručení optimalizace. Pro optimalizace na velkých souborů je výchozí hodnota TTL je jeden den a pro streamování optimalizace médií, je výchozí hodnota TTL je jeden rok.
@@ -36,16 +36,64 @@ Nastavení mezipaměti na portálu Azure můžete také ovládat nastavením [CD
 > Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k souborům a dalším prostředkům najdete v tématu [přehled Azure Content Delivery Network](cdn-overview.md).
 > 
 
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Nastavení hlavičky Cache-Control pomocí ukládání do mezipaměti pravidla CDN
+Upřednostňovanou metodou pro nastavení webového serveru `Cache-Control` záhlaví je používat ukládání do mezipaměti pravidla na portálu Azure. Další informace o ukládání do mezipaměti pravidla CDN najdete v tématu [Azure CDN ovládacího prvku s ukládáním do mezipaměti pravidla chování ukládání do mezipaměti](cdn-caching-rules.md).
+
+> [!NOTE] 
+> Jsou k dispozici pouze pro ukládání do mezipaměti pravidla **Azure CDN společnosti Verizon Standard** a **Azure CDN společnosti Akamai Standard** profily. Pro **Azure CDN společnosti Verizon Premium** profily, je nutné použít [stroj pravidel Azure CDN](cdn-rules-engine.md) v **spravovat** portálu pro podobné funkce.
+
+**Přejděte na stránku pravidla ukládání do mezipaměti pro CDN**:
+
+1. Na portálu Azure vyberte profil CDN a potom vyberte koncový bod pro webový server.
+
+2. V levém podokně v části nastavení, vyberte **ukládání do mezipaměti pravidla**.
+
+   ![Ukládání do mezipaměti tlačítko pravidla CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
+
+   **Ukládání do mezipaměti pravidla** se zobrazí stránka.
+
+   ![Ukládání do mezipaměti stránky CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
+
+
+**Nastavení webového serveru hlavičky Cache-Control pomocí globální pravidla pro ukládání do mezipaměti:**
+
+1. V části **globální ukládání do mezipaměti pravidla**, nastavte **chování ukládání řetězců s dotazy** k **ignorovat řetězce dotazů** a nastavte **chování ukládání do mezipaměti** k  **Přepsání**.
+      
+2. Pro **mezipaměti Doba vypršení platnosti**, zadejte 3600 v **sekund** pole nebo 1 v **hodin** pole. 
+
+   ![Příklad pravidla globální ukládání do mezipaměti CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
+
+   Toto pravidlo globální ukládání do mezipaměti nastaví dobu trvání mezipaměti jednu hodinu a ovlivňuje všechny požadavky na koncový bod. Přepíše všechny `Cache-Control` nebo `Expires` hlavičky HTTP, které odesílá na zdrojový server zadané v koncovém bodě.   
+
+3. Vyberte **Uložit**.
+
+**Nastavení hlavičky Cache-Control souboru webového serveru pomocí vlastní pravidla pro ukládání do mezipaměti:**
+
+1. V části **vlastní ukládání do mezipaměti pravidla**, vytvořte dvě podmínky shody:
+
+     a. Pro první podmínku shodu nastavit **vyhovují podmínce** k **cesta** a zadejte `/webfolder1/*` pro **odpovídají hodnotě**. Nastavit **chování ukládání do mezipaměti** k **přepsat** a zadejte 4 v **hodin** pole.
+
+     b. Pro druhou podmínku shody, nastavte **vyhovují podmínce** k **cesta** a zadejte `/webfolder1/file1.txt` pro **odpovídají hodnotě**. Nastavit **chování ukládání do mezipaměti** k **přepsat** a zadejte 2 v **hodin** pole.
+
+    ![Příklad vlastní pravidla ukládání do mezipaměti CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
+
+    Nastaví dobu trvání čtyři hodiny pro všechny soubory v mezipaměti na první vlastní pravidlo pro ukládání do mezipaměti `/webfolder1` složky na původním serveru určeného váš koncový bod. První pravidlo přepíše druhé pravidlo `file1.txt` souboru pouze a nastaví dobu trvání mezipaměti dvou hodin pro ni.
+
+2. Vyberte **Uložit**.
+
+
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Nastavení hlavičky Cache-Control pomocí konfiguračních souborů
-Statický obsah, jako jsou bitové kopie a stylů, můžete řídit četnosti aktualizace úpravou **applicationHost.config** nebo **Web.config** konfigurační soubory pro vaši webovou aplikaci. `<system.webServer>/<staticContent>/<clientCache>` Element buď soubor sad `Cache-Control` hlavičky pro obsah.
+Statický obsah, jako jsou bitové kopie a stylů, můžete řídit četnosti aktualizace úpravou **applicationHost.config** nebo **Web.config** konfigurační soubory pro vaši webovou aplikaci. Chcete-li nastavit `Cache-Control` hlavičky pro obsah, použijte `<system.webServer>/<staticContent>/<clientCache>` element v buď soubor.
 
 ### <a name="using-applicationhostconfig-files"></a>Pomocí souboru ApplicationHost.config souborů
 **ApplicationHost.config** soubor je v kořenovém souboru systému konfigurace služby IIS. Nastavení konfigurace v **ApplicationHost.config** souboru vliv na všechny aplikace na webu, ale jsou přepsat nastavení všech **Web.config** souborů, které existují pro webovou aplikaci.
 
 ### <a name="using-webconfig-files"></a>Pomocí souborů Web.config
-S **Web.config** souboru, můžete upravit způsob celé webové aplikace nebo konkrétní adresáře na vaši webovou aplikaci se chová. Obvykle mají alespoň jednu **Web.config** soubor v kořenové složce webové aplikace. Pro každou **Web.config** souboru v konkrétní složce, nastavení konfigurace ovlivnit všechno, co v této složce a jejích podsložkách, pokud je na úrovni podsložky přepsána jiným **Web.config**souboru. Například můžete nastavit `<clientCache>` element v **Web.config** soubor v kořenové složce webové aplikace pro ukládání do mezipaměti všechny statický obsah na webové aplikace pro tři dny. Můžete také přidat **Web.config** soubor v podsložce s více proměnné obsah (například `\frequent`) a nastavit jeho `<clientCache>` element pro ukládání do mezipaměti obsah název podsložky pro šest hodin. Net výsledkem je tento obsah na celý webový server bude pro tři dny, s výjimkou žádný obsah do mezipaměti `\frequent` adresáři, který bude do mezipaměti jenom po dobu šesti hodin.  
+S **Web.config** souboru, můžete upravit způsob celé webové aplikace nebo konkrétní adresáře na vaši webovou aplikaci se chová. Obvykle mají alespoň jednu **Web.config** soubor v kořenové složce webové aplikace. Pro každou **Web.config** souboru v konkrétní složce, nastavení konfigurace ovlivnit všechno, co v této složce a jejích podsložkách, pokud je na úrovni podsložky přepsána jiným **Web.config** soubor. 
 
-Následující příklad XML ukazuje, jak nastavit `<clientCache>` element v konfiguračním souboru, chcete-li určit maximální dobu tří dnů:  
+Například můžete nastavit `<clientCache>` element v **Web.config** soubor v kořenové složce webové aplikace pro ukládání do mezipaměti všechny statický obsah na webové aplikace pro tři dny. Můžete také přidat **Web.config** soubor v podsložce s více proměnné obsah (například `\frequent`) a nastavit jeho `<clientCache>` element pro ukládání do mezipaměti obsah název podsložky pro šest hodin. Net výsledkem je tento obsah na celou webovou stránku se uloží do mezipaměti pro tři dny, s výjimkou žádný obsah `\frequent` adresáři, který se uloží do mezipaměti jenom po dobu šesti hodin.  
+
+Následující příklad souboru XML konfigurace ukazuje, jak nastavit `<clientCache>` elementu, který chcete zadat maximální stáří tří dnů:  
 
 ```xml
 <configuration>

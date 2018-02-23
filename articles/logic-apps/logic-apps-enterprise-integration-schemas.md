@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Ověření XML s schémata pro Azure Logic Apps a Enterprise integračního balíčku
 
@@ -26,9 +26,9 @@ Schémata potvrdit, že dokumenty XML, které se zobrazí jsou platné a mít o�
 
 ## <a name="add-a-schema"></a>Přidat schéma.
 
-1. Na portálu Azure vyberte **další služby**.
+1. Na portálu Azure vyberte **všechny služby**.
 
-    ![Portál Azure, "Další služby"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Portál Azure, "Všechny služby"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. Do vyhledávacího pole filtru zadejte **integrace**a vyberte **účty pro integraci** ze seznamu výsledků.
 
@@ -130,6 +130,6 @@ Azure zobrazí zpráva, že schéma se úspěšně nahrál.
 
     ![Svoji integraci účet s "Schémata" zvýrazněná](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Další informace o integračního balíčku Enterprise](logic-apps-enterprise-integration-overview.md "Další informace o integračního balíčku enterprise").  
 

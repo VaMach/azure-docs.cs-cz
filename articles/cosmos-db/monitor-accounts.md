@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorování Azure Cosmos DB
 Můžete monitorovat své účty Azure Cosmos DB [portál Azure](https://portal.azure.com/). U každého účtu Azure Cosmos DB je k dispozici ke sledování propustnosti, úložiště, dostupnosti, latence a konzistence úplnou sadu metriky.
@@ -26,7 +26,7 @@ Můžete monitorovat své účty Azure Cosmos DB [portál Azure](https://portal.
 Metriky lze zobrazit na stránku účtu, nová stránka metriky, nebo v Azure monitorování.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Zobrazení výkonu metriky na stránce metriky
-1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **více služeb**, přejděte na **databáze**, klikněte na tlačítko **Azure Cosmos DB**a potom klikněte na název účtu Azure Cosmos DB, pro který chcete zobrazit metrik výkonu.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **všechny služby**, přejděte k položce **databáze**, klikněte na tlačítko **Azure Cosmos DB**a pak klikněte na název Azure Cosmos DB účet, pro který chcete zobrazit metrik výkonu.
 2. Pokud nová stránka načte, v nabídce prostředků v části **monitorování**, klikněte na tlačítko **metriky**.
 3. Po otevření stránky metriky vyberte kolekci, chcete-li zkontrolovat z **kolekcí** rozevíracího seznamu.
 
@@ -42,7 +42,7 @@ Metriky lze zobrazit na stránku účtu, nová stránka metriky, nebo v Azure mo
 5. V seznamu **dostupné metriky**, vybrat metriky pro zobrazení. Pomocí tlačítka CTRL k vícenásobným výběrem. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Zobrazení výkonu metriky na stránku účtu
-1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **více služeb**, přejděte na **databáze**, klikněte na tlačítko **Azure Cosmos DB**a potom klikněte na název účtu Azure Cosmos DB, pro který chcete zobrazit metrik výkonu.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **všechny služby**, přejděte k položce **databáze**, klikněte na tlačítko **Azure Cosmos DB**a pak klikněte na název Azure Cosmos DB účet, pro který chcete zobrazit metrik výkonu.
 2. **Monitorování** přehledu ve výchozím nastavení zobrazí tyto dlaždice:
    
    * Celkový počet požadavků aktuálního dne.
@@ -53,7 +53,7 @@ Metriky lze zobrazit na stránku účtu, nová stránka metriky, nebo v Azure mo
 4. **Metrika** stránce se zobrazují podrobnosti o celkový počet požadavků. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Nastavit výstrahy na portálu
-1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **více služeb**, klikněte na tlačítko **Azure Cosmos DB**a potom klikněte na název účtu Azure Cosmos DB, pro kterou chcete nastavit výkonu metriky výstrahy.
+1. V [portál Azure](https://portal.azure.com/), klikněte na tlačítko **všechny služby**, klikněte na tlačítko **Azure Cosmos DB**a potom klikněte na název účtu Azure Cosmos DB, pro kterou chcete nastavit výkonu metriky výstrahy.
 2. V nabídce prostředků, klikněte na tlačítko **pravidla výstrah** chcete otevřít stránku pravidla výstrah.  
    ![Snímek obrazovky výstrahy pravidla vybrané části](./media/monitor-accounts/madocdb10.5.png)
 3. V **výstrah pravidla** klikněte na tlačítko **přidat upozornění**.  
@@ -84,6 +84,6 @@ Dotazy k načtení jednotlivé metriky použijte následující formát:
 
 Další informace najdete v tématu [načítání prostředků metriky přes REST API Azure monitorování](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). Všimněte si, že se přejmenoval "Statistika Azure" "Azure sledování".  Tuto položku blogu odkazuje na starší název.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o plánování kapacity Azure Cosmos DB, najdete v článku [kalkulačky Plánovač kapacity Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
 

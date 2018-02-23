@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Vytvořte standardní veřejné zatížení na vyrovnávání s zónově redundantní veřejná IP adresa front-endu pomocí portálu Azure
 
@@ -37,14 +37,14 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 Před výběrem zóny nebo zónově redundantní možnost pro veřejnou IP adresu front-endu nástroje pro vyrovnávání zatížení, musíte nejdřív dokončit kroky v [zaregistrovat verzi Preview zón dostupnosti](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
+## <a name="log-in-to-azure"></a>Přihlášení k Azure 
 
-Přihlaste se k portálu Azure na https://portal.azure.com.
+Přihlaste se k webu Azure Portal na adrese https://portal.azure.com.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>Vytvořit nástroj pro vyrovnávání zatížení redundantní zóny
 
 1. V prohlížeči přejděte na web Azure Portal: [http://portal.azure.com](http://portal.azure.com) a přihlaste se pomocí svého účtu Azure.
-2. Na nejvyšší levé straně obrazovky vyberte **nový** > **sítě** > **nástroj pro vyrovnávání zatížení.**
+2. Na nejvyšší levé straně obrazovky vyberte **vytvořit prostředek** > **sítě** > **nástroj pro vyrovnávání zatížení.**
 3. V ** vytvořit službu Vyrovnávání zatížení, v části **název** typ **myPublicLB**.
 4. V části **Typ** vyberte **Veřejný**.
 5. V části SKU, vyberte **Standard (Preview)**.
@@ -54,7 +54,7 @@ Přihlaste se k portálu Azure na https://portal.azure.com.
     ![Vytvoření vyrovnávání standardní zónově redundantní zatížení pomocí portálu Azure](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Zjistěte, jak [vytvořit veřejnou IP adresu v zóně dostupnosti](../virtual-network/create-public-ip-availability-zone-portal.md)
 
 

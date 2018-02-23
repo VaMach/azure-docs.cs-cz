@@ -4,7 +4,7 @@ description: "Obsahuje doporučené postupy pro výběr správné virtuálního 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Pokyny pro virtuální počítače SQL serveru Azure – ceny
 
@@ -46,7 +46,7 @@ Pokud chcete vytvořit virtuální počítač Azure SQL Server 2017 s jedním z 
 
 Pokud máte jiný lightweight produkční zatížení, použijte jednu z následujících edicích systému SQL Server:
 
-| Edice systému SQL Server | Úloha |
+| SQL Server Edition | Úloha |
 |-----|-----|
 | Web | Malé weby |
 | Standard | Malé a střední zatížení |
@@ -112,16 +112,16 @@ Vytvoření virtuálního počítače s SQL Server 2016 Azure s jedním z těcht
 
 Abyste se vyhnuli zbytečných nákladů, zvolte velikost optimální virtuálního počítače a zvažte přerušované vypnutí systému pro nesouvislé úlohy.
 
-### <a id="machinesize"></a>Správně velikost virtuálního počítače
+### <a id="machinesize"></a> Správně velikost virtuálního počítače
 
 Náklady na licencování SQL serveru přímo souvisí s počet jader. Zvolte velikost virtuálního počítače, který odpovídá vašim potřebám očekávané pro využití procesoru, paměti, úložiště a vstupně-výstupní šířky. Úplný seznam možnosti velikosti počítačů najdete v tématu [velikosti virtuálních počítačů Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) a [velikosti virtuálního počítače s Linuxem](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Existují nové velikosti počítačů, které funkce fungují dobře u určitých typů úloh SQL serveru. Tyto počítače velikosti udržování vysoké úrovně paměť, úložiště a vstupně-výstupní šířky pásma, ale mají nižší počet virtualizované jader. Představte si třeba v následujícím příkladu:
 
-| Velikost virtuálního počítače | Vcpu | Memory (Paměť) | Maximální počet disků | Maximální propustnost vstupu/výstupu | Náklady na licencování SQL | Celkové náklady (výpočetní + licencování) |
+| Velikost virtuálního počítače | vCPU | Memory (Paměť) | Maximální počet disků | Maximální propustnost vstupu/výstupu | Náklady na licencování SQL | Celkové náklady (výpočetní + licencování) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 IOPS nebo 768 MB/s | | |
-| **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51 200 IOPS nebo 768 MB/s | 75 % nižší | 57 % nižší |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51 200 IOPS nebo 768 MB/s | 75 % nižší | 57 % nižší |
 
 > [!IMPORTANT]
 > Toto je příklad v daném okamžiku. Nejnovější specifikace, naleznete v článcích velikost počítače a Azure pro stránce s cenami [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) a [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
@@ -143,7 +143,7 @@ Pro jiné pracovní postupy, zvažte automaticky vypínání a restartování vi
 > [!IMPORTANT]
 > Vypíná a rušení přidělení virtuálního počítače je jedinou možností, aby se zabránilo poplatky. Jednoduše zastavení nebo pomocí možnosti napájení vypnout virtuální počítač stále způsobuje poplatky za používání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Obecné Azure ceny pokyny najdete v tématu [zabránit neočekávané náklady s Azure fakturace a náklady na správu](../../../billing/billing-getting-started.md).
 

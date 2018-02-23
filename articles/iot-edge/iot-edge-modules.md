@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Pochopení moduly Azure IoT Edge – náhled
 
@@ -50,7 +50,7 @@ Každá instance modul má také odpovídající twin modul, který vám pomůž
 
 Modul twin je dokument JSON, který ukládá vlastnosti informace a konfigurace modulu. Tento koncept je paralelní [dvojče zařízení] [ lnk-device-twin] koncept ze služby IoT Hub. Struktura twin modulu je přesně stejný jako dvojče zařízení. Rozhraní API používají k interakci se oba typy dvojčata jsou také stejné. Jediným rozdílem mezi těmito dvěma je identita používaný k vytváření instancí klienta SDK. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
@@ -61,7 +61,7 @@ await client.OpenAsync();
 Twin twin = await client.GetTwinAsync(); 
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
  - [Pochopení modulu runtime Azure IoT okraj a jeho architektura][lnk-runtime]
 
 <!-- Images -->

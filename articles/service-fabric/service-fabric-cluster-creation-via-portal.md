@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Vytvořit cluster Service Fabric v Azure pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Vytváření clusteru výroby podle vašich potřeb aplikace zahrnuje některé 
 ![vyhledávání pro šablonu clusteru Service Fabric na portálu Azure.][SearchforServiceFabricClusterTemplate]
 
 1. Přihlaste se na web [Azure Portal][azure-portal].
-2. Klikněte na tlačítko **nový** o přidání nového prostředku šablony. Vyhledejte šablony Service Fabric Cluster **Marketplace** pod **všechno, co**.
+2. Klikněte na tlačítko **vytvořit prostředek** o přidání nového prostředku šablony. Vyhledejte šablony Service Fabric Cluster **Marketplace** pod **všechno, co**.
 3. Vyberte **Service Fabric Cluster** ze seznamu.
 4. Přejděte na **Service Fabric Cluster** okně klikněte na tlačítko **vytvořit**,
 5. **Cluster Service Fabric vytvořit** okno obsahuje následující čtyři kroky:
@@ -134,6 +134,7 @@ Chcete-li nastavení zabezpečení zkušební cluster snadno pro vás, uvádíme
 #####<a name="basic-option"></a>Základní možnosti
 Postupujte podle obrazovky pro přidání nebo znovu použít existující keyvault a přidání certifikátu. Přidání certifikátu je synchronní proces, a proto je nutné čekat na certifikát, který chcete vytvořit.
 
+
 Odolejte riziko navigace směrem od obrazovky až do dokončení procesu předchozí.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Teď, když je certifikát přidat do vaší keyvault, zobrazí se následujíc�
 
 ![CreateKeyVault2]
 
-Klikněte na Upřesnit zásady a povolit přístup k virtuálním počítačům pro nasazení. Doporučujeme, abyste povolili také nasazení šablony.
+Klikněte na Upřesnit zásady a povolit přístup k virtuálním počítačům pro nasazení. Doporučujeme, abyste povolili také nasazení šablony. Po provedení váš výběr, nezapomeňte znovu klikněte na tlačítko **Uložit** tlačítko a zavřete mimo **zásady přístupu** podokně.
 
 ![CreateKeyVault3]
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Vyexportování šablony Azure Resource Manageru z existujících prostředků
 V tomto článku se naučíte, jak exportovat šablonu Resource Manageru z existujících prostředků ve vašem předplatném. Tuto vygenerovanou šablonu můžete použít k lepšímu pochopení syntaxe šablon.
@@ -33,7 +33,7 @@ Toto téma ukazuje oba přístupy prostřednictvím portálu.
 ## <a name="deploy-resources"></a>Nasazení prostředků
 Začněme tím, že do Azure nasadíme prostředky, které můžete použít k exportu v podobě šablony. Pokud už v předplatném máte skupinu prostředků, kterou chcete exportovat do šablony, můžete tuto část přeskočit. Zbývající část tohoto článku předpokládá, že jste nasadili webovou aplikaci a řešení databáze SQL uvedené v této části. Pokud používáte jiné řešení, vaše prostředí může být trochu jiné, ale postup exportu šablony je stejný. 
 
-1. Na webu [Azure Portal](https://portal.azure.com) vyberte **Nový**.
+1. V [portál Azure](https://portal.azure.com), vyberte **vytvořit prostředek**.
    
       ![výběr možnosti Nový](./media/resource-manager-export-template/new.png)
 2. Vyhledejte řešení **Webová aplikace a SQL** a vyberte ho z dostupných možností.
@@ -169,7 +169,7 @@ Ne všechny typy prostředků podporují funkci exportu šablony. Tento problém
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Naučili jste se, jak vyexportovat šablonu z prostředků, které jste vytvořili na portálu.
 
 * Šablonu můžete nasadit pomocí těchto možností: [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md) nebo [REST API](resource-group-template-deploy-rest.md).

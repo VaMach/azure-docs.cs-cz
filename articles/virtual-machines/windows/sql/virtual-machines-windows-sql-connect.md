@@ -4,7 +4,7 @@ description: "Zjistěte, jak se připojit k serveru SQL, které jsou spuštěny 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Připojit k virtuálnímu počítači serveru SQL v Azure
 
@@ -42,7 +42,7 @@ Možnosti připojení patří:
 |---|---|
 | **Veřejné** | Připojení k systému SQL Server přes internet |
 | **Privátní** | Připojení k systému SQL Server ve stejné virtuální síti |
-| **Místní** | Připojení k systému SQL Server lokálně na jednom virtuálním počítači | 
+| **místní** | Připojení k systému SQL Server lokálně na jednom virtuálním počítači | 
 
 Následující části popisují **veřejné** a **privátní** možnosti podrobněji.
 
@@ -80,7 +80,7 @@ Pokud vyberete **privátní** pro **připojení SQL** typ na portálu Azure nako
 > [!IMPORTANT]
 > Bitové kopie virtuálních počítačů pro SQL Server Developer a edice Express automaticky nepovolujte protokol TCP/IP. U edice Developer a Express, je nutné použít Správce konfigurace systému SQL Server na [ručně povolit protokol TCP/IP](#manualtcp) po vytvoření virtuálního počítače.
 
-Privátní připojení se často používá ve spojení s [virtuální sítě](../../../virtual-network/virtual-networks-overview.md), což umožňuje několik scénářů. I když tyto virtuální počítače existovat v různých skupinách prostředků se můžete připojit virtuální počítače ve stejné virtuální síti. A s [site-to-site VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), můžete vytvořit hybridní architekturu, která připojí virtuální počítače s místními sítěmi a počítače.
+Privátní připojení se často používá ve spojení s [virtuální sítě](../../../virtual-network/virtual-networks-overview.md), což umožňuje několik scénářů. I když tyto virtuální počítače existovat v různých skupinách prostředků se můžete připojit virtuální počítače ve stejné virtuální síti. A s [site-to-site VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), můžete vytvořit hybridní architekturu, která připojí virtuální počítače s místními sítěmi a počítače.
 
 Virtuální sítě umožňují připojit virtuální počítače Azure k doméně. Toto je jediným způsobem, jak použít ověřování systému Windows na serveru SQL Server. Jiné připojení scénáře vyžadují ověřování SQL pomocí uživatelského jména a hesla.
 
@@ -90,7 +90,7 @@ Za předpokladu, že nakonfigurujete DNS ve virtuální síti, můžete se přip
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a>Změňte nastavení připojení k SQL
+## <a id="change"></a> Změňte nastavení připojení k SQL
 
 Můžete změnit nastavení připojení pro virtuální počítač systému SQL Server na portálu Azure.
 
@@ -108,7 +108,7 @@ Můžete změnit nastavení připojení pro virtuální počítač systému SQL 
 
    ![Virtuální počítač SQL aktualizace oznámení](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a>Povolte protokol TCP/IP pro edice Developer a Express
+## <a id="manualtcp"></a> Povolte protokol TCP/IP pro edice Developer a Express
 
 Při změně nastavení připojení k systému SQL Server, Azure automaticky neumožňuje protokol TCP/IP pro vývojáře serveru SQL a edice Express. Následující kroky popisují ruční povolení protokolu TCP/IP, abyste se mohli vzdáleně připojit pomocí IP adresy.
 
@@ -126,7 +126,7 @@ Následující kroky ukazují, jak vytvořit popisek volitelné DNS pro virtuál
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a>Ruční konfigurace a řešení potíží
+## <a id="manual"></a> Ruční konfigurace a řešení potíží
 
 I když na portál poskytuje možnosti pro automatickou konfiguraci připojení, je užitečné vědět, jak ručně nakonfigurovat připojení. Seznámení s požadavky na také usnadňuje řešení potíží.
 

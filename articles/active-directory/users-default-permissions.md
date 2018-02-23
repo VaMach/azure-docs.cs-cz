@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Výchozí oprávnění uživatele v Azure Active Directory
 
@@ -59,7 +59,7 @@ Možnost registrovat (vytvořit) aplikací | Nastavení této možnosti na Ne za
 Správci a uživatelé v roli hosta pozvánky můžete pozvat hosty | Nastavení této možnosti na Ne brání všem uživatelům pozváním hostů. V tématu Konfigurace výchozí oprávnění pro uživatele člena. Další informace najdete v tématu [aplikace, oprávnění a souhlasu v Azure Active Directory](active-directory-apps-permissions-consent.md).
 Členy můžete pozvat hosty | Toto nastavení na žádné zabrání uživatelům pozváním hostů. Globální správci, správci uživatelského účtu a Inviters hosta budou mít pořád povolený pozvaným hostů. Další informace najdete v tématu [aplikace, oprávnění a souhlasu v Azure Active Directory](active-directory-apps-permissions-consent.md).
 Omezit přístup k portálu pro správu Azure AD | Nastavení této možnosti na Ne, zabraňuje uživatelům přístup k portálu Azure Active Directory.
-Možnost číst jiní uživatelé | Další informace najdete v tématu [aplikace, oprávnění a souhlasu v Azure Active Directory](active-directory-apps-permissions-consent.md).
+Možnost číst jiní uživatelé | Toto nastavení je pouze dostupné v prostředí PowerShell. Toto nastavení na $false zabrání čtení z adresáře uživatele získáte všechny bez oprávnění správce. To nezabrání čtení uživatelů získáte v jiných služeb společnosti Microsoft, jako je Exchange Online. Toto nastavení je určená pro zvláštní okolnosti a nastavení, které na $false se nedoporučuje.
 
 ## <a name="object-ownership"></a>Vlastnictví objektů
 

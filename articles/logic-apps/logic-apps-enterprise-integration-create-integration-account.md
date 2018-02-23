@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7ec63810fe78b38c574ec39369d5926f80e595e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-an-integration-account"></a>Co je integrace účet?
 
 Účet integrace umožňuje integračních aplikací ke správě artefaktů, včetně schémat, map, certifikáty, partneři a smlouvy enterprise. Všechny integrace aplikace, které vytvoříte použije integrace účet pro přístup tyto schémat, map, certifikáty a tak dále.
 
-## <a name="create-an-integration-account"></a>Vytvoření účtu integrace
+## <a name="create-an-integration-account"></a>Vytvoření účtu pro integraci
 
-1.  Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). V nabídce vlevo vyberte **další služby**.
+1.  Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). V nabídce vlevo vyberte **všechny služby**.
 
-    ![Vyberte možnost "Další služby"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Vyberte možnost "všechny služby"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Do vyhledávacího pole zadejte "integrace" filtru. V seznamu výsledků vyberte **účty pro integraci**.
 
@@ -85,9 +85,9 @@ Teď, když je propojené účtu integrace aplikace logiky, můžete použít ko
 
 ## <a name="delete-your-integration-account"></a>Odstranění účtu integrace
 
-1. Vyberte **další služby**.
+1. Vyberte **všechny služby**.
 
-    ![Vyberte možnost "Další služby"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Vyberte možnost "všechny služby"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Do vyhledávacího pole zadejte "integrace" filtru. V seznamu výsledků vyberte **účty pro integraci**.
 
@@ -110,9 +110,9 @@ Pokud chcete přesunout účet integrace Azure jiné předplatné nebo prostřed
 > [!IMPORTANT]
 > Je nutné aktualizovat všechny skripty používat nový prostředek ID po přesunutí účet integrace.
 
-1. Vyberte **další služby**.
+1. Vyberte **všechny služby**.
 
-    ![Vyberte možnost "Další služby"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Vyberte možnost "všechny služby"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Do vyhledávacího pole zadejte "integrace" filtru. V seznamu výsledků vyberte **účty pro integraci**.
 

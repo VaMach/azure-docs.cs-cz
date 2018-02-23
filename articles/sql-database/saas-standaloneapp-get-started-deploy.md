@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Nasazení a prozkoumejte samostatná jednoho klienta aplikace, která používá databázi SQL Azure
 
@@ -47,11 +47,11 @@ Další kurzy, budou vydané. Se vám umožní zkoumat celou řadu scénářů s
 Nasazení aplikace pro tři zadaný klienty:
 
 1. Klikněte na každou blue **nasadit do Azure** tlačítko otevřete šablonu nasazení v [portál Azure](https://portal.azure.com). Každá šablona vyžaduje dvě hodnoty parametrů; název pro novou skupinu prostředků a uživatelské jméno, která odlišuje od jiných nasazení aplikace pro toto nasazení. Dalším krokem poskytuje podrobnosti pro tyto hodnoty nastavení.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Hall vzájemné součinnosti Contoso**
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Vzájemné součinnosti Hall contoso**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Svída Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Svída Dojo**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Křížovou Fabrikam Jazz kartou**
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Společnost Fabrikam Jazz křížovou kartou**
 
 2. Zadejte požadovaný parametr hodnoty pro každé nasazení.
 
@@ -100,9 +100,7 @@ V produkčním prostředí, obvykle můžete vytvořit záznam CNAME DNS do [ *n
 Podívejme se na některé prostředky, které byly nasazeny:
 
 1. V [portál Azure](http://portal.azure.com), přejděte do seznamu skupin prostředků.
-2. Najdete v článku **wingtip-sa-katalogu -&lt;uživatele&gt;**  skupinu prostředků.
-    - V této skupině prostředků **katalogu-sa -&lt;uživatele&gt;**  server nasazen. Na serveru **tenantcatalog** databáze.
-    - Měli byste taky vidět tři klienta skupiny prostředků.
+2. Měli byste vidět tři klienta skupiny prostředků.
 3. Otevřete **wingtip-sa-fabrikam -&lt;uživatele&gt;**  skupinu prostředků, která obsahuje prostředky pro nasazení křížovou kartou Jazz Fabrikam.  **Fabrikamjazzclub -&lt;uživatele&gt;**  server obsahuje **fabrikamjazzclub** databáze.
 
 Každá databáze klienta je 50 DTU *samostatné* databáze.
@@ -131,6 +129,6 @@ V tomto kurzu jste se dozvěděli:
 > * O servery a databáze, které tvoří aplikace.
 > * Postup odstranění ukázkové prostředky zastavit související fakturace.
 
-Zkuste [zřídit a katalog](saas-standaloneapp-provision-and-catalog.md) kurzu.
+Zkuste [zřídit a katalog](saas-standaloneapp-provision-and-catalog.md) kurz, ve kterém bude prozkoumat použití katalogu klientů, která umožňuje celou řadu scénářů napříč klienta jako jsou například analýzy schématu správy a klientů.
  
 

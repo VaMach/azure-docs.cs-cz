@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobslužné služby v Azure AD podrobné informace pro vytvoření nového hesla
 
@@ -78,7 +78,7 @@ Ve výchozím nastavení Telefon do kanceláře atributy cloudu a mobilních tel
 
 Uživatelé mohou pouze obnovit své heslo, pokud mají data obsažená v metod ověřování, které správce povolil a vyžaduje.
 
-Pokud uživatelé nechtějí své mobilní telefonní číslo viditelné v adresáři, ale chtějí používat pro resetování hesla, Správci by neměl naplnit v adresáři. Uživatelé by pak naplnit jejich **telefon pro ověření** atribut prostřednictvím [portál pro registraci a resetování hesla](http://aka.ms/ssprsetup). Správci uvidí tyto informace v profilu uživatele, ale nebude publikován jinde.
+Pokud uživatelé nechtějí své mobilní telefonní číslo viditelné v adresáři, ale chtějí používat pro resetování hesla, Správci by neměl naplnit v adresáři. Uživatelé by pak naplnit jejich **telefon pro ověření** atribut prostřednictvím [portál pro registraci a resetování hesla](https://aka.ms/ssprsetup). Správci uvidí tyto informace v profilu uživatele, ale nebude publikován jinde.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Počet požadované metody ověřování
 
@@ -180,7 +180,7 @@ Chcete-li tuto možnost, má uživatel, který je povolen pro resetování hesla
 * Federovaným aplikacím
 * Vlastní aplikace pomocí Azure AD
 
-Při vyžadování registrace je zakázaná, uživatelé mohou registrovat pořád spustit ručně své kontaktní informace. Můžete buď návštěvu [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) nebo vyberte **registrace pro resetování hesla** v části **profil** karta na přístupovém panelu.
+Při vyžadování registrace je zakázaná, uživatelé mohou registrovat pořád spustit ručně své kontaktní informace. Můžete buď návštěvu [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) nebo vyberte **registrace pro resetování hesla** v části **profil** karta na přístupovém panelu.
 
 > [!NOTE]
 > Uživatele můžete zavřít portálu registrace resetování hesel výběrem **zrušit** nebo ukončením okna. Ale bude vyzván k registraci při každém přihlášení, dokud se jejich registraci dokončit.

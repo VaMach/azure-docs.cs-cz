@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Zprávy Exchange EDIFACT pro podnikové integrace s logic apps
 
@@ -42,12 +42,12 @@ Po jste [vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integ
 
 ## <a name="create-an-edifact-agreement"></a>Vytvoření smlouvy EDIFACT 
 
-1.  Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). V nabídce vlevo vyberte **další služby**.
+1.  Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). V nabídce vlevo vyberte **všechny služby**.
 
     > [!TIP]
-    > Pokud nevidíte **další služby**, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **nabídky Zobrazit**.
+    > Pokud nevidíte **všechny služby**, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **nabídky Zobrazit**.
 
-    ![V levé nabídce vyberte "Další služby"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+    ![V levé nabídce vyberte "Všechny služby"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
 2. Do vyhledávacího pole zadejte "integrace" filtru. V seznamu výsledků vyberte **účty pro integraci**.
 
@@ -72,14 +72,14 @@ Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/
 
     | Vlastnost | Popis |
     | --- | --- |
-    | Name (Název) |Název smlouvy |
+    | Název |Název smlouvy |
     | Typ smlouvy | Musí být EDIFACT |
-    | Hostitele partnera |Smlouvu musí hostitelské i hostované partnera. Partner hostitele představuje organizace, která nakonfiguruje smlouvu. |
-    | Identitu hostitele |Identifikátor pro hostitele partnera |
-    | Partner hosta |Smlouvu musí hostitelské i hostované partnera. Partner hosta představuje organizace, která je spolupráci s partnery hostitele. |
-    | Identity hosta |Identifikátor pro partnera hosta |
-    | Získat nastavení |Tyto vlastnosti se vztahují na všechny zprávy přijaté službou smlouvu. |
-    | Odeslat nastavení |Tyto vlastnosti se vztahují na všechny zprávy odeslané smlouvu. |
+    | Partner s identitou hostitele |Smlouvu musí hostitelské i hostované partnera. Partner hostitele představuje organizace, která nakonfiguruje smlouvu. |
+    | Identita hostitele |Identifikátor pro hostitele partnera |
+    | Partner s identitou hosta |Smlouvu musí hostitelské i hostované partnera. Partner hosta představuje organizace, která je spolupráci s partnery hostitele. |
+    | Identita hosta |Identifikátor pro partnera hosta |
+    | Nastavení příjmu |Tyto vlastnosti se vztahují na všechny zprávy přijaté službou smlouvu. |
+    | Nastavení odesílání |Tyto vlastnosti se vztahují na všechny zprávy odeslané smlouvu. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Nakonfigurujte, jak vaše smlouvy popisovače přijatých zpráv
 
@@ -100,8 +100,8 @@ Nyní je připraven pro zpracování příchozích zpráv, které v souladu s v�
 
 | Vlastnost | Popis |
 | --- | --- |
-| UNB6.1 (heslo příjemce odkaz) |Zadejte hodnotu mezi 1 a 14 znaky alfanumerické hodnotu. |
-| UNB6.2 (kvalifikátor příjemce odkaz) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně dva znaky. |
+| UNB6.1 (Referenční heslo příjemce) |Zadejte hodnotu mezi 1 a 14 znaky alfanumerické hodnotu. |
+| UNB6.2 (Referenční kvalifikátor příjemce) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně dva znaky. |
 
 ### <a name="acknowledgments"></a>Potvrzování
 
@@ -122,29 +122,29 @@ Nyní je připraven pro zpracování příchozích zpráv, které v souladu s v�
 | UNG2.2 (KVALIFIKÁTOR APLIKACE ODESÍLATELE KÓDU) |Zadejte hodnotu alfanumerické delší než 4 znaky. |
 | SCHÉMA |Vyberte dříve odeslaný schéma, které chcete použít z vašeho účtu přidružené integrace. |
 
-### <a name="control-numbers"></a>Ovládací prvek čísla
+### <a name="control-numbers"></a>Kontrolní čísla
 | Vlastnost | Popis |
 | --- | --- |
 | Zakáže duplikáty Interchange číslo ovládacího prvku |Chcete-li blokovat duplicitní mimoúrovňové křižovatky, vyberte tuto vlastnost. Pokud, EDIFACT dekódovat akce zkontroluje, že číslo ovládací prvek výměnu (UNB5) pro výměnu přijaté neodpovídá číslo řízení dříve zpracované výměnu. Pokud je zjištěna shoda, nebude zpracován výměnu. |
 | Kontrolovat duplicitní UNB5 každých (dny) |Pokud jste se rozhodli zakázat duplicitní výměnu řízení čísla, můžete zadat počet dnů, kdy se mají provést kontrolu tím, že na odpovídající hodnotu pro toto nastavení. |
 | Zakázat duplicity kontrolních čísel skupiny |Pokud chcete blokovat mimoúrovňové křižovatky s duplicitní skupině řízení čísla (UNG5), vyberte tuto vlastnost. |
 | Zakázat duplicity kontrolních čísel sad transakcí |Pokud chcete blokovat mimoúrovňové křižovatky se duplicitní transakce sadu řízení čísla (UNH1), vyberte tuto vlastnost. |
-| Číslo EDIFACT potvrzení Ovládací prvek |Chcete-li určit čísla transakcí sadu referenční dokumentace pro použití v potvrzení, zadejte hodnotu pro předponu, rozsah čísel odkaz a příponu. |
+| Řídicí číslo potvrzení EDIFACT |Chcete-li určit čísla transakcí sadu referenční dokumentace pro použití v potvrzení, zadejte hodnotu pro předponu, rozsah čísel odkaz a příponu. |
 
-### <a name="validations"></a>Ověření
+### <a name="validations"></a>Ověřování
 
 Po dokončení každý řádek ověření jiné automaticky přidá. Pokud nezadáte všechna pravidla, ověření používá "Výchozího" řádku.
 
 | Vlastnost | Popis |
 | --- | --- |
 | Typ zprávy |Vyberte typ zprávy EDI. |
-| Ověření EDI |Provedení ověření EDI pro datové typy podle definice schématu EDI vlastnosti, omezení délky, prázdný datové prvky a koncové oddělovače. |
-| Rozšířené ověření |Pokud datový typ není EDI, ověření se na element požadavek na data a povoleny opakování, výčty a data element délka ověření (min/max). |
-| Povolit úvodní nebo koncové nuly |Zachování všechny další počáteční nebo koncové nula a místo znaků. Nevysunujte tyto znaky. |
-| Trim – úvodní nebo koncové nuly |Odeberte úvodní a koncové nuly a místo znaků. |
-| Koncové oddělovače zásad |Generovat koncové oddělovače. <p>Vyberte **není povoleno** zakázat koncové oddělovače a oddělovače v přijatých výměnu. Pokud výměnu koncové oddělovače a oddělovačů, výměnu je deklarovaná není platný. <p>Vyberte **volitelné** tak, aby přijímal mimoúrovňové křižovatky s nebo bez koncové oddělovače a oddělovačů. <p>Vyberte **povinné** při přijaté výměnu musí mít koncové oddělovače a oddělovačů. |
+| Ověřování EDI |Provedení ověření EDI pro datové typy podle definice schématu EDI vlastnosti, omezení délky, prázdný datové prvky a koncové oddělovače. |
+| Rozšíření ověřování |Pokud datový typ není EDI, ověření se na element požadavek na data a povoleny opakování, výčty a data element délka ověření (min/max). |
+| Povolit úvodní a koncové nuly |Zachování všechny další počáteční nebo koncové nula a místo znaků. Nevysunujte tyto znaky. |
+| Oříznout úvodní a koncové nuly |Odeberte úvodní a koncové nuly a místo znaků. |
+| Zásady pro koncový oddělovač |Generovat koncové oddělovače. <p>Vyberte **není povoleno** zakázat koncové oddělovače a oddělovače v přijatých výměnu. Pokud výměnu koncové oddělovače a oddělovačů, výměnu je deklarovaná není platný. <p>Vyberte **volitelné** tak, aby přijímal mimoúrovňové křižovatky s nebo bez koncové oddělovače a oddělovačů. <p>Vyberte **povinné** při přijaté výměnu musí mít koncové oddělovače a oddělovačů. |
 
-### <a name="internal-settings"></a>Vnitřní nastavení
+### <a name="internal-settings"></a>Interní nastavení
 
 | Vlastnost | Popis |
 | --- | --- |
@@ -176,9 +176,9 @@ Nyní je připraven pro zpracování odchozích zpráv, které v souladu s vámi
 | UNB1.2 (syntaxe verze) |Vyberte hodnotu mezi **1** a **4**. |
 | UNB2.3 (Adresa zpětného směrování odesílatele) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 14 znaků. |
 | UNB3.3 (Adresa zpětného směrování příjemce) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 14 znaků. |
-| UNB6.1 (heslo příjemce odkaz) |Zadejte hodnotu alfanumerické s minimálně jeden a maximálně 14 znaků. |
-| UNB6.2 (kvalifikátor příjemce odkaz) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně dva znaky. |
-| UNB7 (referenční dokumentace ID aplikace) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 14 znaků |
+| UNB6.1 (Referenční heslo příjemce) |Zadejte hodnotu alfanumerické s minimálně jeden a maximálně 14 znaků. |
+| UNB6.2 (Referenční kvalifikátor příjemce) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně dva znaky. |
+| UNB7 (Referenční ID aplikace) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 14 znaků |
 
 ### <a name="acknowledgment"></a>Potvrzení
 | Vlastnost | Popis |
@@ -198,9 +198,9 @@ Nyní je připraven pro zpracování odchozích zpráv, které v souladu s vámi
 ### <a name="envelopes"></a>Obálky
 | Vlastnost | Popis |
 | --- | --- |
-| UNB8 (zpracování Priority kódu) |Zadejte abecední hodnotu, která není více než jeden znak. |
-| UNB10 (smlouva komunikaci) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 40 znaků. |
-| UNB11 (Test ukazatele) |Zaškrtnutím tohoto políčka znamenat, že výměnu generované testovací data |
+| UNB8 (Zpracování kódu priority) |Zadejte abecední hodnotu, která není více než jeden znak. |
+| UNB10 (Dohoda o komunikaci) |Zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 40 znaků. |
+| UNB11 (Testovací indikátor) |Zaškrtnutím tohoto políčka znamenat, že výměnu generované testovací data |
 | Použít segment UNA (Nápověda k řetězci služby) |Zaškrtnutím tohoto políčka Generovat UNA segmentu pro výměnu k odeslání. |
 | Použít segmenty UNG (Hlavička skupiny funkce) |Zaškrtnutím tohoto políčka pro vytvoření seskupení segmentů v hlavičce funkční skupiny v zprávy odeslané do hostovaného partnera. Chcete-li vytvořit segmenty UNG budou použity následující hodnoty: <p>Pro **UNG1**, zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně šest znaků. <p>Pro **UNG2.1**, zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 35 znaků. <p>Pro **UNG2.2**, zadejte hodnotu alfanumerické delší než 4 znaky. <p>Pro **UNG3.1**, zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 35 znaků. <p>Pro **UNG3.2**, zadejte hodnotu alfanumerické delší než 4 znaky. <p>Pro **UNG6**, zadejte hodnotu alfanumerické s minimálně jeden a maximálně tři znaky. <p>Pro **UNG7.1**, zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně tři znaky. <p>Pro **UNG7.2**, zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně tři znaky. <p>Pro **UNG7.3**, zadejte hodnotu alfanumerické minimálně 1 znak a maximálně 6 znaků. <p>Pro **UNG8**, zadejte hodnotu alfanumerické znaky s nejméně jeden znak a maximálně 14 znaků. |
 
@@ -210,33 +210,33 @@ Jiného, než znaková sada, můžete zadat jinou sadu oddělovače má být pou
 
 | Vlastnost | Popis |
 | --- | --- |
-| UNB1.1 (System Identifier) |Vyberte EDIFACT znakovou sadu pro použití na odchozí výměnu. |
+| UNB1.1 (Identifikátor systému) |Vyberte EDIFACT znakovou sadu pro použití na odchozí výměnu. |
 | Schéma |V rozevíracím seznamu vyberte schéma. Po dokončení každý řádek je automaticky přidán nový řádek. Pro vybrané schéma vyberte sadu oddělovačů, který chcete použít, na základě následující popisů oddělovače. |
 | Typ vstupu |V rozevíracím seznamu vyberte typ vstupu. |
-| Součást oddělovače |Chcete-li samostatné složené datové prvky, zadejte jeden znak. |
-| Oddělovač elementu dat |Chcete-li samostatné jednoduché datové elementů v rámci složené datové prvky, zadejte jeden znak. |
-| Segment ukončovací znak |Chcete-li označení konce EDI segment, zadejte jeden znak. |
+| Oddělovač komponent |Chcete-li samostatné složené datové prvky, zadejte jeden znak. |
+| Oddělovač datových prvků |Chcete-li samostatné jednoduché datové elementů v rámci složené datové prvky, zadejte jeden znak. |
+| Ukončovací znak segmentu |Chcete-li označení konce EDI segment, zadejte jeden znak. |
 | Přípona |Vyberte znak, který se používá s identifikátor segmentu. Určíte příponu, datový prvek ukončovací segment nesmí být prázdné. Pokud segment ukončení je prázdné, je třeba určit příponu. |
 
-### <a name="control-numbers"></a>Ovládací prvek čísla
+### <a name="control-numbers"></a>Kontrolní čísla
 | Vlastnost | Popis |
 | --- | --- |
-| UNB5 (Interchange řízení číslo) |Zadejte předponu, rozsah hodnot pro ovládací prvek číslo výměnu a příponu. Tyto hodnoty se používají ke generování odchozí výměnu. Předpona a přípona jsou volitelné, při požadované číslo ovládacího prvku. Ovládací prvek je zvýšena pro každou novou zprávu; Předpona a přípona zůstávají stejné. |
-| UNG5 (skupina řízení číslo) |Zadejte předponu, rozsah hodnot pro ovládací prvek číslo výměnu a příponu. Tyto hodnoty se používají ke generování řízení čísla skupiny. Předpona a přípona jsou volitelné, při požadované číslo ovládacího prvku. Ovládací prvek je zvýšena pro každé nové zprávy, dokud nebude dosaženo maximální hodnoty; Předpona a přípona zůstávají stejné. |
-| UNH1 (zpráva hlavičky referenční číslo) |Zadejte předponu, rozsah hodnot pro ovládací prvek číslo výměnu a příponu. Tyto hodnoty se používají ke generování referenční číslo záhlaví zprávy. Předpona a přípona jsou volitelné, zatímco referenční číslo se vyžaduje. Referenční číslo se zvýší, pro každou novou zprávu; Předpona a přípona zůstávají stejné. |
+| UNB5 (Výměnné řídicí číslo) |Zadejte předponu, rozsah hodnot pro ovládací prvek číslo výměnu a příponu. Tyto hodnoty se používají ke generování odchozí výměnu. Předpona a přípona jsou volitelné, při požadované číslo ovládacího prvku. Ovládací prvek je zvýšena pro každou novou zprávu; Předpona a přípona zůstávají stejné. |
+| UNG5 (Řídicí číslo skupiny) |Zadejte předponu, rozsah hodnot pro ovládací prvek číslo výměnu a příponu. Tyto hodnoty se používají ke generování řízení čísla skupiny. Předpona a přípona jsou volitelné, při požadované číslo ovládacího prvku. Ovládací prvek je zvýšena pro každé nové zprávy, dokud nebude dosaženo maximální hodnoty; Předpona a přípona zůstávají stejné. |
+| UNH1 (Referenční číslo hlavičky zprávy) |Zadejte předponu, rozsah hodnot pro ovládací prvek číslo výměnu a příponu. Tyto hodnoty se používají ke generování referenční číslo záhlaví zprávy. Předpona a přípona jsou volitelné, zatímco referenční číslo se vyžaduje. Referenční číslo se zvýší, pro každou novou zprávu; Předpona a přípona zůstávají stejné. |
 
-### <a name="validations"></a>Ověření
+### <a name="validations"></a>Ověřování
 
 Po dokončení každý řádek ověření jiné automaticky přidá. Pokud nezadáte všechna pravidla, ověření používá "Výchozího" řádku.
 
 | Vlastnost | Popis |
 | --- | --- |
 | Typ zprávy |Vyberte typ zprávy EDI. |
-| Ověření EDI |Proveďte ověření EDI na datových typů, jak definované vlastnosti EDI schéma, omezení délky, prázdný datové prvky a koncové oddělovače. |
-| Rozšířené ověření |Pokud datový typ není EDI, ověření se na element požadavek na data a povoleny opakování, výčty a data element délka ověření (min/max). |
-| Povolit úvodní nebo koncové nuly |Zachování všechny další počáteční nebo koncové nula a místo znaků. Nevysunujte tyto znaky. |
-| Trim – úvodní nebo koncové nuly |Odeberte počáteční nebo koncové nulový počet znaků. |
-| Koncové oddělovače zásad |Generovat koncové oddělovače. <p>Vyberte **není povoleno** zakázat koncové oddělovače a oddělovače v odeslané výměnu. Pokud výměnu koncové oddělovače a oddělovačů, výměnu je deklarovaná není platný. <p>Vyberte **volitelné** odeslat mimoúrovňové křižovatky s nebo bez koncové oddělovače a oddělovačů. <p>Vyberte **povinné** Pokud odeslané výměnu musí mít koncové oddělovače a oddělovačů. |
+| Ověřování EDI |Proveďte ověření EDI na datových typů, jak definované vlastnosti EDI schéma, omezení délky, prázdný datové prvky a koncové oddělovače. |
+| Rozšíření ověřování |Pokud datový typ není EDI, ověření se na element požadavek na data a povoleny opakování, výčty a data element délka ověření (min/max). |
+| Povolit úvodní a koncové nuly |Zachování všechny další počáteční nebo koncové nula a místo znaků. Nevysunujte tyto znaky. |
+| Oříznout úvodní a koncové nuly |Odeberte počáteční nebo koncové nulový počet znaků. |
+| Zásady pro koncový oddělovač |Generovat koncové oddělovače. <p>Vyberte **není povoleno** zakázat koncové oddělovače a oddělovače v odeslané výměnu. Pokud výměnu koncové oddělovače a oddělovačů, výměnu je deklarovaná není platný. <p>Vyberte **volitelné** odeslat mimoúrovňové křižovatky s nebo bez koncové oddělovače a oddělovačů. <p>Vyberte **povinné** Pokud odeslané výměnu musí mít koncové oddělovače a oddělovačů. |
 
 ## <a name="find-your-created-agreement"></a>Najít vaší vytvořené smlouvy
 
