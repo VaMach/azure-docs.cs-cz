@@ -4,13 +4,13 @@ description: "Poskytuje přehled o vyhodnocení výpočtů ve službě Azure mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Vizualizace závislostí
 
@@ -29,13 +29,13 @@ Azure používá migrací [mapy služeb](../operations-management-suite/operatio
 - Přejděte do pracovního prostoru analýzy protokolů z **Essentials** části projektu **přehled** stránky.
 - Vytvořeným pracovním prostorem je označené klíč **MigrateProject**a hodnota **název projektu**. To slouží k vyhledávání na webu Azure portal.  
 
-    ![Pracovní prostor analýzy protokolů](./media/concepts-dependency-visualization/oms-workspace.png)
+    ![Pracovní prostor Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
 
 Pokud chcete použít závislost vizualizace, musíte stáhnout a nainstalovat agenty na každý místní počítač, který chcete analyzovat.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Je potřeba věnovat pro ni?
 
-Ano. Ve výchozím nastavení se vytvoří pracovní prostor analýzy protokolů, ale nepoužívá, pokud nechcete použít vizualizace závislostí v Azure migrovat. Pokud používáte závislostí vizualizace (nebo pomocí pracovního prostoru mimo Azure migraci), budou se vám účtovat pro použití pracovního prostoru.  [Další informace](https://azure.microsoft.com/pricing/details/insight-analytics/) o cenách řešení mapy služeb. 
+Další informace o cenách služby Azure Migrate najdete [zde](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Jak lze spravovat pracovního prostoru?
 
@@ -43,6 +43,6 @@ Můžete vytvořit pracovní prostor analýzy protokolů mimo Azure migrovat. Po
 
 Nemáte odstranit pracovní prostor vytvořené Azure migrovat, pokud odstraňte projekt migrace. Pokud tak učiníte, závislosti nefungují podle očekávání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Skupina počítačů pomocí závislosti počítače](how-to-create-group-machine-dependencies.md)

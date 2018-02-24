@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 903177506c31ec96452cbbdbade4a3d91dbf7571
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Služba Azure Instance metadat
 
@@ -75,8 +75,8 @@ V následující tabulce je odkazem na jiných formátů dat, které můžou pod
 
 Rozhraní API | Výchozí formát dat | Ostatní formáty
 --------|---------------------|--------------
-/instance | json | Text
-/scheduledevents | json | Žádné
+/instance | JSON | Text
+/scheduledevents | JSON | Žádné
 
 Pro přístup k odpovědi jiné než výchozí formát, zadejte požadovaný formát jako parametr řetězce dotazu v žádosti. Příklad:
 
@@ -113,7 +113,7 @@ Chyba 500 služby     | Po určité době opakujte
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
-**Odpověď**
+Odpověď
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.
@@ -160,7 +160,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
-**Odpověď**
+Odpověď
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.
@@ -227,7 +227,7 @@ Nebo pomocí `Invoke-RestMethod` rutiny:
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
-**Odpověď**
+Odpověď
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.
@@ -302,7 +302,7 @@ Adresa podsítě / | Adresa podsítě virtuálního počítače | 2017-04-02
 Předpona podsítě / | Předpona podsítě, například 24 | 2017-04-02 
 ipv6/ipAddress | Místní adresu IPv6 virtuálního počítače | 2017-04-02 
 MacAddress | Adresa mac virtuálního počítače | 2017-04-02 
-scheduledevents | Aktuálně ve verzi Public Preview. V tématu [naplánované události](scheduled-events.md) | 2017-03-01
+scheduledevents | V tématu [naplánované události](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Příklad scénáře použití  
 
@@ -316,7 +316,7 @@ Jako poskytovatele služeb může vyžadovat sledovat počet virtuálních poč�
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
-**Odpověď**
+Odpověď
 
 ```
 5c08b38e-4d57-4c23-ac45-aca61037f084
@@ -333,7 +333,7 @@ Tato data přímo přes službu Metadata Instance se můžete dotazovat.
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
-**Odpověď**
+Odpověď
 
 ```
 0
@@ -349,7 +349,7 @@ Jako poskytovatele služeb může získat volání podpory kde chcete vědět, d
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
-**Odpověď**
+Odpověď
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>Další postup
 
-- Další informace o [naplánované události](scheduled-events.md) rozhraní API **ve verzi public preview** poskytovaný službou Instance metadat.
+- Další informace o [naplánované události](scheduled-events.md)

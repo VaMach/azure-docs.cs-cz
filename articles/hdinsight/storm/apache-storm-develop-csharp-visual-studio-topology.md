@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Vývoj topologie C# pro Apache Storm pomocí nástrojů Data Lake pro Visual Studio
 
@@ -42,9 +43,6 @@ Pokud chcete používat topologie C# s clusterem se systémem Linux, je třeba a
 
 > [!IMPORTANT]
 > Topologie jazyka C# v clusterech založených na Linuxu musí používat technologii .NET 4.5. a pro spuštění v clusteru HDInsight musí používat Mono. Zkontrolujte [Mono kompatibility](http://www.mono-project.com/docs/about-mono/compatibility/) pro potenciální nekompatibility.
-
-> [!WARNING]
-> Pokud narazíte na problémy sestavení projektů, které používají verzi SCP.NET 1.0.0.x, požádejte o pomoc podporu společnosti Microsoft.
 
 ## <a name="install-visual-studio"></a>Instalace sady Visual Studio
 
@@ -124,7 +122,7 @@ Nástroje Data Lake pro Visual Studio poskytují následujících šablon:
 | Ukázka Storm |Počet topologii základní aplikace word. |
 
 > [!WARNING]
-> Ne všechny šablony, bude fungovat s HDInsight se systémem Linux. Balíčky Nuget, které jsou používané šablony nemusí být kompatibilní s Mono. Zkontrolujte [Mono kompatibility](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentu a použít [.NET přenositelnost analyzátor](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) zjistit potenciální problémy.
+> Ne všechny šablony pracovat s HDInsight se systémem Linux. Balíčky NuGet, které jsou používané šablony nemusí být kompatibilní s Mono. Zkontrolujte [Mono kompatibility](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentu a použít [.NET přenositelnost analyzátor](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) zjistit potenciální problémy.
 
 Kroky v tomto dokumentu použijete k vytvoření topologii základní aplikace Storm typ projektu.
 
@@ -169,7 +167,7 @@ Ukázkové topologie, který používá tato součást a spolupracuje s Storm v 
 
    * **Selhání** (pouze pro transakční topologie): zpracovává řazené kolekce členů, které jsou selhání zpracování ostatní součásti v topologii. Implementace metody selhání umožňuje znovu emitování řazenou kolekci členů, takže může být znovu zpracována.
 
-2. Nahraďte obsah **Spout** třída tímto textem. Tato spout náhodně vysílá věty do topologie.
+2. Nahraďte obsah **Spout** třída tímto textem: Tento spout náhodně vysílá věty do topologie.
 
     ```csharp
     private Context ctx;
@@ -352,7 +350,7 @@ Funkcích spouts a funkce bolts jsou uspořádány v grafu, který definuje tok 
 
 Věty jsou nevydává spout a jsou distribuovány do instance rozdělovače bolt. Bolt rozdělovače dělí věty do slova, které jsou distribuovány do bolt čítače.
 
-Vzhledem k tomu, že počet slov trvá místně v instanci čítače, chceme, abyste měli jistotu, že určitá slova toku na stejnou instanci bolt čítače. Každá instance uchovává informace o konkrétní slova. Vzhledem k tomu, že bolt rozdělovače udržuje bez stavu, skutečně nezávisle na tom, kterou instanci systému rozdělovače obdrží které věty.
+Vzhledem k tomu, že počet slov trvá místně v instanci čítače, budete chtít Ujistěte se, že určitá slova toku na stejnou instanci bolt čítače. Každá instance uchovává informace o konkrétní slova. Vzhledem k tomu, že bolt rozdělovače udržuje bez stavu, skutečně nezávisle na tom, kterou instanci systému rozdělovače obdrží které věty.
 
 Otevřete **Program.cs**. Je důležité metoda **GetTopologyBuilder**, který se používá k definování topologie, které je odeslána do Storm. Nahraďte obsah **GetTopologyBuilder** implementovat topologii popsané následujícím kódem:
 
@@ -472,16 +470,16 @@ Příklad hybridní topologie, vytvořte projekt a vyberte **Storm hybridní uk�
   > Tato verze také ukazuje, jak použít Clojure kód z textového souboru jako součást Java.
 
 
-Chcete-li přepnout topologie, která se používá při odeslání projektu, jednoduše přesunout `[Active(true)]` příkaz do topologie, kterou chcete použít, před odesláním do clusteru.
+Chcete-li přepnout topologie, která se používá při odeslání projektu, přesunout `[Active(true)]` příkaz do topologie, kterou chcete použít, před odesláním do clusteru.
 
 > [!NOTE]
 > Všechny soubory Java, které jsou požadovány jsou uvedeny jako součást tohoto projektu v **JavaDependency** složky.
 
 Při vytváření a odesílání hybridní topologie, zvažte následující:
 
-* Je nutné použít **JavaComponentConstructor** k vytvoření instance třídy Java pro funkcích spout nebo funkce bolt.
+* Použití **JavaComponentConstructor** k vytvoření instance třídy Java pro funkcích spout nebo funkce bolt.
 
-* Měli byste použít **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** k serializaci dat do nebo z komponent v jazyce Java z objekty Java do formátu JSON.
+* Použití **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** k serializaci dat do nebo z komponent v jazyce Java z objekty Java do formátu JSON.
 
 * Při odesílání topologie do serveru, je nutné použít **další konfigurace** možnost zadat **cesty k souborům Java**. Zadaná cesta musí být adresář, který obsahuje soubory JAR obsahující dané třídy jazyka Java.
 
@@ -703,7 +701,7 @@ I když je snadno nasadit topologii do clusteru, v některých případech můž
 
 ### <a name="log-information"></a>Informace o protokolu
 
-Můžete snadno protokolovat informace ze součásti vaší topologie pomocí `Context.Logger`. Následující příklad vytvoří položku informační protokolu:
+Můžete snadno protokolovat informace ze součásti vaší topologie pomocí `Context.Logger`. Například následující příkaz vytvoří položku informační protokolu:
 
 ```csharp
 Context.Logger.Info("Component started");
@@ -746,7 +744,7 @@ Pokud `hdinsight-scpwebapi.out` protokol obsahuje `FileNotFoundException`, můž
 * Sadu JDK není v cestě na vývojovém prostředí. Ověřte, zda je nainstalován sadu JDK v vývojového prostředí a že `%JAVA_HOME%/bin` v cestě.
 * Chybí závislost Java. Ujistěte se, že všechny požadované .jar soubory jsou včetně jako součást odesílání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Příklad zpracování dat ze služby Event Hubs naleznete v části [zpracovat události z Azure Event Hubs se Storm v HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

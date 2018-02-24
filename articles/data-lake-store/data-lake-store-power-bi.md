@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 0c77ccd29e3e22005c3339ed4e89dccfed725fa0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 4a10dac1eca85b54ef144a91445af6dad3b5d93e
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Analýza dat v Data Lake Store pomocí Power BI
 V tomto článku se dozvíte, jak analyzovat a vizualizovat data uložená v Azure Data Lake Store pomocí Power BI Desktop.
@@ -97,6 +97,6 @@ Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
 ## <a name="publish-report-to-power-bi-service"></a>Publikovat sestavy do služby Power BI
 Po vytvoření vizualizacemi v Power BI Desktop, můžete ji sdílet s ostatními ji publikujete do služby Power BI. Pokyny o tom, jak to udělat najdete v tématu [publikování z Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Analýza dat v Data Lake Store pomocí Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

@@ -9,7 +9,7 @@
   ```
   sudo ./install -d <Install Location> -r MS -v VmWare -q
   ```
-3. Po dokončení instalace služby Mobility je potřeba získat zaregistrovaný na konfiguračním serveru. Spusťte následující příkaz pro registraci služba Mobility se konfigurační server.
+3. Po dokončení instalace služby Mobility musí mít zaregistrovaný na konfiguračním serveru. Spusťte následující příkaz pro registraci služby Mobility se konfigurační server:
 
   ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
@@ -24,10 +24,10 @@ Usage:
 
 |Parametr|Typ|Popis|Možné hodnoty|
 |-|-|-|-|
-|-r |Povinné|Určuje, zda by měly být nainstalovány služby Mobility (MS) nebo MasterTarget(MT) by měly být nainstalovány.|MS </br> MT|
-|-d |Nepovinné|Umístění, kde bude nainstalován služba Mobility|/usr/local/ASR|
-|-v|Povinné|Určuje platformu, na kterém služba Mobility je získávání nainstalovaná </br> </br>-** VMware: tuto hodnotu použijte, pokud k instalaci služby mobility na virtuálním počítači systémem *VMware vSphere hostitelích ESXi*, * hostitelů Hyper-V, a *fyzických serverů* </br> -** Azure: tuto hodnotu použijte, pokud instalujete agenta na virtuálním počítači Azure IaaS| VMware </br> Azure|
-|-q|Nepovinné|Určuje, ke spuštění instalačního programu v bezobslužném režimu| neuvedeno|
+|-r |Povinné|Určuje, zda by měly být nainstalovány služby Mobility (MS), nebo by měly být nainstalovány MT MasterTarget (–).|MS </br> MT|
+|-d |Nepovinné|Umístění, kde je nainstalovaná služba Mobility.|/usr/local/ASR|
+|-v|Povinné|Určuje platformu, na kterém je nainstalována služba Mobility. </br> </br>- **VMware**: tuto hodnotu použijte, pokud instalaci služby Mobility na virtuálním počítači systémem *hostitelích ESXi VMware vSphere*, *hostitelů Hyper-V*, a *fyzických serverů*. </br> - **Azure**: tuto hodnotu použijte, pokud instalujete agenta na virtuálním počítači Azure IaaS.| VMware </br> Azure|
+|-q|Nepovinné|Určuje, spusťte instalační program v bezobslužném režimu.| neuvedeno|
 
 
 #### <a name="mobility-service-configuration-command-line"></a>Nastavení mobilních zařízení služby konfigurace příkazového řádku
@@ -41,4 +41,4 @@ UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 |Parametr|Typ|Popis|Možné hodnoty|
 |-|-|-|-|
 |-i |Povinné|IP konfigurace serveru|Libovolná platná IP adresa|
-|-P |Povinné|Úplná cesta k souboru, kde je uloží heslo připojení|Všechny platné složce.|
+|-P |Povinné|Cestu k souboru, kde připojení předat frázi úplné souboru je uložen.|Všechny platné složce.|

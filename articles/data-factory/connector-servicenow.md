@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopírování dat z ServiceNow pomocí Azure Data Factory (Beta)
 
@@ -114,11 +114,11 @@ Ke zkopírování dat z ServiceNow, nastavte typ zdroje v aktivitě kopírován�
 
 Při zadání schéma a sloupec pro ServiceNow v dotazu, pamatujte na tyhle:
 
-- **Schéma:** dotaz, který ServiceNow musíte zadat schéma jako `Actual` nebo `Display` které můžete se podívat na ji jako parametr `sysparm_display_value` jako true nebo false při volání metody [rozhraní restful API ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Sloupec:** název sloupce pro skutečná hodnota je `[columne name]_value` při zobrazení hodnota je `[columne name]_display_value`.
+- **Schéma:** zadejte schéma jako `Actual` nebo `Display` v ServiceNow dotazu, které můžete se podívat na ji jako parametr `sysparm_display_value` jako true nebo false při volání metody [rozhraní restful API ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Sloupec:** název sloupce, pro skutečné hodnoty v části `Actual` scehma je `[columne name]_value`, zatímco pro zobrazované hodnoty v části `Display` schéma je `[columne name]_display_value`. Poznámka: název sloupce potřebovat mapy schématu použitá v dotazu.
 
 **Ukázkový dotaz:** 
- `SELECT distinct col_value, col_display_value FROM Actual.alm_asset` nebo `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
+ `SELECT col_value FROM Actual.alm_asset` nebo `SELECT col_display_value FROM Display.alm_asset`
 
 **Příklad:**
 

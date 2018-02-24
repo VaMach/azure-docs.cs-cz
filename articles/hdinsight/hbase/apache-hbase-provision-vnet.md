@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Vytvořit clustery HBase v HDInsight v Azure Virtual Network
 Naučte se vytvářet clustery Azure HDInsight HBase v [Azure Virtual Network][1].
@@ -41,7 +41,7 @@ Před zahájením tohoto kurzu musíte mít tyto položky:
 V této části vytvoříte clusteru s podporou systémem Linux HBase s závislý účet Azure Storage virtuální síti Azure pomocí [šablony Azure Resource Manageru](../../azure-resource-manager/resource-group-template-deploy.md). Další metody vytváření clusterů a Principy nastavení, najdete v tématu [Tvorba clusterů HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Další informace o používání šablonu při vytváření clusterů systému Hadoop v HDInsight najdete v tématu [vytvoření Hadoop clusterů v HDInsight pomocí šablony Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
-> Některé vlastnosti jsou pevně zakódovaná do šablony. Například:
+> Některé vlastnosti jsou pevně zakódovaná do šablony. Příklad:
 >
 > * **Umístění**: východní USA 2
 > * **Verze clusteru**: 3.6
@@ -102,7 +102,7 @@ Pokud chcete začít pracovat s nového clusteru HBase, můžete použít postup
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     V datech JavaScript Object Notation (JSON) vrátil vyhledejte položku "název_hostitele". Obsahuje plně kvalifikovaný název domény pro uzly v clusteru. Například:
+     V datech JavaScript Object Notation (JSON) vrátil vyhledejte položku "název_hostitele". Obsahuje plně kvalifikovaný název domény pro uzly v clusteru. Příklad:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -231,7 +231,7 @@ Pokud chcete začít pracovat s nového clusteru HBase, můžete použít postup
 
 Chcete-li ověřit, že virtuální počítač může komunikovat s clusterem HBase, použijte příkaz `ping headnode0.<dns suffix>` z virtuálního počítače. Například headnode0.mycluster.b1.cloudapp.net příkazu ping.
 
-Tyto informace používat v aplikaci Java, můžete podle kroků v [použít Maven k sestavení aplikací Java, které používají HBase s HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) k vytvoření aplikace. Chcete-li mít aplikaci připojit ke vzdálenému serveru HBase, změňte **hbase-site.xml** soubor v tomto příkladu má použít plně kvalifikovaný název domény pro Zookeeper. Například:
+Tyto informace používat v aplikaci Java, můžete podle kroků v [použít Maven k sestavení aplikací Java, které používají HBase s HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) k vytvoření aplikace. Chcete-li mít aplikaci připojit ke vzdálenému serveru HBase, změňte **hbase-site.xml** soubor v tomto příkladu má použít plně kvalifikovaný název domény pro Zookeeper. Příklad:
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -243,15 +243,15 @@ Tyto informace používat v aplikaci Java, můžete podle kroků v [použít Mav
 >
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste zjistili, jak vytvořit HBase cluster. Další informace naleznete v tématu:
 
 * [Začínáme s HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Použít prázdný edge uzly v HDInsight](../hdinsight-apps-use-edge-node.md)
 * [Konfigurace replikace HBase v HDInsight](apache-hbase-replication.md)
 * [Vytvoření clusterů systému Hadoop v HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Začínáme používat HBase s Hadoop v HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Přehled virtuálních sítí](../../virtual-network/virtual-networks-overview.md)
+* [Začínáme používat HBase s Hadoopem ve službě HDInsight](./apache-hbase-tutorial-get-started-linux.md)
+* [Přehled služby Virtual Network](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/
 [2]: http://technet.microsoft.com/library/ee176961.aspx

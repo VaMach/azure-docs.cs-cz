@@ -4,17 +4,17 @@ description: "Tento dokument popisuje kroky a koncepty součástí nastavení a 
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>Nastavení modelu správce
 
@@ -107,7 +107,7 @@ Příkaz místní prostředí instalační program vytvoří následující pros
 - Skupiny prostředků (Pokud není zadáno)
 - účet úložiště
 - Azure kontejneru registru (ACR)
-- Application insights
+- Application Insights
 
 Po úspěšném dokončení instalace nastavte prostředí, který se má použít, pomocí následujícího příkazu:
 
@@ -129,7 +129,7 @@ Příkaz clusteru prostředí instalační program vytvoří následující pros
 - účet úložiště
 - Azure kontejneru registru (ACR)
 - Kubernetes nasazení v clusteru Azure Container Service (ACS)
-- Application insights
+- Application Insights
 
 Rychle se vytvoří skupinu prostředků, účet úložiště a ACR. Nasazení služby ACS může trvat až 20 minut. 
 

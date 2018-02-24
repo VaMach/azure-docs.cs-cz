@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referenční dokumentace - IoT Hub kvóty a omezení
 
@@ -31,6 +31,8 @@ Verze SKU také určuje omezení limity, které vynucuje IoT Hub na všechny ope
 
 ## <a name="operation-throttles"></a>Omezení operace
 Omezení operace jsou omezení míry, které se použijí v minutu rozsahy a jsou určeny, aby se zabránilo zneužití. Centrum IoT pokusí vyhnout vrací chyby, pokud je to možné, ale spustí vrácení výjimky, pokud omezení porušení příliš dlouho.
+
+V každém okamžiku může zvýšit kvóty nebo omezení omezení zvýšením počtu jednotek zřízené v služby IoT hub.
 
 Následující tabulka obsahuje vynucené omezení. Hodnoty se vztahují k rozbočovači jednotlivých.
 
@@ -50,15 +52,11 @@ Následující tabulka obsahuje vynucené omezení. Hodnoty se vztahují k rozbo
 
 <sup>1</sup>omezení velikosti měření je 8 KB
 
-> [!IMPORTANT]
-> *Připojení zařízení* omezení řídí rychlost, jakou by bylo možné navázat nová připojení zařízení pomocí služby IoT hub. *Připojení zařízení* omezení neřídí maximální počet současně připojených zařízení. Omezení závisí na počtu jednotek, které jsou zřízené pro službu IoT hub.
+*Připojení zařízení* omezení řídí rychlost, jakou by bylo možné navázat nová připojení zařízení pomocí služby IoT hub. *Připojení zařízení* omezení neřídí maximální počet současně připojených zařízení. Omezení závisí na počtu jednotek, které jsou zřízené pro službu IoT hub.
 
 Pokud si zakoupíte jedné jednotky S1, například zobrazí omezení připojení 100 za sekundu. Proto se pokud chcete připojit 100 000 zařízení, trvá nejméně 1 000 sekund (přibližně 16 minut). Ale může mít libovolný počet současně připojených zařízení, máte zařízení zaregistrované v registru identit.
 
 Podrobné informace o IoT Hub omezení chování, naleznete v příspěvku blogu [IoT Hub, omezení a][lnk-throttle-blog].
-
-> [!NOTE]
-> V každém okamžiku může zvýšit kvóty nebo omezení omezení zvýšením počtu jednotek zřízené v služby IoT hub.
 
 > [!IMPORTANT]
 > Operace s registrem identit jsou určeny k použití v správu zařízení a zřizování scénáře. Čtení nebo aktualizaci velký počet identit zařízení je podporována prostřednictvím [import a export úloh][lnk-importexport].

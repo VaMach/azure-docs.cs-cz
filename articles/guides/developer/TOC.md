@@ -22,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Vytvoření připojené funkce Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Nasazení webové aplikace Dockeru v Linuxu](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [Nasazení webové aplikace Dockeru v Linuxu](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # Ukázky
 ## Azure CLI

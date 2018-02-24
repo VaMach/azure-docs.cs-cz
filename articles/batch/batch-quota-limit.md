@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvóty a omezení služby Batch
 
@@ -39,9 +39,10 @@ Pokud plánujete spouštět úlohy v produkčním prostředí ve službě Batch,
 ## <a name="resource-quotas"></a>Kvóty prostředků
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Kvóty v uživatelském režimu předplatného
 
-Pokud jste použili k vytvoření účtu Batch s režim přidělení fondu nastavený na dřívější verzi rozhraní API služby Batch **uživatele předplatné**, kvóty se použijí jinak. V tomto režimu, který již není doporučeno, Batch virtuální počítače a další prostředky jsou vytvořené přímo v vaše předplatné při vytváření fondu. Kvóta jader Azure Batch se nevztahuje na účet je vytvořen v tomto režimu. Místo toho kvóty pro vaše předplatné pro místní výpočetní jader a dalším prostředkům se použijí. Další informace o těchto kvót v [předplatného Azure a omezení služby, kvóty a omezení](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Kvóty jader v uživatelském režimu předplatného
+
+Pokud jste vytvořili účet Batch se režim přidělení fondu nastavený na **uživatele předplatné**, kvóty se použijí jinak. V tomto režimu, Batch virtuální počítače a další prostředky jsou vytvořené přímo v vaše předplatné při vytváření fondu. Kvóty jader Azure Batch se nevztahují na účet vytvořené v tomto režimu. Místo toho kvóty pro vaše předplatné pro místní výpočetní jader a dalším prostředkům se použijí. Další informace o těchto kvót v [předplatného Azure a omezení služby, kvóty a omezení](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Další omezení
 | **Prostředek** | **Maximální omezení** |
@@ -108,7 +109,7 @@ Jakmile jste odeslali vaši žádost o podporu, bude vás kontaktovat podporu Az
 ## <a name="related-topics"></a>Související témata
 * [Vytvoření účtu Azure Batch pomocí portálu Azure](batch-account-create-portal.md)
 * [Přehled funkcí Azure Batch](batch-api-basics.md)
-* [Předplatné Azure a omezení služby, kvóty a omezení](../azure-subscription-service-limits.md)
+* [Limity, kvóty a omezení předplatného a služeb Azure](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

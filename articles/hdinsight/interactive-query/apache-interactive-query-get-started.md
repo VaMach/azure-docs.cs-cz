@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 1e094c801ffc9bc51609d119b0e6ad80ff17a091
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Použijte interaktivní dotazu s HDInsight
 Interaktivní dotazu (také nazývané Hive LLAP nebo [Live dlouhé a proces](https://cwiki.apache.org/confluence/display/Hive/LLAP)) je Azure HDInsight [clusteru typu](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktivní Query podporuje ukládání do mezipaměti v paměti, takže dotazů Hive rychlejší a víc interaktivní.

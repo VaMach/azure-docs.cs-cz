@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: db09ff30ff9f3852e84162b8400572e76515230f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b264e2ceac4e76faa37d21972b94cfe323aa3ce5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assessment-calculations"></a>Výpočty hodnocení
 
@@ -109,28 +109,28 @@ Pokud je toto nastavení velikosti kritérium *jako místní nastavení velikost
  
 ### <a name="confidence-rating"></a>Hodnocení spolehlivosti
 
-Každý assessment v migraci Azure souvisí s jistotou rozsahu od 1 hvězdička do 5 hvězdiček (1 hvězdička se nejnižší a nejvyšší 5 hvězdiček). Hodnocení spolehlivosti je přiřazený k posouzení založené na dostupnosti datové body, které jsou potřebné k výpočtu hodnocení. Pomáhá odhadnout spolehlivost velikost doporučení poskytované migrovat Azure. 
+Každý assessment v migraci Azure souvisí s jistotou rozsahu od 1 hvězdička do 5 hvězdičky (1 hvězdička se nejnižší a nejvyšší 5 hvězdičkou). Hodnocení spolehlivosti je přiřazený k posouzení založené na dostupnosti datové body, které jsou potřebné k výpočtu hodnocení. Hodnocení spolehlivosti hodnocení pomáhá odhadnout spolehlivost velikost doporučení poskytované migrovat Azure. 
 
-Hodnocení spolehlivosti se hodí, pokud byste *výkonu na základě velikosti* jako Ne všechny datové body mohou být k dispozici. Pro *jako místní nastavení velikosti*, hodnocení spolehlivosti je vždy 5 hvězdičkami migrovat Azure má všechna data, musí se velikost virtuálního počítače. 
+Hodnocení spolehlivosti se hodí, pokud byste *výkonu na základě velikosti* jako migrovat Azure nemusí mít dostatečná datové body k provést nastavení velikosti na základě využití. Pro *jako místní nastavení velikosti*, hodnocení spolehlivosti je vždy 5 hvězdičkami migrovat Azure má všechny datové body, je nutné upravit velikost virtuálního počítače. 
 
-Pro nastavení velikosti na základě výkonu, musí Azure migrovat data o využití procesoru a paměti. Pro každý disk připojen k virtuálnímu počítači, je nutné pro čtení a zápis IOPS a propustnost uděláte na základě výkonu velikosti. Podobně pro každý síťový adaptér připojený k virtuálnímu počítači Azure migrovat musí sítě a konec provést nastavení velikosti na základě výkonu. Pokud některá z výše uvedených čísel využití není k dispozici v systému vCenter Server, nemusí být velikost doporučení provádí migraci Azure spolehlivé. V závislosti na procento datové body k dispozici je poskytována hodnocení spolehlivosti pro vyhodnocení:
+Pro výkonu na základě velikosti virtuálního počítače Azure migrovat musí data o využití procesoru a paměti. Navíc pro každý disk připojen k virtuálnímu počítači, musí pro čtení a zápis IOPS a propustnosti. Podobně pro každý síťový adaptér připojený k virtuálnímu počítači Azure migrovat musí sítě a konec provést nastavení velikosti na základě výkonu. Pokud některá z výše uvedených čísel využití není k dispozici v systému vCenter Server, nemusí být velikost doporučení provádí migraci Azure spolehlivé. V závislosti na procento datové body k dispozici je poskytována hodnocení spolehlivosti pro vyhodnocení:
 
    **Dostupnost datové body** | Hodnocení spolehlivosti
    --- | ---
    0%-20% | 1 Star
-   21%-40% | 2 hvězdičky
-   41%-60% | 3 hvězdičky
-   61%-80% | 4 hvězdičkami
-   81%-100% | 5 hvězdiček
+   21%-40% | 2 Star
+   41%-60% | 3 Star
+   61%-80% | 4 Star
+   81%-100% | 5 Star
 
 Posouzení nemusí mít všechny datové body k dispozici kvůli jednomu z následujících důvodů:
-- Nastavení statistiky v systému vCenter Server není nastaven na úroveň 3 a hodnocení má na základě výkonu nastavení velikosti jako kritérium pro změnu velikosti. Pokud nastavení statistiky v systému vCenter Server je nižší než úroveň 3, údaje o výkonu pro diskových a síťových nejsou shromažďovány ze serveru vCenter Server. V takovém případě doporučení poskytované pro diskových a síťových migrace Azure je jenom na základě přidělená byl na místě. Pro úložiště migrace Azure doporučuje standardní disky, protože neexistuje žádný způsob, jak zjistit, zda má vysokou IOPS nebo propustnost disku a je třeba prémiové disky.
-- Nastavení statistiky v systému vCenter Server byla nastavena na úroveň 3 po krátkou dobu před zahájena zjišťování. Pokud změníte úroveň nastavení statistiky dnes 3 a akci vypnutí zjišťování pomocí kolekce zařízení zítra (po 24 hodinách), pokud vytváříte posouzení jeden den, například máte datových bodů. Ale pokud chcete změnit dobu trvání výkonu ve vlastnostech hodnocení na jeden měsíc, hodnocení spolehlivosti přestane fungovat jako disk a údaje o výkonu sítě pro poslední jeden měsíc není k dispozici. Pokud chcete vzít v úvahu výkonnostní data součásti poslední jeden měsíc, doporučujeme, abyste vCenter nastavení statistiky serveru na úroveň 3 pro jeden měsíc předtím, než ji zjišťování. 
+- Nastavení statistiky v systému vCenter Server není nastaven na úroveň 3 a hodnocení má na základě výkonu nastavení velikosti jako kritérium pro změnu velikosti. Pokud nastavení statistiky v systému vCenter Server je nižší než úroveň 3, údaje o výkonu pro diskových a síťových nejsou shromažďovány ze serveru vCenter Server. V takovém případě doporučení poskytované pro diskových a síťových migrace Azure není na základě využití. Pro úložiště migrace Azure doporučuje standardní disky, jako bez vzhledem k tomu IOPS nebo propustnost disku, migrovat Azure nemůže určit, zda disk potřebovat disk premium v Azure.
+- Nastavení statistiky v systému vCenter Server byla nastavena na úroveň 3 kratší dobu, než si to chtěl / vypnuto zjišťování. Zvažte například scénář, kde můžete změnit statistiky nastavení úrovně 3 dnes a akci vypnutí zjišťování pomocí kolekce zařízení zítra (po 24 hodinách). Pokud vytváříte posouzení jeden den, máte všechny datové body a hodnocení spolehlivosti hodnocení by 5 hvězdičkami. Ale pokud chcete změnit dobu trvání výkonu ve vlastnostech hodnocení na jeden měsíc, hodnocení spolehlivosti přestane fungovat jako disk a nebude k dispozici údaje o výkonu sítě pro poslední jeden měsíc. Pokud chcete vzít v úvahu výkonnostní data součásti poslední jeden měsíc, doporučujeme, abyste vCenter nastavení statistiky serveru na úroveň 3 pro jeden měsíc předtím, než ji zjišťování. 
 - Během období, pro kterou se vypočítává hodnocení byly vypnuty několika virtuálními počítači. Pokud žádné virtuální počítače byly vypnout některé doby trvání, vCenter Server nebude mít data výkonu pro toto období. 
 - Mezi období, pro kterou se vypočítává hodnocení byly vytvořeny několika virtuálními počítači. Například pokud vytváříte posouzení pro historie výkonu poslední jeden měsíc, ale několika virtuálními počítači byly vytvořeny v prostředí jenom týdnem. V takových případech nebude historie výkonu nové virtuální počítače po celou dobu trvání existuje.
 
 > [!NOTE]
-> Pokud hodnocení spolehlivosti žádné vyhodnocování je menší než 3 hvězdiček, budete muset změnit úroveň nastavení statistiky serveru vCenter do 3, doporučujeme čekáme po dobu, která chcete pro vyhodnocení zvažte (1 den 1 týden/1 měsíc) a poté proveďte zjišťování a hodnocení. Pokud předchozí nelze provést, nastavení velikosti na základě výkonu nemusí být spolehlivé a doporučuje se přepnout na *jako místní nastavení velikosti* změnou vlastnosti hodnocení.
+> Pokud hodnocení spolehlivosti žádné vyhodnocování je menší než 4 hvězdiček, budete muset změnit úroveň nastavení statistiky serveru vCenter do 3, doporučujeme čekáme po dobu, která chcete pro vyhodnocení zvažte (1 den 1 týden/1 měsíc) a poté proveďte zjišťování a hodnocení. Pokud předchozí nelze provést, nastavení velikosti na základě výkonu nemusí být spolehlivé a doporučuje se přepnout na *jako místní nastavení velikosti* změnou vlastnosti hodnocení.
 
 ## <a name="monthly-cost-estimation"></a>Měsíční náklady na odhad
 

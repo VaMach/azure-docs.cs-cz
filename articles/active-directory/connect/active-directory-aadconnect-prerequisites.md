@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Požadavky pro Azure AD Connect
 Toto téma popisuje požadavky a požadavky na hardware pro Azure AD Connect.
@@ -61,7 +61,7 @@ Před instalací Azure AD Connect, existuje pár věcí, které potřebujete.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server používá Azure AD Connect
 * Azure AD Connect vyžaduje k ukládání dat identity databázi SQL Serveru. Ve výchozím nastavení je nainstalována SQL Server 2012 Express LocalDB (světla verze systému SQL Server Express). SQL Server Express má limit velikosti 10GB, která umožňuje spravovat přibližně 100 000 objektů. Pokud potřebujete spravovat větší rozsah objektů adresáře, budete muset bodu Průvodce instalací na jinou instalaci systému SQL Server.
 * Pokud budete používat samostatný SQL Server, potom použijte tyto požadavky:
-  * Azure AD Connect podporuje všechny typů systému Microsoft SQL Server ze systému SQL Server 2008 (s nejnovější aktualizaci Service Pack) do systému SQL Server 2016 SP1. Microsoft Azure SQL Database je **nepodporuje** jako databáze.
+  * Azure AD Connect podporuje všechny verze systému Microsoft SQL Server ze systému SQL Server 2008 (s nejnovější aktualizaci Service Pack) do systému SQL Server 2016 SP1. Microsoft Azure SQL Database je **nepodporuje** jako databáze.
   * Je nutné použít velká a malá písmena kolace SQL. Tyto kolace jsou označeny \_CI_ v názvu. Je **nepodporuje** pro používání kolace malá a velká písmena, identifikovaný \_CS_ v názvu.
   * Může mít pouze jeden synchronizační modul na jednu instanci SQL. Je **nepodporuje** sdílení SQL instance s FIM nebo MIM Sync, DirSync nebo Azure AD Sync.
 
@@ -149,13 +149,13 @@ Starší než verze 1.1.614.0 Azure AD Connect ve výchozím nastavení použív
 Při nasazení služby AD FS nebo Proxy webových aplikací pomocí Azure AD Connect, zkontrolujte tyto požadavky:
 
 * Pokud cílový server připojený k doméně, pak se ujistěte, zda je povoleno vzdálené spravované Windows
-  * V PSH příkaz okno se zvýšenými oprávněními použijte příkaz`Enable-PSRemoting –force`
+  * V PSH příkaz okno se zvýšenými oprávněními použijte příkaz `Enable-PSRemoting –force`
 * Pokud je cílový server nepřipojená k doméně připojený počítač WAP, pak existuje několik dalších požadavků
   * V cílovém počítači (WAP počítači):
     * Ujistěte se, winrm (Vzdálená správa systému Windows / WS-Management) prostřednictvím modulu snap-in Services je spuštěna služba
-    * V PSH příkaz okno se zvýšenými oprávněními použijte příkaz`Enable-PSRemoting –force`
+    * V PSH příkaz okno se zvýšenými oprávněními použijte příkaz `Enable-PSRemoting –force`
   * Na počítači, na kterém je spuštěn Průvodce (Pokud cílový počítač je připojený k nebo nedůvěryhodné doméně nepřipojená k doméně):
-    * V PSH příkaz okno se zvýšenými oprávněními použijte příkaz`Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * V PSH příkaz okno se zvýšenými oprávněními použijte příkaz `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * Ve Správci serveru:
       * Přidat hostitele hraniční sítě WAP do fondu počítače (Správce serveru -> Správa -> Přidat servery..., použijte kartu DNS)
       * Karta servery všechny správce serveru: klikněte pravým tlačítkem na WAP server a zvolte spravovat jako..., zadejte přihlašovací údaje pro místní (domény) pro počítač WAP

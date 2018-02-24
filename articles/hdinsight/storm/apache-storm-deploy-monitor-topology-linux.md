@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Nasazení a správa topologií Apache Storm v HDInsight
 
@@ -86,7 +86,7 @@ Nástroje HDInsight slouží k odeslání jazyka C# nebo hybridní topologie pro
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Tento příkaz spustí ukázkovou topologii WordCount v clusteru. Tato topologie náhodně generuje věty a pak počty výskytem jednotlivých slov ve větě.
+    Tento příkaz v clusteru spustí ukázkovou topologii WordCount. Tato topologie náhodně generuje věty a pak počty výskytem jednotlivých slov ve větě.
 
    > [!NOTE]
    > Při odesílání topologie do clusteru je nutné nejprve zkopírovat soubor jar obsahující cluster před použitím příkazu `storm`. Při kopírování souboru do clusteru, můžete použít `scp` příkaz. Například `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
@@ -112,7 +112,7 @@ Vyberte tvar funkcích spouts nebo funkce bolts zobrazíte informace o těchto s
 
 Deaktivace topologii pozastaví ho, dokud nebude ukončen nebo znovu aktivovat. Pokud chcete provést tyto operace, použijte __deaktivovat__ a __znovu aktivovat__ tlačítka v horní části __souhrn topologie__.
 
-### <a name="rebalance"></a>Znovu vyvážit
+### <a name="rebalance"></a>Obnovit rovnováhu
 
 Vyrovnává topologii umožňuje systému zkontrolovat, jestli paralelismus topologii. Například pokud jste změnili velikost clusteru přidat další poznámky, vyrovnává umožňuje topologii zobrazíte nové uzly.
 
@@ -155,7 +155,7 @@ Storm topologie, jednou spustit, pokračovat spuštění, dokud se zastavila. Ch
 
     storm kill TOPOLOGYNAME
 
-### <a name="rebalance"></a>Znovu vyvážit
+### <a name="rebalance"></a>Obnovit rovnováhu
 
 Vyrovnává topologii umožňuje systému zkontrolovat, jestli paralelismus topologii. Například pokud jste změnili velikost clusteru přidat další poznámky, vyrovnává umožňuje topologii zobrazíte nové uzly.
 
@@ -226,7 +226,7 @@ Plně kvalifikovaný název domény (FQDN) pro hlavního uzlu clusteru najdete v
 
 * **Z relace SSH**: použijte příkaz `headnode -f` z relace SSH do clusteru.
 * **Z webové Ambari**: vyberte **služby** z horní části stránky, pak vyberte **Storm**. Z **Souhrn** vyberte **serveru uživatelského rozhraní Storm**. Plně kvalifikovaný název domény uzlu, který je hostitelem uživatelské rozhraní Storm a REST API se zobrazí v horní části stránky.
-* **Z rozhraní Ambari REST API**: použijte příkaz `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` k načtení informací o uzlu, který na běží uživatelské rozhraní Storm a REST API. Nahraďte **heslo** s heslo správce pro cluster. Nahraďte **CLUSTERNAME** se název clusteru. V odpovědi na položku "název_hostitele" obsahuje plně kvalifikovaný název domény uzlu.
+* **Z rozhraní Ambari REST API**: použijte příkaz `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` k načtení informací o uzlu, který na běží uživatelské rozhraní Storm a REST API. Nahraďte **CLUSTERNAME** se název clusteru. Po zobrazení výzvy zadejte heslo pro účet pro přihlášení (správce). V odpovědi na položku "název_hostitele" obsahuje plně kvalifikovaný název domény uzlu.
 
 ### <a name="authentication"></a>Authentication
 

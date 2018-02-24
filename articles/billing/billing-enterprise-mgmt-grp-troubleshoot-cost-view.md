@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Řešení potíží s enterprise náklady zobrazení 
 
 V rámci podnikové registrace existuje několik nastavení, které by mohly způsobit uživatelům v rámci registrace není možné zobrazit náklady.  Tato nastavení jsou spravovány správcem registrace nebo partner poskytující prostředky, pokud registrace není zakoupili přímo se společností Microsoft.  Tento článek vám pomůže pochopit je nastavení a jak budou mít vliv na registraci. Tato nastavení jsou nezávislé [role RBAC Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> Tato funkce je aktuálně v soukromém náhledu. [Zaregistrujte si zde](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) tak, aby měl registraci připojení ve verzi preview.     
 
 ## <a name="enabling-access-to-costs"></a>Povolení přístupu k náklady
 
-Jsou vidíte zprávu Neautorizováno, nebo *"zobrazení náklady jsou zakázaná v registraci."* Pokud hledáte informace o nákladech? ![neoprávněným](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Jste si zobrazili zprávu Neautorizováno, nebo *"zobrazení náklady jsou zakázaná v registraci."* Pokud hledáte informace o nákladech? ![neoprávněným](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 Může to být způsobeno jedním z následujících důvodů:
 
@@ -47,4 +45,3 @@ Pokud se vám zobrazí zpráva "Tento prostředek je k dispozici" při pokusu o 
 
 Obraťte se na Spravovat předplatné nebo správu skupin má být poskytnut přístup.  
 * Odběry, odkazovat [řízení řízení přístupu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokumentu nápovědy, na kterém je vyžadována role.
-* Pro skupiny pro správu přístupu RBAC není k dispozici a bude brzo. Obraťte se na podnikový portál spravovat tak, aby měl přístup přiřazen.   

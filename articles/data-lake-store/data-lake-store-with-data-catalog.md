@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 93de6a574b306e3fd8959454709e84a57ee4fc10
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Zaregistrovat v Azure Data Catalog dat z Data Lake Store
 V tomto článku se dozvíte, jak integrovat Azure Data Lake Store s Azure Data Catalog zjistitelnost vaše data v rámci organizace integrací s katalogem Data Catalog. Další informace o vytváření katalogu dat najdete v tématu [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Chcete-li pochopit scénáře, ve které můžete použít Data Catalog, přečtěte si téma [běžné scénáře Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
@@ -78,7 +78,7 @@ Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
     * [Přidání poznámek ke zdrojům dat v katalogu Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
     * [Zdroje dat dokumentu v katalogu Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Přidání poznámek ke zdrojům dat v katalogu Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Zdroje dat dokumentu v katalogu Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrace s jinými službami Azure Data Lake Store](data-lake-store-integrate-with-other-services.md)

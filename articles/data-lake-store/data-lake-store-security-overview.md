@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Zabezpečení v Azure Data Lake Store
 Mnoho podniků jsou využívat výhod analýzy velkých objemů dat podnikových statistik pomáhá jim inteligentní rozhodnutí. Organizace může mít složitý a regulovaná prostředí s roste počet různých uživatelů. Je důležité pro organizace a ujistěte se, bezpečněji, uložení kritickými podnikovými daty s správné úrovně udělení přístupu k jednotlivým uživatelům. Azure Data Lake Store je navržená tak, abyste splňovat tyto požadavky na zabezpečení. V tomto článku se dozvíte o funkcích zabezpečení Data Lake Store, včetně:
@@ -54,7 +54,7 @@ Všimněte si, že i když role přiřazené pro správu účtu, některé role 
 
 | Role | Práva pro správu | Data přístupová práva | Vysvětlení |
 | --- | --- | --- | --- |
-| Žádné přiřazenou roli |Žádné |Řídí seznamu ACL |Uživatel nemůže použít portál Azure nebo rutin prostředí Azure PowerShell procházet Data Lake Store. Uživatel může použít jenom nástroje příkazového řádku. |
+| Žádné přiřazenou roli |Žádný |Řídí seznamu ACL |Uživatel nemůže použít portál Azure nebo rutin prostředí Azure PowerShell procházet Data Lake Store. Uživatel může použít jenom nástroje příkazového řádku. |
 | Vlastník |Vše |Vše |Role vlastníka je superuživatele. Tato role můžou spravovat všechno a má úplný přístup k datům. |
 | Čtenář |Jen pro čtení |Řídí seznamu ACL |Role čtenáře můžou zobrazit všechno týkající se správy účtů, například která je přiřazena uživatele které role. Role čtenáře nelze provést žádné změny. |
 | Přispěvatel |Všechny kromě přidání a odebrání rolí |Řídí seznamu ACL |Role Přispěvatel můžete spravovat některé aspekty účtu, jako je například nasazení a vytváření a Správa výstrah. Role Přispěvatel nelze přidat nebo odebrat role. |
