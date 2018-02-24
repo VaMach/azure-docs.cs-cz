@@ -2,48 +2,32 @@
 title: "Nastavení prostředí pro zdroj (VMware do Azure) | Microsoft Docs"
 description: "Tento článek popisuje, jak nastavit prostředí místní spuštění replikace virtuálních počítačů VMware do Azure."
 services: site-recovery
-documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/18/2018
 ms.author: anoopkv
-ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: ff927a4846ba63d3f00d0e81b8cb818af1441449
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Nastavení prostředí pro zdroj (VMware do Azure)
 > [!div class="op_single_selector"]
 > * [Z VMware do Azure](./site-recovery-set-up-vmware-to-azure.md)
 > * [Fyzické do Azure](./site-recovery-set-up-physical-to-azure.md)
 
-Tento článek popisuje, jak nastavit v místním prostředí k zahájení replikace virtuálních počítačů spuštěných na VMware do Azure.
+Tento článek popisuje, jak nastavit zdroj, v místním prostředí, replikovat virtuální počítače běžící ve VMware do Azure. Její součástí jsou kroky pro výběr váš scénář replikace, nastavení se místní počítač jako server konfigurace Site Recovery, a automaticky zjišťování místních virtuálních počítačů. 
 
 ## <a name="prerequisites"></a>Požadavky
 
-Článek předpokládá, že jste již vytvořili:
-- Trezor služeb zotavení v [portál Azure](http://portal.azure.com "portál Azure").
-- Vyhrazený účet do systému VMware vCenter, který lze použít pro [automatického zjišťování](./site-recovery-vmware-to-azure.md).
-- Virtuální počítač, na které se mají nainstalovat konfigurační server.
+Článek předpokládá, že již máte:
+- [Nastavení prostředků](tutorial-prepare-azure.md) v [portál Azure](http://portal.azure.com).
+- [Nastavit místní VMware](tutorial-prepare-on-premises-vmware.md), včetně vyhrazený účet pro automatické zjišťování.
 
-## <a name="configuration-server-minimum-requirements"></a>Minimální požadavky na konfiguraci serveru
-Následující tabulka uvádí minimální hardwaru, softwaru a požadavky sítě pro konfigurační server.
 
-> [!IMPORTANT]
-> Pokud nasazujete konfigurační Server pro ochranu virtuálních počítačů VMware, doporučujeme jej jako nasadíte **vysoce dostupné (HA)** virtuálního počítače.
-
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-> [!NOTE]
-> Servery proxy server HTTPS nejsou podporovány konfigurační server.
 
 ## <a name="choose-your-protection-goals"></a>Volba cílů ochrany
 
@@ -55,39 +39,21 @@ Následující tabulka uvádí minimální hardwaru, softwaru a požadavky sít�
 
     ![Zvolte cíle.](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
-## <a name="set-up-the-source-environment"></a>Nastavení zdrojového prostředí
-Nastavení zdrojového prostředí zahrnuje dva hlavní činnosti:
+## <a name="set-up-the-configuration-server"></a>Nastavení konfigurace serveru
 
-- Nainstalujte a zaregistrujte konfigurační server pomocí Site Recovery.
-- Zjistit virtuální počítače na místní připojením Site Recovery na vaše místní VMware vCenter nebo vSphere EXSi hostitele.
+Nastavení konfigurace serveru jako místní virtuálních počítačů VMware, použijte šablonu otevřete virtualizace formát OVF (). [Další informace](concepts-vmware-to-azure-architecture.md) o součástech, které se nainstalují na virtuální počítač VMware. 
 
-### <a name="step-1-install-and-register-a-configuration-server"></a>Krok 1: Instalace a zaregistrujte konfigurační server
+1. Další informace o [požadavky](how-to-deploy-configuration-server.md#prerequisites) pro nasazení konfiguračního serveru. [Zkontrolujte kapacitu čísla](how-to-deploy-configuration-server.md#capacity-planning) pro nasazení.
+2. [Stáhněte si](how-to-deploy-configuration-server.md#download-the-template) a [importovat](how-to-deploy-configuration-server.md#import-the-template-in-vmware) OVF šablony (how-k-nasazení konfigurace server.md) nastavit VMware místní virtuální počítač, který běží na konfiguračním serveru.
+3. Zapnout virtuální počítač VMware a [registraci](how-to-deploy-configuration-server.md#register-the-configuration-server) v služeb zotavení trezoru.
 
-1. Klikněte na tlačítko **krok 1: Příprava infrastruktury** > **zdroj**. V **připravit zdroj**, pokud nemáte konfigurační server, klikněte na tlačítko **+ konfigurační server** aby vám ho přidal.
 
-    ![Nastavení zdroje](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. Na **přidat Server** okno, zkontrolujte, zda **konfigurační Server** se zobrazí v **typ serveru**.
-4. Stáhněte instalační soubor nástroje Unified instalace nástroje Site Recovery.
-5. Stáhnout registrační klíč trezoru Když spustíte instalační program Unified musíte registrační klíč. Klíč je platný pět dní od jeho vygenerování.
-
-    ![Nastavení zdroje](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
-6. Na počítači, který používáte jako konfigurační server, spusťte **Unified instalace nástroje Azure Site Recovery** instalace konfigurační server, procesový server a hlavní cílový server.
-
-#### <a name="run-azure-site-recovery-unified-setup"></a>Spuštění Azure Site Recovery sjednocený instalační program
-
-> [!TIP]
-> Konfigurace serveru registrace selže, pokud čas počítače systémové hodiny se liší od místního času ve více než pět minut. Synchronizovat systémových hodin s [čas serveru](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) před zahájením instalace.
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-> [!NOTE]
-> Konfigurační server lze nainstalovat pomocí příkazového řádku. Další informace najdete v tématu [instalace serveru konfigurace pomocí nástroje příkazového řádku](http://aka.ms/installconfigsrv).
-
-#### <a name="add-the-vmware-account-for-automatic-discovery"></a>Přidejte účet VMware pro automatické zjišťování
+## <a name="add-the-vmware-account-for-automatic-discovery"></a>Přidejte účet VMware pro automatické zjišťování
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### <a name="step-2-add-a-vcenter"></a>Krok 2: Přidání systému vCenter
+## <a name="connect-to-the-vmware-server"></a>Připojení k serveru VMware
+
 Povolit Azure Site Recovery se zjistit virtuální počítače spuštěné v místním prostředí, kterou potřebujete připojit VMware vCenter Server nebo hostitelů vSphere ESXi službou Site Recovery.
 
 Vyberte **+ vCenter** zahájíte připojení serveru VMware vCenter server nebo hostiteli ESXi VMware vSphere.
@@ -99,5 +65,5 @@ Vyberte **+ vCenter** zahájíte připojení serveru VMware vCenter server nebo 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Nastavení cílového prostředí](./site-recovery-prepare-target-vmware-to-azure.md) v Azure.

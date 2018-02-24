@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Použití Azure Data Lake Store k zaznamenání dat ze služby Event Hubs
 
@@ -86,11 +86,11 @@ V této části vytvoříte Centrum událostí v rámci oboru názvů Event Hubs
 
 2. Z **přehled** podokně oboru názvů služby Event Hubs, klikněte na tlačítko **+ centra událostí**.
 
-    ![Vytvoření centra událostí](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "vytvoření centra událostí")
+    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Create Event Hub")
 
 3. Zadejte následující hodnoty pro konfiguraci služby Event Hubs k zaznamenání dat do Data Lake Store.
 
-    ![Vytvoření centra událostí](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "vytvoření centra událostí")
+    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Create Event Hub")
 
     a. Zadejte název centra událostí.
     
@@ -120,6 +120,6 @@ Nyní můžete otestovat řešení odesílá data do centra událostí Azure. Po
 Jakmile jsou data v Data Lake Store, můžete spustit analytické úlohy a proces, zpracujte data. V tématu [USQL Avro příklad](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) o tom, jak to provést pomocí Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Kopírování dat z úložiště objektů BLOB Azure do Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)

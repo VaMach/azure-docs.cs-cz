@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1ed98856753854b0d6baee5bfa74d0623043aa99
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Vytvoření clusterů HDInsight pomocí rozhraní příkazového řádku Azure
 
@@ -29,8 +29,9 @@ ms.lasthandoff: 12/11/2017
 Kroky v tohoto návodu dokumentu vytváření clusteru HDInsight 3.5 pomocí Azure CLI 1.0.
 
 > [!IMPORTANT]
-> HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+> Toto téma popisuje, jak vytvořit cluster služby HDInsight pomocí Azure CLI 1.0. Tato verze rozhraní příkazového řádku je zastaralá a podpora pro vytváření clusterů HDInsight nebyl přidán do Azure CLI 2.0.
+>
+> Prostředí Azure PowerShell můžete použít také k vytváření a správě clusterů HDInsight. Další informace najdete v tématu [Tvorba clusterů HDInsight pomocí Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) dokumentu.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -41,7 +42,7 @@ Kroky v tohoto návodu dokumentu vytváření clusteru HDInsight 3.5 pomocí Azu
 * **Azure CLI**. Kroky v tomto dokumentu byly naposledy testovány s Azure CLI verze 0.10.14.
 
     > [!IMPORTANT]
-    > Kroky v tomto dokumentu není kompatibilní s Azure CLI 2.0. Azure CLI 2.0 nepodporuje vytváření clusteru služby HDInsight.
+    > Azure CLI 1.0 je zastaralý a podpora pro vytváření clusterů HDInsight nebyl přidán do Azure CLI 2.0.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Přihlášení k předplatnému Azure
 
@@ -127,7 +128,7 @@ Z příkazového řádku, jako je například PowerShell nebo Bash je třeba pro
 
 Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se na [požadavky na řízení přístupu](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste úspěšně vytvořili clusteru HDInsight pomocí rozhraní příkazového řádku Azure, použijte následující postupy se dozvíte, jak pracovat s clusteru:
 
@@ -139,7 +140,7 @@ Teď, když jste úspěšně vytvořili clusteru HDInsight pomocí rozhraní př
 
 ### <a name="hbase-clusters"></a>Clustery HBase
 
-* [Začínáme s HBase v HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Začínáme s HBase ve službě HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Vývoj aplikací v jazyce Java pro HBase v HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clustery Storm

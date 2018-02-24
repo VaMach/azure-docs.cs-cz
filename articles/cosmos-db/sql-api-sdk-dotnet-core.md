@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 365101fc6267a5a295462d7a9902e5fd25964086
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK pro rozhraní API pro SQL: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/13/2018
 
 <tr><td>**Ukázky**</td><td>[Ukázky kódu rozhraní .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>Začínáme</td><td>[Začínáme s Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Začínáme**</td><td>[Začínáme s Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Kurz vývoje webové aplikace**</td><td>[Vývoj webových aplikací s Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -59,7 +59,11 @@ Cosmos DB .NET SDK služby Azure základní má parity funkcí s nejnovější v
 > [!NOTE] 
 > Cosmos DB .NET SDK služby Azure jádra není kompatibilní s aplikací pro univerzální platformu Windows (UWP). Pokud vás zajímá .NET Core SDK, který podporuje aplikace UWP odeslat e-mailu [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Opravené přerušované SessionConsistency časování.
+
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
 * Pevné regrese kde FeedOptions.MaxItemCount = -1 došlo System.ArithmeticException: velikost stránky je záporná.
 * Přidat novou funkci ToString() do QueryMetrics.
@@ -165,6 +169,7 @@ Pokud máte otázky související s touto sadou SDK, odeslání na [StackOverflo
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |21. února 2018 |--- |
 | [1.8.1](#1.8.1) |05 února 2018 |--- |
 | [1.7.1](#1.7.1) |16. listopadu 2017 |--- |
 | [1.7.0](#1.7.0) |10 listopadu 2017 |--- |

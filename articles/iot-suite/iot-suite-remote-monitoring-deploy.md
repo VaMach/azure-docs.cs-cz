@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Nasazení předkonfigurovaného řešení vzdáleného monitorování
 
@@ -41,7 +41,7 @@ Než nasadíte předkonfigurované řešení k předplatnému Azure, musíte zvo
 
 1. Přihlaste se k [azureiotsuite.com](https://www.azureiotsuite.com) pomocí vaší Azure přihlašovací údaje účtu a klikněte na tlačítko  **+**  k vytvoření nové řešení:
 
-    ![Vytvořte nové řešení](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+    ![Vytvořit nové řešení](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
 
 1. Klikněte na tlačítko **vyberte** na **vzdálené monitorování preview** dlaždici.
 
@@ -80,7 +80,7 @@ Po dokončení procesu zřizování se můžete přihlásit předkonfigurované 
 
 1. Řídicím panelu řešení vzdáleného monitorování se zobrazí v prohlížeči.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e246abaf8d1d7939765e1c878f6dfaf6375294f6
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: aa71a1cc48449c6ef48365b301bf9e297c0597ae
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Zabezpečení dat uložených v Azure Data Lake Store
 Zabezpečení dat v Azure Data Lake Store je přístup třech krocích.
@@ -150,7 +150,7 @@ Když odeberete skupiny zabezpečení seznamy ACL systému souborů Azure Data L
    
     ![Přiřazení oprávnění k seskupení](./media/data-lake-store-secure-data/adl.remove.acl.png "přiřadit oprávnění k seskupení")
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Přehled Azure Data Lake Store](data-lake-store-overview.md)
 * [Kopírování dat z úložiště objektů BLOB Azure do Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Průběžné nasazování s webovou aplikaci pro kontejnery
 
@@ -71,7 +71,7 @@ Zajistěte, aby definujte rozsah jako úložiště obsahující bitové kopie ko
 
 Při aktualizaci získá bitovou kopii, získat webové aplikace automaticky aktualizován s novou bitovou kopii.
 
-### <a name="docker-hub"></a>Úložiště docker Hub
+### <a name="docker-hub"></a>Docker Hub
 
 Na stránce úložiště Docker Hub klikněte na tlačítko **Webhooky**, pak **vytvoření WEBHOOKU A**.
 
@@ -83,12 +83,12 @@ Pro adresu URL Webhooku, budete muset zadat adresu URL získané z **krok 3**
 
 Při aktualizaci získá bitovou kopii, získat webové aplikace automaticky aktualizován s novou bitovou kopii.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Co je Azure App Service v systému Linux?](./app-service-linux-intro.md)
-* [Kontejner Azure registru](https://azure.microsoft.com/services/container-registry/)
-* [Pomocí .NET Core v Azure App Service v systému Linux](quickstart-dotnetcore.md)
-* [Pomocí Ruby v Azure App Service v systému Linux](quickstart-ruby.md)
-* [Jak používat vlastní image Docker pro webovou aplikaci pro kontejnery](quickstart-custom-docker-image.md)
-* [Webové aplikace Azure App Service pro kontejnery – nejčastější dotazy](./app-service-linux-faq.md)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Použití .NET Core ve službě Azure App Service v Linuxu](quickstart-dotnetcore.md)
+* [Použití Ruby ve službě Azure App Service v Linuxu](quickstart-ruby.md)
+* [Jak používat vlastní image Dockeru pro službu Web App for Containers](quickstart-docker-go.md)
+* [Azure App Service Web App for Containers – Nejčastější dotazy](./app-service-linux-faq.md)
 * [Správa webové aplikace pro kontejnery pomocí Azure CLI 2.0](./app-service-linux-cli.md)

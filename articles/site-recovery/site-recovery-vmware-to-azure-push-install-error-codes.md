@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery řešení potíží s z VMware do Azure | Microsoft Docs"
-description: "Řešení chyb při replikaci virtuálních počítačů Azure"
+description: "Řešení chyb při replikaci virtuálních počítačů Azure."
 services: site-recovery
 author: anoopkv
 manager: gauravd
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a03766f8a22399f7d72a01f8d744bfd1cef90ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Služba Mobility nabízené řešení potíží s instalací
 
@@ -36,7 +36,7 @@ Tato chyba může být vyvolána službou z několika důvodů. Zvolte odpovída
 
 **Kód chyby** | **Možné příčiny** | **Chyba konkrétní doporučení**
 --- | --- | ---
-95105 </br>**Zpráva:** nabízenou instalaci služby Mobility na zdrojovém počítači se nezdařilo s kódem chyby **EP0856**. <br> Buď **sdílení souborů a tiskáren** není povolená pro zdroj počítače nebo že jsou síťové potíže s připojením k mezi procesovým serverem a zdrojovým počítačem.| **Sdílení souborů a tiskáren** není povoleno. | Povolit **sdílení souborů a tiskáren** na zdrojovém počítači v bráně Windows Firewall. Na zdrojovém počítači v části **brány Windows Firewall** > **povolit aplikace nebo funkci průchod bránou Firewall**, vyberte **sdílení souborů a tiskáren pro všechny profily**. </br> Kromě toho zkontrolujte splnění následujících předpokladů úspěšné dokončení nabízené instalace.<br> Další informace o [řešení potíží s isssues rozhraní WMI](#troubleshoot-wmi-issues)
+95105 </br>**Zpráva:** nabízenou instalaci služby Mobility na zdrojovém počítači se nezdařilo s kódem chyby **EP0856**. <br> Buď **sdílení souborů a tiskáren** není povolená pro zdroj počítače nebo že jsou síťové potíže s připojením k mezi procesovým serverem a zdrojovým počítačem.| **Sdílení souborů a tiskáren** není povoleno. | Povolit **sdílení souborů a tiskáren** na zdrojovém počítači v bráně Windows Firewall. Na zdrojovém počítači v části **brány Windows Firewall** > **povolit aplikace nebo funkci průchod bránou Firewall**, vyberte **sdílení souborů a tiskáren pro všechny profily**. </br> Kromě toho zkontrolujte splnění následujících předpokladů úspěšné dokončení nabízené instalace.<br> Další informace o [řešení potíží s WMI problémy](#troubleshoot-wmi-issues).
 
 
 ## <a name="error-95107---protection-could-not-be-enabled-ep0858"></a>Chyba 95107 - ochranu nelze povolit (EP0858)
@@ -62,36 +62,36 @@ Tato chyba může být vyvolána službou z několika důvodů. Zvolte odpovída
 
 **Kód chyby** | **Možné příčiny** | **Chyba konkrétní doporučení**
 --- | --- | ---
-95213 </br>**Zpráva:** instalace služby mobility selhala na zdrojovém počítači % SourceIP; selhala s kódem chyby **EP0874**. <br> | Verze operačního systému na zdrojovém počítači není podporována. <br>| Zajistěte, aby zdrojového počítače, které podporuje verze operačního systému. Pro čtení [matici podpory](https://aka.ms/asr-os-support). </br> Kromě toho zkontrolujte následující [požadavky](https://aka.ms/pushinstallerror) úspěšné dokončení nabízené instalace.| 
+95213 </br>**Zpráva:** instalace služby Mobility zdrojový počítač % SourceIP; selhala s kódem chyby **EP0874**. <br> | Verze operačního systému na zdrojovém počítači není podporována. <br>| Zajistěte, aby zdrojového počítače, které podporuje verze operačního systému. Pro čtení [matici podpory](https://aka.ms/asr-os-support). </br> Kromě toho zkontrolujte následující [požadavky](https://aka.ms/pushinstallerror) úspěšné dokončení nabízené instalace.| 
 
 
 ## <a name="error-95108---protection-could-not-be-enabled-ep0859"></a>Chyba 95108 - ochranu nelze povolit (EP0859)
 
 **Kód chyby** | **Možné příčiny** | **Chyba konkrétní doporučení**
 --- | --- | ---
-95108 </br>**Zpráva:** nabízenou instalaci služby mobility na zdrojovém počítači se nezdařilo s kódem chyby **EP0859**. <br>| Že přihlašovací údaje poskytnuté pro instalaci služby mobility je nesprávný nebo uživatelský účet nemá dostatečná oprávnění <br>| Zajistěte, aby zadaná pověření **kořenové** přihlašovací údaje účtu. Pokud chcete přidat či upravit přihlašovací údaje uživatele, přejděte na konfigurační server a klikněte na ikonu "Cspsconfigtool" zástupce na ploše. Klikněte na "Účet spravovat" můžete přidat nebo upravit přihlašovací údaje.|
+95108 </br>**Zpráva:** nabízenou instalaci služby Mobility na zdrojovém počítači se nezdařilo s kódem chyby **EP0859**. <br>| Buď jsou nesprávné přihlašovací údaje zadané pro instalaci služby Mobility nebo uživatelský účet nemá dostatečná oprávnění. <br>| Zajistěte, aby zadaná pověření **kořenové** přihlašovací údaje účtu. Můžete přidat nebo upravit přihlašovací údaje uživatele, přejděte na konfigurační server a vyberte **Cspsconfigtool** ikonu zástupce na ploše. Vyberte **spravovat účet** můžete přidat nebo upravit přihlašovací údaje.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Chyba 95265 - ochranu nelze povolit (EP0902)
 
 **Kód chyby** | **Možné příčiny** | **Chyba konkrétní doporučení**
 --- | --- | ---
-95265 </br>**Zpráva:** nabízenou instalaci služby mobility na zdrojový počítač se úspěšně, ale zdrojový počítač vyžaduje restartování pro některé systému změny vstoupily v platnost. <br>| Na serveru je již nainstalována starší verze služby mobility.| Plynule pokračuje replikace virtuálního počítače.<br> Restartujte server vaší další období údržby, chcete-li získat výhody nová vylepšení v služba mobility.|
+95265 </br>**Zpráva:** nabízenou instalaci služby Mobility na zdrojový počítač, byla úspěšná, ale zdrojový počítač vyžaduje restartování pro některé systému změny vstoupily v platnost. <br>| Na serveru je již nainstalována starší verze služby Mobility.| Plynule pokračuje replikace virtuálního počítače.<br> Restartujte server vaší další období údržby, chcete-li získat výhody nová vylepšení v služba Mobility.|
 
 
 ## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Chyba 95224 - ochranu nelze povolit (EP0883)
 
 **Kód chyby** | **Možné příčiny** | **Chyba konkrétní doporučení**
 --- | --- | ---
-95224 </br>**Zpráva:** nabízená instalace služby mobility na zdrojový počítač % SourceIP; selhala s kódem chyby EP0883. Systém restartovat z předchozí instalace / aktualizace čeká na vyřízení.| Odinstalovává se starší nebo nekompatibilní verze služby mobility nebyl restartovat systém.| Ujistěte se, že neexistuje žádná verze služby mobility na serveru. <br> Restartujte server a znovu spusťte úlohu povolení ochrany|
+95224 </br>**Zpráva:** nabízená instalace služby Mobility na zdrojový počítač % SourceIP; selhala s kódem chyby **EP0883**. Restartování systému z předchozí instalace nebo aktualizace čeká na vyřízení.| Při odinstalaci starší nebo nekompatibilní verzi služby Mobility nebyl restartovat systém.| Ujistěte se, že neexistuje žádná verze služby Mobility na serveru. <br> Restartujte server a znovu spusťte úlohu povolení ochrany.|
 
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Prostředek k odstraňování problémů instalace push
 
-#### <a name="troubleshoot-file-and-print-sharing-issues"></a>Řešení problémů sdílení souborů a tiskáren
-*  [Povolit nebo zakázat sdílení souborů pomocí zásad skupiny](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [Povolení souboru a tisku sdílení přes bránu Windows Firewall](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
+#### <a name="troubleshoot-file-and-print-sharing-issues"></a>Řešení potíží s souboru a tisku sdílení problémy
+* [Povolit nebo zakázat pomocí zásad skupiny pro sdílení souborů](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Povolit sdílení souborů a tiskáren přes bránu Windows Firewall](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Řešení problémů WMI
-* [Testování základní rozhraní WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
+* [Základní testování služby WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [Řešení problémů WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
 * [Řešení potíží s skripty WMI a služby WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 

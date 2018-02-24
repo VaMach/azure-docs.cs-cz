@@ -3,7 +3,7 @@ title: "Sledování změn s Azure Log Analytics | Microsoft Docs"
 description: "Řešení sledování změn v analýzy protokolů pomáhá identifikovat software a služby systému Windows změny ve vašem prostředí."
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: magoedte
+ms.author: gwallace
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7af2fb89f8fac9df3f784aac50c8fac7880fde43
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Sledování změn softwaru ve vašem prostředí do řešení pro sledování změn
 
@@ -112,7 +112,7 @@ Následující tabulka uvádí metody shromažďování dat a další podrobnost
 
 Následující tabulka uvádí četnost shromažďování dat pro typy změn.
 
-| **Změnit typ** | **frequency** | **Nemá****agenta****odeslat rozdíly, když se najde?**  |
+| **Změnit typ** | **frequency** | **Nemá****agenta****odeslat rozdíly, když se najde?** |
 | --- | --- | --- |
 | Registru systému Windows | 50 minut | Ne |
 | Soubor systému Windows | 30 minut | Ano. Pokud se nezměnila za 24 hodin, se budou odesílat snímku. |

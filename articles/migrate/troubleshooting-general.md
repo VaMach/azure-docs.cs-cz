@@ -4,13 +4,13 @@ description: "Poskytuje přehled o známé problémy ve službě Azure migrovat 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Řešení problémů s Azure Migrate
 
@@ -24,14 +24,14 @@ ms.lasthandoff: 12/12/2017
 To může dojít, pokud je počítač, který používáte za proxy server. Zkontrolujte, zda že je zadat přihlašovací údaje pro autorizaci, pokud potřebovat proxy server.
 Pokud používáte žádné brány firewall založená na adresu URL proxy serveru k řízení odchozí připojení, nezapomeňte seznamu povolených IP adres, že následující požadované adresy URL:
 
-**ADRESA URL** | **Účel**  
+**Adresa URL** | Účel  
 --- | ---
-*. portal.azure.com | Vyžaduje se zkontrolovat připojení ke službě Azure a ověřit synchronizaci času problémy.
-*. oneget.org | Vyžaduje ke stažení powershell na základě vCenter PowerCLI modulu.
+*.portal.azure.com | Vyžaduje se zkontrolovat připojení ke službě Azure a ověřit synchronizaci času problémy.
+*.oneget.org | Vyžaduje ke stažení powershell na základě vCenter PowerCLI modulu.
 
 **Kolekce se nemůže připojit k projektu pomocí ID projektu a klíče zkopírovaná z portálu.**
 
-Ujistěte se, že jste se zkopírovat a vložit správné informace. Chcete-li vyřešit, nainstalujte Microsoft Monitoring Agent (MMA) následujícím způsobem:
+Ujistěte se, že jste se zkopírovat a vložit správné informace. Chcete-li vyřešit, nainstalovat Microsoft Monitoring Agent (MMA) a ověřte, zda může MMA připojit k projektu:
 
 1. V kolekci virtuálních počítačů, stáhněte si [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Chcete-li spustit instalaci, poklikejte na stažený soubor.
@@ -69,13 +69,13 @@ Chcete-li povolit shromažďování dat výkonu diskových a síťových, změň
 
 **Problém** | **Oprava**
 --- | ---
-Spouštěcí typ není podporován. | Změnit na systému BIOS, před spuštěním migrace.
-Počet disků překračuje limit | Odeberte nepoužité disky z počítače před migrací.
-Velikost disku překračuje limit | Zmenšit disky, na méně než 4 TB před migrací. 
-Disk není k dispozici v zadaném umístění | Zkontrolujte, zda že je disk v cílovém umístění, před migrací.
-Disk není k dispozici pro zadanou redundance | Disk musí používat typ redundance úložiště definované v nastavení assessment (LRS ve výchozím nastavení).
-Nepodařilo se určit vhodnosti disku z důvodu vnitřní chyby | Zkuste vytvořit nové vyhodnocení pro skupinu. 
-Virtuální počítač s požadované jader a paměti nebyl nalezen | Azure nelze přesně vhodný typ virtuálního počítače. Před migrací snížit paměť a počet jader na místním počítači. 
+Nepodporovaný typ spuštění | Azure nepodporuje virtuální počítače s typem spouštěcí EFI. Doporučujeme převést typ spuštění na systému BIOS, před spuštěním migrace. <br/><br/>Můžete použít [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) -li provést migraci takových virtuálních počítačů, protože typ spuštění virtuálního počítače budou převedeny na systému BIOS během migrace.
+Počet disků překračuje limit. | Odeberte nepoužité disky z počítače před migrací.
+Velikost disku překračuje limit. | Azure podporuje disky s až velikost 4 TB. Zmenšit disky, na méně než 4 TB před migrací. 
+V zadaném umístění není k dispozici žádný disk. | Zkontrolujte, zda že je disk v cílovém umístění, před migrací.
+Pro zadanou redundanci není k dispozici žádný disk. | Disk musí používat typ redundance úložiště definované v nastavení assessment (LRS ve výchozím nastavení).
+Z důvodu interní chyby není možné určit vhodnost disku. | Zkuste vytvořit nové vyhodnocení pro skupinu. 
+Virtuální počítač s požadovaný počtem jader a požadovanou pamětí se nenašel. | Azure nelze přesně vhodný typ virtuálního počítače. Před migrací snížit paměť a počet jader na místním počítači. 
 Jeden nebo více disků není vhodný. | Zkontrolujte zda místní disky se 4 TB nebo v části před spuštěním migrace.
 Jeden nebo více není vhodný síťových adaptérů. | Odeberte nepoužívané síťové adaptéry z počítače před migrací.
 Nelze stanovit vhodnosti virtuálních počítačů z důvodu vnitřní chyby. | Zkuste vytvořit nové vyhodnocení pro skupinu. 
@@ -83,12 +83,15 @@ Nelze stanovit vhodnosti pro jeden nebo více disků kvůli vnitřní chybě. | 
 Nelze stanovit vhodnosti pro jeden nebo více síťových adaptérů kvůli vnitřní chybě. | Zkuste vytvořit nové vyhodnocení pro skupinu.
 Virtuální počítač nebyl nalezen pro výkon vyžaduje úložiště. | Výkon úložiště (IOPS/propustnost) vyžaduje pro počítač překračuje podporu virtuálního počítače Azure. Snižte požadavky na úložiště pro počítač před migrací.
 Virtuální počítač nebyl nalezen pro požadované síťový výkon. | Výkon sítě (vstup/výstup) vyžaduje pro počítač překračuje podporu virtuálního počítače Azure. Snižte požadavky na sítě pro počítač. 
-Virtuální počítač nebyl nalezen pro zadaný cenovou úroveň. | Zkontrolujte nastavení cenovou úroveň. 
+Virtuální počítač nebyl nalezen v zadané cenovou úroveň. | Cenová úroveň je nastavené na Standard, vezměte v úvahu downsizing virtuální počítač před migrací do Azure. Pokud úroveň velikost je Basic, vezměte v úvahu při změně cenové úrovně hodnocení na Standard. 
 Virtuální počítač nebyl nalezen v zadaném umístění. | Použijte jiné cílové umístění, před migrací.
-Operační systém Linux podporují problémy | Zajistěte, aby spuštění 64bitových jste pomocí těchto podporované [operační systémy](../virtual-machines/linux/endorsed-distros.md).
-Problémy s podporou operačního systému Windows | Ujistěte se, že používáte podporovaný operační systém. [Další informace](concepts-assessment-calculation.md#azure-suitability-analysis)
-Neznámý operační systém. | Zkontrolujte, zda je správný operační systém určený v vCenter a zopakovat proces zjišťování.
-Vyžaduje předplatné sady Visual Studio. | Klientské operační systémy Windows se podporují jenom u předplatného Visual Studio (MSDN).
+Neznámý operační systém | Operační systém virtuálního počítače byl zadán jako "Jiné" v systému vCenter Server, kvůli které nelze migrovat Azure identifikovat Azure připravenost virtuálního počítače. Zajistěte, aby operačního systému běžících v rámci počítač [podporované](https://aka.ms/azureoslist) Azure před migrací na počítač.
+Podmíněná podporovaný operační systém Windows | Uplynutí jeho koncové datum podpory operačního systému a musí vlastní podporu smlouvy (CSA) pro [podporují v Azure](https://aka.ms/WSosstatement), zvažte upgradování operačního systému před migrací do Azure.
+Nepodporované Windows operačního systému | Azure podporuje pouze [vybrané verze operačního systému Windows](https://aka.ms/WSosstatement), zvažte upgradování operačního systému na počítač před migrací do Azure. 
+Podmíněná schválené pro operační systém Linux. | Azure nezodpovídá pouze [vybrané verze operačního systému Linux](../virtual-machines/linux/endorsed-distros.md), zvažte upgradování operačního systému na počítač před migrací do Azure.
+Unendorsed Linux operačního systému | Tento počítač může spustit v Azure, ale žádná podpora operačního systému je k dispozici v Azure, zvažte upgradování operačního systému a [schválené pro Linux verze](../virtual-machines/linux/endorsed-distros.md) před migrací do Azure
+Nepodporovaná bitová verze operačního systému | Virtuální počítače s operačním systémem 32-bit může spustit v Azure, ale doporučuje se upgrade operačního systému virtuálního počítače z 32bitové na 64-bit před migrací do Azure.
+Vyžaduje předplatné sady Visual Studio. | Má na počítače klienta Windows operačního systému spuštěné je uvnitř, která je podporována pouze v sadě Visual Studio předplatného.
 
 
 ## <a name="collect-logs"></a>Shromažďování protokolů

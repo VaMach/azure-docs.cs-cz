@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1f5139f3fdb1cc73bb40828021256bed4290e1a2
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 21dfaa9b4d2bb59cb2e84006ad58fcb6ce3f81b4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Připojení aplikace Excel k systému Hadoop pomocí Power Query
 Klíčovou vlastností řešení velkých objemů dat společnosti Microsoft je integrace komponenty Microsoft business intelligence (BI) s clustery systému Hadoop v prostředí Azure HDInsight. Primární příkladem je možnost připojit Excel k účtu úložiště Azure, který obsahuje data přidruženého k vašemu clusteru Hadoop pomocí Microsoft Power Query pro doplněk aplikace Excel. Tento článek vás provede procesem nastavení a použití doplňku Power Query k dotazování na data související s clusterem Hadoop spravované s HDInsight.
@@ -50,13 +50,13 @@ Doplněk Power Query pro Excel lze snadno importovat data z clusteru HDInsight d
 
         - Klikněte na tlačítko **Data** nabídky, klikněte na tlačítko **načíst Data** z **Get & transformace dat** pásu karet, klikněte na tlačítko **z Azure**a potom klikněte na **z Azure HDInsight(HDFS)**.
 
-        ![HDI. PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
     - Excel 2013/2010
 
         - Klikněte na tlačítko **Power Query** nabídky, klikněte na tlačítko **z Azure**a potom klikněte na **z Microsoft Azure HDInsight**.
    
-        ![HDI. PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
         **Poznámka:** Pokud nevidíte **Power Query** nabídky, přejděte na **soubor** > **možnosti** > **doplňky**a vyberte **COM Doplňky** z rozevíracího seznamu **spravovat** pole v dolní části stránky. Vyberte **přejděte...**  tlačítko a ověřte, že bylo zaškrtnuté políčko pro Power Query pro doplněk aplikace Excel.
        
@@ -66,7 +66,7 @@ Doplněk Power Query pro Excel lze snadno importovat data z clusteru HDInsight d
 6. V **Navigátor** podokna na levé straně editoru dotazů, dvakrát klikněte na název kontejneru úložiště objektů Blob. Ve výchozím nastavení je název kontejneru stejný název jako název clusteru.
 7. Vyhledejte **HiveSampleData.txt** v **název** sloupce (je cesta ke složce **... / hive/skladu/hivesampletable/**) a potom klikněte na **binární** na levé straně HiveSampleData.txt. HiveSampleData.txt obsahuje všechny clusteru. Volitelně můžete vytvořit svůj vlastní soubor.
    
-    ![HDI. PowerQuery.ImportData][image-hdi-powerquery-importdata]
+    ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. Pokud chcete, můžete přejmenovat názvy sloupců. Až budete připravení, klikněte na tlačítko **zavřete & načíst**.  Data se načetl do vašeho sešitu:
    
     ![HDI. PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]

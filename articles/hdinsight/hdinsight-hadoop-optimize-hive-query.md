@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3577b06bfb23457c17099902a7ac9fb8eb6e3087
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimalizace dotazů Hive v Azure HDInsight
 
@@ -113,7 +113,7 @@ Po vytvoření oddílů tabulky, můžete buď vytvořit statické dělení nebo
 Další informace najdete v tématu [rozdělena na oddíly tabulky](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>Použijte formát ORCFile
-Hive podporuje jiné formáty souborů. Například:
+Hive podporuje jiné formáty souborů. Příklad:
 
 * **Text**: Toto je výchozí formát souboru a spolupracuje s většinu scénářů
 * **Avro**: funguje dobře pro scénáře interoperability
@@ -137,7 +137,7 @@ Pokud chcete povolit ORC formátu, nejprve vytvoříte tabulku s klauzulí *ulo�
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-V dalším kroku vkládání dat do tabulky ORC z pracovní tabulky. Například:
+V dalším kroku vkládání dat do tabulky ORC z pracovní tabulky. Příklad:
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
@@ -177,7 +177,7 @@ Existují další metody optimalizace, které můžete zvážit, například:
 * **Připojení k optimalizaci:** optimalizace spouštění dotazů Hive na plánování ke zlepšení efektivity spojení a snížit nutnost pomocné parametry uživatele. Další informace najdete v tématu [připojení optimalizace](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Zvýšit přechodky**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste se naučili několik běžné metody optimalizace dotazů Hive. Další informace naleznete v následujících článcích:
 
 * [Používání Apache Hive v HDInsight](hadoop/hdinsight-use-hive.md)

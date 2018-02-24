@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 760a6a30513308aa59c5e253e3b91e28cf9e3241
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Použití rozšíření IoT pro Azure CLI 2.0 pro správu zařízení Azure IoT Hub
 
@@ -66,21 +66,21 @@ Spusťte 2.0 rozhraní příkazového řádku Azure a IoT rozšíření pro Azur
 - Nainstalujte rozšíření IoT. Nejjednodušší způsob, jak se má spustit `az extension add --name azure-cli-iot-ext`. [V souboru readme rozšíření IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) popisuje několik způsobů, jak nainstalovat rozšíření.
 
 
-## <a name="login-to-your-azure-account"></a>Přihlášení k účtu Azure
+## <a name="log-in-to-your-azure-account"></a>Přihlaste se k účtu Azure
 
-Přihlášení k účtu Azure tak, že spustíte následující příkaz:
+Přihlaste se k účtu Azure tak, že spustíte následující příkaz:
 
 ```bash
 az login
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-direct-methods"></a>Použití rozšíření IoT pro Azure CLI 2.0 pomocí přímého metod
+## <a name="direct-methods"></a>Přímé metody
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-desired-properties"></a>Použití rozšíření IoT pro Azure CLI 2.0 s požadované vlastnosti pro dvojici
+## <a name="device-twin-desired-properties"></a>Vlastnosti twin požadovaného zařízení
 
 Nastavení intervalu požadovanou vlastnost = 3000 spuštěním následujícího příkazu:
 
@@ -90,7 +90,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Tuto vlastnost lze číst ze zařízení.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-reported-properties"></a>Použití rozšíření IoT pro Azure CLI 2.0 s vlastnostmi hlášené pro dvojici
+## <a name="device-twin-reported-properties"></a>Dvojče zařízení hlášené vlastnosti
 
 Umožňuje získáte vlastnosti hlášených zařízení tak, že spustíte následující příkaz:
 
@@ -100,7 +100,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Jedna z vlastností je $metadata. $lastUpdated který ukazuje čas poslední toto zařízení odeslání nebo přijetí zprávy.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-tags"></a>Použití rozšíření IoT pro Azure CLI 2.0 pomocí značek pro dvojici
+## <a name="device-twin-tags"></a>Značky twin zařízení
 
 Zobrazení značek a vlastnosti zařízení tak, že spustíte následující příkaz:
 
@@ -114,7 +114,7 @@ Přidání role pole = teploty a vlhkosti do zařízení tak, že spustíte nás
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-device-twins-queries"></a>Použití rozšíření IoT pro Azure CLI 2.0 s dotazy dvojčata zařízení
+## <a name="device-twin-queries"></a>Dotazy twin zařízení
 
 Dotaz na zařízení s značkou role = 'teploty a vlhkosti' spuštěním následujícího příkazu:
 

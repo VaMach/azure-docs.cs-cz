@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 20f87e9c545eae283ff1514feeda0b1f9057e668
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Vytvoření clusterů HDInsight s Data Lake Store pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -185,9 +185,9 @@ Pokud chcete použít, například cluster, který jste vytvořili s Data Lake S
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsstorage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 Popis:
-* `adl://hdiadlstorage.azuredatalakestore.net/`je kořenem účtu Data Lake Store.
-* `/clusters/myhdiadlcluster`je kořenovém clusteru data, která jste zadali při vytváření clusteru.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`je umístění ukázkový soubor, který jste použili v dotazu.
+* `adl://hdiadlstorage.azuredatalakestore.net/` je kořenem účtu Data Lake Store.
+* `/clusters/myhdiadlcluster` je kořenovém clusteru data, která jste zadali při vytváření clusteru.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` je umístění ukázkový soubor, který jste použili v dotazu.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-additional-storage"></a>Spouštění dotazů Hive proti dat v Data Lake Store (jako další úložiště)
 

@@ -1,7 +1,7 @@
 ---
 title: "Podpora SSH pro Azure App Service v systému Linux | Microsoft Docs"
 description: "Další informace o použití SSH s Azure App Service v systému Linux."
-keywords: "služby Azure app service, webové aplikace, linux, operačních systémů"
+keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: 
 author: wesmc7777
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Podpora SSH pro Azure App Service v systému Linux
 
@@ -54,7 +54,7 @@ Tyto kroky nejsou v úložišti Azure App Service, jako jsou uvedeny [příklad]
 1. Zahrnout `openssh-server` instalace v [ `RUN` instrukce](https://docs.docker.com/engine/reference/builder/#run) v soubor Docker pro bitovou kopii a heslo pro kořenový účet sady `"Docker!"`.
 
     > [!NOTE]
-    > Tato konfigurace neumožňuje externí připojení ke kontejneru. SSH lze přistupovat pouze prostřednictvím Kudu nebo webu SCM, což je ověřen pomocí přihlašovací údaje pro publikování.
+    > Tato konfigurace nepovoluje externí připojení ke kontejneru. SSH lze přistupovat pouze prostřednictvím Kudu nebo webu SCM, což je ověřen pomocí přihlašovací údaje pro publikování.
 
     ```docker
     # ------------------------
@@ -69,14 +69,14 @@ Tyto kroky nejsou v úložišti Azure App Service, jako jsou uvedeny [příklad]
 
     > [!NOTE]
     > *Sshd_config* nebo připojení selže, soubor musí zahrnovat následující: 
-    > * `Ciphers`musí obsahovat alespoň jednu z následujících: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`musí obsahovat alespoň jednu z následujících: `hmac-sha1,hmac-sha1-96`.
+    > * `Ciphers` musí obsahovat alespoň jednu z následujících: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` musí obsahovat alespoň jednu z následujících: `hmac-sha1,hmac-sha1-96`.
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
-1. Zahrnout port 2222 v [ `EXPOSE` instrukce](https://docs.docker.com/engine/reference/builder/#expose) pro soubor Docker. I když se označuje kořenové heslo, port 2222 není přístupný z Internetu. Je k interní pouze portu přístupné pouze pomocí kontejnery v rámci sítě most privátní virtuální sítě.
+1. Zahrnout port 2222 v [ `EXPOSE` instrukce](https://docs.docker.com/engine/reference/builder/#expose) pro soubor Docker. I když je známé kořenové heslo, port 2222 není přístupný z internetu. Je k interní pouze portu přístupné pouze pomocí kontejnery v rámci sítě most privátní virtuální sítě.
 
     ```docker
     EXPOSE 2222 80
@@ -99,11 +99,11 @@ Soubor Docker používá [ `CMD` instrukce](https://docs.docker.com/engine/refer
     CMD ["/bin/init_container.sh"]
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-V následujících tématech Další informace týkající se webové aplikace pro kontejnery. Otázky a aspekty můžete zveřejnit na [našem fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+V následujících tématech Další informace týkající se webové aplikace pro kontejnery. Otázky a připomínky můžete publikovat na [našem fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Jak používat vlastní image Docker pro webovou aplikaci pro kontejnery](quickstart-custom-docker-image.md)
-* [Pomocí .NET Core v Azure App Service v systému Linux](quickstart-dotnetcore.md)
-* [Pomocí Ruby v Azure App Service v systému Linux](quickstart-ruby.md)
-* [Webové aplikace Azure App Service pro kontejnery – nejčastější dotazy](app-service-linux-faq.md)
+* [Jak používat vlastní image Dockeru pro službu Web App for Containers](quickstart-docker-go.md)
+* [Použití .NET Core ve službě Azure App Service v Linuxu](quickstart-dotnetcore.md)
+* [Použití Ruby ve službě Azure App Service v Linuxu](quickstart-ruby.md)
+* [Azure App Service Web App for Containers – Nejčastější dotazy](app-service-linux-faq.md)

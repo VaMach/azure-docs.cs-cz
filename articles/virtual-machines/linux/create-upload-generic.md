@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informace pro neschválené distribuce
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Platformy Azure SLA se vztahuje na virtuální počítače běžící operační systém Linux jenom v případě, že je jeden z [distribuce schválené](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) se používá. Všechny distribuce Linux, které jsou k dispozici v galerii Azure bitové kopie jsou potvrzená distribuce s požadovanou konfigurací.
+Platformy Azure SLA se vztahuje na virtuální počítače běžící operační systém Linux jenom v případě, že je jeden z [distribuce schválené](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) se používá. Pro tyto potvrzená distribuce bitové kopie systému Linux jsou uvedeny v Azure Marketplace s požadovanou konfigurací.
 
 * [Distribuce schválené pro Linux ve službě Azure-](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Podpora pro Linux obrázků v Microsoft Azure](https://support.microsoft.com/kb/2941892)

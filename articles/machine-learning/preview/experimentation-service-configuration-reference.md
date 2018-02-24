@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning experimentování služby konfigurační soubory
 
@@ -36,8 +36,8 @@ Tento soubor je [conda prostředí soubor](https://conda.io/docs/using/envs.html
 
 V tomto souboru zadejte balíčky Python, které potřebuje váš skript pro spuštění. Služba Azure ML experimentování vytvoří conda prostředí v bitové kopii Docker podle seznamu závislosti. Seznamu balíčky musí být dostupný modul provádění. Z tohoto důvodu balíčky muset být uvedené v kanálů, jako například:
 
-* [continuum.IO](https://anaconda.org/conda-forge/repo)
-* [Úložiště PyPI](https://pypi.python.org/pypi)
+* [continuum.io](https://anaconda.org/conda-forge/repo)
+* [PyPI](https://pypi.python.org/pypi)
 * veřejně přístupném koncovém bodu (URL)
 * nebo místní cesta.
 * Další dostupný modul provádění
@@ -131,7 +131,7 @@ _\<výpočetní cílová > .compute_ soubor Určuje připojení a informace o ko
   - místní
   - Docker
   - remotedocker
-  - Clusteru
+  - Cluster
 
 **baseDockerImage**: bitové kopie Docker Python nebo PySpark skript spuštěn. Výchozí hodnota je _microsoft/mmlspark:plus-0.7.91_. Také podporujeme jeden jiného obrázku: _microsoft/mmlspark:plus-gpu-0.7.91_, který umožňuje GPU přístup k počítači hostitele (Pokud je k dispozici GPU).
 
@@ -143,7 +143,7 @@ _\<výpočetní cílová > .compute_ soubor Určuje připojení a informace o ko
 
 **sharedVolumes**: Příznak signál, že modul pro spuštění by měl používat Docker sdíleného svazku funkce pro odeslání souborů projektu a zpět. Má tento příznak zapnutý urychlit provádění vzhledem k tomu, že Docker přístup projekty přímo, aniž by bylo nutné je zkopírovat. Je vhodné nastavit _false_ Pokud modulu Docker běží v systému Windows od svazku sdílení Docker v systému Windows, může být nestabilním stavu. Nastavte ji na _true_ Pokud je spuštěn v systému macOS nebo Linux.
 
-**nvidiaDocker**: Tento příznak, pokud je nastavena na _true_, informuje službu Azure ML experimentování na používání _nvidia docker_ příkaz oproti běžné _docker_ příkaz ke spuštění bitové kopie Docker. _Nvidia docker_ modul umožňuje kontejner Docker hardware GPU přístup. Pokud budete chtít spuštění GPU kontejner Docker je požadované nastavení. Podporuje pouze Linux hostitele _nvidia docker_. Například se systémem Linux DSVM v Azure dodává s _nvidia docker_. _NVIDIA docker_ od teď není podporován v systému Windows.
+**nvidiaDocker**: Tento příznak, pokud je nastavena na _true_, informuje službu Azure ML experimentování na používání _nvidia docker_ příkaz oproti běžné _docker_příkaz ke spuštění bitové kopie Docker. _Nvidia docker_ modul umožňuje kontejner Docker hardware GPU přístup. Pokud budete chtít spuštění GPU kontejner Docker je požadované nastavení. Podporuje pouze Linux hostitele _nvidia docker_. Například se systémem Linux DSVM v Azure dodává s _nvidia docker_. _NVIDIA docker_ od teď není podporován v systému Windows.
 
 **nativeSharedDirectory**: Tato vlastnost určuje základní adresář (třeba: _~/.azureml/share/_) uložení souborů Chcete-li sdílet běží na stejný cíl výpočty. Pokud toto nastavení se používá při spuštění na kontejner Docker _sharedVolumes_ musí být nastavena na hodnotu true. Provádění, jinak selže.
 
@@ -166,8 +166,8 @@ _"az ml experimentu odeslat foo.runconfig"_ automaticky spustí příkaz s _mysc
 **Proměnné prostředí**: v této části umožňuje uživatelům nastavit proměnné prostředí v rámci jejich spuštění. Uživatele můžete zadat proměnné prostředí pomocí dvojice název hodnota v následujícím formátu:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Tyto proměnné prostředí jsou přístupné v kódu uživatele. Například tento kód phyton vytiskne proměnnou prostředí s názvem "EXAMPLE_ENV_VAR"
@@ -210,5 +210,5 @@ Podle výše nahrazení, následující ukázka kódu nyní čte z "myremote.dso
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [konfigurace služby experimentování](experimentation-service-configuration.md).

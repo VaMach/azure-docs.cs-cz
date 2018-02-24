@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Připojení aplikace Excel k systému Hadoop v prostředí Azure HDInsight pomocí ovladače Microsoft Hive ODBC
 
@@ -46,7 +46,7 @@ Před zahájením tohoto článku, musíte mít následující položky:
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalaci ovladače Microsoft Hive ODBC
 Stáhnout a nainstalovat ovladače ODBC Microsoft Hive z [Download Center][hive-odbc-driver-download].
 
-Tento ovladač lze nainstalovat na 32bitové nebo 64bitové verze Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 a Windows Server 2012. Ovladač umožňuje připojení k Azure HDInsight (verze 1.6 nebo novější) a emulátoru HDInsight Azure (v.1.0.0.0 a novější). Nainstalujete verzi, která odpovídá verzi aplikace, kde používáte ovladač ODBC. V tomto kurzu se používá ovladače z aplikace Office Excel.
+Tento ovladač lze nainstalovat na 32bitové nebo 64bitové verze Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 a Windows Server 2012. Ovladač umožňuje připojení k Azure HDInsight. Nainstalujete verzi, která odpovídá verzi aplikace, kde používáte ovladač ODBC. V tomto kurzu se používá ovladače z aplikace Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Vytvoření zdroje dat Hive ODBC
 Následující kroky ukazují, jak vytvořit zdroj dat ODBC Hive.

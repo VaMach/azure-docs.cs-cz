@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopírování dat z Hive pomocí Azure Data Factory 
 
@@ -48,7 +48,7 @@ Pro Hive propojené služby jsou podporovány následující vlastnosti:
 | hostitel | IP adresa nebo název hostitele serveru Hive, oddělené podle ';' pro více hostitelů (pouze v případě serviceDiscoveryMode je povolit).  | Ano |
 | port | Port TCP, který používá Hive server naslouchat pro připojení klientů.  | Ne |
 | serverType | Typ serveru Hive. <br/>Povolené hodnoty jsou: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Ne |
-| thriftTransportProtocol | Přenosový protokol pro použití v Thrift vrstvy. <br/>Povolené hodnoty jsou: **binární**, **SASL**, ** HTTP ** | Ne |
+| thriftTransportProtocol | Přenosový protokol pro použití v Thrift vrstvy. <br/>Povolené hodnoty jsou: **binární**, **SASL**, **HTTP** | Ne |
 | authenticationType. | Metodu ověřování pro přístup k serveru Hive. <br/>Povolené hodnoty jsou: **anonymní**, **uživatelské jméno**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ano |
 | serviceDiscoveryMode | TRUE označuje pomocí služby ZooKeeper false není.  | Ne |
 | zooKeeperNameSpace | Obor názvů na ZooKeeper pod které Hive Server 2 jsou přidány uzly.  | Ne |

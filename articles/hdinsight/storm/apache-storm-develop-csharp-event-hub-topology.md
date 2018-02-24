@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Zpracování událostí z Azure Event Hubs se Storm v HDInsight (C#)
 
-Naučte se pracovat s Azure Event Hubs z Apache Storm v HDInsight. Tento dokument používá ke čtení a zápisu dat z centra Evbent topologie C# Storm
+Naučte se pracovat s Azure Event Hubs z Apache Storm v HDInsight. Tento dokument používá topologie C# Storm ke čtení a zápisu dat ze služby Event Hubs
 
 > [!NOTE]
 > Java verzi tohoto projektu, naleznete v části [zpracovat události z Azure Event Hubs se Storm v HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -36,9 +37,6 @@ Kroky v tomto dokumentu používají SCP.NET balíčku NuGet, který usnadňuje 
 > Pokud kroky v tomto dokumentu se spoléhají na vývojového prostředí systému Windows pomocí sady Visual Studio, zkompilovaný projekt lze odeslat do Storm v clusteru HDInsight, který používá Linux. Clustery se systémem Linux vytvořené po 28 říjnu 2016 se podporují jenom SCP.NET topologie.
 
 HDInsight 3.4 a větší použití Mono spouštění topologií C#. V příkladu v tomto dokumentu pracuje s HDInsight 3.6. Pokud máte v plánu na vytváření řešení .NET pro HDInsight, podívejte se [Mono kompatibility](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentu potenciální nekompatibility.
-
-> [!WARNING]
-> Pokud narazíte na problémy sestavení projektů, které používají verzi SCP.NET 1.0.0.x, požádejte o pomoc podporu společnosti Microsoft.
 
 ### <a name="cluster-versioning"></a>Správa verzí clusteru
 
@@ -142,12 +140,12 @@ Vytvořte adresář s názvem `eventhubspout`a uložte soubor do adresáře.
 
 Event Hubs je zdroj dat pro tento příklad. Použijte informace v části "Vytvoření centra událostí" [Začínáme se službou Event Hubs](../../event-hubs/event-hubs-create.md).
 
-1. Po vytvoření centra událostí, zobrazení **EventHub** okno ve službě Azure portálu a vyberte možnost **zásady sdíleného přístupu**. Vyberte **+ přidat** přidat následující zásady:
+1. Po vytvoření centra událostí, zobrazení **EventHub** nastavení ve službě Azure portálu a vyberte možnost **zásady sdíleného přístupu**. Vyberte **+ přidat** přidat následující zásady:
 
-   | Name (Název) | Oprávnění |
+   | Název | Oprávnění |
    | --- | --- |
-   | Modul pro zápis |Odeslat |
-   | Čtecí modul |Naslouchání |
+   | zapisovatel |Odeslat |
+   | čtenář |Naslouchání |
 
     ![Okno zásady přístupu – snímek obrazovky sdílené složky](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
 
@@ -227,7 +225,7 @@ Pokud chcete zastavit uvedené topologie, vyberte každý topologii **prohlíže
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto dokumentu jste se naučili, jak používat spout Java Event Hubs a funkce bolt od topologie C# pro práci s daty v Azure Event Hubs. Další informace o vytváření topologie C#, naleznete v následujících tématech:
 

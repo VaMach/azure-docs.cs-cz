@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Prozkoumejte možnosti předkonfigurovaného řešení vzdáleného monitorování
 
@@ -114,7 +114,7 @@ Na **údržby** stránky, můžete zobrazit podrobnosti o pravidlo, které spust
 
     ![Stránka údržby zobrazuje seznam výstrahy, které mají aktivaci](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. První alarmů v seznamu je nejnovějšího. Klikněte na tlačítko **chladič přetížení** výstrahy zobrazíte přiřazená zařízení a telemetrie. Telemetrii ukazuje Špička přetížení pro chladič:
+1. První alarmů v seznamu je nejnovějšího. Klikněte na tlačítko **chladič přetížení příliš vysoké** výstrahy zobrazíte přiřazená zařízení a telemetrie. Telemetrii ukazuje špičky přetížení pro chladič:
 
     ![Stránka údržby zobrazuje telemetrická data pro vybrané výstrahy](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ K provádění úloh správy nutné zařízení, použijte **zařízení** strá
 
     ![Vyberte zařízení, na stránce zařízení](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Klikněte **plán** tlačítko a potom zvolte **aktualizaci firmwaru**. Zadejte hodnoty pro **název úlohy** a **Firmware URI**. Zvolte **použít** naplánování úlohy spustit nyní:
+1. Klikněte **plán** tlačítko a potom zvolte **aktualizaci firmwaru**. Zadejte hodnoty pro **název úlohy**, **verzi firmwaru**, a **Firmware URI**. Zvolte **použít** naplánování úlohy spustit nyní:
 
     ![Naplánovat aktualizaci firmwaru na zařízení](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > V Simulovaná zařízení můžete použít libovolná adresa URL se vám líbí jako **Firmware URI** hodnotu. Simulovaná zařízení není přístup k adrese URL.
+    > V Simulovaná zařízení můžete použít libovolná adresa URL se vám líbí jako **Firmware URI** hodnoty a všechny hodnoty, které chcete pro **verzi firmwaru**. Simulovaná zařízení není přístup k adrese URL.
 
 1. Všimněte si, kolik zařízení ovlivňuje úlohy a zvolte **použít**:
 

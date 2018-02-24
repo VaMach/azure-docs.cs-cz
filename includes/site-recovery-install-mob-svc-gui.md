@@ -1,15 +1,21 @@
 1. Zkopírujte instalaci na server a potom spusťte instalační program.
-2. Na **možnost instalace** vyberte **instalaci služby Mobility**.
+2. Na **možnost instalace**, vyberte **instalaci služby mobility**.
 
-    ![Stránku možnost instalace služby mobility ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
-3. Vyberte umístění instalace a klikněte na **nainstalovat** stal postup instalace.
+    ![Stránku možnost instalace služby mobility](./media/site-recovery-install-mob-svc-gui/mobility1.png)
 
-    ![Stránka umístění instalace služby mobility ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
-4. Můžete použít **průběh instalace** stránky můžete sledovat průběh instalačního programu.
-    ![Probíhá instalace služby mobility](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+3. Vybrat umístění instalace a potom vyberte **nainstalovat** zahájíte proces instalace.
 
-5. Po dokončení instalace klikněte na tlačítko **pokračujte konfigurace** tlačítko pro registraci služba Mobility se konfigurační server.
-    ![Služba mobility zaregistrovat stránky](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+    ![Stránka umístění instalace služby mobility](./media/site-recovery-install-mob-svc-gui/mobility2.png)
 
-6. Klikněte na **zaregistrovat** tlačítko k dokončení registrace.
-    ![Služba mobility zaregistrovat stránky](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+4. Použití **průběh instalace** stránky můžete sledovat průběh instalačního programu.
+
+    ![Stránka s průběhem instalace služby mobility](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+
+5. Po dokončení instalace, vyberte **pokračujte konfigurace** při registraci služba Mobility s konfigurační server.
+
+    ![Stránku registrace služby mobility](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+
+6. Vyberte **zaregistrovat** dokončete registraci.
+
+    ![Poslední stránku registrace služby mobility](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+

@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 04f76d15f12b52d7b47011010a5ce20cc45174ee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serializovat data v Hadoop pomocí Microsoft Avro Library
 
@@ -78,7 +78,7 @@ Microsoft Avro Library obsahuje nástroj pro generování kódu, který umožňu
 3. Přejděte do složky C:\SDK\src\Microsoft.Hadoop.Avro.Tools a spusťte build.bat. (Soubor volá MSBuild z distribučního 32bitová verze rozhraní .NET Framework. Pokud chcete použít 64bitová verze, upravte build.bat, následující komentáře v souboru.) Ujistěte se, že sestavení byla úspěšně dokončena. (Na některých systémů MSBuild může vytvořit upozornění. Tato upozornění nemají vliv na nástroj, dokud nedojde k žádným chybám sestavení.)
 4. Kompilované nástroj se nachází v C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
 
-Abyste se seznámili s syntaxe příkazového řádku, spusťte následující příkaz ze složky, kde se nachází nástroj pro generování kódu:`Microsoft.Hadoop.Avro.Tools help /c:codegen`
+Abyste se seznámili s syntaxe příkazového řádku, spusťte následující příkaz ze složky, kde se nachází nástroj pro generování kódu: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 K testování nástroj, můžete vygenerovat třídy jazyka C# ze souboru schématu JSON ukázka součástí zdrojového kódu. Spusťte následující příkaz:
 

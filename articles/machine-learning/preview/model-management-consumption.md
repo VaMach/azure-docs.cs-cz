@@ -4,17 +4,17 @@ description: "Tento dokument popisuje kroky a koncepty součástí využívání
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="consuming-web-services"></a>Využívání webových služeb
 Jakmile nasadíte model jako webovou službu v reálném čase, můžete odeslat data a získat předpovědi z mnoha různých platforem a aplikace. Webovou službu v reálném čase zpřístupňuje rozhraní REST API pro získání předpovědi. K webové službě ve formátu jednoho nebo více řádků získat jeden nebo více předpovědi současně může odesílat data.
