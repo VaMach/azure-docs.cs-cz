@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položky marketplace z Azure do Azure zásobníku
 
@@ -44,7 +44,7 @@ Jak se rozhodnete, který obsah, který chcete zahrnout do vaší zásobník Azu
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Vyberte položku v seznamu a pak klikněte na **Stáhnout**. Tím se spustí stahování image virtuálního počítače pro položku, kterou jste vybrali. Stahování se liší.
+5. Vyberte položku v seznamu a pak klikněte na **Stáhnout**. Image virtuálního počítače pro položku vybranou spustí ke stažení. Stahování se liší.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ Z počítače, který má připojení k Internetu použijte následující postu
 
 1. Otevřete konzolu prostředí PowerShell jako správce a [nainstalovat konkrétní moduly Powershellu zásobník Azure](azure-stack-powershell-install.md). Ujistěte se, že instalujete **prostředí PowerShell, verze 1.2.11 nebo vyšší**.  
 
-2. Přidáte účet Azure, který jste použili k registraci Azure zásobníku. Chcete-li to provést, spusťte **Add-AzureRmAccount** rutiny bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů účtu Azure a možná budete muset použít 2 ověřování na základě konfigurace vašeho účtu.  
+2. Přidáte účet Azure, který jste použili k registraci Azure zásobníku. Chcete-li přidat účet, spusťte **Add-AzureRmAccount** rutiny bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů účtu Azure a možná budete muset použít 2 ověřování na základě konfigurace vašeho účtu.  
 
 3. Pokud máte více předplatných, vyberte tu, kterou jste použili pro registraci následujícího příkazu:  
 
@@ -75,16 +75,16 @@ Z počítače, který má připojení k Internetu použijte následující postu
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ Z počítače, který má připojení k Internetu použijte následující postu
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ Z počítače, který má připojení k Internetu použijte následující postu
 
    ![Místní položky Azure Marketplace.](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Vyberte bitovou kopii, kterou chcete stáhnout (můžete vybrat více bitových kopií tím, že podržíte klávesu Ctrl) a poznamenejte si verzi obrázku, tato verze bude používat k importu bitovou kopii v další části > klikněte na tlačítko **Ok** > přijměte právní podmínky Kliknutím na **Ano**. Můžete také filtrovat seznam bitové kopie pomocí **přidat kritéria** možnost. Stahování trvá několik minut v závislosti na velikosti obrázku. Po stažení bitové kopie a je k dispozici v cílové cestě, která jste zadali dříve. Stahování obsahuje položky souboru a Galerie virtuální pevný disk ve formátu Azpkg.  
+7. Vyberte bitovou kopii, kterou chcete stáhnout a poznamenejte si verzi obrázku. Tím, že podržíte klávesu Ctrl můžete vybrat více bitových kopií. Používáte verzi obrázku pro import bitovou kopii v další části.  Klikněte na tlačítko **Ok**a pak přijměte právní podmínky kliknutím na **Ano**. Můžete také filtrovat seznam bitové kopie pomocí **přidat kritéria** možnost. 
+
+   Stahování trvá několik minut v závislosti na velikosti obrázku. Po stažení bitové kopie a je k dispozici v cílové cestě, která jste zadali dříve. Stahování obsahuje položky souboru a Galerie virtuální pevný disk ve formátu Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importovat image a publikujete ho v zásobníku Azure marketplace
 
-1. Po stažení balíčku bitové kopie & Galerie, uložte je a obsah ve složce AzureStack. nástroje vnext na vyměnitelnou diskovou jednotku a zkopírujte jej do prostředí Azure zásobníku (jeho zkopírováním do místně do libovolného umístění, jako například: "C:\MarketplaceImages".)   
+1. Po stažení balíčku bitové kopie a galerie, uložte je a obsah ve složce AzureStack. nástroje pro hlavní na vyměnitelnou diskovou jednotku a zkopírujte jej do prostředí Azure zásobníku (můžete ji zkopírovat místně do libovolného umístění, jako například: "C:\MarketplaceImages").   
 
 2. Před importem bitovou kopii, je nutné připojit k Azure zásobníku operátor prostředí pomocí kroků popsaných v [nakonfigurovat prostředí PowerShell Azure zásobníku operátor](azure-stack-powershell-configure-admin.md).  
 
-3. Pomocí rutiny Add-AzsVMImage importujte bitovou kopii do protokolů Azure. Při použití této rutiny, nezapomeňte nahradit vydavatele, nabídky a jiné hodnoty parametrů s hodnotami bitové kopie, který chcete importovat. "Vydavatel", "nabídka" a "sku" hodnoty bitovou kopii z objektu elementu imageReference Azpkg souboru, který jste předtím stáhli a hodnotu "verze" můžete získat z kroku 6 v předchozí části.
+3. Pomocí rutiny Add-AzsVMImage importujte bitovou kopii do protokolů Azure. Při použití této rutiny, nezapomeňte nahradit *vydavatele*, *nabízejí*a další hodnoty parametrů s hodnotami bitové kopie, který chcete importovat. Můžete získat *vydavatele*, *nabízejí*, a *sku* hodnoty bitové kopie z objektu elementu imageReference Azpkg souboru, který jste předtím stáhli a  *verze* hodnotu z kroku 6 v předchozí části.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ Z počítače, který má připojení k Internetu použijte následující postu
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

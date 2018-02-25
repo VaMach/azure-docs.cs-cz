@@ -3,8 +3,8 @@ title: "Řešení potíží s Microsoft Azure zásobníku | Microsoft Docs"
 description: "Azure zásobníku řešení potíží."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: helaw
-ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure zásobníku
 
@@ -26,37 +27,37 @@ ms.lasthandoff: 11/13/2017
 
 Tento dokument obsahuje společné informace o odstraňování potíží pro Azure zásobníku. 
 
-Protože Azure zásobníku technické Development Kit je poskytován jako prostředí pro testování, neexistuje žádná oficiální podpora zákazníků služby podpory společnosti Microsoft.  Pokud se objevil problém není zdokumentovaný, nezapomeňte zaškrtnout [fórum MSDN zásobník Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) informace a další pomoc.  
+Protože Azure zásobníku technické Development Kit je poskytován jako prostředí pro testování, neexistuje žádná oficiální podpora zákazníků služby podpory společnosti Microsoft. Pokud se objevil problém není zdokumentovaný, nezapomeňte zaškrtnout [fórum MSDN zásobník Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) informace a další pomoc.  
 
 Doporučení pro odstraňování problémů, které jsou popsané v této části jsou odvozené z několika zdrojů a může nebo nemusí vyřešit konkrétní problém. Protože je k dispozici jsou příklady kódu a nejde zaručit očekávané výsledky. V této části se může časté úpravy a aktualizace, jak jsou implementované vylepšení produktu.
 
 ## <a name="deployment"></a>Nasazení
 ### <a name="deployment-failure"></a>Nasazení se nezdařilo.
-Pokud dojde k chybě během instalace, můžete použít možnost spustit znovu skriptu nasazení restartovat nasazení z vadný krok.  
+Pokud dojde k selhání během instalace, můžete restartovat nasazení z vadný krok pomocí-znovu spusťte možnost skriptu nasazení.  
 
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Na konci nasazení relaci prostředí PowerShell je stále otevřen a nezobrazí žádný výstup
-Toto chování je pravděpodobně právě výsledek výchozí chování příkazové okno prostředí PowerShell, pokud byla vybrána. Nasazení development kit ve skutečnosti proběhla úspěšně, ale skript byla pozastavena při výběru okna. Můžete ověřit, že je tomu tak, že vyhledá slovo "Vyberte" v záhlaví příkazové okno.  Stisknutím klávesy ESC zrušte jeho výběr a po ní se má zobrazit zpráva dokončení.
+Toto chování je pravděpodobně právě výsledek výchozí chování příkazové okno prostředí PowerShell, pokud byla vybrána. Nasazení development kit ve skutečnosti proběhla úspěšně, ale skript byla pozastavena při výběru okna. Můžete ověřit, že instalační program dokončil tak, že vyhledá slovo "Vyberte" v záhlaví příkazové okno.  Stisknutím klávesy ESC zrušte jeho výběr a po ní se má zobrazit zpráva dokončení.
 
 ## <a name="virtual-machines"></a>Virtuální počítače
 ### <a name="default-image-and-gallery-item"></a>Výchozí image a Galerie položku
-Před nasazením virtuálních počítačů v zásobníku Azure je nejprve nutno přidat položku bitové kopie a galerii systému Windows Server.
+Před nasazením virtuálních počítačů v zásobníku Azure je nutné přidat položku bitové kopie a galerii systému Windows Server.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Po restartování počítače Moje zásobník Azure hostitele se nemusí spustit některé virtuální počítače automaticky.
 Po restartování počítače hostiteli, můžete si všimnout, že nejsou ihned k dispozici služby Azure zásobníku.  Důvodem je, že Azure zásobníku [infrastrukturu virtuálních počítačů](azure-stack-architecture.md#virtual-machine-roles) a RPs málo chvíli trvat ke kontrole konzistence, ale server spustí automaticky.
 
-Můžete zjistit, že klienta, které virtuální počítače se po restartu hostitele zásobník Azure development kit nespouštějte automaticky.  To se o známý problém a vyžaduje jen pár Ruční postup jejich převedení do online režimu:
+Můžete zjistit, že klienta, které virtuální počítače se po restartu hostitele zásobník Azure development kit nespouštějte automaticky. To se o známý problém a vyžaduje jen pár Ruční postup jejich převedení do online režimu:
 
 1.  Na hostiteli zásobník Azure development kit spustit **Správce clusteru převzetí služeb při selhání** z nabídky Start.
 2.  Vyberte cluster **S Cluster.azurestack.local**.
 3.  Vyberte **role**.
-4.  Virtuální počítače klienta se zobrazí v *Uložit* stavu.  Jakmile se všechny virtuální počítače infrastruktury jsou spuštěné, klikněte pravým tlačítkem na virtuální počítače klientů a vyberte **spustit** obnovit virtuální počítač.
+4.  Virtuální počítače klienta se zobrazí v *Uložit* stavu. Jakmile se všechny virtuální počítače infrastruktury jsou spuštěné, klikněte pravým tlačítkem na virtuální počítače klientů a vyberte **spustit** obnovit virtuální počítač.
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Odstranili některé virtuální počítače ale stále vidět soubory virtuálního pevného disku na disk. Je toto chování očekávané?
 Ano, toto chování se očekává se. Protože byl navržen tímto způsobem:
 
 * Při odstranění virtuálního počítače, virtuální pevné disky nejsou odstraněny. Disky jsou samostatné prostředky ve skupině prostředků.
-* Při odstranění účtu úložiště získá odstranění je viditelná okamžitě prostřednictvím Správce Azure Resource Manager (portál, prostředí PowerShell), ale disky, které mohou obsahovat jsou uchovány stále v úložišti, dokud se nespustí uvolňování paměti.
+* Při odstranění účtu úložiště získá odstranění je viditelná okamžitě prostřednictvím Azure Resource Manager, ale disky, které mohou obsahovat jsou uchovány stále v úložišti, dokud se nespustí uvolňování paměti.
 
 Pokud se zobrazí "oddělena" virtuálních pevných disků, je důležité vědět, pokud jsou součástí složky pro účet úložiště, který byl odstraněn. Pokud účet úložiště nebyl odstraněn, je normální, že jsou stále existuje.
 

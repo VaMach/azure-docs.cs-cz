@@ -57,8 +57,12 @@
         - name: Požadavky nasazení infrastruktury veřejných KLÍČŮ pro Azure zásobníku
           href: azure-stack-pki-certs.md
           items:
-            - name: Získat certifikáty PKI pro nasazení Azure zásobníku
+            - name: Získat certifikáty PKI zásobník Azure
               href: azure-stack-get-pki-certs.md
+            - name: Příprava certifikátů PKI zásobník Azure
+              href: prepare-pki-certs.md
+            - name: Ověření Azure zásobníku infrastruktury veřejných KLÍČŮ certifikátů
+              href: validate-pki-certs.md
         - name: Integrace identit
           href: azure-stack-integrate-identity.md
         - name: Zaregistrovat Azure zásobníku
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: Identita
           items:
+            - name: Identity – přehled
+              href: azure-stack-identity-overview.md
+            - name: Architektura identity
+              href: azure-stack-identity-architecture.md
             - name: Správa RBAC
               href: azure-stack-manage-permissions.md
             - name: Přidání uživatelů pro Azure AD
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: Zdroje a prostředky
   items:
-    - name: Plány Azure do budoucna
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fórum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Přehled Azure zásobníku
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure fórum MSDN zásobníku
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure zásobníku dokumentace zpětné vazby
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informace o cenách
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Školení a certifikace
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
