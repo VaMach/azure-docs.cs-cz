@@ -1,10 +1,10 @@
 ---
-title: Co je Azure Stack? | Dokumentace Microsoftu
+title: Co je Azure Stack? | Dokumenty Microsoft
 description: "Zásobník Azure umožňuje spustit služby Azure ve vašem datovém centru."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 950ba44c0b7eb80c9b0a3c69a9fca03cd244576d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d1e1752f934e61bbb60c0c934a80b564896a36
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="what-is-azure-stack"></a>Co je Azure Stack?
 
@@ -36,7 +37,7 @@ Azure development kit zásobník má následující omezení:
 * Se všemi součástmi v jednom počítači nasazen nejsou omezené fyzické prostředky k dispozici pro klientské prostředky. Tato konfigurace není určen pro vyhodnocení škálování nebo výkonu.
 * Scénáře pro sítě je omezen z důvodu požadavek na jednom nebo síťový adaptér hostitele.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Klíčové funkce a koncepty](azure-stack-key-features.md)
 
 [Azure zásobník: Rozšíření Azure (pdf)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/)

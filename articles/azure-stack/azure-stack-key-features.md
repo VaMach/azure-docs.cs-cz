@@ -3,7 +3,7 @@ title: "Klíčové funkce a koncepty v zásobníku Azure | Microsoft Docs"
 description: "Další informace o klíčových funkcích a koncepty v zásobníku Azure."
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: b252d3d52c9bf3825ae2b443065e007dda141b24
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Klíčové funkce a koncepty v Azure zásobníku
 
@@ -114,12 +114,12 @@ Zprostředkovatel prostředků sítě (NRP) přináší řadu funkcí softwarem 
 ### <a name="storage-rp"></a>Úložiště RP
 RP úložiště nabízí čtyři Azure konzistentní služby úložiště: Objekt blob, tabulky, fronty a Správa účtů. Nabízí také Cloudová služba správy úložiště usnadnit správu služby zprostředkovatele služby Azure konzistentní úložiště. Úložiště Azure poskytuje flexibilitu při uložení a načtení velké objemy nestrukturovaných dat, například dokumentů a mediálních souborů pomocí Azure BLOB, a strukturovaných NoSQL na základě dat pomocí tabulky Azure. Další informace o Azure Storage najdete v tématu [Úvod do Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
-#### <a name="blob-storage"></a>Úložiště blobů
+#### <a name="blob-storage"></a>Blob Storage
 BLOB storage ukládá žádné datové sady. Objekt blob může být jakýkoli druh textu nebo binárních dat, jako je dokument, soubor médií nebo instalátor aplikace. Table storage ukládá strukturované datové sady. Table Storage je datové úložiště na bázi NoSQL typu klíč-atribut, které umožňuje rychlý vývoj a přístup k velkým objemům dat. Queue storage poskytuje spolehlivé zasílání zpráv pro zpracování pracovního postupu a pro komunikaci mezi součástmi cloudových služeb.
 
 Každý objekt blob se organizuje v kontejneru. Kontejnery také nabízejí praktický způsob přiřazení zásad zabezpečení skupinám objektů. Účet úložiště může obsahovat libovolný počet kontejnerů a kontejner může obsahovat libovolný počet objektů blob až do limitu kapacity úložiště 500 TB. Úložiště Blob nabízí tři typy objektů blob – objekty blob bloku, doplňovací objekty blob a objekty blob stránky (disky). Objekty blob bloku jsou optimalizované pro streamování a ukládání cloudových objektů a jsou dobrou volbou pro ukládání dokumentů, souborů médií, záloh atd. Doplňovací objekty blob jsou podobné objektům blob bloku, ale jsou optimalizované pro doplňovací operace. Doplňovací objekt blob se může aktualizovat jen přidáním nového bloku na konec. Doplňovací objekty blob jsou dobrou volbou pro takové scénáře, jako je například protokolování, kde se nová data potřebují zapisovat jen na konec objektu blob. Objekty BLOB stránky jsou optimalizované pro zastoupení disků IaaS a podporují náhodné zapíše a může být až 1 TB. Disk IaaS připojení přes síť k virtuálnímu počítači Azure je virtuální pevný disk uložený jako objekt blob.
 
-#### <a name="table-storage"></a>Úložiště tabulek
+#### <a name="table-storage"></a>Úložiště Table
 Úložiště Table je úložiště klíčů/atributů NoSQL společnosti Microsoft – má návrh bez schémat, takže je odlišný od tradičních relačních databází. Vzhledem k tomu, že chybí schémata úložiště dat, je snadné data přizpůsobovat potřebám vaší aplikace měnícím. Úložiště Table se snadno používá, takže vývojáři můžou aplikace vytvářet rychle. Úložiště Table je úložiště typu klíč-atribut – to znamená, že každá hodnota v tabulce je uložená se typovým názvem vlastnosti. název vlastnosti se může použít pro filtrování a upřesnění kritérií výběru. Kolekce vlastností a jejich hodnot tvoří entitu. Protože schémata nedostatečná úložiště tabulek dvě entity ve stejné tabulce můžou obsahovat různé kolekce vlastností a tyto vlastnosti můžou být různých typů. Úložiště Table Storage můžete používat k ukládání flexibilních datových sad, například uživatelských dat pro webové aplikace, adresářů, informací o zařízení a dalších typů metadat, které vaše služba vyžaduje. V tabulce můžete uložit libovolný počet entit a účet úložiště může obsahovat libovolný počet tabulek, až do limitu kapacity účtu úložiště.
 
 #### <a name="queue-storage"></a>Queue Storage
