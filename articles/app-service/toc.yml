@@ -4,7 +4,7 @@
   items:
     - name: Informace o funkci Web Apps
       href: app-service-web-overview.md
-    - name: Informace o službě Web App for Containers
+    - name: Informace o App Service v Linuxu
       href: containers/app-service-linux-intro.md
     - name: Informace o službách App Service Environment
       href: environment/intro.md
