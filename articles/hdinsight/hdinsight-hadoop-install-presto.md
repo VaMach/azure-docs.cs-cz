@@ -12,13 +12,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: af6bf1d69761520d20d0a0c5d872377793f6650b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1e6f1e1ee37592d974cab01ca229995c4ff6b70e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Na nainstalovat a používat Presto clusterů systému HDInsight Hadoop
 
@@ -119,7 +119,7 @@ V této části se podíváme na postup **nainstalujte Airpal edgenode** cluster
 
 3. Z výstupu, poznamenejte si hodnotu pro **hodnotu** vlastnost. Je nutné při instalaci Airpal na edgenode clusteru. Ve výstupu výš, je hodnota, kterou budete potřebovat **10.0.0.12:9090**.
 
-4. Použít šablonu ** [sem](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json) ** vytvoření edgenode clusteru HDInsight a zadejte hodnoty, jak je znázorněno na následujícím snímku obrazovky.
+4. Použít šablonu  **[sem](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)**  vytvoření edgenode clusteru HDInsight a zadejte hodnoty, jak je znázorněno na následujícím snímku obrazovky.
 
     ![Instalace HDInsight Airpal na Presto clusteru](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
@@ -169,7 +169,7 @@ TPC DS je oborový standard pro měření výkonu systémů mnoho rozhodnutí po
 
 
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Nainstalovat a používat Hue v clusterech HDInsight](hdinsight-hadoop-hue-linux.md). HUE je webové uživatelské rozhraní, které usnadňuje vytvoření, spuštění a uložte úlohy Pig a Hive, a také procházet výchozí úložiště pro vaše HDInsight clusteru.
 
 * [Nainstalujte Giraph clustery HDInsight](hdinsight-hadoop-giraph-install-linux.md). Přizpůsobení clusteru použijte k instalaci Giraph clusterů systému HDInsight Hadoop. Giraph umožňuje provádět grafu zpracování pomocí Hadoop a lze použít s Azure HDInsight.

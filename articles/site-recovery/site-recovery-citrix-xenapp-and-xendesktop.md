@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 02/22/2018
 ms.author: ponatara
-ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replikovat vícevrstvé Citrix XenApp a XenDesktop nasazení pomocí Azure Site Recovery
 
@@ -60,7 +60,7 @@ Pro účely tohoto článku spravovat Citrix nasazení na virtuální počítač
 
 ### <a name="source-and-target"></a>Zdroj a cíl
 
-**Scénář** | **Sekundární lokality** | **Do Azure**
+Scénář | Sekundární lokality | **Do Azure**
 --- | --- | ---
 **Hyper-V** | Není v oboru | Ano
 **VMware** | Není v oboru | Ano
@@ -195,6 +195,6 @@ Postupujte podle [v tomto návodu](site-recovery-test-failover-to-azure.md) prov
 
 Postupujte podle [v tomto návodu](site-recovery-failover.md) při dělají převzetí služeb při selhání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Můžete [Další](https://aka.ms/citrix-xenapp-xendesktop-with-asr) o replikaci Citrix XenApp a XenDesktop nasazení v tomto dokumentu. Podívejte se na pokyny, které [replikovat jiné aplikace](site-recovery-workload.md) pomocí Site Recovery.

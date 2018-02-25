@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Podmíněný přístup v Azure Active Directory
 
@@ -108,7 +108,7 @@ Další informace najdete v tématu [nastavení služby SharePoint Online a Exch
 
 ### <a name="license-requirements-for-using-conditional-access"></a>Licenční požadavky pro použití podmíněného přístupu
 
-Použití podmíněného přístupu vyžaduje Azure AD Premium nebo Enterprise Mobility + Security licence. Pravé licencí pro vaše požadavky, najdete v tématu [Enterprise Mobility + ceny možnosti zabezpečení](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
+Použití podmíněného přístupu vyžaduje licenci Azure AD Premium. Pravé licencí pro vaše požadavky, najdete v tématu [porovnávání všeobecně dostupná funkce edice Free, Basic a Premium](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## <a name="next-steps"></a>Další postup

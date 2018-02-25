@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Řízení přístupu na základě rolí pro klienty Service Fabric
 Azure Service Fabric podporuje dva typy ovládacích prvků různý přístup pro klienty, kteří jsou připojené ke clusteru Service Fabric: správce a uživatele. Řízení přístupu umožňuje omezit přístup k určité operace clusteru pro různé skupiny uživatelů, lepší zabezpečení clusteru pomocí Správce clusteru.  
@@ -101,7 +101,7 @@ Typ řízení přístupu uživatele je ve výchozím nastavení omezen na násle
 ## <a name="changing-default-settings-for-client-roles"></a>Změna výchozí nastavení klienta rolí
 V souboru manifestu clusteru můžete zadat možnosti Správce klienta v případě potřeby. Výchozí nastavení můžete změnit tak, že přejdete do **nastavení prostředků infrastruktury** možnost během [vytvoření clusteru](service-fabric-cluster-creation-via-portal.md)a poskytuje předchozí nastavení v **název**,  **správce**, **uživatele**, a **hodnotu** pole.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Zabezpečení clusteru Service Fabric](service-fabric-cluster-security.md)
 
 [Vytvoření clusteru Service Fabric](service-fabric-cluster-creation-via-portal.md)

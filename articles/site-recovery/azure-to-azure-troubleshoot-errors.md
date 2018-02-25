@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: be43e34976682847c4756e062ec5b638ebc26063
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Řešení problémů replikace virtuálního počítače Azure do Azure
 
@@ -22,7 +22,7 @@ Tento článek popisuje běžné problémy při Azure Site Recovery při replika
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problémy kvótu prostředků Azure (kód chyby 150097)
 Vaše předplatné by měly být povoleny k vytvoření virtuálních počítačů Azure v oblasti cíl, který chcete použít jako svou oblast pro obnovení po havárii. Vaše předplatné navíc by měl mít dostatečná kvóta pro vytvoření virtuálních počítačů určité velikosti. Ve výchozím nastavení vybere Site Recovery pro cílový počítač stejnou velikost jako zdroj virtuálního počítače. Pokud odpovídající velikost není k dispozici, je automaticky vybrána nejbližší možné velikost. Pokud není k dispozici žádné odpovídající velikost, která podporuje konfiguraci zdrojového virtuálního počítače, zobrazí se tato chybová zpráva:
 
-Kód chyby | **Možné příčiny** | Doporučení
+**Kód chyby** | **Možné příčiny** | **Doporučení**
 --- | --- | ---
 150097<br></br>**Zpráva**: nebylo možné povolit replikaci pro virtuální počítač VmName. | -Chcete-li vytvořit všechny virtuální počítače v cílovém umístění oblasti může být vypnutá svoje ID předplatného.</br></br>-Svoje ID předplatného nemusí být povoleno nebo nemá dostatečnou kvótu k vytvoření určité velikosti virtuálních počítačů v cílovém umístění oblasti.</br></br>-A vhodnou cílovou velikost virtuálního počítače, který odpovídá zdrojového virtuálního počítače síťový adaptér počet (2) nebyl nalezen pro ID předplatného v cílovém umístění oblasti.| Obraťte se na [Azure podporu fakturace](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) umožňující vytvoření virtuálních počítačů pro požadované velikosti virtuálních počítačů v cílovém umístění pro vaše předplatné. Když je tato funkce povolená, opakujte operaci se nezdařilo.
 
@@ -35,7 +35,7 @@ Pokud cílové umístění obsahuje omezení kapacity, zakažte replikaci a povo
 
 Pokud nejsou k dispozici na virtuální počítač všechny nejnovější důvěryhodných kořenových certifikátů, může selhat úlohu "povolení replikace". Bez certifikáty ověřování a autorizace volání služby Site Recovery z virtuálního počítače nezdaří. Zobrazí se chybová zpráva pro nezdařené úlohy Site Recovery "povolit replikaci":
 
-Kód chyby | **Možná příčina** | **Recommendations** (Doporučení)
+**Kód chyby** | **Možná příčina** | **Recommendations** (Doporučení)
 --- | --- | ---
 151066<br></br>**Zpráva**: Site Recovery konfigurace se nezdařila. | Požadované důvěryhodných kořenových certifikátů použít k ověřování a ověřování není na tomto počítači. | -Pro virtuální počítač s operačním systémem Windows zajistěte, aby byly na tomto počítači důvěryhodných kořenových certifikátů. Informace najdete v tématu [konfigurovat Důvěryhodné kořeny a zakázané certifikáty](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Pro virtuální počítač s operačním systémem Linux postupujte podle pokynů pro důvěryhodných kořenových certifikátů, které zveřejnil distributora verze operačního systému Linux.
 
@@ -161,7 +161,7 @@ Do seznamu povolených IP adres [požadované adresy URL](azure-to-azure-about-n
 
 Nový disk připojen k virtuálnímu počítači musí být inicializován.
 
-Kód chyby | **Možné příčiny** | **Recommendations** (Doporučení)
+**Kód chyby** | **Možné příčiny** | **Recommendations** (Doporučení)
 --- | --- | ---
 150039<br></br>**Zpráva**: Azure datový disk (DiskName) (DiskURI) se logická jednotka (LUN) (LUNValue) nebyl namapovaný na odpovídající disk z hlásí v rámci virtuálního počítače, který má stejnou hodnotu, logickou jednotku. | -Nový datový disk se připojil k virtuálnímu počítači, ale nebyl inicializován.</br></br>-Datový disk ve virtuálním počítači není správně reporting hodnota logické jednotky, kdy byla disk připojen k virtuálnímu počítači.| Zajistěte, aby se inicializují datových disků a potom operaci opakujte.</br></br>Pro Windows: [připojení a inicializovat nový disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Pro Linux: [inicializovat nový datový disk v systému Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 

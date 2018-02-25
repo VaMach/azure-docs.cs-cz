@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Výpočetní kontextu možnosti pro R Server v HDInsight
 
 Microsoft R serverem v Azure HDInsight řídí, jak jsou spouštěny nastavení kontext výpočetní volání. Tento článek popisuje možnosti, které jsou k dispozici k určení, zda a jak je paralelizovaná provádění málo mezi jader hraniční uzel nebo clusteru HDInsight.
 
-Hraničního uzlu clusteru poskytuje vhodné místo pro připojení ke clusteru a spustit skripty R. S hraniční uzel máte možnost spuštění parallelized distribuované funkce ScaleR mezi jader hraničního uzlu serveru. Můžete také spustit je mezi uzly clusteru pomocí ScaleR na Hadoop mapy snížit nebo výpočetní kontexty Spark.
+Hraničního uzlu clusteru poskytuje vhodné místo pro připojení ke clusteru a spustit skripty R. S hraniční uzel máte možnost spuštění parallelized distribuované funkce RevoScaleR mezi jader hraničního uzlu serveru. Můžete také spustit je mezi uzly clusteru pomocí RevoScaleR na Hadoop mapy snížit nebo výpočetní kontexty Spark.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R serverem v Azure HDInsight
-[Microsoft R serverem v Azure HDInsight](r-server-overview.md) přináší nejnovější schopnosti pro R na základě analýzy. Může používat data, která je uložená v kontejneru HDFS ve vaší [objektů Blob v Azure](../../storage/common/storage-introduction.md "úložiště objektů Azure Blob") účet úložiště, Data Lake store nebo místního souboru systému Linux. Vzhledem k tomu, že R Server je založený na R s otevřeným zdrojem, můžete použít na základě R aplikací, které vytvoříte, žádný z balíčků R s otevřeným zdrojem 8000 +. Může také používat rutiny v [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), balíček analýzy velkých objemů dat společnosti Microsoft, který je součástí R Server.  
+[Microsoft R serverem v Azure HDInsight](r-server-overview.md) přináší nejnovější schopnosti pro R na základě analýzy. Může používat data, která je uložená v kontejneru HDFS ve vaší [objektů Blob v Azure](../../storage/common/storage-introduction.md "úložiště objektů Azure Blob") účet úložiště, Data Lake store nebo místního souboru systému Linux. Vzhledem k tomu, že R Server je založený na R s otevřeným zdrojem, můžete použít na základě R aplikací, které vytvoříte, žádný z balíčků R s otevřeným zdrojem 8000 +. Může také používat rutiny v [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), balíček analýzy velkých objemů dat společnosti Microsoft, který je součástí R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Výpočetní kontexty pro hraniční uzel
-Obecně platí R skript, který běží v R Server na uzlu edge běží v rámci překladač R v tomto uzlu. Výjimky jsou tyto kroky, které volají funkce ScaleR. Volání ScaleR spustit ve výpočetním prostředí, který je určen jak nastavit kontext výpočetní ScaleR.  Když spustíte R skript z hraniční uzel, kontextu výpočetní hodnoty jsou:
+Obecně platí R skript, který běží v R Server na uzlu edge běží v rámci překladač R v tomto uzlu. Výjimky jsou tyto kroky, které volají funkce RevoScaleR. Volání RevoScaleR spustit ve výpočetním prostředí, který je určen jak nastavit kontext výpočetní RevoScaleR.  Když spustíte R skript z hraniční uzel, kontextu výpočetní hodnoty jsou:
 
 - místní sekvenční (*místní*)
 - místní paralelní (*localpar*)
 - Snižte mapy
 - Spark
 
-*Místní* a *localpar* možnosti se liší pouze v tom **rxExec** provedení volání. Obě provést jiná volání funkce rx paralelní způsobem mezi všechny dostupné jader není uvedeno jinak prostřednictvím použití ScaleR **numCoresToUse** volby, například `rxOptions(numCoresToUse=6)`. Paralelní provádění možnosti nabízejí optimální výkon.
+*Místní* a *localpar* možnosti se liší pouze v tom **rxExec** provedení volání. Obě provést jiná volání funkce rx paralelní způsobem mezi všechny dostupné jader není uvedeno jinak prostřednictvím použití RevoScaleR **numCoresToUse** volby, například `rxOptions(numCoresToUse=6)`. Paralelní provádění možnosti nabízejí optimální výkon.
 
 Následující tabulka shrnuje různé možnosti kontextu výpočetní nastavit, jak jsou vykonány volání:
 
@@ -72,13 +72,13 @@ Zadané tyto zásady, následující části nabízí některé zásady pro výb
 * Použijte kontext mapy snížit výpočetní pouze v případě, že narazíte na problém s nepřekonatelnou s kontextem výpočtů Spark vzhledem k tomu, že je obecně pomalejší.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Vložené nápovědu k rxSetComputeContext
-Další informace a příklady ScaleR výpočetní kontexty najdete v tématu vložený nápovědy v R na metodu rxSetComputeContext, například:
+Další informace a příklady RevoScaleR výpočetní kontexty najdete v tématu vložený nápovědy v R na metodu rxSetComputeContext, například:
 
     > ?rxSetComputeContext
 
-Můžete se také podívat na [ScaleR distribuované Průvodce Computing](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) která je k dispozici z [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) knihovny.
+Můžete se také podívat na [distribuovat výpočetní přehled](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) v [dokumentaci Machine Learning serveru](https://docs.microsoft.com/machine-learning-server/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste se dozvěděli o možnostech, které jsou k dispozici k určení, zda a jak je paralelizovaná provádění málo mezi jader hraniční uzel nebo clusteru HDInsight. Další informace o tom, jak používat R Server s clustery HDInsight, naleznete v následujících tématech:
 
 * [Přehled R Server pro Hadoop](r-server-overview.md)

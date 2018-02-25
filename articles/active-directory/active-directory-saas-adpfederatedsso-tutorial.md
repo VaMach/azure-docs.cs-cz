@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Kurz: Azure Active Directory integrace s Federovanému ADP
 
@@ -122,7 +122,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![ADP federovaného jednotného přihlašování k doméně a adresy URL jednotné přihlašování informace](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
 
-    V **identifikátor** textovému poli, zadejte adresu URL:`https://fed.adp.com/` 
+    V **identifikátor** textovému poli, zadejte adresu URL: `https://fed.adp.com/` 
     
 5. Aplikace Federovanému ADP očekává SAML kontrolní výrazy ve specifickém formátu, který vyžaduje, můžete přidat mapování vlastních atributů do vaší konfigurace atributy tokenu SAML. Následující snímek obrazovky ukazuje příklad pro tento. Název deklarací bude vždy **"PersonImmutableID"** a hodnoty, které jsme mít mapované na **employeeid**. 
 
@@ -197,9 +197,8 @@ Po obdržení potvrzení z vaším zástupcem ADP nakonfigurujte pro řízení p
     ![Konfigurace propojení přihlášení][4]
 
 7. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **propojené přihlášení** propojení aplikace **Federovanému ADP**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Jednotné přihlašování propojené](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Přejděte na **konfigurovat přihlašovací adresa URL** část, proveďte následující kroky:
 

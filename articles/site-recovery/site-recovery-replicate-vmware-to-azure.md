@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/29/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 028aa0f23c3a7c98c4801d9e306c5dcfa35aab80
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replikovat aplikací běžících na virtuálních počítačů VMware do Azure
 
@@ -50,7 +50,7 @@ Při replikaci virtuálních počítačů VMware:
 1. Klikněte na **Krok 2: Replikujte aplikaci** > **Zdroj**. Po prvním povolení replikace kliknutím na **+Replikovat** v trezoru povolte replikaci pro další počítače.
 2. V **zdroj** stránky > **zdroj**, vyberte konfigurační server.
 3. V **počítač typ**, vyberte **virtuální počítače** nebo **fyzických počítačů**.
-4. V **vCenter vSphere Hypervisor**, vyberte server vCenter, který spravuje hostitelů vSphere nebo vyberte hostitele. Toto nastavení není relevantní, pokud replikujete fyzických počítačů.
+4. V části **vCenter/vSphere Hypervisor** vyberte vCenter Server, který spravuje hostitele vSphere, nebo vyberte samotného hostitele. Toto nastavení není relevantní, pokud replikujete fyzických počítačů.
 5. Vyberte procesní server, který bude mít název serveru, konfigurace, pokud jste nevytvořili žádné další proces servery. Pak klikněte na **OK**.
 
     ![Povolení replikace zdroje](./media/site-recovery-vmware-to-azure/enable-replication2.png)
@@ -84,7 +84,7 @@ Při replikaci virtuálních počítačů VMware:
     >    * Shromažďování virtuálních počítačů a fyzických serverů, aby odpovídaly vašich úloh. Povolení konzistence více virtuálních počítačů může ovlivnit výkon pracovního vytížení. Použijte pouze v případě, že počítače běží stejné zatížení a potřebujete konzistenci.
 
     ![Povolení replikace](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-14. Klikněte na tlačítko **povolit replikaci**. Můžete sledovat průběh **povolení ochrany** úlohy v **nastavení** > **úlohy** > **úlohy Site Recovery**. Po spuštění úlohy **Dokončit ochranu** je počítač připravený k převzetí služeb při selhání.
+14. Klikněte na **Povolit replikaci**. Průběh úlohy **Povolení ochrany** můžete sledovat tady: **Nastavení** > **Úlohy** > **Úlohy Site Recovery**. Po spuštění úlohy **Dokončit ochranu** je počítač připravený k převzetí služeb při selhání.
 
 > [!NOTE]
 > Pokud je počítač připravený na nabízenou instalaci, součást služby Mobility je nainstalována, když je povolena ochrana. Poté, co je nainstalována na počítači, spustí úlohu ochrany a vyvolá chybu. Po selhání je potřeba restartovat ručně každý počítač. Po restartování znovu začne úlohu ochrany a dojde k počáteční replikaci.
@@ -119,7 +119,7 @@ V dalším kroku ověřit vlastnosti zdrojového počítače. Mějte na paměti,
     Například pokud má zdrojový počítač dva síťové adaptéry a velikost cílového počítače podporuje čtyři, má cílový počítač dva adaptéry. Pokud má zdrojový počítač dva adaptéry, ale podporovaná velikost cíle podporuje pouze jeden, cílového počítače má jenom jeden adaptér.
     - Pokud virtuální počítač má několik síťových adaptérů, budou všechny připojit ke stejné síti. Navíc bude první z nich uvedené v seznamu *výchozí* síťový adaptér ve virtuálním počítači Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Výhody použití Azure hybridní
+### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
 Programu Microsoft Software Assurance zákazníci mohou využít výhody použití Azure hybridní uložit na licenční náklady pro Windows Server počítače, které se migrují do Azure, nebo použít Azure pro zotavení po havárii. Pokud jste vhodné používat Azure hybridní použít využívat, můžete zadat, že virtuální počítač přiřazen této výhody je ten, který vytvoří Azure Site Recovery, pokud dojde převzetí služeb při selhání. Použijte následující postup:
 - Přejděte k části Vlastnosti výpočtů a sítě replikované virtuální počítače.
@@ -135,7 +135,7 @@ Další informace o [Azure hybridní použití zvýhodnění](https://aka.ms/azu
 * Disk operačního systému musí být základní disk a nikoli dynamický disk.
 * Generace 2/UEFI-povoleno virtuální počítače operační systém řady musí být Windows a spouštěcí disk by měla být menší než 300 GB.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Po dokončení ochrany si je a počítač byl dosažen chráněném stavu, můžete zkusit [převzetí služeb při selhání](site-recovery-failover.md) ke kontrole, jestli vaše aplikace se zobrazí v Azure nebo ne.
 

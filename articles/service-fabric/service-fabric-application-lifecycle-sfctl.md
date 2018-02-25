@@ -2,17 +2,17 @@
 title: "Spravovat aplikace Azure Service Fabric pomocí příkazového řádku Azure Service Fabric"
 description: "Zjistěte, jak nasadit a odebrání aplikace z clusteru služby Azure Service Fabric pomocí příkazového řádku Azure Service Fabric"
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Spravovat aplikace Azure Service Fabric pomocí příkazového řádku Azure Service Fabric
 
@@ -75,7 +75,7 @@ K odstranění balíčku aplikace z úložiště bitových kopií, použijte ná
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`musí být název adresáře, který jste nahráli při vytváření aplikace.
+`content-path` musí být název adresáře, který jste nahráli při vytváření aplikace.
 
 ### <a name="create-an-application-from-an-application-type"></a>Vytvoření aplikace z typ aplikace
 
@@ -85,7 +85,7 @@ Po zřízení aplikace, použijte následující příkaz k pojmenování a vytv
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`je název, který chcete použít pro instanci aplikace. Manifest dříve zřízené aplikace můžete získat další parametry.
+`app-name` je název, který chcete použít pro instanci aplikace. Manifest dříve zřízené aplikace můžete získat další parametry.
 
 Název aplikace musí začínat předponu `fabric:/`.
 
@@ -164,7 +164,7 @@ Když probíhá upgrade aplikace, stav se dá načíst pomocí `sfctl applicatio
 
 Nakonec, pokud je v průběhu a musí být zrušena upgrade, můžete použít `sfctl application upgrade-rollback` vrácení upgradu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Základy služby Fabric rozhraní příkazového řádku](service-fabric-cli.md)
 * [Začínáme se službou Service Fabric v systému Linux](service-fabric-get-started-linux.md)

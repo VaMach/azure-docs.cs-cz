@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architektura replikace Azure do Azure
 
@@ -69,10 +69,10 @@ Jak je zapnutá replikace, rozšíření Site Recovery Mobility service se autom
  - Office 365 ověřování adresy URL nebo IP adresy
  - Mezipaměť úložiště účet IP adresy
 
-Po povolení konzistence pro víc Virtuálních počítačů v replikační skupině vzájemně komunikovat přes port 20004. Ujistěte se, že neexistuje žádné zařízení brány firewall interní komunikaci mezi virtuálními počítači přes port 20004 blokování.
+Pokud povolíte konzistenci napříč několika virtuálními počítači, budou spolu počítače v replikační skupině komunikovat přes port 20004. Ujistěte se, že žádné zařízení brány firewall neblokuje interní komunikaci mezi virtuálními počítači přes port 20004.
 
 > [!IMPORTANT]
-Pokud chcete virtuální počítače s Linuxem jako součást skupiny replikace, zajistěte, aby že odchozí přenosy na portu 20004 je otevřen ručně podle pokynů na konkrétní verzi systému Linux.
+Pokud chcete do replikační skupiny zahrnout virtuální počítače s Linuxem, nezapomeňte ručně otevřít odchozí provoz na portu 20004 podle pokynů ke konkrétní verzi Linuxu.
 
 ### <a name="step-3"></a>Krok 3
 

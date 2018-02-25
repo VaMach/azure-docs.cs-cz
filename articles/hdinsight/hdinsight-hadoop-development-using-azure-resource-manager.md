@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e9fe49873a03867bdc55239eb4af623f0587f4f8
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 8ce1d6300731af5ae972675a08ef64f5c4ffa342
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrace na Azure Resource Manager vývojové nástroje založené pro clustery služby HDInsight
 
@@ -37,21 +37,21 @@ Základní příkazy, které rozhraní příkazového řádku Azure k dispozici 
 
 Základní příkazy pro práci s HDInsight prostřednictvím Správce Azure Resource Manager jsou:
 
-* `azure hdinsight cluster create`-Vytvoří nový cluster HDInsight
-* `azure hdinsight cluster delete`-Odstraní stávající cluster HDInsight
-* `azure hdinsight cluster show`– Zobrazí informace o stávajícího clusteru
-* `azure hdinsight cluster list`-obsahuje seznam clustery HDInsight pro vaše předplatné Azure
+* `azure hdinsight cluster create` -Vytvoří nový cluster HDInsight
+* `azure hdinsight cluster delete` -Odstraní stávající cluster HDInsight
+* `azure hdinsight cluster show` – Zobrazí informace o stávajícího clusteru
+* `azure hdinsight cluster list` -obsahuje seznam clustery HDInsight pro vaše předplatné Azure
 
 Použití `-h` přepínač tak, aby kontrolovat parametry a přepínače, které jsou k dispozici u každého příkazu.
 
 ### <a name="new-commands"></a>Nové příkazy
 Nové příkazy, které jsou k dispozici s Azure Resource Manager jsou:
 
-* `azure hdinsight cluster resize`-dynamicky změní počet uzlů pracovního procesu v clusteru
-* `azure hdinsight cluster enable-http-access`– Umožňuje HTTPs přístup ke clusteru (na ve výchozím nastavení)
-* `azure hdinsight cluster disable-http-access`– Zakáže HTTPs přístup ke clusteru
-* `azure hdinsight script-action`-obsahuje příkazy pro vytváření nebo správu akcí skriptů v clusteru
-* `azure hdinsight config`-poskytuje příkazů pro vytvoření konfiguračního souboru, který lze použít s `hdinsight cluster create` příkaz poskytnout informace o konfiguraci.
+* `azure hdinsight cluster resize` -dynamicky změní počet uzlů pracovního procesu v clusteru
+* `azure hdinsight cluster enable-http-access` – Umožňuje HTTPs přístup ke clusteru (na ve výchozím nastavení)
+* `azure hdinsight cluster disable-http-access` – Zakáže HTTPs přístup ke clusteru
+* `azure hdinsight script-action` -obsahuje příkazy pro vytváření nebo správu akcí skriptů v clusteru
+* `azure hdinsight config` -poskytuje příkazů pro vytvoření konfiguračního souboru, který lze použít s `hdinsight cluster create` příkaz poskytnout informace o konfiguraci.
 
 ### <a name="deprecated-commands"></a>Nepoužívané příkazy
 Pokud použijete `azure hdinsight job` příkazy k odesílání úloh do clusteru HDInsight, tyto nejsou k dispozici prostřednictvím příkazy ARM. Pokud potřebujete prostřednictvím kódu programu odesílání úloh do HDInsight z skriptů, měli byste místo toho použít rozhraní REST API poskytovaných v HDInsight. Další informace o odesílání úloh pomocí rozhraní REST API najdete v následujících dokumentech.
@@ -65,18 +65,18 @@ Informace o jiných způsobech spustit MapReduce, Hive a vepřových interaktivn
 ### <a name="examples"></a>Příklady
 **Vytvoření clusteru**
 
-* Příkaz staré (ASM)-`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Nový příkaz (ARM)-`azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Příkaz staré (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Nový příkaz (ARM)- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Odstranění clusteru**
 
-* Příkaz staré (ASM)-`azure hdinsight cluster delete myhdicluster`
-* Nový příkaz (ARM)-`azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Příkaz staré (ASM)- `azure hdinsight cluster delete myhdicluster`
+* Nový příkaz (ARM)- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Seznam clustery**
 
-* Příkaz staré (ASM)-`azure hdinsight cluster list`
-* Nový příkaz (ARM)-`azure hdinsight cluster list`
+* Příkaz staré (ASM)- `azure hdinsight cluster list`
+* Nový příkaz (ARM)- `azure hdinsight cluster list`
 
 > [!NOTE]
 > Pro příkaz seznamu zadání skupiny prostředků pomocí `-g` vrátí pouze clustery v zadaná skupina prostředků.
@@ -85,18 +85,18 @@ Informace o jiných způsobech spustit MapReduce, Hive a vepřových interaktivn
 
 **Zobrazit informace o clusteru**
 
-* Příkaz staré (ASM)-`azure hdinsight cluster show myhdicluster`
-* Nový příkaz (ARM)-`azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Příkaz staré (ASM)- `azure hdinsight cluster show myhdicluster`
+* Nový příkaz (ARM)- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrace prostředí Azure PowerShell pro Azure Resource Manager
 Obecné informace o prostředí Azure PowerShell v režimu Azure Resource Manager (ARM) najdete v [použití Azure Powershellu s Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Rutiny Azure PowerShell ARM může být nainstalovaná-souběžného s rutinami ASM. Rutiny ze dvou režimů dají rozlišovat podle jejich názvy.  Má režimu ARM *AzureRmHDInsight* v porovnání se názvy rutin *AzureHDInsight* v režimu ASM.  Například *New-AzureRmHDInsightCluster* vs. *Nové AzureHDInsightCluster*. Názvy zprávy mohou mít parametry a přepínače, existuje mnoho nových parametrů k dispozici při použití a ARM.  Například několik rutin vyžadovat nového přepínače názvem *- ResourceGroupName*. 
+Rutiny Azure PowerShell ARM může být nainstalovaná-souběžného s rutinami ASM. Rutiny ze dvou režimů dají rozlišovat podle jejich názvy.  Má režimu ARM *AzureRmHDInsight* v porovnání se názvy rutin *AzureHDInsight* v režimu ASM.  Například *New-AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Názvy zprávy mohou mít parametry a přepínače, existuje mnoho nových parametrů k dispozici při použití a ARM.  Například několik rutin vyžadovat nového přepínače názvem *- ResourceGroupName*. 
 
 Před použitím rutin HDInsight, musíte připojit k účtu Azure a vytvořit novou skupinu prostředků:
 
 * Login-AzureRmAccount nebo [vyberte AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). V tématu [ověřování hlavní název služby pomocí Azure Resource Manageru](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-* [Nový AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
+* [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Přejmenovat rutiny
 Seznam rutin HDInsight ASM v konzole Windows PowerShell:
@@ -107,33 +107,33 @@ Následující tabulka uvádí jejich názvy v režimu ARM a ASM rutiny:
 
 | Rutiny ASM | Rutiny ARM |
 | --- | --- |
-| Add-AzureHDInsightConfigValues |[Přidat AzureRmHDInsightConfigValues](https://msdn.microsoft.com/library/mt603530.aspx) |
-| Add-AzureHDInsightMetastore |[Přidat AzureRmHDInsightMetastore](https://msdn.microsoft.com/library/mt603670.aspx) |
-| Add-AzureHDInsightScriptAction |[Přidat AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) |
-| Add-AzureHDInsightStorage |[Přidat AzureRmHDInsightStorage](https://msdn.microsoft.com/library/mt619445.aspx) |
+| Add-AzureHDInsightConfigValues |[Add-AzureRmHDInsightConfigValues](https://msdn.microsoft.com/library/mt603530.aspx) |
+| Add-AzureHDInsightMetastore |[Add-AzureRmHDInsightMetastore](https://msdn.microsoft.com/library/mt603670.aspx) |
+| Add-AzureHDInsightScriptAction |[Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) |
+| Add-AzureHDInsightStorage |[Add-AzureRmHDInsightStorage](https://msdn.microsoft.com/library/mt619445.aspx) |
 | Get-AzureHDInsightCluster |[Get-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619371.aspx) |
 | Get-AzureHDInsightJob |[Get-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603590.aspx) |
 | Get-AzureHDInsightJobOutput |[Get-AzureRmHDInsightJobOutput](https://msdn.microsoft.com/library/mt603793.aspx) |
 | Get-AzureHDInsightProperties |[Get-AzureRmHDInsightProperties](https://msdn.microsoft.com/library/mt603546.aspx) |
-| Grant-AzureHDInsightHttpServicesAccess |[Udělení AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619407.aspx) |
-| Grant-AzureHdinsightRdpAccess |[Udělení AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603717.aspx) |
-| Invoke-AzureHDInsightHiveJob |[Vyvolání AzureRmHDInsightHiveJob](https://msdn.microsoft.com/library/mt603593.aspx) |
-| New-AzureHDInsightCluster |[Nové AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) |
-| New-AzureHDInsightClusterConfig |[Nové AzureRmHDInsightClusterConfig](https://msdn.microsoft.com/library/mt603700.aspx) |
-| New-AzureHDInsightHiveJobDefinition |[Nové AzureRmHDInsightHiveJobDefinition](https://msdn.microsoft.com/library/mt619448.aspx) |
-| New-AzureHDInsightMapReduceJobDefinition |[Nové AzureRmHDInsightMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
-| New-AzureHDInsightPigJobDefinition |[Nové AzureRmHDInsightPigJobDefinition](https://msdn.microsoft.com/library/mt603671.aspx) |
-| New-AzureHDInsightSqoopJobDefinition |[Nové AzureRmHDInsightSqoopJobDefinition](https://msdn.microsoft.com/library/mt608551.aspx) |
-| New-AzureHDInsightStreamingMapReduceJobDefinition |[Nové AzureRmHDInsightStreamingMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
-| Remove-AzureHDInsightCluster |[Odebrat AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619431.aspx) |
-| Revoke-AzureHDInsightHttpServicesAccess |[AzureRmHDInsightHttpServicesAccess odvolání.](https://msdn.microsoft.com/library/mt619375.aspx) |
-| Revoke-AzureHdinsightRdpAccess |[AzureRmHDInsightRdpServicesAccess odvolání.](https://msdn.microsoft.com/library/mt603523.aspx) |
+| Grant-AzureHDInsightHttpServicesAccess |[Grant-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619407.aspx) |
+| Grant-AzureHdinsightRdpAccess |[Grant-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603717.aspx) |
+| Invoke-AzureHDInsightHiveJob |[Invoke-AzureRmHDInsightHiveJob](https://msdn.microsoft.com/library/mt603593.aspx) |
+| New-AzureHDInsightCluster |[New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) |
+| New-AzureHDInsightClusterConfig |[New-AzureRmHDInsightClusterConfig](https://msdn.microsoft.com/library/mt603700.aspx) |
+| New-AzureHDInsightHiveJobDefinition |[New-AzureRmHDInsightHiveJobDefinition](https://msdn.microsoft.com/library/mt619448.aspx) |
+| New-AzureHDInsightMapReduceJobDefinition |[New-AzureRmHDInsightMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
+| New-AzureHDInsightPigJobDefinition |[New-AzureRmHDInsightPigJobDefinition](https://msdn.microsoft.com/library/mt603671.aspx) |
+| New-AzureHDInsightSqoopJobDefinition |[New-AzureRmHDInsightSqoopJobDefinition](https://msdn.microsoft.com/library/mt608551.aspx) |
+| New-AzureHDInsightStreamingMapReduceJobDefinition |[New-AzureRmHDInsightStreamingMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
+| Remove-AzureHDInsightCluster |[Remove-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619431.aspx) |
+| Revoke-AzureHDInsightHttpServicesAccess |[Revoke-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619375.aspx) |
+| Revoke-AzureHdinsightRdpAccess |[Revoke-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603523.aspx) |
 | Set-AzureHDInsightClusterSize |[Set-AzureRmHDInsightClusterSize](https://msdn.microsoft.com/library/mt603513.aspx) |
 | Set-AzureHDInsightDefaultStorage |[Set-AzureRmHDInsightDefaultStorage](https://msdn.microsoft.com/library/mt603486.aspx) |
-| Start-AzureHDInsightJob |[Počáteční AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603798.aspx) |
+| Start-AzureHDInsightJob |[Start-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603798.aspx) |
 | Stop-AzureHDInsightJob |[Stop-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt619424.aspx) |
-| Use-AzureHDInsightCluster |[Použití AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619442.aspx) |
-| Wait-AzureHDInsightJob |[Počkejte AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
+| Use-AzureHDInsightCluster |[Use-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619442.aspx) |
+| Wait-AzureHDInsightJob |[Wait-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
 
 ### <a name="new-cmdlets"></a>Nové rutiny
 Níže jsou nové rutiny, které jsou dostupné jenom v režimu ARM. 
@@ -153,7 +153,7 @@ Využití Další informace najdete v tématu [HDInsight se systémem Linux při
 * **Přidat AzureRmHDInsightClusterIdentity**: Přidá identitu clusteru do objekt konfigurace clusteru tak, aby clusteru HDInsight můžete přístup k Azure Data Lake úložiště. V tématu [vytvoření clusteru HDInsight s Data Lake Store pomocí Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Příklady
-**Vytvoření clusteru**
+Vytvoření clusteru
 
 Příkaz staré (ASM): 
 
@@ -187,7 +187,7 @@ Nový příkaz (ARM):
         -SshCredential $sshCredentials
 
 
-**Odstranění clusteru**
+Odstranění clusteru
 
 Příkaz staré (ASM):
 

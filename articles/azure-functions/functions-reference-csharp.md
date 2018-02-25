@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure funkcí jazyka C# skript (.csx) referenční informace pro vývojáře
 
@@ -191,32 +191,15 @@ public class Order
 
 Můžete použít relativní cestu `#load` – direktiva:
 
-* `#load "mylogger.csx"`načte soubor umístěný ve složce funkce.
-* `#load "loadedfiles\mylogger.csx"`načte soubor umístěný ve složce ve složce funkce.
-* `#load "..\shared\mylogger.csx"`načte soubor umístěný ve složce na stejné úrovni jako složka funkce, který je přímo pod *wwwroot*.
+* `#load "mylogger.csx"` načte soubor umístěný ve složce funkce.
+* `#load "loadedfiles\mylogger.csx"` načte soubor umístěný ve složce ve složce funkce.
+* `#load "..\shared\mylogger.csx"` načte soubor umístěný ve složce na stejné úrovni jako složka funkce, který je přímo pod *wwwroot*.
 
 `#load` – Direktiva pracuje pouze s *.csx* soubory, ne při *.cs* soubory.
 
 ## <a name="binding-to-method-return-value"></a>Vytvoření vazby na návratovou hodnotu – Metoda
 
-Můžete použít návratovou hodnotu metoda pro vazbu výstup pomocí názvu `$return` v *function.json*:
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
+Můžete použít návratovou hodnotu metoda pro vazbu výstup pomocí názvu `$return` v *function.json*. Příklady najdete v tématu [triggerů a vazeb](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="writing-multiple-output-values"></a>Zápis více hodnot výstup
 
@@ -236,7 +219,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 
 Do protokolu výstup váš datový proud protokolů v jazyce C#, zahrnují argument typu `TraceWriter`. Doporučujeme, abyste pojmenujte ji `log`. Nepoužívejte `Console.Write` v Azure Functions. 
 
-`TraceWriter`je definována v [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Úroveň protokolu pro `TraceWriter` se dá nakonfigurovat v [host.json](functions-host-json.md).
+`TraceWriter` je definována v [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Úroveň protokolu pro `TraceWriter` se dá nakonfigurovat v [host.json](functions-host-json.md).
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -264,17 +247,31 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>Zrušení tokenů
 
-Některé operace vyžadují řádné vypnutí. I když je vždy nejlepší napsat kód, který dokáže zpracovat chybám, v případech, ve které chcete zpracovávat požadavky vypnutí definovat [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) zadali argument.  A `CancellationToken` je k dispozici signál, že se aktivuje vypnutí hostitele.
+Funkce může přijmout [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parametr, který umožňuje operačního systému a funkcí je možné ukončit upozorňovaly kódu. Toto oznámení můžete Ujistěte se, že funkce nepodporuje neočekávaně ukončí tak, aby data ponechá v nekonzistentním stavu.
+
+Následující příklad ukazuje, jak zkontrolovat pro předcházení ukončení funkce.
 
 ```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-    string blobName,
-    Stream blobInput,
-    Stream blobOutput,
+using System;
+using System.IO;
+using System.Threading;
+
+public static void Run(
+    string inputText,
+    TextWriter logger,
     CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        if (token.IsCancellationRequested)
+        {
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
+        }
+        Thread.Sleep(5000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
 ```
 
 ## <a name="importing-namespaces"></a>Import obory názvů
@@ -432,7 +429,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`je atribut rozhraní .NET, který definuje váš vazby a `T` je vstupní nebo výstupní typ, který podporuje tento typ vazby. `T`nelze `out` typ parametru (například `out JObject`). Například v tabulce Mobile Apps výstupu vazba podporuje [šest výstup typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale můžete použít pouze [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) nebo [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)pro `T`.
+`BindingTypeAttribute` je atribut rozhraní .NET, který definuje váš vazby a `T` je vstupní nebo výstupní typ, který podporuje tento typ vazby. `T` nelze `out` typ parametru (například `out JObject`). Například v tabulce Mobile Apps výstupu vazba podporuje [šest výstup typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale můžete použít pouze [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) nebo [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)pro `T`.
 
 ### <a name="single-attribute-example"></a>Příklad jeden atribut
 

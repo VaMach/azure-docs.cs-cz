@@ -1,6 +1,6 @@
 ---
-title: "Zálohy virtuálních počítačů nasazených Resource Managerem monitorování | Microsoft Docs"
-description: "Monitorování události a upozornění ze záloh virtuálních počítačů nasazených Resource Managerem. Odeslání e-mailu na základě výstrah."
+title: "Monitorování výstrahy zálohy pro virtuální počítače Azure | Microsoft Docs"
+description: "Monitorování události a výstrahy z úlohy zálohování virtuálního počítače Azure. Odeslání e-mailu na základě výstrah."
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Správa výstrah pro virtuální počítače Azure
 Výstrahy jsou odpovědi ze služby, aby byla splněny nebo překročení prahová hodnota události. Zároveň budete vědět, když může být kritické nízkými náklady obchodní problémy spuštění. Výstrahy obvykle nedojde k podle plánu, a proto je užitečné vědět, co nejdříve po generována výstraha. Například pokud se nezdaří úlohy zálohování nebo obnovení, zobrazení výstrahy do pěti minut selhání. Na řídicím panelu trezoru na dlaždici zálohování výstrahy zobrazuje kritická a úroveň pro upozornění události. V nastavení zálohování výstrah můžete zobrazit všechny události. Ale co dělat v případě výstrahu při práci na samostatné problém? Pokud si nejste jisti, když se stane, výstrahy, může to být méně závažné potíže, nebo ji mohl ohrozit zabezpečení dat. Pokud chcete mít jistotu, že oprávnění uživatelé by se měl dozvědět výstrahy – když dojde, nakonfigurujte službu pro odeslání oznámení o výstrahách e-mailem. Podrobnosti o nastavení e-mailová oznámení najdete v tématu [konfigurace oznámení](backup-azure-monitor-vms.md#configure-notifications).

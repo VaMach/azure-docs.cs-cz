@@ -2,23 +2,17 @@
 title: "Konfigurace vlastního názvu doménu pro koncový bod služby Azure Blob storage | Microsoft Docs"
 description: "Použití portálu Azure k mapování vlastní kanonický název (CNAME) na koncový bod úložiště objektů Blob v účtu Azure Storage."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Konfigurace vlastního názvu domény pro koncový bod služby Blob Storage
 
@@ -32,8 +26,8 @@ Následující tabulka uvádí několik ukázkových adres URL pro data objektů
 
 | Typ prostředku | Výchozí adresa URL | Adresa URL vlastní domény |
 | --- | --- | --- |
-| Účet úložiště | http://mystorageaccount.BLOB.Core.Windows.NET | http://www.contoso.com |
-| Objekt blob |http://mystorageaccount.BLOB.Core.Windows.NET/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
+| Účet úložiště | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
+| Objekt blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Kořenový kontejner | http://mystorageaccount.BLOB.Core.Windows.NET/myblob nebo http://mystorageaccount.blob.core.windows.net/$ kořenové nebo můj_objekt_blob| http://www.contoso.com/myblob nebo http://www.contoso.com/$ kořenové nebo můj_objekt_blob |
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Přímé oproti mapování zprostředkující domény
@@ -105,7 +99,7 @@ Můžete například použít následující identifikátor URI pro přístup do
 
 Zrušit registraci vlastní doménu pro koncový bod služby Blob storage, použijte jednu z následujících postupů.
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Na portálu Azure k odebrání nastavení vlastní domény, proveďte následující kroky:
 
@@ -160,6 +154,6 @@ Použití [Set AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azu
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Namapovat vlastní doménu pro koncový bod Azure Content Delivery Network (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Přístup k objektům BLOB pomocí vlastní domény přes HTTPS pomocí Azure CDN](storage-https-custom-domain-cdn.md)

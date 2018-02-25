@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Řešení problémů s replikací místní VMware nebo fyzický server
 Při ochraně virtuálních počítačů VMware nebo fyzických serverů pomocí Azure Site Recovery, může se zobrazit konkrétní chybová zpráva. Tento článek podrobně popisuje některé z nejběžnějších chybových zpráv došlo, společně s řešení potíží s kroky k jejich řešení.
@@ -83,11 +83,11 @@ Pokud se nemůžete připojit, potom zkontrolujte, jestli se problém přístup 
 
   `*.backup.windowsazure.com:` Používá se k orchestraci a přenosu dat replikace.
 
-  `*.blob.core.windows.net:`Slouží pro přístup k účtu úložiště, že úložiště replikovaná data
+  `*.blob.core.windows.net:` Slouží pro přístup k účtu úložiště, že úložiště replikovaná data
 
   `*.hypervrecoverymanager.windowsazure.com:` Používá se pro orchestraci a operace správy replikací.
 
-  `time.nist.gov`a `time.windows.com`: používá k ověření synchronizaci času mezi systémem a globálním časem.
+  `time.nist.gov` a `time.windows.com`: používá k ověření synchronizaci času mezi systémem a globálním časem.
 
 Adresy URL pro **cloudu Azure Government**:
 
@@ -115,5 +115,5 @@ Otevřete ho a klikněte na akci > změnit vlastnosti. Karta Konfigurace proxy s
 
 * **Zkontrolujte, pokud omezení šířky pásma není omezen na Procesovém serveru**: zvětšit šířku pásma a zkontrolujte, zda stále existuje problém.
 
-##<a name="next-steps"></a>Další kroky
+##<a name="next-steps"></a>Další postup
 Pokud potřebujete další pomoc, následně je publikovat dotazu [fórum Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Máme aktivní komunitě a jeden z našich technici bude moct vám pomůže.

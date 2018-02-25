@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory bezproblémové jednotné přihlašování: rychlý start
 
@@ -99,7 +99,7 @@ Ve výchozím prohlížeči automaticky vypočítá správné zóně, Internetu 
    - **Název hodnoty**: Azure AD adresu URL, které jsou předávány lístky protokolu Kerberos.
    - **Hodnota** (Data): **1** označuje zóny intranetu.
 
-   Výsledek vypadá takto:
+    Výsledek vypadá takto:
 
     Value: https://autologon.microsoftazuread-sso.com
   
@@ -125,11 +125,11 @@ Ve výchozím prohlížeči automaticky vypočítá správné zóně, Internetu 
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (všechny platformy)
 
-Mozilla Firefox nebude automaticky používat ověřování protokolu Kerberos. Každý uživatel musí ručně Azure AD adresy URL přidáte do jejich nastavení Firefox pomocí následujících kroků:
+Mozilla Firefox nebude automaticky používat ověřování protokolu Kerberos. Každý uživatel musí ručně přidat adresu URL pro Azure AD jejich nastavení Firefox pomocí následujících kroků:
 1. Spustit Firefox a zadejte `about:config` na panelu Adresa. Zavřete všechny oznámení, které vidíte.
 2. Vyhledejte **identifikátory URI network.negotiate auth.trusted** předvoleb. Tato předvolba obsahuje seznam důvěryhodných serverů na Firefox ověřování protokolem Kerberos.
 3. Klikněte pravým tlačítkem a vyberte **upravit**.
-4. Zadejte https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net v poli.
+4. Do pole zadejte https://autologon.microsoftazuread-sso.com.
 5. Vyberte **OK** a znovu otevřete v prohlížeči.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -138,7 +138,7 @@ Ujistěte se, že počítač se systémem Mac OS je připojený k Azure AD. Poky
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (všechny platformy)
 
-Pokud máte elementem [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) nebo [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) nastavení zásad ve vašem prostředí, ujistěte se, že přidáte adresy URL služby Azure AD (https:// AutoLogon.microsoftazuread sso.com a https://aadg.windows.net.nsatc.net) k nim také.
+Pokud máte elementem [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) nebo [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) nastavení zásad ve vašem prostředí, ujistěte se také přidat adresu URL pro Azure AD (https://autologon.microsoftazuread-sso.com) k nim.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (pouze Mac OS)
 

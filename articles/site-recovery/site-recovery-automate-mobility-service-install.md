@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 02/22/2018
 ms.author: krnese
-ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: eb837858fe81fa1f2d4966051bd4b7b068defe8b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Nasazení služby Mobility pomocí Azure Automation DSC pro replikaci virtuálního počítače
 V Operations Management Suite jsme poskytují komplexní zálohování a řešení pro zotavení po havárii, které můžete použít jako součást plánu pro kontinuitu podnikových.
@@ -70,7 +70,7 @@ Služba Mobility lze nainstalovat pomocí příkazového řádku a několika arg
 
     V této složce měli byste vidět soubor MSI s názvem:
 
-    **Microsoft ASR_UA_version_Windows_GA_date_Release.exe**
+    **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
 
     Použijte následující příkaz k extrakci instalační program:
 
@@ -508,5 +508,5 @@ $RGDeployArgs = @{
 New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Poté, co nasadíte agenty služby Mobility, můžete [povolit replikaci](site-recovery-vmware-to-azure.md) pro virtuální počítače.

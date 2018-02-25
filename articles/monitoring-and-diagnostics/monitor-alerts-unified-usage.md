@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Vytvoření, zobrazení a Správa výstrah pomocí Azure monitorování – výstrahy (Preview)
 
@@ -28,14 +28,14 @@ Tento článek ukazuje, jak nastavit výstrah pomocí rozhraní nové výstrahy 
 - Kritéria: Určité podmínky nebo logiku, když zobrazená v signál, by měly aktivovat akce
 - Akce: Odeslané konkrétní volání k příjemce oznámení – e-mailu, SMS, webhooku atd.
 
-Výstrahy (Preview) používá termín **protokolu výstrahy** k popisu výstrahy, kde je signál vlastní dotaz na základě [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). Metriky výstrahy schopností volat [téměř v reálném čase metrika výstrahy](monitoring-near-real-time-metric-alerts.md) v existující výstrahy zkušeností se označuje jako **metrika výstrahy** ve výstrahách (Preview). V *metrika výstrahy*, poskytovat některé typy prostředků [multidimenzionální metriky](monitoring-metric-charts.md) pro konkrétní prostředků Azure a proto výstrahy na takových prostředků můžete provedeny konkrétnější pomocí další filtry na dimenze; Tyto výstrahy jsou označovány jako **Multi-Dimensional metrika výstrahy**.
+Výstraha (Preview) používá termín **protokolu výstrahy** k popisu výstrahy, kde je signál vlastní dotaz na základě [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) nebo [Azure Application Insights](../application-insights/app-insights-analytics.md). Metriky výstrahy schopností volat [téměř v reálném čase metrika výstrahy](monitoring-near-real-time-metric-alerts.md) v existující výstrahy zkušeností se označuje jako **metrika výstrahy** ve výstrahách (Preview). V *metrika výstrahy*, poskytovat některé typy prostředků [multidimenzionální metriky](monitoring-metric-charts.md) pro konkrétní prostředků Azure a proto výstrahy na takových prostředků můžete provedeny konkrétnější pomocí další filtry na dimenze; Tyto výstrahy jsou označovány jako **Multi-Dimensional metrika výstrahy**.
 Výstrahy Azure (Preview) také poskytuje jednotný pohled na všechna pravidla výstrah a schopnost spravovat na jednom místě; včetně zobrazení žádné nevyřešené výstrahy. Další informace o funkcích z [Alerts(Preview) Azure – přehled](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> Při výstrahách Azure (Preview) nabízí nové a vylepšené prostředí pro vytváření výstrah v Azure. Existující [Azure výstrahy](monitoring-overview-alerts.md) zůstávají použitelné prostředí
+> Při výstrahách Azure (Preview) nabízí nové a vylepšené prostředí pro vytváření výstrah v Azure. Existující [Azure výstrahy](monitoring-overview-alerts.md) zůstává použitelný prostředí
 >
 
-Podrobné následující je podrobný návod k používání výstrah Azure (Preview).
+Další podrobné je podrobný návod k používání výstrah Azure (Preview).
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Pravidlo výstrahy vytvořit pomocí portálu Azure
 1. V [portál](https://portal.azure.com/), vyberte **monitorování** a v části monitorování – zvolte **výstrahy (Preview)**.  
@@ -81,16 +81,13 @@ Podrobné následující je podrobný návod k používání výstrah Azure (Pre
 
     ![Konfigurovat logiku signál pro multidimenzionální metrika](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Protokolování výstrahy*: Zkontrolujte **typ prostředku** je zdrojem analytics jako *analýzy protokolů*/*Application Insights*, pak jednou odpovídající **prostředků** je vybraná, klikněte na tlačítko *provádí*. Dále používat **přidat kritéria** tlačítko Zobrazit seznam možností signál k dispozici pro daný prostředek a ze seznamu signál **hledání protokolů vlastní** možnost pro zvolený protokolu monitorování služby jako *protokolu Analýza*/*Application Insights*.
+8. *Protokolování výstrahy*: Zkontrolujte **typ prostředku** je zdrojem analytics jako *analýzy protokolů* nebo *Application Insights*, pak jednou odpovídající  **prostředek** je vybraná, klikněte na tlačítko *provádí*. Dále používat **přidat kritéria** tlačítko Zobrazit seznam možností signál k dispozici pro daný prostředek a ze seznamu signál **hledání protokolů vlastní** možnost pro zvolený protokolu monitorování služby jako *protokolu Analýza* nebo *Application Insights*.
 
    ![Vyberte prostředek – vlastní protokol hledání](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Výstrahy preview** seznamy uložené protokolu vyhledá jako typ signálu - protokolu (uložený dotaz), po prostředků vybrali analýzy protokolů.
-   Aby mohli ideální dotazu v analýzy a poté je uložit pro budoucí použití - další podrobnosti k dispozici na [pomocí hledání protokolů v analýzy protokolů](../log-analytics/log-analytics-log-searches.md). Potom můžete vytvořit pravidla výstrah, které jsou založené na tyto dotazy přímo, jak je znázorněno v následujícím obrazovky ukázkové s uložená hledání:
-
-   ![Vyberte prostředek – vlastní protokol hledání](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Výstrahy seznamy (Preview) můžete importovat analytics dotazu jako typ signálu - **protokolu (uložený dotaz)**, jak je vidět v výše obrázku. Tak, aby uživatelé můžete ideální dotazu v analýzy a pak je uložit pro budoucí použití v upozornění – další podrobnosti o použití uložení dotazu, které jsou k dispozici na [pomocí hledání protokolů v analýzy protokolů](../log-analytics/log-analytics-log-searches.md) nebo [sdílené dotazu ve službě application insights Analýza](../log-analytics/log-analytics-overview.md). 
 
 9.  *Přihlaste se výstrahy*: Po výběru, v lze stanovit dotazu pro zobrazení výstrah **vyhledávací dotaz** pole; Pokud syntaxe dotazu je nesprávný poli se zobrazí chyba červeně. Pokud syntaxe dotazu je správný – historických dat stanovené dotazu pro referenci zobrazí jako graf s možností pro upravit časový interval z posledních šest hodin minulého týdne.
 
@@ -125,7 +122,7 @@ Pro **protokolu výstrahy** výstrahy může být založené na:
     Pro **protokolu výstrahy** některé další funkce, je možné přepsat výchozí akce:
 
     - **Oznámení e-mailem**: přepsání předmět e-mailem, odeslána prostřednictvím akce skupiny. Tělo e-mailu se nedá změnit.
-    - **Zahrnout vlastní datovou část Json**: přepsání webhooku Json používané skupiny akcí a místo toho datové části výchozí nahraďte vlastní datovou část. Další informace o webhooku formátů, v [akce webhooku protokolu výstrahy](monitor-alerts-unified-log-webhook.md)
+    - **Zahrnout vlastní datovou část Json**: přepsání webhooku Json používané skupiny akcí a místo toho datové části výchozí nahraďte vlastní datovou část. Další informace o formátech webhooku najdete v tématu [akce webhooku protokolu výstrahy](monitor-alerts-unified-log-webhook.md)
 
         ![Akce přepsání pro výstrahy protokolu](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
@@ -141,7 +138,7 @@ Pro **protokolu výstrahy** výstrahy může být založené na:
 
 2. **Výstrahy řídicí panel (Preview)** se zobrazí – ve kterém jsou všechny výstrahy Azure unified a zobrazí v jednotném čísle Tabule ![výstrahy řídicí panel](./media/monitoring-overview-unified/alerts-preview-overview.png)
 3. Z horní části zleva doprava řídicího panelu ukazuje na první pohled, následující – které sloužící k najdete podrobné informace:
-    - *Aktivováno výstrahy*: počet aktuálně výstrahy, které se mají splněna logiku a v aktivováno stavu
+    - *Aktivováno výstrahy*: počet v současné době výstrahy, které se mají splněna logiku a v aktivováno stavu
     - *Celkový počet pravidla výstrah*: číslo vytvořit pravidla výstrah a v subtext, číslo, které jsou nyní zapnuta
 4. Se zobrazí seznam všechny aktivní výstrahy, které může uživatel kliknutím zobrazíte podrobnosti
 5. Pomoc v konkrétní hledání výstrah; možnosti rozevírací seznam v horní části jeden můžete použít pro filtrování konkrétní *předplatné, skupinu prostředků nebo prostředek*. Další pro žádné nevyřešené výstrahy, jedno použití *upozornění filtru* možnost Najít pro zadaný – klíčové slovo - konkrétní odpovídající výstrahy s *název, výstraha kritéria, skupinu prostředků a cílový prostředek*

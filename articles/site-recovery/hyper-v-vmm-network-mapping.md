@@ -1,25 +1,24 @@
 ---
-title: "O mapování sítě pro replikaci virtuálních počítačů technologie Hyper-V v cloudech VMM pomocí Site Recovery | Microsoft Docs"
+title: "O mapování sítě pro replikaci virtuálního počítače technologie Hyper-V (s VMM) do Azure pomocí Site Recovery | Microsoft Docs"
 description: "Popisuje, jak nastavit mapování sítě pro replikaci virtuálních počítačů technologie Hyper-V spravované v cloudech VMM s Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>O mapování sítě pro virtuální počítač Hyper-V s replikací VMM 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Příprava mapování sítí pro replikaci virtuálních počítačů Hyper-V do Azure
 
 
-Tento článek vám pomůže pochopit a naplánovat mapování sítě během replikace technologie Hyper-V virtuální počítače v cloudech System Center Virtual Machine Manager (VMM) pomocí [služba Azure Site Recovery](site-recovery-overview.md).
+Tento článek vám pomůže pochopit a připravit mapování sítě při replikaci virtuálních počítačů technologie Hyper-V v cloudech System Center Virtual Machine Manager (VMM) do Azure nebo do sekundární lokality pomocí [Azure Site Recovery](site-recovery-overview.md) služby.
 
-Mapování sítě se používá při replikaci virtuálních počítačů Hyper-V spravovaných v cloudu VMM, do sekundární cloudu VMM, nebo do Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Příprava mapování sítě pro replikaci do Azure.
 
@@ -112,7 +111,7 @@ Virtuálního počítače 2 (repliky VM1) | VMNetwork1 Chicago
 
 S těmito nastaveními pojďme si shrnout, co se stane, že v několika možných scénářích.
 
-**Scénář** | **Výsledek**
+Scénář | Výsledek
 ---|---
 Žádná změna v vlastnosti sítě virtuálních počítačů 2 po převzetí služeb při selhání. | Zůstane připojené ke zdrojové síti virtuálních počítačů 1.
 Vlastnosti sítě virtuálních počítačů 2 se změní po převzetí služeb při selhání a není připojen. | 1 virtuální počítač není připojen.
@@ -123,4 +122,5 @@ Mapování sítě VMNetwork1 Chicagu se změní. | 1 virtuální počítač bude
 
 ## <a name="next-steps"></a>Další postup
 
-[Další informace o](hyper-v-vmm-networking.md) IP adresování po převzetí služeb při selhání pro sekundární lokalita VMM.
+- [Další informace o](hyper-v-vmm-networking.md) IP adresování po převzetí služeb při selhání pro sekundární lokalita VMM.
+- [Další informace o](concepts-on-premises-to-azure-networking.md) IP adresování po převzetí služeb při selhání do Azure.

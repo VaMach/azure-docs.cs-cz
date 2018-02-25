@@ -14,13 +14,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: a780a7d954486dbce402e4bf45be55af8ad36ab9
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8c9a901b8922bf349959438487c88e3df4f2ebea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark streamování (DStream) příklad s Kafka v HDInsight
 
@@ -97,7 +97,7 @@ Abyste mohli dokončit tento příklad, postupujte podle kroků v `README.md`.
 
 Vzhledem k tomu, že kroky v tomto dokumentu vytvořit oba clustery ve stejné skupině prostředků Azure, můžete odstranit skupinu prostředků na portálu Azure. Odstraňuje se skupina odebere všechny prostředky, které jsou vytvořené pomocí následujících tento dokument, Azure Virtual Network a účet úložiště, které jsou používané clustery.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto příkladu jste zjistili, jak používat Spark ke čtení a zápisu do Kafka. Chcete-li zjistit další způsoby, jak pracovat s Kafka pomocí následujících odkazů:
 

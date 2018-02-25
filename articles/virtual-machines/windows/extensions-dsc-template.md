@@ -1,6 +1,6 @@
 ---
 title: "Požadovaného stavu konfigurace rozšíření pomocí šablon Azure Resource Manager | Microsoft Docs"
-description: "Definice šablony Resource Manageru pro potřeby stav konfigurace rozšíření v Azure"
+description: "Další informace o definici šablony Resource Manageru pro rozšíření konfigurace požadovaného stavu (DSC) v Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: mgreenegit
@@ -16,25 +16,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: f638d1530541526316f6e409f1efd44f136992a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Požadovaný stav konfigurace rozšíření s šablon Azure Resource Manageru
 
-Tento článek popisuje šablony Azure Resource Manageru pro [obslužná rutina rozšíření konfigurace požadovaného stavu](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Tento článek popisuje šablony Azure Resource Manageru pro [obslužná rutina rozšíření konfigurace požadovaného stavu (DSC)](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-*Poznámka: může dojít příklady mírně odlišné schématu. * 
- *Vydání říjnu 2016 došlo ke změně ve schématu.* 
- *Podrobnosti jsou uvedené v části této stránky s názvem*
-*[aktualizace z předchozí formátu](##Updating-from-the-Previous-Format)*.
+> [!NOTE]
+> Může dojít k příklady mírně odlišné schématu. Ve verzi z října 2016 došlo ke změně ve schématu. Podrobnosti najdete v tématu [aktualizace z předchozí formátu](#update-from-the-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Příklad šablony pro virtuální počítač s Windows
 
-Následující fragment kódu přejde do části prostředků šablony.
-Rozšíření DSC dědí vlastnosti rozšíření výchozí, jak je uvedeno v [VirtualMachineExtension – třída](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)
+Následující fragment kódu je třeba do **prostředků** část šablony. Rozšíření DSC dědí vlastnosti rozšíření výchozí. Další informace najdete v tématu [VirtualMachineExtension třída](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
             "name": "Microsoft.Powershell.DSC",
@@ -71,11 +68,11 @@ Rozšíření DSC dědí vlastnosti rozšíření výchozí, jak je uvedeno v [V
                     }
 ```
 
-## <a name="template-example-for-windows-vmss"></a>Příklad šablony Windows VMSS
+## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Nastaví příkladu šablony pro škálování virtuálních počítačů Windows
 
-Oddíl "vlastnosti" "VirtualMachineProfile", "extensionProfile" atribut má VMSS uzel. V části "rozšíření" se přidá DSC.
+Má uzel sady škálování virtuálního počítače **vlastnosti** oddíl, který má **VirtualMachineProfile extensionProfile** atribut. V části **rozšíření**, přidejte DSC.
 
-Rozšíření DSC dědí vlastnosti rozšíření výchozí, jak je uvedeno v [VirtualMachineScaleSetExtension třída](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Rozšíření DSC dědí vlastnosti rozšíření výchozí. Další informace najdete v tématu [VirtualMachineScaleSetExtension třída](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -114,11 +111,9 @@ Rozšíření DSC dědí vlastnosti rozšíření výchozí, jak je uvedeno v [V
 
 ## <a name="detailed-settings-information"></a>Informace o podrobné nastavení
 
-Následující schéma je pro část nastavení rozšíření Azure DSC v šablonu Azure Resource Manager.
+Použít následující schéma v **nastavení** oddílu rozšíření Azure DSC v šabloně Resource Manager.
 
-*Seznam argumentů, která je k dispozici pro výchozí konfigurační skript*
-*najdete v následující části s názvem*
-*[výchozí konfigurační skript](##Default-Configuration-Script) *.
+Seznam argumentů, které jsou k dispozici pro výchozí konfigurační skript najdete v tématu [výchozí konfigurační skript](#default-configuration-script).
 
 ```json
 
@@ -166,42 +161,39 @@ Následující schéma je pro část nastavení rozšíření Azure DSC v šablo
 
 | Název vlastnosti | Typ | Popis |
 | --- | --- | --- |
-| settings.wmfVersion |řetězec |Určuje verzi systému Windows Management Framework, který by měly být nainstalovány na vašem virtuálním počítači. Nastavení této vlastnosti na 'nejnovější' nainstaluje nejaktuálnější verzi WMF. Pouze aktuální hodnoty této vlastnosti jsou **'4.0', '5.0', ' 5.0PP' a 'nejnovější'**. Tyto hodnoty jsou předmětem aktualizace. Výchozí hodnota je 'nejnovější'. |
-| settings.configuration.url |řetězec |Určuje adresu URL umístění, ze kterého ke stažení souboru zip konfigurace DSC. Pokud zadaná adresa URL vyžaduje SAS token pro přístup, musíte nastavit vlastnost protectedSettings.configurationUrlSasToken na hodnotu tokenu SAS. Tato vlastnost je vyžadována, pokud jsou definovány settings.configuration.script nebo settings.configuration.function. Pokud pro tyto vlastnosti je zadána žádná hodnota, rozšíření bude volat výchozí konfigurační skript nastavit LCM metadat a musí být zadán argument. |
-| settings.configuration.script |řetězec |Určuje název souboru skriptu, který obsahuje definici konfigurace DSC. Tento skript musí být v kořenové složce stáhnout z adresy URL určeného vlastností configuration.url souboru zip. Tato vlastnost je vyžadována, pokud jsou definovány settings.configuration.url nebo settings.configuration.script. Pokud pro tyto vlastnosti je zadána žádná hodnota, rozšíření bude volat výchozí konfigurační skript nastavit LCM metadata a argumenty se má použít. |
-| settings.configuration.function |řetězec |Určuje název konfigurace DSC. Konfigurace s názvem musí být obsažené ve skriptu definované configuration.script. Tato vlastnost je vyžadována, pokud jsou definovány settings.configuration.url nebo settings.configuration.function. Pokud pro tyto vlastnosti je zadána žádná hodnota, rozšíření bude volat výchozí konfigurační skript nastavit LCM metadat a musí být zadán argument. |
+| settings.wmfVersion |řetězec |Určuje verzi Windows Management Framework (WMF), který by měly být nainstalovány na vašem virtuálním počítači. Nastavení této vlastnosti na **nejnovější** nainstaluje nejnovější verzi WMF. V současné době jsou pouze možné hodnoty pro tuto vlastnost **4.0**, **5.0**, **5.0PP**, a **nejnovější**. Tyto hodnoty jsou předmětem aktualizace. Výchozí hodnota je **nejnovější**. |
+| settings.configuration.url |řetězec |Určuje adresu URL umístění, ze kterého chcete stáhnout soubor ZIP konfigurace DSC. Pokud zadaná adresa URL vyžaduje pro přístup k tokenu SAS, nastavte **protectedSettings.configurationUrlSasToken** vlastnost na hodnotu tokenu SAS. Tato vlastnost je vyžadována, pokud **settings.configuration.script** nebo **settings.configuration.function** jsou definovány. Pokud pro tyto vlastnosti je zadána žádná hodnota, rozšíření volá výchozí konfigurační skript k nastavení metadat umístění Configuration Manager (LCM) a musí být zadán argument. |
+| settings.configuration.script |řetězec |Určuje název souboru skriptu, který obsahuje definici konfigurace DSC. Tento skript musí být v kořenové složce souboru .zip, který byl stažen z adresa URL zadaná **configuration.url** vlastnost. Tato vlastnost je vyžadována, pokud **settings.configuration.url** nebo **settings.configuration.script** jsou definovány. Pokud pro tyto vlastnosti je zadána žádná hodnota, rozšíření volá výchozí konfigurační skript nastavit LCM metadat a musí být zadán argument. |
+| settings.configuration.function |řetězec |Určuje název konfigurace DSC. Konfigurace, který je pojmenován musí být součástí skriptu, **configuration.script** definuje. Tato vlastnost je vyžadována, pokud **settings.configuration.url** nebo **settings.configuration.function** jsou definovány. Pokud pro tyto vlastnosti je zadána žádná hodnota, rozšíření volá výchozí konfigurační skript nastavit LCM metadat a musí být zadán argument. |
 | settings.configurationArguments |Kolekce |Definuje žádné parametry, které chcete předat do vaší konfigurace DSC. Tato vlastnost není zašifrován. |
-| settings.configurationData.url |řetězec |Určuje adresu URL, ze kterého mají být staženy konfiguračního souboru dat (.psd1) chcete použít jako vstup pro konfiguraci DSC. Pokud zadaná adresa URL vyžaduje SAS token pro přístup, musíte nastavit vlastnost protectedSettings.configurationDataUrlSasToken na hodnotu tokenu SAS. |
-| settings.privacy.dataEnabled |řetězec |Povolí nebo zakáže telemetrie kolekce. Pro tuto vlastnost pouze možné hodnoty jsou **povolit, "Zakázat", ", nebo $null**. Umožňuje telemetrie, a tato vlastnost prázdná nebo mít hodnotu null. Výchozí hodnota je ". [Další informace](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
-| settings.advancedOptions.downloadMappings |Kolekce |Určuje alternativní umístění, ze kterého mají být staženy WMF. [Další informace](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
+| settings.configurationData.url |řetězec |Určuje adresu URL, ze kterého mají být staženy konfiguračního souboru dat (.psd1) chcete použít jako vstup pro konfiguraci DSC. Pokud zadaná adresa URL vyžaduje pro přístup k tokenu SAS, nastavte **protectedSettings.configurationDataUrlSasToken** vlastnost na hodnotu tokenu SAS. |
+| settings.privacy.dataEnabled |řetězec |Povolí nebo zakáže telemetrie kolekce. Pro tuto vlastnost pouze možné hodnoty jsou **povolit**, **zakázat**, **s**, nebo **$null**. Umožňuje telemetrie, a tato vlastnost prázdná nebo mít hodnotu null. Výchozí hodnota je **s**. Další informace najdete v tématu [shromažďování dat rozšíření Azure DSC](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.advancedOptions.downloadMappings |Kolekce |Určuje alternativní umístění, ze kterého mají být staženy WMF. Další informace najdete v tématu [rozšíření Azure DSC 2.8 a způsob namapování stahování závislosti rozšíření do vlastního umístění](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Kolekce |Definuje žádné parametry, které chcete předat do vaší konfigurace DSC. Tato vlastnost je zašifrován. |
-| protectedSettings.configurationUrlSasToken |řetězec |Určuje token SAS, který má přístup k adrese URL definované configuration.url. Tato vlastnost je zašifrován. |
-| protectedSettings.configurationDataUrlSasToken |řetězec |Určuje token SAS, který má přístup k adrese URL definované configurationData.url. Tato vlastnost je zašifrován. |
+| protectedSettings.configurationUrlSasToken |řetězec |Určuje token SAS, který má používat pro přístup k adresu URL, **configuration.url** definuje. Tato vlastnost je zašifrován. |
+| protectedSettings.configurationDataUrlSasToken |řetězec |Určuje token SAS, který má používat pro přístup k adresu URL, **configurationData.url** definuje. Tato vlastnost je zašifrován. |
 
 ## <a name="default-configuration-script"></a>Výchozí konfigurační skript
 
-Další informace o těchto hodnotách naleznete na stránce dokumentace [místní základní nastavení nástroje Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
-Pouze vlastnosti LCM v následující tabulce jsou možné konfigurovat pomocí rozšíření DSC výchozí konfigurační skript.
+Další informace o těchto hodnot najdete v tématu [základní nastavení správce místní konfigurace](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). Skript DSC rozšíření výchozí konfigurace můžete použít ke konfiguraci pouze LCM vlastnosti, které jsou uvedeny v následující tabulce.
 
 | Název vlastnosti | Typ | Popis |
 | --- | --- | --- |
-| settings.configurationArguments.RegistrationKey |SecureString |Požadovaná vlastnost. Určuje, zda je klíč používaný pro uzel k registraci ve službě Azure Automation jako heslo objekt přihlašovacích údajů prostředí PowerShell. Tato hodnota může automaticky zjistit pomocí metody listkeys proti účet Automation a by měly být zabezpečeny jako chráněný nastavení. |
-| settings.configurationArguments.RegistrationUrl |řetězec |Požadovaná vlastnost. Určuje adresu Url koncového bodu Azure Automation, kde uzlu, pokusí se registrovat. Tato hodnota může automaticky zjistit pomocí metody reference na účtu Automation. |
-| settings.configurationArguments.NodeConfigurationName |řetězec |Požadovaná vlastnost. Určuje konfigurace uzlu v účet Azure Automation, který chcete přiřadit k uzlu. |
-| settings.configurationArguments.ConfigurationMode |řetězec |Určuje režim pro správce místní konfigurace. Platné možnosti zahrnují "ApplyOnly", "ApplyandMonitor" a "ApplyandAutoCorrect".  Výchozí hodnota je "ApplyandMonitor". |
-| settings.configurationArguments.RefreshFrequencyMins | uint32 | Určuje, jak často se pokusí LCM obraťte se na účtu Automation aktualizací.  Výchozí hodnota je 30.  Minimální hodnota je 15. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Určuje, jak často bude LCM ověřit aktuální konfiguraci.  Výchozí hodnota je 15.  Minimální hodnota je 15. |
-| settings.configurationArguments.RebootNodeIfNeeded | Boolean | Určuje, zda uzel může být automaticky restartovat, pokud operace DSC požaduje.  Výchozí hodnota je false. |
-| settings.configurationArguments.ActionAfterReboot | řetězec | Určuje, co se stane po restartování systému při aplikování konfigurace. Platné možnosti jsou "ContinueConfiguration" a "StopConfiguration". Výchozí hodnota je "ContinueConfiguration". |
-| settings.configurationArguments.AllowModuleOverwrite | Boolean | Určuje, zda LCM přepíše existující modulů na uzlu.  Výchozí hodnota je false. |
+| settings.configurationArguments.RegistrationKey |SecureString |Požadovaná vlastnost. Určuje klíč, který se použije pro uzel k registraci ve službě Azure Automation jako heslo objekt přihlašovacích údajů prostředí PowerShell. Tato hodnota může automaticky zjistit pomocí **listkeys** metoda proti účet Automation. Hodnota musí být zabezpečený jako chráněný nastavení. |
+| settings.configurationArguments.RegistrationUrl |řetězec |Požadovaná vlastnost. Určuje adresu URL koncového bodu Automation, kde pokusí registraci uzlu. Tato hodnota může automaticky zjistit pomocí **odkaz** metoda proti účet Automation. |
+| settings.configurationArguments.NodeConfigurationName |řetězec |Požadovaná vlastnost. Určuje konfigurace uzlu v účtu Automation přiřadit k uzlu. |
+| settings.configurationArguments.ConfigurationMode |řetězec |Určuje režim pro LCM. Platné možnosti zahrnují **ApplyOnly**, **ApplyandMonitor**, a **ApplyandAutoCorrect**.  Výchozí hodnota je **ApplyandMonitor**. |
+| settings.configurationArguments.RefreshFrequencyMins | uint32 | Určuje, jak často se pokusí LCM obraťte se na účtu Automation aktualizací.  Výchozí hodnota je **30**.  Minimální hodnota je **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Určuje, jak často LCM ověří aktuální konfiguraci. Výchozí hodnota je **15**. Minimální hodnota je **15**. |
+| settings.configurationArguments.RebootNodeIfNeeded | Boolean | Určuje, zda uzel může automaticky restartovat, pokud operace DSC požaduje. Výchozí hodnota je **false**. |
+| settings.configurationArguments.ActionAfterReboot | řetězec | Určuje, co se stane po restartování systému při aplikování konfigurace. Platné možnosti jsou **ContinueConfiguration** a **StopConfiguration**. Výchozí hodnota je **ContinueConfiguration**. |
+| settings.configurationArguments.AllowModuleOverwrite | Boolean | Určuje, zda LCM přepíše existující modulů na uzlu. Výchozí hodnota je **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>Nastavení vs. ProtectedSettings
 
-Všechna nastavení se ukládají do textového souboru nastavení ve virtuálním počítači.
-Vlastnosti v části "nastavení" jsou veřejné vlastnosti, protože nejsou šifrovány nastavení textového souboru.
-Vlastnosti v části 'protectedSettings' jsou šifrované pomocí certifikátu a nejsou zobrazeny ve formátu prostého textu v tomto souboru na virtuálním počítači.
+Všechna nastavení se ukládají do textového souboru nastavení ve virtuálním počítači. Vlastnosti, které jsou uvedené v části **nastavení** jsou veřejné vlastnosti. Veřejné vlastnosti nejsou šifrovány nastavení textového souboru. Vlastnosti, které jsou uvedené v části **protectedSettings** jsou šifrované pomocí certifikátu a nejsou zobrazeny ve formátu prostého textu v souboru nastavení ve virtuálním počítači.
 
-Pokud konfigurace potřebuje přihlašovací údaje, můžou být součástí protectedSettings:
+Pokud konfigurace potřebuje přihlašovací údaje, můžete zahrnout přihlašovací údaje v **protectedSettings**:
 
 ```json
 "protectedSettings": {
@@ -214,10 +206,9 @@ Pokud konfigurace potřebuje přihlašovací údaje, můžou být součástí pr
 }
 ```
 
-## <a name="example"></a>Příklad:
+## <a name="example-configuration-script"></a>Příklad konfigurační skript
 
-V následujícím příkladu je výchozí chování v rozšíření DSC, která je k poskytování nastavení metadat pro správce místní konfigurace a registrace pomocí služby Azure Automation DSC.
-Konfigurace argumenty jsou povinné a se předá skriptu konfigurace výchozí nastavení LCM metadat.
+Následující příklad ukazuje, výchozí chování v rozšíření DSC, což je poskytovat LCM nastavení metadat a registrace ve službě Automation DSC. Konfigurace argumenty jsou povinné.  Výchozí konfigurační skript nastavit LCM metadata jsou předáno konfigurace argumentů.
 
 ```json
 "settings": {
@@ -240,14 +231,11 @@ Konfigurace argumenty jsou povinné a se předá skriptu konfigurace výchozí n
 }
 ```
 
-## <a name="example-using-configuration-script-in-azure-storage"></a>Příklad použití konfigurační skript ve službě Azure Storage
+## <a name="example-using-the-configuration-script-in-azure-storage"></a>Příklad použití konfigurační skript ve službě Azure Storage
 
-V následujícím příkladu je odvozena z oddílu "Začínáme" [stránku přehled obslužná rutina rozšíření DSC](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-Tento příklad používá šablony Resource Manager místo rutiny pro nasazení rozšíření.
-Uložte konfiguraci "IisInstall.ps1", jeho umístění. Soubor ZIP a odeslat soubor na adresu URL přístupné.
-Tento příklad používá úložiště objektů blob v Azure, ale je možné stáhnout. Soubory ZIP libovolný odkudkoli.
+Následující příklad je z [DSC rozšíření obslužné rutiny přehled](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tento příklad používá šablony Resource Manager místo rutiny pro nasazení rozšíření. Uložte konfiguraci IisInstall.ps1, umístěte jej do souboru ZIP a potom odeslat soubor na adresu URL přístupné. Tento příklad používá úložiště objektů Blob v Azure, ale soubory .zip si můžete stáhnout z libovolného libovolného umístění.
 
-Následující kód v šablony Azure Resource Manageru dává pokyn virtuálního počítače správný soubor stáhněte a spusťte odpovídající funkce prostředí PowerShell:
+Následující kód v šabloně Resource Manager dává pokyn virtuálního počítače ke stažení správný soubor a pak spusťte odpovídající funkce prostředí PowerShell:
 
 ```json
 "settings": {
@@ -262,11 +250,11 @@ Následující kód v šablony Azure Resource Manageru dává pokyn virtuálníh
 }
 ```
 
-## <a name="updating-from-the-previous-format"></a>Aktualizace z předchozí formátu
+## <a name="update-from-a-previous-format"></a>Aktualizace z předchozí formátu
 
-Všechna nastavení v předchozí formátu (obsahující veřejné vlastnosti ModulesUrl ConfigurationFunction, SasToken nebo vlastnosti) automaticky přizpůsobit na současný formát a spusťte stejně jako před.
+Všechna nastavení ve formátu předchozí rozšíření (a které mají veřejné vlastnosti **ModulesUrl**, **ConfigurationFunction**, **SasToken**, nebo  **Vlastnosti**) automaticky přizpůsobit na současný formát rozšíření. Spouštějí se stejně jako před.
 
-Následující schéma je co předchozí nastavení schématu hledá jako:
+Následující schéma ukazuje, jaké předchozí nastavení schématu hledá jako:
 
 ```json
 "settings": {
@@ -298,12 +286,12 @@ Následující schéma je co předchozí nastavení schématu hledá jako:
 
 Zde je, jak se v předchozím formátu přizpůsobuje na současný formát:
 
-| Název vlastnosti | Předchozí ekvivalent schématu |
+| Název vlastnosti | Předchozí schématu ekvivalentní |
 | --- | --- |
 | settings.wmfVersion |nastavení. WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |První část nastavení. ConfigurationFunction (před '\\\\.) |
-| settings.configuration.function |Druhá část nastavení. ConfigurationFunction (po '\\\\.) |
+| settings.configuration.script |První část nastavení. ConfigurationFunction (před \\ \\) |
+| settings.configuration.function |Druhá část nastavení. ConfigurationFunction (po \\ \\) |
 | settings.configurationArguments |settings.Properties |
 | settings.configurationData.url |protectedSettings.DataBlobUri (bez tokenu SAS) |
 | settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
@@ -314,9 +302,7 @@ Zde je, jak se v předchozím formátu přizpůsobuje na současný formát:
 
 ## <a name="troubleshooting---error-code-1100"></a>Řešení potíží – kód chyby 1100
 
-Kód chyby 1100 označuje, že došlo k potížím s vstupu uživatele na rozšíření DSC.
-Text tyto chyby je proměnná a může změnit.
-Zde jsou některé z chyb, které může spustit do a jak můžete opravit je.
+Kód chyby 1100 znamená problém s vstupu uživatele na rozšíření DSC. Text tyto chyby se liší a mohou změnit. Zde jsou některé z chyb, které můžete narazit na a jak můžete opravit je.
 
 ### <a name="invalid-values"></a>Neplatné hodnoty
 
@@ -325,37 +311,33 @@ Pouze možné hodnoty jsou ","Zapnout"a"Zakázat"".
 "Je WmfVersion: {0}.
 Pouze možné hodnoty jsou... a 'nejnovější' ".
 
-Problém: Zadaná hodnota není povolena.
+**Problém**: Zadaná hodnota není povolena.
 
-Řešení: Změňte na platnou hodnotu neplatnou hodnotu.
-Najdete v tabulce v části Podrobnosti.
+**Řešení**: Neplatná hodnota změňte na platnou hodnotu. Další informace najdete v tabulce v [podrobnosti](#details).
 
 ### <a name="invalid-url"></a>Neplatná adresa URL
 
 "Je ConfigurationData.url: {0}. Toto není platná adresa URL.""je DataBlobUri: {0}. Toto není platná adresa URL.""je Configuration.url: {0}. Toto není platná adresa URL."
 
-Problém: A, pokud že adresa URL není platná.
+**Problém**: A Zadaná adresa URL není platná.
 
-Řešení: Zkontrolujte všechny zadané URL.
-Ujistěte se, že všechny adresy URL odkazující na platné umístění, aby měli přístup k rozšíření ve vzdáleném počítači.
+**Řešení**: Zkontrolujte všechny zadané URL. Zajistěte, že všechny adresy URL přeložit na platné umístění, můžete přístup k rozšíření ve vzdáleném počítači.
 
 ### <a name="invalid-configurationargument-type"></a>Neplatný typ ConfigurationArgument
 
 "Neplatný configurationArguments typu {0}"
 
-Problém: Vlastnost ConfigurationArguments nelze přeložit na objekt zatřiďovací tabulky.
+**Problém**: *ConfigurationArguments* vlastnost nemůže být vyhodnocena **zatřiďovací tabulky** objektu.
 
-Řešení: Zkontrolujte vaši ConfigurationArguments vlastnost zatřiďovací tabulku.
-Použijte formát najdete v příkladu který předchází.
-Sledujte uvozovky, čárky a složené závorky.
+**Řešení**: Zkontrolujte vaše *ConfigurationArguments* vlastnost **zatřiďovací tabulky**. Použijte formát najdete v předchozím příkladu. Podívejte se na nabídky, čárky a složené závorky.
 
 ### <a name="duplicate-configurationarguments"></a>Duplicitní ConfigurationArguments
 
 "Nalezena ve veřejných i chráněný configurationArguments duplicitní argumenty {0}."
 
-Problém: ConfigurationArguments v nastavení veřejných a ConfigurationArguments v chráněných nastavení obsahovat vlastnosti se stejným názvem.
+**Problém**: *ConfigurationArguments* v nastavení veřejných a *ConfigurationArguments* v chráněných nastavení mít vlastnosti se stejným názvem.
 
-Řešení: Odeberte jedno z duplicitní vlastnosti.
+**Řešení**: odeberte jeden z duplicitní vlastnosti.
 
 ### <a name="missing-properties"></a>Chybí vlastnosti
 "Configuration.function vyžaduje, aby byl zadán configuration.url nebo configuration.module"
@@ -370,19 +352,16 @@ Problém: ConfigurationArguments v nastavení veřejných a ConfigurationArgumen
 
 "ConfigurationDataUrlSasToken vyžaduje, aby byl že tento configurationData.url je zadán"
 
-Problém: Definované vlastnosti potřebuje další vlastnost, která nebyla nalezena.
+**Problém**: definované vlastnosti potřebuje další vlastnosti, která nebyla nalezena.
 
-Řešení:
+**Řešení**:
 
 - Zadejte chybějící vlastnost.
 - Odeberte vlastnost, která potřebuje chybí vlastnost.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Další informace o DSC a sadách škálování virtuálních počítačů [použití sad škálování k virtuální počítač s příponou DSC Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-
-Najít další podrobnosti na [správu zabezpečení přihlašovacích údajů DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Další informace o obslužná rutina rozšíření Azure DSC najdete v tématu [Úvod do rozšíření obslužné rutiny konfigurace požadovaného stavu Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Další informace o DSC Powershellu [přejděte do centra dokumentace k prostředí PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+* Další informace o [použití škálování virtuálních počítačů sad s příponou Azure DSC](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
+* Najít další podrobnosti o [správu zabezpečení přihlašovacích údajů DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Získat [Úvod do rozšíření obslužné rutiny Azure DSC](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Další informace o DSC Powershellu, přejděte na [centru dokumentace prostředí PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).

@@ -12,23 +12,23 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: ce579bc2844d321e4fbc70726b57120e17e4788d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3d561e3ebab886cd4976e5f1c2e8f2ddde3d6c14
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Pomocí řízení přístupu na základě rolí pro správu nasazení Azure Site Recovery
 
 Řízení přístupu na základě role v Azure umožňuje přesnou správu přístupu. Pomocí RBAC, můžete v rámci týmu oddělit odpovědnosti a udělit pouze oprávnění k přístupu konkrétním uživatelům podle potřeby k provedení určité úlohy.
 
-Azure Site Recovery poskytuje 3 předdefinovaných rolí k řízení operace správy Site Recovery. Další informace na [předdefinované role Azure RBAC](../active-directory/role-based-access-built-in-roles.md)
+Azure Site Recovery poskytuje 3 předdefinovaných rolí k řízení operace správy Site Recovery. Další informace o [předdefinovaných rolích Azure RBAC](../active-directory/role-based-access-built-in-roles.md)
 
-* [Lokality obnovení Přispěvatel](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) – tato role má všechna oprávnění vyžadovaná ke správě operací Azure Site Recovery v trezoru služeb zotavení. Uživatel k této roli, ale nelze vytvořit nebo odstranit trezor služeb zotavení nebo přiřadit přístupová práva ostatním uživatelům. Tato role je nejvhodnější pro správce obnovení po havárii, kteří můžete povolit a spravovat zotavení po havárii aplikace nebo celé organizace, jako možné.
-* [Operátor obnovení lokality](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) – tato role nemá oprávnění ke spuštění a převzetí služeb při selhání a navrácení služeb po obnovení operations manager. S touto rolí uživatele nelze povolit nebo zakázat replikaci, vytvořit nebo odstranit trezory, zaregistrujte novou infrastrukturu nebo přiřadit přístupová práva jiným uživatelům. Tato role je nejvhodnější pro operátor obnovení po havárii, kdo může převzetí služeb při selhání virtuálního počítače nebo přejít k podrobnostem aplikace při pokyn vlastníci aplikace a správci IT v situacích skutečná nebo simulované po havárii, jako je například zotavení po Havárii. Po vyřešení po havárii, operátor zotavení po Havárii můžete znovu nastavit ochranu a navrácení služeb po obnovení virtuálních počítačů.
-* [Lokality obnovení čtečky](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) – tato role nemá oprávnění k zobrazení všech operací správy Site Recovery. Tato role je nejvhodnější pro monitorování vedení IT, který můžete sledovat aktuální stav ochrany a zvýšení lístky žádostí o podporu, pokud je to nutné.
+* [Přispěvatel Site Recovery](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) – Tato role má všechna oprávnění potřebná ke správě operací Azure Site Recovery v trezoru služby Recovery Services. Uživatel s touto rolí však nemůže vytvořit ani odstranit trezor služby Recovery Services ani přiřadit přístup jiným uživatelům. Tato role je nejvhodnější pro správce obnovení po havárii, kteří můžete povolit a spravovat zotavení po havárii aplikace nebo celé organizace, jako možné.
+* [Operátor Site Recovery](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) – Tato role má oprávnění provádět a spravovat operace převzetí služeb při selhání a navrácení služeb po obnovení. S touto rolí uživatele nelze povolit nebo zakázat replikaci, vytvořit nebo odstranit trezory, zaregistrujte novou infrastrukturu nebo přiřadit přístupová práva jiným uživatelům. Tato role je nejvhodnější pro operátor obnovení po havárii, kdo může převzetí služeb při selhání virtuálního počítače nebo přejít k podrobnostem aplikace při pokyn vlastníci aplikace a správci IT v situacích skutečná nebo simulované po havárii, jako je například zotavení po Havárii. Po vyřešení po havárii, operátor zotavení po Havárii můžete znovu nastavit ochranu a navrácení služeb po obnovení virtuálních počítačů.
+* [Čtenář Site Recovery](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) – Tato role má oprávnění zobrazit všechny operace správy Site Recovery. Tato role je nejvhodnější pro monitorování vedení IT, který můžete sledovat aktuální stav ochrany a zvýšení lístky žádostí o podporu, pokud je to nutné.
 
 Pokud hledáte, můžete definovat vlastní role pro ještě větší kontrolu, přečtěte si postup [vytvářet vlastní role](../active-directory/role-based-access-control-custom-roles.md) v Azure.
 
@@ -45,7 +45,7 @@ Uživatel potřebuje následující oprávnění k dokončení replikace nového
 > [!IMPORTANT]
 >Zajistěte, aby odpovídající oprávnění jsou přidány za model nasazení (Resource Manager / Classic) používá pro nasazení prostředků.
 
-| **Typ prostředku** | **Model nasazení** | **Oprávnění** |
+| **Typ prostředku** | **Model nasazení** | Oprávnění |
 | --- | --- | --- |
 | Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
@@ -75,7 +75,7 @@ Uživatel potřebuje následující oprávnění k dokončení replikace nového
 
 Zvažte použití, Přispěvatel virtuálních počítačů a Přispěvatel Classic virtuálních počítačů [předdefinované role](../active-directory/role-based-access-built-in-roles.md) pro nasazení Resource Manager a klasický modelů v uvedeném pořadí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Řízení přístupu na základě role](../active-directory/role-based-access-control-configure.md): Začínáme s RBAC na portálu Azure.
 * Zjistěte, jak spravovat přístup pomocí:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)

@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 6c92acee9d7609f4fedcddd40563b1a55fa08fac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be23d919b0c96d6c9b96ee328d1b18ad978a9dcc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Řetězení entit služby Service Bus s automatické přesměrování
 
 Service Bus *automatické přesměrování* funkce vám umožní řetězit k fronty nebo předplatné do jiné fronty nebo téma, které je součástí stejného oboru názvů. Pokud je povoleno automatické přesměrování, Service Bus automaticky odebere zprávy, které jsou umístěny v první fronty nebo předplatné (zdroj) a umístí je do druhé fronta nebo téma (cíl). Všimněte si, že je stále možné odeslat zprávu do cílové entity přímo. Navíc není možné zřetězit dílčí fronta, jako je například fronty nedoručených zpráv, do jiné fronty nebo téma.
 
 ## <a name="using-auto-forwarding"></a>Pomocí automatické přesměrování
-Můžete povolit automatické přesměrování nastavením [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] nebo [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] vlastnosti [QueueDescription] [ QueueDescription] nebo [SubscriptionDescription] [ SubscriptionDescription] objekty pro zdroj, jako v následujícím příkladu.
+
+Můžete povolit automatické přesměrování nastavením [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] nebo [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] vlastnosti [QueueDescription] [ QueueDescription] nebo [SubscriptionDescription] [ SubscriptionDescription] objekty pro zdroj, jako v Následující příklad:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,7 +36,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 Cílová entita musí existovat v době, kdy se vytvoří zdrojové entity. Pokud Cílová entita neexistuje, vrátí se Service Bus výjimku, pokud se zobrazí výzva k vytvoření zdrojové entitě.
 
-Automatické přesměrování můžete škálovat jednotlivé tématu. Omezení služby Service Bus [počet předplatných na dané téma](service-bus-quotas.md) na 2 000. Další odběry zvládne vytvořením témata druhé úrovně. Všimněte si, že i v případě, že Service Bus omezení nejsou vázány na počet odběrů, přidání druhou úroveň témat můžete zlepšit celkovou propustnost téma.
+Automatické přesměrování můžete škálovat jednotlivé tématu. Omezení služby Service Bus [počet předplatných na dané téma](service-bus-quotas.md) na 2 000. Další odběry zvládne vytvořením témata druhé úrovně. I když Service Bus omezení nejsou vázány na počet odběrů, přidání druhou úroveň témata může zvýšit celkovou propustnost téma.
 
 ![Scénáře automatické přesměrování][0]
 
@@ -47,7 +48,7 @@ Pokud Alice přejde na dovolenou, svůj osobní fronty, nikoli tématu ERP, zapl
 
 ## <a name="auto-forwarding-considerations"></a>Důležité informace o automatické přesměrování
 
-Pokud Cílová entita shromažďuje příliš mnoho zpráv a překročí kvótu nebo Cílová entita je zakázaná, přidá zdrojové entitě zprávy na jeho [frontu nedoručených zpráv](service-bus-dead-letter-queues.md) dokud není místa v cílovém (nebo entita je znovu povolit). Tyto zprávy bude pokračovat za provozu do fronty nedoručených zpráv, takže se musí explicitně zobrazí a jejich zpracování z fronty nedoručených zpráv.
+Pokud Cílová entita shromažďuje příliš mnoho zpráv a překročí kvótu nebo Cílová entita je zakázaná, přidá zdrojové entitě zprávy na jeho [frontu nedoručených zpráv](service-bus-dead-letter-queues.md) dokud není místa v cílovém (nebo entita je znovu povolit). Tyto zprávy se nadále za provozu do fronty nedoručených zpráv, takže se musí explicitně zobrazí a jejich zpracování z fronty nedoručených zpráv.
 
 Pokud řetězení společně jednotlivých témata získat složené téma se mnoho odběrů, doporučuje se, že máte středně velkým počtem odběry tématu první úrovně a mnoho odběrů na témata druhé úrovně. Například téma první úrovně se 20 odběry, každý z nich zřetězené téma druhé úrovně se 200 odběry, umožňuje vyšší propustnost než první úrovně téma se 200 odběry, každý zřetězené do tématu druhé úrovně s 20 odběry.
 
@@ -55,7 +56,7 @@ Service Bus bills jednu operaci pro každý přesměrovaná zpráva. Například
 
 Chcete-li vytvořit odběr, který je zřetězené do jiné fronty nebo téma, musí mít Tvůrce odběru **spravovat** oprávnění na zdrojovém i cílovém entity. Odesílání zpráv do tématu zdroj vyžaduje pouze **odeslat** oprávnění k tématu zdroje.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Podrobné informace o automatické přesměrování najdete v těchto tématech:
 

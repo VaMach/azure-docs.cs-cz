@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkce triggerů a vazeb koncepty
 
@@ -43,7 +43,7 @@ Při vývoji funkce pomocí sady Visual Studio k vytvoření knihovny tříd, ko
 
 Informace o tom, které jsou ve verzi preview vazby, nebo jsou schváleny pro použití v provozním prostředí najdete v tématu [podporované jazyky](supported-languages.md).
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>Příklad: Aktivace fronty a tabulky Výstupní vazby
+## <a name="example-trigger-and-binding"></a>Příklad aktivační události a vazby
 
 Předpokládejme, že chcete k zápisu nového řádku do Azure Table storage, vždy, když v rámci Azure Queue storage se objeví nová zpráva. Tento scénář může být implementovaná pomocí Azure Queue aktivační událost úložiště a Azure Table storage výstupní vazby. 
 
@@ -79,7 +79,7 @@ K zobrazení a úprava obsahu *function.json* na portálu Azure klikněte na tla
 > [!NOTE]
 > Hodnota `connection` je název nastavení aplikace, který obsahuje připojovací řetězec, ne samotný připojovací řetězec. Vazby používat připojení řetězce, které jsou uložené v nastavení aplikace vynutit nejlepší praxi, který *function.json* neobsahuje tajné klíče služby.
 
-Zde je C# kód skriptu, který funguje s této aktivační události a vazby. Všimněte si, že je název parametru, který poskytuje obsah zprávy fronty `order`; tento název je povinný, protože `name` hodnoty vlastností v *function.json* je`order` 
+Zde je C# kód skriptu, který funguje s této aktivační události a vazby. Všimněte si, že je název parametru, který poskytuje obsah zprávy fronty `order`; tento název je povinný, protože `name` hodnoty vlastností v *function.json* je `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -124,7 +124,7 @@ function generateRandomId() {
 }
 ```
 
-Knihovny tříd, stejné aktivační události a informace o vazbě &mdash; názvu tabulky a fronty, účty úložiště, funkce parametry pro vstup a výstup &mdash; poskytuje atributy:
+Knihovny tříd, stejné aktivační události a informace o vazbě &mdash; názvu tabulky a fronty, účty úložiště, funkce parametry pro vstup a výstup &mdash; poskytuje atributy místo function.json souboru. Tady je příklad:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -156,18 +156,59 @@ Knihovny tříd, stejné aktivační události a informace o vazbě &mdash; náz
 
 Mají všechny triggerů a vazeb `direction` vlastnost *function.json* souboru:
 
-- Pro aktivační události směr je vždy`in`
-- Vstupní a výstupní vazby používat `in` a`out`
+- Pro aktivační události směr je vždy `in`
+- Vstupní a výstupní vazby používat `in` a `out`
 - Některé vazby podporují speciální směr `inout`. Pokud používáte `inout`, jenom **pokročilé editor** je k dispozici v **integrací** kartě.
 
 Při použití [atributy v knihovně tříd](functions-dotnet-class-library.md) konfigurace triggerů a vazeb, směr uvedené v atributu konstruktoru nebo odvozené od typu parametru.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>Použití návratový typ funkce pro vrácení jediného výstupu
+## <a name="using-the-function-return-value"></a>Pomocí návratové hodnoty funkce
 
-Předchozí příklad ukazuje, jak používat funkce návratovou hodnotu k poskytování výstup vazbu, která je určena v *function.json* pomocí speciální hodnoty `$return` pro `name` vlastnost. (Toto je jediná hodnota podporovaná v jazycích, které mají návratovou hodnotu, jako je skript jazyka C#, JavaScript a F #.) Pokud funkce má několik vazeb výstup, použijte `$return` pouze pro jeden z výstupu vazby. 
+V jazycích, které mají návratovou hodnotu můžete vázat vazbu výstup na návratovou hodnotu:
+
+* V jazyce C# knihovny tříd použijte atribut vazby výstup na návratovou hodnotu metody.
+* V jiných jazycích, nastavte `name` vlastnost *function.json* k `$return`.
+
+Pokud potřebujete napsat více než jednu položku, použijte [objekt kolekce](functions-reference-csharp.md#writing-multiple-output-values) místo návratovou hodnotu. Pokud existuje víc vazeb výstup, použijte návratovou hodnotu pouze pro jeden z nich.
+
+Podívejte se na konkrétní jazyk příklad:
+
+* [C#](#c-example)
+* [C# skript (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>Příklad jazyka C#
+
+Zde uvádíme C# kód, který používá pro vazbu výstup, za nímž následuje příklad asynchronní návratovou hodnotu:
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>Příklad skriptu jazyka C#
+
+Zde je vazba výstup v *function.json* souboru:
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +217,9 @@ Předchozí příklad ukazuje, jak používat funkce návratovou hodnotu k posky
 }
 ```
 
-Příklady níže ukazují jak návratové typy se používají s výstup vazeb v C# skript, JavaScript a F #.
+Tady je C# kód skriptu, za nímž následuje příklad asynchronní:
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +229,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +237,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>Příklad F #
+
+Zde je vazba výstup v *function.json* souboru:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Tady je kód F #:
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>Příklad v jazyce JavaScript
+
+Zde je vazba výstup v *function.json* souboru:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+V jazyce JavaScript, je třeba návratovou hodnotu do druhý parametr pro `context.done`:
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>Vlastnost dataType vazby
@@ -232,13 +299,32 @@ Pro jazyky, které jsou zadány dynamicky například JavaScript, použijte `dat
 
 Další možnosti pro `dataType` jsou `stream` a `string`.
 
-## <a name="resolving-app-settings"></a>Řešení nastavení aplikace
+## <a name="binding-expressions-and-patterns"></a>Výrazy vazba a vzory
 
-Jako osvědčený postup tajné klíče a připojovací řetězce musí být řízen pomocí nastavení aplikace, nikoli konfigurační soubory. To omezuje přístup na těchto tajných klíčů a umožňuje bezpečné uložení *function.json* v úložišti veřejné zdroj ovládacího prvku.
+Jedním z nejúčinnějších funkce triggerů a vazeb je *vazby výrazy*. V *function.json* soubor a parametry funkce nebo kód, můžete v výrazy, které odkazují na hodnoty z různých zdrojů.
+
+Většina výrazy jsou identifikovány jejich zabalení do složených závorek. Například ve frontě aktivační události funkci `{queueTrigger}` přeloží na text zprávy fronty. Pokud `path` vlastností pro objekt blob výstup vazba je `container/{queueTrigger}` a funkce se aktivuje zprávu fronty `HelloWorld`, objekt blob s názvem `HelloWorld` je vytvořena.
+
+Typy výrazů vazby
+
+* [Nastavení aplikace](#binding-expressions---app-settings)
+* [Název souboru aktivační události](#binding-expressions---trigger-file-name)
+* [Aktivační událost metadat](#binding-expressions---trigger-metadata)
+* [Datové části JSON](#binding-expressions---json-payloads)
+* [Nový identifikátor GUID](#binding-expressions---create-guids)
+* [Aktuální datum a čas](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>Výrazy vazby – nastavení aplikace
+
+Jako osvědčený postup tajné klíče a připojovací řetězce musí být řízen pomocí nastavení aplikace, nikoli konfigurační soubory. To omezuje přístup na těchto tajných klíčů a umožňuje bezpečné uložení souborů, jako *function.json* ve veřejné zdrojová ovládací prvek úložiště.
 
 Nastavení aplikace jsou užitečné také vždy, když chcete změnit konfiguraci na základě prostředí. Například v testovacím prostředí, můžete monitorovat jiný kontejner fronty nebo objekt blob úložiště.
 
-Nastavení aplikace jsou vyřešeny vždy, když hodnota je uzavřena mezi znaky procenta, jako například `%MyAppSetting%`. Všimněte si, že `connection` vlastnost triggerů a vazeb je zvláštní případ a automaticky vyřeší hodnoty jako nastavení aplikace. 
+Výrazy vazby nastavení aplikace jsou identifikovány jinak z jiné výrazy vazby: jsou zabaleny v znaky procenta spíše než složené závorky. Například pokud je cesta k objektu blob výstup vazby `%Environment%/newblob.txt` a `Environment` hodnota nastavení aplikace je `Development`, vytvoří se objekt blob v `Development` kontejneru.
+
+Když funkce běží místně, hodnoty nastavení aplikace pocházet z *local.settings.json* souboru.
+
+Všimněte si, že `connection` vlastnost triggerů a vazeb je zvláštní případ a automaticky vyřeší hodnoty jako nastavení aplikace, bez znaky procenta. 
 
 Následující příklad je aktivační událost INSTEAD Azure Queue Storage, který používá nastavení aplikace `%input-queue-name%` k definování fronty k aktivaci na.
 
@@ -268,9 +354,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>Metadata vlastnosti aktivační události
+### <a name="binding-expressions---trigger-file-name"></a>Výrazy vazby – název souboru aktivační události
 
-Kromě datová poskytované aktivační událost (například zprávy ve frontě, která aktivuje funkci) zadejte mnoho aktivační události hodnoty dalších metadat. Tyto hodnoty lze použít jako vstupní parametry v C# a F # nebo vlastnosti na `context.bindings` objektu v jazyce JavaScript. 
+`path` Pro objekt Blob může být aktivační událost vzor, který vám umožní odkaz na název objektu blob spouštěcí v jiných vazby a funkce kódu. Vzor může také zahrnovat kritéria filtrování, které určují, které objekty BLOB můžete aktivovat volání funkce.
+
+Například v následující aktivační události objektu Blob vazba `path` vzor je `sample-images/{filename}`, která vytvoří výraz vazba s názvem `filename`:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+Výraz `filename` lze potom použít v vazbu výstup zadat název objektu blob vytváří:
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Kód funkce má přístup k této stejnou hodnotu pomocí `filename` jako název parametru:
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+Stejné možnost používat výrazy vazba a vzory se vztahuje na atributy v knihovny tříd. V následujícím příkladu parametry konstruktoru atributu jsou stejné `path` hodnoty jako předchozí *function.json* příklady: 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+Můžete také vytvořit výrazy pro částí názvu souboru, jako je například rozšíření. Další informace o tom, jak používat výrazy a vzory v řetězec cesty objektu Blob najdete v tématu [odkaz vazby úložiště objektů blob](functions-bindings-storage-blob.md).
+ 
+### <a name="binding-expressions---trigger-metadata"></a>Výrazy vazby - metadata aktivační události
+
+Kromě datová poskytuje mnoho aktivační události aktivační událost (jako je třeba obsah zprávy ve frontě, která aktivuje funkci), zadejte hodnoty dalších metadat. Tyto hodnoty lze použít jako vstupní parametry v C# a F # nebo vlastnosti na `context.bindings` objektu v jazyce JavaScript. 
 
 Například aktivační procedury fronty Azure storage podporuje následující vlastnosti:
 
@@ -304,112 +456,11 @@ Tyto hodnoty metadata jsou dostupné v *function.json* vlastnosti souboru. Před
 
 Podrobnosti o vlastnosti metadat pro jednotlivé aktivační události jsou popsané v článku na odpovídající odkaz. Příklad, naleznete v části [frontě aktivační události metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Je také dostupná v dokumentaci **integrací** karta portálu v **dokumentace** části níže oblast konfigurace vazby.  
 
-## <a name="binding-expressions-and-patterns"></a>Výrazy vazba a vzory
+### <a name="binding-expressions---json-payloads"></a>Výrazy vazby - datové části JSON
 
-Jedním z nejúčinnějších funkce triggerů a vazeb je *vazby výrazy*. V konfiguraci pro vazbu můžete definovat vzor výrazy, které se dají použít v jiné vazby nebo kódu. Metadata aktivační události lze také ve výrazech vazby, jak je uvedeno v předchozí části.
+Pokud je aktivační událost datové části JSON, najdete jeho vlastnosti v konfiguraci pro jiné vazby v stejné funkce a funkce kódu.
 
-Předpokládejme například, kterou chcete změnit velikost bitové kopie v konkrétním kontejneru objektů blob úložiště, podobně jako **Úprava velikosti obrázku** šablony v **novou funkci** stránce portálu Azure (najdete v článku **ukázky**  scénář). 
-
-Tady je *function.json* definice:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Všimněte si, že `filename` parametr se používá v definici aktivační události objektu blob a objekt blob výstup vazby. Tento parametr můžete použít také v kódu funkce.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-Stejné možnost používat výrazy vazba a vzory se vztahuje na atributy v knihovny tříd. Zde je například bitová kopie Změna velikosti funkce v knihovně tříd:
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>Vytvoření identifikátory GUID
-
-`{rand-guid}` Vazby výraz vytvoří identifikátor GUID. Následující příklad používá k vytvoření název objektu blob jedinečný identifikátor GUID: 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>Aktuální čas
-
-Výraz vazby `DateTime` přeloží na `DateTime.UtcNow`.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>Vytvoření vazby na vlastní vstupní vlastnosti
-
-Vazba výrazy můžete taky odkazovat vlastnosti, které jsou definovány v datové části aktivační událost sám sebe. Například můžete dynamicky vázat na soubor úložiště objektů blob ze součástí webhook, jehož název souboru.
-
-Například následující *function.json* používá vlastnost s názvem `BlobName` z datové části aktivační události:
+Následující příklad ukazuje *function.json* souboru webhooku funkce, která přijímá název objektu blob ve formátu JSON: `{"BlobName":"HelloWorld.txt"}`. Vstupní vazbu objektu Blob přečte objekt blob a HTTP Výstupní vazba vrátí obsah objektů blob v odpovědi HTTP. Všimněte si, že vstupní vazba Blob získá název objektu blob tím, že odkazuje přímo na `BlobName` vlastnost (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -424,7 +475,7 @@ Například následující *function.json* používá vlastnost s názvem `BlobN
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +487,7 @@ Například následující *function.json* používá vlastnost s názvem `BlobN
 }
 ```
 
-K tomu v C# a F #, je nutné zadat objektů POCO, která definuje pole, která bude deserializovat v datové části aktivační události.
+Tento postup práce v C# a F # musíte třídu, která definuje pole ke deserializovat, jako v následujícím příkladu:
 
 ```csharp
 using System.Net;
@@ -458,7 +509,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-V jazyce JavaScript se provádí automaticky deserializaci JSON a vlastností lze používat přímo.
+V jazyce JavaScript je automaticky provést deserializaci JSON.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +527,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>Konfigurace vazba dat za běhu
+#### <a name="dot-notation"></a>Zápisu s tečkou
 
-V jazyce C# a jinými jazyky rozhraní .NET, můžete použít imperativní vazby vzoru oproti deklarativní vazeb v *function.json* a atributy. Imperativní vazba je užitečné, když vázané parametry muset počítaný v době běhu spíše než návrhu. Další informace najdete v tématu [vazby za běhu prostřednictvím imperativní vazby](functions-reference-csharp.md#imperative-bindings) v referenci vývojáře jazyka C#.
+Pokud některé vlastnosti v vaše datové části JSON jsou objekty s vlastnostmi, mohou odkazovat na ty přímo pomocí zápisu s tečkou. Předpokládejme například, že vaše struktury JSON vypadá takto:
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+Můžete se podívat přímo na `FileName` jako `BlobName.FileName`. Pomocí tohoto formátu JSON, zde je co `path` bude vypadat vlastnost v předchozím příkladu:
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+V jazyce C# bude potřebovat dvě třídy:
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>Vytvoření vazby výrazy - identifikátory GUID
+
+`{rand-guid}` Vazby výraz vytvoří identifikátor GUID. V následující cestě objektů blob `function.json` soubor vytvoří objekt blob s názvem, jako je *50710cb5-84b9 - 4d 87 9d 83-a03d6976a682.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>Výrazy vazby - aktuální čas
+
+Výraz vazby `DateTime` přeloží na `DateTime.UtcNow`. V následující cestě objektů blob `function.json` soubor vytvoří objekt blob s názvem, jako je *2018-02-16T17-59-55Z.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>Vazba za běhu
+
+V jazyce C# a jinými jazyky rozhraní .NET, můžete použít imperativní vazby vzoru oproti deklarativní vazeb v *function.json* a atributy. Imperativní vazba je užitečné, když vázané parametry muset počítaný v době běhu spíše než návrhu. Další informace najdete v tématu [C# referenční informace pro vývojáře](functions-dotnet-class-library.md#binding-at-runtime) nebo [C# skript referenční informace pro vývojáře](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="functionjson-file-schema"></a>Schéma souboru Function.JSON
 
