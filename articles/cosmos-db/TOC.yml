@@ -373,8 +373,6 @@
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
         - name: Vytvoření vazby na službu Azure Functions
           href: ../azure-functions/functions-bindings-documentdb.md
-        - name: Analýza dat pomocí systému Hadoop
-          href: run-hadoop-with-hdinsight.md
         - name: Integrace se službou Azure Search
           href: ../search/search-howto-index-documentdb.md
         - name: Přesun dat pomocí služby Azure Data Factory
