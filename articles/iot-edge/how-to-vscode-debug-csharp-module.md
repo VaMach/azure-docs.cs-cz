@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Použití Visual Studio Code k ladění modulu jazyka C# s hranou Azure IoT
 Tento článek obsahuje podrobné pokyny pro používání [Visual Studio Code](https://code.visualstudio.com/) jako hlavní vývojový nástroj k ladění moduly Azure IoT okraj.
@@ -47,7 +47,7 @@ Po dokončení předchozí kurzu byste měli mít připravené následující po
 
 2. V `launch.json`, vyhledejte **ladění IoT Edge vlastní modul (.NET Core)** části. V části **pipeArgs**, zadejte `<container_name>`. Měla by být `filtermodule` v tomto kurzu.
 
-    ![Snímek obrazovky VS Code ladění okna](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Snímek obrazovky VS Code launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Přejděte do **Program.cs**. Přidejte zarážku v `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Stiskněte klávesu **F5** znovu a vyberte možnost připojit k procesu. V tomto kurzu, musí být název procesu `FilterModule.dll`.

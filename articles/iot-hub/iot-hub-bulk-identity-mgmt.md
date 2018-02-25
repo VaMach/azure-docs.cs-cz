@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Spravovat vaše identit zařízení IoT Hub hromadně
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Použít **RegistryManager** třídy v kódu jazyka C#, přidejte **Microsoft.Azure.Devices** balíček NuGet do projektu. **RegistryManager** třída je v **Microsoft.Azure.Devices** oboru názvů.
 
-Můžete použít **RegistryManager** třída k dotazování na stav systému **úlohy** pomocí vráceného **JobProperties** metadat.
+Můžete použít **RegistryManager** třída k dotazování na stav systému **úlohy** pomocí vráceného **JobProperties** metadat. Chcete-li vytvořit instanci **RegistryManager** třídy, použijte **CreateFromConnectionString** metoda:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+Najít připojovací řetězec pro službu IoT hub v portálu Azure:
+
+- Přejděte do služby IoT hub.
+- Vyberte **zásady sdíleného přístupu**.
+- Vyberte zásadu, vezme v úvahu oprávnění, která potřebujete.
+- Zkopírujte connectionstring z panelu na pravé straně obrazovky.
 
 Následující fragment kódu jazyka C# ukazuje, jak pokud chcete zobrazit, pokud úloha dokončí provádění dotazování každých pět sekund:
 
@@ -236,11 +247,11 @@ Pokud soubor importu obsahuje twin metadata, tato metadata přepíše existujíc
 
 Použít nepovinný **režimem importu** vlastnost importovat data serializace pro každé zařízení k řízení import proces za zařízení. **Režimem importu** vlastnost obsahuje následující možnosti:
 
-| režimem importu | Popis |
+| importMode | Popis |
 | --- | --- |
 | **createOrUpdate** |Pokud zařízení se zadaným neexistuje **id**, bude nově zaregistrovaný. <br/>Pokud už zařízení existuje, dojde k přepsání zadaný vstupní data bez ohledem na stávající informace o **značka ETag** hodnotu. <br> Uživatel Volitelně můžete zadat data twin spolu s daty zařízení. Značka etag twin,-li zadána, je zpracovat nezávisle ze zařízení etag. Pokud se neshodují s existující twin etag, do souboru protokolu se zapíše chyba. |
 | **vytvoření** |Pokud zařízení se zadaným neexistuje **id**, bude nově zaregistrovaný. <br/>Pokud už zařízení existuje, je zapíše chybu do souboru protokolu. <br> Uživatel Volitelně můžete zadat data twin spolu s daty zařízení. Značka etag twin,-li zadána, je zpracovat nezávisle ze zařízení etag. Pokud se neshodují s existující twin etag, do souboru protokolu se zapíše chyba. |
-| **aktualizace** |Pokud zařízení už se zadaným **id**, přepíše stávající informace o zadané vstupní data bez ohledem na **značka ETag** hodnotu. <br/>Pokud zařízení neexistuje, je zapíše chybu do souboru protokolu. |
+| **update** |Pokud zařízení už se zadaným **id**, přepíše stávající informace o zadané vstupní data bez ohledem na **značka ETag** hodnotu. <br/>Pokud zařízení neexistuje, je zapíše chybu do souboru protokolu. |
 | **updateIfMatchETag** |Pokud zařízení už se zadaným **id**, přepíše stávající informace o zadané vstupní data jenom v případě, že je **značka ETag** shodovat. <br/>Pokud zařízení neexistuje, je zapíše chybu do souboru protokolu. <br/>Pokud dojde **značka ETag** neshoda, do souboru protokolu se zapíše chyba. |
 | **createOrUpdateIfMatchETag** |Pokud zařízení se zadaným neexistuje **id**, bude nově zaregistrovaný. <br/>Pokud už zařízení existuje, stávající informace o je přepsána zadaný vstupní data jenom v případě, že je **značka ETag** shodovat. <br/>Pokud dojde **značka ETag** neshoda, do souboru protokolu se zapíše chyba. <br> Uživatel Volitelně můžete zadat data twin spolu s daty zařízení. Značka etag twin,-li zadána, je zpracovat nezávisle ze zařízení etag. Pokud se neshodují s existující twin etag, do souboru protokolu se zapíše chyba. |
 | **odstranění** |Pokud zařízení už se zadaným **id**, odstraní se bez ohledem na **značka ETag** hodnotu. <br/>Pokud zařízení neexistuje, je zapíše chybu do souboru protokolu. |

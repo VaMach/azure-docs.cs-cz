@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestů služby a aplikace Service Fabric
 Tento článek popisuje, jak Service Fabric aplikace a služby jsou určené a verzí pomocí ApplicationManifest.xml a ServiceManifest.xml souborů.  Schéma XML pro tyto soubory manifestu je popsána v [dokumentace schématu ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -70,7 +70,7 @@ Manifest služby deklarativně definuje typ služby a verze. Určuje metadata sl
 
 Spustitelný soubor určený podle **EntryPoint** je obvykle dlouho běžící hostitele služby. **SetupEntryPoint** je privilegované vstupního bodu, který běží se stejnými pověřeními, jako Service Fabric (obvykle *LocalSystem* účtu) před další vstupní bod.  Přítomnost vstupní bod samostatného instalačního zabraňuje nutnosti spuštění hostitele služby s vysokou úrovní oprávnění pro dlouhou dobu. Spustitelný soubor určený podle **EntryPoint** běží **SetupEntryPoint** ukončí úspěšně. Pokud proces se někdy ukončí nebo dojde k chybě, výsledná proces monitorovat a restartuje (počínaje znovu **SetupEntryPoint**).  
 
-Typické scénáře použití **SetupEntryPoint** jsou při spustit spustitelný soubor před spuštěním služby nebo k provedení operace se zvýšenými oprávněními. Například:
+Typické scénáře použití **SetupEntryPoint** jsou při spustit spustitelný soubor před spuštěním služby nebo k provedení operace se zvýšenými oprávněními. Příklad:
 
 * Nastavení a inicializace proměnných prostředí, které potřebuje spustitelný soubor služby. Toto není omezen na napsané pomocí Service Fabric programovací modely pouze spustitelné soubory. Například npm.exe musí některé proměnné prostředí nakonfigurované pro nasazení aplikace node.js.
 * Nastavení řízení přístupu nainstalováním certifikáty zabezpečení.
@@ -159,7 +159,7 @@ Jako služba manifesty **verze** atributy jsou nestrukturovaných řetězce a ne
 
 **Certifikáty** (není nastaven v předchozím příkladu) deklaruje certifikátů používaných pro [nastavit koncové body HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) nebo [šifrování tajných klíčů v manifestu aplikace](service-fabric-application-secret-management.md).
 
-**Zásady** (není nastaven v předchozím příkladu) Popisuje kolekci protokolu [výchozí spustit jako](service-fabric-application-runas-security.md), [stavu](service-fabric-health-introduction.md#health-policies), a [zabezpečení přístupu](service-fabric-application-runas-security.md) zásady, které chcete nastavit na úrovni aplikace.
+**Zásady** (není nastaven v předchozím příkladu) Popisuje kolekci protokolu [výchozí spustit jako](service-fabric-application-runas-security.md), [stavu](service-fabric-health-introduction.md#health-policies), a [zabezpečení přístupu](service-fabric-application-runas-security.md) zásady, které chcete nastavit úrovni aplikace.
 
 **Objekty** (není nastavena v předchozím příkladu) popisují objekty zabezpečení (uživatele nebo skupiny), potřeba [spuštění služby a prostředky zabezpečené služby](service-fabric-application-runas-security.md).  Objekty odkazují **zásady** oddíly.
 
@@ -176,7 +176,7 @@ For more information about other features supported by application manifests, re
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Balíček aplikace](service-fabric-package-apps.md) a nastavit jej jako připraveny k nasazení.
 - [Nasazení a odebírat aplikace](service-fabric-deploy-remove-applications.md).
 - [Konfigurace parametrů a proměnných prostředí pro jinou aplikaci instance](service-fabric-manage-multiple-environment-app-configuration.md).

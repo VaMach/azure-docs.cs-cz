@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Přesměrování pevně zakódované odkazy k aplikacím publikovaným pomocí proxy aplikace služby Azure AD
 
@@ -27,7 +27,7 @@ Proxy aplikace služby Azure AD umožňuje místní aplikace k dispozici pro už
 
 Ke konfiguraci externí adresy URL aplikací být stejné jako jejich interní adresy URL je nejlepší způsob, jak se ujistěte, že odkazy fungovat stejně uvnitř i vně podnikové sítě. Použití [vlastní domény](active-directory-application-proxy-custom-domains.md) nakonfigurovat tak, aby měl název vaší firemní domény místo výchozí domény proxy aplikace vašeho externí adresy URL.
 
-Pokud nemůžete použít vlastní domény ve vašem klientovi, funkci překlad odkazů proxy aplikací zajišťuje vaše odkazy práce bez ohledu na to, kde jsou vaši uživatelé. Pokud máte aplikace, které přejděte přímo na vnitřních koncových bodů nebo porty, můžete namapovat tyto interní adresy URL publikované externí URL Proxy aplikace. Pokud je povoleno překlad odkaz, a hledá Proxy aplikací pomocí jazyka HTML, CSS a vyberte značky jazyka JavaScript pro publikované interní odkazy. Potom služba Proxy aplikace znamená, že je tak, aby uživatelé získají bez přerušení prostředí.
+Pokud nemůžete použít vlastní domény ve vašem klientovi, funkci překlad odkazů proxy aplikací zajišťuje vaše odkazy práce bez ohledu na to, kde jsou vaši uživatelé. Pokud máte aplikace, které přejděte přímo na vnitřních koncových bodů nebo porty, můžete namapovat tyto interní adresy URL publikované externí URL Proxy aplikace. Pokud je povoleno překlad odkaz, a Proxy aplikace hledá v kódu HTML a CSS publikované interní odkazy, služba Proxy aplikace přeloží je tak, aby uživatelé získají bez přerušení prostředí.
 
 >[!NOTE]
 >Funkce překladu odkaz je pro klienty, kteří ať důvodu, nelze použít vlastní domény tak, aby měl stejné interní a externí adresy URL pro svoje aplikace. Před povolením této funkce najdete v části Pokud [vlastních domén v Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) může fungovat pro vás.
@@ -64,7 +64,7 @@ Když povolíte překlad odkaz pro aplikaci výhody, odkazy na výdaje a cesta p
 Pro zvýšení výkonu a zabezpečení, nejsou přeložit některé odkazy:
 
 - Odkazy není uvnitř značky kódu. 
-- Odkazy nejsou v HTML, CSS a JavaScript. 
+- Odkazy není v HTML nebo šablon stylů CSS. 
 - Vnitřní propojení otevřít z jiných aplikací. Odkazy budou odesílat prostřednictvím e-mailu nebo pomocí rychlé zprávy nebo součástí jiné dokumenty, nebude možné přeložit. Uživatelé musí vědět, přejít na externí adresu URL.
 
 Pokud potřebujete podporovat některý z těchto dvou scénářů, použijte místo odkaz překlad stejné interní a externí adresy URL.  
@@ -82,9 +82,9 @@ Začínáme s překlad odkaz je stejně snadná jako kliknutí na tlačítko:
 
 Teď když vaši uživatelé přístup k této aplikaci, proxy server automaticky vyhledá interní adresy URL, které byly publikovány prostřednictvím Proxy aplikace na klientovi.
 
-## <a name="send-feedback"></a>Odeslat názor
+## <a name="send-feedback"></a>Odeslat zpětnou vazbu
 
-Chceme, abyste Ujistěte se, tato funkce fungovat pro všechny aplikace. Jsme hledání více než 30 značky v kódu HTML a CSS a jsou vzhledem k tomu, který JavaScript případů pro podporu. Pokud máte příkladem generovaného odkazy, které nejsou se překlad vztahuje, pošlete fragment kódu do [zpětnou vazbu Proxy aplikací](mailto:aadapfeedback@microsoft.com). 
+Chceme, abyste Ujistěte se, tato funkce fungovat pro všechny aplikace. Jsme hledání více než 30 značky v kódu HTML a CSS. Pokud máte příkladem generovaného odkazy, které nejsou se překlad vztahuje, pošlete fragment kódu do [zpětnou vazbu Proxy aplikací](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Další postup
 [Použití vlastních domén s Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) mít stejnou interní a externí adresu URL

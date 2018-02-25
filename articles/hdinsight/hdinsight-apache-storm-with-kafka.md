@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Pomocí Apache Kafka Storm v HDInsight
 
@@ -36,7 +36,7 @@ Kód pro tento příklad v tomto dokumentu je k dispozici na [https://github.com
 
 Kompilace projektu, potřebujete následující konfigurace pro vývojové prostředí:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) nebo vyšší. HDInsight 3.5 nebo vyšší vyžadují Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) nebo vyšší. HDInsight 3.5 nebo vyšší vyžadují Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -46,11 +46,11 @@ Kompilace projektu, potřebujete následující konfigurace pro vývojové prost
 
 Následující proměnné prostředí může být nastaven při instalaci Java a sadu JDK na pracovní stanici. Nicméně byste měli zkontrolovat, že existují a že obsahují správné hodnoty pro váš systém.
 
-* `JAVA_HOME`-by měla odkazovat na adresář, kam nainstalovat sadu JDK.
-* `PATH`-musí obsahovat následující cesty:
+* `JAVA_HOME` -by měla odkazovat na adresář, kam nainstalovat sadu JDK.
+* `PATH` -musí obsahovat následující cesty:
   
-    * `JAVA_HOME`(nebo ekvivalentní cesta).
-    * `JAVA_HOME\bin`(nebo ekvivalentní cesta).
+    * `JAVA_HOME` (nebo ekvivalentní cesta).
+    * `JAVA_HOME\bin` (nebo ekvivalentní cesta).
     * Adresář, kde je nainstalován Maven.
 
 ## <a name="create-the-clusters"></a>Vytváření clusterů
@@ -121,7 +121,7 @@ Tento projekt obsahuje dvě topologie:
     Tato topologie Storm HdfsBolt používá k zápisu dat do výchozího úložiště pro Storm cluster.
 ### <a name="flux"></a>Tok
 
-Uvedené topologie jsou definovány pomocí [tok](https://storm.apache.org/releases/1.1.0/flux.html). Tok byla zavedena v Storm 0.10.x a umožňuje oddělit konfiguraci topologie z kódu. Pro topologie, které používají rozhraní tok topologii je definována v souboru YAML. Soubor YAML může být součástí topologii. Také může být samostatný soubor používá při odesílání topologie. Tok také podporuje nahrazení proměnné za běhu, který se používá v tomto příkladu.
+Uvedené topologie jsou definovány pomocí [tok](https://storm.apache.org/releases/1.1.2/flux.html). Tok byla zavedena v Storm 0.10.x a umožňuje oddělit konfiguraci topologie z kódu. Pro topologie, které používají rozhraní tok topologii je definována v souboru YAML. Soubor YAML může být součástí topologii. Také může být samostatný soubor používá při odesílání topologie. Tok také podporuje nahrazení proměnné za běhu, který se používá v tomto příkladu.
 
 Následující parametry jsou nastavené v době běhu pro tyto topologie:
 
@@ -131,7 +131,7 @@ Následující parametry jsou nastavené v době běhu pro tyto topologie:
 
 * `${kafka.zookeeper.hosts}`: Hostitelů, které Zookeeper běží na clusteru Kafka.
 
-Další informace o topologiích tok najdete v tématu [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Další informace o topologiích tok najdete v tématu [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Stáhněte si a kompilaci projektu
 
@@ -255,7 +255,7 @@ Další informace o topologiích tok najdete v tématu [https://storm.apache.org
 
     * `--remote`: Odešlete topologii Nimbus. Topologie se distribuuje do uzlů pracovního procesu v clusteru.
 
-    * `-R /writer.yaml`: Pomocí `writer.yaml` souboru ke konfiguraci topologie. `-R`Označuje, že tento prostředek je součástí na soubor jar. Proto je v kořenovém jar, `/writer.yaml` je cesta k němu.
+    * `-R /writer.yaml`: Pomocí `writer.yaml` souboru ke konfiguraci topologie. `-R` Označuje, že tento prostředek je součástí na soubor jar. Proto je v kořenovém jar, `/writer.yaml` je cesta k němu.
 
     * `--filter`: Naplnění položek v `writer.yaml` topologie pomocí hodnot v `dev.properties` souboru. Například hodnota `kafka.topic` položku v souboru se používá k nahrazení `${kafka.topic}` položku v definici topologie.
 

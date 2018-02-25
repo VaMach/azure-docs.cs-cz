@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: ericrad
-ms.openlocfilehash: 79cbdb4d7c11fac0ca27758e92b44799ce0c1a3e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 1f4c542c179f196e61457ddba6b9dfe76dd1dc79
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Služba Azure Metadata: Naplánované události pro virtuální počítače s Linuxem
 
@@ -27,7 +27,8 @@ Naplánované události je služba Azure Metadata, která dává vaší aplikace
 
 Informace o naplánované události v systému Windows najdete v tématu [naplánované události pro virtuální počítače Windows](../windows/scheduled-events.md).
 
-[!IMPORTANT] Naplánované události je všeobecně dostupná v všech oblastech Azure. V tématu [verze a dostupnost v oblastech](#version-and-region-availability) pro nejnovější informace o verzi.
+> [!Note] 
+> Naplánované události je všeobecně dostupná v všech oblastech Azure. V tématu [verze a dostupnost v oblastech](#version-and-region-availability) pro nejnovější informace o verzi.
 
 ## <a name="why-use-scheduled-events"></a>Proč používat naplánované události?
 

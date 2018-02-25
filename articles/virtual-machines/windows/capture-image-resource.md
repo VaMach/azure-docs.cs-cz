@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Vytvořte bitovou kopii spravované zobecněný virtuálního počítače v Azure
 
@@ -55,7 +55,7 @@ Ujistěte se, že role serveru spuštěná na tomto počítači jsou podporován
 3. V **název**, zadejte název, který chcete použít pro bitovou kopii.
 4. V **skupiny prostředků** vyberte buď **vytvořit nový** a zadejte název, nebo vyberte **použít existující** a vyberte skupinu prostředků z rozevíracího seznamu.
 5. Pokud chcete odstranit zdrojového virtuálního počítače po image vytvořené, vyberte **automaticky odstranit tento virtuální počítač po vytvoření image**.
-6. Až budete hotovi, klikněte na tlačítko **vytvořit**.
+6. Až budete hotoví, klikněte na **Vytvořit**.
 16. Po vytvoření image se bude zobrazovat jako **Image** prostředku v seznamu prostředků ve skupině prostředků.
 
 
@@ -65,7 +65,7 @@ Ujistěte se, že role serveru spuštěná na tomto počítači jsou podporován
 Vytvoření bitové kopie přímo z virtuálního počítače zajistí, že image obsahuje všechny disky, které jsou spojené s virtuálním Počítačem, včetně disku operačního systému a všech datových disků. Tento příklad ukazuje, jak vytvořit spravované obrázek z virtuálního počítače, aby používá ke správě disků.
 
 
-Než začnete, ujistěte se, že máte nejnovější verzi modulu AzureRM.Compute prostředí PowerShell. Spusťte následující příkaz k její instalaci.
+Než začnete, ujistěte se, že máte nejnovější verzi modulu AzureRM.Compute prostředí PowerShell. Spusťte následující příkaz k její instalaci. (Použití `Get-Module` pro kontrolu verze, jaké máte.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0

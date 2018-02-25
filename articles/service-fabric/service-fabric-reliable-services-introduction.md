@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: masnider;
-ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="reliable-services-overview"></a>Přehled Reliable Services
 Azure Service Fabric zjednodušuje zápis a správu bezstavové a stavové spolehlivé služby. Toto téma obsahuje:
@@ -40,12 +40,12 @@ Spolehlivé služby poskytuje jednoduché, výkonné a nejvyšší úrovně prog
   * přijímání oznámení o změnách konfigurace a kódu
   * Najít a komunikovat s jinými službami
   * (volitelně) použít [spolehlivé kolekce](service-fabric-reliable-services-reliable-collections.md)
-  * ...a bude mít přístup k řadu dalších funkcí z první třídy programovací model v několika programovací jazyky.
+  * .. a bude mít přístup k řadu dalších funkcí z první třídy programovací model v několika programovací jazyky.
 * Jednoduchý model pro spuštění vlastního kódu, který vypadá jako programovací modely, které se používají k. Váš kód má jasně definované vstupní bod a jednoduše spravované životního cyklu.
 * Modulární komunikační model. Používají přenos podle vaší volby, jako je například HTTP s [webového rozhraní API](service-fabric-reliable-services-communication-webapi.md), Websocket, vlastní protokoly TCP, nebo cokoliv jiného. Spolehlivé služby poskytují některé skvělé možnosti se na pole můžete použít, nebo můžete zadat vlastní.
 * Spolehlivé služby programovací model pro stavové služby, umožňuje konzistentní a spolehlivě ukládat vašemu stavu právo uvnitř vaší služby pomocí [spolehlivé kolekce](service-fabric-reliable-services-reliable-collections.md). Spolehlivé kolekce jsou jednoduchou sadou třídy vysoce dostupné a spolehlivého kolekce, které budou pro každý, kdo má používá kolekce C#. Tradičně služby pro správu spolehlivé stavu potřeba externími systémy. S spolehlivé kolekce se dají ukládat vašemu stavu vedle výpočetní stejnou vysokou dostupnost a spolehlivost, které jste si zvykli z úložiště s vysokou dostupností externí. Tento model taky zlepšuje latence, protože jsou společné umísťování výpočty a stavu, ve kterém musí fungovat.
 
-Podívejte se na toto video Microsoft Virtual Academy přehled spolehlivé služby:<center>
+Podívejte se na toto video Microsoft Virtual Academy přehled spolehlivé služby: <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>
@@ -113,7 +113,7 @@ Pokud některé z následujících charakterizovat služby potřebám vaší apl
 * Aplikace musí udržovat historii změn pro jeho jednotky stavu.
 * Chcete vyvíjet nebo využívat zprostředkovatelé třetí strany vyvinuté, vlastní stavu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Spolehlivé služby rychlý start](service-fabric-reliable-services-quick-start.md)
 * [Spolehlivé služby advanced využití](service-fabric-reliable-services-advanced-usage.md)
 * [Programovacího modelu Reliable Actors](service-fabric-reliable-actors-introduction.md)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurace zabezpečeného LDAP (LDAPS) pro spravované doméně služby Azure AD Domain Services
 
@@ -113,7 +113,6 @@ Následující tabulka znázorňuje ukázku NSG můžete nakonfigurovat, zamknou
 ## <a name="troubleshooting"></a>Řešení potíží
 Pokud máte potíže s připojením k spravované doméně pomocí zabezpečený LDAP, proveďte následující kroky řešení potíží:
 * Ujistěte se, že řetězu vystavitele certifikátu zabezpečeného LDAP je důvěryhodná v klientovi. Můžete se rozhodnout pro přidání kořenové certifikační autority do úložiště důvěryhodných kořenových certifikátů na straně klienta k navázání vztahu důvěryhodnosti.
-* Ověřte, že není zabezpečený LDAP certifikát vystavený zprostředkující certifikační autority, která není důvěryhodná na počítače s novou windows ve výchozím nastavení.
 * Ověřte, že klienta LDAP (například ldp.exe) připojí k zabezpečení koncového bodu protokolu LDAP pomocí názvu DNS, ne IP adresy.
 * Ověřte název DNS, který klient LDAP připojí k překládá se na veřejnou IP adresu pro zabezpečený LDAP na spravované domény.
 * Ověřte, že zabezpečený LDAP certifikát pro vaší spravované domény má název DNS v subjektu nebo alternativní názvy subjektu atribut.

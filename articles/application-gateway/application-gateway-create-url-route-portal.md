@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Vytvoření služby application gateway s cesta pravidla založená na směrování pomocí portálu Azure
 
@@ -75,7 +75,7 @@ Virtuální síť je požadován pro komunikaci mezi prostředky, které vytvoř
 
 3. Zadejte *myBackendSubnet* pro název podsítě a pak klikněte na tlačítko **OK**.
 
-## <a name="create-virtual-machines"></a>Vytváření virtuálních počítačů
+## <a name="create-virtual-machines"></a>Vytvoření virtuálních počítačů
 
 V tomto příkladu můžete vytvořit tři virtuální počítače, který se má použít jako back-end serverů pro službu application gateway. Je také nainstalovat službu IIS na virtuálních počítačích, chcete-li ověřit, že aplikační brány byl úspěšně vytvořen.
 
@@ -120,7 +120,7 @@ V tomto příkladu můžete vytvořit tři virtuální počítače, který se m�
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Vytvoření back-endové fondy s virtuálními počítači
 
 1. Klikněte na tlačítko **všechny prostředky** a pak klikněte na **myAppGateway**.
-2. Klikněte na tlačítko **back-endové fondy**. Výchozí fond byl automaticky vytvořen s aplikační brány. Klikněte na tlačítko **appGateayBackendPool**.
+2. Klikněte na tlačítko **back-endové fondy**. Výchozí fond byl automaticky vytvořen s aplikační brány. Klikněte na tlačítko **appGatewayBackendPool**.
 3. Klikněte na tlačítko **přidat cíl** přidat *myVM1* k appGatewayBackendPool.
 
     ![Přidat back-end serverů](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Účty a oprávnění
 Průvodce instalací služby Azure AD Connect nabízí dva různé cesty:
@@ -43,7 +43,7 @@ V nastavení Express Průvodce instalací požádá o pověření správce podni
 
 | Stránka Průvodce | Přihlašovací údaje shromážděné | Oprávnění vyžadovaná | Použít pro |
 | --- | --- | --- | --- |
-| Není k dispozici |Uživatel, který spouští Průvodce instalací |Správce místního serveru |<li>Vytvoří místní účet, který se používá jako [synchronizovat účet služby modul](#azure-ad-connect-sync-service-account). |
+| neuvedeno |Uživatel, který spouští Průvodce instalací |Správce místního serveru |<li>Vytvoří místní účet, který se používá jako [synchronizovat účet služby modul](#azure-ad-connect-sync-service-account). |
 | Připojení k Azure AD |Přihlašovací údaje pro adresář Azure AD |Roli globálního správce ve službě Azure AD |<li>Zapíná se synchronizace v adresáři služby Azure AD.</li>  <li>Vytváření [účet Azure AD](#azure-ad-service-account) který se používá pro synchronizační průběžné operace ve službě Azure AD.</li> |
 | Připojení ke službě AD DS |Místní přihlašovací údaje služby Active Directory |Člen skupiny Enterprise Admins (EA) ve službě Active Directory |<li>Vytvoří [účet](#active-directory-account) ve službě Active Directory a uděluje oprávnění k němu. Tento účet vytvořil slouží ke čtení a zápisu informací v adresáři directory během synchronizace.</li> |
 
@@ -70,7 +70,7 @@ Azure AD Connect verze 1.1.524.0 a novějším je možnost povolit, aby průvodc
 
 | Stránka Průvodce | Přihlašovací údaje shromážděné | Oprávnění vyžadovaná | Použít pro |
 | --- | --- | --- | --- |
-| Není k dispozici |Uživatel, který spouští Průvodce instalací |<li>Správce místního serveru</li><li>Pokud používáte plnou instalaci systému SQL Server, uživatel musí být správce systému (SA) v systému SQL</li> |Ve výchozím nastavení, vytvoří místní účet, který se používá jako [synchronizovat účet služby modul](#azure-ad-connect-sync-service-account). Účet se vytvoří jen tehdy, když správce neurčuje určitého účtu. |
+| neuvedeno |Uživatel, který spouští Průvodce instalací |<li>Správce místního serveru</li><li>Pokud používáte plnou instalaci systému SQL Server, uživatel musí být správce systému (SA) v systému SQL</li> |Ve výchozím nastavení, vytvoří místní účet, který se používá jako [synchronizovat účet služby modul](#azure-ad-connect-sync-service-account). Účet se vytvoří jen tehdy, když správce neurčuje určitého účtu. |
 | Nainstalovat synchronizační služby, možnost účet služby |AD nebo pověření místního uživatelského účtu |Uživatel, oprávnění pomocí Průvodce instalací |Pokud správce určuje účet, tento účet slouží jako účet služby pro službu synchronizace. |
 | Připojení k Azure AD |Přihlašovací údaje pro adresář Azure AD |Roli globálního správce ve službě Azure AD |<li>Zapíná se synchronizace v adresáři služby Azure AD.</li>  <li>Vytváření [účet Azure AD](#azure-ad-service-account) který se používá pro synchronizační průběžné operace ve službě Azure AD.</li> |
 | Připojení adresářů |Místní přihlašovací údaje služby Active Directory pro jednotlivé doménové struktury, která je připojena k Azure AD |Oprávnění závisí na funkce, které můžete povolit a lze nalézt v [vytvořit účet služby AD DS](#create-the-ad-ds-account) |Tento účet slouží ke čtení a zápisu informací v adresáři directory během synchronizace. |
@@ -98,7 +98,7 @@ Oprávnění, která budete potřebovat, závisí na volitelné funkce povolíte
 Při upgradu z jedné verze služby Azure AD Connect na novou verzi, potřebujete následující oprávnění:
 
 >[!IMPORTANT]
->Od verze sestavení 1.1.484, Azure AD Connect zavedl regrese chyb, který vyžaduje oprávnění správce systému a Upgradujte databázi SQL.  Tato chyba se stále nachází v posledním sestavení 1.1.614.  Pokud provádíte upgrade na tento build, budete potřebovat oprávnění správce.  Oprávnění dbo nestačí.  Pokud se pokusíte o upgrade Azure AD Connect bez oprávnění správce, se upgrade nezdaří a Azure AD Connect již nebude fungovat správně později.  Společnost Microsoft je uvědomte o tom a funguje to opravit.
+>Od verze sestavení 1.1.484, Azure AD Connect zavedl regrese chyb, který vyžaduje oprávnění správce systému a Upgradujte databázi SQL.  Tato chyba je v sestavení 1.1.647 opravena.  Pokud provádíte upgrade na tento build, budete potřebovat oprávnění správce.  Oprávnění dbo nestačí.  Pokud se pokusíte o upgrade Azure AD Connect bez oprávnění správce, se upgrade nezdaří a Azure AD Connect již nebude fungovat správně později.  Společnost Microsoft je uvědomte o tom a funguje to opravit.
 
 
 | Objekt zabezpečení | Oprávnění vyžadovaná | Použít pro |
@@ -108,7 +108,7 @@ Při upgradu z jedné verze služby Azure AD Connect na novou verzi, potřebujet
 | Uživatel, který spouští Průvodce instalací |Pokud používáte plnou instalaci systému SQL server: DBO (nebo podobnou) z databáze synchronizačního modulu |Proveďte změny úrovně databáze, například aktualizace tabulek s novými sloupci. |
 
 ## <a name="more-about-the-created-accounts"></a>Další informace o vytvořené účty
-### <a name="active-directory-account"></a>Účet služby Active Directory
+### <a name="active-directory-account"></a>Účet Active Directory
 Pokud chcete použít Expresní nastavení, je vytvořen účet ve službě Active Directory, který je používán k synchronizaci. Vytvořený účet se nachází v kořenové doméně doménové struktury v kontejneru Users a má názvu předponu s **MSOL_**. Účet je vytvořen s dlouho složité heslo, které nevyprší platnost. Pokud máte zásad hesel ve vaší doméně, ujistěte se, že dlouhá a složitá hesla bude mít možnost pro tento účet.
 
 ![Účet AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
@@ -143,16 +143,16 @@ Legenda:
 - sMSA - [samostatný účet spravované služby](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA - [skupinový účet spravované služby](https://technet.microsoft.com/library/hh831782.aspx)
 
-| | LocalDB</br>Express | LocalDB nebo LocalSQL</br>Vlastní | Vzdálený server SQL</br>Vlastní |
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Vlastní | Vzdálený server SQL</br>Vlastní |
 | --- | --- | --- | --- |
-| **samostatné nebo pracovní skupiny počítače** | Nepodporuje se | **ATRIBUT**</br>Místní účet (2008)</br>Místní účet |  Nepodporuje se |
-| **počítač připojený k doméně** | **ATRIBUT**</br>Místní účet (2008) | **ATRIBUT**</br>Místní účet (2008)</br>Místní účet</br>Účet domény</br>sMSA, gMSA | **gMSA**</br>Účet domény |
-| **Řadič domény** | **Účet domény** | *gMSA*</br>**Účet domény**</br>sMSA| *gMSA*</br>**Účet domény**|
+| **samostatné nebo pracovní skupiny počítače** | Nepodporuje se | **VSA**</br>Místní účet (2008)</br>Místní účet |  Nepodporuje se |
+| **počítač připojený k doméně** | **VSA**</br>Místní účet (2008) | **VSA**</br>Místní účet (2008)</br>Místní účet</br>Účet domény</br>sMSA,gMSA | **gMSA**</br>Účet domény |
+| **Domain Controller** | Účet domény | *gMSA*</br>Účet domény</br>sMSA| *gMSA*</br>Účet domény|
 
 #### <a name="virtual-service-account"></a>Účet služby virtuální
 Účet služby virtuální je speciální typ účtu, který nemá heslo a je spravována službou Windows.
 
-![ATRIBUT](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
+![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
 
 Tyto Atributy se má být použitá se scénáři, kdy jsou synchronizační modul a SQL na stejném serveru. Pokud používáte vzdálený SQL, pak doporučujeme používat [skupinový účet spravované služby](#managed-service-account) místo.
 
@@ -162,7 +162,7 @@ Tato funkce vyžaduje Windows Server 2008 R2 nebo novější. Pokud Azure AD Con
 Pokud používáte vzdálený SQL server, pak doporučujeme pomocí **skupiny účet spravované služby**. Další informace o tom, jak připravit služby Active Directory pro účet spravované služby skupiny najdete v tématu [přehled účtů spravované služby skupiny](https://technet.microsoft.com/library/hh831782.aspx).
 
 Tuto možnost použít na [instalace požadovaných součástí](active-directory-aadconnect-get-started-custom.md#install-required-components) vyberte **použít existující účet služby**a vyberte **účet spravované služby**.  
-![ATRIBUT](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
+![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
 Je podporováno také používat [samostatný účet spravované služby](https://technet.microsoft.com/library/dd548356.aspx). Ale tyto lze použít pouze v místním počítači a nepřináší žádný užitek přes výchozí účet virtuální službu používat.
 
 Tato funkce vyžaduje Windows Server 2012 nebo novější. Pokud potřebujete použít staršího operačního systému a použití vzdáleného SQL, pak je nutné použít [uživatelský účet](#user-account).
@@ -191,9 +191,9 @@ Název serveru, který účet se používá na lze identifikovat v druhé část
 
 Účet služby se vytvoří s dlouho složité heslo, které nevyprší platnost. Jsou udělena zvláštní role **účty synchronizace adresáře** který má pouze oprávnění k provedení úlohy synchronizace adresáře. Tento speciální předdefinovaná role nelze udělit mimo Průvodce službou Azure AD Connect. Portál Azure ukazuje tento účet s rolí **uživatele**.
 
-Existuje omezení 20 účtů služeb synchronizace ve službě Azure AD. Chcete-li získat seznam stávajících účtů služby Azure AD ve službě Azure AD, spusťte následující rutinu Azure AD PowerShell:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Existuje omezení 20 účtů služeb synchronizace ve službě Azure AD. Chcete-li získat seznam stávajících účtů služby Azure AD ve službě Azure AD, spusťte následující rutinu Azure AD PowerShell: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Chcete-li odebrat nepoužité Azure AD účtům služby, spusťte následující rutinu Azure AD PowerShell:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Chcete-li odebrat nepoužité Azure AD účtům služby, spusťte následující rutinu Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](../active-directory-aadconnect.md).

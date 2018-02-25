@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Předdefinované role pro řízení přístupu Azure na základě rolí
 Azure na základě rolí řízení přístupu (RBAC) obsahuje následující předdefinované role, které lze přiřadit uživatelům, skupinám a službám. Definice předdefinované role se nedá změnit. Můžete však vytvořit [vlastní role v Azure RBAC](role-based-access-control-custom-roles.md) podle konkrétních potřeb vaší organizace.
@@ -51,6 +51,7 @@ V tomto článku pouze adresy různé role, které existují ještě dnes. Když
 | [BizTalk přispěvatele](#biztalk-contributor) |Můžete spravovat služby BizTalk services |
 | [Databáze MySQL cleardb – DB přispěvatele](#cleardb-mysql-db-contributor) |Můžete spravovat databáze MySQL cleardb – |
 | [Přispěvatel](#contributor) |Můžou spravovat všechno kromě přístupu. |
+| [Role čtenáře účet cosmos DB](#cosmos-db-account-reader-role) |Můžete číst data účtu Azure Cosmos DB |
 | [Přispěvatel objekt pro vytváření dat](#data-factory-contributor) |Můžete vytvořit a spravovat datové továrny a podřízené prostředky v nich. |
 | [Uživatel DevTest Labs](#devtest-labs-user) |Můžete zobrazit vše, co a připojit, spuštění, restart a vypnutí virtuálního počítače |
 | [Přispěvatel zóny DNS](#dns-zone-contributor) |Můžete spravovat zóny DNS a záznamy |
@@ -307,10 +308,23 @@ Můžou spravovat všechno kromě přístupu
 | --- | --- |
 | * |Vytvořit a spravovat prostředky všech typů |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Nelze odstranit role a přiřazení rolí |
 | Microsoft.Authorization/*/Write |Nelze vytvořit role a přiřazení rolí |
+
+### <a name="cosmos-db-account-reader-role"></a>Role čtenáře účtu Cosmos DB
+Můžete číst data účtu Azure Cosmos DB. V tématu [Přispěvatel účet DocumentDB](#documentdb-account-contributor) pro správu účtů Azure Cosmos DB.
+
+| **Akce** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Čtení rolí a přiřazení rolí, můžete oprávnění ke čtení zadané pro každého uživatele|
+|Microsoft.DocumentDB/*/read|Číst všechny kolekce|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Přečtěte si v podokně klíče jen pro čtení|
+|Microsoft.Insights/Metrics/read|Číst účet metriky|
+|Microsoft.Insights/MetricDefinitions/read|Číst definice metrik|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Skupiny prostředků pro čtení|
+|Microsoft.Support/*|Vytvářet a spravovat lístky žádostí o podporu|
 
 ### <a name="data-factory-contributor"></a>Přispěvatel Data Factory
 Vytvořit a spravovat datové továrny a podřízené prostředky v nich.
@@ -677,7 +691,7 @@ Můžete spravovat databáze SQL, ale není jejich zásady zabezpečení
 | Microsoft.Sql/servers/read |Read SQL Servers |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Nelze upravit zásady auditu |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Nelze upravit nastavení auditu |
@@ -727,7 +741,7 @@ Můžete spravovat servery SQL Server a databáze, ale není jejich zásady zabe
 | Microsoft.Sql/servers/* |Vytvoření a správa serverů SQL |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Nelze upravit zásady auditu SQL serveru |
 | Microsoft.Sql/servers/auditingSettings/* |Nastavení auditování serveru SQL server nelze upravit. |

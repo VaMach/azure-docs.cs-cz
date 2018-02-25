@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure schématu události událostí mřížky
 
@@ -30,7 +30,7 @@ Následující příklad ukazuje vlastnosti, které jsou používány všechny z
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ Schéma publikována pro událost úložiště objektů Blob v Azure je napřík
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Vlastnosti události
 
 Všechny události obsahovat stejné nejvyšší úrovně následující data:
@@ -92,7 +92,9 @@ Další informace o vlastnosti v objektu data, najdete v části Zdroj události
 
 * [Předplatná Azure (operace správy)](event-schema-subscriptions.md)
 * [Blob Storage](event-schema-blob-storage.md)
-* [Služba Event hubs](event-schema-event-hubs.md)
+* [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Skupiny prostředků (operace správy)](event-schema-resource-groups.md)
 
 Pro vlastní témata určuje vydavatel události datový objekt. Nejvyšší úrovně data by měla obsahovat stejná pole jako standardní událostí definovaných prostředků. Při publikování událostí do vlastní témata, měli byste zvážit modelování předmět události pro usnadnění směrování a filtrování.

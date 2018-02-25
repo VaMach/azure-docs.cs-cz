@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Protokol výstrah v monitorování Azure – výstrahy (Preview)
 Tento článek poskytuje podrobné informace o tom, jak výstrahy pravidla v pracovní dotazy Analytics ve výstrahách Azure (Preview) a popisuje rozdíly mezi různé typy protokolu pravidla výstrah.
@@ -27,11 +27,20 @@ Aktuálně výstrahy Azure (Preview), podporuje protokolu výstrahy na dotazy z 
 
 > [!WARNING]
 
-> V současné době protokolu výstrahy ve výstrahách Azure (Preview) nepodporuje dotazů mezi prostoru nebo napříč aplikacemi.
+> V současné době výstrahu protokolu ve výstrahách Azure (Preview) nepodporuje dotazů mezi prostoru nebo napříč aplikacemi.
+
+Navíc můžete uživatelům ideální jejich dotazy v analytické platformě podle výběru v Azure a potom *importovat je pro použití ve výstrahách (Preview) uložením dotaz*. Postup:
+- Pro službu Application Insights: Portálu analýza přejděte k ověření dotazů a jeho výsledky. Potom uložte s jedinečným názvem do *sdílené dotazy*.
+- Pro analýzu protokolu: Přejděte do protokolu vyhledávání, ověření dotazu a jeho výsledky. Pak použijte uložit s jedinečným názvem do žádné kategorie.
+
+Pak když [vytváření výstrahu protokolu ve výstrahách (Preview)](monitor-alerts-unified-usage.md), najdete v části uloženého dotazu uvedené jako typ signálu **protokolu (uložený dotaz)**; jak je znázorněno v následujícím příkladu: ![uložený dotaz importovat do výstrahy](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> Pomocí **protokolu (uložený dotaz)** výsledkem importu výstrah. Proto nebudou všechny změny provést po v Analytics odrážející v uloženém pravidla výstrah a naopak.
 
 ## <a name="log-alert-rules"></a>Pravidla výstrah protokolu
 
-Výstrahy jsou vytvářeny automaticky v pravidelných intervalech spouštět dotazy protokolu výstrahy Azure (Preview).  Pokud výsledky dotazu protokolu konkrétním kritériím, se vytvoří záznam výstrahy. Pravidlo může automaticky spusťte jednu nebo více akcí proaktivně oznámíme vám výstrahy nebo vyvolání jiný proces, jako je spuštění sady runbook, pomocí [skupiny akcí](monitoring-action-groups.md).  Různé typy pravidla výstrah pomocí různých logiku k provedení této analýze.
+Výstrahy jsou vytvářeny automaticky v pravidelných intervalech spouštět dotazy protokolu výstrahy Azure (Preview).  Pokud výsledky dotazu protokolu konkrétním kritériím, se vytvoří záznam výstrahy. Pravidlo může automaticky spusťte jednu nebo více akcí proaktivně oznámíme vám výstrahy nebo vyvolání jiným procesem jako externí aplikace pomocí odesílání dat [json na základě webhooku](monitor-alerts-unified-log-webhook.md)pomocí [akce skupiny](monitoring-action-groups.md). Různé typy pravidla výstrah pomocí různých logiku k provedení této analýze.
 
 Pravidla výstrah jsou definovány následující podrobnosti:
 
@@ -47,24 +56,26 @@ Každé pravidlo výstrahy v analýzy protokolů je jedním ze dvou typů.  Kaž
 
 Rozdíl mezi typy pravidlo výstrahy se následujícím způsobem.
 
-- **Počet výsledků** pravidlo výstrahy vytvoří vždy jeden výstrahy chvíli **metriky měření** pravidlo výstrahy vytvoří výstrahu pro každý objekt, který překračuje prahovou hodnotu.
+- ** Počet výsledků pravidla výstrah vždy vytvoří jeden výstrahy chvíli **metriky měření** pravidlo výstrahy vytvoří výstrahu pro každý objekt, který překračuje prahovou hodnotu.
 - **Počet výsledků** pravidla výstrah vytvářejí výstrahu, když je prahová hodnota počtu současně. **Metriky měření** pravidla výstrah může vytvořit upozornění, pokud je překročena prahová hodnota počtu časy v konkrétním časovém intervalu.
 
 ## <a name="number-of-results-alert-rules"></a>Počet výsledků pravidla výstrah
-**Počet výsledků** pravidla výstrah vytvořit jednu výstrahu, když počet záznamů vrácených dotazem vyhledávání překročí zadanou prahovou hodnotu.
+**Počet výsledků** pravidla výstrah vytvořit jednu výstrahu, když počet záznamů vrácených dotazem vyhledávání překročí zadanou prahovou hodnotu. Tento typ pravidla výstrah je ideální pro práci s událostmi, jako jsou protokoly událostí systému Windows, Syslog, WebApp odpovědi a vlastní protokoly.  Můžete vytvořit výstrahu, když se vytvoří událost konkrétní chyby, nebo když jsou v rámci konkrétní časové okno vytvořit více událostí chyby.
 
-**Prahová hodnota**: prahová hodnota pro **počet výsledků** pravidlo výstrahy je větší nebo menší než určitou hodnotu.  Pokud počet záznamů protokolu nalezené splňují tato kritéria, se vytvoří výstraha.
+**Prahová hodnota**: prahová hodnota pro ** počet výsledků pravidla výstrah je větší nebo menší než určitou hodnotu.  Pokud počet záznamů protokolu nalezené splňují tato kritéria, se vytvoří výstraha.
 
-### <a name="scenarios"></a>Scénáře
-
-#### <a name="events"></a>Události
-Tento typ pravidla výstrah je ideální pro práci s událostmi, jako je například protokol událostí systému Windows, Syslog, a vlastní protokoly.  Můžete vytvořit výstrahu, když se vytvoří událost konkrétní chyby, nebo když jsou v rámci konkrétní časové okno vytvořit více událostí chyby.
-
-Chcete-li výstraha na jednu událost, nastavte počet výsledků na hodnotu větší než 0 a četnost i časové okno až pět minut.  Která se spustí dotaz každých pět minut a zkontrolujte výskyt jedna událost, která byla vytvořena od posledního spuštění dotazu.  Doba mezi událostí shromažďovaných a vytváří výstrahy může zdržet frekvencí delší.
-
-Některé aplikace mohou být zaznamenány občasné chyby, který by neměl být nutně vygeneruje výstrahu.  Aplikace může například opakujte procesu, který vytvořil událost chyby a pak úspěšné příště.  V takovém případě nemusí budete chtít vytvořit výstrahu, pokud jsou v rámci konkrétní časové okno vytvořit více událostí.  
+Chcete-li výstraha na jednu událost, nastavit počet výsledků na hodnotu větší než 0 a zkontrolujte výskyt jedna událost, která byla vytvořena od posledního spuštění dotazu. Některé aplikace mohou být zaznamenány občasné chyby, který by neměl být nutně vygeneruje výstrahu.  Aplikace může například opakujte procesu, který vytvořil událost chyby a pak úspěšné příště.  V takovém případě nemusí budete chtít vytvořit výstrahu, pokud jsou v rámci konkrétní časové okno vytvořit více událostí.  
 
 V některých případech můžete vytvořit výstrahu při absenci událost.  Tento proces se může například protokolu běžné události indikující, že funguje správně.  Pokud není protokolu jednu z těchto událostí v rámci konkrétní časové okno, je třeba vytvořit výstrahu.  V takovém případě by nastavit prahovou hodnotu **menší než 1**.
+
+### <a name="example"></a>Příklad:
+Představte si třeba situaci, kdy budete chtít vědět, když aplikace založené na webu poskytuje odpověď pro uživatele s kódem 500 (tj.) vnitřní chyba serveru. Vytvoříte pravidlo výstrahy s následujícími podrobnostmi:  
+**Dotaz:** požadavky | kde resultCode == "500"<br>
+**Časový interval:** 30 minut<br>
+**Frekvence výstrah:** pět minut<br>
+**Prahová hodnota:** skvělé než 0.<br>
+
+Výstraha by spusťte dotaz každých 5 minut, 30 minut dat – má být vyhledán všech záznamů, kde je kód výsledku 500. Pokud se nenajde i jeden takový záznam, aktivuje se výstraha a aktivační události akci nakonfigurovanou.
 
 ## <a name="metric-measurement-alert-rules"></a>Pravidla výstrah metriky měření
 
@@ -74,7 +85,7 @@ V některých případech můžete vytvořit výstrahu při absenci událost.  T
 
 > [!NOTE]
 
-> Agregační funkci v dotazu musí být s názvem volat: AggregatedValue a zadejte číselnou hodnotu.
+> Agregační funkci v dotazu musí být s názvem volat: AggregatedValue a zadejte číselnou hodnotu. 
 
 
 **Pole Seskupit**: pro každou instanci v tomto poli se vytvoří záznam s hodnotou agregované a výstraha může vygenerovat pro každý.  Například pokud chcete generovat výstrahy pro každý počítač, byste použili **počítačem.**   
@@ -84,6 +95,8 @@ V některých případech můžete vytvořit výstrahu při absenci událost.  T
 > Metriky měření výstrah pravidla, které jsou založeny na Application Insights můžete zadat pole pro seskupení dat. Chcete-li to provést, použijte **agregační na** možnost v definici pravidla.   
 
 **Interval**: definuje časový interval, za které agregovaná data.  Například pokud jste zadali **pět minut**, by se vytvoří záznam pro každou instanci pole skupiny v okně čas zadaný pro výstrahu agregován v intervalech 5 minut.
+> [!NOTE]
+> Funkce Koš služby musí být použít v dotazu. Také pokud vytváří nerovné časové intervaly pro časový interval pomocí funkce Koš – výstraha místo toho použije bin_at funkce místo toho k zajištění, že je dlouhodobý bod
 
 **Prahová hodnota**: prahová hodnota pro pravidla výstrah metriky měření je definována agregovaná hodnota a celou řadu.  Pokud žádné datového bodu v hledání protokolů překročí tuto hodnotu, považuje za porušení.  Pokud počet porušení v u všech objektů ve výsledcích překročí zadanou hodnotu, se vytvoří výstraha pro tento objekt.
 
@@ -104,6 +117,8 @@ V tomto příkladu by se vytvořit samostatné výstrahy pro srv02 a srv03, prot
 
 
 ## <a name="next-steps"></a>Další postup
+* Pochopení [akce Webhooku protokolu výstrahy](monitor-alerts-unified-log-webhook.md)
 * [Získat přehled o výstrahách Azure (Preview)](monitoring-overview-unified-alerts.md)
 * Další informace o [pomocí výstrah Azure (preview)](monitor-alerts-unified-usage.md)
+* Další informace o [Application Insights](../application-insights/app-insights-analytics.md)
 * Další informace o [analýzy protokolů](../log-analytics/log-analytics-overview.md).    

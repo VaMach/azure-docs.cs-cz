@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1a57d26e0f1188a2dea29beba52fde090aa82ca8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure Cosmos DB vazby pro Azure Functions
 
@@ -127,7 +127,7 @@ Tady je kód jazyka JavaScript:
 
 ## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
-V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 Konstruktoru atributu přebírá název databáze a název kolekce. Informace o těchto nastaveních a další vlastnosti, které můžete konfigurovat, najdete v článku [aktivační událost - konfigurace](#trigger---configuration). Tady je `CosmosDBTrigger` atribut příkladu podpis metody:
 
@@ -150,8 +150,8 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
-|**Typ** || musí být nastavena na `cosmosDBTrigger`. |
-|**směr** || musí být nastavena na `in`. Tento parametr je nastaven automaticky při vytváření aktivační události na portálu Azure. |
+|Typ || musí být nastavena na `cosmosDBTrigger`. |
+|**Směr** || musí být nastavena na `in`. Tento parametr je nastaven automaticky při vytváření aktivační události na portálu Azure. |
 |**name** || Název proměnné používá v kódu funkce, která představuje seznam dokumentů se změnami. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | Název nastavení aplikace, který obsahuje připojovací řetězec použitý pro připojení k účtu Azure Cosmos DB monitorovány. |
 |**databaseName**|**DatabaseName**  | Název databáze Azure Cosmos DB s kolekcí monitorovány. |
@@ -207,7 +207,7 @@ První, `Id` a `Maker` hodnoty `CarReview` instanci předávána do fronty. DB C
             [FunctionName("SingleEntry")]
             public static void Run(
                 [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
-                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                [CosmosDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
                 log.Info( $"Selected Review - {document?.Review}"); 
@@ -363,7 +363,7 @@ Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) 
     [FunctionName("CosmosDBSample")]
     public static HttpResponseMessage Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
-        [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+        [CosmosDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
     {
         return req.CreateResponse(HttpStatusCode.OK, documents);
     }
@@ -445,24 +445,24 @@ Tady je kód jazyka JavaScript:
 
 ## <a name="input---attributes"></a>(Vstup) – atributy
 
-V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 Konstruktoru atributu přebírá název databáze a název kolekce. Informace o těchto nastaveních a další vlastnosti, které můžete konfigurovat, najdete v článku [následující konfigurační oddíl](#input---configuration). 
 
 ## <a name="input---configuration"></a>Vstup - konfigurace
 
-Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru a `DocumentDB` atribut.
+Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru a `CosmosDB` atribut.
 
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
-|**Typ**     || musí být nastavena na `documentdb`.        |
-|**směr**     || musí být nastavena na `in`.         |
+|Typ     || musí být nastavena na `documentdb`.        |
+|**Směr**     || musí být nastavena na `in`.         |
 |**name**     || Název parametru vazby, který představuje dokumentu ve funkci.  |
 |**databaseName** |**DatabaseName** |Databáze obsahující dokumentu.        |
 |**collectionName** |**Název_kolekce** | Název kolekce, která obsahuje dokument. |
 |**id**    | **ID** | ID dokumentu pro načtení. Tato vlastnost podporuje vazby parametrů. Další informace najdete v tématu [vazby na vlastní vstupní vlastnosti ve výrazu vazby](functions-triggers-bindings.md#bind-to-custom-input-properties). Obě není nastavený **id** a **sqlQuery** vlastnosti. Pokud není nastavený buď jednu, je načíst celou kolekci. |
 |**sqlQuery**  |**SqlQuery**  | Dotaz služby Azure Cosmos DB SQL použitý k načtení více dokumentů. Vlastnost podporuje runtime vazby, jako v následujícím příkladě: `SELECT * FROM c where c.departmentId = {departmentId}`. Obě není nastavený **id** a **sqlQuery** vlastnosti. Pokud není nastavený buď jednu, je načíst celou kolekci.|
-|**připojení**     |**ConnectionStringSetting**|Název nastavení aplikace obsahující připojovacího řetězce Azure Cosmos DB.        |
+|**Připojení**     |**ConnectionStringSetting**|Název nastavení aplikace obsahující připojovacího řetězce Azure Cosmos DB.        |
 |**partitionKey**|**Klíč oddílu**|Určuje hodnotu klíče oddílu pro vyhledávání. Může zahrnovat vázané parametry.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -500,7 +500,7 @@ Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) 
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         document = new { Text = myQueueItem, id = Guid.NewGuid() };
     }
@@ -705,15 +705,15 @@ Tady je kód jazyka JavaScript:
 
 ## <a name="output---attributes"></a>Výstup – atributy
 
-V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
-Konstruktoru atributu přebírá název databáze a název kolekce. Informace o těchto nastaveních a další vlastnosti, které můžete konfigurovat, najdete v článku [výstup - konfigurace](#output---configuration). Tady je `DocumentDB` atribut příkladu podpis metody:
+Konstruktoru atributu přebírá název databáze a název kolekce. Informace o těchto nastaveních a další vlastnosti, které můžete konfigurovat, najdete v článku [výstup - konfigurace](#output---configuration). Tady je `CosmosDB` atribut příkladu podpis metody:
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -723,19 +723,19 @@ Konstruktoru atributu přebírá název databáze a název kolekce. Informace o 
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
-Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru a `DocumentDB` atribut.
+Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru a `CosmosDB` atribut.
 
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
-|**Typ**     || musí být nastavena na `documentdb`.        |
-|**směr**     || musí být nastavena na `out`.         |
+|Typ     || musí být nastavena na `documentdb`.        |
+|**Směr**     || musí být nastavena na `out`.         |
 |**name**     || Název parametru vazby, který představuje dokumentu ve funkci.  |
 |**databaseName** | **DatabaseName**|Databáze obsahující kolekci, kde se má vytvořit dokumentu.     |
 |**collectionName** |**Název_kolekce**  | Název kolekce, kde se má vytvořit dokumentu. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Logická hodnota označující, zda kolekce se vytvoří při neexistuje. Výchozí hodnota je *false* s vyhrazenou propustností, který obsahuje náklady důsledky se vytváří nové kolekce. Další informace najdete na [stránce s cenami](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**Klíč oddílu** |Když `CreateIfNotExists` hodnotu true, definuje cestu ke klíči oddílu pro vytvořenou kolekci.|
 |**collectionThroughput**|**CollectionThroughput**| Když `CreateIfNotExists` hodnotu true, definuje [propustnost](../cosmos-db/set-throughput.md) vytvořené kolekce.|
-|**připojení**    |**ConnectionStringSetting** |Název nastavení aplikace obsahující připojovacího řetězce Azure Cosmos DB.        |
+|**Připojení**    |**ConnectionStringSetting** |Název nastavení aplikace obsahující připojovacího řetězce Azure Cosmos DB.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -750,7 +750,7 @@ Ve výchozím nastavení když zapíšete do výstupního parametru ve funkci, s
 
 | Vazba | Referenční informace |
 |---|---|
-| DocumentDB | [Kódy chyb DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
+| CosmosDB | [Kódy chyb CosmosDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>Další postup
 

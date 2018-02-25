@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Použít koncové body služby virtuální sítě a pravidla pro databázi SQL Azure
 
@@ -127,6 +127,8 @@ Máte možnost použití [řízení přístupu na základě role (RBAC)] [ rbac-
 ## <a name="limitations"></a>Omezení
 
 Pro databázi SQL Azure funkci pravidla virtuální sítě má následující omezení:
+
+- Webové aplikace lze mapovat na privátní IP adresa ve virtuální sítě a podsítě. I v případě, že koncových bodů služby jsou zapnuté ON z danou virtuální síť nebo podsíť, bude mít připojení z webové aplikace na server Azure veřejné IP zdroji, není zdroj virtuální sítě a podsítě. Pokud chcete povolit připojení z webové aplikace na server, který má pravidla brány firewall virtuální síť, musíte **povolit všech služeb Azure** na serveru.
 
 - Každé pravidlo virtuální sítě v bráně firewall pro vaši databázi SQL, odkazuje na podsíť. Všechny tyto odkazované podsítě musí být uloženy ve stejné zeměpisné oblasti, který je hostitelem databáze SQL.
 

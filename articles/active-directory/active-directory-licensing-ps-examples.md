@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Příklady prostředí PowerShell pro správu na základě skupiny licencí ve službě Azure AD
 
@@ -27,6 +27,9 @@ Plná funkčnost správy na základě skupiny licencí je k dispozici prostředn
 
 > [!NOTE]
 > Než začnete, spuštěním rutin, ujistěte se připojíte ke klientovi nejdřív spuštěním `Connect-MsolService` rutiny.
+
+>[!WARNING]
+>Tento kód slouží jako příklad pro demonstrační účely. Pokud máte v úmyslu použít ve vašem prostředí, zvažte nejdřív testování v malém měřítku, nebo v samostatné testovacím klientem. Možná budete muset upravit kód, který vyhoví konkrétním požadavkům vašeho prostředí.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Licence k produktům zobrazení zařazená do určité skupiny
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) rutinu můžete použít k načtení objektu skupiny a zkontrolujte *licence* vlastnost: Vypíše všechny licence produktu, které jsou přiřazeny ke skupině.
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Získat statistiku pro skupiny licencí
-Může hlásit základní statistické údaje pro skupiny s licencí. V následujícím příkladu jsme seznam počet celkový počet uživatelů, počtu uživatelů s již přiřazené skupinou licence a počtu uživatelů, pro které nebylo možné přiřadit licence ve skupině.
+Může hlásit základní statistické údaje pro skupiny s licencí. V následujícím příkladu skript uvádí počet celkový počet uživatelů, počtu uživatelů s již přiřazené skupinou licence a počtu uživatelů, pro které nebylo možné přiřadit licence ve skupině.
 
 ```
 #get all groups with licenses
@@ -141,7 +144,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Získání všech uživatelů s chybami licencí ve skupině
 
-Danou skupinu, která obsahuje některé licence související chyby, teď můžete vytvořit seznam všech uživatelů, vliv na tyto chyby. Uživatel může mít příliš chyby z jiných skupin. Ale v tomto příkladu jsme výsledky omezit pouze na chyby, které jsou relevantní pro dané skupiny kontrolou **ReferencedObjectId** vlastnost jednotlivých **IndirectLicenseError** položku na uživatele.
+Danou skupinu, která obsahuje některé chyby související s licencí, můžete nyní seznam všech uživatelů, vliv na tyto chyby. Uživatel může mít příliš chyby z jiných skupin. Ale v tomto příkladu jsme výsledky omezit pouze na chyby, které jsou relevantní pro dané skupiny kontrolou **ReferencedObjectId** vlastnost jednotlivých **IndirectLicenseError** položku na uživatele.
 
 ```
 #a sample group with errors
@@ -167,10 +170,10 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Získání všichni uživatelé s chybami licencí v celé klienta
 
-Pro zobrazení seznamu všichni uživatelé, kteří mají licenci chyby z jedné nebo více skupin, můžete použít následující skript. Tento skript se zobrazí seznam jeden řádek na uživatele za Chyba licence, které umožňuje jasně identifikovat zdroj jednotlivé chyby.
+Následující skript můžete použít k získání všichni uživatelé, kteří mají licenci chyby z jedné nebo více skupin. Skript vypíše jeden řádek na uživatele za Chyba licence, které umožňuje jasně identifikovat zdroj jednotlivé chyby.
 
 > [!NOTE]
-> Tento skript projde všechny uživatele v klientovi, který nemusí být optimální pro velké klienty.
+> Tento skript vytvoří výčet všech uživatelů v klientovi, který nemusí být optimální pro velké klienty.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Odebrat přímý licencí pro uživatele s skupiny licencí
 Účelem tohoto skriptu je zbytečné přímé licence odebrat uživatele, kteří již licence, které jsou stejné dědí skupinu; například jako součást [přechod na základě skupiny licencí pro](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> Je důležité nejdřív ověřit, že přímý licence odeberou nepovolujte další funkce služby než zděděné licencí. Odebrání přímé licenci, jinak může zakázat přístup k služeb a dat pro uživatele. Aktuálně není možné zkontrolovat pomocí prostředí PowerShell, které služby jsou povolené prostřednictvím přímé zděděné licence vs. Ve skriptu budeme zadávat minimální úroveň služby, které jsme si vědomi dědí od skupiny a jsme zkontroluje, vůči které.
+> Je důležité nejdřív ověřit, že přímý licence odeberou nepovolujte další funkce služby než zděděné licencí. Odebrání přímé licenci, jinak může zakázat přístup k služeb a dat pro uživatele. Aktuálně není možné zkontrolovat pomocí prostředí PowerShell, které služby jsou povolené prostřednictvím přímé zděděné licence vs. Ve skriptu jsme zadat minimální úroveň služby, které jsme si vědomi dědí od skupiny a zkontrolujte, vůči které zajistěte, aby uživatelé nepřišli neočekávaně přístup ke službám.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -476,7 +479,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## <a name="next-steps"></a>Další postup
 
-Další informace o funkci nastavit pro správu licencí pomocí skupin, naleznete v následujících tématech:
+Další informace o funkci nastavit pro správu licencí prostřednictvím skupiny, najdete v následujících článcích:
 
 * [Co je na základě skupin licencování v Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Přiřazování licencí pro skupinu v Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)

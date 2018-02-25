@@ -1,27 +1,29 @@
 ---
-title: "Postup přidání referenční datové sady do prostředí Azure časové řady Insights | Microsoft Docs"
-description: "Tento článek popisuje postup přidání referenční datové sady do prostředí Azure časové řady statistiky. Referenční data jsou užitečné pro připojení k datům zdroje na posílení hodnoty."
+title: "Postup přidání referenční datové sady do prostředí Azure časové řady statistiky"
+description: "Tento článek popisuje postup přidání referenční datové sady k posílení dat ve vašem prostředí Statistika Azure časové řady."
 services: time-series-insights
 ms.service: time-series-insights
-author: venkatgct
-ms.author: venkatja
-manager: jhubbard
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 7cdcefbd0daec3b7bab59680afa1470624583c74
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/15/2018
+ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Vytvořit odkaz na sadu dat pro vaše prostředí časové řady statistika pomocí portálu Azure
 
 Tento článek popisuje postup přidání referenční datové sady do prostředí Azure časové řady statistiky. Referenční data jsou užitečné pro připojení k datům zdroje na posílení hodnoty.
 
-Referenční sada dat je kolekce položek rozšířená o události ze zdroje událostí. Modul příchozího přenosu dat Time Series Insights se připojí k události ze zdroje událostí s položkou v referenční sadě dat. Tato rozšířená událost je pak k dispozici pro dotaz. Toto připojení je založené na klíčích definovaných v referenční sadě dat.
+Referenční datové sady je kolekce položek, které posílení události ze zdroje událostí. Čas řady Statistika příchozího modul spojí všechny události ze zdroje událostí s odpovídající řádek dat v odkaz na sadu dat. Tato rozšířená událost je pak k dispozici pro dotaz. Toto připojení je založena na sloupce primární klíč v vaší referenční datové sadě definován.
+
+Referenční data není zpětně připojena. To znamená, že pouze aktuálních a budoucích příchozí přenos dat je shodná a připojený k sadu referenční data, jakmile byla nakonfigurována a nahrát.
 
 ## <a name="add-a-reference-data-set"></a>Přidat odkaz datové sady
 
@@ -29,22 +31,64 @@ Referenční sada dat je kolekce položek rozšířená o události ze zdroje ud
 
 2. Vyhledejte existující časové řady Statistika prostředí. Klikněte na tlačítko **všechny prostředky** v nabídce na levé straně na portálu Azure. Vyberte vaše prostředí Time Series Insights.
 
-3. V části **prostředí topologie** záhlaví, vyberte **referenční datové sady**.
+3. Vyberte **přehled** stránky. Vyhledejte **časové řady Statistika explorer URL** a otevřete odkaz.  
 
-    ![Vytvoření referenční sady dat Time Series Insights](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
+   Zobrazení Průzkumníka pro vaše prostředí TSI.
 
-4. Vyberte **+ přidat** přidat nový odkaz datové sady.
+4. Rozbalte v Průzkumníku TSI modulu pro výběr prostředí. Zvolte aktivního prostředí. Vyberte ikonu referenční data v pravém horním rohu na stránce explorer.
 
-5. Zadejte jedinečný **název referenční datové sady**.
+   ![Přidat odkaz na data](media/add-reference-data-set/add_reference_data.png)
 
-    ![Vytvoření referenční sady dat Time Series Insights – podrobnosti](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
+5. Vyberte **+ přidat datové sady** tlačítko začnete přidávat nové datové sady.
 
-6. Zadejte **název klíče** v prázdné pole a vyberte jeho **typu**. Tento název a typ se používají a vyberte správnou vlastnost z událostí ve zdroji událostí pro připojení k referenční data. 
+   ![Přidat sady dat](media/add-reference-data-set/add_data_set.png)
 
-   Pokud zadáte název klíče, jako například **DeviceId** a zadejte jako **řetězec**, pak modul příjem příchozích dat časové řady Statistika hledá vlastnost s názvem **DeviceId** typu **Řetězec** v každé příchozí události hledat až a spojení s. K události je možné připojit více než jeden klíč. Při hledání shodného názvu klíče se rozlišují velká a malá písmena.
+6. Na **nový odkaz datové sady** vyberte formát dat: 
+   - Zvolte **CSV** pro data s položkami oddělenými čárkou. První řádek považován za řádek záhlaví. 
+   - Zvolte **pole JSON** pro javascript object notation (JSON) formátovaných dat.
 
-7. Vyberte **Vytvořit**.
+   ![Vyberte formát data.](media/add-reference-data-set/add_data.png)
 
-## <a name="next-steps"></a>Další kroky
+7. Zadejte data, pomocí jedné ze dvou způsobů:
+   - Vložení dat do textového editoru. Pak vyberte **analýzy referenční data** tlačítko.
+   - Vyberte **zvolit soubor** tlačítko Přidat data z místní textový soubor. 
+
+   Vložte například data ve formátu CSV: ![data vložit ve formátu CSV](media/add-reference-data-set/csv_data_pasted.png)
+
+   Vložte například data pole JSON: ![data vložit JSON](media/add-reference-data-set/json_data_pasted.png)
+
+   Pokud dojde k chybě při analýze datových hodnot, chyba se zobrazí červeně v dolní části stránky, jako například `CSV parsing error, no rows extracted`.
+
+8. Jakmile je úspěšně analyzovat data, zobrazí se datová mřížka zobrazení sloupce a řádky, které představují data.  Zkontrolujte data mřížky zajistit správnost.
+
+   ![Přidat odkaz na data](media/add-reference-data-set/parse_data.png)
+
+9. Zkontrolujte každý sloupec datový typ předpokládá, že zobrazíte a změnit datový typ v případě potřeby.  Vyberte datový typ symbol v záhlaví sloupce:  **#**  pro dvojitou (číselná data), **T | F** pro logickou hodnotu, nebo **Abc** řetězce.
+
+   ![Vyberte datové typy umístí na záhlaví sloupců.](media/add-reference-data-set/choose_datatypes.png)
+
+10. Přejmenujte záhlaví sloupců, podle potřeby. Název sloupce klíče je nutné připojení k odpovídající vlastnost ve zdroji událostí. Ujistěte se, že s názvy klíčových sloupců odkaz dat se přesně shodovat s název události příchozí data, včetně rozlišování. Neklíčový sloupec názvy jsou použity k posílení příchozích dat s odpovídajícími hodnotami referenční data.
+
+11. Klikněte na tlačítko **přidejte řádek** nebo **přidat sloupec** přidat více hodnot dat odkaz, podle potřeby.
+
+12. Zadejte hodnotu v **filtrovat řádky...**  pole, které chcete zkontrolovat konkrétní řádky, podle potřeby. Filtr je užitečné pro Kontrola data, ale není použita při nahrávání data.
+ 
+13. Název datové sady, vyplněním **název datové sady** pole výše dat mřížky.
+
+   ![Název datové sady.](media/add-reference-data-set/name_reference_dataset.png)
+
+14. Zadejte **primární klíč** sloupců v datové sadě, výběrem rozevíracím výše dat mřížky.
+
+   ![Vyberte sloupce klíče.](media/add-reference-data-set/set_primary_key.png)
+
+   Volitelně vyberte  **+**  tlačítko Přidat sekundární klíčový sloupec jako složený primární klíč. Pokud budete muset zrušit výběr, zvolte z rozevírací nabídky k odebrání sekundární klíč prázdnou hodnotu.
+
+15.  Pokud chcete nahrát data, vyberte **nahrát řádky** tlačítko.
+
+   ![Odeslat](media/add-reference-data-set/upload_rows.png)
+
+   Stránce potvrdí dokončené nahrát a zobrazí se zpráva **úspěšně nahrál datovou sadu**.
+
+## <a name="next-steps"></a>Další postup
 * [Spravujte referenční data](time-series-insights-manage-reference-data-csharp.md) prostřednictvím kódu programu.
 * Úplnou referenční dokumentaci k rozhraní API najdete v dokumentu [Rozhraní API referenčních dat](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

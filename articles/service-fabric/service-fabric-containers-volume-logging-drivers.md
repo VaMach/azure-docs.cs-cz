@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 79b4700b0b0b6897c19117044d37623a2f6ea8df
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Pomocí Docker svazku zásuvné moduly a protokolování ovladače v vašeho kontejneru
 Azure Service Fabric podporuje určení [Docker svazku zásuvné moduly](https://docs.docker.com/engine/extend/plugins_volume/) a [Docker protokolování ovladače](https://docs.docker.com/engine/admin/logging/overview/) pro vaši službu kontejneru. Může uchovávat vaše data v [Azure Files](https://azure.microsoft.com/services/storage/files/) při vašeho kontejneru je přesunout nebo restartováním jiného hostitele.

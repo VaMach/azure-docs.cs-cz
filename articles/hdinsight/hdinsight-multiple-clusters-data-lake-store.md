@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fe81286c395a529a14ba87edc26390a2bab3f90
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Použití více clusterů HDInsight pomocí účtu Azure Data Lake Store
 
@@ -42,9 +42,9 @@ Chcete-li povolit tuto strukturu složek pro efektivně používat clusterů HDI
 
 |Složka  |Oprávnění  |Vlastnící uživatel  |Vlastnící skupina  | Jmenovaný uživatel | Jmenovaný uživatel oprávnění | S názvem skupiny | Oprávnění skupiny s názvem |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x – x  |Správce |Správce  |Instanční objekt |– x  |FINGRP   |r – x         |
-|/Clusters | rwxr-x – x |Správce |Správce |Instanční objekt |– x  |FINGRP |r – x         |
-|nebo clustery, finance | rwxr-x – t |Správce |FINGRP  |Instanční objekt |rwx  |-  |-     |
+|/ | rwxr-x--x  |správce |správce  |Instanční objekt |--x  |FINGRP   |r-x         |
+|/Clusters | rwxr-x--x |správce |správce |Instanční objekt |--x  |FINGRP |r-x         |
+|nebo clustery, finance | rwxr-x--t |správce |FINGRP  |Instanční objekt |rwx  |-  |-     |
 
 V tabulce
 
@@ -96,7 +96,7 @@ Jak je uvedeno v JIRA YARN propojené dříve, při lokalizace veřejných prost
 #### <a name="workaround"></a>Alternativní řešení
 Sada pro čtení-oprávnění ke spouštění pro **ostatní** prostřednictvím hierarchie, například na  **/** , **/clusterů** a **nebo clustery, finance** jak je znázorněno v předchozí tabulce.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 
 * [Vytvoření clusteru HDInsight s Data Lake Store jako úložiště](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 

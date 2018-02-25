@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7eb31b91480b6e57135581cfa2f5503de3189e10
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: ba19a4fc24668bff27c961b5b415f840d1132a34
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="service-endpoint-manager"></a>Správce koncový bod služby
+# <a name="service-endpoint-monitor"></a>Monitorování koncového bodu služby
 
-Funkce správce koncový bod služby v [sledování výkonu sítě](log-analytics-network-performance-monitor.md) vám umožní monitorovat připojení k síti pro libovolný koncový bod, který má otevřený port TCP. Tyto koncové body můžou být webů, aplikací SaaS, PaaS aplikací a databází SQL. 
+Funkce monitorování koncového bodu služby v [sledování výkonu sítě](log-analytics-network-performance-monitor.md) vám umožní monitorovat připojení k síti pro libovolný koncový bod, který má otevřený port TCP. Tyto koncové body můžou být webů, aplikací SaaS, PaaS aplikací a databází SQL. 
 
 Můžete provádět následující funkce s **monitorování koncového bodu služby**: 
 

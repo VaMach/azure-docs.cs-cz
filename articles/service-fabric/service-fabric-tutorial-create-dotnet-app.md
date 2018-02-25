@@ -1,11 +1,11 @@
-– Název: vytvoření aplikace .NET pro Service Fabric | Popis Microsoft Docs: Zjistěte, jak vytvořit aplikaci s front-endové ASP.NET Core a spolehlivá služba stavová back-end a nasazení aplikací do clusteru.
+– Název: vytvoření aplikace .NET pro Service Fabric | Popis Microsoft Docs: V tomto kurzu zjistíte, jak vytvořit aplikaci s front-endové ASP.NET Core a spolehlivá služba stavová back-end a nasazení aplikací do clusteru.
 služby: documentationcenter service fabric: .net Autor: rwike77 manager: timlt editor: "
 
 ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
 
 ---
 
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Vytvoření a nasazení aplikace s front-end službou webového rozhraní API pro ASP.NET Core a stavovou back-end službou
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Kurz: vytvoření a nasazení aplikace pomocí služby front-endové webové rozhraní API ASP.NET Core a stavové služby back-end
 Tento kurz je první částí série.  Dozvíte se, jak vytvořit aplikaci Azure Service Fabric s front-endem webového rozhraní API pro ASP.NET Core a stavovou back-end službou pro ukládání dat. Až budete hotovi, budete mít hlasovací aplikaci s webovým front-endem v ASP.NET Core, která ukládá výsledky hlasování do stavové back-end služby v clusteru. Pokud nechcete hlasovací aplikaci vytvářet ručně, můžete si [stáhnout zdrojový kód](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) dokončené aplikace a přeskočit k části [Prohlídka ukázkové hlasovací aplikace](#walkthrough_anchor).
 
 ![Diagram aplikace](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)

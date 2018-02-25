@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 472d61debff016cfd3df79bae1f63e176c14849d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus vazby pro Azure Functions
 
@@ -56,6 +56,8 @@ public static void Run(
 }
 ```
 
+V tomto příkladu je pro verzi Azure Functions 1.x; pro 2.x [vynechejte parametr práva přístupu](#trigger---configuration).
+ 
 ### <a name="trigger---c-script-example"></a>Aktivační událost – příklad skriptu jazyka C#
 
 Následující příklad ukazuje vazby v aktivační události služby Service Bus *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) používající vazby. Funkce zaznamená zprávu fronty Service Bus.
@@ -150,7 +152,9 @@ V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte nás
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  Konstruktoru atributu převezme název fronta nebo téma a odběr. Můžete také zadat připojení přístupová práva. Pokud nezadáte přístupová práva, výchozí hodnota je `Manage`. Jak vybrat přístupová práva, nastavení je podrobně popsaný [aktivační událost - konfigurace](#trigger---configuration) části. Tady je příklad, který ukazuje atribut používaný s parametrem řetězec:
+  Konstruktoru atributu převezme název fronta nebo téma a odběr. Ve verzi Azure Functions 1.x, můžete také zadat připojení přístupová práva. Pokud nezadáte přístupová práva, výchozí hodnota je `Manage`. Další informace najdete v tématu [aktivační událost - konfigurace](#trigger---configuration) části.
+
+  Tady je příklad, který ukazuje atribut používaný s parametrem řetězec:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -207,26 +211,27 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
-|**Typ** | neuvedeno | Musí být nastavena na "serviceBusTrigger". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
-|**směr** | neuvedeno | Musí být nastavena na "v". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
+|Typ | neuvedeno | Musí být nastavena na "serviceBusTrigger". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
+|**Směr** | neuvedeno | Musí být nastavena na "v". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
 |**name** | neuvedeno | Název proměnné, která představuje zprávu fronta nebo téma v kódu funkce. Chcete-li funkce návratovou hodnotu nastavte na "$return". | 
 |**queueName**|**QueueName**|Název fronty k monitorování.  Nastavte jenom v případě, že monitorování fronty, ne pro téma.
 |**topicName**|**TopicName**|Název tématu, které chcete monitorovat. Nastavte jenom v případě, že monitorování téma, ne pro frontu.|
 |**subscriptionName**|**Název_předplatného**|Název odběru k monitorování. Nastavte jenom v případě, že monitorování téma, ne pro frontu.|
-|**připojení**|**Připojení**|Název nastavení aplikace, který obsahuje připojovací řetězec sběrnice služeb, který chcete použít pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu. Například pokud nastavíte `connection` na "MyServiceBus" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyServiceBus." Pokud necháte `connection` prázdná, připojovací řetězec sběrnice služeb výchozí modul runtime funkce používá v nastavení aplikace, s názvem "AzureWebJobsServiceBus".<br><br>Pokud chcete získat připojovací řetězec, postupujte podle kroků, zobrazuje se v [získat přihlašovací údaje správu](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Připojovací řetězec musí být v případě oboru názvů Service Bus, bez omezení konkrétní fronty nebo téma. |
-|**accessRights**|**Přístup**|Přístupová práva pro připojovací řetězec. Dostupné jsou hodnoty `manage` a `listen`. Výchozí hodnota je `manage`, což znamená, že `connection` má **spravovat** oprávnění. Pokud použijete připojovací řetězec, který nemá **spravovat** nastavit oprávnění, `accessRights` "naslouchat". Funkce modulu runtime může selhat pokouší o provedení operace, které vyžadují, jinak hodnota spravovat práva.|
+|**Připojení**|Připojení|Název nastavení aplikace, který obsahuje připojovací řetězec sběrnice služeb, který chcete použít pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu. Například pokud nastavíte `connection` na "MyServiceBus" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyServiceBus." Pokud necháte `connection` prázdná, připojovací řetězec sběrnice služeb výchozí modul runtime funkce používá v nastavení aplikace, s názvem "AzureWebJobsServiceBus".<br><br>Pokud chcete získat připojovací řetězec, postupujte podle kroků, zobrazuje se v [získat přihlašovací údaje správu](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Připojovací řetězec musí být v případě oboru názvů Service Bus, bez omezení konkrétní fronty nebo téma. |
+|**accessRights**|**Přístup**|Přístupová práva pro připojovací řetězec. Dostupné jsou hodnoty `manage` a `listen`. Výchozí hodnota je `manage`, což znamená, že `connection` má **spravovat** oprávnění. Pokud použijete připojovací řetězec, který nemá **spravovat** nastavit oprávnění, `accessRights` "naslouchat". Funkce modulu runtime může selhat pokouší o provedení operace, které vyžadují, jinak hodnota spravovat práva. V Azure Functions verze 2.x, tato vlastnost není k dispozici nejnovější verzi sady SDK úložiště nepodporuje spravovat operace.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Aktivační událost - využití
 
-V jazyce C# a C# skript, přístup k fronta nebo téma zprávu pomocí parametru metody `string paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Můžete použít některou z následujících typů místo `string`:
+V jazyce C# a C# skript můžete použít následující typy parametrů pro zprávu fronta nebo téma:
 
-* `byte[]`-Vhodné pro binární data.
+* `string` – Pokud zpráva je text.
+* `byte[]` -Vhodné pro binární data.
 * Vlastní typ – Pokud zpráva obsahuje formát JSON, Azure Functions se pokusí rekonstruovat JSON data.
-* `BrokeredMessage`-Vám deserializovat zprávu s [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) metoda.
+* `BrokeredMessage` -Vám deserializovat zprávu s [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) metoda.
 
-V jazyce JavaScript, přístup k fronta nebo téma zprávy pomocí `context.bindings.<name>`. `<name>`Hodnota zadaná v `name` vlastnost *function.json*. Zprávy služby Service Bus je předán do funkce jako řetězec nebo objekt JSON.
+V jazyce JavaScript, přístup k fronta nebo téma zprávy pomocí `context.bindings.<name from function.json>`. Zprávy služby Service Bus je předán do funkce jako řetězec nebo objekt JSON.
 
 ## <a name="trigger---poison-messages"></a>Aktivační událost - poškozených zpráv
 
@@ -445,29 +450,32 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
-|**Typ** | neuvedeno | Musí být nastavena na "sběrnice". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
-|**směr** | neuvedeno | Musí být nastavena na "out". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
+|Typ | neuvedeno | Musí být nastavena na "sběrnice". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
+|**Směr** | neuvedeno | Musí být nastavena na "out". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
 |**name** | neuvedeno | Název proměnné, která představuje fronta nebo téma v kódu funkce. Chcete-li funkce návratovou hodnotu nastavte na "$return". | 
 |**queueName**|**QueueName**|Název fronty.  Nastavte jenom v případě, že odeslání zprávy do fronty, není pro téma.
 |**topicName**|**TopicName**|Název tématu, které chcete monitorovat. Nastavte jenom v případě, že odesílání zpráv tématu, ne pro frontu.|
 |**subscriptionName**|**Název_předplatného**|Název odběru k monitorování. Nastavte jenom v případě, že odesílání zpráv tématu, ne pro frontu.|
-|**připojení**|**Připojení**|Název nastavení aplikace, který obsahuje připojovací řetězec sběrnice služeb, který chcete použít pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu. Například pokud nastavíte `connection` na "MyServiceBus" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyServiceBus." Pokud necháte `connection` prázdná, připojovací řetězec sběrnice služeb výchozí modul runtime funkce používá v nastavení aplikace, s názvem "AzureWebJobsServiceBus".<br><br>Pokud chcete získat připojovací řetězec, postupujte podle kroků, zobrazuje se v [získat přihlašovací údaje správu](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Připojovací řetězec musí být v případě oboru názvů Service Bus, bez omezení konkrétní fronty nebo téma.|
-|**accessRights**|**Přístup** |Přístupová práva pro připojovací řetězec. Dostupné jsou hodnoty "Správa" a "naslouchat". Výchozí hodnota je "manage", což naznačuje, že má připojení **spravovat** oprávnění. Pokud použijete připojovací řetězec, který nemá **spravovat** nastavit oprávnění, `accessRights` "naslouchat". Funkce modulu runtime může selhat pokouší o provedení operace, které vyžadují, jinak hodnota spravovat práva.|
+|**Připojení**|Připojení|Název nastavení aplikace, který obsahuje připojovací řetězec sběrnice služeb, který chcete použít pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu. Například pokud nastavíte `connection` na "MyServiceBus" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyServiceBus." Pokud necháte `connection` prázdná, připojovací řetězec sběrnice služeb výchozí modul runtime funkce používá v nastavení aplikace, s názvem "AzureWebJobsServiceBus".<br><br>Pokud chcete získat připojovací řetězec, postupujte podle kroků, zobrazuje se v [získat přihlašovací údaje správu](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Připojovací řetězec musí být v případě oboru názvů Service Bus, bez omezení konkrétní fronty nebo téma.|
+|**accessRights**|**Přístup**|Přístupová práva pro připojovací řetězec. Dostupné jsou hodnoty `manage` a `listen`. Výchozí hodnota je `manage`, což znamená, že `connection` má **spravovat** oprávnění. Pokud použijete připojovací řetězec, který nemá **spravovat** nastavit oprávnění, `accessRights` "naslouchat". Funkce modulu runtime může selhat pokouší o provedení operace, které vyžadují, jinak hodnota spravovat práva. V Azure Functions verze 2.x, tato vlastnost není k dispozici nejnovější verzi sady SDK úložiště nepodporuje spravovat operace.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Výstup – použití
 
-V jazyce C# a C# skript, přístup k fronta nebo téma pomocí parametru metody `out string paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Můžete použít některou z následujících typů parametrů:
+V Azure Functions 1.x, modul runtime vytvoří frontu Pokud neexistuje, a nastavili jste `accessRights` k `manage`. Funkce verze 2.x, fronta nebo téma již musí existovat; Pokud jste určili, se fronta nebo téma, který neexistuje, funkce se nezdaří. 
 
-* `out T paramName` - `T`mohou být jakéhokoli typu JSON serializable. Pokud hodnota parametru má hodnotu null při ukončení funkce, funkce vytvoří zprávu s objektem hodnotu null.
-* `out string`– Pokud je hodnota parametru má hodnotu null při ukončení funkce, funkce nevytváří zprávu.
-* `out byte[]`– Pokud je hodnota parametru má hodnotu null při ukončení funkce, funkce nevytváří zprávu.
-* `out BrokeredMessage`– Pokud je hodnota parametru má hodnotu null při ukončení funkce, funkce nevytváří zprávu.
+V jazyce C# a C# skript můžete použít následující typy parametrů pro vazbu výstup:
 
-Pro vytvoření více zpráv v C# nebo funkce skriptu jazyka C#, můžete použít `ICollector<T>` nebo `IAsyncCollector<T>`. Zprávu se vytvoří při volání `Add` metoda.
+* `out T paramName` - `T` mohou být jakéhokoli typu JSON serializable. Pokud hodnota parametru má hodnotu null při ukončení funkce, funkce vytvoří zprávu s objektem hodnotu null.
+* `out string` – Pokud je hodnota parametru má hodnotu null při ukončení funkce, funkce nevytváří zprávu.
+* `out byte[]` – Pokud je hodnota parametru má hodnotu null při ukončení funkce, funkce nevytváří zprávu.
+* `out BrokeredMessage` – Pokud je hodnota parametru má hodnotu null při ukončení funkce, funkce nevytváří zprávu.
+* `ICollector<T>` nebo `IAsyncCollector<T>` – pro vytvoření více zpráv. Zprávu se vytvoří při volání `Add` metoda.
 
-V jazyce JavaScript, přístup k fronta nebo téma pomocí `context.bindings.<name>`. `<name>`Hodnota zadaná v `name` vlastnost *function.json*. Řetězec, bajtové pole nebo objekt jazyka Javascript (deserializovat do formátu JSON) můžete přiřadit k `context.binding.<name>`.
+Asynchronní funkcí, použití návratovou hodnotu nebo `IAsyncCollector` místo `out` parametr.
+
+V jazyce JavaScript, přístup k fronta nebo téma pomocí `context.bindings.<name from function.json>`. Řetězec, bajtové pole nebo objekt jazyka Javascript (deserializovat do formátu JSON) můžete přiřadit k `context.binding.<name>`.
 
 ## <a name="exceptions-and-return-codes"></a>Výjimky a návratové kódy
 

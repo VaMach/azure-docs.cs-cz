@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Požadované jednotky v Azure Cosmos DB
 Nyní k dispozici: Azure Cosmos DB [kalkulačky jednotek žádosti](https://www.documentdb.com/capacityplanner). Další informace v [odhadnout, musí vaše propustnost](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Jak Azure Cosmos DB je více modelu databáze, je důležité si uvědomit, že 
 ## <a name="request-units-and-request-charges"></a>Jednotek žádosti a poplatky požadavku
 Azure Cosmos DB poskytuje rychlé, předvídatelný výkon pomocí *rezervování* prostředky pro uspokojení musí propustnost vaší aplikace.  Vzhledem k aplikaci načíst a přístup k vzory změny v čase, Azure Cosmos DB umožňuje snadno zvýšit nebo snížit množství vyhrazenou propustností, které jsou k dispozici pro aplikaci.
 
-S Azure Cosmos databáze je zadána vyhrazenou propustností z hlediska jednotek žádosti zpracování za sekundu. Si můžete představit jednotek žádosti jako měnu propustnost, které jste *rezervovat* množství jednotek zaručenou žádosti, které jsou k dispozici pro aplikaci na základě za sekundu.  Každé operace v Azure DB Cosmos - zápis dokumentu, provádění dotazu, aktualizace dokumentu - spotřebuje procesoru, paměti a procesorů.  To znamená, každou operaci způsobuje *požadavku poplatků*, vyjádřeného v *požadované jednotky*.  Principy faktory, které mají vliv poplatky jednotek žádosti, společně s požadavky na propustnost vaší aplikace, umožňuje aplikaci spustit jako efektivně možné náklady. Průzkumník dotazů je také skvělý nástroj pro testování základní dotazu.
+S Azure Cosmos databáze je zadána vyhrazenou propustností z hlediska jednotek žádosti zpracování za sekundu. Si můžete představit jednotek žádosti jako měnu propustnost, které jste *rezervovat* množství jednotek zaručenou žádosti, které jsou k dispozici pro aplikaci na základě za sekundu.  Každé operace v Azure DB Cosmos - zápis dokumentu, provádění dotazu, aktualizace dokumentu - spotřebuje procesoru, paměti a procesorů.  To znamená, každou operaci způsobuje *požadavku poplatků*, vyjádřeného v *požadované jednotky*.  Principy faktory, které mají vliv poplatky jednotek žádosti, společně s požadavky na propustnost vaší aplikace, umožňuje aplikaci spustit jako efektivně možné náklady. Průzkumníku dat na portálu Azure je také skvělý nástroj pro testování základní dotazu.
 
 Doporučujeme začít následujícím videem, kde vysvětluje Aravind Ramachandran jednotek žádosti a předvídatelného výkonu s Azure Cosmos DB.
 
@@ -190,9 +190,7 @@ Pomocí nástroje je jednoduchý:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Použití hlavičku odpovědi Azure Cosmos DB požadavek zdarma
-Každou odpověď ze služby Azure Cosmos DB obsahuje vlastní hlavičky (`x-ms-request-charge`) obsahující jednotek žádosti využité pro požadavek. Tuto hlavičku je také přístupné prostřednictvím sady SDK Azure Cosmos DB. V sadě SDK .NET je RequestCharge vlastnost ResourceResponse objektu.  Pro dotazy Průzkumník Azure Cosmos DB dotazů na portálu Azure poskytuje informace poplatků požadavku pro spuštění dotazů.
-
-![Zkoumání RU poplatky v Průzkumníku dotazu][1]
+Každou odpověď ze služby Azure Cosmos DB obsahuje vlastní hlavičky (`x-ms-request-charge`) obsahující jednotek žádosti využité pro požadavek. Tuto hlavičku je také přístupné prostřednictvím sady SDK Azure Cosmos DB. V sadě SDK .NET je RequestCharge vlastnost ResourceResponse objektu.  Pro dotazy obsahuje Průzkumníku dat Azure Cosmos DB na portálu Azure požadavek poplatků informace o spuštění dotazů.
 
 Myslete na to je záznam zřizování jednotky žádosti přidružené spuštěná typických operací proti položku reprezentativní používá vaše aplikace a pak odhadnout jedné metody odhadnout velikost vyhrazenou propustností požadované aplikací počet operací, které předpokládáte provádění každou sekundu.  Nezapomeňte měřit a zahrnují typické dotazy a také při použití skriptu Azure Cosmos DB.
 
@@ -304,8 +302,8 @@ Následující tabulka uvádí přibližnou požadavek jednotky poplatky za typi
 
 | Operace | Žádost o jednotky zdarma |
 | --- | --- |
-| Vytvořit položku |~ 15 RU |
-| Čtení položky |~ 1 RU |
+| Vytvoření položky |~15 RU |
+| Čtení položky |~1 RU |
 | Dotaz položky podle id |~2.5 RU |
 
 Kromě toho tato tabulka ukazuje přibližnou požadavek poplatky jednotky pro typické dotazy použitou v aplikaci:
@@ -313,9 +311,9 @@ Kromě toho tato tabulka ukazuje přibližnou požadavek poplatky jednotky pro t
 | Dotaz | Žádost o jednotky zdarma | počet vrácených položek |
 | --- | --- | --- |
 | Vyberte jídlo podle id |~2.5 RU |1 |
-| Vyberte potravin podle výrobce |~ 7 RU |7 |
-| Vyberte skupiny jídlo a pořadí podle váhy |~ 70 RU |100 |
-| Vyberte nejvyšší 10 potravin ve skupině jídlo |~ 10 RU |10 |
+| Vyberte potravin podle výrobce |~7 RU |7 |
+| Vyberte skupiny jídlo a pořadí podle váhy |~70 RU |100 |
+| Vyberte nejvyšší 10 potravin ve skupině jídlo |~10 RU |10 |
 
 > [!NOTE]
 > Poplatky za RU lišit v závislosti na počet vrácených položek.
@@ -326,7 +324,7 @@ Pomocí těchto informací můžete odhadnout požadavky pro tuto aplikaci zadan
 
 | Operace nebo dotazu | Očekávaný počet za sekundu | Požadované RUs |
 | --- | --- | --- |
-| Vytvořit položku |10 |150 |
+| Vytvoření položky |10 |150 |
 | Čtení položky |100 |100 |
 | Vyberte potravin podle výrobce |25 |175 |
 | Vyberte jídlo skupinou |10 |700 |
@@ -334,7 +332,7 @@ Pomocí těchto informací můžete odhadnout požadavky pro tuto aplikaci zadan
 
 V takovém případě byste měli průměrnou propustností požadavek 1,275 RU/s.  Zaokrouhlení až nejbližší 100 by zřídit 1 300 RU/s pro kolekci této aplikace.
 
-## <a id="RequestRateTooLarge"></a>Překročení omezení vyhrazenou propustností v Azure Cosmos DB
+## <a id="RequestRateTooLarge"></a> Překročení omezení vyhrazenou propustností v Azure Cosmos DB
 Odvolat, že spotřeba jednotek žádosti budou vyhodnocené jako za sekundu Pokud rozpočtu je prázdný. Pro aplikace, které překračují rychlost jednotky zřízené požadavků pro kontejner jsou požadavky na tuto kolekci omezena dokud rychlost klesne pod úroveň vyhrazené. Když dojde omezení, server ho preventivně končí požadavek s RequestRateTooLargeException (kód stavu HTTP 429) a vrátí hlavičku x-ms opakování za ms určující dobu v milisekundách, která uživatel musí počkat před provedením nového pokusu požadavek.
 
     HTTP Status 429
@@ -345,7 +343,7 @@ Pokud používáte klienta SDK rozhraní .NET a LINQ dotazů a potom ve většin
 
 Pokud máte více než jednoho klienta kumulativně operační vyšší rychlost požadavků nemusí stačit výchozí chování opakování a klient vyvolá výjimku DocumentClientException se stavovým kódem 429 k aplikaci. V případech, jako je tato zvažte zpracování logiky aplikace chyba zpracování rutiny nebo zvýšení vyhrazenou propustností kontejneru a postup pro opakované.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a>Překročení omezení vyhrazenou propustností v rozhraní API pro MongoDB
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Překročení omezení vyhrazenou propustností v rozhraní API pro MongoDB
 Aplikace, které překračují jednotek zřízené žádosti pro kolekci budou omezeny, dokud rychlost klesne pod úroveň vyhrazené. Když dojde omezení, back-end se ukončí ho preventivně požadavek s *16500* kód chyby - *příliš mnoho požadavků*. Ve výchozím nastavení, rozhraní API pro MongoDB bude automaticky opakovat až 10krát před vrácením *příliš mnoho požadavků* kód chyby. Pokud se zobrazuje řada *příliš mnoho požadavků* kódy chyb, můžete zvážit buď přidání opakování chování vaší aplikace chyba zpracování rutiny nebo [zvýšení vyhrazenou propustností pro kolekci](set-throughput.md).
 
 ## <a name="next-steps"></a>Další postup
@@ -358,7 +356,6 @@ Další informace o databázi Cosmos Azure najdete v tématu Azure Cosmos DB [do
 
 Začínáme s škálování a výkon testování pomocí Azure Cosmos DB, najdete v tématu [testování výkonu a škálování s Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

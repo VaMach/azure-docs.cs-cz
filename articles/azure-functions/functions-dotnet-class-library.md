@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funkcí jazyka C# referenční informace pro vývojáře
 
@@ -84,6 +84,31 @@ public static class SimpleExampleWithOutput
 }
 ```
 
+### <a name="order-of-parameters"></a>Pořadí parametrů
+
+Pořadí parametrů v podpis funkce nezáleží. Například před nebo po další vazby, které můžete vložit aktivační parametry a před nebo po aktivační události nebo vazby parametrů, které můžete vložit parametr protokolovacího nástroje.
+
+### <a name="binding-expressions"></a>Výrazy vazby
+
+Můžete vytvořit vazbu výrazy a v atributu konstruktoru parametry a parametry funkce. Například následující kód získá název fronty k monitorování z nastavení aplikace a získá čas vytvoření fronty zpráv `insertionTime` parametr.
+
+```csharp
+public static class BindingExpressionsExample
+{
+    [FunctionName("LogQueueMessage")]
+    public static void Run(
+        [QueueTrigger("%queueappsetting%")] string myQueueItem,
+        DateTimeOffset insertionTime,
+        TraceWriter log)
+    {
+        log.Info($"Message content: {myQueueItem}");
+        log.Info($"Created at: {insertionTime}");
+    }
+}
+```
+
+Další informace najdete v tématu **vazby výrazy a vzory** v [triggerů a vazeb](functions-triggers-bindings.md#binding-expressions-and-patterns).
+
 ### <a name="conversion-to-functionjson"></a>Převod na function.json
 
 Vytvoří procesu sestavení *function.json* souboru ve složce funkce ve složce sestavení. Jak již bylo uvedeno dříve, tento soubor není určen k upravovat přímo. Nelze změnit konfiguraci vazby nebo zakázat funkci úpravou tohoto souboru. 
@@ -119,22 +144,7 @@ Každé vazby má svou vlastní podporované typy; pro instanci atribut aktivač
 
 ## <a name="binding-to-method-return-value"></a>Vytvoření vazby na návratovou hodnotu – Metoda
 
-Můžete návratovou hodnotu metoda pro vazbu výstup, jak je znázorněno v následujícím příkladu:
-
-```csharp
-public static class ReturnValueOutputBinding
-{
-    [FunctionName("CopyQueueMessageUsingReturnValue")]
-    [return: Queue("myqueue-items-destination")]
-    public static string Run(
-        [QueueTrigger("myqueue-items-source-2")] string myQueueItem,
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-        return myQueueItem;
-    }
-}
-```
+Můžete návratovou hodnotu metoda pro vazbu výstup použitím atribut metoda návratovou hodnotu. Příklady najdete v tématu [triggerů a vazeb](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="writing-multiple-output-values"></a>Zápis více hodnot výstup
 
@@ -162,7 +172,7 @@ public static class ICollectorExample
 
 Do protokolu výstup váš datový proud protokolů v jazyce C#, zahrnují argument typu `TraceWriter`. Doporučujeme, abyste pojmenujte ji `log`. Nepoužívejte `Console.Write` v Azure Functions. 
 
-`TraceWriter`je definována v [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Úroveň protokolu pro `TraceWriter` se dá nakonfigurovat v [host.json](functions-host-json.md).
+`TraceWriter` je definována v [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Úroveň protokolu pro `TraceWriter` se dá nakonfigurovat v [host.json](functions-host-json.md).
 
 ```csharp
 public static class SimpleExample
@@ -202,18 +212,28 @@ public static class AsyncExample
 
 ## <a name="cancellation-tokens"></a>Zrušení tokenů
 
-Některé operace vyžadují řádné vypnutí. I když je vždy nejlepší napsat kód, který dokáže zpracovat chybám, v případech, ve které chcete zpracovávat požadavky vypnutí definovat [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) zadali argument.  A `CancellationToken` je k dispozici signál, že se aktivuje vypnutí hostitele.
+Funkce může přijmout [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parametr, který umožňuje operačního systému a funkcí je možné ukončit upozorňovaly kódu. Toto oznámení můžete Ujistěte se, že funkce nepodporuje neočekávaně ukončí tak, aby data ponechá v nekonzistentním stavu.
+
+Následující příklad ukazuje, jak zkontrolovat pro předcházení ukončení funkce.
 
 ```csharp
 public static class CancellationTokenExample
 {
-    [FunctionName("BlobCopy")]
-    public static async Task RunAsync(
-        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
-        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+    public static void Run(
+        [QueueTrigger("inputqueue")] string inputText,
+        TextWriter logger,
         CancellationToken token)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        for (int i = 0; i < 100; i++)
+        {
+            if (token.IsCancellationRequested)
+            {
+                logger.WriteLine("Function was cancelled at iteration {0}", i);
+                break;
+            }
+            Thread.Sleep(5000);
+            logger.WriteLine("Normal processing for queue message={0}", inputText);
+        }
     }
 }
 ```
@@ -258,7 +278,7 @@ Definujte imperativní vazby následujícím způsobem:
   }
   ```
 
-  `BindingTypeAttribute`je atribut rozhraní .NET, která definuje vazbu, a `T` je vstupní nebo výstupní typ, který podporuje tento typ vazby. `T`nelze `out` typ parametru (například `out JObject`). Například v tabulce Mobile Apps výstupu vazba podporuje [šest výstup typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale můžete použít pouze [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) nebo [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)imperativní vazbou.
+  `BindingTypeAttribute` je atribut rozhraní .NET, která definuje vazbu, a `T` je vstupní nebo výstupní typ, který podporuje tento typ vazby. `T` nelze `out` typ parametru (například `out JObject`). Například v tabulce Mobile Apps výstupu vazba podporuje [šest výstup typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale můžete použít pouze [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) nebo [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)imperativní vazbou.
 
 ### <a name="single-attribute-example"></a>Příklad jeden atribut
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure vazby fronty úložiště pro Azure Functions
 
@@ -213,11 +213,11 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
-|**Typ** | neuvedeno| musí být nastavena na `queueTrigger`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
-|**směr**| neuvedeno | V *function.json* pouze souboru. musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
+|Typ | neuvedeno| musí být nastavena na `queueTrigger`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
+|**Směr**| neuvedeno | V *function.json* pouze souboru. musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
 |**name** | neuvedeno |Název proměnné, která představuje ve frontě v kód funkce.  | 
 |**queueName** | **QueueName**| Název fronty pro cyklické dotazování. | 
-|**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
+|**Připojení** | Připojení |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -234,16 +234,16 @@ V jazyce JavaScript, použijte `context.bindings.<name>` pro přístup k datové
 
 ## <a name="trigger---message-metadata"></a>Aktivační událost – zpráva metadat
 
-Aktivační událost fronty nabízí několik vlastností metadat. Tyto vlastnosti lze použít jako součást vazby výrazy v jiných vazby nebo jako parametry v kódu. Hodnoty mají stejnou sémantiku jako [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Aktivační událost fronty nabízí několik [metadata vlastnosti](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Tyto vlastnosti lze použít jako součást vazby výrazy v jiných vazby nebo jako parametry v kódu. Hodnoty mají stejnou sémantiku jako [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Vlastnost|Typ|Popis|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Datová část frontu (pokud platný řetězec). Pokud fronty zpráv datové části jako řetězec, `QueueTrigger` má stejnou hodnotu jako proměnné s názvem podle `name` vlastnost *function.json*.|
 |`DequeueCount`|`int`|Počet časy, kdy se tato zpráva má bylo vyřazeno z fronty.|
-|`ExpirationTime`|`DateTimeOffset?`|Čas, kdy vyprší platnost zprávy.|
+|`ExpirationTime`|`DateTimeOffset`|Čas, kdy vyprší platnost zprávy.|
 |`Id`|`string`|ID zprávy fronty|
-|`InsertionTime`|`DateTimeOffset?`|Doba, která zpráva byla přidána do fronty.|
-|`NextVisibleTime`|`DateTimeOffset?`|Čas, zprávy budou vedle viditelné.|
+|`InsertionTime`|`DateTimeOffset`|Doba, která zpráva byla přidána do fronty.|
+|`NextVisibleTime`|`DateTimeOffset`|Čas, zprávy budou vedle viditelné.|
 |`PopReceipt`|`string`|Pop přijetí zprávy.|
 
 ## <a name="trigger---poison-messages"></a>Aktivační událost - poškozených zpráv
@@ -251,6 +251,18 @@ Aktivační událost fronty nabízí několik vlastností metadat. Tyto vlastnos
 Pokud se nezdaří aktivační funkce fronty, Azure Functions opakuje funkce až pětkrát pro danou frontu zprávy, včetně první pokus. Pokud selžou všechny pět pokusy, functions runtime přidá zprávu do fronty s názvem  *&lt;originalqueuename >-poškozených*. Můžete napsat, že je funkce, která se zpracování zpráv z fronty poškozených jejich protokolování nebo odesílání oznámení, že ruční pozornost.
 
 Pro zpracování poškozených zpráv ručně, zkontrolujte [dequeueCount](#trigger---message-metadata) zprávy fronty.
+
+## <a name="trigger---polling-algorithm"></a>Aktivační událost - algoritmus dotazování
+
+Aktivační událost fronty implementuje náhodných exponenciální back vypnout algoritmus, aby se snížil dopad nečinnosti-fronty dotazování na transakce náklady na úložiště.  Když se najde zprávu, modul runtime vyčká dvou sekund a poté zkontroluje další zprávu; Pokud je nalezena žádná zpráva, bude čekat před dalším pokusem o čtyři sekund. Po následné neúspěšných pokusech o získání zprávu fronty doba čekání nadále zvýšit, dokud nedosáhne maximální čekací doba, výchozí nastavení je na jednu minutu. Maximální čekací doba je konfigurovatelná pomocí `maxPollingInterval` vlastnost v [host.json soubor](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Aktivační událost - souběžnosti
+
+Při čekání na více fronty zpráv se aktivační událost fronty načítá dávku zpráv a vyvolá instance funkce současně pro jejich zpracování. Velikost dávky je ve výchozím nastavení 16. Když počet zpracovávaných získá na 8, modul runtime získá další dávku a spustí zpracování těchto zpráv. Maximální počet souběžných zpráv, které jsou zpracovány za funkce na jeden virtuální počítač (VM) je 24. Toto omezení platí pro jednotlivé funkce aktivované fronty pro každý virtuální počítač samostatně. Pokud aplikace funkce horizontálně navýší kapacitu na víc virtuálních počítačů, každý virtuální počítač bude čekat na aktivační události a pokus o spuštění funkce. Například pokud aplikace funkce horizontálně navýší kapacitu 3 virtuální počítače, je výchozí maximální počet souběžných instancí jednu funkci aktivovaného fronty 72.
+
+Velikost dávky a prahová hodnota pro získávání novou dávku lze konfigurovat v [host.json soubor](functions-host-json.md#queues). Pokud chcete, aby se minimalizoval paralelní provádění pro fronty aktivované funkce v aplikaci funkce, můžete nastavit velikost dávky na 1. Toto nastavení eliminuje souběžnosti pouze tak dlouho, dokud běží vaše aplikace funkce jednoduchého virtuálního počítače (VM). 
+
+Aktivační událost fronty automaticky zabrání funkci zpracování zpráv fronty vícekrát; má být proveden zápis idempotent nemají funkce.
 
 ## <a name="trigger---hostjson-properties"></a>Aktivační událost - host.json vlastnosti
 
@@ -435,11 +447,11 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
-|**Typ** | neuvedeno | musí být nastavena na `queue`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
-|**směr** | neuvedeno | musí být nastavena na `out`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
+|Typ | neuvedeno | musí být nastavena na `queue`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
+|**Směr** | neuvedeno | musí být nastavena na `out`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
 |**name** | neuvedeno | Název proměnné, která představuje ve frontě v kód funkce. Nastavte na `$return` Chcete-li funkce návratovou hodnotu.| 
 |**queueName** |**QueueName** | Název fronty. | 
-|**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
+|**Připojení** | Připojení |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3388257399ce8d2e0ac84b9bff746e1acf153312
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Kurz upgradu Service Fabric aplikace pomocí sady Visual Studio
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Za několik minut všechny domény aktualizace je potřeba upgradovat (Dokončit
 
 Můžete chtít zkuste změnit verze a přesun z verze 2.0.0 na verzi 3.0.0 jako cvičení, nebo dokonce z verze 2.0.0 zpět na verzi 1.0.0. Přehrání s vypršení časových limitů a zásad stavu proveďte vlastní obeznámeni s nimi. Při nasazení v clusteru služby Azure a místní cluster, použité parametry pravděpodobně nutné lišit. Doporučujeme vám, můžete nastavit vypršení časových limitů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Upgrade vaší aplikace pomocí prostředí PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vás provede upgrade aplikace pomocí prostředí PowerShell.
 
 Řídí, jak je upgrade vaší aplikace pomocí [upgrade parametry](service-fabric-application-upgrade-parameters.md).

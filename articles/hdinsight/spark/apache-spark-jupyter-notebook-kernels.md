@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Jádra pro poznámkový blok Jupyter na clustery Spark v Azure HDInsight 
 
@@ -135,7 +135,11 @@ Můžete otevřít **00 - [přečtěte si NEJPRVE] funkce jádra Magic Spark** p
 
 ## <a name="where-are-the-notebooks-stored"></a>Kde jsou uložené poznámkových bloků?
 
-Poznámkové bloky Jupyter se uloží do účtu úložiště přidruženého k clusteru pod **/HdiNotebooks** složky.  Poznámkové bloky, textové soubory a složky, které vytvoříte z v rámci Jupyter jsou přístupné z účtu úložiště.  Například, pokud používáte Jupyter vytvořit složku **Moje_složka** a Poznámkový blok **myfolder/mynotebook.ipynb**, dostanete tento poznámkový blok v `/HdiNotebooks/myfolder/mynotebook.ipynb` v rámci účtu úložiště.  Platí také nastavena hodnota true, to znamená, pokud nahrát Poznámkový blok přímo do účtu úložiště na `/HdiNotebooks/mynotebook1.ipynb`, Poznámkový blok je také zobrazit z Jupyter.  Poznámkové bloky zůstat v účtu úložiště i po odstranění clusteru.
+Pokud váš cluster používá jako výchozí účet úložiště Azure Storage, poznámkové bloky Jupyter se uloží do účtu úložiště **/HdiNotebooks** složky.  Poznámkové bloky, textové soubory a složky, které vytvoříte z v rámci Jupyter jsou přístupné z účtu úložiště.  Například, pokud používáte Jupyter vytvořit složku **Moje_složka** a Poznámkový blok **myfolder/mynotebook.ipynb**, dostanete tento poznámkový blok v `/HdiNotebooks/myfolder/mynotebook.ipynb` v rámci účtu úložiště.  Platí také nastavena hodnota true, to znamená, pokud nahrát Poznámkový blok přímo do účtu úložiště na `/HdiNotebooks/mynotebook1.ipynb`, Poznámkový blok je také zobrazit z Jupyter.  Poznámkové bloky zůstat v účtu úložiště i po odstranění clusteru.
+
+> [!NOTE]
+> Clustery HDInsight s Azure Data Lake Store jako výchozí úložiště neukládejte poznámkových bloků v přidruženého úložiště.
+>
 
 Způsob, jakým poznámkových bloků se uloží do účtu úložiště je kompatibilní s HDFS. Pokud tedy můžete SSH do clusteru, který můžete použít soubor příkazy pro správu, jak je znázorněno v následujícím fragmentu kódu:
 
@@ -143,8 +147,7 @@ Způsob, jakým poznámkových bloků se uloží do účtu úložiště je kompa
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-V případě, že nedochází k potížím přístupu k účtu úložiště pro cluster, poznámkových bloků jsou také uloženy na headnode `/var/lib/jupyter`.
+Bez ohledu na to, jestli cluster používá Azure Storage nebo Azure Data Lake Store jako výchozí účet úložiště, jsou také uloženy poznámkových bloků v clusteru headnode v `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Podporovaný prohlížeč
 
