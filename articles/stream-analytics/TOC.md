@@ -62,6 +62,7 @@
 ### [Důležité informace o řazení událostí](stream-analytics-out-of-order-and-late-events.md)
 ### [Omezení čtečky centra událostí](stream-analytics-event-hub-consumer-groups.md)
 ### [Protokoly diagnostiky](stream-analytics-job-diagnostic-logs.md)
+### [Získání poškozených událostí](stream-analytics-malformed-events.md)
 
 ## Automatizace
 ### [Použití Management .NET SDK](stream-analytics-dotnet-management-sdk.md)

@@ -36,11 +36,9 @@
 #### [Správa prostředků napříč několika účty úložiště](meda-services-managing-multiple-storage-accounts.md)
 ### [Kvóty a omezení](media-services-quotas-and-limitations.md)
 ## [Konfigurace nástroje Postman](media-rest-apis-with-postman.md)
-### Streamování na vyžádání
-#### [Prostředí](postman-environment.md)
-#### [Kolekce](postman-collection.md)
-### Živé streamování
-#### [Kolekce](postman-live-streaming-collection.md)
+### [Kolekce streamingu na vyžádání](postman-collection.md)
+### [Kolekce živého streamování](postman-live-streaming-collection.md)
+### [Prostředí](postman-environment.md)
 ## Nahrání obsahu
 ### Nahrání souborů do účtu
 #### [portál Azure Portal](media-services-portal-upload-files.md)

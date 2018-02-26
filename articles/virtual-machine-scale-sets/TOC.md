@@ -42,7 +42,7 @@
 #### [Použití Azure Powershellu](virtual-machine-scale-sets-manage-powershell.md)
 ### [Vertikální škálování ve škálovací sadě](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Automatické upgrady operačního systému](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Upgrady pro škálovací sady](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Úprava škálovací sady](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Použití DSC a škálovacích sad](virtual-machine-scale-sets-dsc.md)
 ### [Síťové služby pro škálovací sady](virtual-machine-scale-sets-networking.md)
 ### [Převod šablony na spravované disky](virtual-machine-scale-sets-convert-template-to-md.md)

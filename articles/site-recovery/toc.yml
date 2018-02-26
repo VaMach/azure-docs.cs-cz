@@ -87,28 +87,28 @@
           href: site-recovery-migrate-to-azure.md
     - name: Oprávnění k přístupu na základě rolí
       href: site-recovery-role-based-linked-access-control.md
+    - name: Azure Traffic Manager se službou Azure Site Recovery
+      href: concepts-traffic-manager-with-site-recovery.md
     - name: Nejčastější dotazy
       href: site-recovery-faq.md
 - name: Návody
   items:
     - name: Sítě
       items:
-        - name: Nastavení sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
+        - name: Správa sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
           href: azure-to-azure-about-networking.md
-        - name: Nastavení mapování sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
+        - name: Příprava mapování sítě pro zotavení po havárii virtuálního počítače Azure
           href: azure-to-azure-network-mapping.md
-        - name: Nastavení replikace mapování sítě pro virtuální počítače Hyper-V ve VMM
-          href: hyper-v-vmm-network-mapping.md
-        - name: Zachování protokolu IP pro zotavení po havárii virtuálního počítače Azure (Preview)
+        - name: Nastavení IP adres po převzetí služeb při selhání virtuálního počítače Azure
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: Příprava mapování sítí pro replikaci virtuálních počítačů Hyper-V do Azure
-          href: site-recovery-network-mapping.md
-        - name: Nastavení přidělování IP adres pro přístup k Azure po převzetí služeb při selhání
-          href: concepts-on-premises-to-azure-networking.md
-        - name: Nastavení přidělování IP adres pro přístup k sekundární lokalitě po převzetí služeb při selhání
-          href: hyper-v-vmm-networking.md
-        - name: Správa síťového rozhraní ve scénářích přechodu z místního nasazení do Azure
+        - name: Správa síťových rozhraní pro zotavení po havárii místního prostředí do Azure
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+        - name: Příprava mapování sítě pro zotavení po havárii virtuálního počítače Hyper-V
+          href: hyper-v-vmm-network-mapping.md
+        - name: Nastavení IP adres po převzetí služeb při selhání do Azure
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Nastavení IP adresy po převzetí služeb při selhání do sekundární lokality
+          href: hyper-v-vmm-networking.md
     - name: Zotavení po havárii
       items:
         - name: Zotavení po havárii virtuálních počítačů Azure po migraci do Azure
@@ -197,7 +197,7 @@
           items:
             - name: Zdrojové prostředí pro replikaci z VMware do Azure
               href: site-recovery-set-up-vmware-to-azure.md
-            - name: Nasazení konfiguračního serveru pro VMware a fyzické servery
+            - name: Nasazení konfiguračního serveru pro zotavení po havárii VMware
               href: how-to-deploy-configuration-server.md
             - name: Zdrojové prostředí pro replikaci z fyzických prostředků do Azure
               href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +267,10 @@
       items:
         - name: Správa procesových serverů v Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-        - name: Správa konfiguračního serveru
+        - name: Správa konfiguračního serveru pro zotavení po havárii VMware
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: Správa konfiguračního serveru pro zotavení po havárii fyzického počítače
+          href: physical-manage-configuration-server.md
         - name: Správa serverů vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Správa víceklientského prostředí s využitím CSP

@@ -44,9 +44,9 @@
           href: storage-monitor-troubleshoot-storage-application.md
     - name: Návrh pro zajištění vysoké dostupnosti v cloudovém úložišti
       items:
-        - name: Zajištění vysoké dostupnosti aplikace
+        - name: 1. Zajištění vysoké dostupnosti aplikace
           href: storage-create-geo-redundant-storage.md
-        - name: Simulace selhání s využitím úložiště RA-GRS
+        - name: 2. Simulace selhání s využitím úložiště RA-GRS
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Migrace místních dat do cloudu s využitím AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -54,13 +54,13 @@
       href: storage-unstructured-search.md
     - name: Optimalizace škálovatelnosti a výkonu aplikace úložiště
       items:
-        - name: Vytvoření virtuálního počítače a účtu úložiště
+        - name: 1. Vytvoření virtuálního počítače a účtu úložiště
           href: storage-blob-scalable-app-create-vm.md
-        - name: Odeslání velkých dat do účtu služby Azure Storage
+        - name: 2. Odeslání velkých dat do účtu služby Azure Storage
           href: storage-blob-scalable-app-upload-files.md
-        - name: Stažení velkých dat z účtu služby Azure Storage
+        - name: 3. Stažení velkých dat z účtu služby Azure Storage
           href: storage-blob-scalable-app-download-files.md
-        - name: Ověření metrik latence a propustnosti
+        - name: 4. Ověření metrik latence a propustnosti
           href: storage-blob-scalable-app-verify-metrics.md
 - name: Ukázky
   items:

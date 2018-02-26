@@ -55,6 +55,8 @@
       items:
         - name: Statická IP adresa
           href: static-ip.md
+        - name: Ingress a protokol TLS
+          href: ingress.md
     - name: Zabezpečení a ověřování
       items:
         - name: Vytvoření instančního objektu

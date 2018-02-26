@@ -33,15 +33,17 @@
       href: tutorial-virtual-network.md
     - name: 9. Zálohování virtuálních počítačů
       href: tutorial-backup-vms.md
-    - name: 10. Monitorování a aktualizace virtuálních počítačů
+    - name: 10. Řízení virtuálních počítačů
+      href: tutorial-govern-resources.md
+    - name: 11. Monitorování a aktualizace virtuálních počítačů
       href: tutorial-monitoring.md
-    - name: 11. Správa zabezpečení virtuálního počítače
+    - name: 12. Správa zabezpečení virtuálních počítačů
       href: tutorial-azure-security.md
-    - name: 12. CI/CD služby Team Services
+    - name: 13. CI/CD služby Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: 13. Instalace zásobníku SQL\IIS\.NET
+    - name: 14. Instalace zásobníku SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 14. Zabezpečení webového serveru pomocí SSL
+    - name: 15. Zabezpečení webového serveru pomocí SSL
       href: tutorial-secure-web-server.md
 - name: Ukázky
   items:
