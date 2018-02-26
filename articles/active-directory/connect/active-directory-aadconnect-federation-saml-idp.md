@@ -252,7 +252,7 @@ Společnost Microsoft poskytuje nástroj, který můžete použít k testování
 7. Toto okno zobrazuje selhání výsledek testování. Kliknutím na zkontrolujte podrobné výsledky se zobrazí informace o výsledky pro všechny testy, které bylo provedeno. Také můžete uložit na disk, aby bylo možné sdílet jejich výsledky.
  
 >[!NOTE]
->Analyzátor připojení také testy Active federace pomocí WS *-ECP/PAOS a na základě protokolů. Pokud nepoužíváte tyto můžete ignorovat k následující chybě: testování Active toku přihlášení pomocí zprostředkovatele identity Active federační koncový bod.
+>Analyzátor připojení také testy Active federace pomocí WS*-ECP/PAOS a na základě protokolů. Pokud nepoužíváte tyto můžete ignorovat k následující chybě: testování Active toku přihlášení pomocí zprostředkovatele identity Active federační koncový bod.
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Ručně ověřte, zda že tento jednotné přihlášení byla nastavena správně
 Ruční ověření poskytuje další kroky, které můžete provést k zajištění poskytovatele identity SAML 2.0, ke které pracuje správně v řadě scénářů.

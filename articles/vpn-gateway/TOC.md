@@ -19,6 +19,8 @@
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (Classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [Stažení skriptů konfigurace zařízení VPN](vpn-gateway-download-vpndevicescript.md)
+
 ## Konfigurace připojení typu Point-to-Site – nativní ověřování certifikátů Azure
 ### Konfigurace P2S VPN
 #### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

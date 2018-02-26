@@ -36,14 +36,16 @@
       href: delivery-and-retry.md
 - name: Návody
   items:
+    - name: Publikování ve vlastním tématu
+      href: post-to-custom-topic.md
     - name: Příjem událostí pro koncový bod HTTP
       href: receive-events.md
     - name: Streamování dat z Event Hubs do datového skladu
       href: event-grid-event-hubs-integration.md
     - name: Odesílání oznámení o událostech služby IoT Hub
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Publikování ve vlastním tématu
-      href: post-to-custom-topic.md
+    - name: Naslouchání událostem služby Service Bus s využitím Functions a Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Šablony pro odběry událostí
       href: event-subscription-template.md
     - name: Monitorování doručování událostí

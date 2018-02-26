@@ -33,21 +33,23 @@
       href: tutorial-virtual-network.md
     - name: 9. Zálohování virtuálních počítačů
       href: tutorial-backup-vms.md
-    - name: 10. Monitorování a aktualizace virtuálních počítačů
+    - name: 10. Řízení virtuálních počítačů
+      href: tutorial-govern-resources.md
+    - name: 11. Monitorování a aktualizace virtuálních počítačů
       href: tutorial-monitoring.md
-    - name: 11. Správa zabezpečení virtuálního počítače
+    - name: 12. Správa zabezpečení virtuálních počítačů
       href: tutorial-azure-security.md
-    - name: 12. Nasazení Jenkinse
+    - name: 13. Nasazení Jenkinse
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 13. CI/CD s Team Services
+    - name: 14. CI/CD s Team Services
       href: tutorial-build-deploy-jenkins.md
-    - name: 14a. Vytvoření zásobníku LAMP
+    - name: 15a. Vytvoření zásobníku LAMP
       href: tutorial-lamp-stack.md
-    - name: 14b. Vytvoření zásobníku LEMP
+    - name: 15b. Vytvoření zásobníku LEMP
       href: tutorial-lemp-stack.md
-    - name: 14c. Vytvoření zásobníku MEAN
+    - name: 15c. Vytvoření zásobníku MEAN
       href: tutorial-mean-stack.md
-    - name: 15. Zabezpečení webového serveru pomocí SSL
+    - name: 16. Zabezpečení webového serveru pomocí SSL
       href: tutorial-secure-web-server.md
 - name: Ukázky
   items:

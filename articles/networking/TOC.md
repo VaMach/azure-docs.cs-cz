@@ -23,6 +23,7 @@
 ### [Místní připojení k síti VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Místní připojení k síti vyhrazené síti](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # Začínáme
 ## [Vytvoření první virtuální sítě](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [Správa zachytávání paketů](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Určení směrování dalšího segmentu směrování](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Ověření toků protokolu IP pro virtuální počítač](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Přehled sledování sítě](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Ukázkové skripty
 ### [Azure CLI](cli-samples.md)

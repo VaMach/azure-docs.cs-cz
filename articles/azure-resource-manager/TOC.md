@@ -3,6 +3,7 @@
 ## [Poskytovatelé a typy prostředků](resource-manager-supported-services.md)
 ## [Resource Manager a klasické nasazení](resource-manager-deployment-model.md)
 ## [Zásady správného řízení pro předplatná](resource-manager-subscription-governance.md)
+## [Uspořádání prostředků s využitím skupin pro správu](management-groups-overview.md)
 
 # Začínáme
 ## [Vytvoření šablony nasazení](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Použití značek k uspořádání prostředků](resource-group-using-tags.md)
 ### [Přesunutí prostředků do nové skupiny nebo předplatného](resource-group-move-resources.md)
-### [Uspořádání předplatných s využitím skupin pro správu](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Vytvoření skupin pro správu](management-groups-create.md)
+### [Správa skupin pro správu](management-groups-manage.md)
 ### [Příklady zásad správného řízení](resource-manager-subscription-examples.md)
 ### [Spravované aplikace](../managed-applications/overview.md)
 
