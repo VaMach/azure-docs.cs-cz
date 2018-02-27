@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Začínáme se Storage Explorerem (Preview)
 ## <a name="overview"></a>Přehled
@@ -28,6 +28,16 @@ Azure Storage Explorer (Preview) je samostatná aplikace, která umožňuje jedn
 
 ## <a name="prerequisites"></a>Požadavky
 * [Stažení a instalace Storage Exploreru (Preview)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Pro distribucích systému Linux než Ubuntu 16.04 musíte ručně nainstalovat několik závislostí. Obecně platí vyžadují se následující balíčky:
+> * libgconf-2-4
+> * libsecret
+> * Aktuální RSZ
+>
+> V závislosti na vaší distro může být jiné balíčky, které potřebujete k instalaci. Storage Explorer [poznámky k verzi](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) obsahují konkrétní kroky pro některých distribucích.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Připojení k účtu úložiště nebo službě
 Storage Explorer (Preview) nabízí několik způsobů, jak se připojit k účtům úložiště. Můžete například provést následující věci:
@@ -240,18 +250,18 @@ Kromě spravovat účty pro Azure Cosmos DB prostřednictvím předplatné Azure
     ![connection-string][22]
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Připojení k Azure Data Lake Store identifikátorem URI
-Pokud chcete získat přístup k prostředkům, které nejsou k dispozici v rámci vašeho předplatného. Ale jiné udělit získat identifikátor Uri pro prostředky. V takovém případě můžete připojit do Data Lake Store pomocí identifikátoru Uri po přihlášení. Naleznete následující kroky.
+Představte si, že chcete získat přístup k prostředkům, které neexistují ve vašem předplatném. Ostatní vám však udělí oprávnění k získání jejich identifikátoru URI. V takovém případě se po přihlášení můžete připojit ke službě Data Lake Store s použitím tohoto identifikátoru URI. Postup najdete v následujících krocích.
 1. Otevřete Storage Explorer (Preview).
-2. V levém podokně rozbalte **místní a připojené**.
-3. Klikněte pravým tlačítkem na **Data Lake Store**a v místní nabídce - vyberte **připojit k Data Lake Store...** .
+2. V levém podokně rozbalte **Místní a připojené**.
+3. Klikněte pravým tlačítkem na **Data Lake Store** a v místní nabídce vyberte **Připojit ke službě Data Lake Store**.
 
-    ![připojení k Data Lake Store kontextové nabídky](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![místní nabídka Připojit ke službě Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. Zadejte identifikátor Uri, pak nástroj přejde na umístění právě zadaná adresa URL.
+4. Zadejte identifikátor URI a nástroj vás pak přesměruje na adresu URL, kterou jste právě zadali.
 
-    ![připojení do dialogového okna kontextu Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![dialogové okno Připojit ke službě Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-    ![připojení k výsledek Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+    ![výsledek připojení ke službě Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="search-for-storage-accounts"></a>Vyhledávání účtů úložiště
 Pokud budete potřebovat k vyhledání prostředků úložiště a neznáte, tam, kde je, že do vyhledávacího pole v horní části levého podokna můžete použít k vyhledání prostředku.

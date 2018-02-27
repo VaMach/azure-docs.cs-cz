@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Migrovat existující Mobile Service Azure do Azure App Service
 Pomocí [obecné dostupnosti služby Azure App Service], weby Azure Mobile Services můžete snadno migrovat na místě chcete využít výhod všech funkcí služby Azure App Service.  Tento dokument popisuje, co očekávat při migraci váš web z Azure Mobile Services do služby Azure App Service.
@@ -32,7 +32,7 @@ Migrace služby Azure Mobile změní služby Mobile do [Azure App Service] aplik
 Microsoft doporučuje, který migrujete služby Azure Mobile chcete využít výhod funkce Azure App Service, včetně:
 
 * Nové hostitelské funkce včetně [WebJobs] a [vlastních názvů domén].
-* Monitorování a řešení potíží s New Relic nebo [Application Insights].
+* Monitorování a řešení potíží s [Application Insights].
 * Předdefinované DevOps nástrojů, včetně [přípravné sloty], vrácení zpět a v produkční testování.
 * [Automatické škálování], Vyrovnávání zatížení a [monitorování výkonu].
 
@@ -127,7 +127,7 @@ Soubor PublishSettings se stáhne do počítače.  Obvykle se označuje jako *si
 
 1. Otevřete Visual Studio a projekt mobilní služby Azure.
 2. Klikněte pravým tlačítkem na projekt v **Průzkumníku řešení** a vyberte **publikování...**
-3. Klikněte na tlačítko **importu**
+3. Klikněte na **Importovat**.
 4. Klikněte na tlačítko **Procházet** a vyberte vaše stažený soubor nastavení publikování.  Klikněte na tlačítko **OK**.
 5. Klikněte na tlačítko **ověřit připojení** aby fungoval nastavení publikování.
 6. Klikněte na tlačítko **publikovat** k publikování webu.
@@ -201,7 +201,7 @@ Kliknutím můžete přidat tabulku **přidat** tlačítko nebo přístup k vaš
 * Vymazání obsahu tabulky
 * Odstranění konkrétní řádků tabulky
 
-### <a name="easyapis"></a>ROZHRANÍ API
+### <a name="easyapis"></a>API
 *Rozhraní API* kartě v Mobile Services nahradila *rozhraní API pro snadný* v rámci portálu Azure.  Pro přístup k rozhraní API pro snadný:
 
 1. Přihlaste se k portálu [Azure Portal].
@@ -238,7 +238,7 @@ Mobile Services používá centra oznámení pro nabízená oznámení.  Násled
 | **MS\_PushEntityNamespace** |Namespace centra oznámení |
 | **MS\_NotificationHubName** |Název centra oznámení. |
 | **MS\_NotificationHubConnectionString** |Připojovací řetězec centra oznámení |
-| **MS\_parametr NamespaceName** |Alias pro MS_PushEntityNamespace |
+| **MS\_NamespaceName** |Alias pro MS_PushEntityNamespace |
 
 Vaše centrum oznámení je spravovat prostřednictvím [Azure Portal].  Poznamenejte si název centra oznámení (můžete najít to pomocí nastavení aplikace):
 
@@ -269,9 +269,9 @@ Následující nastavení dalších aplikací jsou migrované z mobilní služby
 | Nastavení aplikace | Popis |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Název vaší aplikace |
-| **MS\_MobileServiceDomainSuffix** |Předpona domény. jednofaktorovému Azure mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Předpona domény. i.e azure-mobile.net |
 | **MS\_ApplicationKey** |Klíč vaší aplikace |
-| **MS\_hlavního klíče.** |Hlavní klíč vaší aplikace |
+| **MS\_MasterKey** |Hlavní klíč vaší aplikace |
 
 Klíč aplikace a hlavní klíč jsou identické s klíči aplikací z původního mobilní služby.  Klíč aplikace je odeslán na konkrétní mobilní klienty pro ověření jejich používání mobilní rozhraní API.
 

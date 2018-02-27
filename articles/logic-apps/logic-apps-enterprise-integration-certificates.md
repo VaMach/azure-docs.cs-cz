@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Další informace o certifikátech a řešení Enterprise Integration Pack
 ## <a name="overview"></a>Přehled
@@ -44,7 +44,7 @@ Po odeslání certifikát, je k dispozici a pomáhá vám zabezpečit zpráv B2B
 
 Tady jsou podrobné kroky pro nahrávání veřejné certifikáty do účtu integrace po přihlášení k portálu Azure:
 
-1. Vyberte **další služby** a zadejte **integrace** do vyhledávacího pole filtru. Vyberte **účty pro integraci** ze seznamu výsledků     
+1. Vyberte **všechny služby** a zadejte **integrace** do vyhledávacího pole filtru. Vyberte **účty pro integraci** ze seznamu výsledků     
 ![Vyberte procházení](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Vyberte účet integrace, do které chcete přidat certifikát.  
 ![Vyberte účet integrace, do které chcete přidat certifikát](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
@@ -67,7 +67,7 @@ Použít *privátní certifikát* ve vašich logic apps s B2B možnosti, můžet
 1. [Nahrát svůj privátní klíč do Key Vault](../key-vault/key-vault-get-started.md "Další informace o Key Vault") a poskytují **název klíče** 
    
    > [!TIP]
-   > Je nutné autorizovat Logic Apps k provádění operací v Key Vault. Objekt služby Logic Apps můžete poskytnout přístup pomocí následujícího příkazu Powershellu:`Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
+   > Je nutné autorizovat Logic Apps k provádění operací v Key Vault. Objekt služby Logic Apps můžete poskytnout přístup pomocí následujícího příkazu Powershellu: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
    > 
    > 
 

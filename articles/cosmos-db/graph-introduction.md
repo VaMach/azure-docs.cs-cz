@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Úvod do Azure Cosmos DB: Graph API
 
@@ -107,22 +107,14 @@ Můžete rozhraní příkazového řádku Azure (CLI), Azure PowerShell nebo por
 
 V následující tabulce jsou uvedeny oblíbených Gremlin ovladače, které můžete použít pro Azure Cosmos DB:
 
-| Ke stažení | Dokumentace |
-| --- | --- |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) |[Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) |
-| [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin JavaScript na Githubu](https://github.com/jbmusso/gremlin-javascript) |
-| [Gremlin konzoly](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokumentace](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
-
-Také poskytuje knihovny .NET, který má Gremlin rozšiřující metody na Azure Cosmos DB [SDK služby Azure Cosmos DB](sql-api-sdk-dotnet.md) prostřednictvím balíčku NuGet. Tato knihovna nabízí server Gremlin služby "v rámci procesu", který můžete použít pro připojení přímo k datové oddíly.
-
-| Ke stažení | Dokumentace |
-| --- | --- |
-| [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
-
-Pomocí [emulátoru DB Cosmos Azure](local-emulator.md), můžete použít rozhraní Graph API .NET výše pro vývoj a testování místně bez vytváření předplatného Azure nebo nákladům. Až budete spokojeni s jak funguje aplikaci v emulátoru, můžete přejít k používání účtu Azure Cosmos DB v cloudu.
-
-> [!NOTE]
-> Podpora pro ověřování Gremlin dotazy pro [emulátoru DB Cosmos Azure](local-emulator.md) dostupný jen přes rozhraní .NET Graph API.
+| Ke stažení | Dokumentace | Začínáme |
+| --- | --- | --- |
+| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET na Githubu](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Vytvoření grafu pomocí rozhraní .NET](create-graph-dotnet.md) |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Vytvoření grafu používá Java](create-graph-java.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin JavaScript na Githubu](https://github.com/jbmusso/gremlin-javascript) | [Vytvoření grafu pomocí Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin Python na Githubu](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Vytvoření grafu používá Python](create-graph-python.md) |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin PHP na Githubu](https://github.com/PommeVerte/gremlin-php) | [Vytvoření grafu používá PHP](create-graph-php.md) |
+| [Gremlin konzoly](https://tinkerpop.apache.org/downloads.html) | [TinkerPop dokumentace](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Vytvoření grafu pomocí konzoly Gremlin](create-graph-gremlin-console.md) |
 
 ## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scénáře pro graf podpoře Azure Cosmos DB
 Tady je několik scénářů, kde je možné grafu podpoře Azure Cosmos DB:
@@ -131,7 +123,7 @@ Tady je několik scénářů, kde je možné grafu podpoře Azure Cosmos DB:
 
  Kombinací data o vašich zákazníků a jejich interakce s jinými lidmi, můžete vyvíjet přizpůsobené prostředí, předpovědi chování zákazníků nebo spojení uživatelů s ostatními s podobnými zájmy. Azure Cosmos DB slouží ke správě sociálních sítí a sledovat předvolby zákazníka a data.
 
-* Doporučení moduly
+* Generátory doporučení
 
  Tento scénář se často používá v prodejní odvětví. Kombinací informace o produktech, uživatelů a interakce s uživatelem, jako je nákup, procházení nebo hodnocení položku, můžete vytvořit vlastní doporučení. Nízká latence, elastické škálování a nativní podpora grafu Azure Cosmos databáze je ideální pro modelování tyto interakce.
 

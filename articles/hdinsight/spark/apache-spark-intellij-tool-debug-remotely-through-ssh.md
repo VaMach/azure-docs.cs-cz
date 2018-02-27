@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6ea6d94453583c6b5ed680f96ebc43d33d0262a0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: dfffe935cd7e896fb251a3ed40a5493fbf836a6c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH
 
@@ -57,7 +57,7 @@ Tento článek obsahuje podrobné pokyny o tom, jak používat nástroje HDInsig
 
       ![Vytvoření projektu ladění](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-   d. Vyberte **Další**.     
+   d. Vyberte **Next** (Další).     
  
 2. V dalším **nový projekt** okno, postupujte takto:
 
@@ -102,7 +102,7 @@ Chcete tuto chybu vyřešit [stáhnout spustitelný soubor](http://public-repo-1
 
 1. Pro přístup k **upravit konfigurace** nabídce vyberte ikonu v pravém horním rohu. Z této nabídky můžete vytvořit nebo upravit konfiguraci pro vzdálené ladění.
 
-   ![Úprava konfigurací](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
+   ![Upravit konfigurace](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
 2. V **konfigurace spustit/Debug** dialogovém okně vyberte znaménko plus (**+**). Vyberte **úlohu Azure HDInsight Spark** možnost.
 
@@ -153,7 +153,7 @@ Chcete tuto chybu vyřešit [stáhnout spustitelný soubor](http://public-repo-1
 
 6. Klikněte pravým tlačítkem na cíl na **ladění** a pak vyberte **nastavit hodnotu**. Potom zadejte novou hodnotu proměnné. Potom vyberte **Enter** uložte hodnotu. 
 
-   ![Nastavte hodnotu](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Nastavit hodnotu](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
 7. Vyberte **obnovit Program** ikonu pokračujte ke spuštění programu. Tentokrát je žádná výjimka zachycena. Uvidíte, že projekt úspěšně běží bez jakékoli výjimky.
 
@@ -170,7 +170,6 @@ Chcete tuto chybu vyřešit [stáhnout spustitelný soubor](http://public-repo-1
 * [Spark s BI: provádějte interaktivní analýzy dat pomocí Spark v HDInsight pomocí nástrojů BI](apache-spark-use-bi-tools.md)
 * [Spark s Machine Learning: používejte Spark v HDInsight pro analýzu stavební teploty pomocí dat HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark s Machine Learning: Používejte Spark v HDInsight k předpovědím výsledků kontrol potravin](apache-spark-machine-learning-mllib-ipython.md)
-* [Datové proudy Spark: Používejte Spark v HDInsight k sestavení aplikací datových proudů v reálném čase](apache-spark-eventhub-streaming.md)
 * [Analýza protokolu webu pomocí Sparku v HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Vytvoření a spouštění aplikací

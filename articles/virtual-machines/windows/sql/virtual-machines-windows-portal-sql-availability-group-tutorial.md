@@ -4,7 +4,7 @@ description: "Tento kurz ukazuje, jak vytvořit Server vždy na skupinu dostupno
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurovat vždy na skupiny dostupnosti ve virtuálním počítači Azure ručně
 
@@ -40,13 +40,13 @@ Následující tabulka uvádí požadavky, které je potřeba provést před zah
 
 |  |Požadavek |Popis |
 |----- |----- |----- |
-|![hranaté](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dva servery SQL | -V nastavení dostupnosti Azure <br/> -V jedné doméně <br/> -S nainstalovanou funkcí Clustering převzetí služeb při selhání |
-|![hranaté](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Sdílení souborů pro cluster s kopií clusteru |  
-|![hranaté](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Účet služby SQL Server | Účet domény |
-|![hranaté](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Účet služby agenta systému SQL Server | Účet domény |  
-|![hranaté](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Otevřete porty brány firewall | -SQL Server: **1433** pro výchozí instanci <br/> -Koncový bod zrcadlení databáze: **5022** nebo jakýkoli dostupný port <br/> -Sondu nástroje pro vyrovnávání zatížení azure: **59999** nebo jakýkoli dostupný port |
-|![hranaté](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Přidejte funkci Clustering převzetí služeb při selhání | Tato funkce vyžaduje oba servery SQL |
-|![hranaté](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Účet domény instalace | – Místní správce na každém serveru SQL <br/> -Členem systému SQL Server pevné role serveru sysadmin pro každou instanci systému SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Two SQL Servers | -V nastavení dostupnosti Azure <br/> -V jedné doméně <br/> -S nainstalovanou funkcí Clustering převzetí služeb při selhání |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Sdílení souborů pro cluster s kopií clusteru |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Účet služby SQL Server | Účet domény |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Účet služby agenta systému SQL Server | Účet domény |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Otevřete porty brány firewall | -SQL Server: **1433** pro výchozí instanci <br/> -Koncový bod zrcadlení databáze: **5022** nebo jakýkoli dostupný port <br/> -Sondu nástroje pro vyrovnávání zatížení azure: **59999** nebo jakýkoli dostupný port |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Přidejte funkci Clustering převzetí služeb při selhání | Tato funkce vyžaduje oba servery SQL |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Účet domény instalace | – Místní správce na každém serveru SQL <br/> -Členem systému SQL Server pevné role serveru sysadmin pro každou instanci systému SQL Server  |
 
 
 Než začnete tento kurz, budete muset [dokončení požadované součásti pro vytváření skupin dostupnosti Always On v Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Pokud tyto požadavky jsou již dokončena, můžete přejít na [vytvořením clusteru](#CreateCluster).
@@ -55,7 +55,7 @@ Než začnete tento kurz, budete muset [dokončení požadované součásti pro 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-##Vytvoření clusteru
+## Vytvoření clusteru
 
 Po dokončení požadavky prvním krokem je vytvoření clusteru převzetí služeb při selhání Windows serveru, který obsahuje dva servery SQL Server a server s kopií clusteru.  
 
@@ -221,7 +221,7 @@ Repeat these steps on the second SQL Server.
 7. V **Průzkumník objektů**, klikněte pravým tlačítkem na **databáze** a klikněte na tlačítko **novou databázi**.
 8. V **název databáze**, typ **MyDB1**, pak klikněte na tlačítko **OK**.
 
-### <a name="backupshare"></a>Vytvoří sdílenou složku zálohování
+### <a name="backupshare"></a> Vytvoří sdílenou složku zálohování
 
 1. Na prvním serveru SQL v **správce serveru**, klikněte na tlačítko **nástroje**. Otevřete **Správa počítače**.
 
@@ -337,7 +337,7 @@ Nyní máte skupinu dostupnosti s replikami na dvě instance systému SQL Server
 
 <a name="configure-internal-load-balancer"></a>
 
-## <a name="create-an-azure-load-balancer"></a>Vytvoření pro vyrovnávání zatížení Azure
+## <a name="create-an-azure-load-balancer"></a>Vytvoření nástroje pro vyrovnávání zatížení Azure
 
 Skupinu dostupnosti SQL Server na virtuálních počítačích Azure, vyžaduje nástroj pro vyrovnávání zatížení. Nástroje pro vyrovnávání zatížení obsahuje IP adresu pro naslouchací proces skupiny dostupnosti. Tento oddíl shrnuje, jak vytvořit nástroj pro vyrovnávání zatížení na portálu Azure.
 
@@ -376,12 +376,12 @@ Ke konfiguraci nástroje pro vyrovnávání zatížení, musíte vytvořit fond 
 
 1. Klikněte na nástroje pro vyrovnávání zatížení, klikněte na tlačítko **back-endové fondy**a klikněte na tlačítko **+ přidat**. Nastavení fondu back-end následujícím způsobem:
 
-   | Nastavení | Popis | Příklad
+   | Nastavení | Popis | Příklad:
    | --- | --- |---
    | **Název** | Zadejte název text | SQLLBBE
    | **Přidružené k** | Vybrat ze seznamu | Skupina dostupnosti
    | **Sady dostupnosti.** | Použijte název sady dostupnosti, která jsou vaše virtuální počítače serveru SQL v | sqlAvailabilitySet |
-   | **Virtual Machines** |Dva názvy virtuální počítač Azure SQL Server | SQL Server-0, sqlserver 1
+   | **Virtual Machines** |Dva názvy virtuální počítač Azure SQL Server | sqlserver-0, sqlserver-1
 
 1. Zadejte název pro fond back-end.
 
@@ -399,7 +399,7 @@ Ke konfiguraci nástroje pro vyrovnávání zatížení, musíte vytvořit fond 
 
 1. Test stavu nastavte takto:
 
-   | Nastavení | Popis | Příklad
+   | Nastavení | Popis | Příklad:
    | --- | --- |---
    | **Název** | Text | SQLAlwaysOnEndPointProbe |
    | **Protokol** | Zvolte TCP | TCP |
@@ -414,7 +414,7 @@ Ke konfiguraci nástroje pro vyrovnávání zatížení, musíte vytvořit fond 
 1. Klikněte na nástroje pro vyrovnávání zatížení, klikněte na tlačítko **pravidla Vyrovnávání zatížení**a klikněte na tlačítko **+ přidat**.
 
 1. Nastavte pravidla takto Vyrovnávání zatížení.
-   | Nastavení | Popis | Příklad
+   | Nastavení | Popis | Příklad:
    | --- | --- |---
    | **Název** | Text | SQLAlwaysOnEndPointListener |
    | **Adresa IP front-endu** | Zvolte adresu |Použijte adresu, kterou jste vytvořili, když jste vytvořili pro vyrovnávání zatížení. |
@@ -431,7 +431,7 @@ Ke konfiguraci nástroje pro vyrovnávání zatížení, musíte vytvořit fond 
 
 1. Klikněte na tlačítko **OK** nastavit pravidla Vyrovnávání zatížení.
 
-## <a name="configure-listener"></a>Konfigurace naslouchací proces
+## <a name="configure-listener"></a> Konfigurace naslouchací proces
 
 Dalším krokem je konfigurace naslouchací proces skupiny dostupnosti v clusteru převzetí služeb při selhání.
 
@@ -497,6 +497,6 @@ Připojení SQLCMD se automaticky připojí na kteroukoli instanci systému SQL 
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Přidat IP adresu nástroji pro vyrovnávání zatížení pro skupinu dostupnosti druhý](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

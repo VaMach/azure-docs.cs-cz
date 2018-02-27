@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Řešení potíží s objekt, který není synchronizované s Azure AD
 
 Pokud objekt nesynchronizuje podle očekávání do služby Azure AD, může být z několika důvodů. Pokud obdržíte e-mailu chyba z Azure AD nebo se zobrazí chyba v Azure AD Connect Health, přečtěte si [řešení chyb export](active-directory-aadconnect-troubleshoot-sync-errors.md) místo. Ale Pokud řešíte problém, kde se objekt se nenachází ve službě Azure AD, pak toto téma je pro vás. Popisuje hledání chyb v synchronizaci místní součást Azure AD Connect.
+
+>[!IMPORTANT]
+>Pro nasazení připojení Azure Active Directory (AAD) s verzí <verison> nebo vyšší, použijte [řešení potíží s úloh](active-directory-aadconnect-troubleshoot-objectsync.md) v průvodci k řešení potíží objekt synchronizace. 
 
 Chyby najdete chcete podívat na několika různých místech v následujícím pořadí:
 
@@ -36,7 +39,7 @@ Spustit [Synchronization Service Manager](active-directory-aadconnectsync-servic
 Karta operace v Synchronization Service Manager je, kde byste měli začít, vaše řešení potíží. Na kartě operations zobrazuje výsledky z nejnovější operace.  
 ![Správce synchronizace služby](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-V horní polovině zobrazuje všechny spustí chronické pořadí. Ve výchozím nastavení, operace protokolu udržuje informace o posledních sedmi dnů, ale toto nastavení lze změnit pomocí [Plánovač](active-directory-aadconnectsync-feature-scheduler.md). Chcete-li vyhledat všechny spuštění, které nejsou zobrazeny stav úspěšného dokončení. Řazení kliknutím na záhlaví, můžete změnit.
+V horní polovině ukazuje všechny běží v chronologickém pořadí. Ve výchozím nastavení, operace protokolu udržuje informace o posledních sedmi dnů, ale toto nastavení lze změnit pomocí [Plánovač](active-directory-aadconnectsync-feature-scheduler.md). Chcete-li vyhledat všechny spuštění, které nejsou zobrazeny stav úspěšného dokončení. Řazení kliknutím na záhlaví, můžete změnit.
 
 **Stav** je nejdůležitější informace a ukazuje nejzávažnějšího problém pro spuštění. Zde je stručný nejběžnější stavů v pořadí podle priority prozkoumat (kde * znamenat několik řetězců možná chyba).
 
@@ -78,7 +81,7 @@ Pokud nenajdete objekt hledáte, pak se může mít filtrované s [filtrování 
 
 Další užitečné hledání je konektor služby Azure AD, vyberte v **oboru** vyberte **čekajícího importu**a vyberte **přidat** zaškrtávací políčko. Toto hledání získáte všechny synchronizované objekty ve službě Azure AD, která nemůže být přidružena objektu místní.  
 ![Oddělena hledání prostoru konektoru](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Tyto objekty byla vytvořena jinou synchronizační modul nebo synchronizační modul s jinou konfiguraci filtrování. Toto zobrazení je seznam **oddělena** už není spravované objekty. Zkontrolujte tento seznam a zvažte odebrání těchto objektů s použitím [Azure AD PowerShell](http://aka.ms/aadposh) rutiny.
+Tyto objekty byla vytvořena jinou synchronizační modul nebo synchronizační modul s jinou konfiguraci filtrování. Toto zobrazení je seznam **oddělena** už není spravované objekty. Zkontrolujte tento seznam a zvažte odebrání těchto objektů s použitím [Azure AD PowerShell](https://aka.ms/aadposh) rutiny.
 
 ### <a name="cs-import"></a>CS Import
 Při otevření objekt cs existuje několik karet v horní části. **Importovat** kartě se zobrazují data, která je vynášené po importu.  

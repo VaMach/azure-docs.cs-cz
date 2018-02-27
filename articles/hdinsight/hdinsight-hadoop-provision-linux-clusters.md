@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Nastavit clusterů v HDInsight Hadoop, Spark, Kafka a dalšími
 
@@ -68,7 +68,7 @@ Postupujte podle pokynů na obrazovce proveďte nastavení základního clusteru
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pomáhá při práci s prostředky v aplikaci jako se skupinou, označuje jako skupinu prostředků Azure. Můžete nasadit, aktualizovat, sledovat nebo odstranit všechny prostředky pro aplikaci v rámci jediné koordinované operace.
 
-## <a name="cluster-types"></a>Typy clusterů a konfigurace
+## <a name="cluster-types"></a> Typy clusterů a konfigurace
 Azure HDInsight aktuálně poskytuje následující typy clusteru, každý s sada součástí k poskytování určité funkce.
 
 > [!IMPORTANT]
@@ -127,6 +127,8 @@ Během konfigurace zadáte pro koncový bod úložiště výchozí kontejner obj
 
 ### <a name="optional-metastores"></a>Volitelné metaúložiště
 Můžete vytvořit volitelné metaúložiště Hive nebo Oozie. Ale ne všechny typy clusteru podporují metaúložiště a Azure SQL Data Warehouse není kompatibilní s metaúložiště. 
+
+Další informace najdete v tématu [používal externí metadata úložiště v Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > Když vytvoříte vlastní metaúložiště, nepoužívejte pomlčky, pomlčky ani mezery v názvu databáze. To může způsobit selhání procesu vytváření clusteru.
@@ -226,19 +228,19 @@ Některé nativní součásti Java, jako je Mahout a s možností, můžete spus
 V některých případech je vhodné nakonfigurovat následující konfigurační soubory během procesu vytváření:
 
 * clusterIdentity.xml
-* Core-site.xml
-* Gateway.XML
-* hbase env.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
-* Hive env.xml
-* Hive-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred-site
 * oozie-site.xml
-* oozie env.xml
-* Storm-site.xml
+* oozie-env.xml
+* storm-site.xml
 * tez-site.xml
-* webhcat site.xml
+* webhcat-site.xml
 * yarn-site.xml
 
 Další informace najdete v tématu [clusterů HDInsight přizpůsobit pomocí Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).

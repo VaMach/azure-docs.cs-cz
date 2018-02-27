@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Pomocí klienta Beeline s Apache Hive
 
@@ -29,9 +29,9 @@ Další informace o použití [Beeline](https://cwiki.apache.org/confluence/disp
 
 Beeline je klient Hive, který je zahrnutý o hlavních uzlech clusteru HDInsight. Beeline JDBC používá pro připojení k HiveServer2, službě hostované na clusteru HDInsight. Můžete taky Beeline pro přístup k Hive v HDInsight vzdáleně přes internet. Následující příklady obsahují nejběžnější připojovací řetězce, použít pro připojení k HDInsight z Beeline:
 
-* __Pomocí Beeline z připojení SSH headnode nebo hraniční uzel__:`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __V klientovi připojení k HDInsight přes virtuální síť Azure pomocí Beeline__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Pomocí Beeline v klientovi připojení k HDInsight prostřednictvím veřejného Internetu__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+* __Pomocí Beeline z připojení SSH headnode nebo hraniční uzel__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __V klientovi připojení k HDInsight přes virtuální síť Azure pomocí Beeline__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Pomocí Beeline v klientovi připojení k HDInsight prostřednictvím veřejného Internetu__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > Nahraďte `admin` s účtem přihlášení clusteru pro cluster.
@@ -44,7 +44,7 @@ Beeline je klient Hive, který je zahrnutý o hlavních uzlech clusteru HDInsigh
 
 ## <a id="prereq"></a>Požadavky
 
-* Systémem Linux Hadoop v clusteru HDInsight.
+* Systémem Linux Hadoop na verzi clusteru HDInsight 3.4 nebo vyšší.
 
   > [!IMPORTANT]
   > HDInsight od verze 3.4 výše používá výhradně operační systém Linux. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -53,7 +53,7 @@ Beeline je klient Hive, který je zahrnutý o hlavních uzlech clusteru HDInsigh
 
     Další informace o používání SSH najdete v tématu [použití SSH s HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Použití Beeline
+## <a id="beeline"></a>Spouštění dotazů Hive
 
 1. Při spouštění Beeline, musí zadat připojovací řetězec pro HiveServer2 v clusteru HDInsight:
 
@@ -116,25 +116,34 @@ Beeline je klient Hive, který je zahrnutý o hlavních uzlech clusteru HDInsigh
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     Tyto příkazy provádět následující akce:
 
-    * `DROP TABLE`– Pokud je v tabulce existuje, je odstraněn.
+    * `DROP TABLE` – Pokud je v tabulce existuje, je odstraněn.
 
-    * `CREATE EXTERNAL TABLE`-Vytvoří **externí** tabulky v Hive. Externí tabulky pouze uložit definici tabulky Hive. Data je ponechán v původním umístění.
+    * `CREATE EXTERNAL TABLE` -Vytvoří **externí** tabulky v Hive. Externí tabulky pouze uložit definici tabulky Hive. Data je ponechán v původním umístění.
 
-    * `ROW FORMAT`-Způsob formátování data. V takovém případě polí v každém protokolu jsou oddělené mezerou.
+    * `ROW FORMAT` -Způsob formátování data. V takovém případě polí v každém protokolu jsou oddělené mezerou.
 
-    * `STORED AS TEXTFILE LOCATION`-Tam, kde jsou data uložena a jaký formát souboru.
+    * `STORED AS TEXTFILE LOCATION` -Tam, kde jsou data uložena a jaký formát souboru.
 
-    * `SELECT`– Počet všech řádků vybere kde sloupec **t4** obsahuje hodnotu **[Chyba]**. Tento dotaz vrací hodnotu **3** jsou tři řádky, které obsahují tuto hodnotu.
+    * `SELECT` – Počet všech řádků vybere kde sloupec **t4** obsahuje hodnotu **[Chyba]**. Tento dotaz vrací hodnotu **3** jsou tři řádky, které obsahují tuto hodnotu.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`-Hive se pokusí použít schéma pro všechny soubory v adresáři. V takovém případě adresáře obsahuje soubory, které neodpovídají žádné schéma. Aby paměti data ve výsledcích tento příkaz informuje Hive, jsme by měl vrátit pouze data ze souborů končící na. log.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive se pokusí použít schéma pro všechny soubory v adresáři. V takovém případě adresáře obsahuje soubory, které neodpovídají žádné schéma. Aby paměti data ve výsledcích tento příkaz informuje Hive, jsme by měl vrátit pouze data ze souborů končící na. log.
 
   > [!NOTE]
   > Externí tabulky by měl být použit při očekáváte, že v základních datech aktualizovat externího zdroje. Například procesu nahrávání automatizované dat nebo operace MapReduce.
@@ -167,7 +176,7 @@ Beeline je klient Hive, který je zahrnutý o hlavních uzlech clusteru HDInsigh
 
 5. Chcete-li ukončit Beeline, použijte `!exit`.
 
-## <a id="file"></a>Spusťte soubor HiveQL pomocí Beeline
+### <a id="file"></a>Spusťte soubor HiveQL pomocí Beeline
 
 Použijte následující postup k vytvoření souboru a potom spustit pomocí Beeline.
 
@@ -225,11 +234,11 @@ Použijte následující postup k vytvoření souboru a potom spustit pomocí Be
 
 Pokud máte Beeline nainstalovány místně a připojit prostřednictvím veřejného Internetu, použijte následující parametry:
 
-* __Připojovací řetězec__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
+* __Připojovací řetězec__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
-* __Přihlašovací jméno clusteru__:`-n admin`
+* __Přihlašovací jméno clusteru__: `-n admin`
 
-* __Heslo pro přihlášení clusteru__`-p 'password'`
+* __Heslo pro přihlášení clusteru__ `-p 'password'`
 
 Nahraďte `clustername` v připojovacím řetězci s názvem clusteru HDInsight.
 
@@ -237,7 +246,7 @@ Nahraďte `admin` s názvem vašeho clusteru přihlášení a nahradit `password
 
 Pokud máte Beeline nainstalovány místně a připojení přes virtuální síť Azure, použijte následující parametry:
 
-* __Připojovací řetězec__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Připojovací řetězec__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
 Najít plně kvalifikovaný název domény headnode, použijte informace v [spravovat HDInsight pomocí Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) dokumentu.
 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Požadavky na certifikát Azure zásobníku infrastruktura veřejných klíčů
 Sada Azure má síť infrastruktury veřejných pomocí externě dostupný veřejné IP adresy přiřazené k malého služeb Azure zásobníku a které by mohly mít klientské virtuální počítače. Certifikáty PKI s odpovídající názvy DNS pro tyto koncové body Azure zásobníku infrastruktury veřejných jsou nezbytné při nasazení Azure zásobníku. Tento článek obsahuje informace o:
@@ -37,6 +37,7 @@ Následující seznam popisuje požadavky na certifikát, které jsou nutné k n
 - Algoritmus podpisu certifikátu nemůže být SHA1, jako musí být vyšší. 
 - Certifikát musí být ve formátu PFX, jako veřejné a soukromé klíče jsou požadovány pro instalaci zásobník Azure. 
 - Soubory certifikátů pfx musí mít hodnotu "Digitální podpis" a "KeyEncipherment" v jeho poli "Použití klíče".
+- Soubory certifikátů pfx musí mít hodnoty "Ověření serveru (1.3.6.1.5.5.7.3.1)" a "Ověření klienta (1.3.6.1.5.5.7.3.2)" v poli "Použití rozšířeného klíče".
 - Hesla, aby všechny soubory pfx certifikátů musí být stejný v době nasazení
 - Zajistěte, aby názvy subjektu a alternativní názvy předmětu certifikátů odpovídaly specifikace popsané v tomto článku, aby se zabránilo selhání nasazení.
 
@@ -56,7 +57,7 @@ Pro vaše nasazení [Oblast] a [externalfqdn] hodnoty musí odpovídat oblasti a
 |Portál pro správu|adminportal.*&lt;region>.&lt;fqdn>*|Portály|*&lt;region>.&lt;fqdn>*|
 |Veřejný Azure Resource Manager|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |Správce Azure Resource Manager|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Jeden více subdomény certifikát se zástupným znakem s názvy subjektu alternativní pro:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>Tabulka.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*<br>fronty.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|
+|ACS<sup>1</sup>|Jeden více subdomény certifikát se zástupným znakem s názvy subjektu alternativní pro:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Úložiště|blob.*&lt;region>.&lt;fqdn>*<br>Tabulka.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*<br>fronty.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|
 |KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL typu Wildcard)|Key Vault|trezor.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL typu Wildcard)|Internal Keyvault|adminvault.  *&lt;oblast >.&lt; plně kvalifikovaný název domény >*|
 |
@@ -67,7 +68,7 @@ Pokud nasadíte zásobník Azure pomocí režimu nasazení služby Azure AD, sta
 |Složky pro nasazení|Požadovaný certifikát subjektu a alternativní názvy subjektu (SAN)|Obor (podle oblasti)|SubDomain namespace|
 |-----|-----|-----|-----|
 |ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graf|graph.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL)|Graf|*&lt;region>.&lt;fqdn>*|
+|Graph|graph.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL)|Graph|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]
@@ -85,7 +86,7 @@ Následující tabulka popisuje koncové body a certifikáty potřebné pro adap
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL a MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL typu Wildcard)|dbadapter.*&lt;region>.&lt;fqdn>*|
 |App Service|Certifikát SSL výchozí web provoz|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL typu Wildcard více doménami<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|Rozhraní API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certifikát SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 

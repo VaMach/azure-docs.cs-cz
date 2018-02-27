@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Správa instancí vyhrazený virtuální počítač
 
@@ -28,7 +28,7 @@ Po nákupu vyhrazená Instance virtuálního počítače Azure, můžete použí
 
 Aktualizace oboru rezervace: 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Vyberte **další služby** > **rezervace**.
+2. Vyberte **všechny služby** > **rezervace**.
 3. Vyberte rezervace.
 4. Vyberte **nastavení** > **konfigurace**.
 5. Změna oboru. Pokud změníte z sdílená jeden obor, můžete zvolit pouze odběry, kde jste vlastníkem. Pouze předplatných v rámci stejného kontextu fakturace jako rezervace, lze vybrat. Kontext fakturace je určen podle předplatné, které jste vybrali při nákupu rezervace. Obor se vztahuje pouze na nabídku průběžných plateb MS-AZR - 0003P odběry a odběry nabídka MS-AZR - 0017P Enterprise. Pro smlouvy enterprise nejsou způsobilé získat slevu rezervace vývoje/testování odběry.
@@ -69,7 +69,7 @@ Přístup k rezervace můžete spravovat nezávisle z odběry, které získají 
  
 Delegovat správu přístupu k rezervace: 
 1.  Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2.  Vyberte **více služeb** > **rezervace** do seznamu rezervace, které máte přístup.
+2.  Vyberte **všechny služby** > **rezervace** do seznamu rezervace, které máte přístup.
 3.  Vyberte rezervace, který chcete delegovat přístup ostatním uživatelům.
 4.  Vyberte **řízení přístupu (IAM)** v nabídce.
 5.  Vyberte **přidat** > **Role** > **vlastníka** (nebo na jinou roli, pokud chcete udělit omezený přístup). 

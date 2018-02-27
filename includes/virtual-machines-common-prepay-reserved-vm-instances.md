@@ -8,7 +8,7 @@ Vyhrazená instance virtuálních počítačů můžete zakoupit [portál Azure]
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Kupte si Instance vyhrazený virtuální počítač
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Vyberte **další služby** > **rezervace**.
+2. Vyberte **všechny služby** > **rezervace**.
 3. Vyberte **přidat** přikoupení Nová rezervace.
 4. Vyplňte požadovaná pole. Spuštění virtuálního počítače instancí, které odpovídají vybrané atributy jsou způsobilé pro získání slevu rezervace. Skutečný počet instancím virtuálních počítačů získávající slevy závisí na oboru a množství vybranou.
 

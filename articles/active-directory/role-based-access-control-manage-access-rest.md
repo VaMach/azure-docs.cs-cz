@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Správa řízení přístupu na základě rolí pomocí rozhraní REST API
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Na základě rolí řízení přístupu (RBAC) na portálu Azure a rozhraní API služby Azure Resource Manager můžete spravovat přístup k vaše předplatné a prostředky na velice přesné úrovni. Pomocí této funkce můžete udělit přístup pro uživatele, skupiny nebo objekty služby Active Directory přiřazením některé role je v určitém rozsahu.
+S na základě rolí řízení přístupu (RBAC), můžete definovat přístupu pro uživatele, skupiny a objekty služby podle přiřazení rolí v určitém rozsahu. Tento článek popisuje, jak můžete spravovat přístup pomocí rozhraní REST API.
 
 ## <a name="list-all-role-assignments"></a>Zobrazí seznam všech přiřazení rolí
 Zobrazí seznam všech přiřazení role v zadaném oboru a subscopes.
@@ -48,9 +48,9 @@ V rámci identifikátoru URI proveďte následující náhradu k přizpůsobení
 2. Nahraďte *{api-version}* s 2015-07-01.
 3. Nahraďte *{filtru}* s podmínku, kterou chcete použít pro filtrování seznamu přiřazení role:
 
-   * Seznam přiřazení rolí pro pouze zadaný obor, není včetně přiřazení rolí v subscopes:`atScope()`    
-   * Seznam přiřazení rolí pro konkrétního uživatele, skupinu nebo aplikaci:`principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * Seznam přiřazení rolí pro konkrétního uživatele, včetně těch, které jsou zděděno od skupiny |`assignedTo('{objectId of user}')`
+   * Seznam přiřazení rolí pro pouze zadaný obor, není včetně přiřazení rolí v subscopes: `atScope()`    
+   * Seznam přiřazení rolí pro konkrétního uživatele, skupinu nebo aplikaci: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * Seznam přiřazení rolí pro konkrétního uživatele, včetně těch, které jsou zděděno od skupiny | `assignedTo('{objectId of user}')`
 
 ### <a name="response"></a>Odpověď
 Stavový kód: 200
@@ -153,7 +153,7 @@ Tělo žádosti zadejte hodnoty v následujícím formátu:
 
 | Název elementu | Požaduje se | Typ | Popis |
 | --- | --- | --- | --- |
-| hodnoty vlastnosti roleDefinitionId |Ano |Řetězec |Identifikátor role. Formát identifikátoru je:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| hodnoty vlastnosti roleDefinitionId |Ano |Řetězec |Identifikátor role. Formát identifikátoru je: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Ano |Řetězec |objectId přiřazenou roli hlavního Azure AD (uživatele, skupinu nebo objekt služby). |
 
 ### <a name="response"></a>Odpověď
@@ -238,8 +238,8 @@ V rámci identifikátoru URI proveďte následující náhradu k přizpůsobení
 2. Nahraďte *{api-version}* s 2015-07-01.
 3. Nahraďte *{filtru}* s podmínku, kterou chcete použít pro filtrování seznamu rolí:
 
-   * Seznam rolí, které jsou k dispozici pro přiřazení v zadaném oboru a všechny její podřízené obory:`atScopeAndBelow()`
-   * Vyhledejte roli pomocí přesný zobrazovaný název: `roleName%20eq%20'{role-display-name}'`. Pomocí formuláře kódovaná adresou URL přesný zobrazovaného názvu role. Pro instanci,`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Seznam rolí, které jsou k dispozici pro přiřazení v zadaném oboru a všechny její podřízené obory: `atScopeAndBelow()`
+   * Vyhledejte roli pomocí přesný zobrazovaný název: `roleName%20eq%20'{role-display-name}'`. Pomocí formuláře kódovaná adresou URL přesný zobrazovaného názvu role. Pro instanci, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Odpověď
 Stavový kód: 200

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Vytvoření škálovací sadu virtuálních počítačů, který používá dostupnost zóny (Preview)
 K ochraně vaší sady škálování virtuálního počítače datacenter úrovni selhání, můžete vytvořit v rámci zóny dostupnosti nastavit škálování. Oblasti Azure, které podporují dostupnost zóny mít minimálně tři samostatné zóny, každou s vlastní nezávisle spotřeby zdroje, sítě a chlazení. Další informace najdete v tématu [přehled dostupnosti zón](../availability-zones/az-overview.md).
@@ -30,13 +30,7 @@ K ochraně vaší sady škálování virtuálního počítače datacenter úrovn
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Sady škálování jedním zóny a zónově redundantní
 Když nasadíte škálovací sadu virtuálních počítačů, můžete použít jednu zónu dostupnosti v oblasti nebo několika zón.
 
-Při vytváření sad v jedné oblasti, kterou řídíte, zóně, ve které všechny tyto instance virtuálních počítačů spouštění v a je spravovaný škálovací sadu a autoscales pouze v rámci této zóny škálování. Následující diagram znázorňuje příklad, jak můžete vytvořit více škálování jedním zóny nastaví pomocí nástroje pro vyrovnávání zatížení zónově redundantní distribuující provozu:
-
-![Sady škálování jedním zóny nasazení s nástrojem pro vyrovnávání zatížení zónově redundantní](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Zónově redundantní škálovací sadu umožňuje vytvářet jeden škálovací sadu, která přesahuje více zón. Vytvářené instance virtuálních počítačů, ve výchozím nastavení se jsou rovnoměrně rozložena mezi zóny. V jedné ze zón dojít přerušení, škálovací sadu není škálovat automaticky navýšení kapacity. Osvědčeným postupem bude ke konfiguraci pravidel škálování podle využití procesoru nebo paměti. Pravidla automatického škálování by umožní reagovat na ztrátu instance virtuálních počítačů v této jednu zónu pomocí škálování nové instance v zbývající provozní zóny sad škálování. Následující diagram ukazuje příklad jednoho škálovací sadu, která je nasazena napříč několika zón:
-
-![Nastavit nasazení oblastmi redundantní škálování a nástroj pro vyrovnávání zatížení](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+Při vytváření sad v jedné oblasti, kterou řídíte, zóně, ve které všechny tyto instance virtuálních počítačů spouštění v a je spravovaný škálovací sadu a autoscales pouze v rámci této zóny škálování. Zónově redundantní škálovací sadu umožňuje vytvářet jeden škálovací sadu, která přesahuje více zón. Vytvářené instance virtuálních počítačů, ve výchozím nastavení se jsou rovnoměrně rozložena mezi zóny. V jedné ze zón dojít přerušení, škálovací sadu není škálovat automaticky navýšení kapacity. Osvědčeným postupem bude ke konfiguraci pravidel škálování podle využití procesoru nebo paměti. Pravidla automatického škálování by umožní reagovat na ztrátu instance virtuálních počítačů v této jednu zónu pomocí škálování nové instance v zbývající provozní zóny sad škálování.
 
 K používání zón dostupnosti, musí být škálovací sadu vytvořené v [podporované oblasti Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones). Musíte také [zaregistrovat pro náhled zóny dostupnosti](http://aka.ms/azenroll). Můžete vytvořit sada škálování, které používá dostupnost zóny s jedním z následujících metod:
 

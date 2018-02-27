@@ -3,7 +3,7 @@ title: "Řešení potíží s protokolem Kerberos omezeného delegování konfig
 description: "Řešení potíží s protokolem Kerberos omezeného delegování konfigurace pro Proxy aplikace."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Řešení potíží s protokolem Kerberos omezeného delegování konfigurace pro Proxy aplikace
 
@@ -33,7 +34,7 @@ Tento článek neposkytuje následující předpoklady:
 
 -   Publikované cílová aplikace je založena na službě IIS a společnosti Microsoft implementace protokolu Kerberos.
 
--   Hostitelé serveru a aplikace se nacházet v jedné doméně služby Active Directory. Podrobné informace o pro různé scénáře domény a doménové struktury naleznete v [dokument White Paper použitím KCD](http://aka.ms/KCDPaper).
+-   Hostitelé serveru a aplikace se nacházet v jedné doméně služby Active Directory. Podrobné informace o pro různé scénáře domény a doménové struktury naleznete v [dokument White Paper použitím KCD](https://aka.ms/KCDPaper).
 
 -   Příslušná aplikace je publikována v Azure klienta povoleno předběžné ověřování a uživatelé budou k ověřování na Azure prostřednictvím ověřování pomocí formulářů. Scénáře ověřování klienta bohaté nejsou uvedené v tomto článku, ale v určitém okamžiku přidat v budoucnu.
 
@@ -51,7 +52,7 @@ Z tohoto důvodu je vždy vhodné začít tím, že zajistí jste splnili všech
 
 -   Kde je to možné, vyhněte se umístění všech aktivních zařízení IP adresy nebo ID mezi hostiteli v konektoru a řadiče domény, jako jsou někdy přes nežádoucí a narušovat přenos pomocí protokolu RPC jádra
 
-Doporučuje se testování delegování v nejjednodušší scénářů. Zavést další proměnné, čím může být nutné soupeří s. Například omezení testování jeden konektor můžete uložit drahocenný čas a další konektory lze přidat po vyřešení problémů.
+Měli byste otestovat delegování v nejjednodušší scénáře. Zavést další proměnné, čím může být nutné soupeří s. Například omezení testování jeden konektor můžete uložit drahocenný čas a další konektory lze přidat po vyřešení problémů.
 
 Některé faktorech prostředí může přispět také k problém. Během testování, minimalizujte architekturu pro úplné minimální, aby se zabránilo těchto faktorech prostředí. Například, nejsou nesprávně nakonfigurované interní brány firewall seznamy ACL, takže pokud je to možné mít veškerý provoz z řadičů domény a back-end aplikace povoleno přímo prostřednictvím konektoru. 
 
@@ -79,7 +80,7 @@ Pokud máte k dispozici to úplně, pak potíže hlavní výborný existuje. Spu
 
 **Předběžné ověření klienta** – externího uživatele ověřováním v Azure prostřednictvím prohlížeče.
 
-Schopnost předběžné ověřování v Azure je nutné pro jednotné přihlašování použitím KCD funkce. To by měla otestovat a řešit nejdříve, pokud jsou nějaké problémy. Fázi předběžné ověření nemá žádný vztah k použitím KCD nebo publikované aplikace. Očekává se poměrně snadno vyřešit případné nesrovnalosti správností kontrola subjektu účtu v Azure existuje a zda není zakázána nebo zablokovaný. Odpovědi na chybu v prohlížeči je obvykle dostatečně popisný k pochopení příčiny. Naše další dokumentace Poradce při potížích k ověření, pokud si nejste jisti, můžete také zkontrolovat.
+Schopnost předběžné ověřování v Azure je nutné pro jednotné přihlašování použitím KCD funkce. Měli otestovat a to vyřešit, pokud jsou nějaké problémy. Fázi předběžné ověření nemá žádný vztah k použitím KCD nebo publikované aplikace. Očekává se poměrně snadno vyřešit případné nesrovnalosti správností kontrola subjektu účtu v Azure existuje a zda není zakázána nebo zablokovaný. Odpovědi na chybu v prohlížeči je obvykle dostatečně popisný k pochopení příčiny. Naše další dokumentace Poradce při potížích k ověření, pokud si nejste jisti, můžete také zkontrolovat.
 
 **Delegování služby** – konektor Azure Proxy získání lístků služby Kerberos z KDC (Kerberos Distribution Center) jménem uživatele.
 
@@ -103,13 +104,13 @@ A odpovídající položky zobrazit, že protokol událostí bude považovat za 
 
 -   Zkontrolujte, jestli je zásada domény vynucená omezit [maximální velikost vystavené tokeny Kerberos](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/), jak je to brání konektor získání tokenu Pokud nalezen nadměrné
 
-Trasování sítě zaznamenávání výměn mezi hostitelem konektoru a domény služby KDC pak bude nejlepší dál při získávání další nízké úrovně podrobnosti o problémech. Další podrobnosti najdete v tématu, [podrobné informace Poradce při potížích dokumentu](https://aka.ms/proxytshootpaper).
+Trasování sítě zaznamenávání výměn mezi hostitelem konektoru a domény služby KDC pak bude nejlepší dál při získávání další nízké úrovně podrobnosti o problémech. Další informace najdete v tématu, [podrobné informace Poradce při potížích dokumentu](https://aka.ms/proxytshootpaper).
 
-Pokud lístků spokojeni, měli byste vidět událost v protokolech s informacemi o tom, ověření se nezdařilo z důvodu aplikace vrací 401. To obvykle označuje, že cílová aplikace odmítat lístku, takže pokračovat s následující další fáze.
+Pokud lístků spokojeni, měli byste vidět událost v protokolech s informacemi o tom, ověření se nezdařilo z důvodu aplikace vrací 401. To obvykle označuje, že cílová aplikace odmítat lístku, takže pokračovat s následující další fáze:
 
 **Cílová aplikace** -příjemce poskytované konektor lístek protokolu Kerberos
 
-V této fázi, očekávána odeslali protokolu Kerberos konektor služby lístek k back-end, jako hlavičku v rámci první žádost o aplikaci.
+V této fázi se očekává konektor odeslali lístek služby protokolu Kerberos na back-end, jako hlavičku v rámci první žádost o aplikaci.
 
 -   Pomocí aplikace interní adresa URL definované v portálu, ověřte, že aplikace je přístupný přímo z prohlížeče na hostiteli konektor. Potom se můžete přihlásit úspěšně. Podrobnosti o to naleznete na stránce konektor Poradce při potížích.
 
@@ -125,7 +126,7 @@ V této fázi, očekávána odeslali protokolu Kerberos konektor služby lístek
 
 2.  Ze seznamu poskytovatelů na webu a přístup aplikace IIS přímo z prohlížeče IE na hostiteli konektor dočasně odeberte protokolu NTLM. Pomocí protokolu NTLM již v seznamu poskytovatelů byste měli mít přístup k aplikaci pouze pomocí protokolu Kerberos. Pokud se to nezdaří, pak, naznačuje, že došlo k potížím s konfigurací aplikace a ověřování protokolu Kerberos nefunguje.
 
-Protokolu Kerberos není k dispozici, zkontrolovat nastavení ověřování aplikace ve službě IIS zajistěte, aby vyjednávání je uvedena nejhornější prostřednictvím NTLM pod ní. (Není vyjednávání: protokolu kerberos nebo Negotiate: protokolu PKU2U). Pokračujte pouze v případě protokolu Kerberos je funkční.
+Protokolu Kerberos není k dispozici, zkontrolovat nastavení ověřování aplikace ve službě IIS zajistěte, aby vyjednávání je uvedena nejhornější prostřednictvím NTLM pod ní. (Není vyjednávání: protokolu Kerberos nebo vyjednávání: protokolu PKU2U). Pokračujte pouze v případě protokolu Kerberos je funkční.
 
    ![Zprostředkovatelé ověřování systému Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -141,17 +142,27 @@ Protokolu Kerberos není k dispozici, zkontrolovat nastavení ověřování apli
 
     ![Okno Konfigurace aplikace IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-    Jakmile znáte identitu, vydejte následující z příkazový řádek a ujistěte se, že tento účet jednoznačně nastavena dotyčném SPN. Například`setspn –q http/spn.wacketywack.com`
+    Jakmile znáte identitu, vydejte následující z příkazový řádek a ujistěte se, že tento účet jednoznačně nastavena dotyčném SPN. Například  `setspn –q http/spn.wacketywack.com`
 
     ![SetSPN příkazové okno](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
 -   Zkontrolujte, jestli hlavní název služby definované vzhledem nastavení aplikace na portálu se stejnou hlavní název služby nakonfigurované proti cílová AD účet používá fond aplikací dané aplikace
 
-   ![Hlavní název služby konfigurací na portálu Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+   ![Hlavní název služby konfigurace na portálu Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
 -   Přejděte do služby IIS a vyberte **Editor konfigurací** možnost pro aplikaci a přejděte na **system.webServer/security/authentication/windowsAuthentication** a ujistěte se hodnota **UseAppPoolCredentials** je **True**
 
    ![Fondy aplikací IIS konfigurace přihlašovacích údajů – možnost](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+Po změně této hodnoty na **True**, všechny uložené v mezipaměti protokolu Kerberos lístky třeba je odebrat z back-end serveru. To provedete tak, že spustíte následující příkaz:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+Další informace najdete v tématu [vyprázdnění mezipaměti klienta lístek protokolu Kerberos pro všechny relace](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+
+
 
 Když je užitečné v zvýšení výkonu operací protokolu Kerberos, a také povoleno v režimu jádra způsobí, že lístek pro požadovaná služba k dešifrování pomocí účtu počítače. To je také označován místního systému, takže s to nastavené na true zalomení použitím KCD, když je aplikace hostované na více serverech ve farmě.
 

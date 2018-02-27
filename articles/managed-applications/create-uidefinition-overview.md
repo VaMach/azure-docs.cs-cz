@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Vytvoření Azure portálu uživatelského rozhraní pro spravované aplikace
 Tento dokument uvádí základní koncepty createUiDefinition.json souboru. Portál Azure tento soubor používá ke generování uživatelského rozhraní pro vytváření spravované aplikace.
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
    "handler": "Microsoft.Compute.MultiVm",
    "version": "0.1.2-preview",
    "parameters": {
@@ -73,7 +73,7 @@ Pokud chcete nastavit název prostředku spravované aplikace, musí obsahovat h
 ## <a name="functions"></a>Funkce
 Podobně jako funkce šablon v Azure Resource Manager (jak v syntaxi a funkce), CreateUiDefinition poskytuje funkce pro práci s prvky vstupy a výstupy, a také funkce, jako je podmíněné příkazy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Samotný soubor createUiDefinition.json má jednoduché schéma. Skutečné hloubka ho pochází z podporované elementy a funkce. Tyto položky jsou popsány podrobněji na:
 
 - [Elementy](create-uidefinition-elements.md)

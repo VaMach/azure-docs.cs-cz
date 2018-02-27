@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: MT
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Začínáme se službou Azure Advisor
 
@@ -28,7 +28,7 @@ Zjistěte, jak přístup Advisor prostřednictvím portálu Azure, získat dopor
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. V levém podokně klikněte na **Advisor**.  Pokud nevidíte Advisor v levém podokně, klikněte na tlačítko **další služby**.  V podokně nabídky služby v rámci **monitorování a správu**, klikněte na tlačítko **Advisor**.
+2. V levém podokně klikněte na **Advisor**.  Pokud nevidíte Advisor v levém podokně, klikněte na tlačítko **všechny služby**.  V podokně nabídky služby v rámci **monitorování a správu**, klikněte na tlačítko **Advisor**.
  Se zobrazí řídicí panel služby Advisor.
 
    ![Přístup k Azure Advisor pomocí portálu Azure](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -128,7 +128,7 @@ Advisor umožňuje stáhnout souhrn vaše doporučení.  Můžete si stáhnout v
 
 Možnost stažení respektuje všechny filtry, které jste použili k řídicímu panelu Advisor.  Pokud vyberete možnost stažení při zobrazení konkrétní doporučení kategorie nebo doporučení, zahrnuje stažené souhrn pouze informace pro tuto kategorii nebo doporučení. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o službě Advisor najdete v tématu:
 * [Úvod do Azure Advisor](advisor-overview.md)

@@ -3,8 +3,8 @@ title: "Přidání bitové kopie systému Linux do Azure zásobníku"
 description: "Zjistěte, jak přidat Linux bitové kopie do protokolů Azure."
 services: azure-stack
 documentationcenter: 
-author: anjayajodha
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
-ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: brenduns
+ms.reviewer: anajod
+ms.openlocfilehash: 29e5443de4dc43efe6d536b0f8b9cfc6ad37a669
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Přidání bitové kopie systému Linux do Azure zásobníku
 
@@ -94,6 +95,6 @@ Můžete připravit Linux image pomocí jedné z následujících pokynů:
 2. [Přidání bitové kopie na Marketplace s cílem](azure-stack-add-vm-image.md). Ujistěte se, že `OSType` parametr je nastaven na `Linux`.
 3. Po přidání bitovou kopii na Marketplace, je-li vytvořit položku Marketplace. a mohou uživatelé nasadit virtuální počítač s Linuxem.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Přehled nabídky služeb v Azure zásobníku](azure-stack-offer-services-overview.md)
 

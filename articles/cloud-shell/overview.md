@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Přehled prostředí cloudu Azure
 Prostředí Azure Cloud je interaktivní, přístupných prohlížeče prostředí pro správu prostředků Azure.
@@ -69,9 +69,9 @@ Při prvním spuštění prostředí cloudu vás vyzve k vytvoření prostředku
 Místně redundantní úložiště (LRS) účtu a sdílené složky souborů Azure vytvářet vaším jménem. Sdílenou složku Azure soubory se použije pro prostředí Bash a prostředí PowerShell, pokud se rozhodnete použít. Náklady na úložiště regulární použít.
 
 Vaším jménem vytvoří tři zdroje:
-1. Skupinu prostředků s názvem:`cloud-shell-storage-<region>`
-2. Účet úložiště s názvem:`cs<uniqueGuid>`
-3. Sdílené složky s názvem:`cs-<user>-<domain>-com-<uniqueGuid>`
+1. Skupinu prostředků s názvem: `cloud-shell-storage-<region>`
+2. Účet úložiště s názvem: `cs<uniqueGuid>`
+3. Sdílené složky s názvem: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
 > Bash v prostředí cloudu vytvoří také výchozí obrázek 5 GB disk k uchování `$Home`. Všechny soubory v adresáři $Home například klíče SSH zůstávají v bitové kopii disku uživatele uložený ve sdílené složce vaší připojeného souboru Azure. Při ukládání souborů v adresáři $Home a připojené sdílenou složku Azure, použít osvědčené postupy.
@@ -83,7 +83,7 @@ Upřesňující možnost je určen k přidružení stávající prostředky pro 
 Do příkazového řádku instalace úložiště klikněte na tlačítko "Zobrazit upřesňující nastavení" zobrazte další možnosti.
 
 > [!Note]
-> Rozevírací seznamy jsou filtrovány předem přiřazené cloudové prostředí oblasti a účty úložiště LRS nebo GRS.
+> Rozevírací seznamy jsou filtrovány předem přiřazené cloudové prostředí oblasti a účty úložiště LRS nebo GRS nebo ZRS.
 
 [Další informace o prostředí cloudové úložiště, aktualizace sdílené složky Azure a nahrávání nebo stahování souborů.](persisting-shell-storage.md)
 

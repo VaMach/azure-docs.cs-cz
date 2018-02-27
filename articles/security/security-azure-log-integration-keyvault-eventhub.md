@@ -8,18 +8,22 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Kurz pro Azure integrace protokolu: proces Azure Key Vault událostí pomocí služby Event Hubs
 
 Integrace se službou protokolu Azure slouží k načtení protokolované události a zpřístupněte je váš systém zabezpečení informací a událostí správy (SIEM). Tento kurz ukazuje příklad použití Azure integrace protokolu ke zpracování protokoly, které jsou získány prostřednictvím Azure Event Hubs.
+
+>[!IMPORTANT]
+>Upřednostňovanou metodou pro integraci Azure protokoly se pomocí svého dodavatele SIEM Azure monitorování konektoru a následující tyto [pokyny](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Ale pokud dodavatele SIEM neposkytuje konektor k monitorování Azure, bude pravděpodobně možné použít protokol integrace se službou Azure jako dočasné řešení (je-li vašeho systému SIEM podporován protokol integrace se službou Azure) dokud takové connector je k dispozici.
+
  
 Tento kurz použijte k se seznámit s jak integrace se službou protokolu Azure a Event Hubs spolupracují podle následujících kroků příklad a pochopíte, jak každý krok podporuje řešení. Potom můžete využít, co jste se naučili tady vytvořit vlastní postup pro podporu jedinečným požadavkům vaší společnosti.
 
@@ -86,13 +90,13 @@ Před provedením kroků v tomto článku, budete potřebovat následující:
 
    ![Okno prostředí PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Vytváření proměnných pro uložení hodnot, které se použijí později. Zadejte, každý z následujících řádků prostředí PowerShell. Možná budete muset upravit hodnoty tak, aby odpovídaly vašemu prostředí.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(Název odběru mohou lišit. Zobrazí se v rámci výstupu předchozí příkaz.)
-    - ```$location = 'West US'```(Tato proměnná se použije k předání umístění, kde by měl být vytvořen prostředky. Můžete změnit tuto proměnnou na libovolné místo dle vlastního výběru.)
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Název odběru mohou lišit. Zobrazí se v rámci výstupu předchozí příkaz.)
+    - ```$location = 'West US'``` (Tato proměnná se použije k předání umístění, kde by měl být vytvořen prostředky. Můžete změnit tuto proměnnou na libovolné místo dle vlastního výběru.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random```(Název může být nic, ale měl by obsahovat pouze malá písmena a číslice.)
-    - ``` $storageName = $name```(Tato proměnná se použije pro název účtu úložiště.)
-    - ```$rgname = $name ```(Tato proměnná se použije pro název skupiny prostředků.)
-    - ``` $eventHubNameSpaceName = $name```(To je název oboru názvů centra událostí.)
+    - ``` $name = 'azlogtest' + $random``` (Název může být nic, ale měl by obsahovat pouze malá písmena a číslice.)
+    - ``` $storageName = $name``` (Tato proměnná se použije pro název účtu úložiště.)
+    - ```$rgname = $name ``` (Tato proměnná se použije pro název skupiny prostředků.)
+    - ``` $eventHubNameSpaceName = $name``` (To je název oboru názvů centra událostí.)
 6. Určete předplatné, budete pracovat s:
     
     ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
@@ -175,7 +179,7 @@ Spusťte příkaz AzLog pro každé Centrum událostí:
 
 Za minutu z posledních dvou příkazů měli byste vidět generován soubory JSON. Je můžete potvrdit, že sledováním adresáři **C:\users\AzLog\EventHubJson**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Integrace Azure protokolu – nejčastější dotazy](security-azure-log-integration-faq.md)
 - [Začínáme s Azure protokolu integrace](security-azure-log-integration-get-started.md)
