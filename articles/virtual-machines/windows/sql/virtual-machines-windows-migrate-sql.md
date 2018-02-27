@@ -3,8 +3,8 @@ title: "Migrace databáze SQL serveru do systému SQL Server na virtuálním po�
 description: "Další informace o tom, jak migrovat databázi místní uživatele k systému SQL Server ve virtuálním počítači Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: sabotta
-manager: jhubbard
+author: rothja
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: carlasab
-ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/13/2018
+ms.author: jroth
+ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrovat databázi SQL Serveru na SQL Server na virtuálním počítači Azure
 
@@ -35,7 +35,7 @@ Primární migrace metody jsou následující:
 * Odpojte a poté zkopírujte soubory protokolu a data do Azure blob storage a pak připojte k serveru SQL Server ve virtuálním počítači Azure z adresy URL
 * Převod fyzického počítače na místní disk VHD Hyper-V, odešle do úložiště objektů Blob v Azure a pak nasadit jako nový virtuální počítač pomocí nahrát virtuální pevný disk
 * Dodávat pevný disk pomocí služby Windows importu a exportu
-* Pokud máte nasazení AlwaysOn místně, použijte [Průvodce přidáním Azure repliky](../classic/sql-onprem-availability.md) vytvoření repliky ve službě Azure a pak převzetí služeb při selhání, přejdete na příkaz uživatelé instance databáze Azure
+* Pokud máte nasazení AlwaysOn místně, použijte [Průvodce přidáním Azure repliky](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) vytvoření repliky ve službě Azure a pak převzetí služeb při selhání, přejdete na příkaz uživatelé instance databáze Azure
 * Pomocí systému SQL Server [transakční replikace](https://msdn.microsoft.com/library/ms151176.aspx) konfigurovat instanci serveru SQL Azure jako odběratele a potom zakažte replikaci, přejdete na příkaz uživatelé instance databáze Azure
 
 > [!TIP]
@@ -60,8 +60,8 @@ Následující tabulka obsahuje seznam všech metod primární migrace a popisuj
 | [Odpojte a poté zkopírujte soubory protokolu a data do Azure blob storage a pak připojte k serveru SQL Server ve virtuálním počítači Azure z adresy URL](#detach-and-attach-from-url) |SQL Server 2005 nebo vyšší |SQL Server 2014 nebo vyšší |[Azure limitu úložiště virtuálních počítačů](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Tuto metodu použijte, když plánujete [ukládání těchto souborů pomocí služby Azure Blob storage](https://msdn.microsoft.com/library/dn385720.aspx) a připojte je k SQL Server běžící ve virtuálním počítači Azure, zejména s velmi velké databáze |
 | [Převést na místním počítači na virtuální pevné disky Hyper-V, odešle do úložiště objektů Blob v Azure a pak nasadit nové virtuální počítač pomocí nahraný virtuální pevný disk](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 nebo vyšší |SQL Server 2005 nebo vyšší |[Azure limitu úložiště virtuálních počítačů](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Použijte, když [přinesou vlastní licenci na SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), při migraci databáze, která se spustí ve starší verzi systému SQL Server nebo při migraci databáze systému a uživatele společně jako součást migrace závisí na jiné databáze uživatel databáze nebo systémové databáze. |
 | [Dodávat pevný disk pomocí služby Windows importu a exportu](#ship-hard-drive) |SQL Server 2005 nebo vyšší |SQL Server 2005 nebo vyšší |[Azure limitu úložiště virtuálních počítačů](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Použití [importu/exportu služby systému Windows](../../../storage/common/storage-import-export-service.md) po příliš pomalé, například s velmi velké databáze ruční copy – metoda |
-| [Použití Azure repliky Průvodce přidáním](../classic/sql-onprem-availability.md) |SQL Server 2012 nebo vyšší |SQL Server 2012 nebo vyšší |[Azure limitu úložiště virtuálních počítačů](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimalizuje prostoje, použijte v případě nasazení místní AlwaysOn |
-| [Pomocí transakční replikace systému SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 nebo vyšší |SQL Server 2005 nebo vyšší |[Azure limitu úložiště virtuálních počítačů](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Použijte, pokud budete muset minimalizovat prostoje a nemají místní nasazení AlwaysOn |
+| [Použití Azure repliky Průvodce přidáním](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 nebo vyšší |SQL Server 2012 nebo vyšší |[Azure limitu úložiště virtuálních počítačů](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Minimalizuje prostoje, použijte v případě, že místní nasazení Always On |
+| [Pomocí transakční replikace systému SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 nebo vyšší |SQL Server 2005 nebo vyšší |[Azure limitu úložiště virtuálních počítačů](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Použijte, pokud budete muset minimalizovat prostoje a nemají místní nasazení Always On |
 
 ## <a name="backup-and-restore"></a>Zálohování a obnovení
 Zálohovat databázi s kompresí zkopírujte zálohování na virtuální počítač a potom obnovit databázi. Pokud záložní soubor je větší než 1 TB, musí ho rozkládají, protože maximální velikost disku virtuálního počítače je 1 TB. Použijte následující obecné kroky pro migraci uživatele databáze pomocí této metody Ruční:

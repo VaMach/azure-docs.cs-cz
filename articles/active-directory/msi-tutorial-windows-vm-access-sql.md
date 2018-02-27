@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58c6b5e076e9546aa621c9d1aea8893edf4335c0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Použití Windows virtuálního počítače spravované služby Identity (MSI) pro přístup k Azure SQL
 
@@ -44,7 +44,7 @@ Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://p
 
 V tomto kurzu vytvoříme nový virtuální počítač s Windows.  Můžete také povolit MSI na existující virtuální počítač.
 
-1.  Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1.  Klikněte **vytvořit prostředek** nalezeno tlačítko v levém horním rohu portálu Azure.
 2.  Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. 
 3.  Zadejte informace o virtuálním počítači. **Uživatelské jméno** a **heslo** vytvořený, zde je přihlašovací údaje, které používáte k přihlášení k virtuálnímu počítači.
 4.  Vyberte správnou **předplatné** pro virtuální počítač v rozevírací nabídce.
@@ -155,7 +155,7 @@ Pro tento další krok, budete potřebovat [Microsoft SQL Server Management Stud
 1.  Spusťte aplikaci SQL Server Management Studio.
 2.  V **připojit k serveru** dialogové okno, zadejte název serveru SQL server **název serveru** pole.
 3.  V **ověřování** pole, vyberte **Universal s podpora vícefaktorového ověřování služby Active Directory -**.
-4.  V **uživatelské jméno** pole, zadejte název účtu služby Azure AD, který nastavíte jako správce serveru, napříkladhelen@woodgroveonline.com
+4.  V **uživatelské jméno** pole, zadejte název účtu služby Azure AD, který nastavíte jako správce serveru, například helen@woodgroveonline.com
 5.  Klikněte na tlačítko **Možnosti**.
 6.  V **připojit k databázi** pole, zadejte název jiné než systémové databáze, kterou chcete konfigurovat.
 7.  Klikněte na **Připojit**.  Dokončete proces přihlášení.

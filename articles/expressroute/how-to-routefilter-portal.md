@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Nastavit filtry směrování pro partnerský vztah Microsoftu: portál Azure
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Abyste mohli připojit filtry tras se službami Office 365 na ně, musí mít op
 > 
 > 
 
-### <a name="workflow"></a>Pracovní postup
+### <a name="workflow"></a>pracovní postup
 
 Abyste mohli úspěšně připojit ke službám prostřednictvím partnerského vztahu Microsoftu, musíte provést následující kroky konfigurace:
 
@@ -92,7 +92,7 @@ Zkontrolujte seznam hodnotami komunity protokolu BGP, které chcete použít ve 
 Filtr trasy může mít pouze jedno pravidlo a pravidlo musí být typu 'Povolit'. Toto pravidlo může mít seznam hodnot komunity protokolu BGP s ním spojená.
 
 ### <a name="1-create-a-route-filter"></a>1. Vytvoření filtru trasy
-Pokud vyberete možnost vytvořit nový prostředek, můžete vytvořit filtr trasy. Klikněte na tlačítko **nový** > **sítě** > **RouteFilter**, jak je znázorněno na následujícím obrázku:
+Pokud vyberete možnost vytvořit nový prostředek, můžete vytvořit filtr trasy. Klikněte na tlačítko **vytvořit prostředek** > **sítě** > **RouteFilter**, jak je znázorněno na následujícím obrázku:
 
 ![Vytvoření filtru trasy](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

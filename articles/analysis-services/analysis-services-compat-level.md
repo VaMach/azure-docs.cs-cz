@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 41bf697cd1d91ea0ba56ed6fad0e5b9c442ecec2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a07514c7734f3cd4be1e11a984151abb8ee3f23d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Úroveň kompatibility pro tabulkové modely služby Analysis Services
 
@@ -53,6 +53,6 @@ Nejnovější úroveň kompatibility je 1400. Tato úroveň se shoduje s SQL Ser
   
  Tato vlastnost určuje nejvyšší úroveň kompatibility databáze, která se spustí na serveru (s výjimkou preview). Nelze změnit úroveň kompatibility podporované.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
   [Vytvoření modelu na portálu Azure](analysis-services-create-model-portal.md)   
   [Správa služby Analysis Services](analysis-services-manage.md)  

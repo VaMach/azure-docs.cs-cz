@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorování a správa serverů a trezorů služby Azure Recovery Services pro počítače s Windows
 
@@ -32,13 +32,11 @@ Tento článek obsahuje přehled zálohování monitorování a Správa úloh k 
 Řídícím panelu trezoru služeb zotavení se zobrazuje podrobnosti o nebo atributů trezoru služeb zotavení.
 
 1. Přihlaste se k [portálu Azure](https://portal.azure.com/) pomocí svého předplatného Azure.
-2. V nabídce centra klikněte na tlačítko **více služeb**.
-
-    ![Otevřete seznam krok trezory služeb zotavení 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Klikněte na tlačítko **všechny služby**. 
 
 3. Chcete otevřít trezoru služeb zotavení. V dialogovém okně začněte psát **služeb zotavení**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na tlačítko **trezory služeb zotavení** k zobrazení seznamu trezorů služeb zotavení v rámci vašeho předplatného.
 
-    ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Otevřete seznam krok trezory služeb zotavení 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     Otevře se seznam trezorů služeb zotavení.
 
@@ -74,9 +72,9 @@ Z horní části řídicího panelu:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Výstrahy pro zálohování pomocí agenta Azure backup:
 | Úroveň výstrahy | Zasílání upozornění |
 | --- | --- |
-| Kritické |Selhání zálohování, obnovení selhání |
-| Upozornění |Zálohování dokončeno s varováním (Pokud < 100 soubory nejsou zálohovány kvůli problémům s poškození a > 1000000 soubory jsou zálohovány úspěšně) |
-| Informační |Žádný |
+| Kritická | pro selhání zálohování, obnovení selhání a odložené odstranění tj, když se někdo zastaví ochranu s odstranit data |
+| Upozornění | pro zálohování dokončeno s varováním (Pokud < 100 soubory nejsou zálohovány kvůli problémům s poškození a > 1000000 soubory jsou zálohovány úspěšně) |
+| Informační | v současné době jsou k dispozici pro Azure backup agent informační výstrahu. |
 
 ## <a name="manage-backup-alerts"></a>Správa výstrah zálohování
 Klikněte na tlačítko **zálohování výstrahy** dlaždici otevřete **zálohování výstrahy** nabídky a spravovat výstrahy.
@@ -109,15 +107,15 @@ Pokud **hodinové Digest** je vybrán jako **oznámení** frekvence e-mail je od
 Můžete odesílat upozornění pro následující úrovně závažnosti:
 
 * Kritické
-* Upozornění
-* Informace o
+* upozornění
+* Informace
 
 Deaktivovat výstrahy s **deaktivovat** tlačítko v nabídce podrobnosti úlohy. Po kliknutí na tlačítko deaktivovat, můžete zadat poznámky k řešení.
 
 Vyberte sloupce, které se mají zobrazit jako součást výstraha s **zvolit sloupce** tlačítko.
 
 > [!NOTE]
-> Z **nastavení** nabídce Spravovat výstrahy zálohy výběrem **monitorování a sestavy > Výstrahy a události > výstrahy zálohy** a pak levým na **filtru** nebo ** Konfigurace oznámení**.
+> Z **nastavení** nabídce Spravovat výstrahy zálohy výběrem **monitorování a sestavy > Výstrahy a události > výstrahy zálohy** a pak levým na **filtru** nebo  **Konfigurace oznámení**.
 >
 >
 
@@ -146,7 +144,7 @@ Pokud vyberete konkrétní zálohování položku ze seznamu, zobrazí se zákla
 
 V části zálohování řídicí panel dlaždice úlohy zálohování znázorňuje počet úloh:
 
-* v průběhu
+* probíhá
 * selhání v posledních 24 hodin.
 
 Chcete-li spravovat vaše úlohy zálohování, klikněte na tlačítko **úlohy zálohování** dlaždice, které se otevře v nabídce úlohy zálohování.
@@ -187,7 +185,7 @@ Otevřete **Microsoft Azure Backup agent** (můžete najít tak, že váš poč�
 
 Z **akce** k dispozici na pravé straně konzole agenta zálohování, můžete provádět následující úlohy správy:
 
-* Registrace serveru
+* Register Server
 * Plán zálohování
 * Zálohovat nyní
 * Změnit vlastnosti
@@ -282,15 +280,15 @@ Povolit omezení:
     ![Plán zálohování Windows serveru](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
-**OTÁZKA Č. 1. Úloha zálohování stav zobrazuje jako dokončené v aplikace Azure backup agent, proč není ho získat projeví okamžitě v portálu?**
+**Q1. Úloha zálohování stav zobrazuje jako dokončené v aplikace Azure backup agent, proč není ho získat projeví okamžitě v portálu?**
 
-Odpověď č. 1: Existuje na maximální zpoždění 15 minut mezi stav úlohy zálohování se v Azure backup agent a portálu Azure.
+Odpověď 1. Existuje na maximální zpoždění 15 minut mezi stav úlohy zálohování se v Azure backup agent a portálu Azure.
 
 **Q.2 při selhání úlohy zálohování, jak dlouho trvá vygeneroval výstrahu?**
 
 A.2 výstraha se vyvolá v rámci 20 minut selhání zálohování Azure.
 
-**3. ČTVRTLETÍ. Je případ, kdy e-mailu neodešle, pokud jsou nakonfigurované oznámení?**
+**Q3. Je případ, kdy e-mailu neodešle, pokud jsou nakonfigurované oznámení?**
 
 Odpověď 3. Níže jsou oznámení nebude odeslána aby výstrahy nepůsobily rušivě. v případech:
 
@@ -307,10 +305,10 @@ Odpověď 3. Níže jsou oznámení nebude odeslána aby výstrahy nepůsobily r
 2. Za předpokladu, že proces neběží, otevřete **ovládací panely** a procházet seznam služeb. Spustit nebo restartovat **správy agenta služeb zotavení Microsoft Azure**.
 
     Další informace vyhledejte protokoly na:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Například:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Například:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Obnovení systému Windows Server nebo klienta Windows z Azure](backup-azure-restore-windows-server.md)
 * Další informace o zálohování Azure, najdete v části [Přehled zálohování Azure](backup-introduction-to-azure-backup.md)
 * Přejděte [fórum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)

@@ -1,9 +1,9 @@
 ---
-title: "Konfigurace programu Sledování výkonu sítě pro okruhy Azure ExpressRoute (Preview) | Microsoft Docs"
-description: Nakonfigurujte NPM pro okruhy Azure ExpressRoute. (Preview)
+title: "Konfigurace programu Sledování výkonu sítě pro okruhy Azure ExpressRoute | Microsoft Docs"
+description: "Konfigurace monitorování sítě založené na cloudu pro okruhy Azure ExpressRoute."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
-ms.translationtype: MT
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurace programu Sledování výkonu sítě pro ExpressRoute (Preview)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurace programu Sledování výkonu sítě pro ExpressRoute
 
 Monitorování výkonu v síti (NPM) je síť cloudové řešení monitorování, které monitoruje připojení mezi nasazení cloudu Azure a místní umístění (firemní pobočky, atd.). NPM je součástí nástroje Microsoft Operations Management Suite (OMS). NPM teď nabízí rozšíření pro ExpressRoute, který vám umožní monitorovat výkon sítě přes okruhy ExpressRoute, které jsou nakonfigurovány pro použití soukromého partnerského vztahu. Když konfigurujete NPM pro ExpressRoute, můžete zjistit problémy se síťovým k identifikaci a odstranění.
 
@@ -49,7 +49,7 @@ Okruhy ExpressRoute na celém světě můžete monitorovat pomocí pracovního p
 * Jihovýchodní Asie 
 * Východ Jižní Austrálie
 
-## <a name="workflow"></a>Pracovní postup
+## <a name="workflow"></a>pracovní postup
 
 Monitorovací agenty jsou nainstalovány na více serverech, jak místně a v Azure. Agenti vzájemně komunikovat, ale neodesílají data, odesílání paketů TCP metody handshake. Komunikace mezi agenty umožňuje Azure k mapování síťové topologie a cestu, kterou může trvat provoz.
 
@@ -62,9 +62,15 @@ Monitorovací agenty jsou nainstalovány na více serverech, jak místně a v Az
 
 Pokud už používáte nástroj Sledování výkonu sítě k monitorování jiných objektů nebo služeb a už máte pracovní prostor v jednom z podporovaných oblastí, můžete přeskočit krok 1 a 2 krok a zahájit konfiguraci kroku 3.
 
-## <a name="configure"></a>Krok 1: Vytvoření pracovního prostoru (v předplatné, které má virtuální sítě propojené s ExpressRoute Circuit(s))
+## <a name="configure"></a>Krok 1: Vytvoření pracovního prostoru
+
+Vytvořte pracovní prostor v odběru, který má propojení virtuálních sítí ExpressRoute circuit(s).
 
 1. V [portál Azure](https://portal.azure.com), vyberte odběr, který má virtuální sítě peered pro váš okruh ExpressRoute. Potom v seznamu služeb v Hledat **Marketplace** pro sledování výkonu sítě. V vrácení, klikněte na tlačítko Otevřít **sledování výkonu sítě** stránky.
+
+>[!NOTE]
+>Můžete vytvořit nový pracovní prostor nebo použít stávající pracovní prostor.  Pokud chcete použít existujícímu pracovnímu prostoru, je nutné zajistit, že v pracovním prostoru se migroval na nový dotazovací jazyk. [Další informace...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portál](.\media\how-to-npm\3.png)<br><br>
 2. V dolní části hlavní **sledování výkonu sítě** klikněte na tlačítko **vytvořit** otevřete **sledování výkonu sítě - vytvořit nové řešení** stránky. Klikněte na tlačítko **pracovním prostorem OMS - vyberte pracovní prostor** chcete otevřít stránku pracovní prostory. Klikněte na tlačítko **+ vytvořit nový pracovní prostor** chcete otevřít stránku pracovní prostor.
@@ -79,29 +85,25 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
   >[!NOTE]
   >Okruh ExpressRoute může být kdekoliv na světě a nemusí být ve stejné oblasti jako pracovním prostoru.
   >
-
-
+  
   ![Pracovní prostor](.\media\how-to-npm\4.png)<br><br>
 4. Klikněte na tlačítko **OK** uložte a nasaďte nastavení šablonu. Jakmile ověří šablony, klikněte na možnost **vytvořit** k nasazení v pracovním prostoru.
 5. Po nasazení pracovním prostoru, přejděte na **NetworkMonitoring(name)** prostředek, který jste vytvořili. Ověřte nastavení a pak klikněte na **řešení vyžaduje další konfiguraci**.
 
   ![další konfigurace](.\media\how-to-npm\5.png)
-6. Na **Vítá vás nástroj Sledování výkonu sítě** vyberte **použití protokolu TCP pro syntetické transakce**, pak klikněte na tlačítko **odeslání**. TCP transakce jsou používány pouze k zkontrolujte a přerušení připojení. U těchto připojení TCP je odesílána žádná data.
-
-  ![TCP pro syntetické transakce](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Krok 2: Instalace a konfigurace agentů
 
 ### <a name="download"></a>2.1: Stáhněte si instalační soubor agenta
 
-1. Na **konfigurace pro monitorování výkonu ze sítě – stránka Instalace TCP** prostředku, v **instalovat agenty OMS** klikněte na možnost agent, který odpovídá jeho procesoru a stažení Instalační soubor.
+1. Přejděte na **společná nastavení** kartě **konfigurace monitorování výkonu sítě** stránky prostředku. Klikněte na možnost agent, který odpovídá procesor váš server od **instalovat agenty OMS** části a stáhněte si instalační soubor.
 
   >[!NOTE]
   >Agent musí být nainstalován na serveru systému Windows (2008 SP1 nebo novější). Monitorování okruhy ExpressRoute pomocí operačního systému Windows Desktop a operační systém Linux není podporováno. 
   >
   >
 2. Zkopírujte **ID pracovního prostoru** a **primární klíč** do poznámkového bloku.
-3. V **konfigurace agentů** část, stáhněte skript prostředí Powershell. Skript prostředí PowerShell můžete otevřít port brány firewall pro transakce TCP.
+3. Z **konfigurace OMS agentů pro monitorování pomocí protokolu TCP** část, stáhněte skript prostředí Powershell. Skript prostředí PowerShell můžete otevřít port brány firewall pro transakce TCP.
 
   ![Skript PowerShellu](.\media\how-to-npm\7.png)
 
@@ -211,7 +213,7 @@ Stránka NPM obsahuje na stránce pro ExpressRoute, který ukazuje přehled stav
 
   ![Řídicí panel](.\media\how-to-npm\dashboard.png)
 
-### <a name="circuits"></a>Okruhy seznamu
+### <a name="circuits"></a>Seznam okruhy
 
 Chcete-li zobrazit seznam všech monitorovaných okruhy ExpressRoute, klikněte na **okruhy ExpressRoute** dlaždici. Můžete vybrat okruhu a zobrazit její stav, trend grafy pro ztráta paketů, využití šířky pásma a latence. Grafy, jsou interaktivní. Můžete vybrat vlastní časový interval pro vykreslení grafy. Přes oblast můžete přetáhnout myší na graf přiblížení a zobrazit podrobné datových bodů.
 

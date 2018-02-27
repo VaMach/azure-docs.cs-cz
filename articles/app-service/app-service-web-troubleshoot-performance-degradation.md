@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Řešení potíží s výkonem pomalé webové aplikace v Azure App Service
 Tento článek vám pomůže vyřešit problémy s výkonem pomalé webové aplikace v [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -58,10 +58,10 @@ Tato možnost vám umožňuje zjistit, pokud se žádné problémy s vaší apli
 
 Některé z metriky, které můžete chtít monitorování pro webovou aplikaci
 
-* Průměrná paměti pracovní sady
+* Průměrná pracovní sada paměti
 * Průměrná doba odezvy
 * Čas procesoru
-* Paměť pracovní sady
+* Pracovní sada paměti
 * Požadavky
 
 ![sledování výkonu webové aplikace](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
@@ -90,11 +90,7 @@ Každý webové aplikace App Service poskytuje rozšiřitelný správy koncový 
 - Jako zdrojový kód editory [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Nástroje pro správu pro připojené prostředkům, například databáze MySQL připojen do webové aplikace.
 
-[Azure Application Insights](/services/application-insights/) a [New Relic](/marketplace/partners/newrelic/newrelic/) jsou dvě rozšíření webů, které jsou k dispozici pro monitorování výkonu. Pokud chcete používat New Relic, nainstalovat agenta za běhu. Pokud chcete používat Azure Application Insights, opětovném vytvoření kódu pomocí sady SDK a můžete také nainstalovat rozšíření, které poskytuje přístup k dalším datům. Sada SDK umožňuje napsat kód pro sledování využití a výkonu vaší aplikace podrobněji.
-
-Chcete-li použít Application Insights, přečtěte si téma [sledování výkonu ve webových aplikacích](../application-insights/app-insights-web-monitor-performance.md).
-
-Chcete-li použít New Relic, přečtěte si téma [nové Správa výkonu aplikací New Relic v Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) je rozšíření webu, který je k dispozici také monitorování výkonu. Pokud chcete použít Application Insights, znovu sestavit kódu pomocí sady SDK. Můžete také nainstalovat rozšíření, které poskytuje přístup k dalším datům. Sada SDK umožňuje napsat kód pro sledování využití a výkonu vaší aplikace podrobněji. Další informace najdete v tématu [sledování výkonu ve webových aplikacích](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -137,7 +133,7 @@ Podpora portálu služby Azure App Service nabízí tři samostatné karty pro p
 
 1. Sledovat aktuální chování
 2. Analýza shromažďování diagnostické informace a spuštěním předdefinované analyzátory
-3. Zmírnění
+3. Oprava
 
 Pokud tento problém se děje nyní, klikněte na tlačítko **analyzovat** > **diagnostiky** > **diagnostikovat teď** k vytvoření relace diagnostiky pro vás, který shromažďuje HTTP protokoly, protokoly Prohlížeče událostí paměti výpisy, protokoly chyb PHP a PHP, zpracování sestavy.
 

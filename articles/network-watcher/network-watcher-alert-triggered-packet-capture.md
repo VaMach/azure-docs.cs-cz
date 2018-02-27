@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1b3da4d6e4593f3c71995ef9331fcea2d5b6ec19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Použít zachytáváním paketů pro monitorování proaktivní sítě pomocí výstrah a Azure Functions
 
@@ -65,7 +65,7 @@ Tento scénář provede následující akce:
 
 Prvním krokem je vytvoření funkce Azure ke zpracování upozornění a vytvořit zachytáváním paketů.
 
-1. V [portál Azure](https://portal.azure.com), vyberte **nový** > **výpočetní** > **aplikaci funkce**.
+1. V [portál Azure](https://portal.azure.com), vyberte **vytvořit prostředek** > **výpočetní** > **aplikaci funkce**.
 
     ![Vytvoření aplikace – funkce][1-1]
 
@@ -76,7 +76,7 @@ Prvním krokem je vytvoření funkce Azure ke zpracování upozornění a vytvo�
     |**Název aplikace**|PacketCaptureExample|Název funkce aplikace.|
     |**Předplatné**|[Předplatné] Předplatné, pro který chcete vytvořit aplikaci funkce.||
     |**Skupina prostředků**|PacketCaptureRG|Skupina prostředků tak, aby obsahovala aplikaci funkce.|
-    |**Hostování plán**|Plán spotřeba| Typ naplánujte vaše aplikace používá funkce. Možnosti jsou spotřeby nebo plán služby Azure App Service. |
+    |**Plán hostování**|Plán Consumption| Typ naplánujte vaše aplikace používá funkce. Možnosti jsou spotřeby nebo plán služby Azure App Service. |
     |**Umístění**|Střed USA| Oblast, ve které chcete vytvořit aplikaci funkce.|
     |**Účet úložiště**|{automaticky vygenerovanou}| Účet úložiště, který potřebuje funkce Azure pro úložiště pro obecné účely.|
 
@@ -86,7 +86,7 @@ Prvním krokem je vytvoření funkce Azure ke zpracování upozornění a vytvo�
 
     |**Nastavení** | **Hodnota** | **Podrobnosti** |
     |---|---|---|
-    |**Scénář**|experimentální|Typ scénáře|
+    |**Scénář**|Experimentální|Typ scénáře|
     |**Pojmenujte svoji funkci**|AlertPacketCapturePowerShell|Název funkce|
     |**Úroveň oprávnění**|Funkce|Úroveň oprávnění pro funkci|
 
@@ -119,7 +119,7 @@ Použití rutin prostředí PowerShell sledovací proces sítě, nahrajte do apl
 
 1. Vyberte **funkce nastavení aplikace** > **přejděte do editoru služby aplikace**.
 
-    ![Nastavení aplikace – funkce][functions2]
+    ![Nastavení Function App][functions2]
 
 1. Klikněte pravým tlačítkem myši **AlertPacketCapturePowershell** složku a pak vytvořte složku s názvem **azuremodules**. 
 
@@ -135,7 +135,7 @@ Použití rutin prostředí PowerShell sledovací proces sítě, nahrajte do apl
 
 1. Klikněte pravým tlačítkem myši **AzureRM.Network** podsložku a potom vyberte **nahrání souborů**. 
 
-6. Přejděte na Azure moduly. Místní **AzureRM.Network** složky, vyberte všechny soubory ve složce. Potom vyberte **OK**. 
+6. Přejděte na Azure moduly. Místní **AzureRM.Network** složky, vyberte všechny soubory ve složce. Pak vyberte **OK**. 
 
 7. Opakujte tyto kroky pro **AzureRM.Profile** a **AzureRM.Resources**.
 
@@ -249,7 +249,7 @@ $Encryptedpassword
 
 1. Přidání proměnné prostředí a jejich hodnoty nastavení aplikace a pak vyberte **Uložit**.
 
-    ![Nastavení aplikace][functions12]
+    ![Nastavení aplikací][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Přidání funkce prostředí PowerShell
 
@@ -348,7 +348,7 @@ Přejít na existující virtuální počítač a poté přidejte pravidlo výst
   |**Podmínka**|Více než| Podmínku, která má použít při vyhodnocení metriku.|
   |**Prahová hodnota**|100| Hodnota metriku, která aktivuje výstrahu. Tato hodnota by měla nastavit na platnou hodnotu pro vaše prostředí.|
   |**Období**|Za posledních pět minut| Určuje dobu, ve kterém má být vyhledán prahovou hodnotu na metriky.|
-  |**Webhooku**|[URL webhooku se nenačetla z funkce aplikace]| Adresa URL webhooku z funkce aplikace, který byl vytvořen v předchozích krocích.|
+  |**Webhook**|[URL webhooku se nenačetla z funkce aplikace]| Adresa URL webhooku z funkce aplikace, který byl vytvořen v předchozích krocích.|
 
 > [!NOTE]
 > Metrika segmentů TCP není povoleno ve výchozím nastavení. Další informace o tom, jak povolit další metriky navštivte stránky [zapínání monitorování a Diagnostika](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
@@ -368,7 +368,7 @@ Po stažení vaší zachycení, můžete ji zobrazit pomocí libovolného nástr
 - [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak zobrazit vaše paketu zachycení tak, že navštívíte [analýza zachytávání paketů s Wireshark](network-watcher-deep-packet-inspection.md).
 

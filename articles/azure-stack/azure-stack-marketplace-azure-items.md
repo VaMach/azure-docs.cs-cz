@@ -3,8 +3,8 @@ title: "Azure k dispozici pro Azure zásobníku položky Marketplace. | Microsof
 description: "Tyto položky Azure Marketplace můžete použít v zásobníku Azure."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2018
-ms.author: JeffGoldner
-ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure k dispozici pro Azure zásobníku položky Marketplace.
 
@@ -30,14 +31,14 @@ Je třeba stáhnout tyto vždy, když nejsou k dispozici aktualizace pro rozší
 
 |  | Název položky | Popis | Vydavatel | OS Type |
 | --- | --- | --- | --- | --- |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Toto rozšíření nasazení žádné systému SQL Server, na položku Windows Marketplace stáhnout – to je potřeba.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření vlastních skriptů](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Tuto aktualizaci můžete stáhněte na verzi v poli vlastní skript rozšíření pro Windows.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/dsc.png) | [Rozšíření DSC prostředí PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Tuto aktualizaci můžete stáhněte na integrované verzi rozšíření DSC prostředí PowerShell.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření Microsoft Antimalware](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Antimalware od Microsoftu pro Azure je řešení jednoho agenta pro aplikace a prostředí klientovi, určený ke spouštění na pozadí bez lidského zásahu. | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Rozšíření IaaS SQL ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Toto rozšíření nasazení žádné systému SQL Server, na položku Windows Marketplace stáhnout – to je potřeba.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Rozšíření vlastních skriptů ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Tuto aktualizaci můžete stáhněte na verzi v poli vlastní skript rozšíření pro Windows.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [ Rozšíření DSC prostředí PowerShell ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Tuto aktualizaci můžete stáhněte na integrované verzi rozšíření DSC prostředí PowerShell.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Rozšíření Microsoft Antimalware ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Antimalware od Microsoftu pro Azure je řešení jednoho agenta pro aplikace a prostředí klientovi, určený ke spouštění na pozadí bez lidského zásahu. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker rozšíření pro virtuální počítače s Linuxem. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Virtuální počítač přístup pro Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Tuto aktualizaci můžete stáhněte na ve verzi VMAccess pro Linux rozšíření. To je důležité, pokud máte v plánu používat Debian virtuální počítače s Linuxem.</b> | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření zálohování Acronis pro Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Acronis International GmbH. | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření Acronis zálohování pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Acronis International GmbH. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Virtuální počítač přístup pro Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Tuto aktualizaci můžete stáhněte na ve verzi VMAccess pro Linux rozšíření. To je důležité, pokud máte v plánu používat Debian virtuální počítače s Linuxem.</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Rozšíření zálohování Acronis pro Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Acronis International GmbH. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Rozšíření Acronis zálohování pro Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Acronis International GmbH. | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Bitové kopie virtuálních počítačů společnosti Microsoft a řešení šablony
 
@@ -70,9 +71,9 @@ Zásobník Microsoft Azure podporuje následující virtuální počítače Azur
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express na SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Volné expresní verze SQL Server 2016 SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise na systém SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Databáze platforma pro inteligentní, zvláště důležité aplikace. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [Webového systému SQL Server 2017 na SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Databáze platforma pro inteligentní, zvláště důležité aplikace. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04. | Microsoft + kanonickém tvaru |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04. | Microsoft + kanonickém tvaru |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Distribuce systému Linux
@@ -85,7 +86,7 @@ Zásobník Microsoft Azure podporuje následující virtuální počítače Azur
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Této distribuce systému Linux je založena na CentOS a poskytuje neautorizovaný Wave softwaru. | Podvodný Wave softwaru (dříve OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Na základě centOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Této distribuce systému Linux je založena na CentOS a poskytuje neautorizovaný Wave softwaru. | Podvodný Wave softwaru (dříve OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.4-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | Této distribuce systému Linux je založena na CentOS a poskytuje neautorizovaný Wave softwaru. | Podvodný Wave softwaru (dříve OpenLogic) |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL třetích stran, Image volné a zkušební verze a řešení šablony
 
@@ -209,5 +210,5 @@ Zásobník Microsoft Azure podporuje následující virtuální počítače Azur
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [Přepínač ADC obsahu nástroje pro vyrovnávání zatížení loadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Vyrovnávání zatížení vrstvy 4 7 aplikace doručení řadiče (ADC), přepínače obsahu a Traffic Manageru. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa hybridní AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Služba S3 kompatibilní úložiště, která zahrnuje veřejné a místní prostředky kapacity. | NooBaa |
 | ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise umožňuje automatizovat celý životní cyklus infrastruktury Azure zásobníku. <b>Stáhněte si oba položky Puppet Marketplace.</b> | Puppet |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Třídy nejvhodnější otevřete správu infrastruktury zdroje. | SUSE |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Nástroj ZeroDown softwaru](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | Nástroj v7.1 ZeroDown softwaru - migrovat + HA. | ZeroDown Software |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Třídy nejvhodnější otevřete správu infrastruktury zdroje. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Nástroj ZeroDown softwaru ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | Nástroj v7.1 ZeroDown softwaru - migrovat + HA. | ZeroDown Software |

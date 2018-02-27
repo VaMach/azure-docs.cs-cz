@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions referenční informace pro vývojáře F #
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -35,7 +35,7 @@ Tento článek předpokládá, že jste si již přečetli [referenční informa
 Když použijete `.fsx` pro funkce Azure, běžně vyžaduje sestavení jsou pro vás, což umožňuje zaměřit se na funkce, nikoli "standardní" kód automaticky zahrnuty.
 
 ## <a name="binding-to-arguments"></a>Vytvoření vazby na argumenty
-Každou vazbu podporuje někteří sadu argumentů, podle popisu v [referenční vývojáře triggerů a vazeb Azure Functions](functions-triggers-bindings.md). Například jedna z vazeb argument, který podporuje aktivační události objektu blob je objektů POCO, které lze vyjádřit pomocí záznamu F #. Například:
+Každou vazbu podporuje někteří sadu argumentů, podle popisu v [referenční vývojáře triggerů a vazeb Azure Functions](functions-triggers-bindings.md). Například jedna z vazeb argument, který podporuje aktivační události objektu blob je objektů POCO, které lze vyjádřit pomocí záznamu F #. Příklad:
 
 ```fsharp
 type Item = { Id: string }
@@ -49,7 +49,7 @@ Funkce Azure F # bude trvat jeden nebo více argumentů. Když mluvíme o argume
 
 V příkladu nahoře `blob` je vstupní argument, a `output` je argument výstup. Všimněte si, že jsme použili `byref<>` pro `output` (je nutné přidat `[<Out>]` poznámky). Použití `byref<>` typ umožňuje funkce změnit které záznam nebo argument odkazuje na objekt.
 
-Pokud záznam F # je použita jako vstupní typ, musí být označen definici záznam s `[<CLIMutable>]` Chcete-li povolit rozhraní Azure Functions správně nastavit pole před předáním záznam funkce. Pod pokličkou `[<CLIMutable>]` generuje setter vlastnosti záznamu. Například:
+Pokud záznam F # je použita jako vstupní typ, musí být označen definici záznam s `[<CLIMutable>]` Chcete-li povolit rozhraní Azure Functions správně nastavit pole před předáním záznam funkce. Pod pokličkou `[<CLIMutable>]` generuje setter vlastnosti záznamu. Příklad:
 
 ```fsharp
 [<CLIMutable>]
@@ -61,7 +61,7 @@ let Run(req: TestObject, log: TraceWriter) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-Třída F # lze také pro obě vstup a výstup argumenty. Pro třídy vlastnosti obvykle potřebovat mechanismy získání a nastavení. Například:
+Třída F # lze také pro obě vstup a výstup argumenty. Pro třídy vlastnosti obvykle potřebovat mechanismy získání a nastavení. Příklad:
 
 ```fsharp
 type Item() =
@@ -74,7 +74,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Protokolování
-Protokolovat výstup do vaší [protokoly streamování](../app-service/web-sites-enable-diagnostic-log.md) v F # funkce zabere argument typu `TraceWriter`. Konzistence, doporučujeme, abyste tento argument je s názvem `log`. Například:
+Protokolovat výstup do vaší [protokoly streamování](../app-service/web-sites-enable-diagnostic-log.md) v F # funkce zabere argument typu `TraceWriter`. Konzistence, doporučujeme, abyste tento argument je s názvem `log`. Příklad:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -82,7 +82,7 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     output <- input
 ```
 
-## <a name="async"></a>Asynchronní
+## <a name="async"></a>Async
 `async` Pracovní postup můžete použít, ale musí vrátit výsledek `Task`. To lze provést pomocí `Async.StartAsTask`, například:
 
 ```fsharp
@@ -164,7 +164,7 @@ Kromě toho jsou speciální následující sestavení použita a může být od
 Pokud potřebujete odkazovat na privátní sestavení, můžete nahrát soubor sestavení do `bin` složky vzhledem ke vaší ho pomocí souboru (např. název funkce a referenční dokumentace  `#r "MyAssembly.dll"`). Informace o tom, jak odeslat soubory do složky funkce najdete v následující části na správy balíčků.
 
 ## <a name="editor-prelude"></a>Editor Prelude
-Editor, který podporuje služby kompilátoru F # nebude vědět, obory názvů a sestavení, které automaticky zahrne Azure Functions. Jako takový může být užitečné zahrnout prelude, která pomáhá editoru najít sestavení, který používáte a explicitně otevřete obory názvů. Například:
+Editor, který podporuje služby kompilátoru F # nebude vědět, obory názvů a sestavení, které automaticky zahrne Azure Functions. Jako takový může být užitečné zahrnout prelude, která pomáhá editoru najít sestavení, který používáte a explicitně otevřete obory názvů. Příklad:
 
 ```fsharp
 #if !COMPILED
@@ -172,7 +172,7 @@ Editor, který podporuje služby kompilátoru F # nebude vědět, obory názvů 
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -184,7 +184,7 @@ Když Azure Functions provede kódu, zpracovává zdroji s `COMPILED` definovan�
 <a name="package"></a>
 
 ## <a name="package-management"></a>Správy balíčků
-Použít balíčků NuGet v F # funkci, přidejte `project.json` do souboru složku funkce v systému souborů aplikaci funkce. Tady je příklad `project.json` soubor, který přidá odkaz na balíček NuGet `Microsoft.ProjectOxford.Face` verze 1.1.0:
+Použití balíčků NuGet v funkci F #, přidejte `project.json` soubor do složky funkce v systému souborů aplikaci funkce. Tady je příklad `project.json` soubor, který přidá odkaz na balíček NuGet `Microsoft.ProjectOxford.Face` verze 1.1.0:
 
 ```json
 {
@@ -238,7 +238,7 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Opětovné použití kódu .fsx
-Můžete použít kód z jiných `.fsx` soubory pomocí `#load` – direktiva. Například:
+Můžete použít kód z jiných `.fsx` soubory pomocí `#load` – direktiva. Příklad:
 
 `run.fsx`
 
@@ -258,13 +258,13 @@ let mylog(log: TraceWriter, text: string) =
 
 Poskytuje cesty `#load` direktivy jsou relativní vzhledem k umístění vaší `.fsx` souboru.
 
-* `#load "logger.fsx"`načte soubor umístěný ve složce funkce.
-* `#load "package\logger.fsx"`načte soubor umístěný ve `package` složky ve složce funkce.
-* `#load "..\shared\mylogger.fsx"`načte soubor umístěný ve `shared` složky na stejné úrovni jako složka funkce, který je přímo pod `wwwroot`.
+* `#load "logger.fsx"` načte soubor umístěný ve složce funkce.
+* `#load "package\logger.fsx"` načte soubor umístěný ve `package` složky ve složce funkce.
+* `#load "..\shared\mylogger.fsx"` načte soubor umístěný ve `shared` složky na stejné úrovni jako složka funkce, který je přímo pod `wwwroot`.
 
 `#load` – Direktiva pracuje pouze s `.fsx` soubory (F # skript) a nikoli s `.fs` soubory.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace najdete v následujících materiálech:
 
 * [Průvodce F #](/dotnet/articles/fsharp/index)

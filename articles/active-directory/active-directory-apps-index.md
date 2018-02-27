@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Rejstřík článků o správě aplikací ve službě Azure Active Directory
 Tato stránka obsahuje úplný seznam každému dokumentu zapsána o různých funkcích týkající se aplikace v Azure Active Directory (Azure AD).
@@ -53,7 +53,7 @@ Jednotné přihlašování umožňuje uživatelům přístup k celou řadu aplik
 | Článek Průvodce |  |
 |:---:| --- |
 | Úvod do federační a dalších typů přihlášení |[Jednotné přihlašování s Azure AD](active-directory-appssoaccess-whatis.md) |
-| Tisíce aplikacemi SaaS, které jsou předem integrované se službou Azure AD s zjednodušené kroky konfigurace přihlášení |[Začínáme s galerii aplikací Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Úplný seznam předem integrovaných aplikací, které podporují Federation](http://aka.ms/aadfederatedapps)<br /><br />[Postup přidání aplikace do galerii aplikací Azure AD](active-directory-app-gallery-listing.md) |
+| Tisíce aplikacemi SaaS, které jsou předem integrované se službou Azure AD s zjednodušené kroky konfigurace přihlášení |[Začínáme s galerii aplikací Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Úplný seznam předem integrovaných aplikací, které podporují Federation](active-directory-saas-tutorial-list.md)<br /><br />[Postup přidání aplikace do galerii aplikací Azure AD](active-directory-app-gallery-listing.md) |
 | Víc než 150 aplikace kurzy o tom, jak nakonfigurovat jednotné přihlašování pro aplikace, jako například [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md)a mnoho dalších |[Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Ruční nastavení a konfiguraci jednoho přihlášení přizpůsobit |[Jak na nakonfigurovat federovaného jednotného přihlašování k aplikacím, které nejsou v galerii aplikací Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Postup přizpůsobení deklarace identity vystavené v tokenu SAML pro předběžně integrované aplikace](active-directory-saml-claims-customization.md) |
 | Příručka pro řešení potíží pro federované aplikace, které používají protokol SAML |[Řešení potíží s na základě SAML jednotné přihlašování](active-directory-saml-debugging.md) |

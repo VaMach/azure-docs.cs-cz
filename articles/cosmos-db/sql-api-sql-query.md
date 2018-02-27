@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Dotazy SQL pro Azure Cosmos DB
 
@@ -174,7 +174,7 @@ Rádi bychom se upozornit na několik pozoruhodné aspektů dotazovací jazyk Co
 * Cosmos databáze podporuje pouze striktní dokumentů JSON. To znamená, že systém typů a výrazy jsou omezeny na pracují jenom s typy JSON. Odkazovat [JSON specifikace](http://www.json.org/) další podrobnosti.  
 * Cosmos DB kolekce je kontejner dokumentů JSON bez schémat. Vztahy v datových entit v rámci a na dokumentech v kolekci jsou implicitně zaznamenat členství ve skupině a ne primárního a cizího klíče relace. Toto je důležitým aspektem vhodné odkazující na základě spojení intra-document probírat později v tomto článku.
 
-## <a id="Indexing"></a>Indexování cosmos DB
+## <a id="Indexing"></a> Indexování cosmos DB
 Než se nám získat do syntaxe SQL, je vhodné využít indexování návrhu v Azure Cosmos DB. 
 
 Účelem indexy databáze je poskytovat dotazy v různých formách a tvarů s spotřeby minimální prostředků (např. využití procesoru a vstup/výstup) současně poskytují dobrý prostupnosti a nízké latence. Volba správného indexu pro dotazování databáze často vyžaduje mnohem plánování a experimentování. Tento přístup představuje výzvu pro bez schématu databáze, kde data neodpovídají striktní schéma a zpracovaní rychle. 
@@ -203,7 +203,7 @@ Každý dotaz sestává z klauzule SELECT a volitelné FROM a klauzule WHERE za 
 
 Dotaz jako `SELECT * FROM Families` označuje, že je celou kolekci rodiny zdroji, za které se vytvořit výčet. Identifikátor speciální KOŘENOVÉ slouží k představují kolekci nepoužívejte název kolekce. Následující seznam obsahuje pravidla, které vynucuje na jeden dotaz:
 
-* Kolekce je to možné, jako například `SELECT f.id FROM Families AS f` nebo jednoduše `SELECT f.id FROM Families f`. Zde `f` je ekvivalentem `Families`. `AS`optional – klíčové slovo alias je identifikátor.
+* Kolekce je to možné, jako například `SELECT f.id FROM Families AS f` nebo jednoduše `SELECT f.id FROM Families f`. Zde `f` je ekvivalentem `Families`. `AS` optional – klíčové slovo alias je identifikátor.
 * Jednou alias, nemůže být vázán původního zdroje. Například `SELECT Families.id FROM Families f` je syntakticky neplatný, protože už nelze přeložit identifikátor "Rodiny".
 * Všechny vlastnosti, které je potřeba na něj odkazovat musí být plně kvalifikovaný. Chybí dodržování striktní schématu tato velikost je vyžadována předejdete žádné nejednoznačný vazby. Proto `SELECT id FROM Families f` je syntakticky neplatný, protože vlastnost `id` není vázán.
 
@@ -924,7 +924,7 @@ Můžete také provést agregace v kombinaci s filtry. Například následujíc�
 
     [ 1 ]
 
-Následující tabulka uvádí seznam podporovaných agregační funkce v rozhraní SQL API. `SUM`a `AVG` se provádí přes číselných hodnot, zatímco `COUNT`, `MIN`, a `MAX` lze provést přes čísla, řetězce, logické hodnoty a hodnoty Null. 
+Následující tabulka uvádí seznam podporovaných agregační funkce v rozhraní SQL API. `SUM` a `AVG` se provádí přes číselných hodnot, zatímco `COUNT`, `MIN`, a `MAX` lze provést přes čísla, řetězce, logické hodnoty a hodnoty Null. 
 
 | Využití | Popis |
 |-------|-------------|
@@ -937,7 +937,7 @@ Následující tabulka uvádí seznam podporovaných agregační funkce v rozhra
 Agreguje lze také provést přes výsledky iterace pole. Další informace najdete v tématu [pole iterace v dotazech](#Iteration).
 
 > [!NOTE]
-> Při použití Průzkumníka dotazů portálu Azure, Všimněte si, že agregace dotazy může vracet částečně agregované výsledky dotazu stránky. Sady SDK vytvoří jednu kumulativní hodnotu na všech stránkách. 
+> Při použití Průzkumníku dat portálu Azure, Všimněte si, že agregace dotazy může vracet částečně agregované výsledky dotazu stránky. Sady SDK vytvoří jednu kumulativní hodnotu na všech stránkách. 
 > 
 > Aby bylo možné provádět dotazy agregace pomocí kódu, je nutné .NET SDK 1.12.0, .NET Core SDK 1.1.0 nebo Java SDK 1.9.5 nebo vyšší.    
 >
@@ -1205,7 +1205,7 @@ Tento příklad představuje přirozené rozšíření v předchozím příkladu
         }
     }
 
-`AndersenFamily`má jednu podřízenou, který má jednoho nebo více mazlíčků. Ano, smíšený produkt vypočítá jeden řádek (1\*1\*1) z této rodiny. WakefieldFamily ale má dva podřízené, ale pouze jednu podřízenou "Jesse" má mazlíčků. Jesse, když má dva mazlíčků. Proto smíšený produkt vypočítá 1\*1\*řádků z této rodině, 2 = 2.
+`AndersenFamily` má jednu podřízenou, který má jednoho nebo více mazlíčků. Ano, smíšený produkt vypočítá jeden řádek (1\*1\*1) z této rodiny. WakefieldFamily ale má dva podřízené, ale pouze jednu podřízenou "Jesse" má mazlíčků. Jesse, když má dva mazlíčků. Proto smíšený produkt vypočítá 1\*1\*řádků z této rodině, 2 = 2.
 
 V následujícím příkladu je další filtr na `pet`. Nevztahuje se na všech záznamů, kde název pet není "Stínové". Všimněte si, že jsou jsme sestavení řazenými kolekcemi členů z pole filtru na všech elementů řazené kolekce členů a projektu libovolnou kombinaci prvků. 
 
@@ -1784,7 +1784,7 @@ Tady je seznam podporovaných LINQ operátory ve zprostředkovateli LINQ součá
 * **Kde**: filtry nepřeloží na SQL kde a podporovat překlad mezi & &, || a! SQL operátorů
 * **Označit více**: umožňuje unwinding polí pro klauzuli SQL JOIN. Je možné řetězec nebo vnoření výrazy k filtrování v rámci prvků pole
 * **OrderBy a OrderByDescending**: přeloží na order pořadí
-* **Počet**, **součet**, **Min**, **maximální**, a **průměrná** operátory pro agregaci a jejich ekvivalenty asynchronní  **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, a **AverageAsync**.
+* **Počet**, **součet**, **Min**, **maximální**, a **průměrná** operátory pro agregaci a jejich ekvivalenty asynchronní **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, a **AverageAsync**.
 * **CompareTo**: překládá do rozsahu porovnání. Běžně používané pro řetězce vzhledem k tomu, že nejste porovnatelný v rozhraní .NET
 * **Trvat**: překládá do horní části SQL pro omezení výsledků dotazu
 * **Matematické funkce**: podporuje překlad z. Asin Abs Acos, je NET, Atan, Ceiling Cos, Exp, Floor, protokolu, Log10, Pow, kruhové, přihlášení, Sin, Sqrt, Tan, Truncate na ekvivalentní integrované funkce SQL.
@@ -2212,7 +2212,7 @@ Další příklad ukazuje spojení, vyjádřit pomocí LINQ označit více.
 
 Klient .NET automaticky iteruje všechny stránky výsledků dotazu v blocích foreach, jak je uvedeno výše. Možnosti dotazu byla zavedená v části REST API jsou také k dispozici v pomocí .NET SDK `FeedOptions` a `FeedResponse` třídy v metodě CreateDocumentQuery. Počet stránek se dá řídit pomocí `MaxItemCount` nastavení. 
 
-Můžete také explicitně řídit stránkování tak, že vytvoříte `IDocumentQueryable` pomocí `IQueryable` objekt, pak načtením` ResponseContinuationToken` hodnot a jejich předání zpět jako `RequestContinuationToken` v `FeedOptions`. `EnableScanInQuery`lze nastavit pro povolení kontroly, pokud dotaz nemůže být podporována nakonfigurované zásady indexování. Pro dělené kolekce, můžete použít `PartitionKey` ke spouštění dotazu na jednoho oddílu (i když Cosmos DB může automaticky extrahovat to z text dotazu), a `EnableCrossPartitionQuery` ke spouštění dotazů, které může být nutné ke spuštění s více oddílů. 
+Můžete také explicitně řídit stránkování tak, že vytvoříte `IDocumentQueryable` pomocí `IQueryable` objekt, pak načtením` ResponseContinuationToken` hodnot a jejich předání zpět jako `RequestContinuationToken` v `FeedOptions`. `EnableScanInQuery` lze nastavit pro povolení kontroly, pokud dotaz nemůže být podporována nakonfigurované zásady indexování. Pro dělené kolekce, můžete použít `PartitionKey` ke spouštění dotazu na jednoho oddílu (i když Cosmos DB může automaticky extrahovat to z text dotazu), a `EnableCrossPartitionQuery` ke spouštění dotazů, které může být nutné ke spuštění s více oddílů. 
 
 Odkazovat na [Azure Cosmos DB .NET ukázky](https://github.com/Azure/azure-documentdb-net) pro další ukázky obsahující dotazy. 
 

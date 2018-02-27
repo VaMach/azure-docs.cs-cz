@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Nasazení a prozkoumejte horizontálně dělené víceklientské aplikace, která používá Azure SQL Database
 
@@ -59,11 +59,11 @@ Předpokladem dokončení tohoto kurzu je splnění následujících požadavků
 
 #### <a name="plan-the-names"></a>Plánování názvy
 
-V krocích v této části jsou dvě místa, kde musíte zadat názvy pro vás jako *uživatele* a nové *skupiny prostředků*. Pro osoby s názvem *Ann Finley*, doporučujeme následující názvy:
-- *Uživatel:* &nbsp; **af1** &nbsp; *(jeho iniciály a číslice.)*
-- *Skupina prostředků:* &nbsp; **wingtip af1** &nbsp; *(doporučujeme psaný malými písmeny. Připojí pomlčka pak uživatelské jméno.)*
+Kroky v této části, poskytnete *uživatele* hodnotu, která se používá k zajištění jsou globálně jedinečné názvy prostředků a název *skupiny prostředků* obsahující všechny prostředky vytvořeny při nasazení aplikace. Pro osoby s názvem *Ann Finley*, doporučujeme:
+- *Uživatel:* **af1***(jeho iniciály a číslice. Použít jinou hodnotu (např. af2) Pokud nasazujete aplikaci ještě jednou.)*
+- *Skupina prostředků:* **wingtip. dpt af1** *(wingtip dpt signalizuje to databáze za klienta aplikace. Připojování af1 název uživatele koreluje s názvy prostředků, které obsahuje název skupiny prostředků.)*
 
-Teď zvolte názvy a poznamenejte si je.
+Teď zvolte názvy a poznamenejte si je. 
 
 #### <a name="steps"></a>Kroky
 
@@ -72,7 +72,7 @@ Teď zvolte názvy a poznamenejte si je.
 
     [![Tlačítko pro nasazení do Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Zadejte hodnoty parametrů požadovaných pro nasazení.
+1. Zadejte hodnoty parametrů požadovaných pro nasazení.
 
     > [!IMPORTANT]
     > U této ukázce nepoužívejte žádné existující skupiny prostředků, serverům nebo fondů. Místo toho vyberte **vytvořit novou skupinu prostředků**. Po ukončení práce s aplikací tuto skupinu prostředků odstraňte, aby se zastavilo související účtování.
@@ -82,12 +82,12 @@ Teď zvolte názvy a poznamenejte si je.
         - Vyberte **umístění** z rozevíracího seznamu.
     - Pro **uživatele** -doporučujeme, abyste zvolili malou **uživatele** hodnotu.
 
-3. **Nasaďte aplikaci**.
+1. **Nasaďte aplikaci**.
 
     - Kliknutím na tlačítko přijmout podmínky a ujednání.
     - Klikněte na **Koupit**.
 
-4. Monitorování stavu nasazení kliknutím **oznámení**, který je na ikonu zvonku napravo od pole hledání. Nasazení aplikace Wingtip trvá přibližně pět minut.
+1. Monitorování stavu nasazení kliknutím **oznámení**, který je na ikonu zvonku napravo od pole hledání. Nasazení aplikace Wingtip trvá přibližně pět minut.
 
    ![nasazení bylo úspěšné](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Každý místo získá přizpůsobené webové aplikace do seznamu svoje událos
 Centrálního **události rozbočovače** webová stránka obsahuje seznam odkazů na klienty v konkrétní nasazení. Použijte následující postup můžete vyzkoušet **události rozbočovače** webové stránky a jednotlivé webové aplikace:
 
 1. Otevřete **události rozbočovače** ve webovém prohlížeči:
-    - http://events.Wingtip. &lt;Uživatele&gt;. trafficmanager.net &nbsp; *(Nahraďte &lt;uživatele&gt; s hodnotou uživatele vaše nasazení.)*
+    - http://events.Wingtip-mt.&lt;uživatele&gt;. trafficmanager.net &nbsp; *(Nahraďte &lt;uživatele&gt; s hodnotou uživatele vaše nasazení.)*
 
     ![centrum akcí](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Centrálního **události rozbočovače** webová stránka obsahuje seznam odkaz
 
 K řízení distribuce příchozích požadavků, Wingtip aplikace používá [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Stránka události pro každého klienta zahrnuje název klienta v jeho adresa URL. Každou adresu URL také obsahuje konkrétní hodnota uživatele. Každou adresu URL dodržuje uvedené formát pomocí následujících kroků:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Aplikace události analyzuje název klienta z adresy URL. Je název klienta *fabrikamjazzclub* v předchozí příklad adresy URL.
 2. Aplikace pak hashuje název klienta pro vytvoření klíče pro přístup k katalogu pomocí [horizontálního oddílu mapy správu](sql-database-elastic-scale-shard-map-management.md).

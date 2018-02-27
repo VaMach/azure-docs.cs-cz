@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 72e1d5250de214c063a970f5761105b2329ccf7f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Spravovaná služba Identity (MSI) pro prostředky Azure
 
@@ -87,12 +87,12 @@ Následující služby podporují ověřování Azure AD a byly testovány s kli
 
 | Služba | ID prostředku | Status | Datum | Přiřadit přístup pro |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com/ | Dostupné | 2017 září | [portál Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net/ | Dostupné | 2017 září | |
-| Azure Data Lake | https://datalake.azure.net/ | Dostupné | 2017 září | |
-| Azure SQL | https://database.windows.net/ | Dostupné | Říjen 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net/ | Dostupné | 2017 prosinec | |
-| Azure Service Bus | https://servicebus.azure.net/ | Dostupné | 2017 prosinec | |
+| Azure Resource Manager | https://management.azure.com | Dostupné | 2017 září | [portál Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net | Dostupné | 2017 září | |
+| Azure Data Lake | https://datalake.azure.net | Dostupné | 2017 září | |
+| Azure SQL | https://database.windows.net | Dostupné | Říjen 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net | Dostupné | 2017 prosinec | |
+| Azure Service Bus | https://servicebus.azure.net | Dostupné | 2017 prosinec | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Kolik identita spravované služby stojí?
 

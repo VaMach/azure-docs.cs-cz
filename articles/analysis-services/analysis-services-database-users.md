@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Spravovat role databáze a uživatele
 
@@ -125,7 +125,7 @@ V této ukázce B2B externího uživatele a skupiny jsou přidány do role analy
 |------------|-----------------| 
 |[Přidat RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Přidáte člena do role databáze.| 
 |[Odebrat RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Odebrání člena z databázové role.|   
-|[Vyvolání ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Spuštění skriptu TMSL.|
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Spuštění skriptu TMSL.|
 
 ## <a name="row-filters"></a>Řádkové filtry  
 Řádkové filtry definovat, které řádky v tabulce může být dotazován členy určité role. Řádkové filtry jsou definovány pro každou tabulku v modelu s použitím vzorce DAX.  
@@ -139,14 +139,14 @@ V této ukázce B2B externího uživatele a skupiny jsou přidány do role analy
 |Table|Výraz jazyka DAX|  
 |-----------|--------------------|  
 |Oblast|= Oblast [Země] = "USA"|  
-|ProductCategory|= ProductCategory [Name] = "Jízdních kol"|  
+|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
 |Transakce|= Transakcí [rok] = 2016|  
   
  Net efekt je, že členové můžete dotazovat řádky dat, kde zákazník je v USA, kategorie produktů je jízdních kol a je roku 2016. Uživatelé se nemohou dotazovat transakce mimo USA, transakce, které nejsou jízdních kol nebo transakce není v 2016 dokud je členem jiné role, která uděluje tato oprávnění.
   
  Můžete použít možnosti filtrovat, *=FALSE()*, tak, aby odepřel přístup k všechny řádky pro celou tabulku.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
   [Spravovat správce serveru](analysis-services-server-admins.md)   
   [Správa služby Azure Analysis Services pomocí prostředí PowerShell](analysis-services-powershell.md)  
   [Tabulkový Model skriptování referenční příručka jazyka (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

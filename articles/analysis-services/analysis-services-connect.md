@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: d6cafc72f74dc0ec891591d3311f93ba1649f922
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e93544902d7ef435fb1b94e83700ae4fcd6f91f2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>Připojit k serveru Azure Analysis Services
 
@@ -76,7 +76,7 @@ Použijte účet systému Windows s aktuálním procesu.
 Ve starších verzích aplikace Excel mohou uživatelé připojit k serveru Azure Analysis Services pomocí souboru (ODC) Office Data Connection. Další informace najdete v tématu [vytvořit soubor dat ODC (Office Connection)](analysis-services-odc.md).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Připojit pomocí aplikace Excel](analysis-services-connect-excel.md)    
 [Připojit k Power BI](analysis-services-connect-pbi.md)   
 [Správa serveru](analysis-services-manage.md)   
