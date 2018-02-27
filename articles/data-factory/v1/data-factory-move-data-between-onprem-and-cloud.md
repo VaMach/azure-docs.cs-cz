@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Přesun dat mezi místní zdroje a cloudu s Brána pro správu dat
 > [!NOTE]
@@ -55,7 +55,7 @@ Než začnete Tento názorný postup, musíte mít následující požadavky:
 V tomto kroku použijete portál Azure k vytvoření instance objektu pro vytváření dat Azure s názvem **ADFTutorialOnPremDF**.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **+ nový**, klikněte na tlačítko **Intelligence + analýzy**a klikněte na tlačítko **Data Factory**.
+2. Klikněte na tlačítko **vytvořit prostředek**, klikněte na tlačítko **Intelligence + analýzy**a klikněte na tlačítko **Data Factory**.
 
    ![Nový -> Objekt pro vytváření dat](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. V **nový objekt pro vytváření dat** zadejte **ADFTutorialOnPremDF** pro název.
@@ -131,7 +131,7 @@ V tomto kroku použijete portál Azure k vytvoření instance objektu pro vytvá
    * **Naplánovat aktualizace** nainstalovat v určitém čase dne.
    * Zobrazení při brány **poslední aktualizace**.
    * Zadejte čas, kdy lze nainstalovat aktualizaci brány.
-8. Přepnout **nastavení** kartě. Certifikát uvedený v **certifikát** části se používá k šifrování a dešifrování přihlašovací údaje pro místní datové úložiště, které jste zadali na portálu. (volitelné) Klikněte na tlačítko **změnu** místo toho použít vlastní certifikát. Ve výchozím nastavení brána používá certifikát, který je automaticky generuje služba Data Factory.
+8. Přepněte na kartu **Nastavení**. Certifikát uvedený v **certifikát** části se používá k šifrování a dešifrování přihlašovací údaje pro místní datové úložiště, které jste zadali na portálu. (volitelné) Klikněte na tlačítko **změnu** místo toho použít vlastní certifikát. Ve výchozím nastavení brána používá certifikát, který je automaticky generuje služba Data Factory.
 
     ![Konfigurace certifikátu brány](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
