@@ -434,7 +434,7 @@ Existují dvě možnosti nastavit v místním prostředí tak, aby používala o
 
   **Restartujte** služba KDC po konfiguraci.
 
-2.  Příprava objekt zabezpečení s názvem ** krbtgt/REALM.COM@AD.COM ** na serveru služby KDC pomocí následujícího příkazu:
+2.  Příprava objekt zabezpečení s názvem **krbtgt/REALM.COM@AD.COM** na serveru služby KDC pomocí následujícího příkazu:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -447,7 +447,7 @@ Existují dvě možnosti nastavit v místním prostředí tak, aby používala o
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Navázání vztahu důvěryhodnosti z domény systému Windows k Sféra Kerberos. [heslo] je heslo pro objekt ** krbtgt/REALM.COM@AD.COM **.
+2.  Navázání vztahu důvěryhodnosti z domény systému Windows k Sféra Kerberos. [heslo] je heslo pro objekt **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
