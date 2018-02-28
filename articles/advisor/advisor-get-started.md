@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Začínáme se službou Azure Advisor
 
@@ -66,17 +66,17 @@ Můžete filtrovat doporučení, která přejít k podrobnostem a co je pro vás
 
     ![Kritéria vyhledávací filtr služby Advisor](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Připomenout znovu nebo zrušit doporučení služby Advisor
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Odložit nebo zrušit doporučení služby Advisor
 
 1. Přihlaste se k [portál Azure](https://portal.azure.com)a pak otevřete [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Přejděte na doporučení, které chcete připomenout znovu nebo zrušit.
+2. Přejděte na doporučení, které chcete odložit nebo zrušit.
 
 3. Klikněte na tlačítko doporučení.
 
-4. Klikněte na tlačítko **připomenout znovu**. 
+4. Klikněte na tlačítko **odložit**. 
 
-5. Zadejte připomenutí časové období, nebo vyberte **nikdy** zrušíte doporučení.
+5. Zadejte časové období odložit, nebo vyberte **nikdy** zrušíte doporučení.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Vyloučit z Poradce pro předplatné nebo skupiny prostředků
 

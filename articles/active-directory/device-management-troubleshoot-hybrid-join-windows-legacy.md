@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Nižší úrovně zařízení připojená k řešení potíží s hybridní Azure Active Directory 
 
@@ -55,7 +55,6 @@ Toto téma poskytuje pokyny o tom, jak vyřešit potenciální problémy při ř
 
 - Přeinstalujte operační systém nebo ruční unregister a zopakujte registraci na Azure AD může vytvořit nové registrace a má za následek více položek na kartě informace uživatele na portálu Azure. 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>Krok 1: Načíst stav registrace 
 
 **Chcete-li ověřit stav registrace:**  
@@ -87,13 +86,14 @@ Pokud připojení k Azure AD hybridní nebyla úspěšná, dialogové okno vám 
     
     1. Pokud není uživatel přihlášený uživatel domény (například místního uživatele). Hybridní připojení k Azure AD na nižší úrovni. zařízení je podporována pouze pro uživatele domény.
     
-    2. Pokud z nějakého důvodu nedokáže Autoworkplace.exe bezobslužně ověření pomocí Azure AD ani AD FS. Z několika možných příčin může být problémy s připojením k síti odesílací vázané na Azure AD adresy URL, (zkontrolujte, zda požadavky) nebo jestli je nakonfigurovaný pro tohoto uživatele jejich povoleno vícefaktorové ověřování, ale WIAORMUTLIAUTHN není nakonfigurovaná na federačním serveru (postup kontroly konfigurace). Další možností je této stránce zjišťování domovské sféry se čeká na interakci s uživatelem, brání Autoworkplace.exe bezobslužně získání 
+    2. Pokud z nějakého důvodu nedokáže Autoworkplace.exe bezobslužně ověření pomocí Azure AD ani AD FS. Z několika možných příčin může být problémy s připojením k síti odesílací vázané na Azure AD adresy URL, (zkontrolujte, zda požadavky) nebo pokud je nakonfigurovaný pro tohoto uživatele jejich povoleno vícefaktorové ověřování, ale WIAORMUTLIAUTHN není nakonfigurovaná na federačním serveru (postup kontroly konfigurace). Další možností je, že této stránce zjišťování domovské sféry se čeká na interakci s uživatelem, brání Autoworkplace.exe bezobslužně získat token.
     
     3. Pokud organizace používá Azure AD bezproblémové jednotné přihlašování, následující adresy URL nejsou k dispozici v nastavení intranetu IE zařízení:
-    - https://autologon.microsoftazuread-sso.com
-    - https://aadg.windows.net.nsatc.net
     
-    a nastavení "Povolit aktualizace stavového řádku pomocí skriptu" musí být povoleno pro zónu intranetu.
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       a nastavení "Povolit aktualizace stavového řádku pomocí skriptu" musí být povoleno pro zónu intranetu.
 
 - Bylo dosaženo kvóty
 
