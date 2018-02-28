@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Tahák pro Azure SQL Data Warehouse
 Chcete-li list podvést poskytuje užitečné tipy a osvědčené postupy pro vytváření řešení Azure SQL Data Warehouse. Před zahájením práce, další informace o jednotlivých kroků podrobně načtením [vzory úlohy Azure SQL Data Warehouse a proti vzory](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), která vysvětluje, co je SQL Data Warehouse a co není.
@@ -45,7 +45,7 @@ Nejdřív načíst data do [Azure Data Lake Store](https://docs.microsoft.com/en
 |:--- |:--- |
 | Distribuce | Kruhové dotazování. |
 | Indexování | Haldy |
-| Dělení | Žádný |
+| Dělení | Žádné |
 | Třída prostředku | largerc nebo xlargerc |
 
 Další informace o [migrace dat], [načítání dat]a [proces extrakce, načítání a transformace ELT ()](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
@@ -121,7 +121,7 @@ Nakonec pomocí vrstvě výpočetní optimalizované dostane každá třída pro
 Další informace o tom, jak pracovat s [třídy prostředků a souběžnost].
 
 ## <a name="lower-your-cost"></a>Snížení nákladů na vaše
-Klíčovou funkcí SQL Data Warehouse je možnost zastaví, pokud nepoužíváte, která zastaví fakturaci výpočetní prostředky. Další klíčovou funkcí je schopnost škálovat prostředky. Pozastavení a škálování lze provést prostřednictvím portálu Azure nebo pomocí příkazů prostředí PowerShell.
+Klíčovou funkcí SQL Data Warehouse je schopnost [spravovat výpočetní prostředky](sql-data-warehouse-manage-compute-overview.md). Je možné pozastavit datový sklad když nepoužíváte, která zastaví fakturaci výpočetní prostředky. Je možné škálovat materiály, které splňují vaše požadavky na výkon. Chcete-li pozastavit, použijte [portál Azure](pause-and-resume-compute-portal.md) nebo [prostředí PowerShell](pause-and-resume-compute-powershell.md). Pokud chcete použít škálování, použijte [portál Azure](quickstart-scale-compute-portal.md), [prostředí Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), nebo [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Škálování teď v době, je vhodné s Azure Functions:
 

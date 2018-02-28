@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Úvod do Azure Advisor
 
@@ -52,7 +52,7 @@ Můžete kliknutím na kategorii zobrazíte seznam doporučení v rámci této k
 
 Vyberte doporučenou akci pro doporučení k implementaci doporučení.  Otevře se jednoduché rozhraní, které vám umožní provést doporučení nebo odkáže na dokumentaci, který vám pomůže s implementací.  Jakmile implementujete doporučení, může trvat až den pro Advisor, rozpoznat.
 
-Pokud nemáte v úmyslu provádět okamžitou akci na doporučení, můžete zopakovat později pro zadané časové období nebo ho zavřít.  Pokud nechcete dostávat doporučení pro konkrétní předplatné nebo skupinu prostředků, můžete nakonfigurovat Advisor pouze generovat doporučení pro zadané předplatné a skupiny prostředků.
+Pokud nemáte v úmyslu provádět okamžitou akci na doporučení, můžete odložit pro zadané časové období nebo ho zavřít.  Pokud nechcete dostávat doporučení pro konkrétní předplatné nebo skupinu prostředků, můžete nakonfigurovat Advisor pouze generovat doporučení pro zadané předplatné a skupiny prostředků.
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
@@ -69,9 +69,9 @@ Pokud chcete získat doporučení Poradce pro předplatné, nejprve je nutné za
 
 Advisor poskytuje doporučení pro virtuální počítače, skupiny dostupnosti, application Gateway, aplikační služby, servery SQL Server, databáze SQL a Redis Cache.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Můžete připomenout znovu nebo zrušit doporučení?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Můžete odložit nebo zrušit doporučení?
 
-Připomenout znovu nebo zrušit doporučení, klikněte **připomenout znovu** odkaz. Můžete zadat dobu připomenutí období nebo vybrat možnost **nikdy** zrušíte doporučení.
+Odložit nebo zrušit doporučení, klikněte **odložit** odkaz. Zadávat lze odložit období nebo vybrat možnost **nikdy** zrušíte doporučení.
 
 ## <a name="next-steps"></a>Další postup
 
