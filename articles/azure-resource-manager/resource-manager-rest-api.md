@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/26/2018
 ---
 # <a name="resource-manager-rest-apis"></a>Rozhraní REST API pro Správce prostředků
 > [!div class="op_single_selector"]
@@ -249,6 +249,6 @@ Content-Type: application/json
 
 Dlouhé JSON odpovědi na tento požadavek se vynechá ke zlepšení čitelnosti této dokumentace. Odpověď obsahuje informace o podle šablony nasazení, které jste vytvořili.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o zpracování asynchronní operace REST najdete v tématu [sledovat asynchronní operace Azure](resource-manager-async-operations.md).

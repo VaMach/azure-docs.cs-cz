@@ -6,21 +6,21 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/25/2018
 ms.author: anoopkv
-ms.openlocfilehash: 3b09c11d76d5c88b904afa3c6d256bc475992339
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Nasazení konfiguračního serveru
 
-Při použití se nasadit server konfigurace místní [Azure Site Recovery](site-recovery-overview.md) pro zotavení po havárii virtuálních počítačů VMware a fyzické servery do Azure. Konfigurace serveru souřadnice komunikace mezi místními VMware a Azure. Spravuje taky data replikace. Tento článek vás provede kroky potřebné k nasazení konfigurační server.
+Při použití se nasadit server konfigurace místní [Azure Site Recovery](site-recovery-overview.md) pro zotavení po havárii virtuálních počítačů VMware a fyzické servery do Azure. Konfigurace serveru souřadnice komunikace mezi místními VMware a Azure. Spravuje taky data replikace. Tento článek vás provede kroky potřebné k nasazení konfigurační server při replikaci virtuálních počítačů VMware do Azure. [Postupujte podle tohoto článku](site-recovery-set-up-physical-to-azure.md) Pokud budete potřebovat k nastavení konfigurace serveru pro replikaci fyzický server.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Doporučujeme nasadit jako vysoce dostupný virtuální počítač VMware konfigurační server. Konfigurační server můžete nastavit na fyzický počítač pro replikaci fyzický server. Minimální požadavky na hardware jsou shrnuté v následující tabulce.
+Doporučujeme nasadit jako vysoce dostupný virtuální počítač VMware konfigurační server. Minimální požadavky na hardware jsou shrnuté v následující tabulce.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -118,4 +118,4 @@ Pokud chcete přidat další síťový adaptér na konfiguračním serveru, při
 
 ## <a name="next-steps"></a>Další postup
 
-Zkontrolujte kurzy o tom, jak nastavit zotavení po havárii [virtuální počítače VMware](tutorial-vmware-to-azure.md) a [fyzických serverů](tutorial-physical-to-azure.md) do Azure.
+Nastavit zotavení po havárii [virtuální počítače VMware](tutorial-vmware-to-azure.md) do Azure.

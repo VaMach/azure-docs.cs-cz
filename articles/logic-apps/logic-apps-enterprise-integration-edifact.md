@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Zprávy Exchange EDIFACT pro podnikové integrace s logic apps
 
@@ -32,65 +32,63 @@ Před výměnou zpráv EDIFACT pro Azure Logic Apps, musíte vytvořit smlouvy E
 
 Tady je položky, které budete potřebovat:
 
-* [Integrace účet](../logic-apps/logic-apps-enterprise-integration-accounts.md) který již má definovaný a přidružené k předplatnému Azure  
+* [Integrace účet](logic-apps-enterprise-integration-create-integration-account.md) který již má definovaný a přidružené k předplatnému Azure  
 * Alespoň dva [partnery](logic-apps-enterprise-integration-partners.md) , jsou již definováni ve vašem účtu integrace
 
 > [!NOTE]
 > Když vytvoříte smlouvu, obsah zprávy, které můžete přijímat nebo odesílat do a z partnera musí odpovídat typ smlouvy.
 
-Po jste [vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integration-accounts.md) a [přidat partnery](logic-apps-enterprise-integration-partners.md), EDIFACT smlouvu můžete vytvořit pomocí následujících kroků.
+Po jste [vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) a [přidat partnery](logic-apps-enterprise-integration-partners.md), EDIFACT smlouvu můžete vytvořit pomocí následujících kroků.
 
 ## <a name="create-an-edifact-agreement"></a>Vytvoření smlouvy EDIFACT 
 
-1.  Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). V nabídce vlevo vyberte **všechny služby**.
+1. Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Pokud nevidíte **všechny služby**, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **nabídky Zobrazit**.
+2. V hlavní nabídce Azure, vyberte **všechny služby**. Do vyhledávacího pole zadejte "integraci" a potom vyberte **účty pro integraci**.
 
-    ![V levé nabídce vyberte "Všechny služby"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Najít váš účet integrace](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. Do vyhledávacího pole zadejte "integrace" filtru. V seznamu výsledků vyberte **účty pro integraci**.
+   > [!TIP]
+   > Pokud **všechny služby** nezobrazí, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **zobrazit text popisky**.
 
-    ![Filtrovat podle "integraci", vyberte "Účty pro integraci"](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. V části **účty pro integraci**, vyberte účet integrace, kde chcete vytvořit smlouvu.
 
-3. V **účty pro integraci** okno, které se otevře, vyberte účet integrace, kde chcete vytvořit smlouvu.
-Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/logic-apps-enterprise-integration-accounts.md "všechny informace o účtech integrace").  
+   ![Vyberte účet integrace místo pro vytvoření této smlouvy](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Vyberte účet integrace místo pro vytvoření této smlouvy](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Zvolte **smlouvy**. Pokud nemáte dlaždici smlouvy, přidejte nejprve dlaždici.   
 
-4. Vyberte **smlouvy** dlaždici. Pokud nemáte dlaždici smlouvy, přidejte nejprve dlaždici.   
+   ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. Na stránce smlouvy zvolte **přidat**.
 
-5. V okně smlouvy, které se otevře, zvolte **přidat**.
-
-    ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. V části **přidat**, zadejte **název** pro vaše smlouvy. Pro **typ smlouvy**, vyberte **EDIFACT**. Vyberte **hostitele partnera**, **identitu hostitele**, **hosta partnera**, a **hosta Identity** pro vaše smlouvy.
 
-    ![Zadejte podrobnosti o smlouvě](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Zadejte podrobnosti o smlouvě](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Vlastnost | Popis |
-    | --- | --- |
-    | Název |Název smlouvy |
-    | Typ smlouvy | Musí být EDIFACT |
-    | Partner s identitou hostitele |Smlouvu musí hostitelské i hostované partnera. Partner hostitele představuje organizace, která nakonfiguruje smlouvu. |
-    | Identita hostitele |Identifikátor pro hostitele partnera |
-    | Partner s identitou hosta |Smlouvu musí hostitelské i hostované partnera. Partner hosta představuje organizace, která je spolupráci s partnery hostitele. |
-    | Identita hosta |Identifikátor pro partnera hosta |
-    | Nastavení příjmu |Tyto vlastnosti se vztahují na všechny zprávy přijaté službou smlouvu. |
-    | Nastavení odesílání |Tyto vlastnosti se vztahují na všechny zprávy odeslané smlouvu. |
+   | Vlastnost | Popis |
+   | --- | --- |
+   | Název |Název smlouvy |
+   | Typ smlouvy | Musí být EDIFACT |
+   | Partner s identitou hostitele |Smlouvu musí hostitelské i hostované partnera. Partner hostitele představuje organizace, která nakonfiguruje smlouvu. |
+   | Identita hostitele |Identifikátor pro hostitele partnera |
+   | Partner s identitou hosta |Smlouvu musí hostitelské i hostované partnera. Partner hosta představuje organizace, která je spolupráci s partnery hostitele. |
+   | Identita hosta |Identifikátor pro partnera hosta |
+   | Nastavení příjmu |Tyto vlastnosti se vztahují na všechny zprávy přijaté službou smlouvu. |
+   | Nastavení odesílání |Tyto vlastnosti se vztahují na všechny zprávy odeslané smlouvu. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Nakonfigurujte, jak vaše smlouvy popisovače přijatých zpráv
 
 Teď, když jste nastavili vlastnosti smlouvy, můžete nakonfigurovat, jak tato smlouva identifikuje a zpracovává příchozí zprávy přijaté od svého partnera prostřednictvím této smlouvy.
 
-1.  V části **přidat**, vyberte **přijímat nastavení**.
+1. V části **přidat**, vyberte **přijímat nastavení**.
 Konfigurujte tyto vlastnosti závislosti na vaší smlouvě se partnera, výměny zpráv s vámi. Vlastnost popis najdete v tématu tabulky v této části.
 
-    **Získat nastavení** jsou uspořádány do těchto oddílů: identifikátory, potvrzení, schémata, řízení čísla, ověřování a interní nastavení.
+   **Získat nastavení** jsou uspořádány do těchto oddílů: identifikátory, potvrzení, schémata, řízení čísla, ověřování a interní nastavení.
 
-    ![Konfigurace "Obdrží nastavení"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   ![Konfigurace "Obdrží nastavení"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. Jakmile jste hotovi, přesvědčte se, uložte nastavení tak, že zvolíte **OK**.
 
@@ -211,7 +209,7 @@ Jiného, než znaková sada, můžete zadat jinou sadu oddělovače má být pou
 | Vlastnost | Popis |
 | --- | --- |
 | UNB1.1 (Identifikátor systému) |Vyberte EDIFACT znakovou sadu pro použití na odchozí výměnu. |
-| Schéma |V rozevíracím seznamu vyberte schéma. Po dokončení každý řádek je automaticky přidán nový řádek. Pro vybrané schéma vyberte sadu oddělovačů, který chcete použít, na základě následující popisů oddělovače. |
+| Schéma |V rozevíracím seznamu vyberte schéma. Po dokončení každý řádek je automaticky přidán nový řádek. Pro vybrané schéma vyberte sadu oddělovačů, který chcete použít, na základě popisů oddělovače níže. |
 | Typ vstupu |V rozevíracím seznamu vyberte typ vstupu. |
 | Oddělovač komponent |Chcete-li samostatné složené datové prvky, zadejte jeden znak. |
 | Oddělovač datových prvků |Chcete-li samostatné jednoduché datové elementů v rámci složené datové prvky, zadejte jeden znak. |
@@ -240,13 +238,13 @@ Po dokončení každý řádek ověření jiné automaticky přidá. Pokud nezad
 
 ## <a name="find-your-created-agreement"></a>Najít vaší vytvořené smlouvy
 
-1.  Po dokončení nastavení na všechny vlastnosti vaše smlouvy **přidat** okně zvolte **OK** dokončit vytváření vaší smlouvy a vrátíte se do okna vaší integrace účtu.
+1.  Po dokončení nastavení na všechny vlastnosti vaše smlouvy **přidat** vyberte **OK** dokončit vytváření vaší smlouvy a vrátíte se k účtu integrace.
 
     Nově přidané smlouvy nyní se zobrazí v vaše **smlouvy** seznamu.
 
-2.  Můžete také zobrazit vaše smlouvy v váš účet Přehled integrace. V okně účtu vaší integrace, zvolte **přehled**, vyberte **smlouvy** dlaždici. 
+2.  Můžete také zobrazit vaše smlouvy v váš účet Přehled integrace. V nabídce váš účet integrace zvolte **přehled**, vyberte **smlouvy** dlaždici. 
 
-    ![Vyberte že dlaždici "Smlouvy" Chcete-li zobrazit všechny smlouvy](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Soubor Swagger zobrazení
 Chcete-li zobrazit podrobnosti Swagger pro konektor EDIFACT, najdete v části [EDIFACT](/connectors/edifact/).

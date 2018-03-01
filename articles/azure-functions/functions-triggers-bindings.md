@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkce triggerů a vazeb koncepty
 
@@ -31,7 +31,7 @@ A *aktivační událost* definuje způsob volání funkce. Funkce musí mít př
 
 Vstup a výstup *vazby* poskytnout deklarativní způsob, jak se připojit k datům z vašeho kódu. Vazby jsou volitelné a funkci můžete mít více vstup a výstup vazby. 
 
-Triggerů a vazeb umožňují vyhnout hardcoding podrobnosti o služby, které pracujete s. Funkce je přijímá data (například obsah zprávy fronty) v parametry funkce. Odesílat data (například pro vytvoření zprávy fronty) pomocí návratovou hodnotu funkce, `out` parametr nebo [objekt kolekce](functions-reference-csharp.md#writing-multiple-output-values).
+Triggerů a vazeb umožňují vyhnout hardcoding podrobnosti o služby, které pracujete s. Funkce přijímá data (například obsah zprávy fronty) v parametry funkce. Odesílat data (například pro vytvoření zprávy fronty) pomocí návratovou hodnotu funkce, `out` parametr nebo [objekt kolekce](functions-reference-csharp.md#writing-multiple-output-values).
 
 Při vývoji funkce pomocí portálu Azure, triggerů a vazeb konfigurované v *function.json* souboru. Na portálu poskytuje uživatelské rozhraní pro tuto konfiguraci, ale můžete upravit soubor přímo změna **pokročilé editor**.
 
@@ -42,6 +42,50 @@ Při vývoji funkce pomocí sady Visual Studio k vytvoření knihovny tříd, ko
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Informace o tom, které jsou ve verzi preview vazby, nebo jsou schváleny pro použití v provozním prostředí najdete v tématu [podporované jazyky](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Registrace rozšíření vazby
+
+Ve verzi 2.x modulu runtime Azure Functions, je nutné explicitně zaregistrovat [vazby rozšíření](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) používaných ve vaší aplikaci funkce. 
+
+Rozšíření se dodávají jako balíčky NuGet, kde název balíčku obvykle začíná [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Způsob instalace a registrace vazby rozšíření závisí na tom, jak vyvíjet funkcí: 
+
++ [Místně v jazyce C# pomocí sady Visual Studio nebo VS Code](#precompiled-functions-c)
++ [Místně pomocí nástroje základní funkce Azure](#local-development-azure-functions-core-tools)
++ [Na portálu Azure](#azure-portal-development) 
+
+Existují základní sady vazeb v verze 2.x, která nejsou k dispozici jako rozšíření. Není potřeba zaregistrovat rozšíření pro následující triggerů a vazeb: HTTP, časovače a Azure Storage. 
+
+Informace o tom, jak nastavit aplikaci funkce na použití verze 2.x Functions runtime najdete v části [jak mít verze modulu runtime Azure Functions](set-runtime-version.md). Verze 2.x Functions runtime je aktuálně ve verzi preview. 
+
+Verze balíčku uvedené v této části jsou uvedeny pouze jako příklady. Zkontrolujte [NuGet.org lokality](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) k určení, kterou verzi daného rozšíření jsou vyžadovány další závislosti ve vaší aplikaci funkce.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Místní vývoj C# pomocí sady Visual Studio nebo VS Code 
+
+Při použití sady Visual Studio nebo Visual Studio Code místně vyvíjet funkce v jazyce C#, stačí přidat balíček NuGet pro rozšíření. 
+
++ **Visual Studio**: pomocí nástroje Správce balíčků NuGet. Následující [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) příkaz instalaci rozšíření Azure Cosmos DB z konzoly Správce balíčků:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: balíčky můžete nainstalovat z příkazového řádku pomocí [dotnet. Přidejte balíček](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) příkaz v rozhraní příkazového řádku .NET následujícím způsobem:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Místní vývojové nástroje základní funkce Azure
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Vývoj pro portálu Azure
+
+Při vytvoření funkce nebo přidat vazbu k existující funkce, budete vyzváni, když rozšíření pro aktivační události nebo vazba přidávané vyžaduje registraci.   
+
+Jakmile se zobrazí upozornění pro konkrétní příponu během instalace, klikněte na tlačítko **nainstalovat** k registraci rozšíření. Každé rozšíření nutné nainstalovat jenom jednou pro danou funkci aplikace. 
+
+>[!Note] 
+>Proces instalace v portálu může trvat až 10 minut na plánu spotřeby.
 
 ## <a name="example-trigger-and-binding"></a>Příklad aktivační události a vazby
 
@@ -70,9 +114,9 @@ Tady je *function.json* souboru pro tento scénář.
 }
 ```
 
-Prvním elementem v `bindings` pole je aktivační událost fronty úložiště. `type` a `direction` vlastnosti identifikovat aktivační událost. `name` Vlastnost identifikuje parametr funkce, která bude přijímat obsah zprávy fronty. Název fronty k monitorování se `queueName`, a připojovací řetězec je v nastavení aplikace identifikovaný `connection`.
+Prvním elementem v `bindings` pole je aktivační událost fronty úložiště. `type` a `direction` vlastnosti identifikovat aktivační událost. `name` Vlastnost identifikuje parametr funkce, která přijímá obsah zprávy fronty. Název fronty k monitorování se `queueName`, a připojovací řetězec je v nastavení aplikace identifikovaný `connection`.
 
-Druhý prvkem v `bindings` pole je Azure Table Storage výstup vazby. `type` a `direction` vlastnosti identifikovat vazby. `name` Vlastnost určuje, jak funkce zajistí řádku nové tabulky v tomto případě pomocí funkce návratovou hodnotu. Název tabulky se `tableName`, a připojovací řetězec je v nastavení aplikace identifikovaný `connection`.
+Druhý prvkem v `bindings` pole je Azure Table Storage výstup vazby. `type` a `direction` vlastnosti identifikovat vazby. `name` Vlastnost určuje, jak funkce nabízí nový řádek tabulky, v takovém případě můžete použít funkci vrátit hodnotu. Název tabulky se `tableName`, a připojovací řetězec je v nastavení aplikace identifikovaný `connection`.
 
 K zobrazení a úprava obsahu *function.json* na portálu Azure klikněte na tlačítko **pokročilé editor** možnost **integrací** kartě funkce.
 

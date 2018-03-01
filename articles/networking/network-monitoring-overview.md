@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6793bd8d2c561554213e9fe645aab018dba7a925
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="network-monitoring-solutions"></a>Řešení pro monitorování sítě 
 
@@ -34,7 +34,7 @@ Monitorování výkonu v síti (NPM) je sada funkcí, z nichž každá byla zam�
 * Mise kritické vícevrstvé aplikace a micro – služby
 * Umístění uživatele a webové aplikace (HTTP či HTTPs) 
 
-## <a name="performance-monitor"></a>Sledování výkonu
+## <a name="performance-monitor"></a>Monitorování výkonu
 
 Sledování výkonu je součástí NPM a je monitorování sítě pro cloud, hybridní a místními prostředími. Připojení k síti můžete sledovat v rámci firemní pobočky ve vzdálených a pole pobočky, umístění úložiště, datovými centry a cloudy. Můžete zjistit problémy se síťovým před stížnost vaši uživatelé. Jsou klíčové výhody:
 
@@ -43,6 +43,8 @@ Sledování výkonu je součástí NPM a je monitorování sítě pro cloud, hyb
 * Řešení problémů přechodný a v daném okamžiku sítě, které je obtížné replikovat
 * Určit konkrétní segmentu v síti, která je odpovědná za snížení výkonu
 * Monitorování stavu sítě, bez nutnosti SNMP
+
+![Mapy topologie NPM](./media/network-monitoring-overview/npm-topology-map.png) 
 
 Další informace zobrazení v následujících článcích:
 
@@ -64,6 +66,22 @@ Další informace najdete v následujících článcích:
 
 * [Konfigurace Network Performance Monitor pro ExpressRoute](../expressroute/how-to-npm.md)
 * [příspěvek blogu](https://aka.ms/NPMExRmonitorGA)
+
+## <a name="service-endpoint-monitor"></a>Monitorování koncového bodu služby
+
+S monitorováním na koncový bod služby, teď můžete testování dostupnosti aplikací a zjistit kritická místa výkonu napříč místními, poskytovatel sítě a cloud a privátního datových centrech.
+
+* Sledování začátku do konce síťové připojení k aplikacím
+* Korelovat dodávání aplikací s výkon sítě, detekci přesné umístění snížení v cestě mezi uživatelem a aplikace
+* Test dostupnosti aplikace z více umístění uživatele po celém světě
+* Určení latenci a paket ztráty sítě pro vaše řádek obchodní a aplikací SaaS.
+* Určení aktivní body v síti, který může být příčinou aplikace snížený výkon
+* Monitorování dostupnosti aplikací Office 365, pomocí předdefinovaných testů pro Microsoft Office 365, Dynamics 365 Skype pro firmy a další služby Microsoftu
+
+Další informace najdete v následujících článcích:
+
+* [Konfigurace sítě monitorování výkonu pro monitorování koncových bodů služby](https://aka.ms/applicationconnectivitymonitorguide)
+* [příspěvek blogu](https://aka.ms/svcendptmonitor)
 
 ## <a name="next-steps"></a>Další postup
 

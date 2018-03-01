@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Kontrola dopravní situace s využitím aplikace logiky založené na Scheduleru
 
@@ -47,13 +47,13 @@ Pokud ještě nemáte předplatné Azure, <a href="https://azure.microsoft.com/f
 
 * K získání doby trvání cesty pro nějakou trasu potřebujete přístupový klíč k rozhraní API Map Bing. Pokud chcete tento klíč získat, řiďte se kroky <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">postupu získání klíče k Mapám Bing</a>. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Přihlášení k webu Azure Portal
 
-Přihlaste se k portálu <a href="https://portal.azure.com" target="_blank">Azure Portal</a> pomocí přihlašovacích údajů svého účtu Azure.
+Přihlaste se k webu <a href="https://portal.azure.com" target="_blank">Azure Portal</a> pomocí přihlašovacích údajů svého účtu Azure.
 
 ## <a name="create-your-logic-app"></a>Vytvoření aplikace logiky
 
-1. V hlavní nabídce Azure zvolte **Nový** > **Podniková integrace** > **Aplikace logiky**.
+1. V hlavní nabídce Azure zvolte **Vytvořit prostředek** > **Podniková integrace** > **Aplikace logiky**.
 
    ![Vytvoření aplikace logiky](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 

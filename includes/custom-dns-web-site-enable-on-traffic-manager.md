@@ -21,7 +21,7 @@ Pokud jste ještě nepřidali vaší webové aplikace jako koncový bod Traffic 
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Klikněte na tlačítko **ověřením** pro uložení konfigurace názvu domény.
-6. Po kliknutí na tlačítko **ověřením** Azure bude ji pracovní postup ověření domény. To bude kontrolovat vlastnictví domény a také název hostitele dostupnosti a sestava úspěch nebo podrobné chybové s doporučený guidence o tom, jak chybu opravit.    
+6. Po kliknutí na tlačítko **ověřením** Azure bude ji pracovní postup ověření domény. To bude kontrolovat vlastnictví domény a také dostupnosti a sestava úspěch název hostitele nebo podrobné chybové s závazné pokyny o tom, jak chybu opravit.    
 7. Po úspěšném ověření **přidat název hostitele** tlačítko je aktivní a bude možné přiřadit název hostitele. Nyní přejděte do vlastního názvu domény v prohlížeči. Teď byste měli vidět spuštění vaší aplikace pomocí vlastního názvu domény. 
    
    Po dokončení konfigurace nebude uvedené vlastní název domény **názvy domén** část vaší webové aplikace.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Sledování asynchronní operace v Azure
 Některé operace Azure REST spustit asynchronně, protože operaci nelze dokončit rychle. Toto téma popisuje, jak sledovat stav asynchronní operace prostřednictvím hodnot vrácených v odpovědi.  
@@ -39,9 +39,9 @@ Odkazovat [dokumentace k REST API](/rest/api/) zobrazíte odpovědi pro operaci 
 ## <a name="monitor-status-of-operation"></a>Sledujte stav operace
 Asynchronní operace REST návratové hodnoty hlavičky, které můžete použít k určení stavu operace. Existují potenciálně tři hodnoty hlavičky k zkontrolujte:
 
-* `Azure-AsyncOperation`-Adresa URL pro kontrolu stavu probíhající operace. Pokud vaše operace vrací hodnotu této, vždy použijte ho (namísto umístění) sledovat stav operace.
-* `Location`-Adresa URL pro určení po dokončení operace. Tato hodnota se používá jenom v případě, že Azure AsyncOperation nevrátí.
-* `Retry-After`-Počet sekund čekání před kontroluje stav asynchronní operace.
+* `Azure-AsyncOperation` -Adresa URL pro kontrolu stavu probíhající operace. Pokud vaše operace vrací hodnotu této, vždy použijte ho (namísto umístění) sledovat stav operace.
+* `Location` -Adresa URL pro určení po dokončení operace. Tato hodnota se používá jenom v případě, že Azure AsyncOperation nevrátí.
+* `Retry-After` -Počet sekund čekání před kontroluje stav asynchronní operace.
 
 Všechny tyto hodnoty se ale vrátí se nemusí být vždy asynchronní operaci. Potřebujete například vyhodnotit hodnotu hlavičky Azure AsyncOperation pro jednu operaci a hodnota hlavičky umístění pro jiná operace. 
 
@@ -82,7 +82,7 @@ Pouze `status` se vrátí pro všechny odpovědi. Objekt chyba se vrátí, když
 Operace, které slouží k vytvoření, aktualizace nebo odstranění (DELETE PUT, PATCH,) prostředku obvykle vrací `provisioningState` hodnotu. Po dokončení operace se vrátí jednu z následujících tří hodnot: 
 
 * Úspěch
-* Se nezdařilo
+* Selhalo
 * Zrušeno
 
 Všechny ostatní hodnoty označují, že operace je stále spuštěná. Poskytovatel prostředku může vrátit vlastní hodnotu, která určuje jeho stav. Například můžete obdržet **platných** po žádosti přijaté a spuštěná.
@@ -191,8 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Pokud požadavek je stále spuštěná, obdržíte kód stavu 202. Pokud je požadavek dokončen, vaše přijímat stavovým kódem 200 a text odpovědi obsahuje vlastnosti účtu úložiště, který byl vytvořen.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Dokumentaci o každé operace REST najdete v tématu [dokumentace k REST API](/rest/api/).
-* Informace o správě prostředků prostřednictvím REST API Resource Manageru najdete v tématu [pomocí REST API Resource Manager](resource-manager-rest-api.md).
 * informace o nasazení šablony přes rozhraní REST API Resource Manager najdete v tématu [nasazení prostředků pomocí šablony Resource Manageru a REST API Resource Manageru](resource-group-template-deploy-rest.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Podpora SSH pro Azure App Service v systému Linux
 
@@ -29,7 +29,7 @@ Aplikační služby v systému Linux poskytuje podporu SSH do kontejneru aplikac
 
 ![Zásobníky modulu runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Můžete taky použití SSH se vlastních bitových kopií Docker včetně SSH serveru v rámci bitové kopie a její konfiguraci, jak je popsáno v tomto tématu.
+Můžete taky použití SSH se vlastních bitových kopií Docker včetně SSH serveru v rámci bitové kopie a její konfiguraci, jak je popsáno v tomto článku.
 
 ## <a name="making-a-client-connection"></a>Navazování připojení klienta
 
@@ -49,7 +49,7 @@ Pokud již nejsou ověřené, je nutné k ověření s předplatným Azure přip
 
 Aby pro vlastní image Docker pro podporu SSH komunikace mezi klienta a kontejneru na portálu Azure proveďte následující kroky pro Docker image.
 
-Tyto kroky nejsou v úložišti Azure App Service, jako jsou uvedeny [příklad](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+Tyto kroky jsou uvedeny v úložišti Azure App Service jako [příklad](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Zahrnout `openssh-server` instalace v [ `RUN` instrukce](https://docs.docker.com/engine/reference/builder/#run) v soubor Docker pro bitovou kopii a heslo pro kořenový účet sady `"Docker!"`.
 
@@ -65,7 +65,7 @@ Tyto kroky nejsou v úložišti Azure App Service, jako jsou uvedeny [příklad]
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Přidat [ `COPY` instrukce](https://docs.docker.com/engine/reference/builder/#copy) na soubor Docker zkopírovat [sshd_config](http://man.openbsd.org/sshd_config) do souboru */atd/ssh/* adresáře. Konfigurační soubor by měla být založena na našem sshd_config souboru v úložišti GitHub službě Azure-App-Service [zde](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Přidat [ `COPY` instrukce](https://docs.docker.com/engine/reference/builder/#copy) na soubor Docker zkopírovat [sshd_config](http://man.openbsd.org/sshd_config) do souboru */atd/ssh/* adresáře. Konfigurační soubor by měla být založena na sshd_config souboru v úložišti GitHub službě Azure-App-Service [zde](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > *Sshd_config* nebo připojení selže, soubor musí zahrnovat následující: 
@@ -82,26 +82,28 @@ Tyto kroky nejsou v úložišti Azure App Service, jako jsou uvedeny [příklad]
     EXPOSE 2222 80
     ```
 
-1. Zajistěte, abyste [spustit služby ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) pomocí skriptu prostředí v */bin* adresáře.
+1. Zajistěte, aby se spustit službu SSH pomocí skriptu prostředí (podívejte se na příklad [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Soubor Docker používá [ `CMD` instrukce](https://docs.docker.com/engine/reference/builder/#cmd) pro spuštění skriptu.
+Soubor Docker používá [ `ENTRYPOINT` instrukce](https://docs.docker.com/engine/reference/builder/#entrypoint) pro spuštění skriptu.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## <a name="next-steps"></a>Další postup
 
-V následujících tématech Další informace týkající se webové aplikace pro kontejnery. Otázky a připomínky můžete publikovat na [našem fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Otázky a aspekty můžete zveřejnit na [fórum Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+
+Další informace o webové aplikace pro kontejnery najdete v části:
 
 * [Jak používat vlastní image Dockeru pro službu Web App for Containers](quickstart-docker-go.md)
 * [Použití .NET Core ve službě Azure App Service v Linuxu](quickstart-dotnetcore.md)
