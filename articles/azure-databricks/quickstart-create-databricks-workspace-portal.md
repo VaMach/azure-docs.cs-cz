@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Rychlý start: Spuštění úlohy Spark job v Azure Databricks pomocí portálu Azure
 
@@ -32,7 +32,7 @@ Přihlaste se k [portálu Azure](https://portal.azure.com).
 
 V této části vytvoříte pomocí portálu Azure pracovní prostor služby Azure Databricks. 
 
-1. Na portálu Azure klikněte na symbol **+**, klikněte na **Data + analýzy** a potom na **Azure Databricks (Preview)**. 
+1. Na webu Azure Portal klikněte na **Vytvořit prostředek**, pak na **Data a analýzy** a pak klikněte na **Azure Databricks (Preview)**. 
 
     ![Databricks na portálu Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks na portálu Azure")
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co jsou škálovací sady virtuálních počítačů v Azure?
 Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. Protože jsou všechny virtuální počítače ve škálovací sadě nakonfigurované stejně, podporují tyto sady skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Umožňují snadněji budovat velkokapacitní služby s velkým výpočetním výkonem pro velké objemy dat a kontejnery úloh.
@@ -33,7 +33,7 @@ Více se o škálovacích sadách dozvíte také v těchto videích:
 * [Guy Bowerman provádí škálovacími sadami virtuálních počítačů](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Vytváření a správa škálovacích sad
-Škálovací sadu můžete vytvořit na webu [Azure Portal](https://portal.azure.com) – vyberte položku **Nový** a zadejte text **škálovací** na vyhledávacím panelu. Ve výsledcích se objeví **Škálovací sada virtuálních počítačů**. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. Máte také možnost nastavit základní pravidla automatického škálování v závislosti na využití procesoru. Ke správě škálovací sady můžete použít Azure Portal, [rutiny Azure PowerShellu](virtual-machine-scale-sets-windows-manage.md) nebo Azure CLI 2.0.
+Škálovací sadu můžete vytvořit na webu [Azure Portal](https://portal.azure.com) tak, že vyberete **Vytvořit prostředek** a na panelu hledání zadáte **škálovací**. Ve výsledcích se objeví **Škálovací sada virtuálních počítačů**. Z této položky můžete přejít k vyplnění požadovaných polí pro přizpůsobení a nasazení škálovací sady. Máte také možnost nastavit základní pravidla automatického škálování v závislosti na využití procesoru. Ke správě škálovací sady můžete použít Azure Portal, [rutiny Azure PowerShellu](virtual-machine-scale-sets-windows-manage.md) nebo Azure CLI 2.0.
 
 Škálovací sady je možné nasadit napříč [zónami dostupnosti](virtual-machine-scale-sets-use-availability-zones.md).
 

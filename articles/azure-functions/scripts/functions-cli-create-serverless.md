@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skriptu ukázkové – vytvoření funkce aplikace bez serveru provedení | Microsoft Docs"
-description: "Azure CLI skriptu ukázkové – vytvoření funkce aplikace bez serveru provedení"
+title: "Ukázkový skript Azure CLI – Vytvoření aplikace funkcí pro provádění bez serveru | Microsoft Docs"
+description: "Ukázkový skript Azure CLI – Vytvoření aplikace funkcí pro provádění bez serveru"
 services: functions
 documentationcenter: functions
 author: syntaxc4
@@ -16,25 +16,27 @@ ms.workload: web
 ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 9436cafa775f2ad658c0c9901f7f8eae769c7052
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: f3e4ce63a8b418b68494262df8a771ac553ad22d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-app-for-serverless-execution"></a>Vytvoření funkce aplikace bez serveru provedení
+# <a name="create-a-function-app-for-serverless-code-execution"></a>Vytvoření aplikace funkcí pro provádění kódu bez serveru
 
-Tento ukázkový skript vytvoří aplikace funkce Azure, což je kontejner pro funkcí. Funkce aplikace je vytvořený pomocí [plánu spotřeby](../functions-scale.md#consumption-plan), což je ideální pro úlohy, bez serveru založeného na událostech.
+Tento ukázkový skript Azure Functions vytvoří aplikaci funkcí, což je kontejner pro vaše funkce. Aplikace funkcí se vytvoří s použitím [plánu Consumption](../functions-scale.md#consumption-plan), který je ideální pro úlohy řízené událostmi bez serveru.
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, v tomto článku vyžaduje, že používáte Azure CLI verze 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Ukázkový skript
 
-Tento skript vytvoří aplikace funkce Azure pomocí [plánu spotřeby](../functions-scale.md#consumption-plan).
+Tento skript vytvoří aplikaci funkcí Azure s použitím [plánu Consumption](../functions-scale.md#consumption-plan).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
 
@@ -42,16 +44,16 @@ Tento skript vytvoří aplikace funkce Azure pomocí [plánu spotřeby](../funct
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz. Tento skript používá následující příkazy:
+Každý příkaz v tabulce odkazuje na příslušnou část dokumentace. Tento skript používá následující příkazy:
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvořit účet úložiště az](/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet úložiště Azure. |
-| [Vytvoření az functionapp](/cli/azure/functionapp#az_functionapp_create) | Vytvoří aplikaci funkce. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet služby Azure Storage. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Vytvoří aplikaci funkcí. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](/cli/azure/overview).
 
-Další ukázky skriptu rozhraní příkazového řádku funkce Azure lze nalézt v [dokumentace Azure Functions](../functions-cli-samples.md).
+Další ukázkové skripty rozhraní příkazového řádku pro službu Azure Functions najdete v [dokumentaci ke službě Azure Functions](../functions-cli-samples.md).

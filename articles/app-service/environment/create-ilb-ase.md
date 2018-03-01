@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Vytvoření a používání interního nástroje pro vyrovnávání zatížení ve službě App Service Environment #
 
@@ -55,7 +55,7 @@ Služba ASE s interním nástrojem pro vyrovnávání zatížení neumožňuje n
 
 Při vytváření služby ASE s interním nástrojem pro vyrovnávání zatížení postupujte takto:
 
-1. Na portálu Azure vyberte položky **Nový** > **Web a mobilní zařízení** > **App Service Environment**.
+1. Na webu Azure Portal vyberte **Vytvořit prostředek** > **Web a mobilní zařízení** > **App Service Environment**.
 
 2. Vyberte své předplatné.
 
@@ -106,7 +106,7 @@ Pokud u položky **Typ VIP** nastavíte hodnotu **Interní**, váš název služ
 
 Aplikaci ve službě ASE s interním nástrojem pro vyrovnání zatížení vytvoříte stejným způsobem jako v běžné službě ASE.
 
-1. Na portálu Azure vyberte položky **Nový** > **Web + mobilní zařízení** > **Web** nebo **Mobilní** nebo **Aplikace API**.
+1. Na webu Azure Portal vyberte **Vytvořit prostředek** > **Web a mobilní zařízení** > **Web** nebo **Mobilní zařízení** nebo **Aplikace API**.
 
 2. Zadejte název aplikace.
 

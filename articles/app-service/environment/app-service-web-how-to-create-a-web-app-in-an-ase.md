@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Vytvořit webovou aplikaci App Service Environment v1
 
@@ -38,7 +38,7 @@ Tento kurz ukazuje, jak vytvářet webové aplikace a plánů služby App Servic
 Tento kurz předpokládá, že jste vytvořili služby App Service Environment. Pokud jste to neudělali, ještě, přečtěte si téma [vytvoření služby App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Vytvoření webové aplikace
-1. V [portálu Azure](https://portal.azure.com/), klikněte na tlačítko **nové > Web + mobilní > Webová aplikace**. 
+1. V [portálu Azure](https://portal.azure.com/), klikněte na tlačítko **vytvořit prostředek > Web + mobilní > Webová aplikace**. 
    
     ![][1]
 2. Vyberte své předplatné.  
@@ -58,12 +58,12 @@ Tento kurz předpokládá, že jste vytvořili služby App Service Environment. 
     Pokud chcete použít plán služby App Service, která již existuje ve službě App Service Environment, vyberte jej. Pokud chcete vytvořit nový plán služby App Service, najdete v následující části tohoto kurzu [vytvořit plán služby App Service ve službě App Service Environment](#createplan).
 5. Zadejte název pro vaši webovou aplikaci a pak klikněte na tlačítko **vytvořit**. 
    
-    Pokud vaše App Service Environment používá externí VIP adresa URL aplikace v App Service Environment je: [*sitename*]. [*název služby App Service Environment*]. p.azurewebsites.net místo [*sitename*]. azurewebsites.net
+    Pokud vaše App Service Environment používá externí VIP adresa URL aplikace v App Service Environment je: [*sitename*]. [ *název služby App Service Environment*]. p.azurewebsites.net místo [*sitename*]. azurewebsites.net
    
-    Pokud vaše App Service Environment používá interní VIP adresu URL aplikace, jsou App Service Environment: [*sitename*]. [*subdomény zadané během vytváření App Service Environment*]   
+    Pokud vaše App Service Environment používá interní VIP adresu URL aplikace, jsou App Service Environment: [*sitename*]. [ *subdomény zadané během vytváření App Service Environment*]   
     Po výběru vaší ASP během vytváření App Service Environment uvidíte subdoméně aktualizovat níže **název**
 
-## <a name="createplan"></a>Vytvořit plán služby App Service
+## <a name="createplan"></a> Vytvořit plán služby App Service
 Když vytvoříte plán služby App Service ve službě App Service Environment, vaše volby pracovního procesu se liší, protože neexistují žádné sdílené pracovních procesů v App Service Environment.  Pracovní procesy, které budete muset použít jsou ty, které byly přiděleny App Service Environment správce.  To znamená, že pokud chcete vytvořit nový plán, musíte mít další pracovních procesů přidělených pro váš fond pracovních procesů App Service Environment než celkový počet instancí napříč všemi plánu již v tomto fondu pracovních procesů.  Pokud nemáte dostatek pracovních procesů ve fondu pracovních App Service Environment k vytvoření plánu, budete muset spolupráci s vaším správcem App Service Environment získat přidat.
 
 Další rozdíl s plány služby App Service hostované služby App Service Environment je nedostatek ceny výběr.  Pokud máte služby App Service Environment jsou platícího za výpočetní prostředky, které používá systém a nemají přidané poplatky pro plány v tomto prostředí.  Když vytvoříte plán služby App Service je obvykle vybrat cenový plán, určující vaši fakturaci.  Služby App Service Environment je v podstatě do privátní umístění, kde můžete vytvořit obsah.  Platí pro prostředí a není pro hostování vašeho obsahu.

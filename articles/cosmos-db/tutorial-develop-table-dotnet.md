@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Vývoj s tabulkou rozhraní API v rozhraní .NET | Microsoft Docs"
-description: "Naučte se vyvíjet s rozhraním API Azure Cosmos DB Table pomocí rozhraní .NET"
+title: "Azure Cosmos DB: Vývoj v .NET s využitím rozhraní Table API | Microsoft Docs"
+description: "Naučte se vyvíjet v .NET s využitím rozhraní Table API služby Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,55 +15,55 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: bb08a60a9ec2db0fa145f75e00be96bc05664e32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Vývoj s tabulkou rozhraní API v rozhraní .NET
+# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Vývoj v .NET s využitím rozhraní Table API
 
 Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos.
 
-Tento kurz obsahuje následující úlohy: 
+Tento kurz se zabývá následujícími úkony: 
 
 > [!div class="checklist"] 
 > * Vytvoření účtu služby Azure Cosmos DB 
-> * Povolit funkci v souboru app.config 
-> * Vytvoření tabulky pomocí [tabulky rozhraní API](table-introduction.md)
+> * Povolení funkcí v souboru app.config 
+> * Vytvoření tabulky pomocí rozhraní [Table API](table-introduction.md)
 > * Přidání entity do tabulky 
 > * Vložení dávky entit 
 > * Načtení jedné entity 
-> * Entity dotazu pomocí automatické sekundární indexy 
+> * Dotazování entit s využitím automatických sekundárních indexů 
 > * Nahrazení entity 
 > * Odstranění entity 
 > * Odstranění tabulky
  
-## <a name="tables-in-azure-cosmos-db"></a>Tabulky v Azure Cosmos DB 
+## <a name="tables-in-azure-cosmos-db"></a>Tabulky ve službě Azure Cosmos DB 
 
-Poskytuje Azure Cosmos DB [tabulky API](table-introduction.md) pro aplikace, které potřebují úložiště dvojic klíč hodnota s návrhem bez schématu. Rozhraní API i Azure DB Cosmos tabulky a [Azure Table storage](../storage/common/storage-introduction.md) teď podporují stejné sady SDK a rozhraní REST API. Azure Cosmos DB můžete použít k vytvoření tabulek s požadavky na vysokou propustnost.
+Azure Cosmos DB poskytuje rozhraní [Table API](table-introduction.md) pro aplikace, které potřebují úložiště párů klíč-hodnota s návrhem bez schématu. Rozhraní Table API služby Azure Cosmos DB i [Azure Table Storage](../storage/common/storage-introduction.md) teď podporují stejné sady SDK a stejná rozhraní REST API. Azure Cosmos DB můžete použít k vytvoření tabulek s požadavky na vysokou propustnost.
 
-Tento kurz je určen pro vývojáře, kteří se seznámíte s Azure Table storage SDK a chcete použít k dispozici prémiových funkcí s Azure Cosmos DB. Je založena na [Začínáme s Azure Table storage pomocí rozhraní .NET](table-storage-how-to-use-dotnet.md) a ukazuje, jak využít další možnosti jako sekundární indexy, zřízená propustnost a více domovských stránek. Tento kurz popisuje, jak pomocí portálu Azure k vytvoření účtu Azure Cosmos DB a sestavení a nasazení aplikace API tabulky. Můžeme také provede příklady .NET pro vytváření a odstraňování tabulek a vkládání, aktualizaci, odstranění a dotazování dat v tabulce. 
+Tento kurz je určený pro vývojáře, kteří znají sadu SDK služby Azure Table Storage a chtějí využít prémiové funkce dostupné ve službě Azure Cosmos DB. Vychází z kurzu [Začínáme se službou Azure Table Storage pomocí .NET](table-storage-how-to-use-dotnet.md) a ukazuje, jak využívat další možnosti, jako jsou sekundární indexy, zřízená propustnost a vícenásobné navádění. Tento kurz popisuje použití webu Azure Portal k vytvoření účtu služby Azure Cosmos DB a následnému sestavení a nasazení aplikace Table API. Projdeme také příklady v .NET, ve kterých se vytvoří a odstraní tabulka a také vkládají, aktualizují a odstraňují data v tabulce nebo se na ně zadávají dotazy. 
 
-Pokud aktuálně používáte Azure Table storage, získáte následující výhody s rozhraním API pro Azure Cosmos DB tabulky:
+Pokud aktuálně používáte službu Azure Table Storage, získáte s rozhraním Table API služby Azure Cosmos DB následující výhody:
 
-- Klíč [globální distribuční](distribute-data-globally.md) s více domovských stránek a [automatickou a ruční převzetí služeb při selhání](regional-failover.md)
-- Podpora pro automatické indexování pro všechny vlastnosti (dále jen "sekundární indexy") a rychlé dotazy schématu vznikl 
-- Podpora pro [nezávislé škálování úložiště a propustnost](partition-data.md), napříč libovolný počet oblastí
-- Podpora pro [vyhrazené propustnost za tabulky](request-units.md) , je možné rozšířit stovek na miliony požadavků za sekundu
-- Podpora pro [pět přizpůsobitelné úrovně konzistence](consistency-levels.md) pro kompromisy dostupnost, latence a konzistence závisí na vaší aplikaci musí
-- 99,99 % dostupnost v rámci jedné oblasti a možnost přidávat další oblasti pro vyšší dostupnosti, a [komplexní SLA špičkový](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) na obecné dostupnosti
-- Práce s existující úložiště Azure .NET SDK a beze změn kódu do vaší aplikace
+- [Globální distribuce](distribute-data-globally.md) na klíč s vícenásobným naváděním a [automatickým i ručním převzetím služeb při selhání](regional-failover.md)
+- Podpora automatického indexování nezávislého na schématu pro všechny vlastnosti (sekundární indexy) a rychlé dotazy 
+- Podpora [nezávislého škálování úložiště a propustnosti](partition-data.md) v jakémkoli počtu oblastí
+- Podpora [vyhrazené propustnosti pro jednotlivé tabulky](request-units.md), kterou je možné škálovat na stovky až miliony požadavků za sekundu
+- Podpora [pěti přizpůsobitelných úrovní konzistence](consistency-levels.md) pro využití dostupnosti, latence a konzistence na základě potřeb vašich aplikací
+- 99,99% dostupnost v rámci jedné oblasti, možnost přidat další oblasti pro zajištění vyšší dostupnosti a [nejlepší komplexní smlouvy SLA v oboru](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) týkající se obecné dostupnosti
+- Práce s existující sadou .NET SDK pro Azure Storage beze změn kódu aplikace
 
-Tento kurz se zaměřuje Cosmos DB tabulky rozhraní API služby Azure pomocí sady .NET SDK. Si můžete stáhnout [SDK Preview úložiště Azure](https://aka.ms/tableapinuget) z NuGet.
+Tento kurz se věnuje používání rozhraní Table API služby Azure Cosmos DB s využitím sady .NET SDK. Sadu [.NET SDK pro rozhraní Table API služby Azure Cosmos DB](https://aka.ms/tableapinuget) si můžete stáhnout z NuGet.
 
-Další informace o složité úlohy Azure Table storage, najdete v části:
+Další informace o složitých úlohách služby Azure Table Storage najdete tady:
 
-* [Úvod do Azure Cosmos DB tabulky API](table-introduction.md)
-* V tabulce referenční dokumentaci ke službě kompletní informace o dostupných rozhraních API [Azure Cosmos DB tabulky rozhraní API .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
+* [Úvod do rozhraní Table API služby Azure Cosmos DB](table-introduction.md)
+* Referenční dokumentace ke službě Table s úplnými podrobnostmi o dostupných rozhraních API: [Sada .NET SDK pro rozhraní Table API služby Azure Cosmos DB](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
 
 ### <a name="about-this-tutorial"></a>O tomto kurzu
-V tomto kurzu pro vývojáře, kteří se seznámíte s Azure Table storage SDK a chcete použít k dispozici prémiové funkce používá Azure Cosmos DB. Je založena na [Začínáme s Azure Table storage pomocí rozhraní .NET](table-storage-how-to-use-dotnet.md) a ukazuje, jak využít další možnosti jako sekundární indexy, zřízená propustnost a více domovských stránek. Nabídneme použití portálu Azure k vytvoření účtu Azure Cosmos DB sestavení a nasazení aplikace tabulky. Můžeme také provede příklady .NET pro vytváření a odstraňování tabulek a vkládání, aktualizaci, odstranění a dotazování dat v tabulce. 
+Tento kurz je určený pro vývojáře, kteří znají sadu SDK služby Azure Table Storage a chtějí využít prémiové funkce dostupné ve službě Azure Cosmos DB. Vychází z kurzu [Začínáme se službou Azure Table Storage pomocí .NET](table-storage-how-to-use-dotnet.md) a ukazuje, jak využívat další možnosti, jako jsou sekundární indexy, zřízená propustnost a vícenásobné navádění. Popisujeme použití webu Azure Portal k vytvoření účtu služby Azure Cosmos DB a následnému sestavení a nasazení aplikace Table. Projdeme také příklady v .NET, ve kterých se vytvoří a odstraní tabulka a také vkládají, aktualizují a odstraňují data v tabulce nebo se na ně zadávají dotazy. 
 
 Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
@@ -71,7 +71,7 @@ Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
-Začněme vytvořením účtu Azure Cosmos DB na portálu Azure.  
+Začněme vytvořením účtu služby Azure Cosmos DB na webu Azure Portal.  
  
 > [!IMPORTANT]  
 > Abyste mohli pracovat s obecně dostupnými sadami Table API SDK, musíte si vytvořit nový účet Table API. Obecně dostupné sady SDK nepodporují účty Table API vytvořené během období Preview. 
@@ -132,27 +132,27 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
-## <a name="azure-cosmos-db-capabilities"></a>Možnosti Azure Cosmos DB
-Azure Cosmos DB podporuje několik možností, které nejsou k dispozici ve službě Azure Table storage rozhraní API. 
+## <a name="azure-cosmos-db-capabilities"></a>Možnosti služby Azure Cosmos DB
+Azure Cosmos DB podporuje řadu možností, které nejsou dostupné v rozhraní API služby Azure Table Storage. 
 
-Některé dílčí funkce přistupuje prostřednictvím nového přetížení CreateCloudTableClient, umožňující jeden k určení úrovně zásady a konzistence připojení.
+K určitým funkcím se přistupuje přes nová přetížení CreateCloudTableClient, která umožňují zadat zásady připojení a úroveň konzistence.
 
 | Nastavení připojení tabulky | Popis |
 | --- | --- |
-| Režim připojení  | Azure Cosmos DB podporuje dva režimy připojení. V `Gateway` režim, jsou vždy vytvářeny požadavky k bráně Azure Cosmos DB, který předává do oddílů odpovídající data. V `Direct` režim připojení, klient načte mapování tabulek do oddílů a jsou vytvářeny požadavky přímo na oddíly data. Doporučujeme, abyste `Direct`, výchozí hodnota.  |
-| Připojení protokolu | Azure Cosmos DB podporuje dva protokoly připojení - `Https` a `Tcp`. `Tcp`je výchozí a doporučuje, protože je jednodušší. |
-| Upřednostňované umístění | Čárkami oddělený seznam upřednostňovaných (více funkci) umístění pro čtení. Každý účet Azure Cosmos DB lze přidružit 1 – 30 + oblasti. Každá instance klienta můžete určit podmnožinu těchto oblastí v upřednostňovaném pořadí pro čtení s nízkou latencí. Oblasti musí mít název pomocí jejich [zobrazované názvy](https://msdn.microsoft.com/library/azure/gg441293.aspx), například `West US`. Viz také [více domovských stránek rozhraní API](tutorial-global-distribution-table.md). |
-| Úrovně konzistence | Můžete se kompromisy mezi latence, konzistence a dostupnosti výběrem mezi pěti dobře definované úrovně konzistence: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, a `Eventual`. Výchozí hodnota je `Session`. Volba úrovně konzistence díky významně zvýšit výkon rozdíl ve více oblastech nastavení. V tématu [úrovně konzistence](consistency-levels.md) podrobnosti. |
+| Režim připojení  | Azure Cosmos DB podporuje dva režimy připojení. V režimu `Gateway` se požadavky vždy provádějí na bránu služby Azure Cosmos DB, která je směruje do odpovídajících datových oddílů. V režimu připojení `Direct` klient načítá mapování tabulek na oddíly a požadavky se provádějí přímo na datové oddíly. Doporučujeme výchozí režim `Direct`.  |
+| Protokol připojení | Azure Cosmos DB podporuje dva protokoly připojení – `Https` a `Tcp`. Protokol `Tcp` je výchozí a doporučený, protože je jednodušší. |
+| Upřednostňovaná umístění | Čárkami oddělený seznam upřednostňovaných (vícenásobné navádění) umístění pro čtení. Ke každému účtu služby Azure Cosmos DB je možné přiřadit 1 až více než 30 oblastí. Každá instance klienta může určit podmnožinu těchto oblastí v upřednostňovaném pořadí pro zajištění nízké latence čtení. Oblasti musí být pojmenované pomocí jejich [zobrazovaného názvu](https://msdn.microsoft.com/library/azure/gg441293.aspx), například `West US`. Viz také [Rozhraní API pro vícenásobné navádění](tutorial-global-distribution-table.md). |
+| Úrovně konzistence | Můžete zvolit kompromis mezi latencí, konzistencí a dostupností, a to volbou z pěti jasně definovaných úrovní konzistence: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` a `Eventual`. Výchozí je `Session`. Volba úrovně konzistence má za následek výrazný rozdíl ve výkonu v nastaveních s více oblastmi. Podrobnosti najdete v tématu [Úrovně konzistence](consistency-levels.md). |
 
-Další funkce se dá povolit buď následující `appSettings` hodnoty konfigurace.
+Další funkce je možné povolit prostřednictvím následujících hodnot konfigurace `appSettings`.
 
 | Klíč | Popis |
 | --- | --- |
-| TableQueryMaxItemCount | Nakonfigurujte maximální počet položek vrátí na dotaz tabulky v jednom dobu odezvy. Výchozí hodnota je `-1`, které umožní Azure DB Cosmos dynamicky určí hodnotu za běhu. |
-| TableQueryEnableScan | Pokud dotaz nelze použít pro libovolný filtr index, spusťte ji přesto prostřednictvím kontrolu. Výchozí hodnota je `false`.|
-| TableQueryMaxDegreeOfParallelism | Stupně paralelního zpracování pro spuštění dotazu mezi oddílu. `0`sériový s žádné předem načítání, `1` je sériové s předem načítání a vyšší hodnoty zvýšit rychlost paralelního zpracování. Výchozí hodnota je `-1`, které umožní Azure DB Cosmos dynamicky určí hodnotu za běhu. |
+| TableQueryMaxItemCount | Konfiguruje maximální počet položek vracených jednotlivými dotazy na tabulku v jedné době odezvy. Výchozí hodnota je `-1`, která umožňuje službě Azure Cosmos DB dynamicky určovat hodnotu za běhu. |
+| TableQueryEnableScan | Pokud dotaz pro nějaký filtr nemůže použít index, přesto se spustí s využitím prohledávání. Výchozí hodnota je `false`.|
+| TableQueryMaxDegreeOfParallelism | Stupeň paralelismu provádění dotazu napříč oddíly. Hodnota `0` znamená sériové provádění bez předběžného načítání, hodnota `1` znamená sériové provádění s předběžným načítáním a vyšší hodnoty zvyšují míru paralelismu. Výchozí hodnota je `-1`, která umožňuje službě Azure Cosmos DB dynamicky určovat hodnotu za běhu. |
 
-Chcete-li změnit výchozí hodnotu, otevřete `app.config` soubor v Průzkumníku řešení v sadě Visual Studio. Přidejte obsah níže uvedeného prvku `<appSettings>`. Nahraďte `account-name` s názvem účtu úložiště a `account-key` nahraďte svým klíčem účtu přístup. 
+Pokud chcete změnit výchozí hodnotu, z Průzkumníku řešení v sadě Visual Studio otevřete soubor `app.config`. Přidejte obsah níže uvedeného prvku `<appSettings>`. Hodnotu `account-name` nahraďte názvem svého účtu úložiště a hodnotu `account-key` nahraďte přístupovým klíčem účtu. 
 
 ```xml
 <configuration>
@@ -173,18 +173,18 @@ Chcete-li změnit výchozí hodnotu, otevřete `app.config` soubor v Průzkumní
 </configuration>
 ```
 
-Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete `Program.cs` souboru a zjistí, že tyto řádky kódu vytvořit tabulku prostředky. 
+Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor `Program.cs` a zjistíte, že tyto řádky kódu vytvářejí prostředky tabulky. 
 
-## <a name="create-the-table-client"></a>Vytvoření tabulky klienta
-Inicializaci `CloudTableClient` pro připojení k účtu tabulky.
+## <a name="create-the-table-client"></a>Vytvoření klienta tabulky
+Pro připojení k účtu tabulky inicializujete klienta `CloudTableClient`.
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
-Tento klient je inicializována pomocí `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, a `TablePreferredLocations` konfigurační hodnoty, pokud zadaný v nastavení aplikace.
+Tento klient se inicializuje s použitím hodnot konfigurace `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` a `TablePreferredLocations`, pokud jsou zadané v nastavení aplikace.
 
 ## <a name="create-a-table"></a>Vytvoření tabulky
-Pak vytvořte tabulku pomocí `CloudTable`. Tabulky v databázi Cosmos Azure můžete nezávisle škálovat z hlediska úložiště a propustnost a dělení se automaticky zpracovává službou. Azure Cosmos DB podporuje pevné velikosti a neomezená tabulky. V tématu [vytváření oddílů v Azure Cosmos DB](partition-data.md) podrobnosti. 
+Pak vytvoříte tabulku pomocí metody `CloudTable`. Tabulky ve službě Azure Cosmos DB se můžou nezávisle škálovat z hlediska úložiště a propustnosti a služba automaticky zajišťuje jejich dělení. Azure Cosmos DB podporuje tabulky pevné velikosti i neomezené tabulky. Podrobnosti najdete v tématu [Dělení ve službě Azure Cosmos DB](partition-data.md). 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
@@ -192,16 +192,16 @@ CloudTable table = tableClient.GetTableReference("people");
 table.CreateIfNotExists(throughput: 800);
 ```
 
-Je důležité rozdíly v vytváření tabulek. Azure Cosmos DB si vyhrazuje propustnost, na rozdíl od modelu na základě spotřeby úložiště Azure pro transakce. Vaše propustnost je vyhrazené/vyhrazená, takže jste nikdy získat omezeny Pokud je vaše četnost požadavků nebo pod zřízené propustnosti.
+Ve způsobu vytváření tabulek je důležitý rozdíl. Azure Cosmos DB vyhrazuje propustnost, na rozdíl od modelu založeném na spotřebě transakcí úložiště Azure. Vaše propustnost je vyhrazená, takže nikdy nedojde k omezení, pokud vaše frekvence požadavků dosáhne stejné nebo nižší hodnoty, než je vaše zřízená propustnost.
 
-Můžete nakonfigurovat výchozí propustnost zahrnutím jako parametr CreateIfNotExists.
+Výchozí propustnost můžete nakonfigurovat tím, že ji vložíte jako parametr metody CreateIfNotExists.
 
-Čtení entity 1 KB normalizována jako 1 RU a další operace jsou normalizovány na pevnou hodnotu RU na základě jejich spotřeby procesoru, paměti a procesorů. Další informace o [požadované jednotky v Azure Cosmos DB](request-units.md) a speciálně pro [klíče ukládá hodnotu](key-value-store-cost.md).
+Čtení 1kB entity se normalizuje jako 1 RU a další operace se normalizují na pevnou hodnotu RU na základě jejich spotřeby CPU, paměti a IOPS. Další informace o [jednotkách žádostí ve službě Azure Cosmos DB](request-units.md), zejména pro [úložiště párů klíč-hodnota](key-value-store-cost.md).
 
-Potom provede jednoduché pro čtení a zápisu operace pomocí Azure Table storage SDK. Tento kurz představuje předvídatelný nízkou milisekundu jednociferné latenci a rychlé dotazy, které poskytuje Azure Cosmos DB.
+Dále si projdeme jednoduché operace čtení a zápisu (CRUD) pomocí sady SDK služby Azure Table Storage. Tento kurz předvádí předvídatelné nízké latence v řádu milisekund a rychlé dotazy, které poskytuje Azure Cosmos DB.
 
 ## <a name="add-an-entity-to-a-table"></a>Přidání entity do tabulky
-Entity v Azure Table storage vycházet z `TableEntity` třídy a musí mít `PartitionKey` a `RowKey` vlastnosti. Zde je ukázka definice pro entitu zákazníka.
+Entity ve službě Azure Table Storage vycházejí z třídy `TableEntity` a musí mít vlastnosti `PartitionKey` a `RowKey`. Tady je ukázková definice entity zákazníka.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -220,9 +220,9 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-Následující fragment kódu ukazuje, jak vloží entitu s Azure storage SDK. Azure Cosmos DB je určená pro zaručit s nízkou latencí v jakémkoli měřítku po celém světě.
+Následující fragment kódu ukazuje přidání entity pomocí sady SDK úložiště Azure. Služba Azure Cosmos DB je navržená pro zajištění záruky nízké latence v jakémkoli měřítku po celém světě.
 
-Dokončení zápisu < 15 ms v p99 a ms ~ 6 v p50 pro aplikace spuštěné ve stejné oblasti jako účet Azure Cosmos DB. A tato doba trvání účty pro fakt, že zápisy se až po jejich synchronně replikovány, spolehlivě potvrzené, a veškerý obsah je indexovaný potvrzené zpět do klienta.
+Zápisy se dokončují do 15 ms při p99 a přibližně do 6 ms při p50 pro aplikace spuštěné ve stejné oblasti jako účet služby Azure Cosmos DB. Tato doba trvání je způsobená také tím, že se do klienta zpětně potvrdí zápisy teprve po jejich synchronní replikaci, odolném potvrzení a indexování veškerého obsahu.
 
 
 ```csharp
@@ -239,7 +239,7 @@ table.Execute(insertOperation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Vložení dávky entit
-Azure Table storage podporuje dávkové operace rozhraní API, která umožňuje zkombinovat aktualizace, odstranění a vložení v rámci jedné dávkové operace.
+Azure Table Storage podporuje rozhraní API pro dávkové operace, které umožňuje kombinovat aktualizace, odstraňování a vkládání ve stejné dávkové operaci.
 
 ```csharp
 // Create the batch operation.
@@ -263,9 +263,9 @@ batchOperation.Insert(customer2);
 table.ExecuteBatch(batchOperation);
 ```
 ## <a name="retrieve-a-single-entity"></a>Načtení jedné entity
-Načte (získá) v Azure DB Cosmos dokončení < 10 ms v p99 a ~ 1 ms v p50 ve stejné oblasti Azure. Můžete přidat jako v mnoha oblastech ke svému účtu pro čtení s nízkou latencí a nasadit aplikace do čtení ze své místní oblast ("s více adresami") nastavením `TablePreferredLocations`. 
+Načítání (GET) ve službě Azure Cosmos DB se dokončují do 10 ms při p99 a přibližně do 1 ms při p50 ve stejné oblasti Azure. Do svého účtu můžete přidat jakýkoli počet oblastí pro zajištění nízké latence čtení a nasazovat aplikace pro čtení z místní oblasti (s vícenásobným naváděním) pomocí nastavení `TablePreferredLocations`. 
 
-Můžete načíst jednu entitu pomocí následující fragment kódu:
+Pomocí následujícího fragmentu kódu můžete načíst jednu entitu:
 
 ```csharp
 // Create a retrieve operation that takes a customer entity.
@@ -275,11 +275,11 @@ TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smit
 TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 > [!TIP]
-> Další informace o více funkci rozhraní API v [vývoj s několika oblastí](tutorial-global-distribution-table.md)
+> Informace o rozhraních API pro vícenásobné navádění najdete v tématu [Vývoj s využitím více oblastí](tutorial-global-distribution-table.md).
 >
 
-## <a name="query-entities-using-automatic-secondary-indexes"></a>Entity dotazu pomocí automatické sekundární indexy
-Tabulky lze dotazovat pomocí `TableQuery` třídy. Azure Cosmos DB má optimalizované zápisu databázový stroj, který automaticky indexuje všechny sloupce v tabulce. Indexování v Azure Cosmos DB nerozlišuje schématu. Proto i v případě, že vaše schéma je odlišné mezi řádky nebo pokud schéma vyvíjí v průběhu času, je automaticky indexován. Vzhledem k tomu, že Azure Cosmos DB podporuje automatické sekundární indexy, dotazy pro vlastnost, můžete použít index a efektivně obsluhovat.
+## <a name="query-entities-using-automatic-secondary-indexes"></a>Dotazování entit s využitím automatických sekundárních indexů
+Tabulky je možné dotazovat pomocí třídy `TableQuery`. Azure Cosmos DB má databázový stroj optimalizovaný pro zápisy, který automaticky indexuje všechny sloupce ve vaší tabulce. Indexování ve službě Azure Cosmos DB je nezávislé na schématu. Proto se schéma automaticky indexuje i v případě, že se liší mezi řádky nebo se v průběhu času vyvíjí. Vzhledem k tomu, že Azure Cosmos DB podporuje automatické sekundární indexy, můžou index využívat dotazy na jakoukoli vlastnost, které se díky tomu zpracují efektivně.
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
@@ -295,7 +295,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB podporuje stejné funkce jako Azure Table storage dotazu pro rozhraní API tabulky. Azure Cosmos DB také podporuje řazení, agregace, geoprostorové dotazu, hierarchie a širokou škálu integrované funkce. Další funkce bude k dispozici v rozhraní API tabulky v aktualizaci budoucí služby. V tématu [Azure Cosmos DB dotazu](sql-api-sql-query.md) přehled těchto funkcí. 
+Azure Cosmos DB podporuje v rozhraní Table API stejné funkce dotazů jako Azure Table Storage. Azure Cosmos DB podporuje také řazení, agregace, geoprostorové dotazy, hierarchie a širokou škálu integrovaných funkcí. Další funkce budou přidané do rozhraní Table API v budoucí aktualizaci služby. Přehled těchto možností najdete v tématu [Dotazování služby Azure Cosmos DB](sql-api-sql-query.md). 
 
 ## <a name="replace-an-entity"></a>Nahrazení entity
 Pokud chcete entitu aktualizovat, načtěte ji ze služby Table, upravte objekt entity a potom uložte změny zpět do služby Table. Následující kód změní telefonní číslo stávajícího zákazníka. 
@@ -304,7 +304,7 @@ Pokud chcete entitu aktualizovat, načtěte ji ze služby Table, upravte objekt 
 TableOperation updateOperation = TableOperation.Replace(updateEntity);
 table.Execute(updateOperation);
 ```
-Podobně můžete provádět `InsertOrMerge` nebo `Merge` operace.  
+Podobným způsobem můžete provádět operace `InsertOrMerge` nebo `Merge`.  
 
 ## <a name="delete-an-entity"></a>Odstranění entity
 Entitu můžete po jejím načtení snadno odstranit, a to pomocí stejného vzoru zobrazovaného pro aktualizaci entity. Následující kód načte a odstraní entitu zákazníka.
@@ -315,7 +315,7 @@ table.Execute(deleteOperation);
 ```
 
 ## <a name="delete-a-table"></a>Odstranění tabulky
-Následující příklad kódu nakonec odstraní tabulku z účtu úložiště. Můžete odstranit a znovu vytvořte tabulku okamžitě s Azure Cosmos DB.
+Následující příklad kódu nakonec odstraní tabulku z účtu úložiště. Pomocí služby Azure Cosmos DB můžete odstranit tabulku a okamžitě ji znovu vytvořit.
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
@@ -328,21 +328,21 @@ table.DeleteIfExists();
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jsme popsané postupy a začněte využívat Azure Cosmos DB s rozhraním API pro tabulky a jste provést následující: 
+V tomto kurzu jsme se věnovali začátkům používání služby Azure Cosmos DB s rozhraním Table API a provedli jste následující: 
 
 > [!div class="checklist"] 
-> * Vytvoření účtu Azure Cosmos DB 
-> * Povolená funkce v souboru app.config 
-> * Vytvoření tabulky 
-> * Přidání entity do tabulky 
-> * Vložit dávku entit 
-> * Načíst jednu entitu 
-> * Dotazovaný entity pomocí automatické sekundární indexy 
-> * Nahradí entitu 
-> * Odstranit entity 
-> * Odstranit tabulku  
+> * Vytvořili jste účet služby Azure Cosmos DB. 
+> * Povolili jste funkce v souboru app.config. 
+> * Vytvořili jste tabulku. 
+> * Přidali jste do tabulky entitu. 
+> * Vložili jste dávku entit. 
+> * Načetli jste jednu entitu. 
+> * Dotazovali jste entity s využitím automatických sekundárních indexů. 
+> * Nahradili jste entitu. 
+> * Odstranili jste entitu. 
+> * Odstranili jste tabulku.  
 
-Teď můžete pokračovat v dalším kurzu a další informace o dotazování dat v tabulce. 
+Teď můžete pokračovat k dalšímu kurzu, kde najdete další informace o dotazování tabulkových dat. 
 
 > [!div class="nextstepaction"]
-> [Dotaz s tabulkou rozhraní API](tutorial-query-table.md)
+> [Dotazování pomocí rozhraní Table API](tutorial-query-table.md)

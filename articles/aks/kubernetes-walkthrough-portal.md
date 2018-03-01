@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Nasazení clusteru Azure Container Service (AKS)
 
@@ -51,7 +51,7 @@ Klikněte na **Uložit** a poznamenejte si hodnotu hesla. Toto heslo je potřeba
 
 ## <a name="create-aks-cluster"></a>Vytvoření clusteru AKS
 
-Vyberte položky **Nový** > **Kontejnery** > **Azure Container Registry – AKS (Preview)**.
+Vyberte **Vytvořit prostředek** > **Kontejnery** > **Azure Container Service – AKS (Preview)**.
 
 Zadejte název clusteru, předponu DNS, název skupiny prostředků, umístění a verzi systému Kubernetes pro cluster. Poznamenejte si název clusteru a název skupiny prostředků. Ty budou potřeba při připojování ke clusteru.
 

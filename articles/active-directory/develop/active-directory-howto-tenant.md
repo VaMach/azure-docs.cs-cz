@@ -1,5 +1,5 @@
 ---
-title: "Získání klienta Azure AD | Microsoft Docs"
+title: "Získání klienta Azure AD | Dokumentace Microsoftu"
 description: "Získání klienta Azure Active Directory pro registraci a vytváření aplikací."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Získání klienta Azure Active Directory
 V Azure Active Directory (Azure AD) představuje [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) zástupce organizace.  Je vyhrazenou instancí služby Azure AD, kterou obdrží a vlastní organizace, když si zaregistruje cloudovou službu společnosti Microsoft, například Azure, Microsoft Intune nebo Office 365.  Každý klient Azure AD se odlišuje a je oddělený od ostatních klientů Azure AD.  
@@ -44,7 +44,7 @@ Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí sv�
 To provedete podle těchto kroků.  Případně můžete vytvořit nového klienta a vytvořit v něm správce podle podobného postupu.
 
 1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého individuálního účtu.
-2. Na portálu přejděte do části Azure Active Directory (nachází se na levém navigačním panelu v části **Další služby**).
+2. Na portálu přejděte do části Azure Active Directory (nachází se na levém navigačním panelu v části **Všechny služby**).
 3. Měli byste být automaticky přihlášeni k výchozímu adresáři. Pokud ne, můžete adresář změnit kliknutím na název účtu v horním pravém rohu.
 4. V části **Rychlé úlohy** zvolte **Přidat uživatele**.
 5. Ve formuláři pro přidání uživatele zadejte následující podrobnosti:
@@ -58,7 +58,7 @@ To provedete podle těchto kroků.  Případně můžete vytvořit nového klien
 8. Pokud chcete dočasné heslo změnit, přihlaste se na adrese [https://login.microsoftonline.com](https://login.microsoftonline.com) pomocí tohoto nového uživatelského účtu a po výzvě heslo změňte.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Použití organizačního předplatného Azure
-Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli klienta najít v části Další služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb.
+Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli tenanta najít v části Všechny služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb.
 
 ## <a name="start-from-scratch"></a>Začátek od nuly
 Pokud vám výše uvedené informace připadají nesrozumitelné, nemusíte si dělat starosti. Jednoduše navštivte web [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) a vytvořte nový adresář služby Azure AD. Jakmile proces dokončíte, získáte vlastního klienta Azure AD s názvem domény, který jste zvolili při registraci.  Na webu [Azure Portal](https://portal.azure.com) najdete klienta v části **Azure Active Directory** v nabídce vlevo.

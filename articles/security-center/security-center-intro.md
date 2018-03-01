@@ -9,100 +9,101 @@ editor:
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 50a54b8d2a73807aa9a0217f7ccf971b8c516494
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 08102ce4caead003925aa600f4f7f005b1c336e0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-azure-security-center"></a>Co je Azure Security Center?
-Azure Security Center poskytuje správu jednotná zabezpečení a ochrana před internetovými útoky pokročilé v rámci úlohy hybridní cloud. S Centrem zabezpečení můžete použít zásady zabezpečení nad úlohy, omezit vaše ohrožení a zjistit a reagovat na útoky.
+Azure Security Center zajišťuje jednotnou správu zabezpečení a pokročilou ochranu před hrozbami napříč hybridními cloudovými úlohami. Se službou Security Center můžete používat zásady zabezpečení napříč úlohami, omezit vystavení hrozbám a detekovat útoky a reagovat na ně.
 
 Proč používat Security Center?
 
-- **Centralizovaná správa zásad** – zajistit zabezpečení zákonné požadavky nebo dodržování předpisů ve společnosti tím, že centrálně spravovat zásady zabezpečení přes všechny úlohy hybridní cloud.
-- **Vyhodnocení průběžné zabezpečení** – monitorování zabezpečení počítače, sítě, úložiště a data služby a aplikace chcete zjistit potenciální potíže se zabezpečením.
-- **Řešitelné doporučení** – napravit ohrožení zabezpečení, než může zneužít útočníkům doporučení zabezpečení seřazený podle priority a možné použít.
-- **Rozšířené cloudu obrany** – snížit ohrožení s jenom při přístup k časovému porty pro správu a povolených pro řízení aplikací běžících na virtuálních počítačů.
-- **Prioritu výstrah a incidentů** -zaměřit se na nejdůležitější hrozeb nejprve s nastavovat výstrahy zabezpečení a incidentů.
-- **Integrované řešení zabezpečení** – shromažďování, vyhledávání a analyzovat data zabezpečení z různých zdrojů, včetně připojených partnerských řešení.
+- **Centralizovaná správa zásad** – Zajistěte dodržování předpisů společnosti nebo soulad se zákonnými požadavky na zabezpečení díky centrální správě zásad zabezpečení napříč všemi hybridními cloudovými úlohami.
+- **Nepřetržité posuzování zabezpečení** – Monitorujte zabezpečení počítačů, sítí, služeb úložiště, datových služeb a aplikací za účelem zjišťování potenciálních problémů se zabezpečením.
+- **Užitečná doporučení** – Napravujte ohrožení zabezpečení dříve, než je budou moci zneužít útočníci, díky užitečným doporučením zabezpečení s určenou prioritou.
+- **Pokročilá cloudová ochrana** – Omezte hrozby díky přístupu k portům pro správu podle potřeby a řízení aplikací spuštěných na virtuálních počítačích jejich přidáváním na seznam povolených.
+- **Výstrahy a incidenty s určenou prioritou** – Zaměřte se nejprve na nejdůležitější hrozby díky výstrahám a incidentům zabezpečení.
+- **Integrovaná řešení zabezpečení** – Shromažďujte, prohledávejte a analyzujte data o zabezpečení z nejrůznějších zdrojů, včetně propojených partnerských řešení.
 
-**Security Center – přehled** poskytuje rychlý pohled na postavení zabezpečení Azure a úlohy mimo Azure, umožňuje zjistit a vyhodnotit zabezpečení vašich úloh a identifikovat a zmírnění rizik. Předdefinovaný řídicí panel poskytuje okamžité přehledy o výstrahy zabezpečení a ohrožení zabezpečení, které vyžadují pozornost.
+Stránka **Security Center – Přehled** poskytuje rychlý přehled stavu zabezpečení úloh v Azure i mimo Azure a umožňuje tak zkoumat a posuzovat zabezpečení úloh a identifikaci a omezení rizika. Integrovaný řídicí panel poskytuje okamžitý přehled o výstrahách a ohroženích zabezpečení vyžadujících pozornost.
 
 ![Přehled][1]
 
 ## <a name="centralized-policy-management"></a>Centralizovaná správa zásad
-Zásady zabezpečení definují požadovanou konfiguraci úloh a pomáhají zajišťovat dodržování předpisů společnosti nebo soulad se zákonnými požadavky na zabezpečení. V Centru zabezpečení definovat zásady a přizpůsobit pro váš typ úlohy, nebo citlivosti vašich data.
+Zásady zabezpečení definují požadovanou konfiguraci úloh a pomáhají zajišťovat dodržování předpisů společnosti nebo soulad se zákonnými požadavky na zabezpečení. Ve službě Security Center definujete zásady a upravujete je podle typu úlohy nebo citlivosti dat.
 
 Zásady Security Center obsahují následující součásti:
 
-- **Shromažďování dat**: Určuje agentem zřizování a zabezpečení [shromažďování dat](security-center-enable-data-collection.md) nastavení.
-- **Zásady zabezpečení**: určit, který řídí monitorování Security Center a doporučuje úpravou [zásady zabezpečení](security-center-policies.md).
-- **E-mailová oznámení**: Určuje zabezpečení kontakty a [e-mailová oznámení](security-center-provide-security-contact-details.md) nastavení.
-- **Cenová úroveň**: Standard nebo definuje volné [ceny výběr](security-center-pricing.md). Vrstvy, které zvolíte určuje funkce Security Center, které jsou k dispozici pro prostředky v oboru.
+- **Shromažďování dat:** Určuje zřizování agentů a nastavení [shromažďování dat](security-center-enable-data-collection.md) zabezpečení.
+- **Zásady zabezpečení:** Upravením [zásad zabezpečení](security-center-policies.md) můžete určit, které ovládací prvky Security Center monitoruje a doporučuje.
+- **E-mailová oznámení:** Určuje kontakty zabezpečení a nastavení [e-mailových oznámení](security-center-provide-security-contact-details.md).
+- **Cenová úroveň:** Definujete [výběr cen](security-center-pricing.md) úrovně Free nebo Standard. Zvolená úroveň určí, které funkce Security Center budou dostupné pro prostředky v daném rozsahu.
 
 ![Zásady zabezpečení][2]
 
-V tématu [přehled zásad zabezpečení](security-center-policies-overview.md) Další informace.
+Další informace najdete v tématu [Přehled zásad zabezpečení](security-center-policies-overview.md).
 
-## <a name="continuous-security-assessment"></a>Vyhodnocení průběžné zabezpečení
-Security Center analyzuje stav zabezpečení výpočetní prostředky, virtuální sítě, úložiště a datové služby a aplikace. Průběžné assessment vám umožní zjistit potenciální potíže se zabezpečením, jako je například systémy s chybějící aktualizací zabezpečení nebo zveřejněné síťové porty. Vyberte dlaždici v části prevence zobrazíte další informace, včetně seznamu prostředků a všechny chyby zabezpečení, které byly identifikovány.
+## <a name="continuous-security-assessment"></a>Nepřetržité posuzování zabezpečení
+Security Center analyzuje stav zabezpečení výpočetních prostředků, virtuálních sítí, služeb úložiště a datových služeb a aplikací. Nepřetržité posuzování pomáhá zjišťovat potenciální problémy se zabezpečením, jako jsou systémy s chybějícími aktualizacemi zabezpečení nebo zveřejněné síťové porty. Výběrem dlaždice v části Prevence zobrazíte další informace, včetně seznamu prostředků a všech identifikovaných ohrožení zabezpečení.
 
-![Sledování stavu zabezpečení][3]
+![Monitorování stavu zabezpečení][3]
 
-V tématu [sledování stavu zabezpečení](security-center-monitoring.md) Další informace.
+Další informace najdete v tématu [Monitorování stavu zabezpečení](security-center-monitoring.md).
 
-## <a name="actionable-recommendations"></a>Řešitelné doporučení
-Security Center analyzuje stav zabezpečení svým Azure a prostředky mimo Azure, aby identifikovala potenciální ohrožení zabezpečení. Seznam seřazený podle priority zabezpečení doporučení vás provede procesem adresování problémy se zabezpečením.
+## <a name="actionable-recommendations"></a>Užitečná doporučení
+Security Center analyzuje stav zabezpečení vašich prostředků Azure i mimo Azure a identifikuje potenciální ohrožení zabezpečení. Seznam doporučení zabezpečení s určenou prioritou vás provede procesem řešení problémů se zabezpečením.
 
 ![Doporučení][4]
 
-V tématu [Správa doporučení zabezpečení](security-center-recommendations.md) Další informace.
+Další informace najdete v tématu [Správa doporučení zabezpečení](security-center-recommendations.md).
 
-## <a name="just-in-time-vm-access"></a>Přístup k virtuálnímu počítači podle potřeby
-Omezte prostor pro útoky sítě se jenom na dobu, řízený přístup k portům správy na virtuálních počítačích Azure, zásadně snižuje vystavení hrubou silou a další síťovým útokům.
+## <a name="just-in-time-vm-access"></a>Přístup k virtuálním počítačům podle potřeby
+Omezte plochu vystavenou síťovým útokům díky řízenému přístupu k portům pro správu virtuálních počítačů Azure podle potřeby a výrazně tak omezte vystavení útokům hrubou silou a jiným síťovým útokům.
 
-![Přístup k virtuálnímu počítači podle potřeby][5]
+![Přístup k virtuálním počítačům podle potřeby][5]
 
-Určete pravidla, jak uživatelé se mohou připojit k virtuálním počítačům. V případě potřeby můžete ze služby Security Center nebo pomocí prostředí PowerShell požadován přístup. Tak dlouho, dokud žádost v souladu s pravidly, je automaticky udělí přístup k pro požadovaný čas.
+Určete pravidla způsobu, jakým se uživatelé můžou připojovat k virtuálním počítačům. V případě potřeby je o přístup možné zažádat ze služby Security Center nebo přes PowerShell. Pokud je žádost v souladu s pravidly, automaticky se udělí přístup po požadovanou dobu.
 
-V tématu [spravovat přístup k virtuálním počítačům pomocí jenom na dobu](security-center-just-in-time.md) Další informace.
+Další informace najdete v tématu [Správa přístupu k virtuálním počítačům pomocí metody Just-in-Time](security-center-just-in-time.md).
 
 ## <a name="adaptive-application-controls"></a>Adaptivní řízení aplikací
-Blokování malwaru a další nežádoucí aplikace s použitím povolených doporučení přizpůsobit pro konkrétní úlohy Azure a používá technologii strojové učení.
+Blokujte malware a další nechtěné aplikace použitím doporučení pro přidání na seznam povolených upravených pro vaše konkrétní úlohy Azure a využívajících strojové učení.
 
 ![Adaptivní řízení aplikací][6]
 
-Zkontrolujte a klikněte na tlačítko použít pravidla povolených doporučené aplikace generované Security Center nebo upravit pravidla, které jsou již nakonfigurována.
+Kontrolujte a kliknutím používejte doporučená pravidla přidávání aplikací na seznam povolených generovaná službou Security Center nebo upravujte již nakonfigurovaná pravidla.
 
-V tématu [ovládací prvky adaptivní aplikace](security-center-adaptive-application.md) Další informace.
+Další informace najdete v tématu [Adaptivní řízení aplikací](security-center-adaptive-application.md).
 
-## <a name="prioritized-alerts-and-incidents"></a>Seřazený podle priority výstrah a incidentů
-Security Center používá pokročilou analýzu a globální analýzou hrozeb ke zjišťování příchozí útoky a po porušení aktivit. Výstrahy jsou nastavovat a seskupeny do incidenty, tedy zvýšení nejprve zaměřit na nejdůležitější hrozeb. Můžete vytvořit také vlastní zabezpečení vlastní výstrahy.
+## <a name="prioritized-alerts-and-incidents"></a>Výstrahy a incidenty s určenou prioritou
+Security Center s využitím pokročilých analýz a globální analýzy hrozeb detekuje příchozí útoky a aktivitu po porušení zabezpečení. U výstrah se určuje priorita a seskupují se do incidentů, které pomáhají soustředit se nejprve na nejdůležitější hrozby. Můžete také vytvářet vlastní výstrahy zabezpečení.
 
-![Seřazený podle priority výstrah a incidentů][7]
+![Výstrahy a incidenty s určenou prioritou][7]
 
-Můžete rychle vyhodnocovat na rozsah a dopad útoku, možnosti interaktivního šetření a použít předdefinované nebo ad hoc dotazy pro podrobnější zkoumání dat zabezpečení.
+Můžete rychle posoudit rozsah a dopad útoku s využitím vizuálního a interaktivního prostředí pro šetření a blíže zkoumat data zabezpečení s využitím předdefinovaných nebo ad hoc dotazů.
 
-V tématu [Správa a zpracování výstrah zabezpečení](security-center-managing-and-responding-alerts.md) Další informace.
+Další informace najdete v tématu [Správa a zpracování výstrah zabezpečení](security-center-managing-and-responding-alerts.md).
 
-## <a name="integrate-your-security-solutions"></a>Integrovat řešení zabezpečení
-Můžete shromažďovat, vyhledávání a analyzovat data zabezpečení z různých zdrojů, včetně připojených partnerských řešení, jako jsou brány firewall sítě a dalším službám Microsoft ve službě Security Center.
+## <a name="integrate-your-security-solutions"></a>Integrace řešení zabezpečení
+V Security Center můžete shromažďovat, prohledávat a analyzovat data zabezpečení z nejrůznějších zdrojů, včetně propojených partnerských řešení, jako jsou síťové brány firewall a další služby Microsoftu.
 
-![Integrovat řešení pro zabezpečení][8]
+![Integrace řešení zabezpečení][8]
 
-V tématu [integrovat řešení zabezpečení](security-center-partner-integration.md) Další informace.
+Další informace najdete v tématu [Integrace řešení zabezpečení](security-center-partner-integration.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-- Chcete-li začít využívat Security Center, potřebujete předplatné služby Microsoft Azure. Pokud nemáte předplatné, můžete si zaregistrovat [bezplatnou zkušební verzi](https://azure.microsoft.com/free/).
-- Cenové úrovně Free Security Center je povolená s vaším předplatným Azure. Abyste mohli využívat pokročilé zabezpečení správy a možností detekce hrozeb, musíte provést upgrade na cenová úroveň Standard. Úroveň Standard je po dobu prvních 60 dní zdarma. Najdete v článku [Security Center stránce s cenami](https://azure.microsoft.com/pricing/details/security-center/) Další informace.
-- Pokud budete chtít povolit Security Center standardní teď [rychlý start: zařadit předplatného Azure Security Center standardní](security-center-get-started.md) vás provede kroky.
+- Pokud chcete začít využívat Security Center, musíte mít předplatné Microsoft Azure. Pokud předplatné nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](https://azure.microsoft.com/free/).
+- Cenová úroveň Free služby Security Center je povolená s vaším předplatným Azure. Pokud chcete využívat pokročilé možnosti správy zabezpečení a detekce hrozeb, musíte upgradovat na cenovou úroveň Standard. Úroveň Standard je po dobu prvních 60 dní zdarma. Další informace najdete na [stránce s cenami za Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+- Pokud už jste připraveni povolit Security Center, článek [Rychlý Start: Onboarding předplatného Azure na Security Center Standard](security-center-get-started.md) vás provede postupem.
 
 
 <!--Image references-->

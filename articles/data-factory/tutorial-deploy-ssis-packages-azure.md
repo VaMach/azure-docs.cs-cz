@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 37b984229a4be6c8f3ab337ea25820428922a466
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2199808533619ed7d9ef8201363f0cef04b0f50f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Nasazení balíčků SSIS (SQL Server Integration Services) do Azure
 Tento kurz obsahuje postup pro zřízení prostředí Azure-SSIS Integration Runtime (IR) ve službě Azure Data Factory. Následně můžete pomocí SQL Server Data Tools (SSDT) nebo aplikace SQL Server Management Studio (SSMS) do tohoto modulu runtime v Azure nasadit balíčky SSIS (SQL Server Integration Services). V tomto kurzu provedete následující kroky:
@@ -35,10 +35,10 @@ Tento kurz obsahuje postup pro zřízení prostředí Azure-SSIS Integration Run
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete. Koncepční informace o Azure-SSIS IR najdete v [přehledu prostředí Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
 
 ## <a name="prerequisites"></a>Požadavky
+- **Předplatné Azure**. Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete. Koncepční informace o Azure-SSIS IR najdete v [přehledu prostředí Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 - **Server služby Azure SQL Database**. Pokud ještě nemáte databázový server, vytvořte si ho na webu Azure Portal před tím, než začnete. Tento server hostuje databázi katalogu služby SSIS (SSISDB). Doporučujeme vytvořit databázový server ve stejné oblasti Azure jako prostředí Integration Runtime. Tato konfigurace umožňuje prostředí Integration Runtime zapisovat protokoly spuštění do databáze SSISDB bez přecházení mezi oblastmi Azure. 
     - Ujistěte se, že nastavení **Povolit přístup ke službám Azure** je pro databázový server **zapnuté**. Další informace najdete v tématu [Zabezpečení databáze SQL Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Pokud chcete toto nastavení povolit pomocí PowerShellu, přečtěte si téma věnované rutině [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
     - Přidejte IP adresu klientského počítače nebo rozsah IP adres, který obsahuje IP adresu klientského počítače, do seznamu IP adres v nastavení brány firewall pro databázový server. Další informace najdete v tématu [Pravidla brány firewall na úrovni serveru a databáze služby Azure SQL Database](../sql-database/sql-database-firewall-configure.md). 
@@ -46,7 +46,8 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 - **Azure PowerShell**. Postupujte podle pokynů v tématu [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/install-azurerm-ps). PowerShell použijete ke spuštění skriptu, který zřídí prostředí Azure SSIS Integration Runtime spouštějící balíčky SSIS v cloudu. 
 
 > [!NOTE]
-> Seznam oblastí podporovaných službou Azure Data Factory V2 a prostředím Azure SSIS Integration Runtime najdete v tématu [Dostupné produkty v jednotlivých oblastech](https://azure.microsoft.com/regions/services/). Rozbalením možnosti **Data a analýzy** zobrazíte **Data Factory V2** a **SSIS Integration Runtime**.
+> - Datovou továrnu verze 2 můžete vytvořit v následujících oblastech: USA – východ, USA – východ 2, Jihovýchodní Asie a Západní Evropa. 
+> - Prostředí Azure SSIS IR můžete vytvořit v následujících oblastech: USA – východ, USA – východ 2, USA – střed, Severní Evropa, Západní Evropa a Austrálie – východ.
 
 ## <a name="launch-windows-powershell-ise"></a>Spuštění integrovaného skriptovacího prostředí (ISE) v prostředí Windows PowerShell
 Spusťte **Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell** s oprávněními správce. 
@@ -60,13 +61,17 @@ Zkopírujte a vložte následující skript a zadejte hodnoty pro proměnné. Se
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
-$DataFactoryName = "<Data factory name>" 
+$DataFactoryName = "<Data factory name>"
+# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-$AzureSSISLocation = "EastUS" 
+
+# You can create Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, Australia East 
+$AzureSSISLocation = "EastUS"
+ 
 # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.

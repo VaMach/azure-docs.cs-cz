@@ -1,48 +1,48 @@
 ---
-title: "Azure CLI skriptu: obnovení databáze pro PostgreSQL server aplikace Azure"
-description: "Tento ukázkový skript příkazového řádku Azure CLI ukazuje, jak k obnovení databázi Azure pro server databáze MySQL a jeho databáze do předchozího bodu v čase."
+title: "Skript Azure CLI: Obnovení serveru Azure Database for PostgreSQL"
+description: "Tento ukázkový skript Azure ukazuje, jak obnovit server Azure Database for PostgreSQL a jeho databáze k dřívějšímu bodu v čase."
 services: postgresql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: dfc53ae10055b0e8583fb0c705e605bbbb999760
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
-ms.translationtype: MT
+ms.openlocfilehash: 242dd836a629d3accd0c43a72b4549e93145168f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Obnovení databáze aplikace Azure pro PostgreSQL server pomocí rozhraní příkazového řádku Azure
-Tento ukázkový skript rozhraní příkazového řádku obnoví jedné databáze Azure pro PostgreSQL server do předchozího bodu v čase.
+# <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Obnovení serveru Azure Database for PostgreSQL pomocí Azure CLI
+Tento ukázkový skript rozhraní příkazového řádku obnoví jeden server Azure Database for PostgreSQL k dřívějšímu bodu v čase.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tato ukázka vyžaduje, že používáte Azure CLI verze 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Ukázkový skript
-Tento ukázkový skript změňte zvýrazněné řádky k přizpůsobení uživatelské jméno správce a heslo. Nahraďte ID předplatného použít v příkazech monitorování az s vlastní ID předplatného.
+V tomto ukázkovém skriptu změňte zvýrazněné řádky a upravte uživatelské jméno a heslo správce. Nahraďte ID předplatného použité v příkazech az monitor vlastním ID předplatného.
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/backup-restore/backup-restore.sh?highlight=15-16 "Restore Azure Database for PostgreSQL.")]
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení
-Po spuštění ukázka skriptu, následující příkaz lze použít k odebrání skupiny prostředků a všechny prostředky, které jsou s ním spojená.
+Po spuštění ukázkového skriptu můžete pomocí následujícího příkazu odebrat skupinu prostředků a všechny k ní přidružené prostředky.
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/backup-restore/delete-postgresql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
-Tento skript používá následující příkazy. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript používá následující příkazy. Každý příkaz v tabulce odkazuje na příslušnou část dokumentace.
 
-| **Příkaz** | **Poznámky k** |
+| **Příkaz** | **Poznámky** |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [AZ postgresql server vytvořit](/cli/azure/postgresql/server#az_msql_server_create) | Vytvoří PostgreSQL serveru, který je hostitelem databáze. |
-| [obnovení serveru postgresql az](/cli/azure/postgresql/server#az_msql_server_restore) | Obnovení serveru ze zálohy. |
-| [Odstranění skupiny az](/cli/azure/group#az_group_delete) | Odstraní skupinu prostředků, včetně všech vnořených prostředků. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az postgresql server create](/cli/azure/postgresql/server#az_msql_server_create) | Vytvoří server PostgreSQL, který je hostitelem databází. |
+| [az postgresql server restore](/cli/azure/postgresql/server#az_msql_server_restore) | Obnoví server ze zálohy. |
+| [az group delete](/cli/azure/group#az_group_delete) | Odstraní skupinu prostředků včetně všech vnořených prostředků. |
 
-## <a name="next-steps"></a>Další postup
-- Přečtěte si další informace o Azure CLI: [dokumentaci k rozhraní příkazového řádku Azure](/cli/azure/overview).
-- Zkuste další skripty: [ukázky rozhraní příkazového řádku Azure pro databázi Azure pro PostgreSQL](../sample-scripts-azure-cli.md)
-- [Postup zálohování a obnovení serveru v databázi Azure pro PostgreSQL pomocí portálu Azure](../howto-restore-server-portal.md)
+## <a name="next-steps"></a>Další kroky
+- Další informace o Azure CLI najdete tady: [Dokumentace k Azure CLI](/cli/azure/overview).
+- Vyzkoušejte i další skripty: [Ukázky v Azure CLI pro službu Azure Database for PostgreSQL](../sample-scripts-azure-cli.md).
+- [Zálohování a obnovení serveru ve službě Azure Database for PostgreSQL pomocí webu Azure Portal](../howto-restore-server-portal.md)

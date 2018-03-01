@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Nasazení clusteru Service Fabric s Windows do virtuální sítě Azure
 Tento kurz je první částí série. Naučíte se nasadit cluster Service Fabric s Windows do [virtuální sítě Azure](../virtual-network/virtual-networks-overview.md) a [skupiny zabezpečení sítě](../virtual-network/virtual-networks-nsg.md) s použitím PowerShellu a šablony. Po dokončení budete mít v cloudu spuštěný cluster, do kterého budete moct nasazovat aplikace.  Pokud chcete vytvořit cluster s Linuxem pomocí Azure CLI, přečtěte si téma [Vytvoření zabezpečeného clusteru s Linuxem v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -39,7 +39,7 @@ V tomto kurzu se naučíte:
 V této sérii kurzů se naučíte:
 > [!div class="checklist"]
 > * Vytvoření zabezpečeného clusteru v Azure
-> * [Horizontální snížení nebo navýšení kapacity clusteru](/service-fabric-tutorial-scale-cluster.md)
+> * [Horizontální snížení nebo navýšení kapacity clusteru](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade modulu runtime clusteru](service-fabric-tutorial-upgrade-cluster.md)
 > * [Nasazení API Managementu se Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
@@ -66,7 +66,7 @@ Certifikát clusteru musí:
 
 Ke správě certifikátů pro clustery Service Fabric v Azure se používá služba Azure Key Vault.  Když je cluster nasazený v Azure, poskytovatel prostředků Azure, který je zodpovědný za vytváření clusterů Service Fabric, si vyžádá certifikáty ze služby Key Vault a nainstaluje je do virtuálních počítačů v clusteru.
 
-V tomto kurzu je nasazen cluster s pěti uzly jednoho typu. V případě každého nasazení produkčního clusteru je však důležitým krokem [plánování kapacity](service-fabric-cluster-capacity.md). Zde je uvedeno několik bodů, které je vhodné vzít v úvahu v rámci procesu.
+Tento kurz ukazuje cluster s pěti uzly jednoho typu. V případě každého nasazení produkčního clusteru je však důležitým krokem [plánování kapacity](service-fabric-cluster-capacity.md). Zde je uvedeno několik bodů, které je vhodné vzít v úvahu v rámci procesu.
 
 - Počet uzlů a typy uzlů, které váš cluster potřebuje 
 - Vlastnosti každého typu uzlu (například velikost, zda je primární, připojení k internetu a počet virtuálních počítačů)

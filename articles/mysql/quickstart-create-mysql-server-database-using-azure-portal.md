@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.openlocfilehash: f427b23ca4b48da79759584bdcc98c1002c054c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Vytvoření serveru Azure Database for MySQL pomocí webu Azure Portal
 Azure Database for MySQL je spravovaná služba, která slouží k provozu, správě a škálování vysoce dostupných databází MySQL v cloudu. V tomto rychlém startu se dozvíte, jak přibližně během pěti minut vytvořit server Azure Database for MySQL pomocí webu Azure Portal.  
@@ -29,7 +29,7 @@ Server Azure Database for MySQL vytvoříte s definovanou sadou [výpočetních 
 
 Server Azure Database for MySQL vytvoříte pomocí tohoto postupu:
 
-1. Vyberte tlačítko **Nový** (+) v levém horním rohu portálu.
+1. Vyberte tlačítko **Vytvořit prostředek** (+) v levém horním rohu portálu.
 
 2. Vyberte **Databáze** > **Azure Database for MySQL**. Službu můžete vyhledat také zadáním **MySQL** do vyhledávacího pole.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>První pohled: Zálohování souborů a složek v nasazení podle modelu Resource Manager
 Tento článek vysvětluje, jak postupovat při zálohování souborů a složek z Windows Serveru (nebo z počítače s Windows) do Azure pomocí nasazení podle modelu Resource Manager. Tento kurz vás má provést základy. Chcete-li začít používat Azure Backup, jste na správném místě.
@@ -33,7 +33,7 @@ Chcete-li zálohovat svoje soubory a složky, musíte vytvořit trezor Služeb z
 
 ### <a name="to-create-a-recovery-services-vault"></a>Vytvoření trezoru Služeb zotavení
 1. Pokud jste to ještě neudělali, přihlaste se k [portálu Azure](https://portal.azure.com/) pomocí svého předplatného Azure.
-2. V nabídce centra klikněte na **Procházet**, v seznamu prostředků zadejte **Recovery Services** a klikněte na **Trezory služby Recovery Services**.
+2. V nabídce centra klikněte na **Všechny služby**, v seznamu prostředků zadejte **Recovery Services** a klikněte na **Trezory služby Recovery Services**.
 
     ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

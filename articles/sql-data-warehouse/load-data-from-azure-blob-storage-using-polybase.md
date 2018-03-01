@@ -17,11 +17,11 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Kurz: Použití PolyBase k načítání dat z úložiště objektů blob v Azure do služby Azure SQL Data Warehouse
 
@@ -54,7 +54,7 @@ Datový sklad SQL Azure se vytvoří s definovanou sadou [výpočetních prostř
 
 Pomocí následujících kroků vytvořte prázdný datový sklad SQL. 
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Na stránce **Nový** vyberte **Databáze** a v části **Doporučené** na stránce **Nový** vyberte **SQL Data Warehouse**.
 

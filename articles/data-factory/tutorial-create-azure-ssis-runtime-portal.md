@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: abb5fd4953709198f6071bbdd4a1dc86900f0183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Zřízení prostředí Azure SSIS Integration Runtime pomocí uživatelského rozhraní služby Azure Data Factory
 Tento kurz obsahuje postup pro zřízení prostředí Azure-SSIS Integration Runtime (IR) ve službě Azure Data Factory pomocí webu Azure Portal. Následně můžete pomocí SQL Server Data Tools nebo aplikace SQL Server Management Studio do tohoto modulu runtime v Azure nasadit balíčky SSIS (SQL Server Integration Services). Informace o konceptu prostředí Azure-SSIS IR najdete v [přehledu prostředí Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -35,10 +35,14 @@ V tomto kurzu provedete následující kroky:
 ## <a name="prerequisites"></a>Požadavky
 - **Předplatné Azure**. Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete. 
 - **Server služby Azure SQL Database**. Pokud ještě nemáte databázový server, vytvořte si ho na webu Azure Portal před tím, než začnete. Azure Data Factory na tomto databázovém serveru vytvoří katalog služby SSIS (databázi SSISDB). Doporučujeme vytvořit databázový server ve stejné oblasti Azure jako prostředí Integration Runtime. Tato konfigurace umožňuje prostředí Integration Runtime zapisovat do databáze SSISDB protokoly spuštění bez přecházení mezi oblastmi Azure. 
-   - Ujistěte se, že má databázový server povolené nastavení **Povolit přístup ke službám Azure**. Další informace najdete v tématu [Zabezpečení databáze SQL Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Pokud chcete toto nastavení povolit pomocí PowerShellu, přečtěte si téma věnované rutině [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
-   - Přidejte do seznamu IP adres v nastavení brány firewall databázového serveru IP adresu klientského počítače nebo rozsah IP adres, který obsahuje IP adresu klientského počítače. Další informace najdete v tématu [Pravidla brány firewall na úrovni serveru a databáze služby Azure SQL Database](../sql-database/sql-database-firewall-configure.md).
-   - Ověřte si, že váš server Azure SQL Database nemá katalog služby SSIS (databázi SSIDB). Zřízení prostředí Azure-SSIS IR nepodporuje použití existujícího katalogu služby SSIS.
- 
+- Ujistěte se, že má databázový server povolené nastavení **Povolit přístup ke službám Azure**. Další informace najdete v tématu [Zabezpečení databáze SQL Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Pokud chcete toto nastavení povolit pomocí PowerShellu, přečtěte si téma věnované rutině [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+- Přidejte do seznamu IP adres v nastavení brány firewall databázového serveru IP adresu klientského počítače nebo rozsah IP adres, který obsahuje IP adresu klientského počítače. Další informace najdete v tématu [Pravidla brány firewall na úrovni serveru a databáze služby Azure SQL Database](../sql-database/sql-database-firewall-configure.md).
+- Ověřte si, že váš server Azure SQL Database nemá katalog služby SSIS (databázi SSIDB). Zřízení prostředí Azure-SSIS IR nepodporuje použití existujícího katalogu služby SSIS.
+
+> [!NOTE]
+> - Datovou továrnu verze 2 můžete vytvořit v následujících oblastech: USA – východ, USA – východ 2, Jihovýchodní Asie a Západní Evropa. 
+> - Prostředí Azure SSIS IR můžete vytvořit v následujících oblastech: USA – východ, USA – východ 2, USA – střed, Severní Evropa, Západní Evropa a Austrálie – východ. 
+
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
 1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.

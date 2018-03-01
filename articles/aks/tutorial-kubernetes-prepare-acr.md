@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fe5717b6dece6c6d03586045fb5fa0ccadd5e262
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0bef14a03c27feb07683f4805aa4264eb91eda6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Nasazení a použití služby Azure Container Registry
 
@@ -30,7 +30,7 @@ V následujících kurzech bude tato instance služby ACR integrována do cluste
 
 V [předchozím kurzu][aks-tutorial-prepare-app] byla vytvořena image kontejneru pro jednoduchou hlasovací aplikaci v Azure. Pokud jste image hlasovací aplikace v Azure ještě nevytvořili, vraťte se ke [kurzu 1 – Vytváření imagí kontejneru][aks-tutorial-prepare-app].
 
-Tento kurz vyžaduje použití Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI][azure-cli-install].
+Tento kurz vyžaduje použití Azure CLI verze 2.0.27 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Nasazení služby Azure Container Registry
 

@@ -1,5 +1,5 @@
 ---
-title: "Co je služba Azure SQL Database? | Microsoft Docs"
+title: "Co je služba Azure SQL Database? | Dokumenty Microsoft"
 description: "Přečtěte si základní informace o službě SQL Database – technické podrobnosti a možností cloudového systému pro správu relačních databází (RDBMS) společnosti Microsoft."
 keywords: "představení sql,úvod do sql,co je sql database"
 services: sql-database
@@ -17,11 +17,11 @@ ms.date: 02/12/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: f1aff50a97114ea7e221b4461e375d763a161fa6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co je služba Azure SQL Database? 
 
@@ -47,7 +47,7 @@ Ve službě SQL Database je každá databáze izolovaná od všech ostatních a 
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Úprava výkonu a škálování bez výpadků
 
-SQL Database podporuje databázové úlohy od zcela nenáročných až po velmi náročné tím, že nabízí následující úrovně služeb: Basic, Standard a Premium. S nízkými měsíčními náklady můžete sestavit svou první aplikaci s malou izolovanou databází a později ručně nebo programově změnit úroveň služby, aby splňovala požadavky vašeho řešení. Můžete upravit úroveň výkonu bez přerušení provozu aplikace a bez dopadu na vaše zákazníky. Dynamická škálovatelnost umožňuje databázím transparentně reagovat na rychle se měnící požadavky na prostředky a vy díky tomu platíte pouze za prostředky, které potřebujete, když je potřebujete.
+SQL Database podporuje databázové úlohy od zcela nenáročných až po velmi náročné tím, že nabízí tři úrovně služby: Basic, Standard a Premium. S nízkými měsíčními náklady můžete sestavit svou první aplikaci s malou izolovanou databází a později ručně nebo programově změnit úroveň služby, aby splňovala požadavky vašeho řešení. Můžete upravit úroveň výkonu bez přerušení provozu aplikace a bez dopadu na vaše zákazníky. Dynamická škálovatelnost umožňuje databázím transparentně reagovat na rychle se měnící požadavky na prostředky a vy díky tomu platíte pouze za prostředky, které potřebujete, když je potřebujete.
 
    ![škálování](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
@@ -168,7 +168,7 @@ SQL Database podporuje vytváření aplikací pomocí Pythonu, Javy, Node.js, PH
 
 - Tyto rychlé starty vám pomůžou začít:
 
-  - [Vytvoření databáze SQL na portálu Azure Portal](sql-database-get-started-portal.md)  
+  - [Vytvoření databáze SQL na webu Azure Portal](sql-database-get-started-portal.md)  
   - [Vytvoření databáze SQL pomocí Azure CLI](sql-database-get-started-cli.md)
   - [Vytvoření databáze SQL pomocí PowerShellu](sql-database-get-started-powershell.md)
 

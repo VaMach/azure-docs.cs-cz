@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be43701f96a71ad5cd9239c4ec7b3eea7fd6db21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Shromažďování dat o virtuálních počítačích Azure
 [Azure Log Analytics](log-analytics-overview.md) může shromažďovat data přímo z virtuálních počítačů Azure a dalších prostředků ve vašem prostředí do jednoho úložiště pro účely podrobných analýz a korelace.  Tento rychlý start ukazuje, jak v několik snadných krocích nakonfigurovat virtuální počítače Azure s Linuxem nebo Windows a shromažďovat z nich data.  
@@ -30,7 +30,7 @@ Tento rychlý start předpokládá, že máte existující virtuální počíta�
 Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Vytvoření pracovního prostoru
-1. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.<br> ![portál Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.<br> ![portál Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Klikněte na **Vytvořit** a podle potřeby změňte hodnoty následujících položek:
 
   * Zadejte název nového **pracovního prostoru OMS**, například *DefaultLAWorkspace*. 

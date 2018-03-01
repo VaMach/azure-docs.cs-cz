@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 77b30610072fb7f573597d035dcc161b4739ec7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Kurz: Vytvoření datové továrny Azure pomocí šablony Azure Resource Manageru
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -428,7 +428,7 @@ Nasazený trigger je v zastaveném stavu. Jedním ze způsobů, jak trigger spus
     ```
 
 ## <a name="monitor-the-pipeline"></a>Monitorování kanálu
-1. Po přihlášení k webu [Azure Portal](https://portal.azure.com/) klikněte na **Další služby**, vyhledejte klíčové slovo jako například **data fa** a vyberte **Datové továrny**.
+1. Po přihlášení k webu [Azure Portal](https://portal.azure.com/) klikněte na **Všechny služby**, vyhledejte klíčové slovo jako například **data fa** a vyberte **Datové továrny**.
 
     ![Procházení nabídky Datové továrny](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. Na stránce **Datové továrny** klikněte na datovou továrnu, kterou jste vytvořili. V případě potřeby můžete seznam filtrovat s použitím názvu vaší datové továrny.  

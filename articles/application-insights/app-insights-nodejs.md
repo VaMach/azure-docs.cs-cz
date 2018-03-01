@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorování služeb a aplikací Node.js pomocí Application Insights
 
@@ -47,7 +47,7 @@ Než začnete, ujistěte se, že máte předplatné Azure nebo [zdarma získejte
 
 
 1. Přihlaste se na web [Azure Portal][portal].
-2. Vyberte **Nový** > **Vývojářské nástroje** > **Application Insights**. Prostředek zahrnuje koncový bod pro příjem telemetrických dat, úložiště pro tato data, uložené sestavy a řídicí panely, konfigurace pravidel a upozornění a ještě více.
+2. Vyberte **Vytvořit prostředek** > **Vývojářské nástroje** > **Application Insights**. Prostředek zahrnuje koncový bod pro příjem telemetrických dat, úložiště pro tato data, uložené sestavy a řídicí panely, konfigurace pravidel a upozornění a ještě více.
 
   ![Vytvořte prostředek Application Insights](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

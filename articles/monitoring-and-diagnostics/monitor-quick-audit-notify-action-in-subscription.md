@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Audit a přijímání oznámení o důležitých akcích ve vašem předplatném Azure
 
@@ -28,7 +28,7 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-network-security-group"></a>Vytvoření skupiny zabezpečení sítě
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Vyberte **Sítě** a pak **Skupina zabezpečení sítě**.
 

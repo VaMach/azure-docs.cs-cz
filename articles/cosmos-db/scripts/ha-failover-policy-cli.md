@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skriptu-vytvořit zásadu převzetí služeb při selhání pro zajištění vysoké dostupnosti | Microsoft Docs"
-description: "Azure CLI skriptu ukázkové – vytvořte zásadu převzetí služeb při selhání pro zajištění vysoké dostupnosti"
+title: "Skript Azure CLI – Vytvoření zásady převzetí služeb při selhání pro zajištění vysoké dostupnosti | Microsoft Docs"
+description: "Ukázkový skript Azure CLI – Vytvoření zásady převzetí služeb při selhání pro zajištění vysoké dostupnosti"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 96083d66cc1a2ef179f9313c1b3ed04162c1c048
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 139679eb58516c9eda02f048e8c839e1b7bceb48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Vytvořit zásadu převzetí služeb při selhání pro vysokou dostupnost, pomocí rozhraní příkazového řádku Azure
+# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Vytvoření zásady převzetí služeb při selhání pro zajištění vysoké dostupnosti pomocí Azure CLI
 
-Tento ukázkový skript rozhraní příkazového řádku vytvoří účet Azure Cosmos DB a nakonfiguruje jej pro vysokou dostupnost.
+Tento ukázkový skript rozhraní příkazového řádku vytvoří účet služby Azure Cosmos DB a pak ho nakonfiguruje pro zajištění vysoké dostupnosti.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,7 +36,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení
 
-Po spuštění ukázka skriptu, následující příkaz lze použít k odebrání skupiny prostředků a všechny prostředky, které jsou s ním spojená.
+Po spuštění ukázkového skriptu můžete pomocí následujícího příkazu odebrat skupinu prostředků a všechny k ní přidružené prostředky.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -44,17 +44,17 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript používá následující příkazy. Každý příkaz v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvoření az cosmosdb](/cli/azure/sql/server#create) | Vytvoří účet Azure Cosmos DB. |
-| [AZ cosmosdb aktualizace](/cli/azure/cosmosdb#update) | Aktualizuje účet Azure Cosmos DB. |
-| [Odstranění skupiny az](/cli/azure/resource#delete) | Odstraní skupinu prostředků, včetně všech vnořených prostředků. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Vytvoří účet služby Azure Cosmos DB. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Aktualizuje účet služby Azure Cosmos DB. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Odstraní skupinu prostředků včetně všech vnořených prostředků. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Další ukázky skript příkazového řádku DB Cosmos Azure lze nalézt v [dokumentace Azure Cosmos DB CLI](../cli-samples.md).
+Další ukázkové skripty rozhraní příkazového řádku Azure Cosmos DB najdete v [dokumentaci k rozhraní příkazového řádku Azure Cosmos DB](../cli-samples.md).

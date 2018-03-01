@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skriptu ukázkové – vypočítat velikost kontejneru objektů blob | Microsoft Docs"
-description: "Vypočítejte velikost kontejneru v úložiště objektů Blob v Azure pomocí součtem velikost objektů BLOB v kontejneru."
+title: "Ukázkový skript Azure CLI – Výpočet velikosti kontejneru objektů blob | Microsoft Docs"
+description: "Vypočítejte velikost kontejneru v úložišti objektů blob v Azure součtem velikostí jednotlivých objektů blob v kontejneru."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,22 +15,22 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: 61a553e47a642aead323a19d0724fdccc94a6282
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: f9213018969ab47ce2e78d8c119f22dedaff9452
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>Vypočítat velikost kontejner úložiště objektů Blob
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>Výpočet velikosti kontejneru úložiště objektů blob
 
-Tento skript se vypočítá velikost kontejner v úložišti objektů Blob Azure součtem velikost objektů BLOB v kontejneru.
+Tento skript vypočítá velikost kontejneru v úložišti objektů blob v Azure součtem velikostí jednotlivých objektů blob v kontejneru.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Tento skript rozhraní příkazového řádku poskytuje odhadovanou velikost kontejneru a by se neměla používat pro výpočty fakturace.
+> Tento skript rozhraní příkazového řádku poskytuje odhadovanou velikost kontejneru a neměl by se používat k výpočtům fakturace.
 
 ## <a name="sample-script"></a>Ukázkový skript
 
@@ -38,7 +38,7 @@ Tento skript se vypočítá velikost kontejner v úložišti objektů Blob Azure
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení 
 
-Spusťte následující příkaz pro odebrání skupiny prostředků, kontejneru a všechny související prostředky.
+Spuštěním následujícího příkazu odeberte skupinu prostředků, kontejner a všechny související prostředky.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -46,16 +46,16 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy vypočítat velikost kontejner úložiště objektů Blob. Každou položku v tabulce odkazy na dokumentaci specifické pro příkaz.
+Tento skript k výpočtu velikosti kontejneru úložiště objektů blob používá následující příkazy. Každá položka v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Nahrání objektu blob úložiště az](/cli/azure/storage/account#create) | Odešle místních souborů do kontejner úložiště objektů Blob v Azure. |
-| [seznam az úložiště objektů blob](/cli/azure/storage/account/keys#list) | Zobrazí seznam objektů BLOB v kontejneru úložiště objektů Blob v Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Nahraje místní soubory do kontejneru úložiště objektů blob v Azure. |
+| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Vypíše objekty blob v kontejneru úložiště objektů blob v Azure. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](/cli/azure/overview).
 
-Ukázky skriptu rozhraní příkazového řádku další úložiště najdete v [ukázky rozhraní příkazového řádku Azure pro úložiště objektů Azure Blob](../blobs/storage-samples-blobs-cli.md).
+Další ukázkové skripty rozhraní příkazového řádku pro úložiště najdete v tématu [Ukázky v Azure CLI pro úložiště objektů blob v Azure](../blobs/storage-samples-blobs-cli.md).

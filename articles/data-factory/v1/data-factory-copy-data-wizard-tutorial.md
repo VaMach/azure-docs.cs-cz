@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 462038d21ea061e7cff8322ab4ce12f45844dca7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Kurz: Vytvoření kanálu s aktivitou kopírování pomocí průvodce kopírováním služby Data Factory.
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Než se pustíte do tohoto kurzu, dokončete požadované kroky uvedené v člá
 V tomto kroku vytvoříte pomocí webu Azure Portal objekt pro vytváření dat Azure s názvem **ADFTutorialDataFactory**.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. V nabídce v levém horním rohu klikněte na **+ NOVÝ**, potom na **Data + Analýza** a poté klikněte na **Datová továrna**. 
+2. V nabídce v levém horním rohu klikněte na **Vytvořit prostředek**, pak na **Data a analýzy** a pak klikněte na **Data Factory**. 
    
    ![Nový -> Objekt pro vytváření dat](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. V okně **Nový objekt pro vytváření dat**:

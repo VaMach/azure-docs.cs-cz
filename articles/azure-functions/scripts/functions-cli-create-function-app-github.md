@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření funkce aplikace a nasazení funkce kód z Githubu | Microsoft Docs"
-description: "Ukázka skriptu Azure CLI – vytvoření funkce aplikace a nasazení kódu funkce z Githubu"
+title: "Vytvoření aplikace funkcí a nasazení kódu funkce z GitHubu | Microsoft Docs"
+description: "Ukázkový skript Azure CLI – Vytvoření aplikace funkcí a nasazení kódu funkce z GitHubu"
 services: functions
 keywords: 
 author: syntaxc4
@@ -9,15 +9,17 @@ ms.date: 04/27/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 39e26ba6c3ae0927fbf6c62af0bd3b48d16657ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 382fbe8919a031ca29a32e708b12070c584ed21f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Vytvoření funkce aplikace a nasazení funkce kód z Githubu
+# <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Vytvoření aplikace funkcí a nasazení kódu funkce z GitHubu
 
-Tento ukázkový skript vytvoří funkce aplikace pomocí [plánu spotřeby](../functions-scale.md#consumption-plan) s související prostředky a nasadí funkce kódu z veřejného úložiště GitHub (bez průběžné nasazování). Průběžné doručování kód funkce z Githubu, najdete v tématu [vytvořit aplikaci funkce a průběžně nasadit z Githubu](functions-cli-create-function-app-github-continuous.md)
+Tento ukázkový skript vytvoří aplikaci funkcí s použitím [plánu Consumption](../functions-scale.md#consumption-plan) a její související prostředky a nasadí kód vaší funkce z veřejného úložiště GitHub (bez průběžného nasazování). Informace o průběžném doručování kódu funkce z GitHubu najdete v tématu [Vytvoření aplikace funkcí a její průběžné nasazování z GitHubu](functions-cli-create-function-app-github-continuous.md).
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +29,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
 
 ## <a name="sample-script"></a>Ukázkový skript
 
-Tato ukázka funkce Azure aplikace vytvoří a nasadí kód funkce z Githubu.
+Tato ukázka vytvoří aplikaci funkcí Azure a nasadí kód funkce z GitHubu.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3 "Create a function app with deployment from GitHub")]
 
@@ -35,17 +37,17 @@ Tato ukázka funkce Azure aplikace vytvoří a nasadí kód funkce z Githubu.
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz. Tento skript používá následující příkazy:
+Každý příkaz v tabulce odkazuje na příslušnou část dokumentace. Tento skript používá následující příkazy:
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvořit účet úložiště az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Vytvoří plán služby App Service. |
-| [Vytvoření az functionapp](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) | Vytvoří aplikaci Azure funkce. |
-| [Konfigurace správy zdrojového kódu webové služby App Service az](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Přidruží aplikaci funkce Git nebo Mercurial úložiště. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Vytvoří plán služby App Service. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) | Vytvoří aplikaci funkcí Azure. |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Přidruží aplikaci funkcí k úložišti Git nebo Mercurial. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Další ukázky skriptu rozhraní příkazového řádku funkce Azure lze nalézt v [dokumentace Azure Functions](../functions-cli-samples.md).
+Další ukázkové skripty rozhraní příkazového řádku pro službu Azure Functions najdete v [dokumentaci ke službě Azure Functions](../functions-cli-samples.md).

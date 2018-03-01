@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Začínáme s cloudovými službami Azure Cloud Services a technologií ASP.NET
 
@@ -116,7 +116,7 @@ Pokud chcete aplikaci spustit v cloudu, proveďte následující kroky:
 Cloudová služba Azure je prostředí, ve kterém bude aplikace spuštěna.
 
 1. Otevřete v prohlížeči portál [Azure Portal](https://portal.azure.com).
-2. Klikněte na **Nový > Výpočty > Cloudová služba**.
+2. Klikněte na **Vytvořit prostředek > Compute > Cloudová služba**.
 
 3. Do vstupního pole název DNS zadejte předponu adresy URL pro cloudovou službu.
 
@@ -135,7 +135,7 @@ Cloudová služba Azure je prostředí, ve kterém bude aplikace spuštěna.
 ### <a name="create-an-azure-sql-database"></a>Vytvoření databáze SQL Azure
 Když aplikace běží v cloudu, používá cloudovou databázi.
 
-1. Na portálu [Azure Portal](https://portal.azure.com) klikněte na **Nový > Databáze > Databáze SQL**.
+1. Na webu [Azure Portal](https://portal.azure.com) klikněte na **Vytvořit prostředek > Databáze > Databáze SQL**.
 2. Do pole **Název databáze** zadejte text *contosoads*.
 3. V části **Skupina prostředků** klikněte na **Použít existující** a vyberte skupinu prostředků použitou pro cloudovou službu.
 4. Na následujícím obrázku klikněte na **Server – Konfigurovat požadovaná nastavení** a **Vytvořit nový server**.
@@ -162,7 +162,7 @@ Když aplikace běží v cloudu, používá cloudovou databázi.
 
 V reálné aplikaci byste obvykle vytvořili samostatné účty pro data aplikací a pro data protokolování a samostatné účty pro testovací data a pro produkční data. V tomto kurzu budete používat jenom jeden účet.
 
-1. Na portálu [Azure Portal](https://portal.azure.com) klikněte na **Nový > Úložiště > Účet úložiště – objekt blob, soubor, tabulka, fronta**.
+1. Na webu [Azure Portal](https://portal.azure.com) klikněte na **Vytvořit prostředek > Úložiště > Účet úložiště – objekt blob, soubor, tabulka, fronta**.
 2. Do pole **Název** zadejte předponu adresy URL.
 
     Tato předpona a text zobrazený pod polem budou tvořit jedinečnou adresu URL k vašemu účtu úložiště. Pokud vybranou předponu používá někdo jiný, budete si muset zvolit jinou.

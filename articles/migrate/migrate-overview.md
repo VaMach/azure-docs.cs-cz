@@ -7,18 +7,15 @@ ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3269b865c4ef3c11a674d7b755faab2bbf5970e3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-azure-migrate"></a>Informace o službě Azure Migrate
 
-Služba Azure Migrate posuzuje místní úlohy pro migraci do Azure. Služba posuzuje vhodnost k migraci a velikost na základě výkonu a poskytuje odhad nákladů na provoz místních počítačů v Azure. Pokud zvažujete migrace metodou „lift and shift“ nebo se nacházíte v počátečních fázích posuzování migrace, tato služba je určená přímo pro vás. Po posouzení můžete počítače migrovat do Azure pomocí služeb, jako jsou Azure Site Recovery a Azure Database Migration.
-
-> [!NOTE]
-> Azure Migrate je aktuálně ve verzi Preview a podporuje produkční úlohy.
+Služba Azure Migrate posuzuje místní úlohy pro migraci do Azure. Služba posuzuje vhodnost místních počítačů k migraci do Azure a velikost na základě výkonu a poskytuje odhad nákladů na provoz místních počítačů v Azure. Pokud zvažujete migrace metodou „lift and shift“ nebo se nacházíte v počátečních fázích posuzování migrace, tato služba je určená přímo pro vás. Po posouzení můžete počítače migrovat do Azure pomocí služeb, jako jsou [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) a [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
 
 ## <a name="why-use-azure-migrate"></a>Proč používat službu Azure Migrate?
 
@@ -27,18 +24,17 @@ Azure Migrate vám pomůže s následujícími úlohami:
 - **Posouzení připravenosti pro Azure:** Posuďte, jestli jsou vaše místní počítače vhodné pro provoz v Azure. 
 - **Získání doporučení týkajících se velikosti:** Získejte doporučení k velikosti pro virtuální počítače Azure na základě historie výkonu místních virtuálních počítačů. 
 - **Odhadované měsíční náklady:** Získejte odhadované náklady na provoz místních počítačů v Azure.  
-- **Migrace s větší jistotou:** Vizualizací závislostí místních počítačů můžete vytvářet skupiny počítačů, které budete posuzovat a migrovat společně. Můžete přesně zobrazit závislosti pro konkrétní počítač nebo všechny počítače ve skupině.
+- **Migrace s větší jistotou:** Vizualizací závislostí místních počítačů můžete vytvářet skupiny počítačů, které budete posuzovat a migrovat společně. 
 
 ## <a name="current-limitations"></a>Aktuální omezení
 
-- Aktuálně můžete posuzovat vhodnost k migraci na virtuální počítače Azure u místních virtuálních počítačů VMware.
+- Aktuálně můžete posuzovat vhodnost k migraci na virtuální počítače Azure pouze u místních virtuálních počítačů VMware. Virtuální počítače VMware musí být spravované systémem vCenter Server (verze 5.5, 6.0 nebo 6.5).
 
 > [!NOTE]
 > Podpora Hyper-V se plánuje a bude brzy povolená. Prozatím doporučujeme k plánování migrace úloh Hyper-V použít [Plánovač nasazení služby Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc). 
 
 - Je možné vyhledat až 1 000 virtuálních počítačů v rámci jednoho zjišťování a až 1 500 virtuálních počítačů v jednom projektu. Kromě toho můžete v rámci jednoho interního hodnocení vyhodnotit až 400 virtuálních počítačů. Pokud jich potřebuje vyhledat nebo posoudit víc, můžete zvýšit počet zjišťování nebo hodnocení. [Další informace](how-to-scale-assessment.md).
-- Virtuální počítač, který chcete posoudit, musí být spravovaný systémem vCenter Server verze 5.5, 6.0 nebo 6.5.
-- Projekt Azure Migrate můžete vytvořit pouze v oblasti Západní USA – střed. To však nemá vliv na možnost plánování migrace pro jiné cílové umístění Azure. Umístění projektu migrace slouží pouze k uložení metadat zjištěných v místním prostředí.
+- Projekt Azure Migrate můžete vytvořit pouze v oblasti Západní USA – střed nebo USA – východ. To však nemá vliv na možnost plánování migrace pro jiné cílové umístění Azure. Umístění projektu migrace slouží pouze k uložení metadat zjištěných v místním prostředí.
 - Azure Migrate podporuje pro posouzení migrace jenom spravované disky.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Za co musím platit?
@@ -48,15 +44,16 @@ Další informace o cenách služby Azure Migrate najdete [zde](https://azure.mi
 
 ## <a name="whats-in-an-assessment"></a>Co je součástí posouzení?
 
-Posouzení pomáhá identifikovat vhodnost Azure pro místní virtuální počítače a získat doporučení pro správné velikosti a odhady nákladů pro provoz virtuálních počítačů v Azure. Posouzení jsou založená na vlastnostech, jejichž souhrn je uvedený v následující tabulce. Tyto vlastnosti můžete upravit na portálu Azure Migrate. 
+Posouzení pomáhá identifikovat vhodnost Azure pro místní virtuální počítače a získat doporučení pro správné velikosti a odhady nákladů pro provoz virtuálních počítačů v Azure. Posouzení můžete přizpůsobit svým požadavkům změnou vlastností posouzení. Níže jsou uvedené vlastnosti, na které se bere ohled při vytváření posouzení. 
 
 **Vlastnost** | **Podrobnosti**
 --- | ---
 **Cílové umístění** | Umístění Azure, do kterého chcete migrovat. Cílové umístění je standardně nastavené na Západní USA 2. 
-**Redundance úložiště** | Typ úložiště, které budou po migraci používat virtuální počítače Azure. Výchozím typem je místně redundantní úložiště (LRS).
-**Cenové plány** | Při posuzování se bere v úvahu, jestli jste zaregistrováni v programu Software Assurance a jestli můžete využívat [Zvýhodněné hybridní využití Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). V úvahu se berou také nabídky Azure, které by se měly použít, a máte možnost zadat slevy (%) specifické pro předplatné, na které máte nárok nad rámec nabídky. 
-**Cenová úroveň** | Můžete zadat [cenovou úroveň (Basic nebo Standard)](../virtual-machines/windows/sizes-general.md) virtuálních počítačů Azure. Díky tomu můžete migrovat na vhodnou řadu virtuálních počítačů Azure podle toho, jestli jste v produkčním prostředí. Ve výchozím nastavení se použije úroveň [Standard](../virtual-machines/windows/sizes-general.md).
-**Historie výkonu** | Azure Migrate ve výchozím nastavení vyhodnocuje výkon místních počítačů s využitím měsíční historie a hodnoty 95. percentilu. Toto nastavení můžete upravit.
+**Redundance úložiště** | Typ [redundance úložiště](https://docs.microsoft.com/azure/storage/common/storage-redundancy), který budou po migraci využívat virtuální počítače Azure. Výchozí je místně redundantní úložiště (LRS). Poznámka: Azure Migrate podporuje pouze posouzení založená na spravovaných discích a spravované disky podporují pouze LRS, proto má vlastnost v současné době pouze možnost LRS. 
+**Kritérium určení velikosti** | Kritérium, podle kterého Azure Migrate určí správnou velikost virtuálních počítačů pro Azure. Velikost virtuálních počítačů pro Azure můžete určit na základě *historie výkonu* místních virtuálních počítačů nebo stejnou *jako u místních* virtuálních počítačů bez zohlednění historie výkonu. Výchozí hodnota je určení velikosti na základě výkonu.
+**Cenové plány** | Pro účely výpočtů nákladů posouzení zohledňuje, jestli máte program Software Assurance a jestli máte nárok na [Zvýhodněné hybridní využití Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Zohledňuje také [Nabídky Azure](https://azure.microsoft.com/support/legal/offer-details/), které máte případně zaregistrované, a umožňuje zadat jakékoli slevy (%) specifické pro předplatné, na které máte nárok nad rámec nabídky. 
+**Cenová úroveň** | Můžete zadat [cenovou úroveň (Basic nebo Standard)](../virtual-machines/windows/sizes-general.md) cílových virtuálních počítačů Azure. Pokud například plánujete migrovat produkční prostředí, měli byste zvážit úroveň Standard, která poskytuje virtuální počítače s nízkou latencí, ale může být dražší. Na druhou stranu, pokud máte prostředí pro vývoj a testování, měli byste zvážit úroveň Basic s virtuálními počítači s vyšší latencí, která je levnější. Ve výchozím nastavení se použije úroveň [Standard](../virtual-machines/windows/sizes-general.md).
+**Historie výkonu** | Tuto možnost můžete použít, pouze pokud je kritérium určení velikosti na základě výkonu. Azure Migrate ve výchozím nastavení vyhodnocuje výkon místních počítačů s využitím historie výkonu za poslední den a hodnoty 95. percentilu. Tyto hodnoty můžete upravit ve vlastnostech posouzení. 
 **Faktor komfortu** | Azure Migrate při posuzování počítá s rezervou (faktor komfortu). Tato rezerva se použije nad rámec dat o využití počítače pro virtuální počítače (procesor, paměť, disk a síť). Důvodem použití faktoru komfortu jsou problémy, jako jsou sezónní využití, krátká historie výkonu a pravděpodobný růst budoucího využití.<br/><br/> Například z virtuálního počítače s 10 jádry a 20% využitím je normálně ve výsledku virtuální počítač se 2 jádry. S faktorem komfortu 2,0× je však výsledkem virtuální počítač se 4 jádry. Výchozí nastavení komfortu je 1,3×.
 
 
@@ -82,7 +79,7 @@ Tabulka shrnuje porty potřebné ke komunikaci služby Azure Migrate.
 |Komponenta          |Komunikace s     |Požadovaný port  |Důvod   |
 |-------------------|------------------------|---------------|---------|
 |Kolektor          |Služba Azure Migrate   |TCP 443        |Kolektor se ke službě připojuje přes port SSL 443.|
-|Kolektor          |vCenter Server          |Výchozí 9443   | Ve výchozím nastavení se kolektor připojuje k serveru vCenter na portu 9443. Pokud server naslouchá na jiném portu, tento port musí být nakonfigurovaný jako odchozí port na virtuálním počítači kolektoru. |
+|Kolektor          |vCenter Server          |Výchozí 9443   | Ve výchozím nastavení se kolektor připojuje k systému vCenter Server na portu 9443. Pokud server naslouchá na jiném portu, tento port musí být nakonfigurovaný jako odchozí port na virtuálním počítači kolektoru. |
 |Místní virtuální počítač     | Pracovní prostor Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |Agent MMA používá port TCP 443 pro připojení k Log Analytics. Tento port potřebujete pouze v případě, že využíváte funkci vizualizace závislostí a instalujete agenta Microsoft Monitoring Agent (MMA). |
 
 

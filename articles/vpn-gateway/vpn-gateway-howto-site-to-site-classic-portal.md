@@ -1,10 +1,10 @@
 ---
 title: "Připojení místní sítě k virtuální síti Azure: Síť VPN typu Site-to-Site (Classic): Portál| Dokumentace Microsoftu"
-description: "Postup vytvoření připojení IPsec z vaší místní sítě k virtuální síti Azure přes veřejný internet. Tyto kroky vám pomůžou vytvořit připojení VPN Gateway typu Site-to-Site mezi různými místy pomocí portálu."
+description: "Vytvořte připojení IPsec z vaší místní sítě k virtuální síti Azure Classic přes veřejný internet."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: eb8fe1ea6d4de066744a6277c1aec96073c1703c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9fa8455e3be6dced5717e2a7399d0eae0e26a09b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Vytvoření připojení typu Site-to-Site pomocí webu Azure Portal (Classic)
 
@@ -77,7 +77,7 @@ Pokud vytváříte virtuální síť pro použití k připojení typu Site-to-Si
 
 ### <a name="to-create-a-virtual-network"></a>Chcete-li vytvořit virtuální síť
 
-1. V prohlížeči přejděte na [portál Azure](http://portal.azure.com) a v případě potřeby se přihlaste pomocí účtu Azure.
+1. V prohlížeči přejděte na portál [Azure Portal](http://portal.azure.com) a v případě potřeby se přihlaste pomocí účtu Azure.
 2. Klikněte na **+**. Do pole **Hledat na Marketplace** zadejte text „Virtuální síť“. Ve vráceném seznamu vyhledejte položku **Virtuální síť** a kliknutím otevřete stránku **Virtuální síť**.
 
   ![Stránka pro vyhledání virtuální sítě](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)

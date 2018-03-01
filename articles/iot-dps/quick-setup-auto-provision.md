@@ -1,5 +1,5 @@
 ---
-title: "Nastavení služby Device Provisioning na webu Azure Portal | Microsoft Docs"
+title: "Nastavení služby Device Provisioning na webu Azure Portal | Dokumentace Microsoftu"
 description: "Rychlý start Azure – Nastavení služby Azure IoT Hub Device Provisioning na webu Azure Portal"
 services: iot-dps
 keywords: 
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Nastavení služby Azure IoT Hub Device Provisioning pomocí webu Azure Portal
 
@@ -31,7 +31,7 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Vytvoření centra IoT
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Vyberte **Internet věcí**, pak **IoT Hub** a klikněte na tlačítko **Vytvořit**. 
 
@@ -44,9 +44,9 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Vytvoření nové instance služby IoT Hub Device Provisioning
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
-2. *V Marketplace vyhledejte***službu Device Provisioning**. Vyberte **Služba IoT Device Provisioning** a klikněte na tlačítko **Vytvořit**. 
+2. *V Marketplace vyhledejte***službu Device Provisioning**. Vyberte **Služba IoT Hub Device Provisioning** a klikněte na tlačítko **Vytvořit**. 
 
 3. Zadejte **Název** instance služby Device Provisioning. Vyberte předplatné, které se pro tuto instanci použije, a zadejte název nové nebo existující skupiny prostředků. Vyberte umístění. Jakmile budete hotovi, klikněte na **Vytvořit**.
 

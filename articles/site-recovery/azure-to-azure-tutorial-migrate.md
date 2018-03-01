@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
-ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrace virtuálních počítačů Azure do jiné oblasti
 
@@ -74,8 +74,8 @@ Zkontrolujte, jestli jsou ve virtuálních počítačích Azure, které chcete m
 
 V libovolné oblasti (s výjimkou zdrojové oblasti) vytvořte trezor.
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Klikněte na **Nový** > **Monitorování a správa** > **Backup a Site Recovery**.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) > **Recovery Services**.
+2. Klikněte na **Vytvořit prostředek** > **Monitorování a správa** > **Backup a Site Recovery**.
 3. Do pole **Název** zadejte popisný název **ContosoVMVault**. Pokud máte více předplatných, vyberte příslušné předplatné.
 4. Vytvořte skupinu prostředků **ContosoRG**.
 5. Zadejte oblast Azure. Informace o tom, které oblasti jsou podporované, najdete v části s geografickou dostupností v tématu s [podrobnostmi o cenách Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

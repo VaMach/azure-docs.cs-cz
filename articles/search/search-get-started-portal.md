@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Vytvoření, dotazování a filtrování indexu Azure Search na portálu
 
@@ -46,7 +46,7 @@ Pokud nechcete zřizovat službu hned, můžete shlédnout 6minutovou ukázku kr
 1. Přihlaste se k webu [Portál Azure](https://portal.azure.com).
 2. Otevřete řídící panel služby Azure Search. Pokud jste dlaždici této služby nepřipnuli řídicí panel, můžete službu najít takto: 
    
-   * Na panelu v dolní části levého navigačního podokna klikněte na **Další služby**.
+   * Na panelu v levém navigačním podokně klikněte na **Všechny služby**.
    * Do vyhledávacího pole zadejte *vyhledávání*. Zobrazí se seznam služeb hledání pro vaše předplatné. V seznamu by se měla objevit i vaše služba. 
 
 ## <a name="check-for-space"></a>Kontrola místa

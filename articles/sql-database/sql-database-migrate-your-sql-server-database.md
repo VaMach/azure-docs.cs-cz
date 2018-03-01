@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrace databáze SQL Serveru do služby Azure SQL Database
 
@@ -52,11 +52,11 @@ Databáze SQL Azure se vytvoří s definovanou sadou [výpočetních prostředk�
 
 Pomocí následujících kroků vytvořte prázdnou databázi SQL. 
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Na stránce **Nový** vyberte **Databáze** a v části **Databáze SQL** na stránce **Nový** vyberte **Vytvořit**.
 
-   ![vytvoření prázdné databáze](./media/sql-database-design-first-database/create-empty-database.png)
+   ![Vytvoření prázdné databáze](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Vyplňte formulář databáze SQL pomocí následujících informací, jak je vidět na předchozím obrázku:   
 
@@ -80,9 +80,9 @@ Pomocí následujících kroků vytvořte prázdnou databázi SQL.
 
 5. Klikněte na **Vybrat**.
 
-6. Klikněte na **Cenová úroveň** a zadejte úroveň služby, počet DTU a velikost úložiště. Prozkoumejte možnosti pro počet DTU a velikost úložiště, které máte k dispozici na jednotlivých úrovních služby. 
+6. Klikněte na **Cenová úroveň** a zadejte úroveň služby, počet DTU a velikost úložiště. Prozkoumejte možnosti počtu DTU a velikosti úložiště, které máte k dispozici na jednotlivých úrovních služby. 
 
-7. Pro účely tohoto kurzu vyberte úroveň služby **Standard** a pak pomocí posuvníku vyberte **100 DTU (S3)** a **400** GB úložiště.
+7. Pro účely tohoto kurzu vyberte úroveň služby **Standard** a potom pomocí posuvníku vyberte **100 DTU (S3)** a **400** GB úložiště.
 
    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -222,7 +222,7 @@ Pomocí následujícího postupu použijte nástroj **[Data Migration Assistant]
 
 ## <a name="connect-to-the-database-with-ssms"></a>Připojení k databázi pomocí SSMS
 
-Pomocí aplikace [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) navažte připojení k vašemu serveru Azure SQL Database.
+Pomocí aplikace [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) navažte připojení ke svému serveru Azure SQL Database.
 
 1. Otevřete SQL Server Management Studio.
 

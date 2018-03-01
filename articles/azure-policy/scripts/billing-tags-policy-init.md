@@ -1,6 +1,6 @@
 ---
-title: "Azure ukázkové zásady json - fakturace značky zásad initiative | Microsoft Docs"
-description: "Tato sada ukázkové zásady json vyžaduje hodnoty stanovené značky pro náklady center a název produktu."
+title: "Vzorek kódu JSON pro Azure Policy – Iniciativa zásad fakturačních značek | Microsoft Docs"
+description: "Tato ukázková sada zásad JSON vyžaduje zadání hodnot značek pro nákladové středisko a název produktu."
 services: azure-policy
 documentationcenter: 
 author: bandersmsft
@@ -15,23 +15,23 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: decceb2acc11cc7b3457c6d9364d57ee9c252a4a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: d9f964ed6d2f04898b649194d0824cb7f3c31e2d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="billing-tags-policy-initiative"></a>Fakturace značky zásad initiative
+# <a name="billing-tags-policy-initiative"></a>Iniciativa zásad fakturačních značek
 
-Tato sada zásad vyžaduje hodnoty stanovené značky pro náklady center a název produktu. Používá integrované zásady pro použití a vynutit požadované značky. Můžete zadat požadované hodnoty pro značek.
+Tato sada zásad vyžaduje zadání hodnot značek pro nákladové středisko a název produktu. S využitím předdefinovaných zásad používá a vynucuje požadované značky. Pro značky zadáte požadované hodnoty.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Ukázka šablony
+## <a name="sample-template"></a>Ukázková šablona
 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-Můžete nasadit pomocí této šablony [portál Azure](#deploy-with-the-portal) nebo s [prostředí PowerShell](#deploy-with-powershell).
+Tuto šablonu můžete nasadit pomocí webu [Azure Portal](#deploy-with-the-portal) nebo [PowerShellu](#deploy-with-powershell).
 
 ## <a name="deploy-with-the-portal"></a>Nasazení s využitím portálu
 
@@ -50,14 +50,35 @@ $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -Displa
 New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Vyčištění nasazení prostředí PowerShell
+### <a name="clean-up-powershell-deployment"></a>Vyčištění nasazení PowerShellu
 
-Spusťte následující příkaz pro odebrání skupiny prostředků, virtuální počítač a všechny související prostředky.
+Spuštěním následujícího příkazu odeberte skupinu prostředků, virtuální počítač a všechny související prostředky.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
+## <a name="apply-tags-to-existing-resources"></a>Použití značek na existující prostředky
+
+Po přiřazení zásad můžete aktivovat aktualizaci všech existujících prostředků a vynutit tak přidané zásady značek. Následující skript zachová všechny ostatní značky, které u prostředků již byly:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
+}
+```
+
+
 ## <a name="next-steps"></a>Další kroky
 
-- Další ukázky šablony zásad Azure jsou [šablon pro Azure zásad](../json-samples.md).
+- Další ukázkové šablony pro Azure Policy najdete v tématu [Šablony pro Azure Policy](../json-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Rozhraní příkazového řádku příklad vytvoření Azure SQL database | Microsoft Docs"
-description: "Použijte tento ukázkový skript rozhraní příkazového řádku Azure k vytvoření databáze SQL."
+title: "Příklad rozhraní příkazového řádku – Vytvoření databáze SQL Azure | Microsoft Docs"
+description: "Pomocí tohoto ukázkového skriptu Azure CLI vytvoříte databázi SQL."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 10/11/2017
 ms.author: janeng
-ms.openlocfilehash: 404d43a6f2fa38276b9517e9542f1e50a4b1980b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 5824821a2e1f06425cae46cf8b3cf28582e63056
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Použijte rozhraní příkazového řádku k vytvoření jedné databáze Azure SQL a nakonfigurujte pravidlo brány firewall
+# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Použití rozhraní příkazového řádku k vytvoření jedné databáze SQL Azure a konfiguraci pravidla brány firewall
 
-Tento příklad skriptu rozhraní příkazového řádku Azure vytvoří Azure SQL database a nakonfigurujte pravidlo brány firewall na úrovni serveru. Jakmile úspěšně spustit skript SQL Database je přístupná ze všech služeb Azure a nakonfigurovanou IP adresu. 
+Tento ukázkový skript Azure CLI vytvoří databázi SQL Azure a nakonfiguruje pravidlo brány firewall na úrovni serveru. Po úspěšném spuštění skriptu bude služba SQL Database přístupná ze všech služeb Azure a nakonfigurovaných IP adres. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +38,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení
 
-Po spuštění ukázka skriptu, následující příkaz lze použít k odebrání skupiny prostředků a všechny prostředky, které jsou s ním spojená.
+Po spuštění ukázkového skriptu můžete pomocí následujícího příkazu odebrat skupinu prostředků a všechny k ní přidružené prostředky.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -46,19 +46,19 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript používá následující příkazy. Každý příkaz v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvoření az sql serveru](/cli/azure/sql/server#az_sql_server_create) | Vytvoří logického serveru, který je hostitelem databáze SQL. |
-| [Vytvoření brány firewall az sql serveru](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Vytvoří pravidlo brány firewall pro povolení přístupu pro všechny SQL databáze na serveru ze zadané rozsahu IP adres. |
-| [Vytvoření az sql db](/cli/azure/sql/db#az_sql_db_create) | Vytvoří databázi SQL v logického serveru. |
-| [Odstranění skupiny az](/cli/azure/resource#delete) | Odstraní skupinu prostředků, včetně všech vnořených prostředků. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Vytvoří logický server, který je hostitelem služby SQL Database. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Vytvoří pravidlo brány firewall umožňující přístup ke všem databázím SQL na serveru ze zadaného rozsahu IP adres. |
+| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Vytvoří na logickém serveru službu SQL Database. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Odstraní skupinu prostředků včetně všech vnořených prostředků. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Další ukázky skriptu SQL databáze rozhraní příkazového řádku najdete v [dokumentace Azure SQL Database](../sql-database-cli-samples.md).
+Další ukázkové skripty rozhraní příkazového řádku pro službu SQL Database najdete v [dokumentaci ke službě Azure SQL Database](../sql-database-cli-samples.md).
 

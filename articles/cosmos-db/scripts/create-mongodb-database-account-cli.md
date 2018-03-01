@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skriptu-vytvořit účet Azure Cosmos DB MongoDB rozhraní API, databáze a kolekce | Microsoft Docs"
-description: "Azure CLI skriptu ukázkové – vytvoření účtu Azure Cosmos DB MongoDB rozhraní API, databáze a kolekce."
+title: "Skript Azure CLI – Vytvoření účtu, databáze a kolekce rozhraní MongoDB API služby Azure Cosmos DB | Microsoft Docs"
+description: "Ukázkový skript Azure CLI – Vytvoření účtu, databáze a kolekce rozhraní MongoDB API služby Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: b0bf637db90cfcb987ad43ed34cb8065d28b0fcf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: aa255b42744e803b6ade669f1ee74e39435853ef
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-the-azure-cli"></a>Azure Cosmos DB: Vytvoření účtu MongoDB rozhraní API pomocí rozhraní příkazového řádku Azure
+# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-the-azure-cli"></a>Azure Cosmos DB: Vytvoření účtu rozhraní MongoDB API pomocí Azure CLI
 
-Tento ukázkový skript rozhraní příkazového řádku vytvoří účet Azure Cosmos DB MongoDB rozhraní API, databáze a kolekce. 
+Tento ukázkový skript rozhraní příkazového řádku vytvoří účet, databázi a kolekci rozhraní MongoDB API služby Azure Cosmos DB. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,7 +36,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení
 
-Po spuštění ukázka skriptu, následující příkaz lze použít k odebrání skupiny prostředků a všechny prostředky, které jsou s ním spojená.
+Po spuštění ukázkového skriptu můžete pomocí následujícího příkazu odebrat skupinu prostředků a všechny k ní přidružené prostředky.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -44,16 +44,16 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript používá následující příkazy. Každý příkaz v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvoření az cosmosdb](/cli/azure/cosmosdb#create) | Vytvoří účet Azure Cosmos DB. |
-| [Odstranění skupiny az](/cli/azure/resource#delete) | Odstraní skupinu prostředků, včetně všech vnořených prostředků. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Vytvoří účet služby Azure Cosmos DB. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Odstraní skupinu prostředků včetně všech vnořených prostředků. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Další ukázky skript příkazového řádku DB Cosmos Azure lze nalézt v [dokumentace Azure Cosmos DB CLI](../cli-samples.md).
+Další ukázkové skripty rozhraní příkazového řádku Azure Cosmos DB najdete v [dokumentaci k rozhraní příkazového řádku Azure Cosmos DB](../cli-samples.md).

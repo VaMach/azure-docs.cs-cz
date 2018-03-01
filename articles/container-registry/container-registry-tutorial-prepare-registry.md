@@ -1,6 +1,6 @@
 ---
-title: "Kurz pro Azure kontejneru registru – Příprava registru geograficky replikované kontejner Azure"
-description: "Vytvoření služby Azure kontejneru registru, nakonfigurujte geografická replikace, Příprava bitové kopie Docker a nasaďte ho do registru. Část, jednu z řady třemi částmi."
+title: "Kurz služby Azure Container Registry – Příprava geograficky replikovaného registru kontejnerů Azure"
+description: "Vytvořte registr kontejnerů Azure, nakonfigurujte geografickou replikaci, připravte image Dockeru a nasaďte ji do registru. První část třídílné série."
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,116 +9,116 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Příprava registru geograficky replikované kontejner Azure
+# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Příprava geograficky replikovaného registru kontejnerů Azure
 
-Registru kontejner Azure je privátní registru Docker nasazené v Azure, které se vejdou zavřít sítě pro vaše nasazení. V této sadě tři kurz články zjistíte, jak nasadit webovou aplikaci ASP.NET Core běží Linux kontejner, dva pomocí geografická replikace [webové aplikace pro kontejnery](../app-service/containers/index.yml) instance. Uvidíte, jak Azure automaticky nasadí bitovou kopii k jednotlivým instancím webovou aplikaci z nejbližšího geograficky replikované úložiště.
+Registr kontejnerů Azure je privátní registr Dockeru nasazený v Azure, který můžete uchovávat v síti blízké vašim nasazením. V této sérií tří kurzů zjistíte, jak s využitím geografické replikace nasadit webovou aplikaci ASP.NET Core spuštěnou v kontejneru Linuxu do dvou instancí služby [Web App for Containers](../app-service/containers/index.yml). Uvidíte, jak Azure automaticky nasadí image do obou instancí webové aplikace z nejbližšího geograficky replikovaného úložiště.
 
-V tomto kurzu první část v řadě tří částí:
+V tomto kurzu, který je první částí třídílné série, se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořit kontejner Azure geograficky replikované registru
-> * Klonování zdrojovému kódu aplikace z webu GitHub
-> * Sestavení Docker kontejneru bitové kopie ze zdroje aplikace
-> * Nabízená bitovou kopii kontejneru v registru
+> * Vytvoření geograficky replikovaného registru kontejnerů Azure
+> * Klonování zdrojového kódu aplikace z GitHubu
+> * Sestavení image kontejneru Dockeru ze zdroje aplikace
+> * Nasdílení image kontejneru do registru
 
-V následujících kurzech můžete nasadit kontejner z vaší privátní registru pro webové aplikace spuštěna v dvou oblastech Azure. Pak aktualizujte kód v aplikaci a aktualizovat obě instance webové aplikace s jedním `docker push` do registru.
+V dalších kurzech nasadíte kontejner ze svého privátního registru do webové aplikace spuštěné ve dvou oblastech Azure. Pak aktualizujete kód aplikace a pomocí jediného příkazu `docker push` pro váš registr aktualizujete obě instance webové aplikace.
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.20 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Tento kurz vyžaduje použití Azure CLI verze 2.0.20 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 V tomto kurzu se předpokládá základní znalost klíčových konceptů Dockeru, jako jsou kontejnery, image kontejnerů a základní příkazy Dockeru. V případě potřeby najdete základní informace o kontejnerech v článku [Get started with Docker]( https://docs.docker.com/get-started/) (Začínáme s Dockerem).
 
 K dokončení tohoto kurzu potřebujete vývojové prostředí pro Docker. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-Prostředí Azure Cloud neobsahuje součásti Docker nutné pro dokončení každý krok v tomto kurzu. Proto doporučujeme místní instalace rozhraní příkazového řádku Azure a nástrojem Docker vývojového prostředí.
+Azure Cloud Shell neobsahuje součásti Dockeru nutné pro dokončení všech kroků v tomto kurzu. Proto doporučujeme místní instalaci Azure CLI a vývojového prostředí pro Docker.
 
 > [!IMPORTANT]
-> Geografická replikace funkce registru kontejner Azure je aktuálně v **preview**. Verze Preview jsou k dispozici pro vás, za předpokladu, že souhlasíte se [dodatečné podmínky použití](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Některé aspekty této funkce může změnit před obecné dostupnosti (GA).
+> Funkce geografické replikace ve službě Azure Container Registry je aktuálně ve verzi **Preview**. Verze Preview vám zpřístupňujeme pod podmínkou, že budete souhlasit s [dodatečnými podmínkami použití](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Některé aspekty této funkce se můžou před zveřejněním změnit.
 >
 
 ## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
 
-Přihlaste se k webu [Azure Portal](http://portal.azure.com).
+Přihlaste se k [portálu Azure](http://portal.azure.com).
 
-Vyberte **nové** > **kontejnery** > **kontejner Azure registru**.
+Vyberte **Vytvořit prostředek** > **Kontejnery** > **Azure Container Registry**.
 
-![Vytváření kontejneru registru na portálu Azure][tut-portal-01]
+![Vytvoření registru kontejnerů na webu Azure Portal][tut-portal-01]
 
-Vaše nové registru nakonfigurujte následující nastavení:
+Nakonfiguruje nový registr pomocí následujících nastavení:
 
-* **Název registru**: Vytvořte název registru, který je globálně jedinečný v rámci Azure a obsahuje alfanumerické znaky 5 – 50
-* **Skupina prostředků**: **vytvořit nové** > `myResourceGroup`
-* **Umístění**:`West US`
-* **Uživatel s oprávněními správce**: `Enable` (povinné pro webovou aplikaci pro kontejnery bitové kopie pro vyžádání obsahu)
-* **Skladová položka**: `Premium` (požadováno pro geografická replikace)
+* **Název registru:** Vytvořte název registru, který je globálně jedinečný v rámci Azure a obsahuje 5 až 50 alfanumerických znaků.
+* **Skupina prostředků:** **Vytvořit novou** > `myResourceGroup`
+* **Umístění:** `West US`
+* **Uživatel s rolí správce:** `Enable` (vyžadováno službou Web App for Containers ke stahování imagí)
+* **Skladová položka:** `Premium` (vyžadováno pro geografickou replikaci)
 
-Vyberte **vytvořit** nasazení ACR instance.
+Vyberte **Vytvořit** a nasaďte instanci služby ACR.
 
-![Vytváření kontejneru registru na portálu Azure][tut-portal-02]
+![Vytvoření registru kontejnerů na webu Azure Portal][tut-portal-02]
 
-Po celý zbytek v tomto kurzu používáme `<acrName>` jako zástupný symbol pro kontejner **název registru** který jste si zvolili.
+V celé zbývající části tohoto kurzu používáme `<acrName>` jako zástupný symbol pro **Název registru** kontejnerů, který jste zvolili.
 
 > [!TIP]
-> Protože registrech kontejner Azure jsou obvykle dlohotrvající prostředky, které se používají ve víc hostitelích kontejneru, doporučujeme vytvořit v registru v vlastní skupině prostředků. Při konfiguraci geograficky replikované registrech a pomocí webhooků, tyto další prostředky jsou umístěny ve stejné skupině prostředků.
+> Vzhledem k tomu, že registry kontejnerů Azure jsou obvykle dlouhodobé prostředky, které se používají na více hostitelích kontejnerů, doporučujeme vytvořit registr ve vlastní skupině prostředků. Když budete konfigurovat geograficky replikované registry a webhooky, umístí se tyto další prostředky do stejné skupiny prostředků.
 >
 
 ## <a name="configure-geo-replication"></a>Konfigurace geografické replikace
 
-Teď, když máte registru Premium, můžete nakonfigurovat geografická replikace. Webové aplikace, které nakonfigurujete v dalším kurzu ke spuštění ve dvou oblastí, potom můžete načítat jeho kontejneru bitové kopie z nejbližší registru.
+Když teď máte registr úrovně Premium, můžete nakonfigurovat geografickou replikaci. Vaše webová aplikace, kterou v dalším kurzu nakonfigurujete pro spouštění ve dvou oblastech, si pak bude moci stáhnout image kontejnerů z nejbližšího registru.
 
-Přejděte do vaší nové registru kontejneru ve službě Azure portálu a vyberte možnost **replikace** pod **služby**:
+Na webu Azure Portal přejděte do svého nového registru kontejnerů a v části **SLUŽBY** vyberte **Replikace**.
 
-![Replikace v registru kontejner Azure portálu uživatelského rozhraní][tut-portal-03]
+![Replikace v uživatelském rozhraní registru kontejnerů na webu Azure Portal][tut-portal-03]
 
-Zobrazí mapu zobrazující zelená Šestiúhelníky představující oblastí Azure k dispozici pro geografická replikace:
+Zobrazí se mapa se zelenými šestiúhelníky, které představují oblasti Azure dostupné pro geografickou replikaci:
 
- ![Oblasti map na portálu Azure][tut-map-01]
+ ![Mapa oblastí na webu Azure Portal][tut-map-01]
 
-Replikovat vaše registru pro oblast východní USA výběrem jeho zelená šestiúhelník a pak vyberte **vytvořit** pod **vytvoření replikace**:
+Replikujte svůj registr do oblasti USA – východ tak, že vyberete příslušný zelený šestiúhelník a pak v části **Vytvořit replikaci** vyberete **Vytvořit**:
 
- ![Vytvoření replikace uživatelského rozhraní na portálu Azure][tut-portal-04]
+ ![Vytvoření replikace v uživatelském rozhraní na webu Azure Portal][tut-portal-04]
 
-Po dokončení replikace na portálu odráží *připraven* pro obě oblasti. Použití **aktualizovat** tlačítko Aktualizovat stav replikace; může trvat několik minut nebo tak pro replik vytvořena a synchronizována.
+Po dokončení replikace se na portálu u obou oblastí zobrazí stav *Připraveno*. Pomocí tlačítka **Aktualizovat** aktualizujte stav replikace. Vytvoření a synchronizace replik může trvat několik minut.
 
-![Stav replikace uživatelského rozhraní na portálu Azure][tut-portal-05]
+![Stav replikace v uživatelském rozhraní na webu Azure Portal][tut-portal-05]
 
-## <a name="container-registry-login"></a>Kontejner registru přihlášení
+## <a name="container-registry-login"></a>Přihlášení k registru kontejneru
 
-Nyní, když jste nakonfigurovali geografická replikace, vytvořit bitovou kopii kontejneru a poslat ho přímo v registru. Musíte nejprve se přihlásit k vaší instanci ACR před odesláním bitové kopie do ní. S [Basic, Standard a Premium SKU](container-registry-skus.md), můžete ověřovat pomocí Azure identity.
+Když teď máte nakonfigurovanou geografickou replikaci, sestavte image kontejneru a nasdílejte ji do svého registru. Před nahráním imagí do instance služby ACR se k ní musíte přihlásit. Pokud máte [skladovou položku Basic, Standard nebo Premium](container-registry-skus.md), můžete se ověřit pomocí vlastní identity Azure.
 
-Použití [az acr přihlášení](https://docs.microsoft.com/cli/azure/acr#az_acr_login) příkaz k ověřování a přihlašovací údaje pro vaše registru do mezipaměti. Nahraďte `<acrName>` s názvem registru, který jste vytvořili v předchozích krocích.
+Pomocí příkazu [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) se ověřte a uložte do mezipaměti přihlašovací údaje pro váš registr. Nahraďte `<acrName>` názvem registru, který jste vytvořili v předchozích krocích.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Příkaz vrátí `Login Succeeded` při dokončení.
+Příkaz po dokončení vrátí zprávu `Login Succeeded` (Přihlášení bylo úspěšné).
 
 ## <a name="get-application-code"></a>Získání kódu aplikace
 
-Ukázka v tomto kurzu obsahuje malé webové aplikace vytvořené s [ASP.NET Core](http://dot.net). Aplikace slouží stránky HTML, která zobrazuje oblast, ze kterého byla nasazená bitovou kopii pomocí registru kontejner Azure.
+Ukázka v tomto kurzu zahrnuje malou webovou aplikaci vytvořenou v [ASP.NET Core](http://dot.net). Aplikace slouží jako stránka HTML zobrazující oblast, ze které služba Azure Container Registry nasadila image.
 
 ![Ukázková aplikace zobrazená v prohlížeči][tut-app-01]
 
-Stáhněte ukázku do místního adresáře pomocí git a `cd` do adresáře:
+Pomocí Gitu stáhněte ukázku do místního adresáře a pomocí příkazu `cd` do tohoto adresáře přejděte:
 
 ```bash
 git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-## <a name="update-dockerfile"></a>Aktualizovat soubor Docker
+## <a name="update-dockerfile"></a>Aktualizace souboru Dockerfile
 
-Soubor Docker zahrnuté v ukázce ukazuje, jak je integrovaná kontejneru. Spuštění z oficiální [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) bitovou kopii, kopie aplikace soubory do kontejneru, nainstaluje závislosti, budou kompilovány výstup pomocí oficiální [aspnetcore sestavení](https://store.docker.com/community/images/microsoft/aspnetcore-build) bitovou kopii a v neposlední řadě Vytvoří bitovou kopii optimalizované aspnetcore.
+Soubor Dockerfile, který je součástí ukázky, ukazuje postup sestavení kontejneru. Spustí se z oficiální image [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore), zkopíruje soubory aplikace do kontejneru, nainstaluje závislosti, zkompiluje výstup pomocí oficiální image [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build) a nakonec sestaví optimalizovanou image aspnetcore.
 
-Soubor Docker se nachází v `./AcrHelloworld/Dockerfile` ve zdroji klonovaný.
+Soubor Dockerfile se v naklonovaném zdroji nachází v umístění `./AcrHelloworld/Dockerfile`.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -146,9 +146,9 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-Aplikace *acr helloworld* bitové kopie se pokusí určit oblasti, ze kterého byla nasazená jejímu kontejneru pomocí dotazů DNS na informace o serveru přihlášení v registru. Musíte zadat adresu URL serveru přihlášení v registru v `DOCKER_REGISTRY` proměnné prostředí v soubor Docker.
+Aplikace v imagi *acr-helloworld* se pokouší určit oblast, ze které se nasadil její kontejner, dotazováním serveru DNS na informace o přihlašovacím serveru registru. Adresu URL přihlašovacího serveru vašeho registru musíte zadat do proměnné prostředí `DOCKER_REGISTRY` v souboru Dockerfile.
 
-Nejdřív získat v registru přihlašovací adresa URL serveru s `az acr show` příkaz. Nahraďte `<acrName>` s názvem registru, který jste vytvořili v předchozích krocích.
+Nejprve získejte adresu URL přihlašovacího serveru registru pomocí příkazu `az acr show`. Nahraďte `<acrName>` názvem registru, který jste vytvořili v předchozích krocích.
 
 ```azurecli
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
@@ -162,21 +162,21 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Potom aktualizujte `DOCKER_REGISTRY` řádku s adresou URL serveru přihlášení v registru. V tomto příkladu budeme aktualizovat řádek tak, aby odrážela registru náš příklad názvu *uniqueregistryname*:
+Pak aktualizujte řádek `DOCKER_REGISTRY` s použitím adresy URL přihlašovacího serveru vašeho registru. V tomto příkladu aktualizujeme řádek tak, aby odrážel název našeho ukázkového registru *uniqueregistryname*:
 
 ```dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 
-## <a name="build-container-image"></a>Vytvoření kontejneru image
+## <a name="build-container-image"></a>Sestavení image kontejneru
 
-Teď, když aktualizujete soubor Docker s adresou URL registru systému Windows můžete použít `docker build` vytvořit bitovou kopii kontejneru. Spusťte následující příkaz k vytvoření image a značky s adresou URL vaší privátní registru, znovu nahraďte `<acrName>` s názvem v registru:
+Když jste aktualizovali v souboru Dockerfile adresu URL vašeho registru, můžete teď pomocí příkazu `docker build` vytvořit image kontejneru. Spuštěním následujícího příkazu, ve kterém opět nahradíte `<acrName>` názvem vašeho registru, sestavte image a označte ji adresou URL vašeho privátního registru:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Víceřádkový výstupu se zobrazí jako bitovou kopii Docker vychází (tady zobrazené zkrácený):
+Během sestavování image Dockeru se zobrazí několik řádků výstupu (tady je zkrácený):
 
 ```bash
 Sending build context to Docker daemon  523.8kB
@@ -192,7 +192,7 @@ Successfully built c9ca1763cfb1
 Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```
 
-Použití `docker images` příkazu zobrazte vytvořené bitové kopie:
+Pomocí příkazu `docker images` zobrazte sestavenou image:
 
 ```bash
 docker images
@@ -206,15 +206,15 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 ...
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Push bitové kopie do registru kontejner Azure
+## <a name="push-image-to-azure-container-registry"></a>Nahrání image do služby Azure Container Registry
 
-Nakonec použijte `docker push` příkaz tak, aby nabízel *acr helloworld* bitové kopie do registru. Nahraďte `<acrName>` s názvem registru systému Windows.
+Nakonec pomocí příkazu `docker push` nasdílejte image *acr-helloworld* do svého registru. Nahraďte `<acrName>` názvem vašeho registru.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Vzhledem k tomu, že jste nakonfigurovali v registru pro geografická replikace, image se automaticky replikují do obou *západní USA* a *východní USA* oblasti tento jedné `docker push` příkaz.
+Vzhledem k tomu, že jste pro registr nakonfigurovali geografickou replikaci, vaše image se pomocí tohoto jediného příkazu `docker push` automaticky replikuje do oblasti *USA – západ* i *USA – východ*.
 
 Výstup:
 
@@ -232,18 +232,18 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste vytvořili kontejner privátní, geograficky replikované registru, vytvořené bitové kopie kontejner a pak instaluje této bitové kopie do registru. Podle kroků v tomto kurzu jste:
+V tomto kurzu jste vytvořili privátní a geograficky replikovaný registr kontejnerů, sestavili jste image kontejneru a pak jste image nasdíleli do svého registru. Podle kroků v tomto kurzu jste:
 
 > [!div class="checklist"]
-> * Vytvořit kontejner Azure geograficky replikované registru
-> * Klonovaná aplikace zdrojového kódu z Githubu
-> * Vytvořené bitové kopie kontejner Docker ze zdroje aplikace
-> * Nainstaluje bitovou kopii kontejneru do registru
+> * Vytvořili geograficky replikovaný registr kontejnerů Azure
+> * Naklonovali zdrojový kód aplikace z GitHubu
+> * Sestavili image kontejneru Dockeru ze zdroje aplikace
+> * Nasdíleli image kontejneru do svého registru
 
-Přechodu na další kurzu se dozvíte o nasazení více webových aplikací pro kontejnery instancí pomocí geografická replikace k obsluze místně bitové kopie vašeho kontejneru.
+Přejděte k dalšímu kurzu, kde zjistíte, jak nasadit kontejner do více instancí služby Web App for Containers s využitím geografické replikace k místní obsluze imagí.
 
 > [!div class="nextstepaction"]
-> [Nasazení webové aplikace z registru kontejner Azure](container-registry-tutorial-deploy-app.md)
+> [Nasazení webové aplikace ze služby Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

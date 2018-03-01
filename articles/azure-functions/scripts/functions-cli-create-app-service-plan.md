@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skriptu ukázkové – vytvoření aplikace pro funkce v rámci plánu služby App Service | Microsoft Docs"
-description: "Azure CLI skriptu ukázkové – vytvoření aplikace pro funkce v rámci plánu služby App Service"
+title: "Ukázkový skript Azure CLI – Vytvoření aplikace funkcí v plánu služby App Service | Microsoft Docs"
+description: "Ukázkový skript Azure CLI – Vytvoření aplikace funkcí v plánu služby App Service"
 services: functions
 documentationcenter: functions
 author: syntaxc4
@@ -13,28 +13,30 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 04/11/2017
+ms.date: 10/22/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c7868dda1e00882a944ac61d838c8b8987d5e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: c035eabe966eed97ce8c1df1e4ffba327f07ccac
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-function-app-in-an-app-service-plan"></a>Vytvoření aplikace pro funkce v rámci plánu služby App Service
+# <a name="create-a-function-app-in-an-app-service-plan"></a>Vytvoření aplikace funkcí v plánu služby App Service
 
-Tento ukázkový skript vytvoří aplikace funkce Azure, což je kontejner pro funkcí. Funkce aplikace je vytvořený pomocí vyhrazené plán služby App Service, což znamená, že vaše prostředky serveru jsou vždy zapnuty.
+Tento ukázkový skript Azure Functions vytvoří aplikaci funkcí, což je kontejner pro vaše funkce. Vytvářená aplikace funkcí využívá vyhrazený plán služby App Service, což znamená, že prostředky vašeho serveru jsou vždy zapnuté.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Ukázkový skript
 
-Tento skript vytvoří aplikace funkce Azure pomocí vyhrazená [plán služby App Service](../functions-scale.md#app-service-plan).
+Tento skript vytvoří aplikaci funkcí Azure s použitím vyhrazeného [plánu služby App Service](../functions-scale.md#app-service-plan).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
 
@@ -42,17 +44,17 @@ Tento skript vytvoří aplikace funkce Azure pomocí vyhrazená [plán služby A
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz. Tento skript používá následující příkazy:
+Každý příkaz v tabulce odkazuje na příslušnou část dokumentace. Tento skript používá následující příkazy:
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvořit účet úložiště az](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet úložiště Azure. |
-| [Vytvořit plán aplikační služby az](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Vytvoří plán služby App Service. |
-| [Vytvoření az functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Vytvoří aplikaci Azure funkce. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet služby Azure Storage. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Vytvoří plán služby App Service. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Vytvoří aplikaci funkcí Azure. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Další ukázky skriptu rozhraní příkazového řádku funkce Azure lze nalézt v [dokumentace Azure Functions](../functions-cli-samples.md).
+Další ukázkové skripty rozhraní příkazového řádku pro službu Azure Functions najdete v [dokumentaci ke službě Azure Functions](../functions-cli-samples.md).

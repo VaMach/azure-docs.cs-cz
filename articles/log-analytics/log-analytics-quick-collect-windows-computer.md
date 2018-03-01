@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 4462276724628de09fdefb21ff0f3eb61561a09e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 34b275ad964d9617e116de608583059d973205aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>Shromažďování dat z počítačů s Windows hostovaných ve vašem prostředí
 [Azure Log Analytics](log-analytics-overview.md) může shromažďovat data přímo z fyzických nebo virtuálních počítačů s Windows a dalších prostředků ve vašem prostředí do jednoho úložiště pro účely podrobných analýz a korelace.  Tento rychlý start ukazuje, jak v několik snadných krocích nakonfigurovat počítač s Windows a shromažďovat z něj data.  Informace týkající se virtuálních počítačů Azure s Windows najdete v tématu [Shromažďování dat o virtuálních počítačích Azure](log-analytics-quick-collect-azurevm.md).  
@@ -32,7 +32,7 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Vytvoření pracovního prostoru
-1. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.<br><br> ![portál Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.<br><br> ![portál Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Klikněte na **Vytvořit** a podle potřeby změňte hodnoty následujících položek:
 
   * Zadejte název nového **pracovního prostoru OMS**, například *DefaultLAWorkspace*. 
@@ -49,7 +49,7 @@ Během ověřování informací a vytváření pracovního prostoru můžete pr�
 ## <a name="obtain-workspace-id-and-key"></a>Získání ID a klíče pracovního prostoru
 Před instalací agenta Microsoft Monitoring Agent pro Windows potřebujete ID a klíč vašeho pracovního prostoru Log Analytics.  Tyto informace vyžaduje průvodce instalací ke správné konfiguraci agenta a zajištění, aby agent mohl úspěšně komunikovat s Log Analytics.  
 
-1. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
+1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 2. V seznamu pracovních prostorů Log Analytics vyberte *DefaultLAWorkspace* vytvořený dříve.
 3. Vyberte **Upřesňující nastavení**.<br><br> ![Upřesňující nastavení Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Vyberte **Připojené zdroje** a pak **Servery Windows**.   
@@ -76,7 +76,7 @@ Po dokončení se **Microsoft Monitoring Agent** zobrazí v **Ovládacích panel
 ## <a name="collect-event-and-performance-data"></a>Shromažďování dat o událostech a výkonu
 Log Analytics může shromažďovat události z protokolu událostí Windows a z čítačů výkonu, které určíte pro dlouhodobější analýzu a generování sestav, a provést akci při zjištění konkrétní podmínky.  Postupujte podle těchto kroků a pro začátek nakonfigurujte shromažďování událostí z protokolu událostí Windows a několika běžných čítačů výkonu.  
 
-1. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
+1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 2. Vyberte **Upřesňující nastavení**.<br><br> ![Upřesňující nastavení Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br> 
 3. Vyberte **Data** a pak vyberte **Protokoly událostí systému Windows**.  
 4. Protokol událostí přidáte zadáním názvu protokolu.  Zadejte **Systém** a klikněte na symbol plus **+**.  

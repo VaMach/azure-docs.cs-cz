@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>vytvořit účet úložiště
 
@@ -161,7 +161,7 @@ Při pojmenování účtu úložiště mějte na paměti tato pravidla:
 
 Pokud chcete vytvořit účet úložiště pro obecné účely verze 2 na webu Azure Portal, postupujte takto:
 
-1. Na webu Azure Portal rozbalením nabídky na levé straně otevřete nabídku služeb a zvolte **Další služby**. Potom přejděte dolů do části **Úložiště** a zvolte **Účty úložiště**. V okně **Účty úložiště**, které se zobrazí, zvolte **Přidat**.
+1. Na webu Azure Portal rozbalením nabídky na levé straně otevřete nabídku služeb a zvolte **Všechny služby**. Potom přejděte dolů do části **Úložiště** a zvolte **Účty úložiště**. V okně **Účty úložiště**, které se zobrazí, zvolte **Přidat**.
 2. Zadejte název účtu úložiště.
 3. V poli **Druh účtu** nastavte hodnotu **StorageV2 (v2 pro obecné účely)**.
 4. V poli **Replikace** nechte nastavenou hodnotu **Místně redundantní úložiště (LRS)**. Alternativně můžete zvolit **Zónově redundantní úložiště (ZRS Preview)**, **Geograficky redundantní úložiště (GRS)** nebo **Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)**.

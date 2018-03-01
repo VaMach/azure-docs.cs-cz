@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: de35254183798dd0aea32b63eb0689d33ae5b247
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Vytvoření serveru Azure Database for PostgreSQL na webu Azure Portal
 
@@ -30,7 +30,7 @@ Otevřete webový prohlížeč a přejděte na [portál](https://portal.azure.co
 Server Azure Database for PostgreSQL se vytvoří s definovanou sadou [výpočetních prostředků a prostředků úložiště](./concepts-compute-unit-and-storage.md). Server se vytvoří v rámci [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md).
 
 Server Azure Database for PostgreSQL vytvoříte pomocí tohoto postupu:
-1. Vyberte tlačítko **Nový** (+) v levém horním rohu portálu.
+1. Vyberte tlačítko **Vytvořit prostředek** (+) v levém horním rohu portálu.
 
 2. Vyberte **Databáze** > **Azure Database for PostgreSQL**.
 

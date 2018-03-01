@@ -1,73 +1,60 @@
 ---
-title: "Azure CLI skriptu ukázkové – vytvoření účtu Batch | Microsoft Docs"
-description: "Azure CLI skriptu ukázkové – vytvoření účtu Batch"
+title: "Ukázkový skript Azure CLI – Vytvoření účtu Batch – Služba Batch | Microsoft Docs"
+description: "Ukázkový skript Azure CLI – Vytvoření účtu Batch v režimu služby Batch"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Vytvoření účtu Batch pomocí rozhraní příkazového řádku Azure
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Příklad rozhraní příkazového řádku: Vytvoření účtu Batch v režimu služby Batch
 
-Tento skript vytvoří účet Azure Batch a ukazuje, jak různé vlastnosti účtu může být dotaz a aktualizovat.
+Tento skript vytvoří účet Azure Batch v režimu služby Batch a předvede dotazování a aktualizaci různých vlastností účtu. Při vytvoření účtu Batch ve výchozím režimu služby Batch se jeho výpočetní uzly přiřadí interně službou Batch. Na přidělené výpočetní uzly se vztahuje samostatná kvóta virtuálních procesorů (jader) a účet se může ověřovat přes přihlašovací údaje sdíleného klíče nebo token Azure Active Directory.
 
-## <a name="prerequisites"></a>Požadavky
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Instalace rozhraní příkazového řádku Azure pomocí pokynů uvedených v [Průvodce instalací Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), pokud jste tak již neučinili.
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít verzi Azure CLI 2.0.20 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="batch-account-sample-script"></a>Ukázkový skript účtu batch
+## <a name="example-script"></a>Ukázkový skript
 
-Při vytváření účtu Batch, ve výchozím nastavení jeho výpočetní uzly jsou přiřazeny interně službou Batch. Přidělené výpočetní uzly budou platit samostatné základní kvóta a účet může být ověřen prostřednictvím pověření sdílený klíč nebo Azure Active Dirctory tokenu.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
-
-## <a name="batch-account-using-user-subscription-sample-script"></a>Účet batch pomocí uživatele předplatné ukázkový skript
-
-Můžete také zvolit Batch vytvořit jeho výpočetní uzly v rámci vlastní předplatného Azure.
-Účty, které přidělit výpočetní uzly do předplatného musí být ověřeny pomocí tokenu Azure Active Directory a výpočetních uzlů přidělených se bude započítávat kvóty předplatného. Chcete-li vytvořit účet v tomto režimu, jeden musíte zadat odkaz Key Vault při vytváření účtu.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení
 
-Po spuštění některý z výše uvedené ukázkové skripty, pomocí následujícího příkazu odeberte skupinu zdrojů a všechny související prostředky (včetně účty Batch, účty Azure Storage a Azure trezorů klíčů).
+Spuštěním následujícího příkazu odeberte skupinu prostředků a všechny k ní přidružené prostředky.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy k vytvoření skupiny prostředků účtu Batch a všechny související prostředky. Každý příkaz v tabulce odkazy na dokumentaci specifické pro příkaz.
+Tento skript používá následující příkazy. Každý příkaz v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvoření účtu batch az](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Vytvoří účet Batch.  |
-| [nastaven účet batch az](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | Aktualizace vlastnosti účtu Batch.  |
-| [Zobrazit účet batch az](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Načte podrobnosti zadaného účtu Batch.  |
-| [seznam klíčů účtu batch az](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Načte přístupové klíče zadaného účtu Batch.  |
-| [připojení k účtu batch az](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Ověří proti zadaný účet Batch pro další interakce rozhraní příkazového řádku.  |
-| [Vytvořit účet úložiště az](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet úložiště. |
-| [Vytvoření az keyvault](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Vytvoří trezoru klíčů. |
-| [AZ keyvault set zásad](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Aktualizujte zásady zabezpečení zadaný trezor klíčů. |
-| [Odstranění skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Odstraní skupinu prostředků, včetně všech vnořených prostředků. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Vytvoří účet Batch. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet úložiště. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Aktualizuje vlastnosti účtu Batch.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Načte podrobnosti o zadaném účtu Batch.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Načte přístupové klíče zadaného účtu Batch.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Provede ověření v zadaném účtu Batch pro další práci s rozhraním příkazového řádku.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Odstraní skupinu prostředků včetně všech vnořených prostředků. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Další ukázky skriptu Batch rozhraní příkazového řádku najdete v [dokumentaci k rozhraní příkazového řádku Azure Batch](../batch-cli-samples.md).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](/cli/azure/overview).

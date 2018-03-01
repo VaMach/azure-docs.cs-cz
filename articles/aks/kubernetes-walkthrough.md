@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 03/20/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Nasazení clusteru Azure Container Service (AKS)
 
@@ -25,7 +25,7 @@ V tomto rychlém startu se předpokládá základní znalost konceptů Kubernete
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI][azure-cli-install].
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít Azure CLI verze 2.0.27 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI][azure-cli-install].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Povolení služby AKS Preview pro předplatné Azure
 Zatímco je služba AKS ve verzi Preview, k vytváření nových clusterů se vyžaduje příznak funkce na vašem předplatném. O tuto funkci můžete požádat pro libovolný počet předplatných, která chcete použít. Pomocí příkazu `az provider register` zaregistrujte poskytovatele služby AKS:
@@ -209,18 +209,6 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Teď můžete přejít na externí IP adresu a zobrazit aplikaci Azure Vote.
 
 ![Obrázek přechodu na aplikaci Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
-
-## <a name="open-kubernetes-dashboard"></a>Otevření řídicího panelu Kubernetes
-
-Pomocí Azure CLI je možné také nastavit připojení k řídicímu panelu Kubernetes. K tomu použijte příkaz [az aks browse][az-aks-browse].
-
-```azurecli-interactive
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-Po spuštění se v prohlížeči otevře řídicí panel Kubernetes.
-
-![Řídicí panel Kubernetes](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
 
 ## <a name="delete-cluster"></a>Odstranění clusteru
 

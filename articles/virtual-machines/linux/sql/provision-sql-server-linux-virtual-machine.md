@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Zřízení virtuálního počítače s Linuxem a SQL Serverem na webu Azure Portal
 
@@ -41,9 +41,9 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-1. V levém podokně klikněte na **Nový**.
+1. V levém podokně klikněte na **Vytvořit prostředek**.
 
-1. V podokně **Nový** klikněte na **Compute**.
+1. V podokně **Vytvořit prostředek** klikněte na **Compute**.
 
 1. Klikněte na **Zobrazit vše** vedle nadpisu **Vybrané**.
 

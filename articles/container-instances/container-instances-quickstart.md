@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4c7f48c993d66dd79538fd73ccaed1355c2e8cdd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d2d317d6c66aa0fb81779c3a8a192b6a50571d1f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Vytvoření prvního kontejneru ve službě Azure Container Instances
 Služba Azure Container Instances usnadňuje vytváření a správu kontejnerů Dockeru v Azure, aniž byste museli zřizovat virtuální počítače nebo používat službu vyšší úrovně. V tomto rychlém startu vytvoříte kontejner v Azure a zveřejníte ho na internetu s použitím veřejné IP adresy. K dokončení této operace stačí jediný příkaz. Během několika sekund uvidíte ve svém prohlížeči toto:
@@ -40,41 +40,32 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Vytvoření kontejneru
 
-Kontejner můžete vytvořit zadáním názvu, image Dockeru a skupiny prostředků Azure do příkazu [az container create][az-container-create]. Volitelně můžete kontejner zveřejnit na internetu s použitím veřejné IP adresy. V tomto rychlém startu nasadíte kontejner, který je hostitelem malé webové aplikace napsané v [Node.js][node-js].
+Kontejner můžete vytvořit zadáním názvu, image Dockeru a skupiny prostředků Azure do příkazu [az container create][az-container-create]. Volitelně můžete kontejner zveřejnit na internetu zadáním popisku názvu DNS. V tomto rychlém startu nasadíte kontejner, který je hostitelem malé webové aplikace napsané v [Node.js][node-js].
+
+Spuštěním následujícího příkazu spusťte instanci kontejneru. Hodnota `--dns-name-label` musí být jedinečná v rámci oblasti Azure, ve které instanci vytváříte, takže ji možná budete muset pro zajištění jedinečnosti upravit.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
 Během několika sekund byste měli obdržet odpověď na váš požadavek. Zpočátku je kontejner ve stavu **Vytváření**, ale během několika sekund by se měl spustit. Stav můžete zkontrolovat pomocí příkazu [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
+az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-V dolní části výstupu se zobrazí stav zřizování kontejneru a jeho IP adresa:
+Po spuštění příkazu se zobrazí plně kvalifikovaný název domény kontejneru a stav jeho zřizování:
 
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    },
-    "location:": "eastus",
-    "name": "mycontainer",
-    "osType": "Linux",
-    "provisioningState": "Succeeded"
-...
+```console
+$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+FQDN                               ProvisioningState
+---------------------------------  -------------------
+aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Jakmile se kontejner přesune do stavu **Úspěšné**, můžete k němu přistoupit v prohlížeči pomocí zadané IP adresy.
+Jakmile se kontejner přesune do stavu **Úspěšné**, můžete k němu přistoupit v prohlížeči přechodem na jeho plně kvalifikovaný název domény:
 
-![Aplikace nasazená pomocí služby Azure Container Instances zobrazená v prohlížeči][aci-app-browser]
+![Snímek obrazovky prohlížeče ukazující aplikaci spuštěnou v instanci kontejneru Azure][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Vyžádání protokolů kontejneru
 

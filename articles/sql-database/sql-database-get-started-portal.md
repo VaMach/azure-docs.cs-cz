@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal: Vytvoření databáze SQL | Microsoft Docs"
-description: "Vytvořte logický server služby SQL Database, pravidlo brány firewall na úrovni serveru a databázi na portálu Azure Portal a dotazujte ji."
+title: "Azure Portal: Vytvoření databáze SQL | Dokumentace Microsoftu"
+description: "Vytvořte logický server služby SQL Database, pravidlo brány firewall na úrovni serveru a databázi na webu Azure Portal a dotazujte ji."
 keywords: "kurz k sql database, vytvoření databáze sql"
 services: sql-database
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 02/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Vytvoření databáze SQL Azure na portálu Azure Portal
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Vytvoření databáze SQL Azure na webu Azure Portal
 
-Tento úvodní kurz vás provede postupy vytvoření databáze SQL v Azure. Azure SQL Database je nabídka „databáze jako služby“, která umožňuje spouštění a škálování vysoce dostupné databáze SQL Serveru v cloudu. Tento rychlý start ukazuje, jak začít tím, že vytvoříte databázi SQL pomocí portálu Azure Portal.
+Tento úvodní kurz vás provede postupy vytvoření databáze SQL v Azure. Azure SQL Database je nabídka „databáze jako služby“, která umožňuje spouštění a škálování vysoce dostupné databáze SQL Serveru v cloudu. Tento rychlý start ukazuje, jak začít tím, že vytvoříte databázi SQL pomocí webu Azure Portal.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -38,7 +38,7 @@ Databáze SQL Azure se vytvoří s definovanou sadou [výpočetních prostředk�
 
 Postupujte podle následujících kroků a vytvořte databázi SQL obsahující ukázková data Adventure Works LT.
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Na stránce **Nový** vyberte **Databáze** a v části **Databáze SQL** na stránce **Nový** vyberte **Vytvořit**.
 
@@ -136,7 +136,7 @@ Nyní se můžete z této IP adresy připojit k serveru SQL Database a jeho data
 
 ## <a name="query-the-sql-database"></a>Dotazování databáze SQL
 
-Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít integrovaný dotazovací nástroj na portálu Azure Portal k potvrzení, že se můžete připojit k databázi a zadávat dotazy na data.
+Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít integrovaný dotazovací nástroj na webu Azure Portal k potvrzení, že se můžete připojit k databázi a zadávat dotazy na data.
 
 1. Na stránce služby SQL Database pro vaši databázi klikněte v nabídce vlevo na **Editor dotazů (Preview)** a pak klikněte na **Přihlášení**.
 
@@ -164,7 +164,7 @@ Teď, když jste vytvořili ukázkovou databázi v Azure, můžete použít inte
 Uložte tyto prostředky, pokud chcete přejít na [Další kroky](#next-steps) a seznámit se s několika způsoby, jak se připojit k databázi a dotazovat ji. Pokud však chcete prostředky vytvořené v rámci tohoto rychlého startu odstranit, použijte následující postup.
 
 
-1. Na portálu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak na **myResourceGroup**.
+1. Na webu Azure Portal v nabídce vlevo klikněte na **Skupiny prostředků** a pak na **myResourceGroup**.
 2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte **myResourceGroup** a pak klikněte na **Odstranit**.
 
 ## <a name="next-steps"></a>Další kroky

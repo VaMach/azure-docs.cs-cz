@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Nasazení
 
@@ -28,7 +28,7 @@ V této lekci nakonfigurujete vlastnosti nasazení – zadáte server služby Az
 Odhadovaný čas dokončení této lekce: **5 minut**  
   
 ## <a name="prerequisites"></a>Požadavky  
-Toto téma je součástí kurzu tabulkového modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 12: Analýza v aplikaci Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Tento článek je součástí kurzu tabulkového modelování, který by se měl dokončit v daném pořadí. Před provedením úkolů v této lekci byste měli mít dokončenou předchozí lekci: [Lekce 12: Analýza v aplikaci Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Abyste mohli nasadit vzdálený server služby Analysis Services, musíte k němu mít [oprávnění správce](../analysis-services-server-admins.md).  
@@ -67,6 +67,9 @@ Toto téma je součástí kurzu tabulkového modelování, který by se měl dok
   
 3. Po úspěšném dokončení nasazení pokračujte kliknutím na **Zavřít**.  
   
+
+Tato lekce popisuje nejběžnější a nejjednodušší metodu nasazení tabulkového modelu z SSDT. Pokročilé možnosti nasazení, jako je Průvodce nasazením nebo automatizace pomocí XMLA a AMO, poskytují lepší flexibilitu, konzistenci a plánovaná nasazení. Další informace najdete v tématu [Nasazení řešení tabulkového modelu](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Závěr  
 Blahopřejeme! Vytvořili a nasadili jste první tabelární model služby Analysis Services. Tento kurz vás provedl dokončením nejběžnějších úkolů v rámci vytváření tabelárního modelu. Teď, když je váš model Adventure Works Internet Sales nasazený, můžete ho spravovat pomocí aplikace SQL Server Management Studio, vytvořit skripty pro zpracování a plán zálohování. Uživatelé se nyní také můžou k modelu připojit pomocí klientské aplikace pro vytváření sestav, jako je Microsoft Excel nebo Power BI.  
 

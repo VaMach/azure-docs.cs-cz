@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5316add4b7806a03e777aee1757841ed866070
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Začínáme s Azure Data Lake Analytics s využitím webu Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -34,7 +34,7 @@ Než začnete tento kurz, musíte mít **předplatné Azure**. Viz [Získání b
 Teď zároveň vytvoříte účet Data Lake Analytics a Data Lake Store.  Tento krok je jednoduchý a trvá jen asi 60 vteřin.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na **Nový** >  **Data a analýzy** > **Data Lake Analytics**.
+2. Klikněte na **Vytvořit prostředek** >  **Data a analýzy** > **Data Lake Analytics**.
 3. Vyberte hodnoty pro následující položky:
    * **Název:** Pojmenujte svůj účet Data Lake Analytics (povolena jsou pouze malá písmena a číslice).
    * **Předplatné**: Zvolte předplatné Azure použité pro účet Analytics.

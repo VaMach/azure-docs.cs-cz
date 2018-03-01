@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a8792588e013a0105ea57b20b2560f0acf02e6
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Začínáme s Azure Data Lake Store pomocí webu Azure Portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Před zahájením tohoto kurzu musíte mít tyto položky:
 ## <a name="create-an-azure-data-lake-store-account"></a>Vytvoření účtu Azure Data Lake Store
 
 1. Přihlaste se k novému webu [Azure Portal](https://portal.azure.com).
-2. Klikněte na položku **NOVÝ**, **Data + úložiště** a potom **Azure Data Lake Store**. Přečtěte si informace v okně **Azure Data Lake Store** a potom klikněte v levém dolním rohu okna na tlačítko **Vytvořit**.
+2. Klikněte na **Vytvořit prostředek**, pak na **Data a úložiště** a pak klikněte na **Azure Data Lake Store**. Přečtěte si informace v okně **Azure Data Lake Store** a potom klikněte v levém dolním rohu okna na tlačítko **Vytvořit**.
 3. V okně **Nová služba Data Lake Store** zadejte hodnoty tak, jak ukazuje následující snímek obrazovky:
    
     ![Vytvoření nového účtu Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Vytvoření nového účtu Azure Data Lake Store")

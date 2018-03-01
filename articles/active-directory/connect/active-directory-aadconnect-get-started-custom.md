@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2018
+ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Vlastní instalace služby Azure AD Connect
 **Vlastní nastavení** Azure AD Connect se používá, pokud chcete využít další možnosti instalace. Používá se, pokud máte víc doménových struktur, nebo pokud chcete nakonfigurovat volitelné funkce, které nejsou zahrnuty v rychlé instalaci. Používá se ve všech případech, kde možnost [**rychlá instalace**](active-directory-aadconnect-get-started-express.md) nevyhovuje nasazení nebo topologii.
@@ -39,7 +39,7 @@ Při instalaci služeb synchronizace můžete nechat volitelnou konfiguraci neza
 | Volitelná konfigurace | Popis |
 | --- | --- |
 | Použít existující server SQL Server |Umožňuje zadat název serveru SQL Server a název instance. Tuto možnost zvolte, pokud už máte databázový server, který chcete použít. Pokud SQL Server nemá povoleno procházení, zadejte do položky **Název instance** požadovaný název instance, za nímž následuje čárka a číslo portu. |
-| Použít existující účet služby |Ve výchozím nastavení použije Azure AD Connect virtuální účet služby, který můžou služby synchronizace používat. Pokud používáte vzdálený server SQL nebo používáte proxy server vyžadující ověření, potřebujete mít **účet spravované služby** nebo účet služby v dané doméně a znát heslo. V těchto případech zadejte účet, který chcete použít. Ujistěte se, jestli uživatel, který provádí instalaci, je SA v SQL, aby bylo možné vytvořit přihlašovací jméno pro účet služby. Viz téma [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). |
+| Použít existující účet služby |Ve výchozím nastavení použije Azure AD Connect virtuální účet služby, který můžou služby synchronizace používat. Pokud používáte vzdálený server SQL nebo používáte proxy server vyžadující ověření, potřebujete mít **účet spravované služby** nebo účet služby v dané doméně a znát heslo. V těchto případech zadejte účet, který chcete použít. Ujistěte se, jestli uživatel, který provádí instalaci, je SA v SQL, aby bylo možné vytvořit přihlašovací jméno pro účet služby.  Viz téma [Účty a oprávnění Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). </br></br>S nejnovějším sestavením teď může databáze vzdáleně zřizovat správce SQL a pak je instalovat správce služby Azure AD Connect s oprávněními vlastníka databáze.  Další informace najdete v tématu [Instalace služby Azure AD Connect pomocí oprávnění delegovaného správce SQL](active-directory-aadconnect-sql-delegation.md).|
 | Zadat vlastní skupiny pro synchronizaci |Ve výchozím nastavení vytvoří Azure AD Connect při instalaci služeb synchronizace čtyři skupiny, které jsou místní pro server. Jde o tyto skupiny: skupina Administrators, skupina Operators, skupina Browse a skupina Password Reset. Tady můžete zadat vlastní skupiny. Skupiny musí být místní na serveru a nemůžou být umístěny v doméně. |
 
 ### <a name="user-sign-in"></a>Přihlášení uživatele
@@ -96,7 +96,7 @@ Zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**.
 > Když povolíte předávací ověřování, musíte mít alespoň jednu ověřenou doménu, abyste mohli pokračovat v průvodci.
 
 > [!WARNING]
-> Použití atributu Alternativní ID není kompatibilní se všemi úlohami Office 365. Další informace najdete v tématu [Konfigurace alternativního přihlašovacího ID](https://technet.microsoft.com/library/dn659436.aspx).
+> Použití atributu Alternativní ID není kompatibilní se všemi úlohami Office 365. Další informace najdete v tématu [Konfigurace alternativního přihlašovacího ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 

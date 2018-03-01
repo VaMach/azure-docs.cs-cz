@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Začínáme s příjmem zpráv pomocí třídy Event Processor Host v .NET Standard
 
@@ -42,7 +42,7 @@ Prvním krokem je použití webu [Azure Portal](https://portal.azure.com) k vytv
 ## <a name="create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage  
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).  
-2. V levém navigačním podokně portálu klikněte na **Nový**, pak klikněte na **Úložiště** a pak na **Účet úložiště**.  
+2. V levém navigačním podokně portálu klikněte na **Vytvořit prostředek**, pak klikněte na **Úložiště** a pak na **Účet úložiště**.  
 3. Vyplňte pole v okně účtu úložiště a pak klikněte na **Vytvořit**.
 
     ![Vytvoření účtu úložiště][1]

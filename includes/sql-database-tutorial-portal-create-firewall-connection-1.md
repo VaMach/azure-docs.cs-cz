@@ -2,17 +2,17 @@
 
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Vytvořit prázdnou databázi SQL
+## <a name="create-a-blank-sql-database"></a>Vytvoření prázdné databáze SQL
 
 Databáze SQL Azure se vytvoří s definovanou sadou [výpočetních prostředků a prostředků úložiště](../articles/sql-database/sql-database-service-tiers.md). Databáze se vytvoří v rámci [skupiny prostředků Azure](../articles/azure-resource-manager/resource-group-overview.md) a na [logickém serveru Azure SQL Database](../articles/sql-database/sql-database-features.md). 
 
-Postupujte podle těchto kroků můžete vytvořit prázdnou databázi SQL. 
+Pomocí následujících kroků vytvořte prázdnou databázi SQL. 
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Na stránce **Nový** vyberte **Databáze** a v části **Databáze SQL** na stránce **Nový** vyberte **Vytvořit**.
 
-   ![Vytvořit prázdná databáze](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
+   ![Vytvoření prázdné databáze](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
 3. Vyplňte formulář databáze SQL pomocí následujících informací, jak je vidět na předchozím obrázku:   
 
@@ -21,7 +21,7 @@ Postupujte podle těchto kroků můžete vytvořit prázdnou databázi SQL.
    | **Název databáze** | mySampleDatabase | Platné názvy databází najdete v tématu [Identifikátory databází](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
    | **Předplatné** | Vaše předplatné  | Podrobnosti o vašich předplatných najdete v tématu [Předplatná](https://account.windowsazure.com/Subscriptions). |
    | **Skupina prostředků** | myResourceGroup | Platné názvy skupin prostředků najdete v tématu [Pravidla a omezení pojmenování](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Výběr zdroje** | Prázdná databáze | Určuje, že by měl být vytvořen prázdnou databázi. |
+   | **Výběr zdroje** | Prázdná databáze | Určuje, že se má vytvořit prázdná databáze. |
 
 4. Klikněte na **Server** a vytvořte a nakonfigurujte nový server pro novou databázi. Do **formuláře Nový server** zadejte následující informace: 
 
@@ -38,7 +38,7 @@ Postupujte podle těchto kroků můžete vytvořit prázdnou databázi SQL.
 
 6. Klikněte na **Cenová úroveň** a zadejte úroveň služby, počet DTU a velikost úložiště. Prozkoumejte možnosti pro množství DTU a velikost úložiště, které máte k dispozici na jednotlivých úrovních služby. 
 
-7. V tomto kurzu vyberte **standardní** úrovně služby a potom posuvníkem vyberte **100 Dtu (S3)** a **400** GB úložiště.
+7. Pro účely tohoto kurzu vyberte úroveň služby **Standard** a potom pomocí posuvníku vyberte **100 DTU (S3)** a **400** GB úložiště.
 
    ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -47,14 +47,14 @@ Postupujte podle těchto kroků můžete vytvořit prázdnou databázi SQL.
    > [!IMPORTANT]
    > \* Velikosti úložiště větší než velikost zahrnutého úložiště jsou ve verzi Preview a účtují se za ně další poplatky. Podrobnosti najdete na stránce s [cenami služby SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\*Ve vrstvě | Premium je více než 1 TB úložiště aktuálně k dispozici v následujících oblastech: Austrálie – východ, Austrálie – jihovýchod, Střední Kanada, Východní Kanada, Francie centrální, Německo centrální Japonsko – východ, centrální Korejská – Jih, střed USA – jih východní Asie, nám East2 , Západ USA, Virginia verze pro státní správu USA a západní Evropa. Viz [Aktuální omezení pro P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Na úrovni Premium je úložiště větší než 1 TB aktuálně dostupné v následujících oblastech: Austrálie – východ, Austrálie – jihovýchod, Kanada – střed, Kanada – východ, Francie – střed, Německo – střed, Japonsko – východ, Korea – střed, Střed USA – jih, Jihovýchodní Asie, USA – východ 2, USA – západ, USA (Gov) – Virginia a Západní Evropa. Viz [Aktuální omezení pro P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Po výběru úrovně služby, počtu DTU a velikosti úložiště klikněte na **Použít**.  
 
-10. Vyberte **kolace** pro prázdnou databázi (v tomto kurzu použijte výchozí hodnotu). Další informace o kolacích najdete v tématu [kolace](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Vyberte **kolaci** pro prázdnou databázi (pro účely tohoto kurzu použijte výchozí hodnotu). Další informace o kolacích najdete v tématu [Kolace](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
-11. Klikněte na **Vytvořit**, aby se databáze zřídila. Zřizování trvá o minutu a půl k dokončení. 
+11. Klikněte na **Vytvořit**, aby se databáze zřídila. Dokončení zřizování trvá přibližně minutu a půl. 
 
 12. Na panelu nástrojů klikněte na **Oznámení** a sledujte proces nasazení.
     
@@ -68,13 +68,13 @@ Služba SQL Database vytvoří bránu firewall na úrovni serveru, aby zabránil
 > SQL Database komunikuje přes port 1433. Pokud se pokoušíte připojit z podnikové sítě, nemusí být odchozí provoz přes port 1433 bránou firewall vaší sítě povolený. Pokud je to tak, nebudete se moct připojit k serveru Azure SQL Database, dokud vaše IT oddělení neotevře port 1433.
 >
 
-1. Po dokončení nasazení klikněte na **Databáze SQL** z nabídky na levé straně a klikněte na **mySampleDatabase** na stránce **Databáze SQL**. Otevře se stránka Přehled pro vaši databázi, ukazuje název plně kvalifikovaný serveru (například **mynewserver20170824.database.windows.net**) a poskytuje možnosti pro další konfiguraci. 
+1. Po dokončení nasazení klikněte na **Databáze SQL** z nabídky na levé straně a klikněte na **mySampleDatabase** na stránce **Databáze SQL**. Otevře se stránka s přehledem pro vaši databázi, na které se zobrazí plně kvalifikovaný název serveru (například **mynewserver20170824.database.windows.net**) a možnosti pro další konfiguraci. 
 
 2. Zkopírujte tento plně kvalifikovaný název serveru, abyste ho mohli použít pro připojení k serveru a jeho databázím v následujících rychlých startech. 
 
    ![název serveru](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Klikněte na tlačítko **nastavení brány firewall serveru** na panelu nástrojů. Otevře se stránka **Nastavení brány firewall** pro server služby SQL Database. 
+3. Na panelu nástrojů klikněte na **Nastavit bránu firewall serveru**. Otevře se stránka **Nastavení brány firewall** pro server služby SQL Database. 
 
    ![pravidlo brány firewall serveru](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 

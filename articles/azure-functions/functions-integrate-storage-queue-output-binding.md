@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 07b864c72696fbcfc0119b978e2ab9a51307291a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a17897dc76b47f3fb7b6eb5076160faf6c5ae9c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Přidání zpráv do fronty Azure Storage pomocí funkcí
 
@@ -40,7 +40,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 V této části použijete uživatelské rozhraní portálu pro přidání výstupní vazby úložiště front do funkce, kterou jste vytvořili dříve. Tato vazba umožní k vytvoření zprávy ve frontě napsat jen minimum kódu. Nemusíte psát kód pro úlohy, jako je otevření připojení úložiště, vytvoření fronty nebo získání odkazu na frontu. O tyto věci se z vás postarají modul runtime Azure Functions a výstupní vazba fronty.
 
-1. Na webu Azure Portal otevřete stránku pro aplikaci funkcí, kterou jste vytvořili v tématu [Vytvoření první funkce na webu Azure Portal](functions-create-first-azure-function.md). Stačí vybrat **Další služby > Aplikace funkcí** a potom vybrat vaši aplikaci.
+1. Na webu Azure Portal otevřete stránku pro aplikaci funkcí, kterou jste vytvořili v tématu [Vytvoření první funkce na webu Azure Portal](functions-create-first-azure-function.md). Stačí vybrat **Všechny služby > Aplikace funkcí** a pak vybrat vaši aplikaci funkcí.
 
 2. Vyberte funkci, kterou jste vytvořili v tomto dřívějším rychlém startu.
 

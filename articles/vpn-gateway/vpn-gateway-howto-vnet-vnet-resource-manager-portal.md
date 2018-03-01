@@ -4,7 +4,7 @@ description: "Vytvořte připojení brány VPN mezi virtuálními sítěmi pomoc
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurace propojení brány VPN typu VNet-to-VNet pomocí webu Azure Portal
 
-V tomto článku zjistíte, jak propojit virtuální sítě s použitím typu připojení VNet-to-VNet. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
+Tento článek vám pomůže propojit virtuální sítě s použitím typu připojení VNet-to-VNet. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
 
 Postupy v tomto článku se týkají modelu nasazení Resource Manager a používají Azure Portal. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 

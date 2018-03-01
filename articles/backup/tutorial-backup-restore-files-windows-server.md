@@ -1,83 +1,83 @@
 ---
-title: Obnovit soubory z Azure do Windows serveru | Microsoft Docs
-description: "V tomto kurzu podrobnosti obnovení položky z Azure do systému Windows Server."
+title: "Obnovení souborů z Azure do Windows Serveru | Microsoft Docs"
+description: "Tento kurz podrobně popisuje obnovení položek z Azure do Windows Serveru."
 services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
-keywords: "Zálohování serveru Windows; obnovení souborů systému windows server. zálohování a zotavení po havárii"
+keywords: windows server back up; restore files windows server; back up and disaster recovery
 ms.assetid: 
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: b5f77ec04ef6d267583a6dc6a4476f118a4d0f74
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="recover-files-from-azure-to-a-windows-server"></a>Obnovit soubory z Azure do systému Windows Server
+# <a name="recover-files-from-azure-to-a-windows-server"></a>Obnovení souborů z Azure do Windows Serveru
 
-Zálohování Azure umožňuje obnovení jednotlivých položek ze zálohy systému Windows Server. Obnovení jednotlivých souborů je užitečné, pokud musíte rychlé obnovení náhodně odstraněných souborů. Tento kurz popisuje, jak můžete použít Microsoft Azure Recovery Services agenta (MARS) agenta obnovení položek ze zálohy, které jste již provedli v Azure. V tomto kurzu se naučíte:
+Azure Backup umožňuje obnovení jednotlivých položek ze záloh Windows Serveru. Obnovení jednotlivých souborů je užitečné v případě, že musíte rychle obnovit náhodně odstraněné soubory. Tento kurz popisuje použití agenta služby Microsoft Azure Recovery Services (MARS) k obnovení souborů ze záloh, které jste už provedli v Azure. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Zahájit obnovení jednotlivých položek 
-> * Vyberte bod obnovení 
-> * Obnovení položky z bodu obnovení
+> * Zahájení obnovení jednotlivých položek 
+> * Výběr bodu obnovení 
+> * Obnovení položek z bodu obnovení
 
-Tento kurz předpokládá, že jste již provedli postup [zálohování Windows serveru na Azure](backup-configure-vault.md) a mít aspoň jednu zálohu souborů systému Windows Server v Azure.
+Tento kurz předpokládá, že jste už provedli postup [Zálohování Windows Serveru do Azure](backup-configure-vault.md) a že máte v Azure alespoň jednu zálohu vašich souborů Windows Serveru.
 
-## <a name="initiate-recovery-of-individual-items"></a>Zahájit obnovení jednotlivých položek
+## <a name="initiate-recovery-of-individual-items"></a>Zahájení obnovení jednotlivých položek
 
-Průvodce užitečné uživatelské rozhraní s názvem Microsoft Azure Backup se instaluje s agenta nástroje Microsoft Azure Recovery Services (MARS). Průvodce Microsoft Azure Backup pracuje s agenta nástroje Microsoft Azure Recovery Services (MARS) k načtení zálohování dat z bodů obnovení uložených v Azure. Použijte průvodce Microsoft Azure Backup k identifikaci soubory nebo složky, které chcete obnovit do systému Windows Server. 
+Součástí instalace agenta služby Microsoft Azure Recovery Services (MARS) je i užitečný průvodce Microsoft Azure Backup s uživatelským rozhraním. Průvodce Microsoft Azure Backup spolupracuje s agentem služby Microsoft Azure Recovery Services (MARS) a načítá zálohovaná data z bodů obnovení uložených v Azure. Pomocí průvodce Microsoft Azure Backup můžete identifikovat soubory nebo složky, které chcete obnovit do Windows Serveru. 
 
-1. Otevřete **Microsoft Azure Backup** modul snap-in. Najdete ho vyhledáním **Microsoft Azure Backup** ve svém počítači.
+1. Otevřete modul snap-in **Microsoft Azure Backup**. Najdete ho vyhledáním **Microsoft Azure Backup** ve svém počítači.
 
     ![Zálohování čeká na zpracování](./media/tutorial-backup-restore-files-windows-server/mars.png)
 
-2. V průvodci klikněte na tlačítko **obnovit Data** v **podokna akce** konzole agenta spustit **obnovit Data** průvodce.
+2. V průvodci klikněte na **Obnovit data** v **podokně Akce** konzoly agenta. Spustí se průvodce **Obnovení dat**.
 
     ![Zálohování čeká na zpracování](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. Na **Začínáme** vyberte **tento server (název serveru)** a klikněte na tlačítko **Další**.
+3. Na stránce **Začínáme** vyberte **Tento server (název serveru)** a klikněte na **Další**.
 
-4. Na **vyberte režimu obnovení** vyberte **jednotlivých souborů a složek** a pak klikněte na **Další** zahájíte proces výběr bodu obnovení.
+4. Na stránce **Vybrat režim obnovení** vyberte **Jednotlivé soubory a složky** a pak kliknutím na **Další** zahajte proces výběru bodu obnovení.
  
-5. Na **vyberte svazek a datum** stránky, vyberte svazek, který obsahuje soubory nebo složky, kterou chcete obnovit a klikněte na **připojit**. Vyberte datum a čas vyberte z rozevírací nabídky, která odpovídá bod obnovení. Data v **tučné** označuje dostupnost alespoň jeden bod obnovení v daný den.
+5. Na stránce **Vybrat svazek a datum** vyberte svazek obsahující soubory nebo složky, které chcete obnovit, a klikněte na **Připojit**. Vyberte datum a z rozevírací nabídky vyberte čas odpovídající bodu obnovení. Data zobrazená **tučně** značí, že je pro daný den dostupný alespoň jeden bod obnovení.
 
     ![Zálohování čeká na zpracování](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
  
-    Když kliknete na tlačítko **připojit**, Azure Backup poskytne bodu obnovení k dispozici jako disk. Procházet a obnovit soubory z disku.
+    Když kliknete na **Připojit**, Azure Backup zpřístupní bod obnovení jako disk. Soubory z disku můžete procházet a obnovit.
 
-## <a name="restore-items-from-a-recovery-point"></a>Obnovení položky z bodu obnovení
+## <a name="restore-items-from-a-recovery-point"></a>Obnovení položek z bodu obnovení
 
-1. Po připojení svazku obnovení, klikněte na tlačítko **Procházet** otevřete Průzkumníka Windows a vyhledejte soubory a složky, kterou chcete obnovit. 
+1. Po připojení svazku pro obnovení kliknutím na **Procházet** otevřete Průzkumníka Windows a vyhledejte soubory a složky, které chcete obnovit. 
 
     ![Zálohování čeká na zpracování](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
-    Můžete otevřít soubory přímo z obnovení svazku a ověříte soubory.
+    Soubory můžete otevřít přímo ze svazku pro obnovení a ověřit je.
 
-2. V Průzkumníku Windows zkopírujte soubory nebo složky, kterou chcete obnovit a vložit do libovolného požadovaného umístění na serveru.
+2. V Průzkumníku Windows zkopírujte soubory a složky, které chcete obnovit, a vložte je do libovolného umístění na serveru.
 
     ![Zálohování čeká na zpracování](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. Po dokončení obnovení souborů a složek, na **procházení a obnovení souborů** stránky **obnovit Data** průvodce, klikněte na tlačítko **odpojení**. 
+3. Jakmile budete hotovi s obnovováním souborů a složek, na stránce **Procházet a obnovit soubory** průvodce **Obnovení dat** klikněte na **Odpojit**. 
 
     ![Zálohování čeká na zpracování](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  Klikněte na tlačítko **Ano** potvrďte, že chcete odpojit svazek.
+4.  Kliknutím na **Ano** potvrďte, že chcete svazek odpojit.
 
-    Jakmile je snímek nepřipojené, **úloha dokončena** se zobrazí v **úlohy** podokno v konzole agenta.
+    Po odpojení snímku se v podokně **Úlohy** v konzole agenta zobrazí **Úloha dokončena**.
 
 ## <a name="next-steps"></a>Další kroky
 
-Tím dokončíte kurzy o zálohování a obnovení dat Windows serveru do Azure. Další informace o zálohování Azure, najdete v části ukázku v prostředí PowerShell pro zálohování šifrované virtuálních počítačů.
+Toto je konec kurzů věnovaných zálohování a obnovení dat Windows Serveru do Azure. Další informace o službě Azure Backup najdete v ukázce PowerShellu pro zálohování šifrovaných virtuálních počítačů.
 
 > [!div class="nextstepaction"]
-> [Zálohování šifrované virtuálních počítačů](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
+> [Zálohování šifrovaného virtuálního počítače](./scripts/backup-powershell-sample-backup-encrypted-vm.md)

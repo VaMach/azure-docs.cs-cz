@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Principy výstrah zabezpečení ve službě Azure Security Center
 Tento článek vám pomůže porozumět různým typům výstrah zabezpečení a souvisejícím přehledům, které jsou dostupné ve službě Azure Security Center. Další informace o správě těchto výstrah a incidentů najdete v tématu [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ Security Center používá pokročilou analýzu k identifikaci ohrožených pros
 * **Zakázání a odstranění souborů protokolu IIS**: Tato výstraha indikuje, že soubor protokolu IIS byl zakázán nebo odstraněn, což útočníci často dělají, když se pokouší zakrýt svoje stopy.
 * **Podezřelé odstranění souborů**: Tato výstraha indikuje podezřelé odstranění souborů, což může útočník udělat, když chce odebrat důkazy o výskytu škodlivých binárních souborů.
 * **Odstranění všech stínových kopií souborů**: Tato výstraha indikuje, že došlo k odstranění stínových kopií.
-* **Vymazání souboru s historií**: Tato výstraha indikuje, že došlo k vymazání souboru protokolu s historií příkazů, což mohl udělat útočník, aby zakryl svoje stopy.
 * **Podezřelé příkazy pro čištění souborů**: Tato výstraha indikuje kombinaci příkazů systeminfo, které se používají k provedení samočinného čištění po škodlivé činnosti.  *Systeminfo.exe* je sice legitimní nástroj Windows, ale jeho spuštění dvakrát za sebou s následným použitím příkazu pro odstranění, jak k tomu došlo tady, není obvyklé.
 * **Podezřelé vytvoření účtu**: Tato výstraha indikuje, že byl vytvořen účet, který se velmi podobá existujícímu předdefinovanému účtu s oprávněními správce. Tento postup můžou použít útočníci k vytvoření podvodného účtu, aniž by došlo k jeho detekci.
-* **Podezřelá přihlašovací aktivita**: Tato výstraha indikuje neobvyklou přihlašovací aktivitu, která může naznačovat útok hrubou silou pomocí protokolu SMB (Server Message Block). Pokud daný prostředek funguje jako server IIS, může být důvodem této výstrahy konkrétní konfigurace ověřování IIS, která je legitimní.
 * **Podezřelá aktivita stínové kopie svazku**: Tato výstraha indikuje aktivitu odstranění stínové kopie u daného prostředku. Stínová kopie svazku je důležitý artefakt, který uchovává snímky dat. Tato aktivita je obvykle spojena s ransomwarem, ale může být také legitimní.
 * **Metoda přetrvávání v registru Windows**: Tato výstraha indikuje pokus o zachování spustitelného souboru v registru Windows. Tuto techniku používá malware často k tomu, aby nedošlo k jeho odstranění při spuštění počítače.
-* **Vypnutí brány Windows Firewall**: Tato výstraha indikuje, že došlo k vypnutí brány Windows Firewall.
 * **Podezřelé nové pravidlo firewallu**: Tato výstraha indikuje, že prostřednictvím *netsh.exe* se přidalo nové pravidlo firewallu, které povoluje přenosy ze spustitelného souboru v podezřelém umístění.
-* **Přidání nového uživatele do skupiny správců**: Tato výstraha indikuje, že do skupiny místních správců se přidal nový uživatel.
-* **Vytvoření nové služby**: Tato výstraha indikuje, že se vytvořila nová služba.
 * **Podezřelé spouštění příkazu XCOPY**: Tato výstraha indikuje posloupnost spuštění příkazu XCOPY, která může signalizovat, že došlo k napadení jednoho z vašich počítačů a k jeho použití k šíření malwaru.
 * **Potlačení zobrazování právních upozornění uživatelům při přihlášení**: Tato výstraha indikuje, že došlo ke změně klíče registru, který určuje, jestli se mají uživatelům při přihlášení zobrazovat právní upozornění. Jde o běžnou aktivitu prováděnou útočníky po napadení hostitele.
 * **Zjištění neobvyklé kombinace velkých a malých písmen na příkazovém řádku**: Tato výstraha indikuje použití kombinace velkých a malých písmen na příkazovém řádku, což je technika používaná útočníky ke skrytí před pravidlem počítače, které využívá rozlišování velkých a malých písmen nebo hodnotu hash.
@@ -123,15 +118,10 @@ Security Center používá pokročilou analýzu k identifikaci ohrožených pros
 * **Podezřelé změny Set-ExecutionPolicy a WinRM**: Tato výstraha indikuje změny konfigurace, které jsou spojené s použitím škodlivého webshellu ChinaChopper.
 * **Zakázání důležitých služeb**: Tato výstraha indikuje, že pomocí příkazu net.exe stop došlo k zastavení důležitých služeb, jako jsou SharedAccess nebo Windows Security Center.
 * **Podezřelé použití přepínače FTP -s**: Tato výstraha indikuje použití přepínače FTP -s, pomocí kterého se malware může připojovat ke vzdálenému serveru FTP a stahovat další škodlivé binární soubory.
-* **Příprava pro získání přístupu k dokumentům přes zadní vrátka IIS**: Tato výstraha indikuje, že se shromažďují dokumenty a probíhá příprava pro získání přístupu k těmto dokumentům.
 * **Podezřelé spuštění příkazu VBScript.Encode**: Tato výstraha indikuje, že došlo ke spuštění příkazu *VBScript.Encode*, který kóduje skripty do formátu s nečitelným textem a znesnadňuje tak uživatelům kontrolu kódu.
 * **Přidělení objektu HTTP VBScript**: Tato výstraha indikuje, že pomocí příkazového řádku došlo k vytvoření souboru VBScript, který může sloužit ke stahování škodlivých souborů.
 * **Útok na funkci Jedním prstem**: Tato výstraha indikuje, že útočník může zneužít binární soubor funkce přístupnosti (jako je například funkce Jedním prstem, klávesnice na obrazovce, program Předčítání), aby získal přístup zadními vrátky.
 * **Indikátory ransomwaru Petya**: Tato výstraha indikuje, že se vyskytly postupy, které jsou spojované s ransomwarem Petya.
-* **Načtení modulu jádra**: Tato výstraha indikuje, že došlo k načtení modulu jádra.
-* **Odebrání modulu jádra**: Tato výstraha indikuje, že došlo k odebrání modulu jádra.
-* **Neobvyklé přihlášení k počítači**: Tato výstraha indikuje, že došlo k přihlášení uživatele z neobvyklé IP adresy.
-* **Stažení a spuštění souboru**: Tato výstraha indikuje, že daný soubor se stáhl do počítače, dostal oprávnění ke spuštění a potom se spustil.
 * **Pokus o zakázání rozhraní AMSI**: Tato výstraha indikuje, že došlo k pokusu o zakázání rozhraní AMSI (Antimalware Scan Interface), čímž by se vypnula detekce antimalwaru.
 * **Indikátory ransomwaru**: Tato výstraha indikuje podezřelou aktivitu, která se často spojuje s ransomwarem provádějícím zamknutí obrazovky a šifrování.
 * **Podezřelý výstupní soubor kolekce trasování**: Tato výstraha indikuje, že trasování (například síťové aktivity) se shromáždilo do výstupního souboru, který má neobvyklý typ.
@@ -145,14 +135,8 @@ Security Center používá pokročilou analýzu k identifikaci ohrožených pros
 * **Dynamické vytváření skriptu PS**: Tato výstraha indikuje dynamické vytváření skriptu PowerShellu. Útočníci používají tuto techniku k postupnému vytváření skriptu s cílem obejít systémy IDS (zjišťování neoprávněných vniknutí).
 * **Indikátory Metasploitu**: Tato výstraha indikuje aktivitu spojenou s architekturou Metasploitu, která útočníkovi poskytuje celou řadu funkcí a nástrojů.
 * **Podezřelá aktivita účtu**: Tato výstraha indikuje, že došlo k pokusu o připojení k počítači pomocí účtu, který byl nedávno napaden.
-* **Možný podezřelý přístup k plánování úloh**: Tato výstraha indikuje, že se spustila úloha Cron, pomocí které můžou útočníci na základě plánu spouštět škodlivé programy.
-* **Možný podezřelý přístup k souboru s historií příkazů**: Tato výstraha indikuje neobvyklý přístup k souboru s historií příkazů.
 * **Vytvoření účtu**: Tato výstraha indikuje vytvoření nového účtu v počítači.
-* **Změna nastavení Bash**: Tato výstraha indikuje, že došlo k přístupu k souboru profilu Bash, což může naznačovat, že se útočník pokouší na základě plánu spouštět škodlivé programy.
-* **Podezřelá posloupnost neúspěšných pokusů sudo**: Tato výstraha indikuje posloupnost neúspěšných příkazů sudo, což se často vyskytuje při pokusech neautorizovaných uživatelů o útoky hrubou silou s cílem eskalovat oprávnění.
-* **Podezřelé úspěšné pokusy sudo**: Tato výstraha indikuje posloupnost neúspěšných příkazů sudo, po kterých následuje úspěšný pokus sudo, což se často vyskytuje při pokusech neautorizovaných uživatelů o útoky hrubou silou s cílem eskalovat oprávnění.
-* **Přidání nového uživatele do skupiny sudoers**: Tato výstraha indikuje, že došlo k přidání uživatele do skupiny sudoers, která svým členům umožňuje spouštět příkazy s vysokou úrovní oprávnění.
-* **Přihlášení k síti pomocí přihlašovacích údajů ve formátu prostého textu**: Tato výstraha indikuje, že došlo k přihlášení k síti, při kterém se heslo odeslalo přes síť ve formátu prostého textu. Toto chování je běžné při přihlášení ze skriptu ASP pomocí ADVAPI nebo při přihlášení uživatele do IIS pomocí režimu základního ověřování služby IIS. Základní ověřování není doporučenou metodou, pokud není zabalené ve vrstvě šifrování, jako je například SSL (tj. používá připojení jenom prostřednictvím protokolu HTTPS).
+
 
 ### <a name="crash-analysis"></a>Analýza stavu systému
 
@@ -206,6 +190,8 @@ Pokud jsou dostupné další informace, zobrazí se v incidentu zabezpečení po
 - Události vymazání protokolu
 - Zařízení PNP zapojená z neznámého zařízení
 - Výstrahy, na které není možné reagovat
+- Vytvoření nového účtu
+- Dekódovaný soubor pomocí nástroje certutil 
 
 ![Výstraha na neobvyklý přístup](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

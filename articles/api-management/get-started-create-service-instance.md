@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Vytvoření nové instance služby Azure API Management
 
-Azure API Management (APIM) pomáhá organizacím při publikování rozhraní API pro externí, partnerské a interní vývojáře, aby tak uvolnila potenciál jejich dat a služeb. Služba API Management nabízí základní možnosti pro zajištění úspěšného programu s rozhraním API prostřednictvím zapojení vývojářů, obchodních přehledů, analýz, zabezpečení a ochrany. APIM umožňuje vytvářet a spravovat moderní brány API pro existující backendové služby hostované kdekoli. Další informace najdete v tématu [Přehled](api-management-key-concepts.md).
+Azure API Management (APIM) pomáhá organizacím při publikování rozhraní API pro externí, partnerské a interní vývojáře, aby tak uvolnila potenciál jejich dat a služeb. Služba API Management nabízí základní možnosti pro zajištění úspěšného programu s rozhraním API prostřednictvím zapojení vývojářů, informací o podniku, analýz, zabezpečení a ochrany. APIM umožňuje vytvářet a spravovat moderní brány API pro existující backendové služby hostované kdekoli. Další informace najdete v tématu [Přehled](api-management-key-concepts.md).
 
 Tento rychlý start popisuje kroky pro vytvoření nové instance API Managementu pomocí webu Azure Portal.
 
@@ -28,13 +28,13 @@ Tento rychlý start popisuje kroky pro vytvoření nové instance API Management
 
 ![Nová instance](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Vytvoření nové služby
 
-1. Na webu [Azure Portal](https://portal.azure.com/) vyberte **Nový** > **Podniková integrace** > **API management**.
+1. Na webu [Azure Portal](https://portal.azure.com/) vyberte **Vytvořit prostředek** > **Podniková integrace** > **API Management**.
 
     Další možností je zvolit **Nový**, do vyhledávacího pole zadat `API management` a stisknout Enter. Klikněte na možnost **Vytvořit**.
 

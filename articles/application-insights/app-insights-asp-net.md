@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8922759295928a59114fcea55470d113d59b9387
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 198cd5164ce3840503aca359767638e135f164bc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Nastavení Application Insights pro web ASP.NET
 
@@ -28,7 +28,7 @@ Nastavení je otázkou několika kliknutí v sadě Visual Studio. Máte možnost
 ## <a name="prerequisites"></a>Požadavky
 Pro přidání Application Insights na web ASP.NET potřebujete:
 
-- Nainstalovat [Visual Studio 2017](https://www.visualstudio.com/downloads/) s následujícími sadami funkcí:
+- Nainstalovat sadu [Visual Studio 2017 pro Windows](https://www.visualstudio.com/downloads/) s následujícími sadami funkcí:
     - Vývoj pro ASP.NET a web
     - Vývoj pro Azure
 
