@@ -1,10 +1,10 @@
 ---
-title: "Vytvoření virtuálního počítače s SQL Serverem a Windows na webu Azure Portal | Microsoft Docs"
+title: "Vytvoření virtuálního počítače s Windows a SQL Serverem na portálu | Microsoft Docs"
 description: "Díky tomuto kurzu se dozvíte, jak vytvořit virtuální počítač s Windows a SQL Serverem 2017 na webu Azure Portal."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Vytvoření virtuálního počítače s Windows a SQL Serverem 2017 na webu Azure Portal
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Rychlý start: Vytvoření virtuálního počítače s Windows a SQL Serverem 2017 na webu Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 Tento rychlý start vás provede vytvořením virtuálního počítače s SQL Serverem na webu Azure Portal.
 
+> [!TIP]
+> Tento rychlý start obsahuje postup pro rychlé zřízení virtuálního počítače SQL a připojení k němu. Další informace o jiných možnostech zřizování virtuálních počítačů SQL najdete v tématu [Průvodce zřizováním virtuálních počítačů s Windows a SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 ## <a id="select"></a> Výběr image virtuálního počítače s SQL Serverem
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého účtu.
 
-1. Na webu Azure Portal klikněte na **Nový**. Na Portálu se otevře okno **Nový**.
+1. Na webu Azure Portal klikněte na **Vytvořit prostředek**. 
 
 1. Do vyhledávacího pole zadejte **SQL Server 2017 Developer on Windows Server 2016** a stiskněte ENTER.
 
@@ -142,4 +145,4 @@ Pokud nepotřebujete, aby virtuální počítač SQL VM běžel nepřetržitě, 
 V tomto rychlém startu jste vytvořili virtuální počítač s SQL Serverem 2017 na webu Azure Portal. Další informace o tom, jak na tento nový SQL Server přenést data, najdete v následujícím článku.
 
 > [!div class="nextstepaction"]
-> [Migrace databáze na virtuální počítač SQL](virtual-machines-windows-migrate-sql.md)
+> [Migrace databáze na virtuální počítač s SQL](virtual-machines-windows-migrate-sql.md)

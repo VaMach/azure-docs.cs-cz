@@ -1,85 +1,82 @@
 ---
-title: "Nahrát velkých objemů náhodná data souběžně do služby Azure Storage | Microsoft Docs"
-description: "Naučte se používat sadu Azure SDK pro nahrání velkých objemů náhodná data paralelně k účtu Azure Storage"
+title: "Paralelní nahrávání velkých objemů náhodných dat do služby Azure Storage | Microsoft Docs"
+description: "Zjistěte, jak pomocí sady Azure SDK nahrávat velké objemy náhodných dat do účtu služby Azure Storage."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Nahrát velkých objemů náhodná data souběžně do úložiště Azure
+# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Paralelní nahrávání velkých objemů náhodných dat do úložiště Azure
 
-V tomto kurzu je součástí série, dva. Tento kurz ukazuje, že nasazujete aplikaci, která odešle velké množství náhodná data do účtu úložiště Azure.
+Tento kurz je druhá část série. V tomto kurzu se dozvíte, jak nasadit aplikaci, která nahrává velký objem náhodných dat do účtu úložiště Azure.
 
-V rámci dvě řady, zjistíte, jak:
+Ve druhé části této série se naučíte:
 
 > [!div class="checklist"]
-> * Konfigurovat připojovací řetězec
+> * Konfigurace připojovacího řetězce
 > * Sestavení aplikace
 > * Spuštění aplikace
-> * Ověření počet připojení
+> * Ověření počtu připojení
 
-Úložiště objektů blob Azure poskytuje škálovatelné službu pro ukládání dat. Aby vaše aplikace je jako původce nejdříve představu o tom, jak se doporučuje objekt blob úložiště funguje. Znalost omezení pro objekty BLOB Azure je důležité, další informace o těchto omezeních najdete: [cíle škálovatelnosti úložiště objektů blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Úložiště objektů blob v Azure představuje škálovatelnou službu pro ukládání vašich dat. Pro zajištění co nejlepšího výkonu vaší aplikace doporučujeme seznámit se se způsobem, jakým úložiště objektů blob funguje. Důležitá je i znalost omezení objektů blob v Azure. Další informace o těchto omezeních najdete v tématu popisujícím [cíle škálovatelnosti úložiště objektů blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Pojmenování oddílu](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) je dalším důležitým faktorem při navrhování vysoce provádění aplikace pomocí objektů BLOB. Azure storage používá schéma rozdělení oddílů na základě rozsahu vyrovnávání škálování a zatížení. Tato konfigurace znamená, že soubory s podobnou zásady vytváření názvů nebo předpony přejděte do stejného oddílu. Tato logika obsahuje název kontejneru, který k odesílání souborů. V tomto kurzu použijete soubory, které mají identifikátory GUID pro názvy jako dobře jako náhodně generované obsah. Jsou poté odeslány do pěti různé kontejnery s náhodné názvy.
+Dalším důležitým faktorem při návrhu vysoce výkonné aplikace využívající objekty blob je [pojmenování oddílů](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47). Úložiště Azure ke škálování a vyrovnávání zatížení používá schéma vytváření oddílů na základě rozsahu. Tato konfigurace znamená, že se soubory s podobnými zásadami vytváření názvů nebo předponami umisťují do stejného oddílu. Tato logika zahrnuje název kontejneru, do kterého se soubory nahrávají. V tomto kurzu použijete soubory, které mají jako název GUID a obsahují náhodně vygenerovaný obsah. Tyto soubory se pak nahrají do pěti různých kontejnerů s náhodnými názvy.
 
 ## <a name="prerequisites"></a>Požadavky
 
-K dokončení tohoto kurzu, je nutné provést předchozí kurzu úložiště: [vytvořte virtuální počítač a účet úložiště pro škálovatelná aplikaci][previous-tutorial].
+K dokončení tohoto kurzu je nutné dokončit předchozí kurz o službě Storage: [Vytvoření virtuálního počítače a účtu úložiště pro škálovatelnou aplikaci][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Vzdálené do virtuálního počítače
+## <a name="remote-into-your-virtual-machine"></a>Vzdálené připojení k virtuálnímu počítači
 
-Použijte následující příkaz na místním počítači vytvořit relaci vzdálené plochy s virtuálním počítačem. Nahraďte IP adresu publicIPAddress virtuálního počítače. Po zobrazení výzvy zadejte přihlašovací údaje, které jste použili při vytváření virtuálního počítače.
+Pomocí následujícího příkazu na svém místním počítači vytvořte s virtuálním počítačem relaci vzdálené plochy. IP adresu nahraďte veřejnou IP adresou vašeho virtuálního počítače. Po zobrazení výzvy zadejte přihlašovací údaje, které jste použili při vytváření virtuálního počítače.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-## <a name="configure-the-connection-string"></a>Konfigurovat připojovací řetězec
+## <a name="configure-the-connection-string"></a>Konfigurace připojovacího řetězce
 
-Na portálu Azure přejděte do účtu úložiště. Vyberte **přístupové klíče** pod **nastavení** ve vašem účtu úložiště. Kopírování **připojovací řetězec** z primární nebo sekundární klíč. Přihlaste se k virtuálnímu počítači, který jste vytvořili v předchozí kurzu. Otevřete **příkazového řádku** jako správce a spusťte `setx` s `/m` přepínače, tento příkaz uloží proměnné prostředí nastavení počítače. Proměnné prostředí není k dispozici, dokud opětovném načtení **příkazového řádku**. Nahraďte  **\<storageConnectionString\>**  následující ukázka:
+Na portálu Azure Portal přejděte k účtu úložiště. V části **Nastavení** v účtu úložiště vyberte **Přístupové klíče**. Zkopírujte **připojovací řetězec** z primárního nebo sekundárního klíče. Přihlaste se k virtuálnímu počítači, který jste vytvořili v předchozím kurzu. Otevřete **příkazový řádek** jako správce a spusťte příkaz `setx` s přepínačem `/m`. Tento příkaz uloží proměnnou prostředí s nastavením počítače. Proměnná prostředí není dostupná, dokud znovu nenačtete **příkazový řádek**. Nahraďte **\<storageConnectionString\>** v následujícím příkladu:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-Po dokončení otevřete jiné **příkazového řádku**, přejděte na `D:\git\storage-dotnet-perf-scale-app` a typ `dotnet build` pro sestavení aplikace.
+Až budete hotovi, otevřete další **příkazový řádek**, přejděte do umístění `D:\git\storage-dotnet-perf-scale-app` a zadáním příkazu `dotnet build` sestavte aplikaci.
 
 ## <a name="run-the-application"></a>Spuštění aplikace
 
-Přejděte na `D:\git\storage-dotnet-perf-scale-app`.
+Přejděte na adresu `D:\git\storage-dotnet-perf-scale-app`.
 
-Typ `dotnet run` ke spuštění aplikace. Při prvním spuštění `dotnet` vyplní balíček místní mezipaměť, a zvýšit rychlost obnovení a povolte přístup v režimu offline. Tento příkaz zabírají několik minut na dokončení a pouze se stane jednou.
+Zadáním příkazu `dotnet run` spusťte aplikaci. Při prvním spuštění příkazu `dotnet` se za účelem zrychlení obnovení a umožnění přístupu offline naplní místní mezipaměť balíčků. Dokončení tohoto příkazu trvá až minutu a provede se pouze jednou.
 
 ```
 dotnet run
 ```
 
-Aplikace vytvoří pět náhodným názvem kontejnery a zahájí se nahrávání souborů v adresáři pracovní k účtu úložiště. Aplikace nastaví minimální počet vláken činí na 100 a [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) do 100 zajistit, že velký počet souběžných připojení při spuštění aplikace.
+Aplikace vytvoří pět náhodně pojmenovaných kontejnerů a začne nahrávat soubory v pracovním adresáři do účtu úložiště. Aplikace nastaví minimální počet vláken na 100 a hodnotu [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) na 100, aby se při spuštění aplikace zajistilo povolení velkého počtu souběžných připojení.
 
-Kromě nastavení nastavení omezení připojení a dělení na vlákna [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) pro [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) metoda jsou nakonfigurována pro používání paralelismus a zakázat ověření hodnoty hash MD5. Soubory jsou odeslány v blocích 100 mb, tato konfigurace poskytuje lepší výkon, ale může být drahé, pokud používáte nedostatečně provádění je opakovat sítě jako, pokud dojde k selhání celý blok 100 mb.
+Kromě nastavení dělení na vlákna a omezení připojení se ve třídě [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) pro metodu [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) nakonfiguruje použití paralelismu a vypnutí ověřování hodnoty hash MD5. Soubory se nahrávají ve 100MB blocích. Tato konfigurace zajišťuje lepší výkon, ale může být nákladnější v případě, že používáte málo výkonnou síť, protože v případě selhání se opakuje nahrávání celého 100MB bloku.
 
 |Vlastnost|Hodnota|Popis|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Nastavení dělí do bloků blob, při nahrávání. Pro nejvyšší výkon tato hodnota by měla být 8 časy počet jader. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true (pravda)| Tato vlastnost zakáže kontrola obsah odesílaný hodnotu hash MD5. Zakázání ověřování MD5 vytváří rychlejší přenos. Ale nevyžaduje potvrzení platnosti nebo integritu přenosu souborů.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false (nepravda)| Tato vlastnost určuje, pokud se hodnota hash MD5 vypočítat a uloží se souborem.   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| omezení rychlosti 2 sekundu s 10 maximální počet opakování |Určuje zásady opakování požadavků. Počet selhání připojení jsou opakovat, v tomto příkladu [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) zásad je nakonfigurovaná s omezení rychlosti sekundu 2 a maximální počet opakování 10. Toto nastavení je důležité, když vaše aplikace získá blízko stiskne [cíle škálovatelnosti úložiště objektů blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Toto nastavení při nahrávání rozdělí objekty blob do bloků. Pro zajištění nejvyššího výkonu by tato hodnota měla být osminásobkem počtu jader. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true (pravda)| Tato vlastnost zakazuje kontrolu hodnoty hash MD5 nahrávaného obsahu. Zakázáním ověřování MD5 dosáhnete rychlejšího přenosu. Neprovádí se však potvrzení platnosti ani integrity přenášených souborů.   |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false (nepravda)| Tato vlastnost určuje, jestli se počítá a společně se souborem ukládá hodnota hash MD5.   |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2sekundové omezení rychlosti a maximálně 10 opakování |Určuje zásady opakování požadavků. Chybná připojení se opakují. V tomto příkladu je v zásadě [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) nakonfigurované 2sekundové omezení rychlosti a maximální počet 10 opakování. Toto nastavení je důležité, když se vaše aplikace blíží dosažení [cílů škálovatelnosti úložiště objektů blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
-`UploadFilesAsync` Úloh je znázorněno v následujícím příkladu:
+Úloha `UploadFilesAsync` je znázorněná v následujícím příkladu:
 
 ```csharp
 private static async Task UploadFilesAsync()
@@ -156,7 +153,7 @@ private static async Task UploadFilesAsync()
 }
 ```
 
-V následujícím příkladu je výstupu zkrácený aplikace spuštěna v systému Windows.
+Následující příklad je zkrácený výstup aplikace spuštěné v systému Windows.
 
 ```
 Created container https://mystorageaccount.blob.core.windows.net/9efa7ecb-2b24-49ff-8e5b-1d25e5481076
@@ -177,7 +174,7 @@ Upload has been completed in 142.0429536 seconds. Press any key to continue
 
 ### <a name="validate-the-connections"></a>Ověření připojení
 
-Při odesílání souborů, můžete ověřit počet souběžných připojení k vašemu účtu úložiště. Otevřete **příkazového řádku** a typ `netstat -a | find /c "blob:https"`. Tento příkaz zobrazí počet připojení, které jsou aktuálně otevřít pomocí `netstat`. Následující příklad ukazuje podobný výstup na co se zobrazí při spuštění tohoto kurzu sami. Jak je vidět z příkladu 800 připojení byly otevřeny při nahrávání náhodných souborů do účtu úložiště. Tato hodnota se změní v průběhu nahrávání systémem. Tím, že nahrajete v bloku parallel bloky dat, se výrazně snižuje množství času, které jsou vyžadovány k přenosu obsahu.
+V průběhu nahrávání souborů můžete ověřit počet souběžných připojení k vašemu účtu úložiště. Otevřete **příkazový řádek** a zadejte `netstat -a | find /c "blob:https"`. Tento příkaz zobrazí počet aktuálně otevřených připojení pomocí příkazu `netstat`. Když budete postupovat podle kurzu, zobrazí se podobný výstup jako v následujícím příkladu. Jak je vidět z příkladu, při nahrávání náhodných souborů do účtu úložiště se otevřelo 800 připojení. Tato hodnota se v průběhu nahrávání mění. Díky paralelnímu nahrávání bloků dat se výrazně zkrátí čas potřebný k přenosu obsahu.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -186,19 +183,19 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-V rámci dvě řady jste se dozvěděli o nahrávání velkých objemů náhodná data na účet úložiště paralelně, například jak:
+V druhé části série jste se seznámili s paralelním nahráváním velkých objemů náhodných dat do účtu úložiště a naučili jste se například:
 
 > [!div class="checklist"]
-> * Konfigurovat připojovací řetězec
+> * Konfigurace připojovacího řetězce
 > * Sestavení aplikace
 > * Spuštění aplikace
-> * Ověření počet připojení
+> * Ověření počtu připojení
 
-Přechodu na tři součástí řady stažení velkých objemů dat z účtu úložiště.
+Přejděte ke třetí části série, kde z účtu úložiště stáhnete velké objemy dat.
 
 > [!div class="nextstepaction"]
-> [Nahrát velkých objemů velkých souborů paralelně na účet úložiště](storage-blob-scalable-app-download-files.md)
+> [Paralelní nahrání velkého množství velkých souborů do účtu úložiště](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

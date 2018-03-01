@@ -3,22 +3,20 @@ title: "Odeslání dat obrázků do cloudu v Azure Storage | Microsoft Docs"
 description: "Uložení dat webové aplikace pomocí služby Azure Blob Storage"
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Odeslání dat obrázků do cloudu v Azure Storage
 
@@ -26,14 +24,14 @@ Tento kurz je první částí série. V tomto kurzu se dozvíte, jak nasadit web
 
 ![Zobrazení kontejneru obrázků](media/storage-upload-process-images/figure2.png)
 
-V první části tohoto kurzu se naučíte:
+V první části této série se naučíte:
 
 > [!div class="checklist"]
 > * vytvořit účet úložiště
-> * Vytvořit kontejner a nastavit oprávnění
-> * Načíst přístupový klíč
-> * Nakonfigurovat nastavení aplikace
-> * Nasadit webovou službu do Azure
+> * Vytvoření kontejneru a nastavení oprávnění
+> * Načtení přístupového klíče
+> * Konfigurace nastavení aplikace
+> * Nasazení webové služby do Azure
 > * Provádět interakci s webovou aplikací
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -67,11 +65,11 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Vytvoření kontejnerů služby Blob Storage
  
-Aplikace používá v účtu služby Blob Storage dva kontejnery. Kontejnery jsou podobné složkám a používají se k ukládání objektů blob. Aplikace nahrává obrázky v plném rozlišení do kontejneru _images_. V pozdější části kurzu aplikace funkcí Azure odešle do kontejneru _thumbs_ miniatury obrázků se změněnou velikostí. 
+Aplikace používá v účtu služby Blob Storage dva kontejnery. Kontejnery jsou podobné složkám a používají se k ukládání objektů blob. Aplikace nahrává obrázky v plném rozlišení do kontejneru _images_. V pozdější části série aplikace funkcí Azure nahraje miniatury obrázků se změněnou velikostí do kontejneru _thumbnails_. 
 
 Pomocí příkazu [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) zjistěte klíč účtu úložiště. Tento klíč potom použijete k vytvoření dvou kontejnerů pomocí příkazu [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
-V tomto případě je `<blob_storage_account>` název účtu služby Blob Storage, který jste vytvořili. Veřejný přístup ke kontejneru _images_ je nastavený na hodnotu `off` a veřejný přístup ke kontejneru _thumbs_ na hodnotu `container`. Nastavení veřejného přístupu `container` umožňuje zobrazení miniatur návštěvníky dané webové stránky.
+V tomto případě je `<blob_storage_account>` název účtu služby Blob Storage, který jste vytvořili. Veřejný přístup ke kontejneru _images_ je nastavený na hodnotu `off` a veřejný přístup ke kontejneru _thumbnails_ na hodnotu `container`. Nastavení veřejného přístupu `container` umožňuje zobrazení miniatur návštěvníky dané webové stránky.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ V následujícím příkazu je `<blob_storage_account>` název vašeho účtu sl
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,15 +194,15 @@ Zkontrolujte, jestli se obrázek v kontejneru zobrazuje.
 
 K otestování zobrazení miniatury nahrajete obrázek do kontejneru miniatur, abyste mohli zkontrolovat, jestli aplikace umí kontejner miniatur přečíst.
 
-Přihlaste se k webu [Azure Portal](https://portal.azure.com). V nabídce vlevo vyberte **Účty úložiště** a potom vyberte název svého účtu úložiště. Vyberte **Kontejnery** v části **Blob Service** a potom vyberte kontejner **thumbs**. Výběrem položky **Nahrát** otevřete podokno **Nahrát objekt blob**.
+Přihlaste se k webu [Azure Portal](https://portal.azure.com). V nabídce vlevo vyberte **Účty úložiště** a potom vyberte název svého účtu úložiště. Vyberte **Kontejnery** v části **Služba Blob** a pak vyberte kontejner **thumbnails**. Výběrem položky **Nahrát** otevřete podokno **Nahrát objekt blob**.
 
 Vyberte soubor pomocí nástroje pro výběr souborů a vyberte položku **Nahrát**.
 
-Vraťte se do své aplikace a zkontrolujte, jestli je viditelný obrázek nahraný do kontejneru **thumbs**.
+Vraťte se do své aplikace a zkontrolujte, jestli je viditelný obrázek nahraný do kontejneru **thumbnails**.
 
 ![Zobrazení kontejneru obrázků](media/storage-upload-process-images/figure2.png)
 
-V kontejneru **thumbs** na webu Azure Portal vyberte obrázek, který jste nahráli, a výběrem položky **Odstranit** ho odstraňte. Ve druhé části kurzu nastavíte automatizované vytváření obrázků miniatur, takže už tento testovací obrázek nebudete potřebovat.
+V kontejneru **thumbnails** na webu Azure Portal vyberte obrázek, který jste nahráli, a výběrem možnosti **Odstranit** ho odstraňte. Ve druhé části kurzu nastavíte automatizované vytváření obrázků miniatur, takže už tento testovací obrázek nebudete potřebovat.
 
 Síť CDN se dá nastavit tak, aby ukládala obsah vašeho účtu služby Azure Storage do mezipaměti. Tento kurz se tím nezabývá, ale pokud se chcete dozvědět, jak ve svém účtu služby Azure Storage povolit síť CDN, navštivte stránku [Integrace účtu služby Azure Storage se sítí Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 

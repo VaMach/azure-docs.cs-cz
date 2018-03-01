@@ -1,72 +1,69 @@
 ---
-title: "Sledování a řešení potíží k aplikaci cloudové úložiště v Azure | Microsoft Docs"
-description: "Pomocí diagnostických nástrojů, metriky a výstrahy sledovat cloudových aplikací a řešení potíží."
+title: "Monitorování a řešení potíží s aplikací cloudového úložiště v Azure | Microsoft Docs"
+description: "Použijte diagnostické nástroje, metriky a upozornění k monitorování a řešení potíží s cloudovou aplikací."
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: db88c331f79d83e0124519f8b6dbb34514b456dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorování a řešení potíží s aplikací na cloudové úložiště
+# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorování a řešení potíží s aplikací cloudového úložiště
 
-V tomto kurzu je součástí čtyři a poslední část řady. Zjistíte, jak ke sledování a řešení potíží s aplikací na cloudové úložiště.
+Tento kurz je čtvrtou a poslední částí série. Zjistíte, jak monitorovat a řešit potíže s aplikací cloudového úložiště.
 
-V rámci čtyři řady, zjistíte, jak:
+Ve čtvrté části této série se naučíte:
 
 > [!div class="checklist"]
-> * Zapnout protokolování a metriky
-> * Povolit výstrahy pro chyb autorizace
-> * Spusťte test provoz s nesprávnou tokeny SAS
-> * Stáhněte si a analyzovat protokoly
+> * Zapnutí protokolování a metrik
+> * Povolení upozornění na chyby autorizace
+> * Spuštění testovacího provozu s nesprávnými tokeny SAS
+> * Stažení a analýza protokolů
 
-[Azure storage analytics](../common/storage-analytics.md) poskytuje data protokolování a metriky pro účet úložiště. Tato data poskytují přehled o stavu vašeho účtu úložiště. Předtím, než může být viditelnost do účtu úložiště, budete muset nastavit shromažďování dat. Tento proces zahrnuje zapnutí protokolování, konfigurace metriky a povolení výstrahy.
+[Analýza úložiště Azure](../common/storage-analytics.md) poskytuje data metrik a protokolování pro účet úložiště. Tato data poskytují přehled o stavu účtu úložiště. Abyste získali přehled o svém účtu úložiště, musíte nastavit shromažďování dat. Tento proces zahrnuje zapnutí protokolování, konfiguraci metrik a povolení upozornění.
 
-Protokolování a metriky z účty úložiště jsou povolené z **diagnostiky** na portálu Azure. Existují dva typy metrik. **Agregační** shromažďovat metriky procenta vstupní/výstupní, dostupnosti, latence a úspěch. Tyto metriky se shromažďují pro objekt blob, fronty, tabulky a souborové služby. **Na rozhraní API** shromažďuje stejnou sadu metriky pro každé operace úložiště v rozhraní API služby Azure Storage. Protokolování úložiště umožňuje podrobnosti záznamu pro úspěšné i neúspěšné požadavky ve vašem účtu úložiště. Tyto protokoly umožňují najdete v části Podrobnosti o čtení, zápisu a odstraňování operace u vaší Azure tabulky, fronty a objekty BLOB. Umožňují také zobrazíte důvody pro neúspěšné požadavky například časové limity, omezení a chyb autorizace.
+Protokolování a metriky účtů úložiště se zapínají na kartě **Diagnostika** na webu Azure Portal. Existují dva typy metrik. Metriky **agregace** shromažďují informace o příchozím a výchozím přenosu dat, dostupnosti, latenci a procentuální úspěšnosti. Tyto metriky se agregují pro služby objektů blob, front, tabulek a souborů. Metriky **jednotlivých rozhraní API** shromažďují stejnou sadu metrik pro každou operaci úložiště v rozhraní API služby Azure Storage. Protokolování úložiště umožňuje zaznamenávat podrobnosti o úspěšných i neúspěšných požadavcích v účtu úložiště. V těchto protokolech můžete zobrazit podrobnosti o operacích čtení, zápisu a odstranění provedených s vašimi tabulkami, frontami a objekty blob v Azure. Můžete z nich také zjistit důvody neúspěšných požadavků, jako jsou časové limity, omezování nebo chyby autorizace.
 
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 
-## <a name="turn-on-logging-and-metrics"></a>Zapnout protokolování a metriky
+## <a name="turn-on-logging-and-metrics"></a>Zapnutí protokolování a metrik
 
-V nabídce vlevo vyberte **skupiny prostředků**, vyberte **myResourceGroup**a pak vyberte v seznamu prostředků účtu úložiště.
+V nabídce vlevo vyberte **Skupiny prostředků**, pak **myResourceGroup** a v seznamu prostředků pak vyberte svůj účet úložiště.
 
-V části **diagnostiky** nastavit **stav** k **na**. Ujistěte se, **Blob agregovaná metrika**, **Blob metriku API**, a **Blob protokoly** jsou povoleny.
+V části **Diagnostika** nastavte **Stav** na hodnotu **Zapnuto**. Ujistěte se, že jsou povolené možnosti **Metriky agregace objektů blob**, **Metriky objektů blob rozhraní API** a **Protokoly objektů blob**.
 
-Po dokončení klikněte na tlačítko **uložit**
+Jakmile budete hotovi, klikněte na **Uložit**.
 
-![Podokno diagnostiky](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Podokno Diagnostika](media/storage-monitor-troubleshoot-storage-application/figure1.png)
 
-## <a name="enable-alerts"></a>Povolit výstrahy
+## <a name="enable-alerts"></a>Povolení upozornění
 
-Výstrahy umožňují e-mailem správci nebo aktivovat webhook, jehož podle metriky před nedodržením prahovou hodnotu. V tomto příkladu je povolit upozornění `SASClientOtherError` metriku.
+Upozornění představují způsob, jak na základě prahové hodnoty nebo porušení metriky odeslat e-mail správcům nebo aktivovat webhook. V tomto příkladě povolíte upozornění pro metriku `SASClientOtherError`.
 
-### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Přejděte na účet úložiště na portálu Azure
+### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Přechod k účtu úložiště na webu Azure Portal
 
-V nabídce vlevo vyberte **skupiny prostředků**, vyberte **myResourceGroup**a pak vyberte v seznamu prostředků účtu úložiště.
+V nabídce vlevo vyberte **Skupiny prostředků**, pak **myResourceGroup** a v seznamu prostředků pak vyberte svůj účet úložiště.
 
-V části **monitorování** vyberte **výstrah pravidla**.
+V části **Monitorování** vyberte **Pravidla upozornění**.
 
-Vyberte **+ přidat upozornění**v části **přidání pravidla výstrahy**, zadejte požadované informace. Zvolte `SASClientOtherError` z **metrika** rozevíracího seznamu.
+Vyberte **+ Přidat upozornění** a v části **Přidat pravidlo upozornění** vyplňte požadované informace. Z rozevírací nabídky **Metrika** zvolte `SASClientOtherError`.
 
-![Podokno diagnostiky](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Podokno Diagnostika](media/storage-monitor-troubleshoot-storage-application/figure2.png)
 
-## <a name="simulate-an-error"></a>Simulovat chybu
+## <a name="simulate-an-error"></a>Simulace chyby
 
-K simulaci platný výstrahy, můžete se pokusit požadavku neexistující objekt blob z účtu úložiště. Chcete-li to provést, nahraďte `<incorrect-blob-name>` s hodnotou, která neexistuje. Spusťte následující ukázka kódu několikrát k simulaci neúspěšné požadavky objektů blob.
+Pokud chcete simulovat platné upozornění, můžete z účtu úložiště zkusit vyžádat neexistující objekt blob. Provedete to tak, že nahradíte hodnotu `<incorrect-blob-name>` neexistující hodnotou. Několikrát spusťte následující vzorový kód a simulujte neúspěšné požadavky na objekt blob.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -81,49 +78,49 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
 ```
 
-Na následujícím obrázku je příklad upozornění, že je založena na simulované selhání spustil se v předchozím příkladu.
+Následující obrázek představuje příklad upozornění založeného na simulované chybě z předchozího příkladu.
 
  ![Příklad upozornění](media/storage-monitor-troubleshoot-storage-application/alert.png)
 
-## <a name="download-and-view-logs"></a>Stažení a zobrazit protokoly
+## <a name="download-and-view-logs"></a>Stažení a zobrazení protokolů
 
-Protokoly úložiště ukládání dat do sady objektů BLOB v kontejneru objektů blob s názvem **$logs** ve vašem účtu úložiště. Tento kontejner nezobrazuje Pokud seznamu všechny kontejnery objektů blob ve vašem účtu, ale pokud přímý přístup můžete zobrazit jeho obsah.
+Protokoly úložiště ukládají data ve vašem účtu úložiště v sadě objektů blob v kontejneru objektů blob s názvem **$logs**. Tento kontejner se nezobrazí při výpisu všech kontejnerů objektů blob ve vašem účtu, ale pokud k němu přistoupíte přímo, můžete zobrazit jeho obsah.
 
-V tomto scénáři použijete [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) pro interakci s vaším účtem úložiště Azure.
+V tomto scénáři použijete k práci se svým účtem úložiště Azure aplikaci [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx).
 
-### <a name="download-microsoft-message-analyzer"></a>Stáhněte si Microsoft Message Analyzer
+### <a name="download-microsoft-message-analyzer"></a>Stažení aplikace Microsoft Message Analyzer
 
-Stáhněte si [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) a instalace aplikace.
+Stáhněte a nainstalujte aplikaci [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226).
 
-Spuštění aplikace a zvolte **soubor** > **otevřete** > **z jiných zdrojů souboru**.
+Spusťte aplikaci a zvolte **File** (Soubor) > **Open** (Otevřít) > **From Other File Sources** (Z jiných zdrojů souborů).
 
-V **souboru selektor** dialogovém okně, vyberte **+ přidat připojení Azure**. Zadejte ve vaší **název účtu úložiště** a **klíč účtu** a klikněte na tlačítko **OK**.
+V dialogovém okně **File Selector** (Selektor souborů) vyberte **+ Add Azure Connection** (+ Přidat připojení k Azure). Zadejte **název účtu úložiště** a **klíč účtu** a pak klikněte na **OK**.
 
-![Microsoft Message Analyzer - přidat dialogové okno připojení úložiště Azure](media/storage-monitor-troubleshoot-storage-application/figure3.png)
+![Microsoft Message Analyzer – Dialogové okno Add Azure Storage Connection (Přidat připojení k účtu úložiště Azure)](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-Jakmile se připojíte, rozbalte kontejnery ve stromu úložiště zobrazení umožní zobrazit objekty BLOB protokolu. Vyberte nejnovější protokolu a klikněte na **OK**.
+Po připojení rozbalte kontejnery ve stromovém zobrazení úložiště a zobrazte objekty blob protokolů. Vyberte nejnovější protokol a klikněte na **OK**.
 
-![Microsoft Message Analyzer - přidat dialogové okno připojení úložiště Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Microsoft Message Analyzer – Dialogové okno Add Azure Storage Connection (Přidat připojení k účtu úložiště Azure)](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-Na **novou relaci** dialogové okno, klikněte na tlačítko **spustit** Chcete-li zobrazit protokol.
+V dialogovém okně **New Session** (Nová relace) kliknutím na **Start** (Spustit) zobrazte protokol.
 
-Jakmile se otevře v protokolu, můžete zobrazit události úložiště. Jak je vidět na následujícím obrázku, došlo `SASClientOtherError` spuštěno na účet úložiště. Další informace o protokolování úložiště, najdete v článku [Storage Analytics](../common/storage-analytics.md).
+Po otevření protokolu můžete zobrazit události úložiště. Jak je vidět z následujícího obrázku, v účtu úložiště se aktivovala událost `SASClientOtherError`. Další informace o protokolování úložiště najdete v tématu [Analýza úložiště](../common/storage-analytics.md).
 
-![Microsoft Message Analyzer - zobrazování událostí](media/storage-monitor-troubleshoot-storage-application/figure5.png)
+![Microsoft Message Analyzer – Zobrazení událostí](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) je jiný nástroj, který slouží k interakci s účty úložiště, včetně **$logs** kontejneru a protokoly, které jsou v ní obsažené.
+Dalším nástrojem, který můžete použít k práci se svým účtem úložiště včetně kontejneru **$logs** a protokolů, které obsahuje, je [Průzkumník služby Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="next-steps"></a>Další kroky
 
-V rámci čtyři a poslední část řady jste zjistili, jak ke sledování a řešení potíží s váš účet úložiště, jako například:
+Ve čtvrté a poslední části série jste zjistili, jak monitorovat a řešit potíže se svým účtem úložiště, a naučili jste se například:
 
 > [!div class="checklist"]
-> * Zapnout protokolování a metriky
-> * Povolit výstrahy pro chyb autorizace
-> * Spusťte test provoz s nesprávnou tokeny SAS
-> * Stáhněte si a analyzovat protokoly
+> * Zapnutí protokolování a metrik
+> * Povolení upozornění na chyby autorizace
+> * Spuštění testovacího provozu s nesprávnými tokeny SAS
+> * Stažení a analýza protokolů
 
-Tento odkaz zobrazíte ukázky předdefinovaných úložiště.
+Pod tímto odkazem najdete ukázky předdefinovaných úložišť.
 
 > [!div class="nextstepaction"]
-> [Ukázky skriptu úložiště Azure](storage-samples-blobs-cli.md)
+> [Ukázky skriptů úložiště Azure](storage-samples-blobs-cli.md)
