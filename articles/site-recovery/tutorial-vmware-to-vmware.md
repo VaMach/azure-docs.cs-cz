@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Nastavit zotavení po havárii na lokální virtuální počítače VMware nebo fyzických serverů do sekundární lokality
 
@@ -65,9 +65,9 @@ Stažení [aktualizace](https://aka.ms/asr-scout-update6) soubor .zip. Soubor ob
   - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - Uživatelský Agent update4 bits pro RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Rozbalte soubory .zip.
 2. **RX server**: kopírování **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** k serveru RX a rozbalte ho. V rozbalené složce spustit **/Install**.
 3. **Konfigurační server a procesový server**: kopírování **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** konfigurační server a procesový server. Dvakrát klikněte na spustit.<br>
@@ -124,7 +124,7 @@ Kumulativní aktualizace je Scout aktualizace 5. Obsahuje všechny opravy z Upda
 - Pokud zdrojové servery, hlavní cíl, konfiguraci, proces a RX servery běží již aktualizace 4, můžete použít pouze v hlavní cílový server. 
 
 #### <a name="new-platform-support"></a>Nová podpora platformy
-* SUSE Linux Enterprise Server 11, aktualizace Service Pack 4(SP4)
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
 * 64bitový SLES 11 SP4 **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** je součástí balíčku balíček základní Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Stáhněte si balíček GA z portálu, jak je popsáno v [vytvoření trezoru](#create-a-vault).
 
 
@@ -236,10 +236,10 @@ Aktualizace 1 zahrnuje následující oprav chyb a nové funkce:
 * V každém okamžiku je k dispozici na počet chráněných serverů aktuálně účtovat **řídicí panel** v trezoru.
 * Byla přidána podpora rozhraní příkazového řádku (vCLI) vSphere 5.5 Update 2.
 * Přidali jsme podporu pro tyto operační systémy Linux na zdrojovém serveru:
-    * RHEL 6 aktualizaci 6
-    * RHEL 5 aktualizovat 11
-    * CentOS 6 aktualizací 6
-    * Aktualizace centOS 5 11
+    * RHEL 6 Update 6
+    * RHEL 5 Update 11
+    * CentOS 6 Update 6
+    * CentOS 5 Update 11
 * Opravy chyb pro adres následující problémy:
   * Pro konfigurační server nebo RX server selže registrace trezoru.
   * Svazky clusteru se nezobrazí, jako očekávané když clusterovaný, že virtuální počítače se znovu jako v případě jejich obnovení.

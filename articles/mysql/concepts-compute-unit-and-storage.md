@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: 2c4894ae9a4235f9ced4a8d9b991238543646f53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Vysvětlení výpočetní jednotky v Azure databáze pro databázi MySQL
 Toto téma vysvětluje Princip výpočetní jednotky a co se stane, když vaše úlohy dosáhne maximální výpočetní jednotky.
@@ -42,5 +42,5 @@ Pokud vaše úlohy dosáhne maximální limit v buď výpočetní jednotky nebo 
 
 Pokud vaše úlohy dosáhne maximální limit počtu připojení, je vyvolána explicitní chyby. Další informace o omezení prostředků najdete v tématu [omezení v Azure Database pro databázi MySQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o cenových úrovní najdete v tématu [Azure Database pro databázi MySQL cenové úrovně](./concepts-service-tiers.md).

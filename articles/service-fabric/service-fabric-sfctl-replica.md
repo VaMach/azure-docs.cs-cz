@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-replica"></a>sfctl repliky
+# <a name="sfctl-replica"></a>sfctl replica
 Spravujte repliky, které patří do oddílů služby.
 
 ## <a name="commands"></a>Příkazy
@@ -64,7 +64,7 @@ Získá podrobnosti repliky nasazené na uzlu Service Fabric. Informace zahrnuj�
 ## <a name="sfctl-replica-health"></a>sfctl repliky stavu
 Získá stav repliky stavové služby Service Fabric nebo instance bezstavové služby.
 
-Získá stav repliky Service Fabric. EventsHealthStateFilter použijte k filtrování kolekce události stavu ohlášeny repliky podle stavu. .
+Získá stav repliky Service Fabric. EventsHealthStateFilter použijte k filtrování kolekce události stavu ohlášeny repliky podle stavu.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -72,7 +72,7 @@ Získá stav repliky Service Fabric. EventsHealthStateFilter použijte k filtrov
 | --- | --- |
 | – id oddílu [vyžaduje]| Identita oddílu.|
 | – id repliky [vyžaduje]| Identifikátor repliky.|
-| --events-health-state-filter| Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací těchto hodnota získaná za použití bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
+| --events-health-state-filter| Umožňuje filtrování vrácených objektů HealthEvent kolekce na základě stavu. Možné hodnoty pro tento parametr patří celočíselná hodnota jednoho z následujících stavů. Se vrátí jenom události, které odpovídají filtru. Všechny události se používají k vyhodnocení agregovaný stav v pořádku. Pokud není zadaný, jsou vráceny všechny položky. Hodnoty stavu jsou výčet založený na příznak, takže hodnotou může být kombinací tyto hodnoty získané pomocí bitový operátor 'OR'. Například pokud zadaná hodnota je 6 všechny události s hodnotou elementu HealthState OK (2) a upozornění (4), jsou vráceny. -Výchozí – výchozí hodnota. Vyhledá všechny stav HealthState. Hodnota je nula. -None - filtr, který se neshoduje se žádnou hodnotu stavu HealthState. Použít cílem vrátit žádné výsledky v dané kolekci stavů. Hodnota je 1. -Ok - filtrujte, aby odpovídá vstup s hodnotou elementu HealthState Ok. Hodnota je 2. -Upozornění - filtr, hodnota odpovídá vstup k elementu HealthState upozornění. Hodnota je 4. -Chyba – filtr, který odpovídá vstup s hodnotou elementu HealthState chyby. Hodnota je 8. -Všechny - filtr, který odpovídá vstup s libovolnou hodnotou elementu HealthState. Hodnota je 65535.|
 | časový limit – -t             | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
@@ -82,13 +82,13 @@ Získá stav repliky Service Fabric. EventsHealthStateFilter použijte k filtrov
 | --debug                  | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h                | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o              | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
-| --dotazu                  | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
+| --dotazu                  | Řetězec dotazu JMESPath. Další informace najdete v tématu http://jmespath.org/.|
 | -verbose                | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
 ## <a name="sfctl-replica-info"></a>informace o sfctl repliky
 Získá informace o repliku oddílu Service Fabric.
 
-Respons zahrnují ID, role, stav, stav, název uzlu, provozu a další podrobnosti o repliky.
+Odpověď obsahuje id, role, stav, stav, název uzlu, provozu a další podrobnosti o repliky.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -96,7 +96,7 @@ Respons zahrnují ID, role, stav, stav, název uzlu, provozu a další podrobnos
 | --- | --- |
 | – id oddílu [vyžaduje]| Identita oddílu.|
 | – id repliky [vyžaduje]| Identifikátor repliky.|
-| --token pokračování  | Parametr token pokračování slouží k získání další sadu výsledků. Token pokračování s hodnotou neprázdné je zahrnutý v odpovědi rozhraní API, když výsledky ze systému nelze uložit do odpověď o jedné. Pokud je tato hodnota předaná pro další volání rozhraní API, rozhraní API vrátí další sadu výsledků. Pokud nejsou žádné další výsledky pak token pro pokračování neobsahuje hodnotu. Hodnota tohoto parametru by neměla být kódovaná adresou URL.|
+| --token pokračování  | Parametr token pokračování slouží k získání další sadu výsledků. Token pokračování s hodnotou neprázdné je zahrnutý v odpovědi rozhraní API, když výsledky ze systému nelze uložit do odpověď o jedné. Pokud je tato hodnota předaná pro další volání rozhraní API, rozhraní API vrátí další sadu výsledků. Pokud nejsou žádné další výsledky, pak token pro pokračování neobsahuje hodnotu. Hodnota tohoto parametru by neměla být kódovaná adresou URL.|
 | časový limit – -t          | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
@@ -106,7 +106,7 @@ Respons zahrnují ID, role, stav, stav, název uzlu, provozu a další podrobnos
 | --debug               | Zvýšit protokolování podrobností zobrazit, že všechny protokoly ladění.|
 | – Nápověda -h             | Zobrazte tuto zprávu nápovědy a ukončení.|
 | --výstup -o           | Výstupní formát.  Povolené hodnoty: formát json, jsonc, tabulce, tsv.  Výchozí: json.|
-| --dotazu               | Řetězec dotazu JMESPath. V tématu http://jmespath.org/ Další informace a příklady.|
+| --dotazu               | Řetězec dotazu JMESPath. Další informace najdete v tématu http://jmespath.org/.|
 | -verbose             | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
 ## <a name="sfctl-replica-list"></a>seznam replik sfctl

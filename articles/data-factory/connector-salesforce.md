@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopírování dat z a do služby Salesforce pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Verze 1 - všeobecně dostupná](v1/data-factory-salesforce-connector.md)
+> * [Verze 1 – Obecně dostupná](v1/data-factory-salesforce-connector.md)
 > * [Verze 2 – Preview](connector-salesforce.md)
 
 Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z a do služby Salesforce. Vychází [aktivity kopírování přehled](copy-activity-overview.md) článek, který představuje obecný přehled o aktivitě kopírování.
@@ -187,6 +187,7 @@ Ke kopírování dat ze služby Salesforce, nastavte typ zdroje v aktivitě kop�
 |:--- |:--- |:--- |
 | type | Vlastnost typ zdroje kopie aktivity musí být nastavena na **SalesforceSource**. | Ano |
 | query |Čtení dat pomocí vlastního dotazu. Můžete použít dotaz SQL 92 nebo [Salesforce objektu dotazu jazyka (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) dotazu. Příklad: `select * from MyTable__c`. | Ne (když je určena "tableName" v datové sadě) |
+| readBehavior | Označuje, zda dotaz na existující záznamy nebo dotaz na všechny záznamy, včetně těch odstraněné. Pokud není zadaný, použije se výchozí chování je první. <br>Povolené hodnoty: **dotazu** (výchozí), **queryAll**.  | Ne |
 
 > [!IMPORTANT]
 > Část "__c" **název rozhraní API** je potřeba pro všechny vlastní objekt.
@@ -292,8 +293,8 @@ Chcete-li prohledávat logicky odstraněné záznamy z koše služby Salesforce,
 
 Při zadávání dotazu SOQL nebo SQL věnujte pozornost rozdíl formátu data a času. Příklad:
 
-* **Ukázka SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Ukázka SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
+* **Ukázka SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Ukázka SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Datový typ mapování pro Salesforce
 
@@ -304,8 +305,8 @@ Při kopírování dat ze služby Salesforce se používají následující mapo
 | Automatické číslování |Řetězec |
 | Zaškrtávací políčko |Logická hodnota |
 | Měna |Dvojitý |
-| Datum |Datum a čas |
-| Datum/čas |Datum a čas |
+| Datum |DateTime |
+| Datum/čas |DateTime |
 | E-mail |Řetězec |
 | ID |Řetězec |
 | Relace hledání |Řetězec |

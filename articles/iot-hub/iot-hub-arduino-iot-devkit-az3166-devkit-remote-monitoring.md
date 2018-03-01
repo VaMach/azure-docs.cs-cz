@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: abaad6514b24bd4bcc923d87a7b721cc80648c47
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Připojení IoT DevKit AZ3166 Azure IoT Suite pro vzdálené monitorování
 
 V tomto kurzu zjistěte, jak spouštět ukázkovou aplikaci na vašem DevKit k odesílání dat snímačů do sady Azure IoT Suite.
+
+[MXChip IoT DevKit](https://aka.ms/iot-devkit) je vše v jednom Arduino kompatibilní fórum s bohatou periferní zařízení a senzory. Můžete vytvořit pomocí programu [Visual Studio Code rozšíření pro Arduino](https://aka.ms/arduino). A dodává se s rozšiřujících se [projekty katalogu](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) na požadované prototypu řešení Internetu věcí (IoT), která využít výhod služby Microsoft Azure.
 
 ## <a name="what-you-need"></a>Co potřebujete
 
@@ -122,3 +124,4 @@ Pokud narazíte na problémy, podívejte se na [nejčastější dotazy k](https:
 Teď, když jste se naučili postup DevKit zařízení připojit k vaší Azure IoT Suite a vizualizovat data snímačů, tady jsou navrhované další kroky:
 
 * [Přehled služby Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Připojte zařízení MXChip IoT DevKit do aplikace Microsoft IoT centrální](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

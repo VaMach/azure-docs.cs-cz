@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-is"></a>je sfctl
+# <a name="sfctl-is"></a>sfctl is
 Dotaz a odeslat příkazy ke službě infrastruktury.
 
 ## <a name="commands"></a>Příkazy
@@ -34,14 +34,14 @@ Dotaz a odeslat příkazy ke službě infrastruktury.
 ## <a name="sfctl-is-command"></a>příkaz je sfctl
 Vyvolá příkaz pro správu v dané instanci služby infrastruktury.
 
-Toto rozhraní API pro clustery, které mají jednu nebo více instancí služby infrastruktury nakonfigurovali, poskytuje způsob, jak odesílat příkazy specifické pro infrastrukturu na konkrétní instanci služby infrastruktury. Dostupné příkazy a jejich odpovídající formáty odpovědi liší v závislosti na infrastrukturu, na kterém je spuštěn clusteru. Toto rozhraní API podporuje platformy Service Fabric; ji není určen pro použití přímo z vašeho kódu. .
+Toto rozhraní API pro clustery, které mají jednu nebo více instancí služby infrastruktury nakonfigurovali, poskytuje způsob, jak odesílat příkazy specifické pro infrastrukturu na konkrétní instanci služby infrastruktury. Dostupné příkazy a jejich odpovídající formáty odpovědi liší v závislosti na infrastrukturu, na kterém je spuštěn clusteru. Toto rozhraní API podporuje platformy Service Fabric; ji není určen pro použití přímo z vašeho kódu. 
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Popis|
 | --- | --- |
-| – příkaz [potřebný]| Text příkazu, který má být volána. Obsah příkazu je specifické pro infrastrukturu.  Výchozí hodnota: je příkaz.|
-| --service-id     | Identita služby infrastruktury. Toto je úplný název služby infrastruktury bez "fabric:' schéma identifikátoru URI. Tento parametr vyžaduje se jenom pro clustery, které mají více než jednu instanci služby infrastruktury, spuštěná.|
+| – příkaz [potřebný]| Text příkazu, který má být volána. Obsah příkazu je specifické pro infrastrukturu. |
+| --service-id     | Identita služby infrastruktury. ID je úplný název služby infrastruktury bez "fabric:' schéma identifikátoru URI. Tento parametr vyžaduje se jenom pro clustery, které mají více než jednu instanci služby infrastruktury, spuštěná.|
 | časový limit – -t     | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
@@ -63,8 +63,8 @@ Toto rozhraní API pro clustery, které mají jednu nebo více instancí služby
 
 |Argument|Popis|
 | --- | --- |
-| – příkaz [potřebný]| Text příkazu, který má být volána. Obsah příkazu je specifické pro infrastrukturu.  Výchozí hodnota: je dotazu.|
-| --service-id     | Identita služby infrastruktury. Toto je úplný název služby infrastruktury bez "fabric:' schéma identifikátoru URI. Tento parametr je vyžadován pouze pro clustery, které mají více než jednu instanci služby infrastruktury, spuštěná.|
+| – příkaz [potřebný]| Text příkazu, který má být volána. Obsah příkazu je specifické pro infrastrukturu.|
+| --service-id     | Identita služby infrastruktury. ID je úplný název služby infrastruktury bez "fabric:' schéma identifikátoru URI. Tento parametr je vyžadován pouze pro clustery, které mají více než jednu instanci služby infrastruktury, spuštěná.|
 | časový limit – -t     | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: rajanaki
 ms.openlocfilehash: d487c1fcf7fb6444c2b8489df839a6450715ae0a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-errors-reported-during-the-process-of-failback"></a>Řešení chyb zaznamenaný během navrácení služeb po obnovení
 Navrácení služeb po obnovení v podstatě zahrnuje dva hlavní kroky. Jeden je znovu nastavte ochranu virtuálních počítačů z Azure do místní, druhý je ve skutečnosti provést navrácení služeb po obnovení z Azure do místní.

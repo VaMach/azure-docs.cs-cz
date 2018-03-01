@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z Azure do Azure
 
@@ -39,7 +39,7 @@ Tento článek shrnuje podporované konfigurace a součásti služby Azure Site 
 
 **Typ přesunutí prostředku** | **Podporované / nepodporované** | **Poznámky**  
 --- | --- | ---
-Přesunutí trezoru rámci skupiny prostředků | Nepodporuje se |Trezor služeb zotavení nelze přesouvat mezi skupinami prostředků.
+**Přesunutí trezoru rámci skupiny prostředků** | Nepodporuje se |Trezor služeb zotavení nelze přesouvat mezi skupinami prostředků.
 **Přesunutí výpočty, úložiště a sítě v rámci skupiny prostředků** | Nepodporuje se |Pokud přesunete po povolení replikace virtuálního počítače (nebo jeho přidružené komponenty, jako je například úložiště a sítě), budete muset zakázat replikaci a zapnout replikaci pro virtuální počítač znovu.
 
 
@@ -93,7 +93,7 @@ Níže podpora je dostupná pro jakoukoli úlohu spuštěnou na uvedených opera
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Podporované verze Ubuntu jádra pro virtuální počítače Azure
 
-Verze | **Verze služby mobility** | Verze jádra |
+**Verze** | **Verze služby mobility** | **Verze jádra** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic k 3.13.0-121-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic k 3.13.0-125-generic,<br/>3.16.0-25-Generic k 3.16.0-77-generic,<br/>3.19.0-18-Generic k 3.19.0-80-generic,<br/>4.2.0-18-Generic k 4.2.0-42-generic,<br/>4.4.0-21-Generic k 4.4.0-83-generic |
@@ -153,8 +153,8 @@ Dočasné disku | Vždy z replikace vyloučit. | Dočasné disk je vyloučený z
 Míry změny dat na disku | Nesmí být delší než 10 MB/s na disk pro storage úrovně Premium až 2 MB/s na disk pro standardní úložiště | Pokud se o míru změn průměr dat na disku je nad rámec 10 MB/s (pro Premium) a 2 MB/s (pro Standard) nepřetržitě, nebudou aktualizovány replikace. Ale pokud je shluků příležitostně dat a míry změny dat je větší než 10 MB/s (pro Premium) až 2 MB/s (pro Standard) po určitou dobu a dodává se, replikace budou aktualizovány. V takovém případě může se zobrazit body obnovení mírně zpožděné.
 Disky na účty úložiště standard storage | Podporováno |
 Disky na prémiové účty úložiště | Podporováno | Pokud virtuální počítač obsahuje disky, které jsou rozloženy účty úložiště standard a premium, můžete vybrat jiný cílový účet úložiště pro každý z disků, zda že máte stejnou konfiguraci úložiště v cílová oblast
-Standardní disky spravované | Nepodporuje se |  
-Pro prémiové disky spravované | Nepodporuje se |
+Standardní disky spravované | Podporované v oblastech Azure, ve kterých je Azure Site Recovery podporována. Cloud vlády nejsou aktuálně podporovány.  |  
+Pro prémiové disky spravované | Podporované v oblastech Azure, ve kterých je Azure Site Recovery podporována. Cloud vlády nejsou aktuálně podporovány. |
 Prostory úložiště | Podporováno |         
 Šifrování v klidovém stavu (SSE) | Podporováno | Pro účty úložiště mezipaměti a cíle můžete vybrat účet úložiště SSE povolena.     
 Azure Disk Encryption (ADE) | Nepodporuje se |

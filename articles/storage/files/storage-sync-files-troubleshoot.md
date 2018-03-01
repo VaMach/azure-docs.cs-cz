@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Řešení potíží s synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -145,15 +145,14 @@ Pokud se synchronizace nezdaří na serveru:
 <a id="replica-not-ready"></a>**Synchronizace selže s touto chybou: "0x80c8300f - replika není připraven k provedení požadované operace."**  
 Tento problém se očekává, pokud chcete vytvořit koncový bod cloudu a použít sdílenou složku Azure, který obsahuje data. Po dokončení úlohy detekce změn na sdílenou složkou Azure (může trvat až 24 hodin) spuštěna synchronizace by měla začít pracovat správně.
 
-<a id="broken-sync-files"></a>**Řešení potíží s jednotlivé soubory, které se nepodařilo synchronizovat**  
-Pokud jednotlivé soubory se nepodařilo synchronizovat:
-1. V prohlížeči událostí zkontrolujte provozu a diagnostické protokoly událostí, umístěná aplikace a Services\Microsoft\FileSync\Agent.
-2. Ověřte, že neexistují žádné otevřenými popisovači v souboru.
 
     > [!NOTE]
-    > Synchronizace služby Azure soubor pravidelně trvá snímků služby VSS pro synchronizaci souborů s otevřenými popisovači.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Aktuálně nepodporujeme přesunutí prostředku do jiného předplatného nebo na, Přesun do jiné služby Azure AD klienta.  Pokud předplatné přesune na jiný klienta, sdílenou složkou Azure nedostupné naše služby založené na změnu v hodnotě vlastnictví. Pokud dojde ke změně klienta, budete muset odstranit koncové body serveru a koncového bodu cloudu (najdete v části synchronizace skupiny Management část pokyny čistém znovu použít sdílenou složku Azure file) a znovu vytvořte skupiny synchronizace.
+
+<a id="doesnt-have-enough-free-space"></a>**Tento počítač nemá dostatek volného místa chyby**  
+Pokud portálu se zobrazí stav "Tento počítač nemá dostatek volného místa" může být problém, zůstane menší než 1 GB volného místa na svazku.  Například pokud je svazek 1,5 GB, synchronizaci pouze budou moct využívat .5GB, jestli jste nedosáhli tento problém, prosím zvětšení velikosti svazku používá pro koncový bod serveru.
 
 ## <a name="cloud-tiering"></a>Vrstvení cloudu 
 Existují dvě cesty pro selhání v cloudu vrstvení:

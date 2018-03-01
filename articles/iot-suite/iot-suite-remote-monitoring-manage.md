@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Správa a konfigurace zařízení
 
@@ -42,11 +42,11 @@ Pokud jste nenasadili řešení vzdáleného monitorování ještě by se měla 
 
 ## <a name="add-a-simulated-device"></a>Přidání simulovaného zařízení
 
-Přejděte na **zařízení** stránky v řešení a potom zvolte **nové zařízení**. V **nové zařízení** panelu, vyberte **Simulovaná**:
+Přejděte na **zařízení** stránky v řešení a potom zvolte **+ nové zařízení**. V **nové zařízení** panelu, vyberte **Simulovaná**:
 
 ![Zřídit simulovaného zařízení](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Nechte počet zařízení a zajišťují nastavena na **1**. Zvolte **vadný modul** jako **model zařízení**a potom zvolte **použít** vytvořte simulované zařízení:
+Nechte počet zařízení a zajišťují nastavena na **1**. Vyberte **vadný modul** zařízení modelu a potom vyberte **použít** vytvořte simulované zařízení:
 
 ![Zřídit modul simulované zařízení](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -98,7 +98,7 @@ Chcete-li ke změně, přidat název úlohy, aktualizujte hodnoty vlastností a 
 
 Chcete-li sledovat stav úlohy na **údržby** vyberte **úlohy**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu ukázal, jak na:
 

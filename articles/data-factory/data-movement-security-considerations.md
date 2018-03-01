@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - důležité informace o zabezpečení pro přesun dat
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -122,7 +122,7 @@ Virtuální síť se znázornění logické sítě v cloudu. Můžete připojit 
 
 Následující tabulka shrnuje sítě a doporučených konfigurací runtime vlastním hostováním integrace založený na různé kombinace zdrojové a cílové umístění pro přesun dat hybridní.
 
-| Zdroj      | Cíl                              | Konfigurace sítě                    | Nastavení integrace modulu runtime                |
+| Zdroj      | Cíl                              | Konfigurace sítě                    | Instalace prostředí Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Lokálně | Virtuální počítače a cloudové služby nasazené ve virtuálních sítích | IPSec pro síť VPN (point-to-site nebo site-to-site) | Modul runtime vlastním hostováním integrace lze nainstalovat místně nebo v Azure virtuální počítač (VM) ve virtuální síti |
 | Lokálně | Virtuální počítače a cloudové služby nasazené ve virtuálních sítích | ExpressRoute (soukromý partnerský vztah)           | Modul runtime vlastním hostováním integrace může být nainstalované místně nebo na virtuální počítač Azure ve virtuální síti |
@@ -150,8 +150,8 @@ Následující tabulka obsahuje **odchozí port** a požadavky domény **podniko
 | `*.servicebus.windows.net`    | 443, 80        | Požadované pro připojení k služby pro přesun dat v datové továrně modulem runtime integrace s vlastním hostováním |
 | `*.core.windows.net`          | 443            | Používá modul runtime vlastním hostováním integrace pro připojení k účtu úložiště Azure při použití [připravený kopie](copy-activity-performance.md#staged-copy) funkce. |
 | `*.frontend.clouddatahub.net` | 443            | Požadované modulem runtime vlastním hostováním integrace pro připojení ke službě Azure Data Factory. |
-| `*.database.windows.net`      | 1433           | (Volitelné) je nutné zadat cíl je Azure SQL Database / Azure SQL datového skladu. Použijte funkci dvoufázové instalace kopírování zkopírovat data do Azure SQL Database nebo Azure SQL Data Warehouse bez otevření portu 1433. |
-| `*.azuredatalakestore.net`    | 443            | (Volitelné) je nutné zadat cíl je Azure Data Lake store |
+| `*.database.windows.net`      | 1433           | (Volitelné) potřebné při kopírování z/do Azure SQL Database / Azure SQL datového skladu. Použijte funkci dvoufázové instalace kopírování zkopírovat data do Azure SQL Database nebo Azure SQL Data Warehouse bez otevření portu 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Volitelné) potřebné při kopírování z nebo do úložiště Azure Data Lake store |
 
 > [!NOTE] 
 > Možná budete muset spravovat porty / vytvoření seznamu povolených domén v podnikové brány firewall na úrovni podle potřeby podle příslušné datové zdroje. Tato tabulka pouze používá databázi SQL Azure, Azure SQL Data Warehouse, Azure Data Lake Store jako příklady.   

@@ -35,7 +35,7 @@ Zde jsou některé funkce úložiště Premium Storage:
 
 * **Disky úložiště Premium**
 
-    Premium Storage podporuje disky virtuálních počítačů, které je možné připojit k virtuálním počítačům konkrétní velikost řady. Premium Storage podporuje DS-series, DSv2-series, GS-series, Ls-series a virtuálních počítačů služby Fs-series. Máte možnost volby velikostí disku sedm: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2 048 GB), P50 (4095GB). P4 a velikosti disků P6 ještě podporují jenom pro spravované disky. Velikost každého disku má svou vlastní specifikace výkonu. V závislosti na požadavcích vaší aplikace můžete jeden nebo více disků připojit k virtuálnímu počítači. Jsme specifikace v podrobněji popisují [Storage úrovně Premium škálovatelnosti a cílech výkonnosti](#scalability-and-performance-targets).
+    Premium Storage podporuje disky virtuálních počítačů, které je možné připojit k virtuálním počítačům konkrétní velikost řady. Premium Storage podporuje DS-series, DSv2-series, GS-series, Ls-series, Fs-series a Esv3-series virtuálních počítačů. Máte možnost volby velikostí disku sedm: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2 048 GB), P50 (4095GB). P4 a velikosti disků P6 ještě podporují jenom pro spravované disky. Velikost každého disku má svou vlastní specifikace výkonu. V závislosti na požadavcích vaší aplikace můžete jeden nebo více disků připojit k virtuálnímu počítači. Jsme specifikace v podrobněji popisují [Storage úrovně Premium škálovatelnosti a cílech výkonnosti](#scalability-and-performance-targets).
 
 * **Objekty BLOB stránky Premium**
 
@@ -62,7 +62,7 @@ Zde jsou některé funkce úložiště Premium Storage:
 ## <a name="supported-vms"></a>Podporované virtuální počítače
 Premium Storage podporuje DS-series, DSv2-series, GS-series, Ls-series, Fs-series a B-series virtuálních počítačů. Můžete použít úložiště standard a premium disků s těmito typy virtuálních počítačů. Disky úložiště premium nelze použít s řadou virtuálních počítačů, které nejsou Premium úložiště kompatibilní.
 
-Informace o typech virtuálních počítačů a velikosti v Azure pro Windows najdete v tématu [velikosti virtuálních počítačů Windows](../articles/virtual-machines/windows/sizes.md). Informace o typech virtuálních počítačů a velikosti v Azure pro Linux najdete v tématu [velikosti virtuálního počítače s Linuxem](../articles/virtual-machines/linux/sizes.md).
+Informace o typech a velikostech virtuálních počítačů v Azure pro Windows najdete v tématu věnovaném [velikostem virtuálních počítačů s Windows](../articles/virtual-machines/windows/sizes.md). Informace o typech a velikostech virtuálních počítačů v Azure pro Linux najdete v tématu věnovaném [velikostem virtuálních počítačů s Linuxem](../articles/virtual-machines/linux/sizes.md).
 
 Toto jsou některé funkce služby DS-series, DSv2-series, GS-series, Ls-series a Fs-series virtuální počítače:
 
@@ -83,7 +83,7 @@ Toto jsou některé funkce služby DS-series, DSv2-series, GS-series, Ls-series 
     >
     > 
 
-* **Mezipaměti**
+* **Cache**
 
     Virtuální počítače v velikost řady, která podporují službu Premium Storage mít jedinečné funkce ukládání do mezipaměti pro vysoké úrovně propustnosti a latence. Ukládání do mezipaměti schopností překračuje základní výkon disku úložiště premium. Můžete nastavit zásady na prémiové disky úložiště pro ukládání do mezipaměti disku **jen pro čtení**, **ReadWrite**, nebo **žádné**. Disk výchozí zásady ukládání do mezipaměti je **jen pro čtení** pro všechny datové disky premium a **ReadWrite** pro disky operačního systému. Pro optimální výkon pro vaši aplikaci použijte nastavení správné mezipaměti. Například pro náročné pro čtení nebo jen pro čtení datových disků, jako je například datové soubory SQL serveru, nastavte disku zásady ukládání do mezipaměti **jen pro čtení**. Pro náročné zápisu nebo pouze pro zápis datových disků, jako jsou soubory protokolu serveru SQL Server, nastavte disku ukládání do mezipaměti zásady **žádné**. Další informace o optimalizaci návrhu s Premium Storage najdete v tématu [návrh z hlediska výkonu Storage úrovně Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
@@ -129,7 +129,7 @@ Pokud zřizujete disk úložiště premium, velikost disku určuje maximální I
 
 | Disky typu Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Velikost disku           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2 048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Velikost disku           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | Vstupně-výstupní operace za sekundu / disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
 | Propustnost / disk | 25 MB za sekundu  | 50 MB za sekundu  | 100 MB za sekundu | 150 MB za sekundu | 200 MB za sekundu | 250 MB za sekundu | 250 MB za sekundu | 
 
@@ -236,10 +236,10 @@ Následující Linuxových distribucích ověření pro Storage úrovně Premium
 
 | Distribuce | Verze | Podporované jádra | Podrobnosti |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-us-30GB |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| SuSE-sles-12-priority-v20150213 <br> SuSE sles 12 v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 vyžaduje](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Další informace v poznámce v další části* |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak chránit, back-endu webového rozhraní API pomocí Azure Active Directory a API Management
 Následující video ukazuje, jak vytvářet back-end webového rozhraní API a chránit pomocí Azure Active Directory a rozhraní API správy protokolu OAuth 2.0.  Tento článek obsahuje přehled a další informace o kroky v videa. Následující 24 minutu video ukazuje, jak na:
@@ -33,7 +33,7 @@ Následující video ukazuje, jak vytvářet back-end webového rozhraní API a 
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Vytvořte adresář služby Azure AD
-K zabezpečení vašeho webového rozhraní API back-end pomocí Azure Active Directory je nutné nejdříve vytvořit klienta služby AAD. V tomto videu se s názvem klienta **APIMDemo** se používá. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
+K zabezpečení vašeho webového rozhraní API back-end pomocí Azure Active Directory musíte nejprve mít klienta služby AAD. V tomto videu se s názvem klienta **APIMDemo** se používá. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 

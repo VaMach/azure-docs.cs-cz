@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-node"></a>sfctl uzlu
+# <a name="sfctl-node"></a>sfctl node
 Spravujte uzly, které vytvoří cluster.
 
 ## <a name="commands"></a>Příkazy
@@ -30,13 +30,13 @@ Spravujte uzly, které vytvoří cluster.
 |    zakázat       | Deaktivace uzlu clusteru Service Fabric se záměrem zadaný deaktivace.|
 |    povolit        | Aktivujte uzlem clusteru Service Fabric, která je právě deaktivována.|
 |    stav        | Získá stav uzlu Service Fabric.|
-|    Informace o          | Získá seznam uzlů v clusteru Service Fabric.|
+|    Informace o          | Získá informace o konkrétním uzlu v clusteru Service Fabric.|
 |    Seznam          | Získá seznam uzlů v clusteru Service Fabric.|
 |    načítání          | Získá informace o zatížení Service Fabric uzlu.|
 |    remove-state  | Service Fabric upozorní, že trvalého stavu na uzlu trvale odstraněn nebo ztráty.|
 |    report-health | Odešle zprávu o stavu na uzlu Service Fabric.|
 |    Restartování       | Restartování uzlu clusteru Service Fabric.|
-|    přechod    | Spuštění nebo zastavení uzlu clusteru.|
+|    Přechod    | Spuštění nebo zastavení uzlu clusteru.|
 |    Přechod stavu| Získá průběh operace pomocí StartNodeTransition spuštěna.|
 
 
@@ -50,7 +50,7 @@ Deaktivace uzlu clusteru Service Fabric se záměrem zadaný deaktivace. Po deak
 |Argument|Popis|
 | --- | --- |
 | – Název uzlu [vyžaduje]| Název uzlu.|
-| --záměr deaktivace | Popisuje záměr nebo důvod deaktivace uzlu. Možné hodnoty jsou následující. -Pause - Určuje, že uzlu by měl pozastavena. Hodnota je 1. – Restartování – označuje, že je záměrem je pro uzel restartovat po krátkou dobu. Hodnota je 2. -RemoveData – označuje, že je pro uzel k odebrat data. Hodnota je 3. .|
+| --záměr deaktivace | Popisuje záměr nebo důvod deaktivace uzlu. |
 | časový limit – -t       | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
@@ -109,9 +109,9 @@ Získá stav uzlu Service Fabric. EventsHealthStateFilter použijte k filtrován
 | -verbose                | Zvýšit protokolování podrobností. Použití – ladění pro úplné ladění protokoly.|
 
 ## <a name="sfctl-node-info"></a>informace o sfctl uzlu
-Získá seznam uzlů v clusteru Service Fabric.
+Získá informace o konkrétním uzlu v clusteru Service Fabric.
 
-Získá informace o konkrétním uzlu v clusteru Service Fabric. Odpověď obsahovat název, stav, ID, stavu, provozu a další podrobnosti o příslušném uzlu.
+Získá informace o konkrétním uzlu v Cluster.The prostředků infrastruktury služby odpověď obsahovat název, stav, id, stavu, provozu a další podrobnosti o příslušném uzlu.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -133,14 +133,14 @@ Získá informace o konkrétním uzlu v clusteru Service Fabric. Odpověď obsah
 ## <a name="sfctl-node-list"></a>seznam uzlů sfctl
 Získá seznam uzlů v clusteru Service Fabric.
 
-Koncový bod uzly vrací informace o uzly v clusteru Service Fabric. Odpověď obsahuje název, stav, ID, stavu, provozu a další podrobnosti o příslušném uzlu.
+Získá seznam uzlů v clusteru Service Fabric. Odpověď obsahovat název, stav, id, stavu, provozu a další podrobnosti o příslušném uzlu.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Popis|
 | --- | --- |
 | --token pokračování| Parametr token pokračování slouží k získání další sadu výsledků. Token pokračování s hodnotou neprázdné je zahrnutý v odpovědi rozhraní API, když výsledky ze systému nelze uložit do odpověď o jedné.      Pokud je tato hodnota předaná pro další volání rozhraní API, rozhraní API vrátí další sadu výsledků. Pokud nejsou žádné další výsledky, pak token pro pokračování neobsahuje hodnotu. Hodnota tohoto parametru by neměla být kódovaná adresou URL.|
-| --node-status-filter| Umožňuje filtrování podle NodeStatus uzly. Vrátí se pouze uzly, které jsou odpovídající hodnota zadaného filtru. Hodnota filtru může být jedna z následujících akcí. -Výchozí – Tato hodnota filtru odpovídá všechny uzly, s výjimkou těch stavem jako neznámý nebo odebrané. – všechny – tato hodnota filtru odpovídá všechny uzly. Tento filtr - nahoru – hodnota odpovídá uzly, které jsou zapnuty. Tento filtr - dolů – hodnota odpovídá uzlů, které jsou vypnuté. -povolení - tento filtr hodnota odpovídá uzlů, které jsou právě zapínání stavem jako povolení. -zakazuje - tento filtr hodnota odpovídá uzlů, které jsou během procesu zakázání se stavem jako zakážete. -zakázáno - tento filtr hodnota odpovídá uzlů, které jsou zakázány. -Neznámý – tato hodnota filtru odpovídá uzly, jejichž stav je neznámý. Uzel bude v neznámém stavu, není-li Service Fabric autoritativní informace o tomto uzlu. To může dojít, pokud systém dozví o uzel za běhu. -odebrat - tento filtr hodnota odpovídá uzly jejichž stav je odebráno. Toto jsou uzly, které byly odebrané z clusteru pomocí rozhraní API RemoveNodeState. .      Výchozí: výchozí.|
+| --node-status-filter| Umožňuje filtrování podle NodeStatus uzly. Vrátí se pouze uzly, které jsou odpovídající hodnota zadaného filtru. Hodnota filtru může být jedna z následujících akcí. Výchozí: výchozí.|
 | časový limit – -t     | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty
@@ -156,7 +156,7 @@ Koncový bod uzly vrací informace o uzly v clusteru Service Fabric. Odpověď o
 ## <a name="sfctl-node-load"></a>sfctl uzlu zatížení
 Získá informace o zatížení Service Fabric uzlu.
 
-Získá informace o zatížení Service Fabric uzlu.
+Načte informace zatížení Service Fabric uzlu pro všechny metriky, které mají zatížení nebo kapacity definované.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -203,7 +203,7 @@ Restartování uzlu clusteru Service Fabric, která je již spuštěn.
 Spuštění nebo zastavení uzlu clusteru.
 
 Spuštění nebo zastavení uzlu clusteru.  Uzel clusteru je proces, není instanci OS sám sebe.
-Pro spuštění uzlu, předejte "Start" pro parametr NodeTransitionType. K zastavení uzlu, předejte "Stop" pro parametr NodeTransitionType. Toto rozhraní API spustí operaci – když rozhraní API vrátí že uzlu nemusí dokončení přechodu ještě. Volání GetNodeTransitionProgress s stejné OperationId zobrazíte průběh operace. .
+Pro spuštění uzlu, předejte "Start" pro parametr NodeTransitionType. K zastavení uzlu, předejte "Stop" pro parametr NodeTransitionType. Toto rozhraní API spustí operaci – když rozhraní API vrátí že uzlu nemusí dokončení přechodu ještě. Volání GetNodeTransitionProgress s stejné OperationId zobrazíte průběh operace. 
 
 ### <a name="arguments"></a>Argumenty
 
@@ -211,7 +211,7 @@ Pro spuštění uzlu, předejte "Start" pro parametr NodeTransitionType. K zasta
 | --- | --- |
 | --– instance-id uzlu [vyžaduje]| ID instance uzlu cílový uzel. To se dá určit prostřednictvím rozhraní API GetNodeInfo.|
 | – Název uzlu [vyžaduje]| Název uzlu.|
-| --uzlu přechod type [vyžaduje]| Určuje typ přechodu k provedení.                       NodeTransitionType.Start spustí zastaven uzlu.                       NodeTransitionType.Stop zastaví uzel, který je v provozu. -Neplatná - vyhrazené.  Nepředávejte do rozhraní API. -Start - přechod zastaven uzlu na nahoru. -Stop - přechod aktuálním uzlu byla zastavena. .|
+| --uzlu přechod type [vyžaduje]| Určuje typ přechodu k provedení.                       NodeTransitionType.Start spustí zastaven uzlu.                       NodeTransitionType. Stop zastaví uzel, který je v provozu. |
 | – id operace [vyžaduje]| Identifikátor GUID, který identifikuje volání toto rozhraní API.  To je předán do odpovídající GetProgress API.|
 | --stop-doba trvání v sekund, které [vyžadují]| Doba trvání v sekundách, aby uzlu zastavena.  Minimální hodnota je 600, maximální se 14400. Po vypršení této doby uzlu automaticky zobrazí zpět.|
 | časový limit – -t                      | Server časový limit v sekundách.  Výchozí: 60.|

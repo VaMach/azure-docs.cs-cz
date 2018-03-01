@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Log Analytics pro Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 Různé typy protokolů v Azure můžete použít ke správě a odstraňování potíží nástroje pro vyrovnávání zatížení. Některé z těchto protokolů jsou přístupné prostřednictvím portálu. Všechny protokoly můžete extrahovat z Azure blob storage a zobrazit v různých nástrojů, jako je například aplikace Excel a PowerBI. Další informace o různých typech protokolů z níže uvedeného seznamu.
 
 * **Protokoly auditu:** můžete použít [protokoly auditu Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (dříve označované jako operační protokoly) Chcete-li zobrazit všechny operace odeslání vašich předplatných Azure a jejich stav. Protokoly auditu jsou ve výchozím nastavení povolené a lze zobrazit na portálu Azure.
-* **Výstrahy protokoly událostí:** tento protokol můžete zobrazit výstrahy rasied nástroj pro vyrovnávání zatížení. Stav nástroje pro vyrovnávání zatížení je shromažďovaných každých pět minut. Tento protokol je zapsán pouze pokud je vyvolána o událost výstrahy nástroje pro vyrovnávání zatížení.
+* **Výstrahy protokoly událostí:** tento protokol můžete zobrazit výstrahy vyvolané nástroje pro vyrovnávání zatížení. Stav nástroje pro vyrovnávání zatížení je shromažďovaných každých pět minut. Tento protokol je zapsán pouze pokud je vyvolána o událost výstrahy nástroje pro vyrovnávání zatížení.
 * **Stav testu protokoly:** tento protokol můžete použít k zobrazení problémů zjištěných váš test stavu, jako je počet instancí ve vašem fondu back-end, které nejsou přijímání požadavků z nástroje pro vyrovnávání zatížení z důvodu selhání kontroly stavu. Tento protokol je zapsán do, když dojde ke změně v stav testu.
 
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Přihlaste se do [portál Azure](http://portal.azure.com). Pokud ještě nemáte
 > [!NOTE]
 > Protokoly auditu nevyžadují, aby účet samostatného úložiště. Použití úložiště pro události a stav testu protokolování bude platit poplatky služby.
 
-## <a name="audit-log"></a>Protokol auditování
+## <a name="audit-log"></a>Protokol auditu
 
 Ve výchozím nastavení je generování protokolu auditu. Protokoly se zachovají 90 dní v úložišti Azure a protokoly událostí. Další informace o tyto protokoly načtením [zobrazení událostí a protokolů auditování](../monitoring-and-diagnostics/insights-debugging-with-events.md) článku.
 
@@ -140,11 +140,11 @@ Budete muset připojit k účtu úložiště a načítat položky protokolu JSON
 > [!TIP]
 > Pokud jste obeznámeni s Visual Studio a základní koncepty změna hodnoty konstanty a proměnné v jazyce C#, můžete použít [protokolu nástroje Převaděč](https://github.com/Azure-Samples/networking-dotnet-log-converter) dostupné z Githubu.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Vaše protokoly auditu Azure s Power BI vizualizovat](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) příspěvku na blogu.
 * [Zobrazení a analýza protokolů auditu Azure v Power BI a další](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) příspěvku na blogu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Porozumění testům nástroje pro vyrovnávání zatížení](load-balancer-custom-probe-overview.md)

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Stažení položky marketplace z Azure do Azure zásobníku
 
@@ -109,7 +109,7 @@ Z počítače, který má připojení k Internetu použijte následující postu
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importovat image a publikujete ho v zásobníku Azure marketplace
 
-1. Po stažení balíčku bitové kopie a galerie, uložte je a obsah ve složce AzureStack. nástroje pro hlavní na vyměnitelnou diskovou jednotku a zkopírujte jej do prostředí Azure zásobníku (můžete ji zkopírovat místně do libovolného umístění, jako například: "C:\MarketplaceImages").   
+1. Po stažení balíčku bitové kopie a galerie, uložte je a obsah ve složce AzureStack. nástroje pro hlavní na vyměnitelnou diskovou jednotku a zkopírujte jej do prostředí Azure zásobníku (můžete ji zkopírovat místně do libovolného umístění, jako například: "C:\MarketplaceImages").     
 
 2. Před importem bitovou kopii, je nutné připojit k Azure zásobníku operátor prostředí pomocí kroků popsaných v [nakonfigurovat prostředí PowerShell Azure zásobníku operátor](azure-stack-powershell-configure-admin.md).  
 

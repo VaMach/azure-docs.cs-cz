@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-cluster"></a>sfctl clusteru
+# <a name="sfctl-cluster"></a>sfctl cluster
 Vyberte, Správa a provoz clusterů Service Fabric.
 
 ## <a name="commands"></a>Příkazy
@@ -144,7 +144,7 @@ Pokud připojení k zabezpečení clusteru, zadejte certifikát (CRT) a soubor k
 ## <a name="sfctl-cluster-unprovision"></a>unprovision sfctl clusteru
 Zrušit zřízení balíčky kód nebo konfigurace clusteru Service Fabric.
 
-Zrušit zřízení balíčky kód nebo konfigurace clusteru Service Fabric.
+Zrušit zřízení balíčky kód nebo konfigurace clusteru Service Fabric. Podporuje se samostatně zrušit zřízení kódu a konfigurace.
 
 ### <a name="arguments"></a>Argumenty
 |Argument|Popis|

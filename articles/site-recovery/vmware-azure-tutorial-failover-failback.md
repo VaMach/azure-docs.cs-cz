@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f074312ecee39d4b3022df64b51aadd2bb8f968c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Převzetí služeb při selhání a navrácení služeb po obnovení virtuálních počítačů VMware a fyzických serverů replikovaných do Azure
 
@@ -30,8 +30,8 @@ Tento kurz popisuje, jak provést převzetí služeb při selhání virtuálníh
 Tento kurz je pátou částí série. Tento kurz předpokládá, že jste už dokončili úlohy z předchozích kurzů.
 
 1. [Příprava Azure](tutorial-prepare-azure.md)
-2. [Příprava VMware v místním prostředí](tutorial-prepare-on-premises-vmware.md)
-3. [Nastavení zotavení po havárii](tutorial-vmware-to-azure.md)
+2. [Příprava VMware v místním prostředí](vmware-azure-tutorial-prepare-on-premises.md)
+3. [Nastavení zotavení po havárii](vmware-azure-tutorial.md)
 4. [Spuštění postupu zotavení po havárii](tutorial-dr-drill-azure.md)
 
 ## <a name="preparing-for-failover-and-failback"></a>Příprava na převzetí služeb při selhání a navrácení služeb po obnovení

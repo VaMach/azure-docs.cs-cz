@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Začínáme s Application Insights ve webovém projektu Java
 
@@ -70,12 +70,12 @@ Pak obnovte závislosti projektu k získání stažených binárních souborů.
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Chyby ověření sestavení nebo kontrolního součtu?* Zkuste použít konkrétní verzi, například: `<version>1.0.n</version>`. Nejnovější verzi naleznete v [poznámkách k verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) nebo v našich [artefaktech Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Chyby ověření sestavení nebo kontrolního součtu?* Zkuste použít konkrétní verzi, například: `<version>2.0.n</version>`. Nejnovější verzi naleznete v [poznámkách k verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) nebo v našich [artefaktech Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Je nutné přejít na novou sadu SDK?* Obnovte závislosti svého projektu.
 
 #### <a name="if-youre-using-gradle"></a>Pokud používáte Gradle...
@@ -90,19 +90,19 @@ Pak obnovte závislosti projektu k získání stažených binárních souborů.
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Chyby ověření sestavení nebo kontrolního součtu? Zkuste použít konkrétní verzi, například:* `version:'1.0.n'`. *Nejnovější verzi naleznete v [poznámkách k verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Chyby ověření sestavení nebo kontrolního součtu? Zkuste použít konkrétní verzi, například:* `version:'2.0.n'`. *Nejnovější verzi naleznete v [poznámkách k verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Postup aktualizace na novou sadu SDK*
   * Obnovte závislosti svého projektu.
 
 #### <a name="otherwise-"></a>V opačném případě...
 Ručně přidejte sadu SDK:
 
-1. Stáhněte si [Application Insights SDK pro jazyk Java](https://aka.ms/aijavasdk).
+1. Stáhněte si [Application Insights SDK pro jazyk Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Rozbalte binární soubory ze souboru zip a přidejte je do projektu.
 
 ### <a name="questions"></a>Otázky...
@@ -112,7 +112,7 @@ Ručně přidejte sadu SDK:
   * `applicationinsights-web` poskytuje metriky, které sledují počty žádostí HTTP a časy odezvy. Tuto komponentu můžete vynechat, pokud nechcete automaticky shromažďovat tuto telemetrii. Hodí se to například v případě, že chcete napsat vlastní.
 * *Chcete-li aktualizovat sadu SDK, když publikujeme změny*
 
-  * Stáhněte si poslední [Application Insights SDK pro jazyk Java](https://aka.ms/qqkaq6) a nahraďte staré.
+  * Stáhněte si poslední [Application Insights SDK pro jazyk Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) a nahraďte staré.
   * Změny jsou popsány v [poznámkách k verzi sady SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Vytvořte soubor Application Insights .xml

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure k dispozici pro Azure zásobníku položky Marketplace.
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="virtual-machine-extensions"></a>Rozšíření virtuálních počítačů
-Je třeba stáhnout tyto vždy, když nejsou k dispozici aktualizace pro rozšíření virtuálního počítače, budete potřebovat. Rozšíření dodaný v produktu nebude aktualizován v normálním procesu opravy a aktualizace; Zkontrolujte aktualizace často. Další rozšíření jsou dostupné jenom přes správu Marketplace.
+Vždy, když existují aktualizace pro rozšíření virtuální počítač (VM), které používáte, stáhněte si je. Rozšíření dodaný v produktu nelze aktualizovat v normálním procesu opravy a aktualizace; proto zkontrolujte aktualizace často. Další rozšíření jsou dostupné jenom přes správu Marketplace.
 
 |  | Název položky | Popis | Vydavatel | OS Type |
 | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ Je třeba stáhnout tyto vždy, když nejsou k dispozici aktualizace pro rozší
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Bitové kopie virtuálních počítačů společnosti Microsoft a řešení šablony
 
-Zásobník Microsoft Azure podporuje následující virtuální počítače Azure Marketplace a šablony řešení. Stáhněte si prosím všechny závislosti samostatně, jak jsme uvedli. Aplikace, jako je SQL Server a Machine Learning Server vyžadují správné licencí, s výjimkou případů, kde je označen jako volné nebo zkušební verze.
+Zásobník Microsoft Azure podporuje následující virtuální počítače Azure Marketplace a šablony řešení. Stáhněte samostatně, jak jsme uvedli všechny závislosti. Aplikace, jako je SQL Server a Machine Learning Server vyžadují správné licencí, s výjimkou případů, kde je označen jako volné nebo zkušební verze.
 
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ Zásobník Microsoft Azure podporuje následující virtuální počítače Azur
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express na SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Volné expresní verze SQL Server 2016 SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise na systém SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Databáze platforma pro inteligentní, zvláště důležité aplikace. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [Webového systému SQL Server 2017 na SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Databáze platforma pro inteligentní, zvláště důležité aplikace. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04. | Microsoft + kanonickém tvaru |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.3.0 v systému Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft Machine Learning serveru 9.3.0 v systému Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 na Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 na Ubuntu 16.04. | Microsoft + kanonickém tvaru |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.3.0 v systému CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning serveru 9.3.0 v systému CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Distribuce systému Linux
