@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 9b14f6ea361d3c1d7402d1a8aeb10695a8726edb
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Nastavení IP adres k připojení po převzetí služeb při selhání do Azure
 
@@ -36,7 +36,7 @@ V tomto článku se dozvíte o:
 Při plánování replikace a převzetí služeb při selhání, mezi klíčové otázky je způsob připojení k virtuálnímu počítači Azure po převzetí služeb při selhání. Při navrhování strategie sítě pro virtuální počítače Azure repliky existuje několik možností:
 
 - **Použít jinou IP adresu**: můžete vybrat použít jiný rozsah IP adres pro replikované síť virtuálního počítače Azure. V tomto scénáři virtuální počítač získá nové adresy IP po převzetí služeb při selhání, a je nutná aktualizace DNS.
-- **Zachovat stejnou IP adresu**: můžete chtít použít stejného rozsahu IP adres, který ve vaší lokalitě primární místní síť Azure po převzetí služeb při selhání. Zachovat stejné IP adresy zjednodušuje obnovení snížením problémy související se sítí po převzetí služeb při selhání. Ale pokud replikujete do Azure, musíte po převzetí služeb při selhání aktualizace tras se nové umístění na IP adresy. 
+- **Zachovat stejnou IP adresu**: můžete chtít použít stejného rozsahu IP adres, který ve vaší lokalitě primární místní síť Azure po převzetí služeb při selhání. Zachovat stejné IP adresy zjednodušuje obnovení snížením problémy související se sítí po převzetí služeb při selhání. Ale pokud replikujete do Azure, musíte po převzetí služeb při selhání aktualizace tras se nové umístění na IP adresy.
 
 ## <a name="retaining-ip-addresses"></a>Zachování IP adresy
 
@@ -86,11 +86,7 @@ Kromě připojení vnet-to-vnet, po převzetí služeb při selhání Woodgrove 
 
 ## <a name="assigning-new-ip-addresses"></a>Přiřazení nové IP adresy
 
-To [příspěvku na blogu](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) vysvětluje, jak nastavit Azure síťová infrastruktura, pokud nepotřebujete zachovat IP adres po převzetí služeb při selhání. Popis aplikace spustí, vypadá v tom, jak nastavit místní sítí a Azure a s informacemi o spuštění převzetí služeb při selhání se ukončí. 
+To [příspěvku na blogu](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) vysvětluje, jak nastavit Azure síťová infrastruktura, pokud nepotřebujete zachovat IP adres po převzetí služeb při selhání. Popis aplikace spustí, vypadá v tom, jak nastavit místní sítí a Azure a s informacemi o spuštění převzetí služeb při selhání se ukončí.
 
 ## <a name="next-steps"></a>Další postup
 [Spuštění převzetí služeb při selhání](site-recovery-failover.md)
-
-
-
-

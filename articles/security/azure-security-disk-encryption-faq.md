@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Nejčastější dotazy k Azure Disk Encryption
 
@@ -49,10 +49,11 @@ Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) o Azure Disk E
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Disk operačního systému a dat |
 | Ubuntu | 14.04.5-DAILY-LTS | Disk operačního systému a dat |
-| RHEL | 7.3 | Disk operačního systému a dat |
-| RHEL | 7.2 | Disk operačního systému a dat |
-| RHEL | 6.8 | Disk operačního systému a dat |
-| RHEL | 6.7 | Datový disk |
+| RHEL | 7.4 | Datový disk * |
+| RHEL | 7.3 | Datový disk * |
+| RHEL | 7.2 | Datový disk * |
+| RHEL | 6.8 | Datový disk * |
+| RHEL | 6.7 | Datový disk * |
 | CentOS | 7.3 | Disk operačního systému a dat |
 | CentOS | 7.2n | Disk operačního systému a dat |
 | CentOS | 6.8 | Disk operačního systému a dat |
@@ -67,6 +68,8 @@ Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) o Azure Disk E
 | SLES | HPC 12 | Datový disk |
 | SLES | Priorita: 11-SP4 | Datový disk |
 | SLES | 11 SP4 | Datový disk |
+
+*__ADE se podporuje pro RHEL pro datový disk. Aktuální implementace ADE funguje pro disk operačního systému, ale nepodporuje aktuálně společně. Společnosti Microsoft a Red Hat práce na společně podporované řešení. Do té doby můžete odkazovat v dokumentu White Paper ADE šifrování disku operačního systému Linux [zde](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **Otázka:** jak můžete začít používat Azure Disk Encryption?
 

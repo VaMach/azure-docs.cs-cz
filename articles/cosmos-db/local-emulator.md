@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 4b18ad16338722cc9dbd314eded900fdd554ecec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Použití emulátoru DB Cosmos Azure pro místní vývoj a testování
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 02/24/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Zdroj docker</strong></td>
-  <td>[GitHub](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
   
@@ -179,7 +179,7 @@ Chcete-li zobrazit seznam možností, zadejte `CosmosDB.Emulator.exe /?` na př�
 <tr>
   <td><strong>Možnost</strong></td>
   <td><strong>Popis</strong></td>
-  <td><strong>příkaz</strong></td>
+  <td><strong>Příkaz</strong></td>
   <td><strong>Argumenty</strong></td>
 </tr>
 <tr>

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Omezení aplikace logiky a konfigurace
 
@@ -34,7 +34,7 @@ Tato omezení platí pro jeden požadavek HTTP nebo volání konektor.
 
 | Název | Omezení | Poznámky | 
 | ---- | ----- | ----- | 
-| Časový limit žádosti | 120 sekundách | [Asynchronní vzor](../logic-apps/logic-apps-create-api-app.md) nebo [dokud smyčky](logic-apps-loops-and-scopes.md) můžete odpovídajícím způsobem podle potřeby |
+| Časový limit žádosti | 120 sekund | [Asynchronní vzor](../logic-apps/logic-apps-create-api-app.md) nebo [dokud smyčky](logic-apps-loops-and-scopes.md) můžete odpovídajícím způsobem podle potřeby |
 |||| 
 
 #### <a name="message-size"></a>Velikost zpráv
@@ -58,15 +58,22 @@ Tato omezení platí pro jeden požadavek HTTP nebo volání konektor.
 
 Tyto limity platí do jednoho logiku aplikace spustit.
 
-| Název | Omezení | 
-| ---- | ----- | 
-| Doba trvání spuštění | 90 dnů | 
-| Uchování úložiště | čas zahájení 90 dnů od spuštění | 
-| Interval opakování min. | 1 sekunda </br>Pro s plán služby App Service logic apps: 15 sekund | 
-| Maximální interval opakování | 500 dnů | 
-||| 
+| Název | Výchozí | Omezení |
+| ---- | ------- | ----- |
+| Doba trvání spuštění   | 90 dnů | 7 až 90 dny |
+| Uchování úložiště | čas zahájení 90 dnů od spuštění |  7 až 90 dní od počáteční runtime |
+||||
 
 Překročení omezení pro spuštění doba trvání nebo uchovávání úložiště v toku vaší normálním zpracování [obraťte se na tým produktu](mailto://logicappsemail@microsoft.com) získat pomoc s vašim požadavkům.
+
+
+### <a name="recurrence-interval"></a>Interval opakování
+
+| Název | Omezení |
+| ---- | ------- |
+| Interval opakování min. | 1 sekunda </br>Pro s plán služby App Service logic apps: 15 sekund |
+| Maximální interval opakování | 500 dnů |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Ve smyčce a debatching omezení
 
@@ -75,7 +82,7 @@ Tyto limity platí do jednoho logiku aplikace spustit.
 | Název | Omezení | Poznámky | 
 | ---- | ----- | ----- | 
 | Foreach – položky | 100,000 | Můžete použít [dotaz akce](../connectors/connectors-native-query.md) vyfiltrujete větší pole, podle potřeby. | 
-| Dokud iterací | 5,000 | | 
+| Dokud iterací | 5 000 | | 
 | SplitOn položky | 100,000 | | 
 | ForEach paralelismus | 50 | Výchozí hodnota je 20. <p>Konkrétní úroveň paralelního zpracování v smyčka typu ForEach, nastavit `runtimeConfiguration` vlastnost `foreach` akce. <p>Postupně spustit smyčka typu ForEach, nastavte `operationOptions` vlastnost "Sekvenční" v `foreach` akce. | 
 |||| 
@@ -109,10 +116,10 @@ Tato omezení platí pro definici jeden logiku aplikace.
 | Počet proměnných za pracovního postupu | 250 | | 
 | Maximální počet znaků na jednu výraz | 8 192 | | 
 | Maximální počet `trackedProperties` velikost ve znacích | 16,000 | 
-| `action`/`trigger`Název omezení | 80 | | 
-| `description`omezení délky | 256 | | 
-| `parameters`limit | 50 | | 
-| `outputs`limit | 10 | | 
+| `action`/`trigger` Název omezení | 80 | | 
+| `description` omezení délky | 256 | | 
+| `parameters` Limit | 50 | | 
+| `outputs` Limit | 10 | | 
 |||| 
 
 <a name="custom-connector-limits"></a>

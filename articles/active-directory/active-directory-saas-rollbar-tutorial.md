@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Kurz: Azure Active Directory integrace s oblouk
 
@@ -108,15 +108,15 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Oblouk domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
-    a. V **identifikátor** textovému poli, zadejte adresu URL:`https://saml.rollbar.com`
+    a. V **identifikátor** textovému poli, zadejte adresu URL: `https://saml.rollbar.com`
 
-    b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://rollbar.com/<accountname>/saml/sso/azure/`
+    b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
 4. Zkontrolujte **zobrazit upřesňující nastavení adresy URL** a provést následující krok, pokud chcete nakonfigurovat aplikace **SP** iniciované režimu:
 
     ![Oblouk domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
-    V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://rollbar.com/<accountname>/saml/login/azure/`
+    V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
     > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečná adresa URL odpovědi a přihlašovací adresa URL. Obraťte se na [tým podpory oblouk klienta](mailto:support@rollbar.com) k získání těchto hodnot. 
@@ -149,11 +149,14 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     c. Klikněte na **Uložit**.
 
-11. Po kliknutí na toto tlačítko, na obrazovce bude takto. V této části, proveďte následující kroky:
+11. Po kliknutí na toto tlačítko, na obrazovce bude takto:
     
     ![Konfigurace](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Aby bylo možné provést následující krok, je nejprve nutno přidat sami jako uživatel na oblouk aplikaci v Azure.
+    a. Pokud chcete vyžadovat od všech uživatelů k ověřování prostřednictvím Azure a pak klikněte na **přihlásit pomocí zprostředkovatele identity** znovu provést ověření pomocí Azure.  
 
-    a. Vyberte **vyžadují přihlášení prostřednictvím poskytovatele Identity SAML** zaškrtávací políčko.
+    b.  Jakmile jste vráceni na obrazovku, vyberte **vyžadují přihlášení prostřednictvím poskytovatele Identity SAML** zaškrtávací políčko.
 
     b. Klikněte na **Uložit**.
 

@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuované ladění z hyperparameters pomocí Azure Machine Learning Workbench
 
@@ -39,19 +39,14 @@ Mřížky vyhledávání pomocí křížového ověření může být časově n
 * Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) následující [instalace a vytvoření rychlý Start](./quickstart-installation.md) k instalaci nástroje Workbench a vytvořte účty.
 * Tento scénář předpokládá, že jsou spuštěny Azure ML Workbench na Windows 10 nebo systému MacOS s modulu Docker místně nainstalován. 
 * Pokud chcete spustit tento scénář s vzdálené kontejner Docker, zřídit Ubuntu datové vědy virtuálního počítače (DSVM) podle následujících [pokyny](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Doporučujeme použít virtuální počítač s minimálně 8 jader a 28 Gb paměti. D4 instance virtuálních počítačů mají takové kapacity. 
-* Pokud chcete spustit tento scénář s clusterem Spark, zřídit cluster Azure HDInsight pomocí následujících tyto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Doporučujeme mít cluster s alespoň:
-    - šesti uzlů pracovního procesu
+* Pokud chcete spustit tento scénář s clusterem Spark, zřízení clusteru Spark HDInsight pomocí následujících tyto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Doporučujeme vám, že cluster s následující konfigurací v záhlaví a pracovní uzly:
+    - čtyři uzly pracovního procesu
     - osm jader
-    - 28 Gb paměti v záhlaví a pracovní uzly. D4 instance virtuálních počítačů mají takové kapacity.       
-    - Doporučujeme změnit následující parametry, které chcete maximalizovat výkon clusteru:
-        - Spark.executor.Instances
-        - Spark.executor.cores
-        - Spark.executor.Memory 
+    - Paměť o velikosti 28 Gb  
+      
+  D4 instance virtuálních počítačů mají takové kapacity. 
 
-Můžete postupovat podle těchto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) a upravovat definice v části "vlastní spark je výchozí".
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Řešení potíží s**: Azure vaše předplatné může mít kvótu na počet jader, které lze použít. Portál Azure nepovoluje vytvoření clusteru s celkový počet jader překračuje kvótu. Najít kvóty, přejděte na portálu Azure v části předplatná, klikněte na předplatné použité k nasazení clusteru a potom klikněte na **využití + kvóty**. Obvykle kvóty se definují pro jednotlivé oblasti Azure a je možné nasadit cluster Spark v oblasti, kde je k dispozici dostatek volného jader. 
 
 * Vytvořte účet úložiště Azure, který se použije k uložení datové sady. Postupujte podle [pokyny](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) k vytvoření účtu úložiště.
 
@@ -112,13 +107,13 @@ V následujících dvou částech ukážeme, jak k dokončení konfigurace vzdá
 
 IP adresa, uživatelské jméno a heslo v DSVM. IP adresa DSVM naleznete v části Přehled DSVM stránky na portálu Azure:
 
-![VIRTUÁLNÍ POČÍTAČ IP](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
+![VM IP](media/scenario-distributed-tuning-of-hyperparameters/vm_ip.png)
 
 #### <a name="configuration-of-spark-cluster"></a>Konfigurace clusteru Spark
 
 Chcete-li nastavit Spark prostředí, spusťte v rozhraní příkazového řádku
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 s názvem clusteru, cluster SSH uživatelské jméno a heslo. Výchozí hodnota uživatelské jméno SSH je `sshuser`, pokud jste změnili při zřizování clusteru. Název clusteru naleznete v části Vlastnosti clusteru stránky na portálu Azure:
 
@@ -126,14 +121,20 @@ s názvem clusteru, cluster SSH uživatelské jméno a heslo. Výchozí hodnota 
 
 Spark jako prostředí pro spuštění pro distribuované ladění hyperparameters jsme použít spark sklearn balíčku. Jsme spark_dependencies.yml soubor k instalaci tohoto balíčku, pokud se používá prostředí pro spuštění Spark upravil:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -201,7 +202,7 @@ Vzhledem k tomu, že místní prostředí je příliš malá pro výpočty, že 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Ladění pomocí vzdáleného DSVM hyperparameters
 Používáme [xgboost](https://anaconda.org/conda-forge/xgboost) zvyšovat skóre přechodu stromu implementace [1]. Používáme [scikit-Další](http://scikit-learn.org/) balíčku pro optimalizaci hyperparameters xgboost. I když xgboost není součástí scikit-další balíčku, implementuje scikit-další rozhraní API a proto je možné společně s hyperparameter ladění funkce scikit-Další informace. 
 
-Xgboost má osm hyperparameters:
+Xgboost má osm hyperparameters, popsané [sem](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost má osm hyperparameters:
 * learning_rate
 * colsample\_by_level
 * dílčí
-* cíl popis těchto hyperparameters najdete na
-- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* Cíl  
+ 
 Na začátku použít vzdálené DSVM a ladit hyperparameters z malých mřížky candidate hodnot:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Mřížce má čtyři kombinace hodnot hyperparameters. Používáme 5-fold křížového ověření, výsledná 4 × 5 = 20 spustí z xgboost. K měření výkonu modelů, použijeme metrika ztrátě záporné protokolu. Následující kód vyhledá hodnoty hyperparameters z mřížky, které maximalizovat ztrátě ověřit mezi záporné protokolu. Kód také používá tyto hodnoty pro trénování modelu konečné přes úplné trénovací sady:
+Mřížce má čtyři kombinace hodnot hyperparameters. Používáme 5-fold křížového ověření, což vede k 4 × 5 = 20 spustí z xgboost. K měření výkonu modelů, použijeme metrika ztrátě záporné protokolu. Následující kód vyhledá hodnoty hyperparameters z mřížky, které maximalizovat ztrátě ověřit mezi záporné protokolu. Kód také používá tyto hodnoty pro trénování modelu konečné přes úplné trénovací sady:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Horizontální navýšení kapacity ladění hyperparameters a používat větš
 
 Mřížce má 16 kombinace hodnot hyperparameters. Vzhledem k tomu, že používáme 5-fold křížového ověření, jsme běžet xgboost 16 × 5 = 80 časy.
 
-scikit-další balíček nemá nativní podporu služby ladění hyperparameters pomocí clusteru Spark. Naštěstí [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) balíček z Databricks doplní během této poměrně. Tento balíček poskytuje GridSearchCV funkce, která má skoro stejný rozhraní API jako funkce GridSearchCV v scikit-Další informace. Použít spark sklearn a ladit hyperparameters pomocí Spark je potřeba připojit k vytvoření kontextu Spark
+scikit-další balíček nemá nativní podporu služby ladění hyperparameters pomocí clusteru Spark. Naštěstí [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) balíček z Databricks doplní během této poměrně. Tento balíček poskytuje GridSearchCV funkce, která má skoro stejný rozhraní API jako funkce GridSearchCV v scikit-Další informace. Použít spark sklearn a ladit hyperparameters pomocí Spark je potřeba vytvořit Spark kontext
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

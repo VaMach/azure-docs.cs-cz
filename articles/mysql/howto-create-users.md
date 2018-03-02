@@ -1,19 +1,19 @@
 ---
-title: "Vytvořte uživatele v databázi Azure pro server databáze MySQL | Microsoft Docs"
+title: "Vytvořte uživatele v databázi Azure pro server databáze MySQL"
 description: "Tento článek popisuje, jak můžete vytvořit nové uživatelské účty pro interakci s Azure Database pro server databáze MySQL."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 8adb74e11570ac60ad3b898b737cff4699f2bbf1
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 9fd592efe48adefc6aca7a6caea24f546da23fa5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Vytvořte uživatele v databázi Azure pro server databáze MySQL 
 Tento článek popisuje, jak můžete vytvořit uživatele v databázi Azure pro server databáze MySQL.
@@ -80,10 +80,10 @@ Po vytvoření databáze MySQL serveru Azure slouží k vytvoření dalších u�
 5. Přihlaste se k serveru, zadání určené databázi pomocí nové uživatelské jméno a heslo. Tento příklad ukazuje mysql příkazového řádku. Pomocí tohoto příkazu zobrazí se výzva k zadání hesla pro uživatelské jméno. Nahraďte váš vlastní název serveru, názvu databáze a uživatelské jméno.
 
    ```azurecli-interactive
-   mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Otevření brány firewall pro IP adresy počítačů noví uživatelé jim připojení povolit: [vytvořit a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí portálu Azure](howto-manage-firewall-using-portal.md) nebo [rozhraní příkazového řádku Azure](howto-manage-firewall-using-cli.md).
 
 Další informace týkající se správy uživatelských účtů, najdete v dokumentaci k produktu MySQL [Správa uživatelských účtů](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [GRANT syntaxe](https://dev.mysql.com/doc/refman/5.7/en/grant.html), a [oprávnění](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

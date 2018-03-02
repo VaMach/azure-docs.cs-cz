@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1aa75b87b01417b8864632b7a09539bd6be05d0b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalace a konfigurace vzdálené plochy pro připojení k virtuální počítač s Linuxem v Azure
 Linux virtuálních počítačů (VM) v Azure jsou obvykle spravovat z příkazového řádku pomocí připojení zabezpečené shell (SSH). Při vydání nových do systému Linux, nebo pro rychlé řešení potíží scénáře, může být snazší pomocí vzdálené plochy. Tento článek podrobně popisují postup instalace a konfigurace prostředí plochy ([xfce](https://www.xfce.org)) a vzdálené plochy ([xrdp](http://www.xrdp.org)) pro váš virtuální počítač s Linuxem pomocí modelu nasazení Resource Manager.
 
 
 ## <a name="prerequisites"></a>Požadavky
-Tento článek vyžaduje existující virtuální počítač s Linuxem v Azure. Pokud potřebujete k vytvoření virtuálního počítače, použijte jednu z následujících metod:
+Tento článek vyžaduje existující 16.04 LTS virtuálního počítače s Ubuntu v Azure. Pokud potřebujete k vytvoření virtuálního počítače, použijte jednu z následujících metod:
 
 - The [Azure CLI 2.0](quick-create-cli.md)
 - [Portálu Azure](quick-create-portal.md)
@@ -34,7 +34,7 @@ Tento článek vyžaduje existující virtuální počítač s Linuxem v Azure. 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalace prostředí plochy na virtuálním počítačům s Linuxem
 Většina virtuální počítače s Linuxem v Azure, nemají prostředí plochy nainstalované ve výchozím nastavení. Virtuální počítače s Linuxem se běžně spravují pomocí připojení SSH a místo prostředí plochy. Existují různé prostředí plochy v systému Linux, které můžete. V závislosti na zvoleném prostředí plochy může využívat jeden až 2 GB místa na disku a trvat 5 až 10 minut, nainstalovat a nakonfigurovat všechny požadované balíčky.
 
-Následující příklad nainstaluje jednoduchá [xfce4](https://www.xfce.org/) prostředí plochy na virtuálního počítače s Ubuntu. Příkazy pro jiné distribuce jsou mírně odlišné (použijte `yum` na Red Hat Enterprise Linux nainstalovat a nakonfigurovat příslušný `selinux` pravidla, nebo použijte `zypper` k instalaci na SUSE, třeba).
+Následující příklad nainstaluje jednoduchá [xfce4](https://www.xfce.org/) prostředí plochy na virtuálního počítače s Ubuntu 16.04 LTS. Příkazy pro jiné distribuce jsou mírně odlišné (použijte `yum` na Red Hat Enterprise Linux nainstalovat a nakonfigurovat příslušný `selinux` pravidla, nebo použijte `zypper` k instalaci na SUSE, třeba).
 
 První, SSH k virtuálnímu počítači. V následujícím příkladu se připojuje k virtuálnímu počítači s názvem *myvm.westus.cloudapp.azure.com* k uživatelskému jménu *azureuser*:
 

@@ -1,20 +1,20 @@
 ---
-title: "Postup zálohování a obnovení serveru se ve službě Azure Database pro databázi MySQL | Microsoft Docs"
+title: "Postup zálohování a obnovení serveru se ve službě Azure Database pro databázi MySQL"
 description: "Informace o zálohování a obnovení serveru se ve službě Azure Database pro databázi MySQL pomocí rozhraní příkazového řádku Azure."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Postup zálohování a obnovení serveru se ve službě Azure Database pro databázi MySQL pomocí rozhraní příkazového řádku Azure
 
@@ -32,7 +32,7 @@ Chcete-li provést tento postup průvodce, je třeba:
 ## <a name="backup-happens-automatically"></a>Zálohování se automaticky stane
 Pokud používáte Azure Database pro databázi MySQL, služba databáze automaticky provede zálohování služby každých 5 minut. 
 
-Pro úroveň Basic zálohy jsou k dispozici po dobu 7 dnů. Pro úroveň Standard zálohování jsou k dispozici pro 35 dní. Další informace najdete v tématu [Azure Database pro databázi MySQL cenové úrovně](concepts-service-tiers.md).
+Pro úroveň Basic zálohy jsou k dispozici po dobu 7 dnů. Pro úroveň Standard zálohování jsou k dispozici pro 35 dní. Další informace najdete v tématu [Azure Database pro databázi MySQL cenové úrovně](concepts-pricing-tiers.md).
 
 Toto automatické funkce zálohování můžete obnovit serveru a jeho databáze do stavu nebo bodu v čase.
 
@@ -46,16 +46,16 @@ K obnovení serveru, použijte rozhraní příkazového řádku Azure [obnovení
 K obnovení serveru, na příkazovém řádku Azure CLI, zadejte následující příkaz:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 `az mysql server restore` Příkaz vyžaduje následující parametry:
 | Nastavení | Navrhovaná hodnota | Popis  |
 | --- | --- | --- |
-| skupiny prostředků | myResourceGroup |  Skupinu prostředků, kde existuje na zdrojovém serveru.  |
+| skupiny prostředků | myresourcegroup |  Skupinu prostředků, kde existuje na zdrojovém serveru.  |
 | jméno | Obnovit myserver | Název nového serveru, který je vytvořen pomocí příkazu restore. |
-| obnovení bodu v čase | 2017-04-13T13:59:00Z | Vyberte bod v čase k obnovení. Toto datum a čas musí být v období uchovávání záloh zdrojového serveru. Použijte formát ISO8601 data a času. Například můžete použít vlastní místní časové pásmo, jako například `2017-04-13T05:59:00-08:00`. Můžete také použít formát zulština UTC, například `2017-04-13T13:59:00Z`. |
-| zdrojový server | myserver4demo | Název nebo ID obnovení ze zdrojového serveru. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Vyberte bod v čase k obnovení. Toto datum a čas musí být v období uchovávání záloh zdrojového serveru. Použijte formát ISO8601 data a času. Například můžete použít vlastní místní časové pásmo, jako například `2017-04-13T05:59:00-08:00`. Můžete také použít formát zulština UTC, například `2017-04-13T13:59:00Z`. |
+| source-server | mydemoserver | Název nebo ID obnovení ze zdrojového serveru. |
 
 Při obnovení serveru do dřívějšího bodu v čase, se vytvoří nový server. Původní server a její databáze ze zadaného bodu v čase se zkopírují na nový server.
 
@@ -65,5 +65,5 @@ Umístění a cenovou úroveň hodnoty pro obnovené server zůstat stejné jako
 
 Po dokončení procesu obnovení, vyhledejte na nový server a ověřte, že budou data obnovena podle očekávání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Knihovny připojení pro databázi Azure pro databázi MySQL](concepts-connection-libraries.md)

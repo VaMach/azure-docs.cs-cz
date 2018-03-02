@@ -1,8 +1,23 @@
-Při generování klientský certifikát se automaticky nainstaluje na počítači, který jste použili k jeho vygenerování. Pokud chcete nainstalovat certifikát klienta v jiném počítači klienta, musíte exportovat certifikát klienta, který jste vygenerovali.                              
+Při generování klientský certifikát se automaticky nainstaluje na počítači, který jste použili k jeho vygenerování. Pokud chcete nainstalovat certifikát klienta v jiném počítači klienta, musíte exportovat certifikát klienta, který jste vygenerovali.
 
 1. Pokud chcete exportovat klientský certifikát, otevřete **správu uživatelských certifikátů**. Klientské certifikáty, které jste vygenerovali nacházejí ve výchozím nastavení, v 'Certifikáty – aktuální User\Personal\Certificates'. Klikněte pravým tlačítkem na certifikát klienta, který chcete exportovat, klikněte na **všechny úlohy**a potom klikněte na **exportovat** otevřete **Průvodce exportem certifikátu**.
-2. V průvodci klikněte na **Další**, vyberte **Ano, exportovat privátní klíč** a klikněte na **Další**.
-3. Na stránce **Formát souboru pro export** ponechte vybrané výchozí nastavení. Ujistěte se, že je vybrána možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**. Vyberete tuto možnost zároveň exportuje informace kořenového certifikátu, který je vyžadován pro úspěšné ověření. Pak klikněte na **Další**.
-4. Na stránce **Zabezpečení** je nutné chránit soukromý klíč. Pokud vyberete použití hesla, ujistěte se, že jste si poznamenali nebo si pamatujete heslo, které jste pro tento certifikát nastavili. Pak klikněte na **Další**.
-5. V části **Soubor pro export** **přejděte** do umístění, do kterého chcete certifikát vyexportovat. V části **Název souboru** zadejte název souboru. Pak klikněte na **Další**.
-6. Certifikát vyexportujte kliknutím na **Dokončit**.
+
+  ![Export](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
+2. V Průvodci exportem certifikátu klikněte na **Další** pokračujte.
+
+  ![Další](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
+3. Vyberte **Ano, exportovat soukromý klíč**a potom klikněte na **Další**.
+
+  ![exportovat privátní klíč](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
+4. Na stránce **Formát souboru pro export** ponechte vybrané výchozí nastavení. Ujistěte se, že je vybrána možnost **Zahrnout všechny certifikáty na cestě k certifikátu, pokud je to možné**. Toto nastavení kromě exportuje informace kořenového certifikátu, který je vyžadován pro ověření úspěšné klienta. Bez, ověření klienta se nezdaří, protože klient nemá důvěryhodný kořenový certifikát. Pak klikněte na **Další**.
+
+  ![Formát souboru pro export](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)
+5. Na stránce **Zabezpečení** je nutné chránit soukromý klíč. Pokud vyberete použití hesla, ujistěte se, že jste si poznamenali nebo si pamatujete heslo, které jste pro tento certifikát nastavili. Pak klikněte na **Další**.
+
+  ![security](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
+6. V části **Soubor pro export** **přejděte** do umístění, do kterého chcete certifikát vyexportovat. V části **Název souboru** zadejte název souboru. Pak klikněte na **Další**.
+
+  ![soubor k exportu](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
+7. Certifikát vyexportujte kliknutím na **Dokončit**.
+
+  ![dokončit](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)

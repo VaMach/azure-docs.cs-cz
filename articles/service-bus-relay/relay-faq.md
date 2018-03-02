@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Nejčastější dotazy k Azure předávání
 
@@ -76,14 +76,13 @@ Odesílání zprávy pro předávání přes Service Bus je zpracovaná jako "ú
 Předávání, které jsou otevřené pomocí **netTCPRelay** vazby WCF považovat zprávy, ne jako jednotlivé zprávy, ale jako datový proud dat odesílaných prostřednictvím systému. Při použití této vazbě odesílatele a naslouchací proces mít přehled o rámcovacích jednotlivých zpráv odesílaných i přijímaných. Pro předává využívající **netTCPRelay** vazby, všechna data je považován za datového proudu pro výpočet fakturovatelný zprávy. V takovém případě Service Bus vypočítá celkové množství dat odesílané nebo přijímané prostřednictvím každé jednotlivé předávání na základě 5 minut. Potom vydělí celkové množství dat podle 64 KB k určení počtu fakturovatelný zprávy pro tento předávání během tohoto časového období.
 
 ## <a name="quotas"></a>Kvóty
-| Název kvóty | Rozsah | Typ | Chování při překročení | Hodnota |
-| --- | --- | --- | --- | --- |
-| Souběžné moduly pro naslouchání na přenos |Entita |Statická |Odeslání dalších žádostí o další připojení odmítnuty a volající kód přijme výjimku. |25 |
-| Souběžné předávání – moduly naslouchání |Systémové |Statická |Odeslání dalších žádostí o další připojení odmítnuty a volající kód přijme výjimku. |2,000 |
-| Připojení souběžných předávání za všechny koncové body předávání v oboru názvů služby |Systémové |Statická |- |5,000 |
-| Předávání koncových bodů na jeden obor názvů služby |Systémové |Statická |- |10 000 |
-| Velikost zprávy [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) a [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) předává |Systémové |Statická |Odmítne příchozí zprávy, které překračují těchto kvót a volající kód přijme výjimku. |64 kB |
-| Velikost zprávy [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) a [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) předává |Systémové |Statická |- |Unlimited |
+| Název kvóty | Rozsah |  Poznámky | Hodnota |
+| --- | --- | --- | --- |
+| Souběžné moduly pro naslouchání na přenos |Entita |Odeslání dalších žádostí o další připojení odmítnuty a volající kód přijme výjimku. |25 |
+| Připojení souběžných předávání za všechny koncové body předávání v oboru názvů služby |Obor názvů |- |5 000 |
+| Předávání koncových bodů na jeden obor názvů služby |Obor názvů |- |10 000 |
+| Velikost zprávy [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) a [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) předává |Obor názvů |Odmítne příchozí zprávy, které překračují těchto kvót a volající kód přijme výjimku. |64 kB |
+| Velikost zprávy [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) a [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) předává |Obor názvů |Velikost zprávy není nijak omezena. |Unlimited |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Má předávání žádné kvóty využití?
 Ve výchozím nastavení pro všechny cloudové služby společnosti Microsoft nastaví agregační měsíční využití kvóta, která je vypočtená ve všech předplatných zákazníka. Chápeme, že v některých případech potřeb může tato omezení překročí. Kontaktovat oddělení služeb zákazníkům kdykoli, proto jsme pochopení potřeb a odpovídajícím způsobem nastavit tyto limity. Agregační využití kvóty pro Service Bus, jsou následující:

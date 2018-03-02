@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/4/2018
+ms.date: 2/27/2018
 ms.author: raiye
-ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure verze hostovaného operačního systému a kompatibilních sad SDK
 Poskytuje že aktuální informace o nejnovější hostovaného operačního systému Azure verze pro cloudové služby. Tyto informace vám pomůžou naplánovat způsob upgradu než hostovaného operačního systému je zakázáno. Pokud nakonfigurujete použití role *automatické* aktualizace hostovaného operačního systému, jak je popsáno v [nastavení aktualizace operačního systému hosta Azure][Azure Guest OS Update Settings], není důležité, abyste si přečetli tuto stránku.
@@ -143,7 +143,7 @@ Nainstalované rozhraní .NET framework: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Konfigurační řetězec | Datum vydání | Zakázat datum | Vypršela platnost datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.57_2017801-01 |29. ledna 2018 |POST 3.59 |Bude doplněno |
+| WA-GUEST-OS-3.57_201801-01 |29. ledna 2018 |POST 3.59 |Bude doplněno |
 | WA-GUEST-OS-3.56_201712-01 |4. ledna 2018 |POST 3,58 |Bude doplněno |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14. prosince 2017 |29. ledna 2018 |Bude doplněno |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 listopadu 2017 |4. ledna 2018 |Bude doplněno |

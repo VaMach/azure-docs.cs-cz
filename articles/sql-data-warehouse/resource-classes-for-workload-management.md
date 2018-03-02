@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Třídy prostředků pro úlohy správy
 Pokyny pro použití třídy prostředků ke správě počtu souběžných dotazů, které běží souběžně a výpočetní prostředky pro dotazy v Azure SQL Data Warehouse.
@@ -85,6 +85,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 Třída prostředků Správce služby je pevná a nedá se změnit.  Správce služeb je uživatelem vytvořené během procesu zřizování.
 
+> [!NOTE]
+> Správci služeb jsou i uživatelé nebo skupiny, které jsou definované jako správce Active Directory.
+>
+>
+
 ### <a name="default-resource-class"></a>Třída prostředků výchozí
 Ve výchozím nastavení, každý uživatel je členem Třída prostředků se malé, **smallrc**. 
 
@@ -113,7 +118,7 @@ Následující příkazy vyjmuté z třídy prostředků a vždy spouštějí v 
 * VLOŽENÍ HODNOTY
 * Vyberte z systémová zobrazení a zobrazení dynamické správy
 * VYSVĚTLUJÍ
-* PŘÍKAZ DBCC
+* DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
@@ -126,7 +131,7 @@ Removed as these two are not confirmed / supported under SQLDW
 Doporučujeme vytvoření uživatele, který je vyhrazený ke spouštění určitý typ dotazu nebo načtení operace. Tento uživatel pak umožnit třída trvalé prostředků místo změna Třída prostředků na základě časté. Vzhledem k tomu, že statické prostředků třídy dovolit větší kontrolu celkové na pracovním vytížení také navrhnout pomocí těchto první před zvažování třídy dynamického prostředku.
 
 ### <a name="resource-classes-for-load-users"></a>Třídy prostředků pro zatížení uživatele
-`CREATE TABLE`používá Clusterované indexy columnstore ve výchozím nastavení. Komprese dat do columnstore index je operace náročné na paměť a přetížení paměti může snížit kvalitu index. Proto se nejpravděpodobněji při načítání dat vyžadují vyšší Třída prostředků. K zajištění, že zatížení k dispozici dostatek paměti, můžete vytvořit uživatele, který je určen pro spuštění zatížení a přiřaďte ho do vyšší Třída prostředků.
+`CREATE TABLE` používá Clusterované indexy columnstore ve výchozím nastavení. Komprese dat do columnstore index je operace náročné na paměť a přetížení paměti může snížit kvalitu index. Proto se nejpravděpodobněji při načítání dat vyžadují vyšší Třída prostředků. K zajištění, že zatížení k dispozici dostatek paměti, můžete vytvořit uživatele, který je určen pro spuštění zatížení a přiřaďte ho do vyšší Třída prostředků.
 
 Paměť potřebnému ke zpracování zatížení efektivně závisí na povahu načíst tabulky a velikost dat. Další informace o požadavky na paměť, najdete v části [Maximalizace kvality rowgroup](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -168,9 +173,9 @@ Tady je účelem tuto uloženou proceduru:
 ### <a name="usage-example"></a>Příklad použití:
 Syntaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Buď zadejte parametr hodnotu NULL pro rozbalení aktuální DWU z databáze datového skladu nebo zadejte všechny podporované DWU ve tvaru "od DW100.
-2. @SCHEMA_NAME:Zadejte název schématu tabulky
-3. @TABLE_NAME:Zadejte název tabulky zájmu
+1. @DWU: Buď zadejte parametr hodnotu NULL pro rozbalení aktuální DWU z databáze datového skladu nebo zadejte všechny podporované DWU ve tvaru "od DW100.
+2. @SCHEMA_NAME: Zadejte název schématu tabulky
+3. @TABLE_NAME: Zadejte název tabulky zájmu
 
 Příklady provádění této uložené procedury:  
 ```sql  
@@ -501,7 +506,7 @@ GO
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o správě uživatelů a zabezpečení najdete v tématu [zabezpečení databáze v SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Další informace o tom, jak větší třídy prostředků můžete zlepšení kvality indexu columnstore clusteru, najdete v části [optimalizace paměti pro kompresi columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: ff590ecb5091695d6105b510f563251fe43412fe
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 410fe05e0a545905024f223e6f7297066b326d14
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generování a exportování certifikátů pro připojení Point-to-Site pomocí prostředí PowerShell na Windows 10 nebo Windows Server 2016
 
@@ -34,12 +34,11 @@ Připojení point-to-Site používají certifikáty k ověření. Tento článek
 > 
 > 
 
-
 Musíte provést kroky v tomto článku v počítači se systémem Windows 10 nebo Windows Server 2016. Rutiny prostředí PowerShell, které používáte pro generování certifikátů jsou součástí operačního systému a nefungují v jiných verzích Windows. K vytvoření certifikátů, je potřeba jenom počítače Windows 10 nebo Windows Server 2016. Po vygenerování certifikátů jsou můžete odešlete, nebo je nainstalovat pro všechny podporované klientské operační systémy. 
 
 Pokud nemáte přístup k počítači se systémem Windows 10 nebo Windows Server 2016, můžete použít [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) pro generování certifikátů. Certifikáty, které můžete vygenerovat pomocí obou těchto metod se dá nainstalovat na všechny [podporované](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) klientský operační systém.
 
-## <a name="rootcert"></a>Vytvořit certifikát podepsaný svým držitelem kořenové
+## <a name="rootcert"></a>1. Vytvořit certifikát podepsaný svým držitelem kořenové
 
 Pomocí rutiny New-SelfSignedCertificate vytvořit certifikát podepsaný svým držitelem kořenové. Parametr Další informace najdete v tématu [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -53,17 +52,7 @@ Pomocí rutiny New-SelfSignedCertificate vytvořit certifikát podepsaný svým 
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>Export veřejného klíče (.cer)
-
-[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
-
-Soubor exported.cer musí být nahrán do Azure. Pokyny najdete v tématu [konfigurace připojení typu Point-to-Site](vpn-gateway-howto-point-to-site-rm-ps.md#upload). Chcete-li přidat další důvěryhodný kořenový certifikát [v této části](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) článku.
-
-### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>Exportovat certifikát podepsaný svým držitelem kořenové a veřejný klíč uložit (volitelné)
-
-Můžete chtít exportovat certifikát podepsaný svým držitelem kořenové a bezpečně uložit. Pokud třeba, můžete později jej nainstalovat na jiný počítač a generovat další klientské certifikáty nebo exportovat jiný soubor .cer. Pokud chcete exportovat certifikát podepsaný svým držitelem kořenové jako .pfx, vyberte kořenový certifikát a použít stejný postup, jak je popsáno v [exportovat certifikát klienta](#clientexport).
-
-## <a name="clientcert"></a>Vygenerování klientského certifikátu
+## <a name="clientcert"></a>2. Vygenerování klientského certifikátu
 
 Každý klientský počítač, který se připojuje k virtuální síti pomocí připojení Point-to-Site, musí mít nainstalovaný klientský certifikát. Vygenerujte certifikát klienta z podepsaného svým držitelem kořenový certifikát a pak je exportovat a nainstalovat certifikát klienta. Pokud není nainstalován klientský certifikát, ověření se nezdaří. 
 
@@ -123,19 +112,30 @@ Pokud vytváříte další klientské certifikáty, nebo nejsou pomocí stejné 
   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
   ```
 
-## <a name="clientexport"></a>Export certifikátu klienta   
+## <a name="cer"></a>3. Exportujte veřejný klíč kořenového certifikátu (.cer)
+
+[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
+
+
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportovat certifikát podepsaný svým držitelem kořenové a privátní klíč uložit (volitelné)
+
+Můžete uložit a exportujte certifikát podepsaný svým držitelem kořenové bezpečně zálohování. Pokud třeba, můžete později jej nainstalovat na jiný počítač a generovat další certifiates klienta. Pokud chcete exportovat certifikát podepsaný svým držitelem kořenové jako .pfx, vyberte kořenový certifikát a použít stejný postup, jak je popsáno v [exportovat certifikát klienta](#clientexport).
+
+## <a name="clientexport"></a>4. Export klientského certifikátu
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
-## <a name="install"></a>Nainstalovat certifikát exportovaného klienta
+
+## <a name="install"></a>5. Instalace exportovaného klientského certifikátu
+
+Každý klient, který se připojuje k virtuální síti přes připojení P2S vyžaduje místně nainstalovaný klientský certifikát.
 
 Chcete-li nainstalovat certifikát klienta, přečtěte si téma [nainstalovat certifikát klienta pro připojení Point-to-Site](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Další postup
+## <a name="install"></a>6. Pokračujte kroky konfigurace P2S
 
 V konfiguraci Point-to-Site pokračujte.
 
 * Pro **Resource Manager** postup nasazení modelu najdete v tématu [P2S konfigurace ověřování pomocí certifikátů nativní Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Pro **classic** postup nasazení modelu najdete v tématu [konfigurace připojení typu Point-to-Site VPN do virtuální sítě (klasické)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-
-P2S řešení potíží s informace najdete v tématu [připojení point-to-site řešení potíží s Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* P2S řešení potíží s informace najdete v tématu [připojení point-to-site řešení potíží s Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

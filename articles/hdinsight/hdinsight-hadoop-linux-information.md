@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informace o používání HDInsightu v Linuxu
 
@@ -35,7 +35,7 @@ Azure clustery HDInsight poskytují Hadoop na známém prostředí Linux, běž�
 
 * [cURL](https://curl.haxx.se/) – používá ke komunikaci s webových služeb
 * [jq](https://stedolan.github.io/jq/) – používané k analýze dokumentů JSON
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (preview) – umožňuje vzdáleně spravovat služby Azure
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) – používané vzdáleně spravovat služby Azure
 
 ## <a name="users"></a>Uživatelé
 
@@ -61,7 +61,7 @@ Tento příkaz vrátí dokumentu JSON s popisem služby, a potom jq lze posunout
 
 ## <a name="remote-access-to-services"></a>Vzdálený přístup ke službám
 
-* **Ambari (web)** -https://&lt;clustername >. azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
     Ověřování pomocí clusteru správce uživatele a heslo a potom se přihlaste k Ambari.
 
@@ -72,14 +72,14 @@ Tento příkaz vrátí dokumentu JSON s popisem služby, a potom jq lze posunout
     >
     > Pokud chcete používat všechny funkce webovému uživatelskému rozhraní Ambari, pomocí tunelového propojení SSH pro přenosy webového proxy serveru k hlavnímu uzlu clusteru. V tématu [používání tunelového propojení SSH pro přístup k webovému uživatelskému rozhraní Ambari, ResourceManager, JobHistory, NameNode, Oozie a jiným webovým uživatelská rozhraní](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** -https://&lt;clustername >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Ověřování pomocí clusteru správce uživatele a heslo.
     >
     > Ověřování je ve formátu prostého textu – vždycky používají protokol HTTPS k zajištění, že připojení je bezpečné.
 
-* **WebHCat (Templeton)** -https://&lt;clustername >.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Ověřování pomocí clusteru správce uživatele a heslo.
@@ -100,7 +100,7 @@ Soubory související s Hadoop naleznete na uzly clusteru na `/usr/hdp`. Tento a
 * **2.2.4.9-1**: název adresáře je verze softwaru Hortonworks Data Platform, používá HDInsight. Číslo v clusteru může být jiný než ten, který tady.
 * **aktuální**: obsahuje odkazy na podadresáře v tomto adresáři **2.2.4.9-1** adresáře. Tento adresář existuje, tak, aby je nemuseli pamatovat číslo verze.
 
-Příklad dat a souborů JAR naleznete na Hadoop Distributed File System na `/example` a`/HdiSamples`
+Příklad dat a souborů JAR naleznete na Hadoop Distributed File System na `/example` a `/HdiSamples`
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, úložiště Azure a Data Lake Store
 
@@ -151,11 +151,11 @@ Ambari slouží k načtení výchozí konfiguraci úložiště pro cluster. Pou�
 
 Tento příkaz vrátí hodnotu podobná následující identifikátory URI:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`Pokud používáte účet úložiště Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` Pokud používáte účet úložiště Azure.
 
     Název účtu je název účtu úložiště Azure. Název kontejneru je kontejneru blobů, který je kořenem úložiště clusteru.
 
-* `adl://home`Pokud používáte Azure Data Lake Store. Název Data Lake Store, použijte následující volání REST:
+* `adl://home` Pokud používáte Azure Data Lake Store. Název Data Lake Store, použijte následující volání REST:
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
@@ -196,7 +196,7 @@ Pokud používáte __Azure Data Lake Store__, najdete v následujících témate
 * [Webový prohlížeč](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
-* [Rozhraní REST API WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
+* [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Nástroje data Lake pro Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
@@ -275,7 +275,7 @@ Použití jiné verze součásti, nahrajte verze potřebujete a použít v úloh
 >
 > Vlastní komponenty získat vyvineme podporu k pomoci při další řešení problému. To může způsobit řešení problému nebo s žádostí o zapojení dostupné kanály pro technologie s otevřeným zdrojem, kterých se nachází hluboké znalosti pro tuto technologii. Například existuje mnoho komunity webů, které lze použít jako: [fórum MSDN pro HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Také Apache projekty mají na projektu serverů [http://apache.org](http://apache.org), například: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Migrace z HDInsight se systémem Windows do systémem Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Použití Hivu se službou HDInsight](hadoop/hdinsight-use-hive.md)

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dcc04e5bba28d0cb32e8633542ab8d3c125003ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Povolit výpisů paměti haldy pro služby Hadoop v HDInsight se systémem Linux
 
@@ -51,8 +51,8 @@ Do každého skriptu, je exportu pro  **\* \_OPTS**, který obsahuje možnosti, 
 
 Mapování a snížit procesy jsou mírně liší, jsou tyto operace podřízený proces služby MapReduce. Každý mapování, nebo snižte proces běží v kontejneru podřízené a existují dvě položky, které obsahují možnosti JVM. Obě obsažené v **mapred-site.xml**:
 
-* **mapreduce.Admin.map.child.Java.opts**
-* **mapreduce.Admin.reduce.child.Java.opts**
+* **mapreduce.admin.map.child.java.opts**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
 > Doporučujeme pomocí nástroje Ambari k úpravě skripty a mapred-site.xml nastavení, jako popisovač Ambari replikace změn mezi uzly v clusteru. Najdete v článku [pomocí Ambari](#using-ambari) konkrétní postup.
@@ -63,7 +63,7 @@ Tato možnost umožňuje haldy výpisy, když dojde OutOfMemoryError:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
- **+**  Označuje, že tato možnost je povolená. Výchozí hodnota je zakázána.
+ **+**  Označuje, že tato možnost je povolená. Ve výchozím nastavení je tato možnost zakázána.
 
 > [!WARNING]
 > Jako souborů výpisu paměti může být velký haldy výpisy nejsou povolené pro služby Hadoop v HDInsight. Pokud povolíte je pro řešení potíží, nezapomeňte po reprodukovat problému a shromáždění souborů výpisu paměti je zakázat.

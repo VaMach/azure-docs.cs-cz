@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Pomocí Azure Site Recovery k ochraně služby Active Directory a DNS
 
@@ -80,7 +80,7 @@ Většina aplikací vyžaduje přítomnost řadiči domény nebo serveru DNS. Pr
     ![Azure testovací síti](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery se pokusí vytvořit testovací virtuální počítače v podsíti se stejným názvem a pomocí stejné IP adresy, která je součástí **výpočty a síť** nastavení virtuálního počítače. Pokud se stejným názvem podsíť není k dispozici v Azure virtuální síť, která je k dispozici pro testovací převzetí služeb při selhání, vytvoří se v abecedním pořadí první podsíť testovacího virtuálního počítače. 
+    > Site Recovery se pokusí vytvořit testovací virtuální počítače v podsíti se stejným názvem a pomocí stejné IP adresy, která je součástí **výpočty a síť** nastavení virtuálního počítače. Pokud se stejným názvem podsíť není k dispozici v Azure virtuální síť, která je k dispozici pro testovací převzetí služeb při selhání, vytvoří se v abecedním pořadí první podsíť testovacího virtuálního počítače.
     >
     > Pokud cílová IP adresa je součástí vybrané podsíti, Site Recovery se pokusí vytvořit testovacího převzetí služeb při selhání virtuálního počítače pomocí cílová IP adresa. Pokud cílová IP adresa není součástí vybrané podsíti, testovacího převzetí služeb při selhání virtuálního počítače se vytvoří pomocí další dostupnou IP adresu do vybrané podsítě.
     >
@@ -110,7 +110,7 @@ Od verze Windows Server 2012, [další bezpečnostní opatření jsou součást�
 
 Když **VM-GenerationID** se resetuje **InvocationID** hodnotu databázi služby AD DS je také obnovit. Kromě toho se zahodí fond RID a adresáři SYSVOL je označena jako neautoritativní. Další informace najdete v tématu [Úvod do virtualizace služby Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) a [bezpečně virtualizace DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Může dojít k převzetí služeb při selhání do Azure **VM-GenerationID** resetovat. Resetování **VM-GenerationID** další bezpečnostní opatření se aktivuje při spuštění virtuálního počítače pro řadič domény v Azure. Může to způsobit *významné zpoždění* v se moct přihlásit k virtuálnímu počítači řadiče domény. 
+Může dojít k převzetí služeb při selhání do Azure **VM-GenerationID** resetovat. Resetování **VM-GenerationID** další bezpečnostní opatření se aktivuje při spuštění virtuálního počítače pro řadič domény v Azure. Může to způsobit *významné zpoždění* v se moct přihlásit k virtuálnímu počítači řadiče domény.
 
 Protože tento řadič domény se používá jenom v testovací převzetí služeb, nejsou nezbytná bezpečnostní opatření virtualizace. Zajistit, aby **VM-GenerationID** nezmění hodnotu pro virtuální počítač řadiče domény, můžete změnit hodnotu DWORD následující k **4** v místní řadič domény:
 
@@ -165,20 +165,20 @@ Pokud bezpečnostní opatření virtualizace se spustí po testovací převzetí
 Jestliže výše uvedených podmínek jsou splněny, je pravděpodobné, že řadič domény správně funguje. Pokud není, proveďte následující kroky:
 
 1. Proveďte autoritativního obnovení řadiče domény. Mějte následující informace:
-    * I když není doporučeno [FRS replikace](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), pokud používáte FRS replikace, postupujte podle kroků pro autoritativního obnovení. Proces je popsán v [pomocí klíče registru BurFlags k inicializaci služby replikace souborů](https://support.microsoft.com/kb/290762). 
-    
+    * I když není doporučeno [FRS replikace](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), pokud používáte FRS replikace, postupujte podle kroků pro autoritativního obnovení. Proces je popsán v [pomocí klíče registru BurFlags k inicializaci služby replikace souborů](https://support.microsoft.com/kb/290762).
+
         Další informace o BurFlags, naleznete v příspěvku blogu [D2 a D4: co je to pro?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Pokud používáte DFSR replikace, proveďte kroky pro autoritativního obnovení. Proces je popsán v [vynutili autoritativní a neautoritativní synchronizaci adresáře SYSVOL replikovaného DFSR (jako "D4/D2 u služby FRS)](https://support.microsoft.com/kb/2218556). 
-    
+    * Pokud používáte DFSR replikace, proveďte kroky pro autoritativního obnovení. Proces je popsán v [vynutili autoritativní a neautoritativní synchronizaci adresáře SYSVOL replikovaného DFSR (jako "D4/D2 u služby FRS)](https://support.microsoft.com/kb/2218556).
+
         Můžete také použít funkce prostředí PowerShell. Další informace najdete v tématu [funkce prostředí PowerShell autoritativní/neautoritativní obnovení DFSR SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. Obejít požadavek na počáteční synchronizaci nastavením následujícího klíče registru na **0** v místní řadič domény. Pokud DWORD neexistuje, můžete ho vytvořit **parametry** uzlu. 
+2. Obejít požadavek na počáteční synchronizaci nastavením následujícího klíče registru na **0** v místní řadič domény. Pokud DWORD neexistuje, můžete ho vytvořit **parametry** uzlu.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Další informace najdete v tématu [řešení potíží s DNS událost ID 4013: DNS server se nepodařilo načíst AD integrované zóny DNS](https://support.microsoft.com/kb/2001093).
 
-3. Zakažte požadavek na ověření přihlášení uživatele možné server globálního katalogu. Chcete-li to provést v řadiči domény v místě, nastavte následující klíč registru na **1**. Pokud DWORD neexistuje, můžete ho vytvořit **Lsa** uzlu. 
+3. Zakažte požadavek na ověření přihlášení uživatele možné server globálního katalogu. Chcete-li to provést v řadiči domény v místě, nastavte následující klíč registru na **1**. Pokud DWORD neexistuje, můžete ho vytvořit **Lsa** uzlu.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

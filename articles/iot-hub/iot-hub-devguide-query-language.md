@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub dotazovacího jazyka pro dvojčata zařízení, úlohy a směrování zpráv
 
@@ -298,27 +298,27 @@ IoT Hub předpokládá následující reprezentace JSON hlavičky zpráv pro sm�
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Vlastnosti zprávu systému mají předponu `'$'` symbol.
-Vlastnosti uživatelů jsou vždy přistupovat pomocí jeho názvu. Pokud vlastnost uživatelské jméno se shoduje s vlastností systému (například `$to`), je načíst vlastnost uživatele s `$to` výraz.
-Vždy přístup k vlastnosti systému pomocí závorek `{}`: například můžete použít ve výrazu `{$to}` pro přístup k vlastnosti systému `to`. Názvy vlastností v závorkách vždy načítají odpovídající vlastnost systému.
+Vlastnosti uživatelů jsou vždy přistupovat pomocí jeho názvu. Pokud vlastnost uživatelské jméno se shoduje s vlastností systému (například `$contentType`), je načíst vlastnost uživatele s `$contentType` výraz.
+Vždy přístup k vlastnosti systému pomocí závorek `{}`: například můžete použít ve výrazu `{$contentType}` pro přístup k vlastnosti systému `contentType`. Názvy vlastností v závorkách vždy načítají odpovídající vlastnost systému.
 
 Mějte na paměti, že jsou názvy vlastností malá a velká písmena.
 
@@ -350,12 +350,58 @@ Odkazovat [výraz a podmínky] [ lnk-query-expressions] části úplný seznam p
 
 IoT Hub můžete pouze směrování podle tělo zprávy obsah, pokud text zprávy je správně vytvořen JSON kódování UTF-8, UTF-16 nebo UTF-32. Nastavit typ obsahu zprávy `application/json`. Nastavte na jednu z podporovaných kódování UTF v záhlaví zprávy kódování obsahu. Pokud není zadán buď z hlaviček, IoT Hub nebude pokoušet o vyhodnocení jakýkoli výraz dotazu zahrnující těla proti zprávy. Pokud zpráva není JSON zprávu nebo zprávu neurčuje typu obsahu a kódování obsahu, stále můžete zprávu směrování směrovat zprávy založené na záhlaví zprávy.
 
+Následující příklad ukazuje, jak vytvořit zprávu s správně formátovaný a zakódovaný text JSON:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 Můžete použít `$body` ve výrazu dotazu pro odesílání zpráv. Jednoduchý text odkazu, odkaz na pole text nebo více odkazů text můžete použít ve výrazu dotazu. Výraz dotazu můžete také kombinovat textu odkaz s odkazem na záhlaví zprávy. Tady jsou například všechny výrazy platný dotaz:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
@@ -513,7 +559,7 @@ V podmínkách trasy jsou podporovány následující kontrola typu a přetypov�
 
 | Funkce | Popis |
 | -------- | ----------- |
-| AS_NUMBER | Převede vstupní řetězec na číslo. `noop`Pokud vstup je číslo; `Undefined` Pokud řetězec nepředstavuje číslo.|
+| AS_NUMBER | Převede vstupní řetězec na číslo. `noop` Pokud vstup je číslo; `Undefined` Pokud řetězec nepředstavuje číslo.|
 | IS_ARRAY | Vrátí logickou hodnotu udávající, pokud je typ zadaný výraz pole. |
 | IS_BOOL | Vrátí logickou hodnotu udávající, pokud typ zadaný výraz je logická hodnota. |
 | IS_DEFINED | Vrátí logickou hodnotu udávající, pokud byla vlastnost přiřazenou hodnotu. |

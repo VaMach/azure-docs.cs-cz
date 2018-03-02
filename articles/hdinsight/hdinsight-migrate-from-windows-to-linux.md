@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrace z clusteru HDInsight se systémem Windows do clusteru se systémem Linux
 
@@ -173,7 +173,7 @@ Systém souborů clusteru Linux rozložená jinak než clustery HDInsight se sys
 | Konfigurace |`/etc`. Například `/etc/hadoop/conf/core-site.xml`. |
 | Soubory protokolu |`/var/logs` |
 | Hortonworks Data Platform (HDP) |`/usr/hdp`. Existují dva adresáře tady, ten, který je aktuální verze softwaru HDP a `current`. `current` Adresář obsahuje symbolické odkazy na soubory a adresáře, které jsou umístěné v adresáři číslo verze. `current` Adresář je zadaný jako pohodlný způsob přístupu k souborům HDP od změní se číslo verze jako softwaru HDP za verzi aktualizovat. |
-| hadoop streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
+| hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 Obecně platí Pokud znáte název souboru, můžete použít následující příkaz z relace SSH najít cestu k souboru:
 
@@ -198,24 +198,24 @@ HDInsight se systémem Linux neposkytuje funkce vzdálené plochy. Místo toho m
 
 Následující graf obsahuje pokyny k migraci vašich úloh Hive.
 
-| V systému Windows použít... | Na základě Linux... |
+| V systému Windows použít... | On Linux-based... |
 | --- | --- |
 | **Hive Editor** |[Zobrazení Ambari Hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;`Chcete-li povolit Tez |Tez je výchozí modul provádění pro clustery se systémem Linux, takže příkaz set již není potřeba. |
+| `set hive.execution.engine=tez;` Chcete-li povolit Tez |Tez je výchozí modul provádění pro clustery se systémem Linux, takže příkaz set již není potřeba. |
 | Uživatelem definované funkce jazyka C# | Informace o ověřování součásti C# s HDInsight se systémem Linux najdete v tématu [řešení migrovat .NET HDInsight se systémem Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD soubory nebo skripty na serveru vyvolána jako součást úlohy Hive |pomocí skriptů Bash |
-| `hive`příkaz z vzdálené plochy |Použití [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) nebo [Hive z relace SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` příkaz z vzdálené plochy |Použití [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) nebo [Hive z relace SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
-| V systému Windows použít... | Na základě Linux... |
+| V systému Windows použít... | On Linux-based... |
 | --- | --- |
 | Uživatelem definované funkce jazyka C# | Informace o ověřování součásti C# s HDInsight se systémem Linux najdete v tématu [řešení migrovat .NET HDInsight se systémem Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD soubory nebo skripty na serveru vyvolána jako součást úlohy Pig |pomocí skriptů Bash |
 
 ### <a name="mapreduce"></a>MapReduce
 
-| V systému Windows použít... | Na základě Linux... |
+| V systému Windows použít... | On Linux-based... |
 | --- | --- |
 | C# mapper a reduktorem součásti | Informace o ověřování součásti C# s HDInsight se systémem Linux najdete v tématu [řešení migrovat .NET HDInsight se systémem Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD soubory nebo skripty na serveru vyvolána jako součást úlohy Hive |pomocí skriptů Bash |
@@ -231,7 +231,7 @@ Pokud máte pracovní postup, který používá aplikace v jazyce C#, ověřte t
 
 ## <a name="storm"></a>Storm
 
-| V systému Windows použít... | Na základě Linux... |
+| V systému Windows použít... | On Linux-based... |
 | --- | --- |
 | Řídicí panel Storm |Řídicí panel Storm není k dispozici. V tématu [topologií nasazení a správa Storm v HDInsight se systémem Linux](storm/apache-storm-deploy-monitor-topology-linux.md) pro způsoby, jak odeslat topologie |
 | Storm uživatelského rozhraní |Uživatelské rozhraní Storm je k dispozici na https://CLUSTERNAME.azurehdinsight.net/stormui |

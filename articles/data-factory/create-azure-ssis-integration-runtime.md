@@ -3,7 +3,7 @@ title: "Vytvoření Azure SSIS integrace runtime v Azure Data Factory | Microsof
 description: "Naučte se vytvářet modulu runtime integrace Azure SSIS tak, aby balíčku služby SSIS můžete spustit v cloudu Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Vytvoření modulu runtime integrace Azure SSIS v Azure Data Factory
 Tento článek popisuje kroky pro zřizování modulu runtime integrace Azure SSIS v Azure Data Factory. Následně můžete pomocí SQL Server Data Tools (SSDT) nebo aplikace SQL Server Management Studio (SSMS) do tohoto modulu runtime v Azure nasadit balíčky SSIS (SQL Server Integration Services).
@@ -40,7 +40,7 @@ Tento článek ukazuje různé způsoby zřizování Azure SSIS IR:
 
 Při vytváření služby Azure SSIS IR objekt pro vytváření dat se připojuje k vaší databázi SQL Azure Příprava databáze katalogu služby SSIS (SSISDB). Skript také nakonfiguruje oprávnění a nastavení vaší virtuální sítě, pokud je zadáte, a připojí k této virtuální síti novou instanci prostředí Azure SSIS Integration Runtime.
 
-Pokud zřídíte instanci Azure SSIS reakcí na Incidenty, jsou nainstalovány také Azure Feature Pack pro službu SSIS a Redistributable přístup. Tyto komponenty nabízejí mimo připojení k datovým zdrojům podporovaným integrovanými komponentami navíc možnosti připojení k souborům aplikací Excel a Access a různým datovým zdrojům Azure. V tuto chvíli nemůžete instalovat komponenty třetích stran pro službu SSIS (včetně komponent třetích stran od Microsoftu, jako jsou komponenty Oracle a Teradata od společnosti Attunity a komponenty SAP BI).
+Když zřizujete instanci Azure-SSIS IR, nainstaluje se také Azure Feature Pack for SSIS a Access Redistributable. Tyto komponenty nabízejí mimo připojení k datovým zdrojům podporovaným integrovanými komponentami navíc možnosti připojení k souborům aplikací Excel a Access a různým datovým zdrojům Azure. V tuto chvíli nemůžete instalovat komponenty třetích stran pro službu SSIS (včetně komponent třetích stran od Microsoftu, jako jsou komponenty Oracle a Teradata od společnosti Attunity a komponenty SAP BI).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -54,8 +54,8 @@ Pokud zřídíte instanci Azure SSIS reakcí na Incidenty, jsou nainstalovány t
 - **Azure PowerShell**. Postupujte podle pokynů v tématu [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/install-azurerm-ps). PowerShell použijete ke spuštění skriptu, který zřídí prostředí Azure SSIS Integration Runtime spouštějící balíčky SSIS v cloudu. 
 
 > [!NOTE]
-> - Objekt pro vytváření dat verze 2 můžete vytvořit v následujících oblastech: Východ USA, Východ USA 2, jihovýchodní Asie a západní Evropa. 
-> - Můžete vytvořit Reakcí Azure SSIS v následujících oblastech: Východ USA, Východ USA 2, střed USA, Severní Evropa, západní Evropa a Austrálie – východ.
+> - Datovou továrnu verze 2 můžete vytvořit v následujících oblastech: USA – východ, USA – východ 2, Jihovýchodní Asie a Západní Evropa. 
+> - Prostředí Azure SSIS IR můžete vytvořit v následujících oblastech: USA – východ, USA – východ 2, USA – střed, Severní Evropa, Západní Evropa a Austrálie – východ.
 
 ## <a name="azure-portal"></a>Azure Portal
 V této části použijete portál Azure, konkrétně Data Factory uživatelského rozhraní, k vytvoření služby Azure SSIS infračerveného signálu. 

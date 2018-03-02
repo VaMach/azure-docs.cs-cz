@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Plánování kapacity a škálování pro replikaci VMware s Azure Site Recovery
 
@@ -20,7 +20,7 @@ Pomocí tohoto článku a pokuste se zjistit plánování kapacity a škálován
 
 ## <a name="how-do-i-start-capacity-planning"></a>Jak spustit plánování kapacity?
 
-Shromážděte informace o prostředí replikace spuštěním [Azure Site Recovery nasazení Planner](https://aka.ms/asr-deployment-planner-doc) pro replikaci VMware. [Další informace](site-recovery-deployment-planner.md) o tomto nástroji. Budete shromažďovat informace o kompatibilní a nekompatibilní virtuálních počítačů, disků na virtuální počítač, a změn dat na disk. Nástroj platí i pro nároky na šířku pásma sítě a infrastrukturu Azure, které jsou potřebné pro úspěšné replikace a testovací převzetí služeb při selhání.
+Shromážděte informace o prostředí replikace spuštěním [Azure Site Recovery nasazení Planner](https://aka.ms/asr-deployment-planner-doc) pro replikaci VMware. [Další informace](site-recovery-deployment-planner.md) o tomto nástroji. Budete shromažďovat informace o kompatibilní a nekompatibilní virtuálních počítačů, disků na virtuální počítač, a změn dat na disk. Tento nástroj pokrývá i požadavky na šířku pásma sítě a infrastrukturu Azure potřebnou k úspěšné replikaci a testovacímu převzetí služeb při selhání.
 
 ## <a name="capacity-considerations"></a>Aspekty kapacity
 
@@ -85,7 +85,7 @@ Poté, co jste použili [nástroj pro nasazení Planner](site-recovery-deploymen
 2. V modulu snap-in klikněte na **Změnit vlastnosti**.
 
     ![Snímek obrazovky nástroje Azure Backup konzoly MMC modul snap-in možnost změnit vlastnosti](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Na **omezování** vyberte **povolit využití šířky pásma Internetu u operací zálohování omezení**. Nastavte limity pro pracovní a nepracovní dobu. Platné rozsahy jsou 512 kB/s až 102 MB/s.
+3. Na **omezování** vyberte **povolit využití šířky pásma Internetu u operací zálohování omezení**. Nastavte limity pro pracovní a nepracovní dobu. Platné rozsahy jsou 512 kB/s až 1023 MB/s za sekundu.
 
     ![Dialogové okno snímek obrazovky Vlastnosti zálohování Azure](./media/site-recovery-vmware-to-azure/throttle2.png)
 

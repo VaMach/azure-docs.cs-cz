@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Vytvoření funkce pro data v clusteru Hadoop pomocí dotazů Hive
 Tento dokument ukazuje, jak vytvořit funkcí pro data uložená v clusteru Azure HDInsight Hadoop pomocí dotazů Hive. Tyto dotazy Hive pomocí vložených Hive User-Defined funkcí (UDF), skripty, pro které jsou k dispozici.
@@ -93,14 +93,14 @@ Hive obsahuje sadu UDF pro zpracování pole data a času. V Hive, je výchozí 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Tento dotaz Hive předpokládá, že *& č. 60; pole data a času >* je ve výchozím formátu data a času.
+Tento dotaz Hive předpokládá, že  *<datetime field>*  je ve výchozím formátu data a času.
 
 Pokud je pole data a času není ve formátu výchozí, budete muset nejdřív převést pole data a času na časové razítko systému Unix a pak převést na řetězec data a času, který je ve výchozím formátu Unix časové razítko. Pokud hodnota datetime je ve výchozím formátu, uživatelé mohou nainstalovat vložená data a času k extrakci funkce UDF.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-V tomto dotazu Pokud *& č. 60; pole data a času >* má vzor jako *03/26/2015 12:04:39*, *' & č. 60; vzor pole data a času >'* by měla být `'MM/dd/yyyy HH:mm:ss'`. Chcete-li otestovat ji, můžou uživatelé spouštět.
+V tomto dotazu Pokud  *<datetime field>*  má vzor jako *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* by měla být `'MM/dd/yyyy HH:mm:ss'`. Chcete-li otestovat ji, můžou uživatelé spouštět.
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -140,7 +140,7 @@ Matematické vzorce, které vypočítat vzdálenost mezi dvě souřadnice GPS na
 
 Úplný seznam Hive embedded těchto funkcích naleznete v **integrované funkce** části na <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Rozšířené témata: parametry Tune Hive ke zlepšení rychlost dotazu
+## <a name="tuning"></a> Rozšířené témata: parametry Tune Hive ke zlepšení rychlost dotazu
 Výchozí nastavení parametrů clusteru Hive nemusí být vhodný pro dotazy Hive a data, která jsou zpracování dotazů. Tato část popisuje některé parametry, které uživatelé mohli vyladit ke zlepšení výkonu dotazů Hive. Uživatelé musí přidat parametr ladění dotazy před dotazy zpracování data.
 
 1. **Místo haldy Java**: pro dotazy týkající se propojení rozsáhlých datových sad, nebo zpracování dlouho záznamů, **volné místo haldy** je jednou z běžných chyb. Tato chyba se vyhnout nastavením parametry *mapreduce.map.java.opts* a *mapreduce.task.io.sort.mb* požadované hodnoty. Zde naleznete příklad:

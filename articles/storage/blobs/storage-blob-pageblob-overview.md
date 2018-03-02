@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
-ms.openlocfilehash: 3834fea5961a9c69243bb8e852631585c26a103f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 56e8c4c9f7ab9b40a210f284960f959a437a4e20
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Jedinečné funkce objektů BLOB stránky Azure
 
@@ -117,7 +117,7 @@ foreach (PageRange range in pageRanges)
 #### <a name="leasing-a-page-blob"></a>Leasing objekt Blob stránky
 Objekt Blob zapůjčení operaci vytváří a spravuje zámku na objektu blob pro zápis a operace odstranění. Tato operace je užitečný ve scénářích, kde se objekt blob stránky přistupuje od více klientů k zajištění, že pouze jednoho klienta může zapsat do objektu blob v čase. Disky systému Azure, například využívá to leasing mechanismus pro Ujistěte se, že disk je jenom jeden virtuální počítač spravuje. Doba trvání uzamčení může být 15 až 60 sekund, nebo může být nekonečná. Najdete v dokumentaci [sem](/rest/api/storageservices/lease-blob) další podrobnosti.
 
-> Pomocí následujícího odkazu zobrazíte [ukázky kódu](/resources/samples/?service=storage&term=blob&sort=0) pro mnoho scénářů jiné aplikace. 
+> Pomocí následujícího odkazu zobrazíte [ukázky kódu](/resources/samples/?service=storage&term=blob&sort=0 ) pro mnoho scénářů jiné aplikace. 
 
 Objekty BLOB stránky kromě bohatá rozhraní API REST, zadejte také sdíleného přístupu, odolnost a rozšířené zabezpečení. Obsahuje tyto výhody podrobněji v další odstavcích. 
 

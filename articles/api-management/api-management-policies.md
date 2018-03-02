@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0d10096c004b50688ad5e6550bf248ceb5ef878
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policies"></a>Zásady služby API Management
 Tato část obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](api-management-howto-policies.md).  
   
  Zásady jsou vynikající funkcí systému, která vydavatelům umožňuje měnit chování rozhraní API prostřednictvím konfigurace. Zásady představují kolekci příkazů, které jsou prováděny postupně v požadavku nebo odezvy z rozhraní API. Oblíbené příkazy patří převod formátu XML do formátu JSON a četnosti omezení omezit množství příchozích volání od vývojáře. Jsou dostupné ihned mnoho další zásady.  
   
- Výrazy zásad můžete použít jako hodnoty atributů nebo textové hodnoty v libovolných zásadách API Management (pokud zásady neurčí jinak). Některé zásady, například [řízení toku](api-management-advanced-policies.md#choose) a [nastavená proměnná](api-management-advanced-policies.md#set-variable), jsou založené na výrazech zásad. Další informace najdete v tématu [pokročilé zásady](api-management-advanced-policies.md#AdvancedPolicies) a [výrazy zásad](api-management-policy-expressions.md).  
+ Výrazy zásad můžete použít jako hodnoty atributů nebo textové hodnoty v libovolných zásadách API Management (pokud zásady neurčí jinak). Některé zásady, například [řízení toku](api-management-advanced-policies.md#choose) a [nastavená proměnná](api-management-advanced-policies.md#set-variable), jsou založené na výrazech zásad. Další informace najdete v článcích [Pokročilé zásady](api-management-advanced-policies.md#AdvancedPolicies) a [Výrazy zásad](api-management-policy-expressions.md).  
   
-##  <a name="ProxyPolicies"></a>Zásady  
+##  <a name="ProxyPolicies"></a> zásady  
   
 -   [Zásady omezení přístupu](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [Kontrola HTTP záhlaví](api-management-access-restriction-policies.md#CheckHTTPHeader) -vynucuje existence nebo hodnoty hlavičky protokolu HTTP.  
@@ -74,13 +74,9 @@ Tato část obsahuje odkaz pro následující zásady služby API Management. In
     -   [Přepsání adresy URL](api-management-transformation-policies.md#RewriteURL) – převede adresu URL požadavku z jeho veřejné formuláře do formuláře očekává webovou službou.  
     -   [Transformace XML pomocí transformaci XSLT](api-management-transformation-policies.md#XSLTransform) -použije transformaci XSL na XML v textu požadavku nebo odpovědi.  
 
-## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Práce se zásadami pro další informace najdete v tématu:
 
 + [Zásady ve službě API Management](api-management-howto-policies.md)

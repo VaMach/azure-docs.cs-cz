@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigační a řídicích panelů v portálu služby Application Insights
 Až budete mít [nastavte Application Insights na projektu](app-insights-overview.md), telemetrická data o výkonu a využití vaší aplikace se zobrazí v projektu na prostředek Application Insights [portál Azure](https://portal.azure.com).
@@ -117,7 +117,6 @@ V okně Přehled je bránu a další informace o vaší aplikaci.
 
 ### <a name="essentials-tab"></a>Karta Essentials
 * [Klíč instrumentace](app-insights-create-new-resource.md#copy-the-instrumentation-key) -identifikuje tento prostředek aplikace.
-* Ceny - byly funkce svazek k dispozici a nastavené CAP k vzdálené ploše.
 
 ### <a name="app-navigation-bar"></a>Navigační panel aplikace
 ![Levý navigační panel](./media/app-insights-dashboards/app-left-nav-bar.png)
@@ -139,7 +138,7 @@ PROZKOUMAT
 * **Prohlížeč** -stránka zobrazení a výkon AJAX. K dispozici, pokud jste [instrumentace webových stránek](app-insights-javascript.md).
 * **Využití** -stránka zobrazení, uživatele a počty relací. K dispozici, pokud jste [instrumentace webových stránek](app-insights-javascript.md).
 
-KONFIGURACE
+KONFIGUROVAT
 
 * **Začínáme** -vložené kurzu.
 * **Vlastnosti** -klíč instrumentace, předplatné a id prostředku.
@@ -160,7 +159,7 @@ NASTAVENÍ
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 |  |  |
 | --- | --- |

@@ -1,19 +1,19 @@
 ---
-title: "Server v protokolech v Azure databázi PostgreSQL | Microsoft Docs"
-description: "Generuje protokoly dotazu a chyby v databázi Azure pro PostgreSQL."
+title: "Server v protokolech v Azure databázi PostgreSQL"
+description: "Tento článek popisuje Azure databáze PostgreSQL generuje dotaz a chybové protokoly a jak protokolu uchování konfiguraci."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 696af85cd5609171a719a7e77efbfcdeba0aaaaa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 02/28/2018
+ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Server v protokolech v Azure databázi PostgreSQL 
 Generuje Azure databázi PostgreSQL dotazu a chybové protokoly. Přístup k protokoly transakcí však není podporován. Protokoly dotazu a chyba lze identifikovat, odstraňování potíží a opravte chyby konfigurace a zhoršené výkonu. Další informace najdete v tématu [Chyba protokolování a generování sestav](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
@@ -38,6 +38,6 @@ Můžete povolit protokolování dotazu pro instanci databáze PostgreSQL tak dv
 
 Další informace o těchto nastaveních najdete v tématu [Chyba protokolování a generování sestav](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) dokumentaci. Zejména konfigurace databáze Azure pro PostgreSQL parametry serveru, najdete v části [přizpůsobit parametry konfigurace serveru pomocí rozhraní příkazového řádku Azure](howto-configure-server-parameters-using-cli.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Přístup k protokolům pomocí rozhraní příkazového řádku Azure CLI, najdete v tématu [konfigurace a přístup protokolů serveru pomocí rozhraní příkazového řádku Azure](howto-configure-server-logs-using-cli.md).
 - Další informace o parametry serveru, najdete v části [přizpůsobit parametry konfigurace serveru pomocí rozhraní příkazového řádku Azure](howto-configure-server-parameters-using-cli.md).

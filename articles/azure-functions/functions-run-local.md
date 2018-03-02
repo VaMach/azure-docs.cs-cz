@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kód a testovat místně na Azure Functions
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Chcete-li vytvořit projekt bez místní úložiště Git, použijte `--no-source-control [-n]` možnost.
+
+## <a name="register-extensions"></a>Registrace rozšíření
+
+Ve verzi 2.x modulu runtime Azure Functions, je nutné explicitně zaregistrovat [vazby rozšíření](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) používaných ve vaší aplikaci funkce. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Další informace najdete v tématu [Azure Functions triggerů a vazeb koncepty](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Nastavení místního souboru
 
@@ -311,6 +319,10 @@ Například volání funkce aktivované protokolem HTTP a předat obsahu, spusť
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Zobrazení protokolu soubory místně
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publikování v Azure
 

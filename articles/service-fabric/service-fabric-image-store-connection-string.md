@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Pochopení parametr ImageStoreConnectionString nastavení
 
@@ -42,7 +42,9 @@ Typ zprostředkovatele použít v produkčním prostředí je službu Store bito
 
 Hostování v systému služby v rámci samotného clusteru je úložiště Image Store eliminuje vnější závislosti pro úložiště balíčků a nám dává větší kontrolu nad polohu úložiště. Budoucí vylepšení kolem je úložiště Image Store se pravděpodobně cíle zprostředkovatele úložiště Image Store nejprve, není-li výhradně. Připojovací řetězec pro poskytovatele služeb úložiště bitové kopie nemá žádné jedinečné informace, protože klient je již připojen do cílového clusteru. Klient pouze musí vědět, že má být použita protokoly cílení na službu system.
 
-Zprostředkovatele systému souborů se používá místo službu úložiště bitové kopie pro místní clustery jeden pole během vývoje k navázání připojení clusteru mírně rychlejší. Rozdíl je obvykle malý, ale je užitečné optimalizace pro většinu zaměstnance během vývoje. Je možné nasadit místní cluster jeden pole s ostatních úložiště zprostředkovatele typů a, ale obvykle neexistuje žádný důvod k tomu, protože pracovního postupu pro vývoj/testování zůstává stejný bez ohledu na zprostředkovatele. Než toto použití zprostředkovatele systému souborů a Azure Storage pouze existovat podporuje starší verze.
+Zprostředkovatele systému souborů se používá místo službu úložiště bitové kopie pro místní clustery jeden pole během vývoje k navázání připojení clusteru mírně rychlejší. Rozdíl je obvykle malý, ale je užitečné optimalizace pro většinu zaměstnance během vývoje. Je možné nasadit místní cluster jeden pole s ostatních úložiště zprostředkovatele typů a, ale obvykle neexistuje žádný důvod k tomu, protože pracovního postupu pro vývoj/testování zůstává stejný bez ohledu na zprostředkovatele. Zprostředkovatel úložiště Azure existuje pouze pro podporuje starší verze starého clustery nasazené, než byla zavedena poskytovatele služeb úložiště bitové kopie.
+
+Kromě toho ani zprostředkovatele systému souborů ani poskytovatele úložiště Azure má být použit jako metodu sdílení úložišti bitové kopie mezi clustery s několika – tato akce způsobí poškození dat konfigurace clusteru, protože každý cluster můžete zapsat konfliktní data do Úložiště bitových kopií. Chcete-li sdílet balíčky zřízené aplikací mezi více clusterů, použijte [sfpkg] [ 12] soubory místo toho, který je možné uložit do jakékoli externí úložiště ke stahování identifikátor URI.
 
 Proto při konfigurovat parametr ImageStoreConnectionString obecně právě používáte výchozí nastavení. Při publikování do Azure pomocí sady Visual Studio, parametr je automaticky nastaven pro vás odpovídajícím způsobem. Programová nasazení do clusterů, které jsou hostované v Azure připojovací řetězec je vždy "fabric: úložiště bitových kopií". V případě, že pokud máte pochybnosti, jeho hodnota vždy ověřovány načítání manifestu clusteru podle [prostředí PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), nebo [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Místní testování a produkčních clusterů by měl být vždy nakonfigurovaný na použití i poskytovatele služby úložiště bitové kopie.
 
@@ -55,4 +57,4 @@ Proto při konfigurovat parametr ImageStoreConnectionString obecně právě pou�
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

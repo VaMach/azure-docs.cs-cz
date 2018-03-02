@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Pomocí externích služeb ze služby Azure API Management
 Zásady, které jsou dostupné ve službě Azure API Management service může provádět široké škály užitečné pracovní výhradně na základě příchozího požadavku, odchozí odpovědi a informace o základní konfiguraci. Ale schopnost komunikovat s externích služeb z rozhraní API správy zásad mnoho většího počtu možností otevře.
@@ -282,11 +282,4 @@ V konfiguraci operace zástupného symbolu můžete nakonfigurovat řídicí pan
 
 ## <a name="summary"></a>Souhrn
 Služba Azure API Management poskytuje flexibilní zásady, které je možné selektivně použít pro provoz protokolu HTTP a umožňuje složení služeb back-end. Jestli chcete vylepšit bránu rozhraní API s výstrahy funkce, ověření, možnosti ověření nebo vytvořit nové složené prostředky v závislosti na více služeb back-end `send-request` a související zásady otevřete široké možnosti.
-
-## <a name="watch-a-video-overview-of-these-policies"></a>Podívejte se na video s přehledem těchto zásad
-Další informace o [odesílání jeden způsob požadavků](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [odeslán požadavek](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), a [vrátí odpověď](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) zásady popsaná v tomto článku v následujícím videu:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
-> 
-> 
 

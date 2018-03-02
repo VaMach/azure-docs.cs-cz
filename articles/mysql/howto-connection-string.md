@@ -1,25 +1,25 @@
 ---
-title: "Připojení aplikace k databázi Azure pro databázi MySQL | Microsoft Docs"
+title: "Připojení aplikace k databázi Azure pro databázi MySQL"
 description: "Tento dokument obsahuje seznam aktuálně podporované připojovací řetězce pro aplikace pro připojení s Azure Database pro databázi MySQL, včetně ADO.NET (C#), JDBC, Node.js, rozhraní ODBC, PHP, Python a Ruby."
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: c9fe0a892bd5e81d2b33987b6ca55ec753550a01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Postup připojení aplikace k databázi Azure pro databázi MySQL
 Toto téma uvádí typy řetězec připojení, které podporuje Azure databáze pro databázi MySQL, spolu s šablonami a příklady. V připojovacím řetězci může mít různé parametry a nastavení.
 
 - K získání certifikátu, najdete v části [postup konfigurace protokolu SSL](./howto-configure-ssl.md).
-- {your_host} = <servername>. mysql.database.azure.com
+- {your_host} = <servername>.mysql.database.azure.com
 - {your_user}@{servername} správně = formát ID uživatele pro ověřování.  Pokud používáte pouze ID uživatele, se ověřování nezdaří.
 
 ## <a name="adonet"></a>ADO.NET
@@ -27,10 +27,10 @@ Toto téma uvádí typy řetězec připojení, které podporuje Azure databáze 
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-V tomto příkladu je název serveru `myserver4demo`, název databáze je `wpdb`, uživatelské jméno je `WPAdmin`, a heslo je `mypassword!2`. V důsledku toho musí mít připojovací řetězec:
+V tomto příkladu je název serveru `mydemoserver`, název databáze je `wpdb`, uživatelské jméno je `WPAdmin`, a heslo je `mypassword!2`. V důsledku toho musí mít připojovací řetězec:
 
 ```ado.net
-Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
+Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## <a name="jdbc"></a>JDBC
@@ -68,5 +68,5 @@ V [portál Azure](https://portal.azure.com), přejděte k vaší databázi Azure
 
 Řetězec obsahuje podrobné informace jako jsou ovladače, serveru a jiné databázi parametrů připojení. Upravte tyto příklady, které chcete používat vlastní parametry, jako je název databáze, heslo a tak dále. Pak můžete tento řetězec pro připojení k serveru z vašeho kódu a aplikace.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o knihovnách připojení najdete v tématu [koncepty - knihovny připojení](./concepts-connection-libraries.md).

@@ -1,20 +1,20 @@
 ---
-title: "Postup zálohování a obnovení serveru v databázi Azure pro PostgreSQL | Microsoft Docs"
+title: "Postup zálohování a obnovení serveru v databázi Azure pro PostgreSQL"
 description: "Informace o zálohování a obnovení serveru v databázi Azure pro PostgreSQL pomocí rozhraní příkazového řádku Azure."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 7027669597b8c1989f7baac5c5f9d997b218750a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 69dfde7e54a271caabc6d0909565165fb219c7f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Postup zálohování a obnovení serveru v databázi Azure pro PostgreSQL pomocí rozhraní příkazového řádku Azure
 
@@ -26,7 +26,6 @@ Chcete-li provést tento postup průvodce, je třeba:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
- 
 
 > [!IMPORTANT]
 > Je-li nainstalovat a používat rozhraní příkazového řádku Azure místně, tento postup Průvodce vyžaduje, že používáte Azure CLI verze 2.0 nebo novější. Chcete-li ověřit verzi příkazového řádku Azure CLI zadejte `az --version`. K instalaci nebo upgradu, najdete v části [nainstalovat Azure CLI 2.0]( /cli/azure/install-azure-cli).
@@ -34,7 +33,7 @@ Chcete-li provést tento postup průvodce, je třeba:
 ## <a name="backup-happens-automatically"></a>Zálohování se automaticky stane
 Pokud používáte Azure databáze pro PostgreSQL, služba databáze automaticky provede zálohování služby každých 5 minut. 
 
-Pro úroveň Basic zálohy jsou k dispozici po dobu 7 dnů. Pro úroveň Standard zálohování jsou k dispozici pro 35 dní. Další informace najdete v tématu [databáze Azure pro PostgreSQL cenové úrovně](concepts-service-tiers.md).
+Pro úroveň Basic zálohy jsou k dispozici po dobu 7 dnů. Pro úroveň Standard zálohování jsou k dispozici pro 35 dní. Další informace najdete v tématu [databáze Azure pro PostgreSQL cenové úrovně](concepts-pricing-tiers.md).
 
 Toto automatické funkce zálohování můžete obnovit serveru a jeho databáze do stavu nebo bodu v čase.
 
@@ -48,16 +47,16 @@ K obnovení serveru, použijte rozhraní příkazového řádku Azure [obnovení
 K obnovení serveru, na příkazovém řádku Azure CLI, zadejte následující příkaz:
 
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --server mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 `az postgres server restore` Příkaz vyžaduje následující parametry:
 | Nastavení | Navrhovaná hodnota | Popis  |
 | --- | --- | --- |
-| skupiny prostředků |  myResourceGroup |  Skupinu prostředků, kde existuje na zdrojovém serveru.  |
-| jméno | Obnovit mypgserver | Název nového serveru, který je vytvořen pomocí příkazu restore. |
-| obnovení bodu v čase | 2017-04-13T13:59:00Z | Vyberte bod v čase k obnovení. Toto datum a čas musí být v období uchovávání záloh zdrojového serveru. Použijte formát ISO8601 data a času. Například můžete použít vlastní místní časové pásmo, jako například `2017-04-13T05:59:00-08:00`. Můžete také použít formát zulština UTC, například `2017-04-13T13:59:00Z`. |
-| zdrojový server | mypgserver 20170401 | Název nebo ID obnovení ze zdrojového serveru. |
+| skupiny prostředků |  myresourcegroup |  Skupinu prostředků, kde existuje na zdrojovém serveru.  |
+| jméno | mydemoserver-restored | Název nového serveru, který je vytvořen pomocí příkazu restore. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Vyberte bod v čase k obnovení. Toto datum a čas musí být v období uchovávání záloh zdrojového serveru. Použijte formát ISO8601 data a času. Například můžete použít vlastní místní časové pásmo, jako například `2017-04-13T05:59:00-08:00`. Můžete také použít formát zulština UTC, například `2017-04-13T13:59:00Z`. |
+| source-server | mydemoserver | Název nebo ID obnovení ze zdrojového serveru. |
 
 Při obnovení serveru do dřívějšího bodu v čase, se vytvoří nový server. Původní server a její databáze ze zadaného bodu v čase se zkopírují na nový server.
 
@@ -67,5 +66,5 @@ Umístění a cenovou úroveň hodnoty pro obnovené server zůstat stejné jako
 
 Po dokončení procesu obnovení, vyhledejte na nový server a ověřte, že budou data obnovena podle očekávání.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Knihovny připojení pro databázi Azure pro PostgreSQL](concepts-connection-libraries.md)

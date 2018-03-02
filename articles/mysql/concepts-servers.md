@@ -1,19 +1,19 @@
 ---
-title: "Koncepty serveru ve službě Azure Database pro databázi MySQL | Microsoft Docs"
+title: "Koncepty serveru ve službě Azure Database pro databázi MySQL"
 description: "Toto téma obsahuje důležité informace a pokyny pro práci s databází Azure pro servery, MySQL."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0cf35efa7b8b4c6f78a8821c6d10e606813b7848
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Koncepty serveru ve službě Azure Database pro databázi MySQL
 Tento článek obsahuje důležité informace a pokyny pro práci s databází Azure pro servery, MySQL.
@@ -33,7 +33,7 @@ Databáze MySQL serveru Azure:
 - Poskytuje oboru pro zásady správy, které se vztahují k jeho databázím: přihlášení, brána firewall, uživatelů, rolí, konfigurace atd.
 - Je k dispozici v několika verzích. Další informace najdete v tématu [podporované databáze Azure pro verze databáze MySQL](./concepts-supported-versions.md).
 
-V rámci serveru Azure Database for MySQL můžete vytvořit jednu nebo několik databází. Můžete se rozhodnout vytvořit jednu databázi na jeden server pro všechny prostředky nebo vytvořit více databází sdílelo prostředky. Cenách je strukturovaných jednotlivých serverů, na základě konfigurace cenová úroveň, výpočetní jednotky a úložiště (GB). Další informace najdete v tématu [cenové úrovně](./concepts-service-tiers.md).
+V rámci serveru Azure Database for MySQL můžete vytvořit jednu nebo několik databází. Můžete se rozhodnout vytvořit jednu databázi na jeden server pro všechny prostředky nebo vytvořit více databází sdílelo prostředky. Cenách je strukturovaných jednotlivých serverů, na základě konfigurace cenová úroveň, vCores a úložiště (GB). Další informace najdete v tématu [cenové úrovně](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Jak připojit a ověření do Azure databáze MySQL serveru?
 
@@ -44,12 +44,12 @@ Tyto prvky pomoct zajistit bezpečný přístup k vaší databázi.
 | **Protokol** | Služba podporuje protokol na základě zpráv používané MySQL. |
 | **TCP/IP** | Protokol je podporován přes TCP/IP a přes sockets Unix domény. |
 | **Brána firewall** | K ochraně dat, pravidlo brány firewall brání veškerý přístup k databázovému serveru, dokud nezadáte, které počítače mají oprávnění. V tématu [databáze Azure pro pravidla brány firewall serveru MySQL](./concepts-firewall-rules.md). |
-| **PROTOKOL SSL** | Služba podporuje vynucení připojení SSL mezi aplikací a databázový server.  Podívejte se na téma [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md). |
+| **SSL** | Služba podporuje vynucení připojení SSL mezi aplikací a databázový server.  Podívejte se na téma [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Jak lze spravovat server?
 Databáze Azure pro servery, MySQL můžete spravovat pomocí portálu Azure nebo Azure CLI.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Přehled služby najdete v tématu [Azure databáze MySQL přehled](./overview.md)
 - Informace o konkrétní prostředek kvóty a omezení na základě vaší **vrstvy služby**, najdete v části [úrovních služeb](./concepts-service-tiers.md)
 - Informace o připojení ke službě najdete v tématu [knihovny připojení pro databázi Azure pro databázi MySQL](./concepts-connection-libraries.md).
