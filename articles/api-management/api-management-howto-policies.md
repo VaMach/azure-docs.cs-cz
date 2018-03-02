@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Zásady ve službě Azure API Management
 
@@ -27,7 +27,7 @@ Jsou zásady použity uvnitř bránu, která je umístěna mezi příjemce rozhr
 
 Výrazy zásad můžete použít jako hodnoty atributů nebo textové hodnoty v libovolných zásadách API Management (pokud zásady neurčí jinak). Některé zásady, jako [řízení toku] [ Control flow] a [nastavená proměnná] [ Set variable] jsou založené na výrazech zásad. Další informace najdete v tématu [pokročilé zásady] [ Advanced policies] a [výrazy zásad][Policy expressions].
 
-## <a name="sections"></a>Principy zásad konfigurace
+## <a name="sections"> </a>Principy zásad konfigurace
 
 Definice zásady je jednoduchý dokument XML, který popisuje posloupnost příchozí a odchozí příkazy. Soubor XML můžete upravovat přímo v okně definice. Seznam příkazů jsou poskytovány doprava a jsou povolené a zvýrazní příkazů pro aktuální obor.
 
@@ -60,7 +60,7 @@ Konfigurace je rozdělené do `inbound`, `backend`, `outbound`, a `on-error`. Ř
 
 Pokud dojde k chybě během zpracování požadavku, všechny zbývající kroky `inbound`, `backend`, nebo `outbound` oddíly se přeskočí a provádění přejde na příkazy v `on-error` části. Tím, že příkazy zásad v `on-error` části Chyba můžete zkontrolovat pomocí `context.LastError` vlastnost, zkontrolovat a upravit pomocí odpovědi chyba `set-body` zásady a nakonfigurovat, co se stane, když dojde k chybě. Existují kódy chyb pro vestavěné kroky a chyby, které mohou nastat při zpracovávání příkazy zásad. Další informace najdete v tématu [zpracování chyb v zásady služby API Management](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-## <a name="scopes"></a>Postup konfigurace zásad
+## <a name="scopes"> </a>Postup konfigurace zásad
 
 Informace o tom, jak nakonfigurovat zásady najdete v tématu [nastavit nebo upravit zásady](set-edit-policies.md).
 
@@ -112,12 +112,6 @@ Omezit příchozí požadavky a přijímat pouze ty z IP adresy 1.2.3.4 upravte 
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Další postup
 

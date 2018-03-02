@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Nástroj pro migraci dat
 
@@ -34,7 +34,7 @@ Které rozhraní API budete používat s Azure Cosmos DB?
 * **[Rozhraní API MongoDB](mongodb-introduction.md)**  – nástroj pro migraci dat aktuálně nepodporuje rozhraní API služby Azure Cosmos DB MongoDB jako zdroj nebo jako cíl. Pokud chcete migrovat data do nebo z kolekce MongoDB rozhraní API v Azure Cosmos DB, podívejte se na [Cosmos databázi Azure: migrace dat pro rozhraní API MongoDB](mongodb-migrate.md) pokyny. Nástroj pro migraci dat stále můžete exportovat data z MongoDB do kolekce rozhraní API pro Azure Cosmos databáze SQL pro použití s rozhraním API SQL. 
 * **[Graph API](graph-introduction.md)**  – nástroj pro migraci dat není podporované import nástroj pro rozhraní Graph API účty v tuto chvíli. 
 
-Tento kurz obsahuje následující úlohy:
+Tento kurz se zabývá následujícími úkony:
 
 > [!div class="checklist"]
 > * Instalace nástroje pro migraci dat
@@ -61,7 +61,7 @@ Nástroj pro migraci dat je řešení open source, který importuje data do Azur
 Při importu nástroj obsahuje grafické uživatelské rozhraní (dtui.exe), můžete také vycházejí z příkazového řádku (dt.exe). Ve skutečnosti je možnost výstup přidružený příkaz po nastavení importu v uživatelském rozhraní. Tabulkové zdroje dat (např. SQL Server nebo CSV soubory) lze je transformovat tak, aby hierarchické vztahy (vnořené dokumenty) lze vytvořit při importu. Zachovat čtení Další informace o možnosti nastavení zdroje, ukázkové příkazové řádky pro import z každého zdroje, target – možnosti a import zobrazení výsledků.
 
 ## <a id="Install"></a>Instalace
-Migrace nástroj zdrojový kód je k dispozici na Githubu v [toto úložiště](https://github.com/azure/azure-documentdb-datamigrationtool) a je k dispozici z kompilované verze [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Může buď zkompilovat řešení nebo jednoduše stažení a extrakci kompilované verze k adresáři podle vašeho výběru. Spusťte buď:
+Migrace nástroj zdrojový kód je k dispozici na Githubu v [toto úložiště](https://github.com/azure/azure-documentdb-datamigrationtool). Můžete stáhnout a zkompilovat řešení místně a pak spustit buď:
 
 * **Dtui.exe**: grafické rozhraní verze nástroje
 * **DT.exe**: příkazového řádku verze nástroje
@@ -233,7 +233,7 @@ Možnost zdroje program pro import úložiště Azure Table obsahuje následují
    1. Všechny - obsahovat všechny interní pole (klíč oddílu, RowKey a časové razítko)
    2. Žádný - vyloučit všechny interní pole
    3. RowKey – obsahovat pouze pole RowKey
-2. Vyberte sloupce
+2. Vybrat sloupce
    1. Azure Table storage filtry nepodporují projekce. Pokud chcete importovat pouze vlastnosti entity specifické Azure Table, přidejte je do seznamu vyberte sloupce. Všechny ostatní vlastnosti entity se ignorují.
 
 Zde je ukázka příkazového řádku k importu z úložiště tabulek Azure:
@@ -549,7 +549,7 @@ Potom vyberte, zda chcete protokolovat všechny, kritické, nebo žádná chybov
    
     ![Snímek obrazovky z Azure Cosmos DB JSON možností exportu](./media/import-data/newimport.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste provést následující úlohy:
 
