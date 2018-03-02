@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co je nového ve službě Azure Active Directory?
 
@@ -41,6 +41,256 @@ Azure AD obdrží vylepšení průběžně. Zůstane aktuální pomocí nejnově
 Tato stránka se aktualizuje každý měsíc, takže pokroku pravidelně.
 
 
+
+## <a name="february-2018"></a>2018 února
+ 
+
+### <a name="improved-navigation-for-managing-users-and-groups"></a>Vylepšené navigace pro správu uživatelů a skupin
+
+**Typ:** Plánovaná změna  
+**Kategorie služby:** Directory Management  
+**Schopnosti produktu:** adresáře
+ 
+
+Bylo vylepšeno navigační prostředí pro správu uživatelů a skupin. Teď můžete Navigovat z přehledu directory přímo na seznam všech uživatelů, snadnější přístup k seznamu odstraněných uživatelů. Z přehledu directory můžete taky přejít přímo na seznam všech skupin, snadnější přístup k nastavení skupiny pro správu. A také na stránce Přehled adresář můžete hledat uživatele, skupiny, Podniková aplikace nebo registrace aplikací.
+ 
+
+---
+
+
+### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>Dostupnost přihlášení a audit sestavy v Microsoft Azure provozována společností 21Vianet (Azure China 21Vianet)
+
+**Typ:** nová funkce  
+**Kategorie služby:** suverénní Cloudy  
+**Schopnosti produktu:** monitorování a vytváření sestav
+ 
+
+Nyní jsou k dispozici ve službě Microsoft Azure provozována společností 21Vianet (Azure China 21Vianet) instancí Azure AD aktivity protokolu sestavy. Zahrnují se tyto protokoly:
+
+- **Protokoly aktivity přihlášení** -zahrnuje všechny přihlášení protokolům přidruženým k vašeho klienta.
+
+- **Protokoly auditu heslo pro samoobslužné** -zahrnuje všechny protokoly auditu SSPR.
+
+- **Protokoly auditu správy Directory** -zahrnuje všechny directory management související jako uživatel správy, Správa aplikací a ostatní protokoly auditu.
+
+Tyto protokoly můžete získat přehled o tom, jak je to vaše prostředí. Poskytnutá data vám umožní:
+
+- Zjistěte, jak jsou vaši uživatelé využité vaší aplikace a služby.
+
+- Řešení problémů, které brání uživatelům získávání pracovní úkoly.
+
+Další informace o tom, jak použít tyto sestavy najdete v tématu [generování sestav Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+ 
+
+---
+
+
+### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Pomocí role "Sestavy čtečky" (bez oprávnění správce role) můžete zobrazit sestavy aktivita služby Azure AD
+
+**Typ:** nová funkce  
+**Kategorie služby:** vytváření sestav  
+**Schopnosti produktu:** monitorování a vytváření sestav
+ 
+
+Jako součást zpětné vazby zákazníků povolit role bez oprávnění správce k přístupu k Azure AD aktivity zaznamená, nemůžeme povolili možnosti pro uživatele, kteří jsou v roli "Sestavy čtečky" tak, aby přístup k přihlášení a Audit aktivity v rámci portálu Azure, jakož i pomocí rozhraní Graph API. 
+
+Další informace najdete pomocí těchto sestav najdete v tématu [generování sestav Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+
+---
+ 
+
+
+### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>Deklarace EmployeeID jako atribut uživatele a identifikátor uživatele
+
+**Typ:** nová funkce  
+**Kategorie služby:** podnikové aplikace  
+**Schopnosti produktu:** jednotného přihlašování
+ 
+
+Můžete nakonfigurovat **EmployeeID** jako identifikátor uživatele a atribut uživatele pro uživatele člen a B2B hosté SAML aplikace založené na přihlášení z podniková aplikace uživatelského rozhraní.
+
+Další informace najdete v tématu [přizpůsobení deklarace identity vystavené v tokenu SAML pro podnikové aplikace v Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+ 
+
+---
+
+
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Zjednodušená správa aplikací pomocí zástupných znaků v Azure AD Application Proxy
+
+**Typ:** nová funkce  
+**Kategorie služby:** Proxy aplikace  
+**Schopnosti produktu:** ověření uživatele
+ 
+
+Pro usnadnění nasazení aplikace a snížit vaše režijní náklady na správu, teď podporujeme možnost publikovat aplikace pomocí zástupných znaků. K publikování aplikací se zástupnými znaky, můžete postupovat podle publikování toku standardní aplikace, ale použít zástupný znak v interní a externí adresy URL.
+
+Další informace najdete v tématu [aplikace zástupný znak v proxy aplikace služby Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+
+ 
+
+---
+ 
+### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Nové rutiny pro podporu konfigurace Proxy aplikace
+
+**Typ:** nová funkce  
+**Kategorie služby:** Proxy aplikace  
+**Schopnosti produktu:** platformy
+ 
+
+Nejnovější verze modulu AzureAD PowerShell Preview obsahuje nové rutiny, která umožňuje zákazníkům ke konfiguraci aplikace Proxy aplikací pomocí prostředí PowerShell.
+
+Jsou nové rutiny: 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Nové rutiny pro podporu konfigurace skupin
+
+**Typ:** nová funkce  
+**Kategorie služby:** Proxy aplikace  
+**Schopnosti produktu:** platformy
+ 
+
+Nejnovější verze modulu AzureAD PowerShell obsahuje rutiny pro správu skupin ve službě Azure AD. Tyto rutiny byly dřív dostupné v modulu AzureADPreview a jsou nyní přidaných do modulu AzureAD
+
+Rutiny skupiny, které jsou nyní verze pro obecné dostupnosti jsou: 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Je k dispozici nová verze služby Azure AD Connect
+
+**Typ:** nová funkce  
+**Kategorie služby:** AD Sync  
+**Schopnosti produktu:** platformy
+ 
+
+Azure AD Connect je upřednostňovaný nástroj pro synchronizaci dat mezi službou Azure AD a pro místní zdroje dat, včetně systému Windows Server Active Directory a LDAP.
+
+**Důležité upozornění**
+ 
+Toto sestavení představuje schématu a synchronizační pravidla změny. Azure AD Connect synchronizační služby se aktivuje úplný Import a úplnou synchronizaci kroků po upgradu. Informace o tom, jak toto chování změnit, najdete v článku [postup odložení úplnou synchronizaci po upgradu](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+
+Tato verze obsahuje následující aktualizace a změny:
+
+**Opravené problémy**
+
+- Vyřešte časové okno na úlohy na pozadí pro filtrování Paritition stránku při přechodu na další stránku.
+- Opravit chyby, která způsobila narušení přístupu během ConfigDB vlastní akci.
+- Opravit chyby obnovení z časový limit připojení sql.
+- Opravit chyby, které certifikáty se zástupnými znaky SAN nezdaří kontrola splněny.
+- Opravit chyby, což způsobí, že miiserver.exe havárií během exportu konektoru AAD.
+- Pevné chyby, které nesprávné heslo pokus o přihlášení řadiče domény při spuštění AAD connect průvodce a změňte konfiguraci
+
+**Nové funkce a vylepšení**
+
+- Pro GDPR jsme vyžadovaných k označení druhy zákaznická data, která jsou sdílet se společností Microsoft (telemetrie, stavu atd.), mají odkazy na podrobná online dokumentaci a poskytují způsob, jak můžete změnit předvolby.  Tato změnami přidává tyto funkce:
+    - Sdílení dat a oznámení o ochraně osobních údajů na čistou instalaci stránky se smlouvou EULA.
+
+    - Data oznámení na stránce upgradu sdílení a ochrana osobních údajů.
+
+    - Nová úloha Další **nastavení ochrany osobních údajů** kde si uživatel může změnit jeho/jejich předvoleb.
+ 
+- Aplikace telemetrie – správci můžete přepnout Tato třída dat zapnout nebo vypnout.
+
+- Data na Azure AD Health – správci musí navštívit portál health k řízení jejich nastavení stavu. Jakmile změníte zásady služby agenty přečte a vynutit ho.
+
+- Přidat akcí konfigurace zpětný zápis zařízení a indikátor průběhu inicializace stránky.
+
+- Vylepšené obecné diagnostiky s sestavu ve formátu HTML a shromažďování dat úplné ZIP textu nebo sestavu ve formátu HTML.
+
+- Vylepšení spolehlivosti automatického upgradu a přidat další telemetrické zajistit, že se dá určit stav serveru.
+
+- Omezte oprávnění k dispozici k privilegovaným účtům na účet konektoru služby AD. Pro nové instalace Průvodce omezuje oprávnění, které privilegované účty po vytvoření účtu MSOL mít na účet MSOL. Změny se projeví Expresní instalace a vlastní instalace s automatické vytvoření účtu.
+
+- Změnit instalační program není potřeba oprávnění správce systému na čisté instalace služby AADConnect.
+
+- Nový nástroj pro řešení potíží se synchronizací pro konkrétní objekt. V současné době tento nástroj kontroluje následující:
+
+    - UserPrincipalName Neshoda mezi objekt synchronizované uživatele a uživatelský účet v klientovi Azure AD.
+  
+    - Pokud objekt je filtrován z synchronizace kvůli filtrování domény
+  
+    - Pokud je objekt filtrován z synchronizace z důvodu filtrování organizační jednotky (OU)
+
+- Nový nástroj pro synchronizaci aktuální hodnoty hash hesla uložená ve službě Active Directory místní pro konkrétní uživatelský účet. Nástroj nevyžaduje, aby změnu hesla. 
+ 
+
+---
+ 
+
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Aplikace podpůrné zásady ochrany Intune aplikace pro použití s podmíněným přístupem založené na aplikaci Azure AD
+
+**Typ:** změněné funkce  
+**Kategorie služby:** podmíněného přístupu  
+**Schopnosti produktu:** Identity zabezpečení a ochrany
+ 
+
+Jsme přidali další aplikace, které podporují podmíněný přístup využívající aplikace. Teď můžete získat přístup k Office 365 a jiným aplikacím cloudu Azure AD připojené pomocí těchto schválené klientské aplikace.
+
+Tyto aplikace budou přidány do konce dne 
+
+- Microsoft PowerBI
+
+- Microsoft Launcher
+
+- Microsoft fakturace
+
+Další informace naleznete v tématu:
+
+- [Požadavek schválené klientské aplikace](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD, na základě aplikace podmíněného přístupu](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### <a name="terms-of-use-update-to-mobile-experience"></a>Podmínky použití aktualizace mobilní prostředí 
+
+**Typ:** změněné funkce  
+**Kategorie služby:** podmínky použití  
+**Schopnosti produktu:** zásad správného řízení
+ 
+
+Jakmile se zobrazí podmínky použití, můžete nyní kliknout na **s potíže se zobrazením? Kliknutím sem**. Kliknutím na tento odkaz otevře podmínky použití nativně na vašem zařízení. Bez ohledu na velikost písma v dokumentu nebo velikost obrazovky zařízení můžete přiblížení a čtení dokumentu, podle potřeby. 
+ 
+
+---
+ 
 ## <a name="january-2018"></a>2018 leden
  
 

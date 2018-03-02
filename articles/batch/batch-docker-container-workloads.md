@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Spustit v Azure Batch – aplikace typu kontejner
 
@@ -27,7 +27,7 @@ Tento článek předpokládá znalost koncepty kontejner Docker a postup vytvoř
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Verze sady SDK: SDK služby Batch podporu kontejneru obrázků v následující verze:
+* Verze sady SDK: SDK služby Batch podporu kontejneru Image od následující verze:
     * Batch REST API verze 2017-09-01.6.0
     * Batch .NET SDK verze 8.0.0
     * Batch Python SDK verze 4.0
@@ -87,7 +87,7 @@ V kódu aplikace zadejte odkaz na obrázek virtuálního počítače, který má
 
     Chcete-li získat toto ID bitové kopie z portálu Azure, otevřete **všechny prostředky**, vyberte vlastní bitovou kopii a z **přehled** části okna bitové kopie, zkopírujte cestu ve **ID prostředku**.
 
-* Pokud používáte [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) bitovou kopii, zadejte skupinu parametrů, které popisují bitovou kopii: typ nabídky, vydavatele, SKU a verzi bitové kopie, jak je uvedeno v [seznam bitové kopie virtuálních počítačů](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Pokud používáte [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) bitovou kopii, zadejte skupinu parametrů, které popisují bitovou kopii: vydavatele, typ nabídky, SKU a verzi bitové kopie, jak je uvedeno v [seznam bitové kopie virtuálních počítačů](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Další postup
 
-* Podrobnější přehled služby Batch, najdete v tématu [rozsáhlé paralelní vývoj výpočetní řešení pomocí služby Batch](batch-api-basics.md).
+* Viz také [loděnice Batch](https://github.com/Azure/batch-shipyard) nástrojů pro snadné nasazení kontejneru zatížení v Azure Batch prostřednictvím [loděnice recepty](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Další informace o instalaci a použití Docker CE v systému Linux, najdete v článku [Docker](https://docs.docker.com/engine/installation/) dokumentaci.
 

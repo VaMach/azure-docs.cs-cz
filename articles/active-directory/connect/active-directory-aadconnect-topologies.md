@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie pro Azure AD Connect
 Tento článek popisuje různé místní a topologie služby Azure Active Directory (Azure AD), které využívají synchronizace Azure AD Connect jako klíče integrační řešení. Tento článek obsahuje podporované a nepodporované konfigurace.
@@ -144,7 +144,9 @@ V této topologii jeden server synchronizace Azure AD Connect je připojený k k
 
 Doménu DNS lze zaregistrovat pouze do jedné klienta Azure AD. Názvy UPN uživatelů v místní instanci služby Active Directory, musíte taky použít samostatné obory názvů. Na předchozím obrázku, například tři samostatné přípony UPN jsou zaregistrovány v místní instanci služby Active Directory: contoso.com, fabrikam.com a wingtiptoys.com. Uživatelé v každé doméně služby Active Directory v místě používat jiný obor názvů.
 
-Neexistuje žádné GALSync mezi instancí klienta služby Azure AD. Adresář v systému Exchange Online a Skype pro firmy zobrazuje jenom uživatelé ve stejném klientovi.
+>[!NOTE]
+>Globální synchronizace adresáře (GalSync) není v této topologii provedeno automaticky a vyžaduje další vlastní implementaci MIM a zda že má každý klient dokončení globální seznam adres v systému Exchange Online a Skype for Business Online.
+
 
 Tato topologie má následující omezení jinak Podporované scénáře:
 

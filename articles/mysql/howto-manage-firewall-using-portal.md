@@ -1,19 +1,19 @@
 ---
-title: "Vytvářet a spravovat pravidla brány firewall MySQL v Azure Database pro databázi MySQL | Microsoft Docs"
+title: "Vytvářet a spravovat pravidla brány firewall MySQL v Azure Database pro databázi MySQL"
 description: "Vytvářet a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí portálu Azure"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: d0852f59d6463a4e73bfb2ca75b285701a897864
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 6475c5c3ecb43352a8ef8db8fe1c023a16cd8a3d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Vytvářet a spravovat databáze Azure pro pravidla brány firewall MySQL pomocí portálu Azure
 Pravidla brány firewall na úrovni serveru umožňují správcům přístup k databázi Azure pro Server databáze MySQL z zadaná IP adresa nebo rozsah IP adres. 

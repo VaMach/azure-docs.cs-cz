@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Vytvářet a upravovat partnerský vztah pro okruh ExpressRoute (klasické)
 > [!div class="op_single_selector"]
@@ -78,10 +78,10 @@ Tato část obsahuje pokyny, jak vytvořit, získat, aktualizovat a odstranit ko
 ### <a name="to-create-azure-private-peering"></a>Vytvoření soukromého partnerského vztahu Azure
 1. **Naimportujte modul Powershellu pro ExpressRoute.**
    
-    Pokud chcete začít používat rutiny pro ExpressRoute, je nutné naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Spusťte následující příkazy a naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell.  
+    Pokud chcete začít používat rutiny pro ExpressRoute, je nutné naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Spusťte následující příkazy a naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Verze se může lišit.    
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Vytvoření okruhu ExpressRoute.**
    
     Podle pokynů vytvořte [okruh ExpressRoute](expressroute-howto-circuit-classic.md) a mějte ho zřízený poskytovatelem připojení. Pokud poskytovatel připojení nabízí spravované služby vrstvy 3, můžete poskytovatele připojení požádat, aby povolil soukromý partnerský vztah Azure za vás. V takovém případě nebudete muset postupovat podle pokynů uvedených v dalších částech. Pokud ale poskytovatel připojení nespravuje směrování, po vytvoření okruhu postupujte podle pokynů dál. 
@@ -168,10 +168,10 @@ Tato část obsahuje pokyny, jak vytvořit, získat, aktualizovat a odstranit ko
 ### <a name="to-create-azure-public-peering"></a>Vytvoření veřejného partnerského vztahu Azure
 1. **Naimportujte modul Powershellu pro ExpressRoute.**
    
-    Pokud chcete začít používat rutiny pro ExpressRoute, je nutné naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Spusťte následující příkazy a naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. 
+    Pokud chcete začít používat rutiny pro ExpressRoute, je nutné naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Spusťte následující příkazy a naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Verze se může lišit.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Vytvoření okruhu ExpressRoute**
    
     Podle pokynů vytvořte [okruh ExpressRoute](expressroute-howto-circuit-classic.md) a mějte ho zřízený poskytovatelem připojení. Pokud poskytovatel připojení nabízí spravované služby vrstvy 3, můžete poskytovatele připojení požádat, aby povolil veřejný partnerský vztah Azure za vás. V takovém případě nebudete muset postupovat podle pokynů uvedených v dalších částech. Pokud ale poskytovatel připojení nespravuje směrování, po vytvoření okruhu postupujte podle pokynů dál.
@@ -254,10 +254,10 @@ Tato část obsahuje pokyny, jak vytvořit, získat, aktualizovat a odstranit ko
 ### <a name="to-create-microsoft-peering"></a>Vytvoření partnerského vztahu Microsoftu
 1. **Naimportujte modul Powershellu pro ExpressRoute.**
    
-    Pokud chcete začít používat rutiny pro ExpressRoute, je nutné naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Spusťte následující příkazy a naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell.  
+    Pokud chcete začít používat rutiny pro ExpressRoute, je nutné naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Spusťte následující příkazy a naimportovat moduly Azure a ExpressRoute do relace prostředí PowerShell. Verze se může lišit.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Vytvoření okruhu ExpressRoute**
    
     Podle pokynů vytvořte [okruh ExpressRoute](expressroute-howto-circuit-classic.md) a mějte ho zřízený poskytovatelem připojení. Pokud poskytovatel připojení nabízí spravované služby vrstvy 3, můžete poskytovatele připojení požádat, aby povolil soukromý partnerský vztah Azure za vás. V takovém případě nebudete muset postupovat podle pokynů uvedených v dalších částech. Pokud ale poskytovatel připojení nespravuje směrování, po vytvoření okruhu postupujte podle pokynů dál.
@@ -326,7 +326,7 @@ Konfiguraci partnerského vztahu můžete odebrat spuštěním následující ru
 
     Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Dále [propojení virtuální sítě k okruhu ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 * Další informace o pracovních postupech najdete v tématu [pracovních postupech](expressroute-workflows.md).

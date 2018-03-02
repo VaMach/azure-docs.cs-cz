@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Využívání webových služeb
 Jakmile nasadíte model jako webovou službu v reálném čase, můžete odeslat data a získat předpovědi z mnoha různých platforem a aplikace. Webovou službu v reálném čase zpřístupňuje rozhraní REST API pro získání předpovědi. K webové službě ve formátu jednoho nebo více řádků získat jeden nebo více předpovědi současně může odesílat data.
@@ -35,7 +35,7 @@ Můžete vytvořit seznam aktuálně nasazené služby a imagí Dockeru pomocí 
 Po úspěšném nasazení webové služby použijte následující příkaz získat adresu URL služby a další podrobnosti pro volání koncový bod služby. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Tento příkaz vypíše adresu URL služby, hlavičky požadované žádosti, adresy URL swaggeru a vzorová data pro volání služby, pokud byl v době nasazení schématu rozhraní API služby.
@@ -43,7 +43,7 @@ Tento příkaz vypíše adresu URL služby, hlavičky požadované žádosti, ad
 Bez skládání požadavku HTTP, zadáním příkazu ukázkové rozhraní příkazového řádku s vstupních dat můžete testovat službu přímo z rozhraní příkazového řádku:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Získat klíč rozhraní API služby

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 929843825d19c003b5a97363a03ffdd3ae2a2f7d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Nasazení bez nutnosti registrace koncového uživatele pro vytvoření nového hesla
 
@@ -112,7 +112,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Pomocí prostředí PowerShell verze 2
 
-Chcete-li začít pracovat, je potřeba [stáhněte a nainstalujte modul prostředí PowerShell verze 2 Azure AD](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Až budete mít nainstalováno, můžete použít následující postup ke konfiguraci každé pole.
+Chcete-li začít pracovat, je potřeba [stáhněte a nainstalujte modul prostředí PowerShell verze 2 Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Až budete mít nainstalováno, můžete použít následující postup ke konfiguraci každé pole.
 
 Pokud chcete rychle nainstalovat z nejnovější verze prostředí PowerShell, které podporují instalaci modulu, spusťte následující příkazy. (První řádek zkontroluje, jestli je už nainstalovaný modul.)
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: cb07f173a0ff669cc8fa56d1ba37a4a3df8d8753
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Použití jazyka C# s MapReduce, streamování systému Hadoop v HDInsight
 
@@ -33,7 +33,7 @@ Streamování Hadoop je nástroj, který umožňuje spouštění úloh MapReduce
 
 ## <a name="net-on-hdinsight"></a>Rozhraní .NET v HDInsight
 
-__HDInsight se systémem Linux__ clusterů použijte [Mono (https://mono-project.com)](https://mono-project.com) ke spouštění aplikací .NET. Monofonní verze 4.2.1 je součástí HDInsight verze 3.5. Další informace o verzi Mono zahrnuté do HDInsight naleznete v tématu [HDInsight verze součástí](../hdinsight-component-versioning.md). Použít konkrétní verzi Mono, najdete v článku [instalace nebo aktualizace Mono](../hdinsight-hadoop-install-mono.md) dokumentu.
+__HDInsight se systémem Linux__ clusterů použijte [Mono (https://mono-project.com)](https://mono-project.com) ke spouštění aplikací .NET. Je součástí HDInsight verze 3.6 mono verze 4.2.1. Další informace o verzi Mono zahrnuté do HDInsight naleznete v tématu [HDInsight verze součástí](../hdinsight-component-versioning.md). Použít konkrétní verzi Mono, najdete v článku [instalace nebo aktualizace Mono](../hdinsight-hadoop-install-mono.md) dokumentu.
 
 Další informace o Mono kompatibilitu s verzí rozhraní .NET Framework naleznete v tématu [Mono kompatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -238,7 +238,7 @@ Tento skript vyzve k zadání názvu clusteru přihlášení účtu a heslo, spo
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o používání MapReduce s HDInsight naleznete v tématu [používání MapReduce s HDInsight](hdinsight-use-mapreduce.md).
 

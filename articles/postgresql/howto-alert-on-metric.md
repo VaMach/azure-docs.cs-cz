@@ -1,19 +1,19 @@
 ---
-title: "Konfigurace výstrah metriky pro databázi Azure pro PostgreSQL na portálu Azure | Microsoft Docs"
+title: "Konfigurace výstrah metriky pro databázi Azure pro PostgreSQL na portálu Azure"
 description: "Tento článek popisuje postup konfigurace a výstrahy metriky přístup pro databázi Azure pro PostgreSQL z portálu Azure."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 3a09be8131b57381eb470027a134109c116467ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Nastavit výstrahy na metriky pro databázi Azure pro PostgreSQL pomocí portálu Azure 
 
@@ -27,7 +27,7 @@ Můžete nakonfigurovat výstrahu při aktivaci provést následující akce:
 * Volejte webhook, jehož.
 
 Můžete nakonfigurovat a získat informace o pravidla výstrah pomocí:
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [portál Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Rozhraní příkazového řádku (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Rozhraní API REST Azure monitorování](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -47,15 +47,15 @@ Můžete nakonfigurovat a získat informace o pravidla výstrah pomocí:
 
    | Nastavení | Popis  |
    |---------|---------|
-   | Name (Název) | Zadejte název pro pravidlo výstrahy. Tato hodnota se odesílají e-mailem oznámení výstrah. |
+   | Název | Zadejte název pro pravidlo výstrahy. Tato hodnota se odesílají e-mailem oznámení výstrah. |
    | Popis | Zadejte krátký popis pravidla výstrahy. Tato hodnota se odesílají e-mailem oznámení výstrah. |
-   | Výstraha na | Zvolte **metriky** pro tento typ výstrahy. |
+   | Výstraha při | Zvolte **metriky** pro tento typ výstrahy. |
    | Předplatné | Toto pole je naplněna odběr, který je hostitelem databáze Azure pro PostgreSQL. |
    | Skupina prostředků | Toto pole je naplněna skupiny prostředků Azure Database pro PostgreSQL. |
    | Prostředek | Toto pole je naplněna název vaší databáze Azure pro PostgreSQL. |
    | Metrika | Vyberte metriku, kterou chcete vydat výstrahu pro. Například **procento úložiště**. |
    | Podmínka | Vyberte podmínku pro metriku, který se má porovnat s. Například **větší než**. |
-   | Prahová hodnota | Prahová hodnota pro metriku, například 85 (v procentech). |
+   | Mezní hodnota | Prahová hodnota pro metriku, například 85 (v procentech). |
    | Období | Časový interval, který metriky pravidlo je nutné splnit před výstrahy aktivačních událostí. Například **za posledních 30 minut**. |
 
    Založena na příkladu, výstraha vyhledává procento úložiště než 85 % za období 30 minut. Výstrahy se aktivuje při průměrnou procentuální hodnotu úložiště jsou vyšší než 85 % po dobu 30 minut. Jakmile dojde k první aktivační událost, aktivuje znovu při průměrnou procentuální hodnotu úložiště je nižší než 85 % více než 30 minut.
@@ -79,6 +79,6 @@ Po vytvoření výstrahy, můžete jej vybrat a proveďte následující akce:
 * **Upravit** nebo **odstranit** pravidlo výstrahy.
 * **Zakázat** nebo **povolit** výstrahu, pokud chcete dočasně zastavit nebo obnovit příjem oznámení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o [konfigurace webhooky ve výstrahách](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Získat [přehled metriky kolekce](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) zkontrolovat služby je k dispozici a dobře reagovaly.

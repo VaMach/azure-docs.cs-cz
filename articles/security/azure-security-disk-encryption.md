@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption pro systém Windows a virtuálních počítačů Linux IaaS
 Microsoft Azure se důrazně zaměřuje na zajištění ochrany osobních údajů, suverenity data a umožňuje vám řízení vaší Azure hostované data prostřednictvím řadu pokročilých technologiích k šifrování, řídit a spravovat šifrovací klíče, řízení a audit přístupu k datům. To poskytuje Azure zákazníkům flexibilitu zvolit si řešení, které nejlépe vyhovuje potřebám své firmy. V tomto dokumentu jsme vás seznámí s nové řešení technologie "Azure Disk Encryption pro systém Windows a Linux IaaS virtuálního počítače je" k ochraně a ochranu dat, aby splňovaly vaše organizace zabezpečení a dodržování předpisů závazky. Dokumentu poskytuje podrobné pokyny k použití funkcí Azure disk encryption, včetně Podporované scénáře a uživatel dojde.
@@ -141,34 +141,7 @@ Než povolíte Azure Disk Encryption na virtuálních počítačích Azure IaaS 
 > [!NOTE]
 > Pro Windows Server 2008 R2 musíte mít rozhraní .NET Framework 4.5 nainstalované dříve než povolíte šifrování v Azure. Můžete ji nainstalovat z webu Windows Update nainstalováním volitelnou aktualizaci rozhraní Microsoft .NET Framework 4.5.2 na x64 systémů Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption je podporována v následujících Galerie Azure na základě Linux serveru distribucích a verzích:
-
-| Distribuce systému Linux | Verze | Typ svazku podporovaný pro šifrování|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Disk operačního systému a dat |
-| Ubuntu | 14.04.5-DAILY-LTS | Disk operačního systému a dat |
-| Ubuntu | 12.10 | Datový disk |
-| Ubuntu | 12.04 | Datový disk |
-| RHEL | 7.4 | Disk operačního systému a dat |
-| RHEL | 7.3 | Disk operačního systému a dat |
-| RHEL | LVM 7.3 | Disk operačního systému a dat |
-| RHEL | 7.2 | Disk operačního systému a dat |
-| RHEL | 6.8 | Disk operačního systému a dat |
-| RHEL | 6.7 | Datový disk |
-| CentOS | 7.3 | Disk operačního systému a dat |
-| CentOS | 7.2n | Disk operačního systému a dat |
-| CentOS | 6.8 | Disk operačního systému a dat |
-| CentOS | 7.1 | Datový disk |
-| CentOS | 7.0 | Datový disk |
-| CentOS | 6.7 | Datový disk |
-| CentOS | 6.6 | Datový disk |
-| CentOS | 6.5 | Datový disk |
-| openSUSE | 13.2 | Datový disk |
-| SLES | 12 SP1 | Datový disk |
-| SLES | 12-SP1 (Premium) | Datový disk |
-| SLES | HPC 12 | Datový disk |
-| SLES | 11-SP4 (Premium) | Datový disk |
-| SLES | 11 SP4 | Datový disk |
+* Azure Disk Encryption využívá jenom podporované na konkrétní Azure Gallery Linuxových distribucích serveru a verze.  Seznam aktuálně podporovaných verzí, naleznete [Azure Disk Encryption – nejčastější dotazy](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption vyžaduje, aby váš trezor klíčů a virtuální počítače jsou umístěny ve stejné oblasti Azure a předplatné.
 
@@ -792,7 +765,7 @@ Pro Windows Server 2008 R2 použijte následující příkaz:
 
     ServerManagerCmd -install BitLockers
 
-#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Příprava svazku operačního systému pomocí nástroje BitLocker`bdehdcfg`
+#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Příprava svazku operačního systému pomocí nástroje BitLocker `bdehdcfg`
 Pokud chcete komprimovat oddílu operačního systému a příprava počítače pro nástroj BitLocker, spusťte následující příkaz:
 
     bdehdcfg -target c: shrink -quiet
@@ -1284,9 +1257,6 @@ Pokud se připojíte disk operačního systému, předat `$KeyEncryptionKey` a `
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>Stáhněte si tento průvodce
-Tato příručka z si můžete stáhnout [Galerii TechNet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## <a name="for-more-information"></a>Další informace
 [Prozkoumejte Azure Disk Encryption pomocí Azure PowerShell – část 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  

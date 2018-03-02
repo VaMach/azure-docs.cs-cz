@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Jak zabezpečit back endové služby pomocí klienta pro ověřování pomocí certifikátu ve službě Azure API Management
 API Management poskytuje možnost zabezpečený přístup ke službě back endové rozhraní API pomocí klientských certifikátů. Tato příručka ukazuje, jak ke správě certifikátů v rozhraní API portálu vydavatele a postup konfigurace rozhraní API používat certifikát pro přístup k jeho back endové službě.
 
 Informace o správě certifikátů pomocí rozhraní API REST API správy najdete v tématu [Azure API Management REST API certifikát entity][Azure API Management REST API Certificate entity].
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"> </a>Požadavky
 Tento průvodce vám ukáže, jak nakonfigurovat instanci služby API Management používat ověřování pomocí certifikátu klienta pro přístup k službě back-end pro rozhraní API. Před provedením postupu v tomto tématu, byste měli mít služby back-end, který je nakonfigurován pro ověřování pomocí certifikátu klienta ([konfigurace ověřování pomocí certifikátu v weby Azure najdete v tomto článku] [ to configure certificate authentication in Azure WebSites refer to this article]), a mít přístup k certifikátu a heslo pro certifikát pro odesílání v portál vydavatele služby API Management.
 
-## <a name="step1"></a>Nahrát certifikát klienta
+## <a name="step1"> </a>Nahrajte certifikát klienta
 Začněte tak, že na webu Azure Portal dané služby API Management kliknete na **Portál vydavatele**. Tím přejdete na portál vydavatele služby API Management.
 
 ![Portál vydavatele rozhraní API][api-management-management-console]
@@ -58,7 +58,7 @@ Klikněte na tlačítko **nahrát** na kterou odešlete certifikát.
 > 
 > 
 
-![Nahrát certifikát][api-management-certificate-uploaded]
+![Certifikát se odeslal][api-management-certificate-uploaded]
 
 Po nahrání certifikátu se zobrazí na **klientské certifikáty** kartě. Pokud máte víc certifikátů, zajistěte, aby poznámku o předmět nebo poslední čtyři znaky kryptografický otisk, které se používají k výběru certifikátu, při konfiguraci rozhraní API používat certifikáty, jak je popsané v následující [konfigurace rozhraní API pro použití klientský certifikát pro ověřování brány] [ Configure an API to use a client certificate for gateway authentication] části.
 
@@ -66,10 +66,10 @@ Po nahrání certifikátu se zobrazí na **klientské certifikáty** kartě. Pok
 > 
 > 
 
-## <a name="step1a"></a>Odstranit certifikát klienta
+## <a name="step1a"> </a>Odstranit certifikát klienta
 Pokud chcete odstranit certifikát, klikněte na tlačítko **odstranit** vedle požadovaný certifikát.
 
-![Odstranění certifikátu][api-management-certificate-delete]
+![Odstranit certifikát][api-management-certificate-delete]
 
 Klikněte na tlačítko **Ano, odstraňte jej** k potvrzení.
 
@@ -79,7 +79,7 @@ Pokud se certifikát používá rozhraní API, se zobrazí obrazovka upozorněn�
 
 ![Potvrzení odstranění][api-management-confirm-delete-policy]
 
-## <a name="step2"></a>Konfigurace rozhraní API používat klientský certifikát pro ověřování brány
+## <a name="step2"> </a>Konfigurace rozhraní API používat klientský certifikát pro ověřování brány
 Klikněte na tlačítko **rozhraní API** z **API Management** nabídky na levé straně klikněte na název požadované rozhraní API a klikněte na tlačítko **zabezpečení** kartě.
 
 ![Zabezpečení rozhraní API][api-management-api-security]
@@ -90,7 +90,7 @@ Vyberte **klientské certifikáty** z **s přihlašovacími údaji** rozevírac�
 
 Vyberte požadovaný certifikát z **klientský certifikát** rozevíracího seznamu. Pokud máte víc certifikátů, že můžete se podívat na předmět nebo poslední čtyři znaky kryptografický otisk, jak je uvedeno v předchozí části zjistit správný certifikát.
 
-![Vyberte certifikát][api-management-select-certificate]
+![Vybrat certifikát][api-management-select-certificate]
 
 Klikněte na tlačítko **Uložit** se uložit změnu konfigurace rozhraní API.
 
@@ -114,13 +114,6 @@ Pokud používáte certifikáty podepsané svým držitelem, budete muset zakáz
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-## <a name="next-steps"></a>Další kroky
-Další informace o jiných způsobech zabezpečení službě back-end, jako je například ověřování protokolu HTTP základní nebo sdílený tajný najdete v následujícím videu.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

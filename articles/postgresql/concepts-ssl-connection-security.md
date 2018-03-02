@@ -1,23 +1,23 @@
 ---
-title: "Konfigurace připojení SSL ve službě Azure Database pro PostgreSQL | Microsoft Docs"
+title: "Konfigurace připojení SSL ve službě Azure Database pro PostgreSQL"
 description: "Pokyny a informace pro konfiguraci Azure databáze PostgreSQL a přidružené aplikace odpovídajícím způsobem používat připojení SSL."
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Konfigurace připojení SSL ve službě Azure Database pro PostgreSQL
-Azure databázi PostgreSQL upřednostní připojení vaší klientské aplikace do služby PostgreSQL pomocí Secure Sockets Layer (SSL). Vynucování připojení SSL mezi databázový server a klientských aplikací pomáhá chránit před útoky "man uprostřed" šifrování datový proud mezi serverem a aplikace.
+Azure databázi PostgreSQL upřednostní připojení vaší klientské aplikace do služby PostgreSQL pomocí Secure Sockets Layer (SSL). Díky vynucování připojení SSL mezi databázovým serverem a klientskými aplikacemi se šifruje datový proud mezi serverem a vaší aplikací, což pomáhá chránit před napadením útočníky, kteří se vydávají za prostředníky.
 
 Ve výchozím nastavení je služba databáze PostgreSQL nakonfigurovaná tak, aby vyžadovala připojení SSL. Volitelně můžete zakázat, budete požadovat protokol SSL pro připojení k databázi služby, pokud klientská aplikace nepodporuje připojení SSL. 
 
@@ -40,7 +40,7 @@ Toto nastavení si můžete ověřit zobrazením **přehled** stránky zobrazít
 Můžete povolit nebo zakázat **ssl vynucení** pomocí parametru `Enabled` nebo `Disabled` hodnot v uvedeném pořadí v rozhraní příkazového řádku Azure.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Ujistěte se, vaše aplikace nebo framework podporuje připojení SSL
@@ -116,11 +116,11 @@ Následující příklad ukazuje, jak se úspěšně připojit k serveru pomocí
 
 Pomocí rozhraní příkazového řádku PostgreSQL, spusťte následující příkaz:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 Pokud bylo úspěšné, zobrazí se následující výstup:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference
@@ -136,5 +136,5 @@ Konfigurace pgAdmin 4 do zabezpečené připojení prostřednictvím protokolu S
 
 ![Snímek obrazovky režimu protokolu SSL pgAdmin – připojení – vyžadovat](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si následující různé možnosti připojení aplikace [knihovny připojení pro databázi Azure pro PostgreSQL](concepts-connection-libraries.md).

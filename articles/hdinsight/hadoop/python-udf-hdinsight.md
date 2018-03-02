@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Funkce (UDF) s Hive a Pig definované uživatelem Python použití v HDInsight
 
@@ -48,7 +48,7 @@ HDInsight zahrnuje taky Jython, což je implementace Python napsanou v jazyce Ja
 
 Python lze použít jako UDF z Hive prostřednictvím HiveQL `TRANSFORM` příkaz. Například následující HiveQL vyvolá `hiveudf.py` souboru uložený v výchozí účet úložiště Azure pro cluster.
 
-**HDInsight se systémem Linux**
+**Linux-based HDInsight**
 
 ```hiveql
 add file wasb:///hiveudf.py;
@@ -60,7 +60,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-**HDInsight se systémem Windows**
+**Windows-based HDInsight**
 
 ```hiveql
 add file wasb:///hiveudf.py;
@@ -126,8 +126,8 @@ Skript v jazyce Python, můžete využít jako UDF z Pig prostřednictvím `GENE
 
 Pokud chcete zadat překladač Pythonu, použijte `register` při odkazování na skript Pythonu. Následující příklady zaregistrovat skriptů Pig jako `myfuncs`:
 
-* **Chcete-li použít Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Použít C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Chcete-li použít Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Použít C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > Při použití Jython, cestu k souboru pig_jython může být místní cesta nebo WASB: / / cesta. Pokud používáte C Python, ale musí odkazovat souboru v místním systému souborů uzlu, který používáte se odeslat úlohu Pig.
@@ -145,7 +145,7 @@ Zde je, jaké jsou v tomto příkladu:
 
 1. První řádek načte ukázkový datový soubor, `sample.log` do `LOGS`. Definuje také každý záznam jako `chararray`.
 2. Na další řádek odfiltruje všechny hodnoty null ukládání výsledek operace do `LOG`.
-3. V dalším kroku ji iteruje nad záznamy v `LOG` a používá `GENERATE` má být vyvolán `create_structure` metoda obsažených ve skriptu Python nebo Jython načíst jako `myfuncs`. `LINE`slouží k předávání na aktuální záznam funkce.
+3. V dalším kroku ji iteruje nad záznamy v `LOG` a používá `GENERATE` má být vyvolán `create_structure` metoda obsažených ve skriptu Python nebo Jython načíst jako `myfuncs`. `LINE` slouží k předávání na aktuální záznam funkce.
 4. Nakonec jsou zálohované výstupy STDOUT pomocí `DUMP` příkaz. Tento příkaz zobrazí výsledky po dokončení operace.
 
 ### <a name="create-the-pigudfpy-file"></a>Vytvoření souboru pigudf.py
@@ -380,8 +380,8 @@ Informace o chybě (STDERR) a výsledek úlohy (STDOUT) jsou taky zaznamenává 
 
 | Pro tuto úlohu... | Podívejte se na tyto soubory v kontejneru objektů blob |
 | --- | --- |
-| Hive |/ HivePython/stderr<p>/ HivePython/stdout |
-| Pig |/ PigPython/stderr<p>/ PigPython/stdout |
+| Hive |/HivePython/stderr<p>/HivePython/stdout |
+| Pig |/PigPython/stderr<p>/ PigPython/stdout |
 
 ## <a name="next"></a>Další kroky
 

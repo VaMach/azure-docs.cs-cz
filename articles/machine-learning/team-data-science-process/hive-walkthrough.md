@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces Team dat. vědecké účely v akci: použití Azure HDInsight Hadoop clusterů
 V tomto návodu použijeme [tým datové vědy procesu (TDSP)](overview.md) ve scénáři s začátku do konce. Používáme [clusteru Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) k uložení prozkoumat a funkce analýzu dat z veřejně dostupné [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datové sady a dolů – ukázková data. Chcete-li pracovat s více třídami a binární klasifikace a úlohy prediktivní regrese, jsme vytvořit modely dat pomocí Azure Machine Learning. 
@@ -104,10 +104,10 @@ Zde jsme popisují, jak pomocí nástroje AzCopy pro přenos souborů, který ob
 
 V následujících příkazech AzCopy, nahraďte následující parametry skutečné hodnoty, které jste zadali při vytváření clusteru Hadoop a rozbalení datové soubory.
 
-* ***& Č. 60; path_to_data_folder >*** adresáře (spolu s cesta) na váš počítač, který obsahuje rozbalené datové soubory.  
-* ***& č. 60; název účtu úložiště clusteru Hadoop >*** účtu úložiště přidruženého k vašemu clusteru HDInsight.
-* ***& č. 60; výchozí kontejner clusteru Hadoop >*** výchozí kontejner používá váš cluster. Všimněte si, zda je název kontejneru výchozí obvykle stejný název jako samotného clusteru. Například pokud clusteru se nazývá "abc123.azurehdinsight.net", je výchozí kontejner abc123.
-* ***& č. 60; klíč účtu úložiště >*** klíč pro účet úložiště používá váš cluster.
+* ***< Path_to_data_folder >*** adresáře (spolu s cesta) na váš počítač, který obsahuje rozbalené datové soubory.  
+* ***<storage account name of Hadoop cluster>*** Účet úložiště přidruženého k vašemu clusteru HDInsight.
+* ***<default container of Hadoop cluster>*** Výchozí kontejner používá váš cluster. Všimněte si, zda je název kontejneru výchozí obvykle stejný název jako samotného clusteru. Například pokud clusteru se nazývá "abc123.azurehdinsight.net", je výchozí kontejner abc123.
+* ***<storage account key>*** Klíč pro účet úložiště používá váš cluster.
 
 Z příkazového řádku nebo okno prostředí Windows PowerShell spusťte následující dva příkazy AzCopy.
 
@@ -561,7 +561,7 @@ Chcete-li zobrazit obsah daného souboru, vyslovte **000000\_0**, použijte na H
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
 > [!WARNING]
-> `copyToLocal`může být velmi pomalé pro velké soubory a nedoporučuje se používat pro použití s nimi.  
+> `copyToLocal` může být velmi pomalé pro velké soubory a nedoporučuje se používat pro použití s nimi.  
 > 
 > 
 

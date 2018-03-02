@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Přehled řešení StorSimple Manager dat
 
@@ -56,9 +56,9 @@ Data Manager zařízení StorSimple je k dispozici v následujících oblastech 
 
 Ale StorSimple Manager dat slouží k transformaci dat v následujících oblastech. 
 
-![Oblasti, které jsou dostupné pro data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Oblasti, které jsou dostupné pro data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-Tato sada je větší, protože je dát uvést až proces transformace v nasazení prostředků v některém z výše uvedených oblastí pod oblastí. Ano tak dlouho, dokud máte data uložená v některém 26 oblastí, můžete transformaci dat pomocí této služby.
+Tato sada je větší, protože je dát uvést až proces transformace v nasazení prostředků v některém z výše uvedených oblastí pod oblastí. Ano tak dlouho, dokud máte data uložená v některém z 19 oblasti, můžete transformaci dat pomocí této služby.
 
 
 ## <a name="choosing-a-region"></a>Výběr oblasti

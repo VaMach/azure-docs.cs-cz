@@ -3,7 +3,7 @@ title: "Naplánování runtime integrace Azure SSIS | Microsoft Docs"
 description: "Tento článek popisuje, jak naplánovat spuštění a zastavení z modulu runtime integrační služby SSIS Azure pomocí Azure Automation a Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Naplánování spuštění a zastavení z modulu runtime integrace Azure SSIS 
 Spuštění modulu runtime integrace Azure služby SSIS (SQL Server Integration Services) (IR) má poplatků, s ním spojená. Tedy chcete spustit IR pouze v případě potřeby pro spouštění balíčků SSIS v Azure a zastavte ji, pokud tomu tak není. Můžete použít uživatelské rozhraní objektu pro vytváření dat nebo prostředí Azure PowerShell [ruční spuštění nebo zastavení služby SSIS IR Azure](manage-azure-ssis-integration-runtime.md)). Tento článek popisuje, jak naplánovat spuštění a zastavení z modulu runtime integrace Azure služby SSIS (IR) pomocí Azure Automation a Azure Data Factory. Zde jsou základní kroky popsané v tomto článku:
@@ -44,7 +44,7 @@ V této části provedete následující kroky:
 ### <a name="create-an-azure-automation-account"></a>Vytvoření účtu Azure Automation
 Pokud nemáte účet Azure Automation, vytvořte podle pokynů v tomto kroku. Podrobné pokyny najdete v tématu [vytvoření účtu Azure Automation](../automation/automation-quickstart-create-account.md). V rámci tohoto kroku vytvoříte **spustit v Azure jako** účet (v Azure Active Directory objekt služby) a přidejte ho do **Přispěvatel** role vašeho předplatného Azure. Ujistěte se, že je stejná jako odběr, který obsahuje data factory, který má SSIS Azure, infračerveného signálu. Automatizace Azure používá tento účet k ověření do Azure Resource Manageru a pracovat na vašich prostředků. 
 
-1. Spusťte **Microsoft Edge** nebo **Google Chrome** webového prohlížeče. V současné době uživatelského rozhraní objektu pro vytváření dat je podporována pouze pro webové prohlížeče Microsoft Edge a Google Chrome.
+1. Spusťte webový prohlížeč **Microsoft Edge** nebo **Google Chrome**. Uživatelské rozhraní služby Data Factory podporují v současnosti jenom webové prohlížeče Microsoft Edge a Google Chrome.
 2. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).    
 3. Vyberte **nový** v nabídce vlevo vyberte **monitorování + správu**a vyberte **automatizace**. 
 

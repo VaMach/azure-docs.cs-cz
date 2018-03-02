@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Jak se mají autorizovat vývojářským účtům pomocí OAuth 2.0 ve službě Azure API Management
 Mnoho rozhraní API podporují [OAuth 2.0](http://oauth.net/2/) zabezpečení rozhraní API a zkontrolujte, zda mají přístup jenom uživatelé platný a jejich pouze přístup k prostředkům, ke kterým máte nárok. Aby bylo možné používat interaktivní vývojářské konzole Azure API Management s takové rozhraní API, služba umožňuje nakonfigurovat instanci služby pro práci s vaší OAuth 2.0 povoleno rozhraní API.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"> </a>Požadavky
 Tato příručka ukazuje, jak nakonfigurovat instanci služby API Management používat autorizace OAuth 2.0 pro vývojáře účty, ale nezobrazuje postup konfigurace poskytovatele OAuth 2.0. Konfigurace pro každého zprostředkovatele OAuth 2.0 je jiné, i když kroky se podobají a vyžaduje řadu informací použít při konfiguraci OAuth 2.0 ve vaší instance služby API Management jsou stejné. Toto téma ukazuje příklady pomocí služby Azure Active Directory jako zprostředkovatel OAuth 2.0.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Tato příručka ukazuje, jak nakonfigurovat instanci služby API Management pou
 > 
 > 
 
-## <a name="step1"></a>Konfigurace serveru autorizace OAuth 2.0 ve službě API Management
+## <a name="step1"> </a>Konfigurace serveru autorizace OAuth 2.0 ve službě API Management
 Začněte tak, že na webu Azure Portal dané služby API Management kliknete na **Portál vydavatele**.
 
 ![Portál vydavatele][api-management-management-console]
@@ -89,7 +89,7 @@ Pokud **typy udělení autorizačního kódu** je nastaven na **heslo vlastníka
 
 Po dokončení formuláře klikněte na tlačítko **Uložit** uložit konfiguraci serveru autorizace API Management OAuth 2.0. Po konfiguraci serveru je uložen, můžete nakonfigurovat rozhraní API pro použití této konfigurace, jak je znázorněno v následujícím oddílu.
 
-## <a name="step2"></a>Konfigurace rozhraní API používat autorizace uživatelů OAuth 2.0
+## <a name="step2"> </a>Konfigurace rozhraní API používat autorizace uživatelů OAuth 2.0
 Klikněte na tlačítko **rozhraní API** z **API Management** nabídky na levé straně, klikněte na název požadované rozhraní API, klikněte na tlačítko **zabezpečení**a potom zaškrtněte políčko pro **OAuth 2.0**.
 
 ![Autorizace uživatelů][api-management-user-authorization]
@@ -98,7 +98,7 @@ Vyberte požadovanou **serveru ověřování** z rozevíracího seznamu a klikn�
 
 ![Autorizace uživatelů][api-management-user-authorization-save]
 
-## <a name="step3"></a>Testování autorizace OAuth 2.0 uživatelů v portálu pro vývojáře
+## <a name="step3"> </a>Testování autorizace OAuth 2.0 uživatelů v portálu pro vývojáře
 Jakmile jste nakonfigurovali vašeho serveru ověřování OAuth 2.0 a nakonfigurované vaše rozhraní API pro tento server se používá, můžete ji otestovat tak, že přejdete na portál pro vývojáře a volání rozhraní API.  Klikněte na **Portál pro vývojáře** v pravé horní nabídce.
 
 ![Portál pro vývojáře][api-management-developer-portal-menu]
@@ -131,12 +131,9 @@ Až se zaregistrujete, **hlavičky požadavku** se naplní `Authorization : Bear
 
 V tomto okamžiku můžete nakonfigurovat požadované hodnoty pro zbývající parametry a odešlete žádost. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o používání OAuth 2.0 a API Management najdete v tématu následující videa a doprovodné [článku](api-management-howto-protect-backend-with-aad.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

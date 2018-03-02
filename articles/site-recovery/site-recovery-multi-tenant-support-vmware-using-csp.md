@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 273efe0bdef421d753ea51e01060d48351cbe6fc
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 532dd399d2d5fcbab616744dd02f4a95078cbb1b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Podpora více klientů ve službě Azure Site Recovery pro replikaci virtuálních počítačů VMware do Azure pomocí zprostředkovatele kryptografických služeb
 
@@ -96,7 +96,7 @@ Postup přístup účtu vCenter je následující:
 >| Objekt | Role | Poznámky |
 >| --- | --- | --- |
 >| vCenter | Jen pro čtení | Potřeba pouze pro povolení přístupu vCenter pro správu různé objekty. Toto oprávnění může odebrat, pokud účet nikdy bude potřeba poskytnout klienta nebo použít pro žádné operace správy na serveru vCenter. |
->| Datacentrum | Azure_Site_Recovery |  |
+>| Datové centrum | Azure_Site_Recovery |  |
 >| Hostitele a cluster hostitelů | Azure_Site_Recovery | Znovu zajišťuje, že přístup na úrovni objektu, tak, aby pouze přístupné hostitelů klientské virtuální počítače před převzetí služeb při selhání a po navrácení služeb po obnovení. |
 >| Úložiště dat a úložiště clusteru | Azure_Site_Recovery | Stejné jako předcházející. |
 >| Síť | Azure_Site_Recovery |  |
@@ -115,17 +115,17 @@ V předchozí části je popsané, jak nastavit prostředí s více klienty pro 
 
 Jak je znázorněno v následujícím diagramu, architektury rozdíl ve vyhrazené hostingu řešení je, je pro tohoto klienta pouze nastavili infrastruktury každého klienta. Vzhledem k tomu, že klienti jsou izolované prostřednictvím samostatné Vcenter, poskytovatele hostingu musí stále postupujte podle kroků CSP zadaná pro sdílené hostování, ale není nutné se obávat izolaci klientů. Instalační program zprostředkovatele kryptografických služeb zůstává beze změny.
 
-![Architektura sdílené hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
 **Vyhrazený hostitelský scénář s více Vcenter**
 
 ### <a name="managed-service-solution"></a>Řešení spravované služby
 
 Jak je znázorněno v následujícím diagramu, architektury rozdíl v řešení spravované služby je každý klient infrastruktury je také fyzicky oddělená od ostatních klientů infrastruktury. Tento scénář obvykle existuje, když klient vlastní infrastrukturu a chce poskytovatele řešení pro správu zotavení po havárii. Znovu protože klienti jsou fyzicky izolované prostřednictvím různých infrastruktury, je nutné partnera postupujte podle kroků CSP k dispozici pro sdílené hostování ale není nutné se obávat izolaci klientů. Zřizování CSP zůstává beze změny.
 
-![Architektura sdílené hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Spravované služby scénář s více Vcenter**
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace](site-recovery-role-based-linked-access-control.md) o řízení přístupu na základě rolí pro správu nasazení Azure Site Recovery.
 
 [Správa více klientů s zprostředkovatele kryptografických služeb](site-recovery-manage-multi-tenancy-with-csp.md)

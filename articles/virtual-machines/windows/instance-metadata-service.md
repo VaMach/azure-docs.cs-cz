@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 903177506c31ec96452cbbdbade4a3d91dbf7571
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Služba Azure Instance metadat
 
@@ -63,7 +63,7 @@ Když dotazujete Metadata Instance služby, je nutné zadat hlavičku `Metadata:
 Instance metadata jsou k dispozici pro spouštění virtuálních počítačů vytvořena nebo spravovat pomocí [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Všechny kategorie dat pro instanci virtuálního počítače pomocí následující žádosti o přístup:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -81,7 +81,7 @@ Rozhraní API | Výchozí formát dat | Ostatní formáty
 Pro přístup k odpovědi jiné než výchozí formát, zadejte požadovaný formát jako parametr řetězce dotazu v žádosti. Příklad:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### <a name="security"></a>Zabezpečení
@@ -113,7 +113,7 @@ Chyba 500 služby     | Po určité době opakujte
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
-Odpověď
+**Odpověď**
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.
@@ -149,7 +149,7 @@ Odpověď
 #### <a name="retrieving-public-ip-address"></a>Načítání veřejnou IP adresu
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>Načítání metadat všechny instance
@@ -160,7 +160,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
-Odpověď
+**Odpověď**
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.
@@ -218,16 +218,16 @@ Odpověď
 Nejde načíst instance metadata v systému Windows pomocí nástroje PowerShell `curl`: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
 Nebo pomocí `Invoke-RestMethod` rutiny:
     
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
-Odpověď
+**Odpověď**
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.
@@ -313,10 +313,10 @@ Jako poskytovatele služeb může vyžadovat sledovat počet virtuálních poč�
 **Požadavek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
-Odpověď
+**Odpověď**
 
 ```
 5c08b38e-4d57-4c23-ac45-aca61037f084
@@ -330,10 +330,10 @@ Tato data přímo přes službu Metadata Instance se můžete dotazovat.
 **Požadavek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
-Odpověď
+**Odpověď**
 
 ```
 0
@@ -346,10 +346,10 @@ Jako poskytovatele služeb může získat volání podpory kde chcete vědět, d
 **Požadavek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
-Odpověď
+**Odpověď**
 
 > [!NOTE] 
 > Odpověď je řetězec formátu JSON. Následující příklad odpověď je pretty vytisknout čitelnější.

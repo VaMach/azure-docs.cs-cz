@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Zásady hesel a omezení v Azure Active Directory
 
@@ -86,8 +86,8 @@ Každý uživatelský účet, který se musí přihlásit do služby Azure AD mu
 | Vlastnost | UserPrincipalName požadavky |
 | --- | --- |
 | Povolené znaky |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Znaky nejsou povoleny |<ul> <li>Všechny "@" znak, který není oddělení uživatelského jména z domény.</li> <li>Nesmí obsahovat období znak "." bezprostředně předcházející "@" symbol</li></ul> |
-| Omezení délky |<ul> <li>Celková délka nesmí přesáhnout délku 113 znaků</li><li>Může být až 64 znaků, než "@" symbol</li><li>Může být maximálně 48 znaků po "@" symbol</li></ul> |
+| Znaky nejsou povoleny |<ul> <li>Všechny "\@ \" znak, který není oddělení uživatelského jména z domény.</li> <li>Nesmí obsahovat období znak "." bezprostředně předcházející "\@ \" – symbol</li></ul> |
+| Omezení délky |<ul> <li>Celková délka nesmí přesáhnout délku 113 znaků</li><li>Může být až 64 znaků, než "\@ \" – symbol</li><li>Může být maximálně 48 znaků po "\@ \" – symbol</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Zásady pro hesla, které se vztahují pouze na uživatelské účty cloudu
 
@@ -96,7 +96,7 @@ Následující tabulka popisuje nastavení zásad k dispozici heslo, které moho
 | Vlastnost | Požadavky |
 | --- | --- |
 | Povolené znaky |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Znaky nejsou povoleny |<ul><li>Znaky kódování Unicode.</li><li>Prostory.</li><li> Silná hesla pouze: nesmí obsahovat tečku znak "." bezprostředně předcházející "@" symbol.</li></ul> |
+| Znaky nejsou povoleny |<ul><li>Znaky kódování Unicode.</li><li>Prostory.</li><li> Silná hesla pouze: nesmí obsahovat tečku znak "." bezprostředně předcházející "\@ \" symbol.</li></ul> |
 | Omezení hesla |<ul><li>Minimálně 8 znaků a maximálně 16 znaků.</li><li>Silná hesla pouze: vyžaduje tři ze čtyř z následujících akcí:<ul><li>Malá písmena.</li><li>Velká písmena.</li><li>Čísla (0-9).</li><li>Symboly (viz předchozí omezení hesla).</li></ul></li></ul> |
 | Doba vypršení platnosti hesla |<ul><li>Výchozí hodnota: **90** dnů.</li><li>Hodnota je možné konfigurovat pomocí `Set-MsolPasswordPolicy` rutiny z Azure Active Directory modul pro prostředí Windows PowerShell.</li></ul> |
 | Oznámení o vypršení hesla |<ul><li>Výchozí hodnota: **14** (před vypršením platnosti hesla).</li><li>Hodnota je možné konfigurovat pomocí `Set-MsolPasswordPolicy` rutiny.</li></ul> |
@@ -124,24 +124,24 @@ Chcete-li začít pracovat, je potřeba [stáhněte a nainstalujte modul Azure A
 1. Připojení k prostředí Windows PowerShell pomocí svých přihlašovacích údajů správce společnosti.
 2. Spusťte jeden z následujících příkazů:
 
-   * Pokud chcete zobrazit, pokud heslo jednoho uživatele je nastaveno na jeho platnost nikdy nevypršela, spusťte následující rutinu pomocí hlavního názvu uživatele (například  *aprilr@contoso.onmicrosoft.com* ) nebo ID uživatele uživatele, které chcete zkontrolovat:`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Pokud chcete zobrazit **heslo je platné stále** nastavení pro všechny uživatele, spusťte následující rutinu:`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Pokud chcete zobrazit, pokud heslo jednoho uživatele je nastaveno na jeho platnost nikdy nevypršela, spusťte následující rutinu pomocí hlavního názvu uživatele (například  *aprilr@contoso.onmicrosoft.com* ) nebo ID uživatele uživatele, které chcete zkontrolovat: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Pokud chcete zobrazit **heslo je platné stále** nastavení pro všechny uživatele, spusťte následující rutinu: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### <a name="set-a-password-to-expire"></a>Nastavení hesla vyprší
 
 1. Připojení k prostředí Windows PowerShell pomocí svých přihlašovacích údajů správce společnosti.
 2. Spusťte jeden z následujících příkazů:
 
-   * Nastavte heslo jednoho uživatele, aby vyprší platnost hesla, spusťte následující rutinu pomocí hlavního názvu uživatele nebo ID uživatele, uživatel:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Nastavte hesla všichni uživatelé v organizaci, aby vypršení jejich platnosti, použijte následující rutinu:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Nastavte heslo jednoho uživatele, aby vyprší platnost hesla, spusťte následující rutinu pomocí hlavního názvu uživatele nebo ID uživatele, uživatel: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * Nastavte hesla všichni uživatelé v organizaci, aby vypršení jejich platnosti, použijte následující rutinu: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ### <a name="set-a-password-to-never-expire"></a>Nastavení hesla bez vypršení platnosti
 
 1. Připojení k prostředí Windows PowerShell pomocí svých přihlašovacích údajů správce společnosti.
 2. Spusťte jeden z následujících příkazů:
 
-   * Pokud chcete nastavit heslo jeden uživatel nikdy nevyprší, spusťte následující rutinu pomocí hlavního názvu uživatele nebo ID uživatele, uživatel:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Pokud chcete nastavit hesel všech uživatelů v organizaci bez vypršení platnosti, spusťte následující rutinu:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Pokud chcete nastavit heslo jeden uživatel nikdy nevyprší, spusťte následující rutinu pomocí hlavního názvu uživatele nebo ID uživatele, uživatel: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * Pokud chcete nastavit hesel všech uživatelů v organizaci bez vypršení platnosti, spusťte následující rutinu: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
    > Nastavení hesla `-PasswordNeverExpires $true` stále stáří na základě `pwdLastSet` atribut. Pokud nastavíte uživatelská hesla bez vypršení platnosti a 90 dní přejít, vypršení platnosti hesla. Na základě `pwdLastSet` , pokud změníte vypršení platnosti do atribut `-PasswordNeverExpires $false`, všechna hesla, které mají `pwdLastSet` starší než 90 dní vyžadovat je změnit při příštím přihlášení uživatele. Tato změna může ovlivnit velký počet uživatelů. 

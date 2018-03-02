@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ad6ba7126b210ddc671026244c4c614d7010000
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Uživatelem definované funkce jazyka C# pomocí Hive a Pig streamování systému Hadoop v HDInsight
 
@@ -49,7 +49,7 @@ Obě Hive a Pig můžete předat data do externí aplikace pro zpracování. Ten
 
 ## <a name="net-on-hdinsight"></a>Rozhraní .NET v HDInsight
 
-* __HDInsight se systémem Linux__ clusterů pomocí [Mono (https://mono-project.com)](https://mono-project.com) ke spouštění aplikací .NET. Monofonní verze 4.2.1 je součástí HDInsight verze 3.5.
+* __HDInsight se systémem Linux__ clusterů pomocí [Mono (https://mono-project.com)](https://mono-project.com) ke spouštění aplikací .NET. Je součástí HDInsight verze 3.6 mono verze 4.2.1.
 
     Další informace o Mono kompatibilitu s verzí rozhraní .NET Framework naleznete v tématu [Mono kompatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -260,7 +260,7 @@ Další informace o verzi rozhraní .NET framework a Mono součástí verzích H
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto dokumentu jste se naučili, jak používat rozhraní .NET Framework aplikace z Hive a Pig v HDInsight. Pokud chcete další informace o použití Python s Hive a Pig, přečtěte si téma [použít Python s Hive a Pig v HDInsight](python-udf-hdinsight.md).
 

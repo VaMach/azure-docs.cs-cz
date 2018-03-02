@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Správa více klientů s programem Cloud Solution Provider (CSP)
 
@@ -83,7 +83,7 @@ Teď můžete provádět všechny operace obnovení lokality pro klienta prostř
 ## <a name="deploy-resources-to-the-tenant-subscription"></a>Nasadit prostředky k předplatnému klienta
 1. Na portálu Azure vytvořte skupinu prostředků a pak nasadit trezoru služeb zotavení pro obvyklé procesy.
 
-2. Stáhnout registrační klíč trezoru
+2. Stáhněte registrační klíč trezoru.
 
 3. Zaregistrujte CS pro klienta pomocí registračního klíče trezoru.
 
@@ -121,7 +121,7 @@ Partnery můžete také přidat nového uživatele k předplatnému klienta pros
 
   Azure Site Recovery má také tři [předem definované role uživatele](site-recovery-role-based-linked-access-control.md) který lze použít pro další omezení úrovně přístupu podle potřeby.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
   [Další informace](site-recovery-role-based-linked-access-control.md) o řízení přístupu na základě rolí pro správu nasazení Azure Site Recovery.
 
   [Správa prostředí VMware více klientů](site-recovery-multi-tenant-support-vmware-using-csp.md)

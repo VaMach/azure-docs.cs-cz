@@ -1,19 +1,19 @@
 ---
-title: "Monitorování pro databázi MySQL v Azure databázi | Microsoft Docs"
+title: "Monitorování v Azure databáze pro databázi MySQL"
 description: "Tento článek popisuje metriky pro monitorování a generování výstrah pro databázi Azure pro databázi MySQL, včetně procesoru, omezení, úložiště a statistických údajů o připojení."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 9af447d54faa8ee96e4b79beb274b437eea57626
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorování v Azure databáze pro databázi MySQL
 Data o serverech monitorování pomáhá řešení a optimalizovat pro úlohy. Databáze pro databázi MySQL Azure poskytuje různé metriky, které poskytují přehled o chování prostředků podporuje MySQL server. 
@@ -36,15 +36,12 @@ Pro databázi Azure pro databázi MySQL k dispozici jsou tyto metriky:
 |memory_percent|Paměť v procentech|Procento|Procento paměti.|
 |io_consumption_percent|Vstupně-výstupní operace v procentech|Procento|Procento vstupů/výstupů používán.|
 |storage_percent|Procento úložiště|Procento|Je maximální procento využití úložiště mimo server.|
-|storage_used|Využité úložiště|Bajty|Velikost úložiště, které používá. Úložiště používá služba zahrnuje soubory databáze, transakční protokoly a protokoly serveru.|
-|storage_limit|Limit úložiště|Bajty|Maximální velikost úložiště pro tento server.|
+|storage_used|Využité úložiště|B|Velikost úložiště, které používá. Úložiště používá služba zahrnuje soubory databáze, transakční protokoly a protokoly serveru.|
+|storage_limit|Limit úložiště|B|Maximální velikost úložiště pro tento server.|
 |active_connections|Celkový počet aktivních připojení|Počet|Počet aktivních připojení k serveru.|
 |connections_failed|Celkový počet selhání připojení|Počet|Počet selhání připojení k serveru.|
 
 
-> [!NOTE]
-> Výpočetní že jednotka se skládá z paměti a procesoru. Procento výpočetní jednotky je maximální počet (% paměti, využití procesoru %). Zkontrolujte grafy paměti a procesoru ke kotvícímu bodu, který je přispívání do výpočetní jednotky procento změny. Další informace najdete v tématu [výpočetní jednotky](concepts-compute-unit-and-storage.md).
-
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Podrobné pokyny najdete v tématu [jak nastavit výstrahy](howto-alert-on-metric.md). 
 - Další informace o tom, jak přístup a export metriky pomocí portálu Azure, rozhraní REST API nebo rozhraní příkazového řádku najdete v tématu [přehled metrik Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

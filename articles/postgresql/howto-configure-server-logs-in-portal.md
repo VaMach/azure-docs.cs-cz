@@ -1,19 +1,19 @@
 ---
-title: "Konfigurace a přístup k protokolům serveru pro PostgreSQL na portálu Azure | Microsoft Docs"
+title: "Konfigurace a přístup k protokolům serveru pro PostgreSQL na portálu Azure"
 description: "Tento článek popisuje postup konfigurace a přístup v protokolech serveru v Azure databázi PostgreSQL z portálu Azure."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurace a v protokolech serveru přístup k portálu Azure
 
@@ -36,19 +36,13 @@ Konfigurace přístupu k dotazu protokoly a protokoly chyb.
 
 4. Vyberte záhlaví **kliknutím sem povolení protokolů a konfigurace protokolu parametrů** zobrazíte parametry serveru.
 
-5. Vyberte **zobrazit další** expander delší seznam dostupných parametrů. 
-
-   Další informace o definicích parametry, naleznete v dokumentaci k PostgreSQL na [Chyba protokolování a generování sestav](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-
-   ![Krátké seznam parametry protokolu. Klikněte na Zobrazit více pro dlouho](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Změňte parametry, které je potřeba upravit. Všechny změny provedené v této relaci se zvýrazní zeleně.
+5. Změňte parametry, které je potřeba upravit. Všechny změny provedené v této relaci se zvýrazní zeleně.
 
    Jakmile změníte parametry, můžete kliknout na **Uložit**. Nebo můžete **zahodit** změny. 
 
    ![Dlouhý seznam parametrů s změny uložte nebo zahoďte](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Vrátit do seznamu protokolů kliknutím **tlačítko Zavřít** (X ikonu) na **parametry serveru** stránky.
+6. Vrátit do seznamu protokolů kliknutím **tlačítko Zavřít** (X ikonu) na **parametry serveru** stránky.
 
 ## <a name="view-list-and-download-logs"></a>Zobrazení seznamu a stažení protokolů
 Jakmile začne protokolování, můžete zobrazit seznam dostupných protokolů a stáhnout jednotlivých protokolových souborů v podokně protokoly serveru. 

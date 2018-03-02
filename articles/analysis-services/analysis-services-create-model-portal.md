@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Vytvoření modelu na portálu Azure
 
@@ -27,15 +27,19 @@ Funkce Azure Analysis Services webová návrháře (preview) na portálu Azure p
 
 Mějte na paměti, Návrhář webu je **preview**. Když se přidává nové funkce celou dobu, ve verzi preview, funkce je omezena. Pro pokročilejší model vývoje a testování je nejvhodnější použít Visual Studio (SSDT) a SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="before-you-begin"></a>Než začnete
 
 - Serveru Azure Analysis Services na úroveň Standard nebo Developer. Nové modelů vytvořených pomocí webové návrháře jsou DirectQuery, podporuje pouze tyto vrstvy.
 - Databáze SQL Azure, Azure SQL Data Warehouse nebo souboru Power BI Desktop (.pbix) jako zdroj dat. Nové modely vytvořené z Power BI Desktop podporu soubory databáze SQL Azure, Azure SQL Data Warehouse, Oracle a Teradata datové zdroje.
 - Účet systému SQL Server a heslo pro připojení ke zdrojům dat databáze SQL Azure nebo Azure SQL Data Warehouse.
 
+## <a name="sign-in-to-the-azure-portal"></a>Přihlášení k webu Azure Portal
+
+Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
+
 ## <a name="to-create-a-new-tabular-model"></a>Chcete-li vytvořit nový tabulkový model.
 
-1. Na vašem serveru **přehled** okno > **Návrhář**, klikněte na tlačítko **otevřete**.
+1. Na vašem serveru **přehled** > **Návrhář**, klikněte na tlačítko **otevřete**.
 
     ![Vytvoření modelu na portálu Azure](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

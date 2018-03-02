@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 6d9df88d6047fbe674c216dacc6fa01bad8451ec
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 593df249429bf1dcc5a59312830ed78f7cf642e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Vytváření tabulek Hive a načtení dat z Azure Blob Storage
 Toto téma představuje obecné dotazů Hive, které vytváření tabulek Hive a načtení dat z Azure blob storage. Některé pokyny jsou tu taky o dělení tabulek Hive a o používání optimalizované řádek sloupcovém (ORC) formátování pro zlepšení výkonu dotazů.
@@ -117,7 +117,7 @@ Pokud otevřete výchozí kontejner clusteru Hadoop pomocí Průzkumníka úlož
 ![Vytvořit pracovní prostor](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Odesílání dotazů Hive pomocí editoru Hive
-Můžete také použít konzolu dotazu (Hive Editor) tak, že zadáte adresu URL ve formátu *https://&#60; Název clusteru Hadoop >.azurehdinsight.net/Home/HiveEditor* do webového prohlížeče. Musí být zaznamenána v najdete v této konzoly a proto je třeba zde pověření clusteru Hadoop.
+Můžete také použít konzolu dotazu (Hive Editor) tak, že zadáte adresu URL ve formátu *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* do webového prohlížeče. Musí být zaznamenána v najdete v této konzoly a proto je třeba zde pověření clusteru Hadoop.
 
 ### <a name="ps"></a> 3. Odesílání dotazů Hive pomocí příkazů prostředí PowerShell Azure
 Můžete také použít PowerShell k odesílání dotazů Hive. Pokyny najdete v tématu [úlohy odeslání Hive pomocí prostředí PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -142,11 +142,11 @@ Zde je dotaz Hive, který vytvoří tabulku Hive.
 
 Zde je uveden popis pole, která je potřeba zařadit a další konfigurace:
 
-* **& č. 60; název databáze >**: název databáze, kterou chcete vytvořit. Pokud chcete použít výchozí databázi, dotaz *vytvoření databáze...*  lze vynechat.
-* **& č. 60; název tabulky >**: název tabulky, který chcete vytvořit v rámci zadaná databáze. Pokud chcete použít výchozí databáze, v tabulce může být přímo na které odkazuje *& č. 60; název tabulky >* bez & č. 60; název databáze >.
-* **& č. 60; oddělovač polí >**: oddělovač, který vymezuje pole v datovém souboru k odeslání na tabulku Hive.
-* **& č. 60; oddělovací čáry >**: oddělovač, který vymezuje řádků v datovém souboru.
-* **& č. 60; umístění úložiště >**: umístění úložiště Azure pro uložení dat tabulek Hive. Pokud nezadáte *umístění & č. 60; umístění úložiště >*, databáze a tabulky jsou uloženy v *hive neboskladu/* adresář ve výchozím kontejneru Hive clusteru ve výchozím nastavení. Pokud chcete zadat umístění úložiště, musí být v rámci výchozího kontejneru databáze a tabulky umístění úložiště. Toto umístění musí být označuje jako umístění relativně k výchozí kontejner clusteru ve formátu *' wasb: / / / & č. 60; adresář 1 > / "* nebo *' wasb: / / / & č. 60; adresář 1 > / & č. 60; adresář 2 > nebo "*atd. Po provedení dotazu relativní adresáře jsou vytvořeny v rámci výchozího kontejneru.
+* **<database name>**: název databáze, kterou chcete vytvořit. Pokud chcete použít výchozí databázi, dotaz *vytvoření databáze...*  lze vynechat.
+* **<table name>**: název tabulky, který chcete vytvořit v rámci zadaná databáze. Pokud chcete použít výchozí databáze, v tabulce může být přímo na které odkazuje  *<table name>*  bez <database name>.
+* **<field separator>**: oddělovač, který vymezuje pole v datovém souboru k odeslání na tabulku Hive.
+* **<line separator>**: oddělovač, který vymezuje řádků v datovém souboru.
+* **<storage location>**: umístění úložiště Azure pro uložení dat tabulek Hive. Pokud nezadáte *umístění <storage location>* , databáze a tabulky jsou uloženy v *hive neboskladu/* adresář ve výchozím kontejneru Hive clusteru ve výchozím nastavení. Pokud chcete zadat umístění úložiště, musí být v rámci výchozího kontejneru databáze a tabulky umístění úložiště. Toto umístění musí být označuje jako umístění relativně k výchozí kontejner clusteru ve formátu *' wasb: / / / < adresář 1 > / "* nebo *' wasb: / / / < adresář 1 > / < adresář 2 > /'*atd. Po provedení dotazu relativní adresáře jsou vytvořeny v rámci výchozího kontejneru.
 * **TBLPROPERTIES("Skip.Header.line.Count"="1")**: Pokud datový soubor obsahuje řádek záhlaví, budete muset přidat tato vlastnost **na konci** z *vytvořit tabulku* dotazu. Řádek záhlaví, jinak je načten jako záznamu do tabulky. Pokud datový soubor nemá řádek záhlaví, můžete tuto konfiguraci vynechat v dotazu.
 
 ## <a name="load-data"></a>Načtení dat do tabulek Hive
@@ -154,7 +154,7 @@ Zde je dotaz Hive, který načítá data do tabulky Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **& č. 60; cesta k datům objektu blob >**: Pokud je objekt blob soubor k odeslání do tabulky Hive ve výchozím kontejneru clusteru HDInsight Hadoop *& č. 60; cesta k datům objektu blob >* by měl být ve formátu *. wasb: / / / & č. 60; adresář v tomto kontejneru > / & č. 60; název souboru objektů blob >'*. Soubor blob může být také v další kontejner clusteru HDInsight Hadoop. V takovém případě *& č. 60; cesta k datům objektu blob >* by měl být ve formátu *' wasb: / / & č. 60; název kontejneru > @& č. 60; název účtu úložiště >.blob.core.windows.net/ & č. 60; název souboru objektů blob >'*.
+* **<path to blob data>**: Pokud je objekt blob soubor k odeslání do tabulky Hive ve výchozím kontejneru clusteru HDInsight Hadoop  *<path to blob data>*  by měl být ve formátu *' wasb: / / /<directory in this container> / <blob file name>'*. Soubor blob může být také v další kontejner clusteru HDInsight Hadoop. V takovém případě  *<path to blob data>*  by měl být ve formátu *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > Data objektů blob k odeslání na tabulku Hive musí být ve výchozím nastavení nebo další kontejneru účtu úložiště pro Hadoop cluster. V opačném *načítání dat* nesouhlasících, že nelze přístup k datům se dotaz nezdaří.
@@ -221,7 +221,7 @@ Vyberte data z externí tabulky v kroku 1 a vložit do tabulky ORC
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Pokud v tabulce textový soubor *& č. 60; název databáze >. & č. 60; název tabulky externí textový soubor >* má oddíly, v KROKU 3 `SELECT * FROM <database name>.<external textfile table name>` příkaz vybere proměnnou oddílu jako pole v sadě vrácená data. Vkládání do *& č. 60; název databáze >. & č. 60; název tabulky ORC >* selže od *& č. 60; název databáze >. & č. 60; název tabulky ORC >* nemá proměnnou oddílu jako pole ve schématu tabulky. V takovém případě budete muset konkrétně vyberte pole, která má být vložen do *& č. 60; název databáze >. & č. 60; název tabulky ORC >* následujícím způsobem:
+> Pokud v tabulce textový soubor  *<database name>.<external textfile table name>* má oddíly, v KROKU 3 `SELECT * FROM <database name>.<external textfile table name>` příkaz vybere proměnnou oddílu jako pole v sadě vrácená data. Vkládání do  *<database name>.<ORC table name>* selhání od  *<database name>.<ORC table name>* v poli v schématu tabulky nemá proměnnou oddílu. V takovém případě budete muset konkrétně vyberte pole, která má být vložen do  *<database name>.<ORC table name>* následujícím způsobem:
 >
 >
 
@@ -230,7 +230,7 @@ Vyberte data z externí tabulky v kroku 1 a vložit do tabulky ORC
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Je bezpečné vyřadit *& č. 60; název tabulky externí textový soubor >* při pomocí následujícího dotazu po všechna data byla vložena do *& č. 60; název databáze >. & č. 60; název tabulky ORC >*:
+Je bezpečné vyřadit  *<external textfile table name>*  při pomocí následujícího dotazu po všechna data byla vložena do  *<database name>.<ORC table name>* :
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

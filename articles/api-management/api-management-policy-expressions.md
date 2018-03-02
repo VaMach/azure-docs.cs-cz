@@ -14,34 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>Výrazy zásad API Management
-Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně poskytnutého [kontextu](api-management-policy-expressions.md#ContextVariables) proměnné a povolení [podmnožina](api-management-policy-expressions.md#CLRTypes) typů rozhraní .NET Framework.  
-  
-> [!TIP]
->  Další informace o výrazů zásad najdete v tématu [výrazy zásad](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) videa.  
->   
->  Ukázky Konfigurace zásady pomocí výrazů zásad najdete v části [cloudu zahrnují díl 177: rozhraní API funkce správy více s Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Toto video obsahuje následující ukázky výraz zásad:  
->   
->  -   10:30 - naleznete v části zadat informace o kontextu k službě back-end. Použití [nastavit parametr řetězce dotazu](api-management-transformation-policies.md#SetQueryStringParameter) a [hlavičky protokolu HTTP nastaven](api-management-transformation-policies.md#SetHTTPheader) zásady k poskytování těchto informací. Na 12:10 je ukázku volání operace v portálu pro vývojáře, kde se můžete podívat tyto zásady v práci.  
-> -   13:50 - naleznete v části použití [ověření JWT](api-management-access-restriction-policies.md#ValidateJWT) u tokenu deklarací na základě zásad předem autorizace přístupu k operacím. Rychlé převinutí vpřed 15:00 najdete v části jak jsou zásady nakonfigurované v editoru zásad. V 18:50 podívejte se na ukázku volání operace z portálu pro vývojáře s i bez požadované autorizační token.  
-> -   21:00 – použijte [rozhraní API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trasování, které chcete zobrazit, jak se vyhodnocují zásady a výsledky těchto hodnocení.  
-> -   25:25 - naleznete v části Použití výrazy s [získat z mezipaměti](api-management-caching-policies.md#GetFromCache) a [úložiště do mezipaměti](api-management-caching-policies.md#StoreToCache) zásady Konfigurace ukládání do mezipaměti odpovědi API Management. Nastavení doby trvání, který odpovídá odpovědi ukládání do mezipaměti back-end službu jako zadaný pomocí služby zálohování `Cache-Control` – direktiva.  
-> -   34:30 - zjistit, jak provést filtrování obsahu. Odebrání datové prvky odpověď z back-end pomocí [řízení toku](api-management-advanced-policies.md#choose) a [tělo nastavit](api-management-transformation-policies.md#SetBody) zásady. Spuštění na 31:50 zobrazíte přehled [rozhraní tmavý Sky prognózy API](https://developer.forecast.io/) použít v této ukázce.  
-> -   Si můžete stáhnout zásady příkazy použít v tomto videu [rozhraní api správy – ukázky nebo zásad](https://github.com/Azure/api-management-samples/tree/master/policies) úložiště github.  
+Tento článek popisuje zásady výrazy syntaxe je C# 6.0. Každý výraz má přístup k implicitně poskytnutého [kontextu](api-management-policy-expressions.md#ContextVariables) proměnné a povolení [podmnožina](api-management-policy-expressions.md#CLRTypes) typů rozhraní .NET Framework.  
+
+Další informace najdete tady:
+
+- Naleznete v části zadat informace o kontextu k službě back-end. Použití [nastavit parametr řetězce dotazu](api-management-transformation-policies.md#SetQueryStringParameter) a [hlavičky protokolu HTTP nastaven](api-management-transformation-policies.md#SetHTTPheader) zásady k poskytování těchto informací.
+- V tématu Jak používat [ověření JWT](api-management-access-restriction-policies.md#ValidateJWT) u tokenu deklarací na základě zásad předem autorizace přístupu k operacím.   
+- V tématu Jak používat [rozhraní API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trasování, které chcete zobrazit, jak se vyhodnocují zásady a výsledky těchto hodnocení.  
+- V tématu Jak používat výrazy s [získat z mezipaměti](api-management-caching-policies.md#GetFromCache) a [úložiště do mezipaměti](api-management-caching-policies.md#StoreToCache) zásady Konfigurace ukládání do mezipaměti odpovědi API Management. Nastavení doby trvání, který odpovídá odpovědi ukládání do mezipaměti back-end službu jako zadaný pomocí služby zálohování `Cache-Control` – direktiva.  
+- Zjistit, jak provést filtrování obsahu. Odebrání datové prvky odpověď z back-end pomocí [řízení toku](api-management-advanced-policies.md#choose) a [tělo nastavit](api-management-transformation-policies.md#SetBody) zásady. 
+- Si můžete stáhnout příkazy zásad [rozhraní api správy – ukázky nebo zásad](https://github.com/Azure/api-management-samples/tree/master/policies) úložiště github.  
   
   
-##  <a name="Syntax"></a>Syntaxe  
+##  <a name="Syntax"></a> Syntaxe  
  Jediný příkaz výrazy jsou uzavřené v `@(expression)`, kde `expression` je ve správném formátu prohlášení výrazu jazyka C#.  
   
  Výrazy vícepříkazové jsou uzavřené v `@{expression}`. Všechny cesty kódu v rámci vícepříkazové výrazy musí končit `return` příkaz.  
   
-##  <a name="PolicyExpressionsExamples"></a>Příklady  
+##  <a name="PolicyExpressionsExamples"></a> Příklady  
   
 ```  
 @(true)  
@@ -67,13 +64,13 @@ Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně pos
 }  
 ```  
   
-##  <a name="PolicyExpressionsUsage"></a>Využití  
+##  <a name="PolicyExpressionsUsage"></a> Využití  
  Výrazy lze použít jako hodnoty atributů nebo textové hodnoty v jakékoli API Management [zásady](api-management-policies.md) (Pokud je odkaz na zásady neurčí jinak).  
   
 > [!IMPORTANT]
 >  Pokud používáte výrazy zásad, je jenom omezené ověření výrazy zásad je definována zásada. Výrazy jsou spustit bránu za běhu, jakékoli výjimky generované zásad výrazy vést k chybě běhového prostředí.  
   
-##  <a name="CLRTypes"></a>Povolené ve výrazech zásad typy rozhraní .NET framework  
+##  <a name="CLRTypes"></a> Povolené ve výrazech zásad typy rozhraní .NET framework  
  Následující tabulka uvádí typy rozhraní .NET Framework a jejich členové, které jsou povoleny ve výrazech zásad.  
   
 |Typ CLR|Podporované metody|  
@@ -167,7 +164,7 @@ Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně pos
 |System.Xml.Linq.XText|Jsou podporovány všechny metody|  
 |System.Xml.XmlNodeType|Vše|  
   
-##  <a name="ContextVariables"></a>Kontextové proměnné  
+##  <a name="ContextVariables"></a> Kontextové proměnné  
  Proměnné s názvem `context` je implicitně k dispozici v každé zásadě [výraz](api-management-policy-expressions.md#Syntax). Její členy poskytování důležitých informací `\request`. Všechny `context` členové jsou jen pro čtení.  
   
 |Kontextové proměnné|Povolené metody, vlastnosti a hodnoty parametru|  
@@ -206,10 +203,7 @@ Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně pos
 |Byte [] dešifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|vstup - šifrováním text k dešifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />Vrátí hodnotu ve formátu prostého textu.|
 |Byte [] dešifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm klíč: byte [], iv:byte[])|vstupní šifrováním - vstupní - text k dešifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />klíč – šifrovací klíč<br /><br />IV - inicializační vektor<br /><br />Vrátí hodnotu ve formátu prostého textu.|
 
-## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
 ## <a name="next-steps"></a>Další postup
 
 Práce se zásadami pro další informace najdete v tématu:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 751bcc21397effc501931c00afef05f2dab24e4a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: estfan; LADocs
+ms.openlocfilehash: cca13db916dc2560ff78d477a0faa241e032ab27
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-logic-apps-features"></a>Pomocí funkcí Logic Apps
 
@@ -85,7 +85,7 @@ Pouze v případě, že v příspěvcích splňují vaše podmínky se teď se e
 
 ## <a name="repeat-actions-over-a-list-with-foreach"></a>Opakování akce pro seznam pomocí příkazu forEach
 
-Smyčka typu forEach určuje pole přes opakování akce. Pokud není pole, tok se nezdaří. Například pokud máte action1, který jako výstup pole zprávy a chcete odeslat každou zprávu, můžete zahrnout tento příkaz forEach ve vlastnostech akci:`forEach : "@action('action1').outputs.messages"`
+Smyčka typu forEach určuje pole přes opakování akce. Pokud není pole, tok se nezdaří. Například pokud máte action1, který jako výstup pole zprávy a chcete odeslat každou zprávu, můžete zahrnout tento příkaz forEach ve vlastnostech akci: `forEach : "@action('action1').outputs.messages"`
 
 ## <a name="edit-the-code-definition-for-a-logic-app"></a>Upravit kód definici aplikace logiky
 
@@ -117,12 +117,12 @@ Tento příklad ukazuje, jak se bude aktualizovat stávající aplikaci logiky t
             "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
         }
 
-2. Přejděte na `When_a_feed-item_is_published` akce, Najít `queries` části a nahradit hodnotu dotazu:`"feedUrl": "#@{parameters('currentFeedUrl')}"` 
+2. Přejděte na `When_a_feed-item_is_published` akce, Najít `queries` části a nahradit hodnotu dotazu: `"feedUrl": "#@{parameters('currentFeedUrl')}"` 
 
     Pro připojení dvě nebo více řetězce, můžete také použít `concat` funkce. 
     Například `"@concat('#',parameters('currentFeedUrl'))"` funguje stejně jako výše.
 
-3.  Až budete hotoví, zvolte **Uložit**. 
+3.  Jakmile budete hotoví, vyberte **Uložit**. 
 
     Teď můžete změnit předáním jinou adresu URL prostřednictvím informačního kanálu RSS webu `currentFeedURL` objektu.
 
