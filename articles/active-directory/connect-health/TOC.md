@@ -11,8 +11,12 @@
 ## [Operace služby Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 ## [Chyby při synchronizaci](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
+# Řešení potíží
+## [Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
+## [Data služby Health Service nejsou aktuální](active-directory-aadconnect-health-data-freshness.md)
+
 # Referenční informace
-## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Historie verzí služby Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 ## [Dodržování předpisů GDPR a Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
@@ -23,5 +27,4 @@
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=security-identity)
-##[Azure AD Connect Health – nejčastější dotazy](active-directory-aadconnect-health-faq.md)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

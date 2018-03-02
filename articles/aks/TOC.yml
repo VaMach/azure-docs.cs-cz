@@ -77,6 +77,10 @@
       items:
         - name: Použití řídicího panelu Kubernetes
           href: kubernetes-dashboard.md
+    - name: Řešení potíží
+      items:
+        - name: Přístup k uzlu SSH
+          href: aks-ssh.md
 - name: Referenční informace
   items:
     - name: Azure CLI

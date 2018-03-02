@@ -5,6 +5,7 @@
     - name: Informace o Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Šablony Rychlý start
+  expanded: true
   items:
     - name: Nasazení do hraničních zařízení – Linux/Mac
       href: quickstart-linux.md

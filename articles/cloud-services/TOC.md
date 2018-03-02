@@ -1,3 +1,5 @@
+# [Dokumentace ke službě Cloud Services](index.md)
+
 # Přehled
 ## [Co je služba Cloud Services?](cloud-services-choose-me.md)
 ## [Balíčky a konfigurační soubory cloudových služeb](cloud-services-model-and-package.md)

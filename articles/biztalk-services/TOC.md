@@ -1,3 +1,5 @@
+# [Dokumentace ke službě BizTalk Services](index.md)
+
 # Přehled
 ## [Edice](biztalk-editions-feature-chart.md)
 
@@ -24,7 +26,7 @@
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
-## [Fórum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Fórum na webu MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Ceny](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
 ## [Poznámky k verzi](biztalk-release-notes.md)

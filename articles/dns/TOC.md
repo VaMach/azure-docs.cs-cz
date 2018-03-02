@@ -1,3 +1,5 @@
+# [Dokumentace ke službě DNS](index.md)
+
 # Přehled
 
 ## [Co je Azure DNS?](dns-overview.md)
@@ -9,7 +11,7 @@
 # Začínáme
 
 ## Vytvoření záznamu a zóny DNS
-### [Azure Portal](dns-getstarted-portal.md)
+### [portál Azure Portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
@@ -21,12 +23,12 @@
 # Postup
 
 ## Správa zón DNS
-### [Azure Portal](dns-operations-dnszones-portal.md)
+### [portál Azure Portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## Správa záznamů DNS
-### [Azure Portal](dns-operations-recordsets-portal.md)
+### [portál Azure Portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 

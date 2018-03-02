@@ -1,3 +1,5 @@
+# [Dokumentace ke službě Virtual Network](index.md)
+
 # Přehled
 ## [Virtuální sítě](virtual-networks-overview.md)
 ## [Směrování](virtual-networks-udr-overview.md)
@@ -8,7 +10,7 @@
 ## [Sítě kontejnerů](container-networking.md)
 ## [Kontinuita podnikových procesů](virtual-network-disaster-recovery-guidance.md)
 ## [Přidělování IP adres](virtual-network-ip-addresses-overview-arm.md)
-## [Ochrana před útoky DDoS](ddos-protection-overview.md)
+## [DDoS Protection](ddos-protection-overview.md)
 ## [Nejčastější dotazy](virtual-networks-faq.md)
 ## Classic
 ### [Přidělování IP adres](virtual-network-ip-addresses-overview-classic.md)
@@ -164,7 +166,7 @@
 ### Virtuální počítače
 #### [Přesun virtuálního počítače do jiné podsítě](virtual-networks-move-vm-role-to-subnet.md)
 ### [Veřejné IP adresy](virtual-network-public-ip-address.md)
-### Ochrana před útoky DDoS
+### DDoS Protection
 #### [portál Azure Portal](ddos-protection-manage-portal.md)
 #### [Azure PowerShell](ddos-protection-manage-ps.md)
 

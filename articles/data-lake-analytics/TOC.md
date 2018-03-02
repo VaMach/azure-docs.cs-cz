@@ -1,3 +1,5 @@
+# [Dokumentace ke službě Data Lake Analytics](index.md)
+
 # Přehled
 ## [Co je služba Data Lake Analytics?](data-lake-analytics-overview.md)
 

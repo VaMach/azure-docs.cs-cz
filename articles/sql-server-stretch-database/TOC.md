@@ -1,3 +1,5 @@
+# [Dokumentace ke službě SQL Server Stretch Database](index.md)
+
 # Přehled
 ## [Co je Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
 ## [Omezení a blokující problémy](/sql/sql-server/stretch-database/limitations-for-stretch-database)
@@ -22,7 +24,7 @@
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [Ceny](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)

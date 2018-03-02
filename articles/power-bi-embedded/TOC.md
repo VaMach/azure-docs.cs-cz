@@ -1,3 +1,5 @@
+# [Dokumentace ke službě Power BI Embedded](index.md)
+
 # Přehled
 ## [Informace o službě Power BI Embedded](what-is-power-bi-embedded.md)
 
