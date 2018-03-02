@@ -1,3 +1,5 @@
+# [Dokumentace k nástroji pro vyrovnávání zatížení](index.md)
+
 # Přehled
 ## [Co je nástroj pro vyrovnávání zatížení?](load-balancer-overview.md)
 ## [Co je Load Balancer Standard?](load-balancer-standard-overview.md)

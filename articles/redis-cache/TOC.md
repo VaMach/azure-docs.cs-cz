@@ -1,3 +1,5 @@
+# [Dokumentace ke službě Redis Cache](index.md)
+
 # Přehled
 ##[Proč používat mezipaměť Redis Cache](https://azure.microsoft.com/services/cache/)
 ##[Seznámení s novými funkcemi úrovně Premium](cache-premium-tier-intro.md)

@@ -9,7 +9,7 @@
   items:
     - name: Vytvoření pracovního prostoru Databricks
       href: quickstart-create-databricks-workspace-portal.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Časté dotazy
       href: frequently-asked-questions-databricks.md

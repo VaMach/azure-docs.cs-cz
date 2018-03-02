@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Správa aktualizací pro virtuální počítač
       href: automation-tutorial-update-management.md
-    - name: Začlenění aktualizace a sledování změn
+    - name: Začlenění aktualizace a sledování změn pomocí runbooku
       href: automation-onboard-solutions.md
     - name: Identifikace softwaru na virtuálním počítači
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Postup
   items:
-    - name: Správa aktualizací
+    - name: Onboarding
       items:
-        - name: Přehled
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Připojení z virtuálního počítače Azure
+          href: automation-onboard-solutions-from-vm.md
+        - name: Připojení z účtu služby Automation
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: Update Management
+      items:
+        - name: Přehled Update Managementu
+          href: automation-update-management.md
         - name: Správa aktualizací pro několik virtuálních počítačů
           href: manage-update-multi.md
-        - name: Integrace SCCM s OMS Update Managementem
+        - name: Integrace SCCM s Update Managementem
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Sledování změn
       items:
-        - name: Přehled
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Sledování změn ve vašich virtuálních počítačích
-          href: automation-vm-change-tracking.md
+        - name: Přehled Change Trackingu
+          href: automation-change-tracking.md
     - name: Inventarizace
       items:
         - name: Správa virtuálního počítače se shromažďování dat pro inventarizaci

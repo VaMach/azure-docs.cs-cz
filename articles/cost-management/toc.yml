@@ -17,12 +17,12 @@
   items:
     - name: 1. Kontrola využití a nákladů
       href: tutorial-review-usage.md
-    - name: 2. Řízení přístupu k datům
-      href: tutorial-user-access.md
-    - name: 3. Odhad nákladů
+    - name: 2. Odhad nákladů
       href: tutorial-forecast-spending.md
-    - name: 4. Správa nákladů
+    - name: 3. Správa nákladů
       href: tutorial-manage-costs.md
+    - name: 4. Řízení přístupu k datům
+      href: tutorial-user-access.md
 - name: Koncepty
   items:
     - name: Vysvětlení sestav nákladů

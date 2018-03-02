@@ -1,3 +1,5 @@
+# [Dokumentace ke službě Azure Advisor](index.md)
+
 # Přehled
 ## [Co je Azure Advisor?](advisor-overview.md)
 

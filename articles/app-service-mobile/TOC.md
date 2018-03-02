@@ -1,3 +1,5 @@
+# [Dokumentace k Mobile Apps](index.md)
+
 # Přehled
 ## [Co jsou Mobile Apps?](app-service-mobile-value-prop.md)
 ## [Plány služby App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

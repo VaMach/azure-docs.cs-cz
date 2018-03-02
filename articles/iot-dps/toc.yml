@@ -7,8 +7,10 @@
 - name: Šablony Rychlý start
   expanded: true
   items:
-    - name: Nastavení automatického zřizování
+    - name: Nastavení automatického zřizování – portál
       href: quick-setup-auto-provision.md
+    - name: Nastavení automatického zřizování – šablona
+      href: quick-setup-auto-provision-rm.md
     - name: Vytvoření simulovaného zařízení
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Zrušení zřízení zařízení
       href: how-to-unprovision-devices.md
+    - name: Provedení ověření vlastnictví pro certifikáty webu X.509
+      href: how-to-verify-certificates.md
     - name: Použití HSM s SDK
       href: use-hsm-with-sdk.md
     - name: Řízení přístupu ke službě zřizování
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Použití nástrojů sady SDK pro vývoj
       href: how-to-use-sdk-tools.md
+    - name: Připojení k MXChip IoT DevKitu
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Referenční informace
   items:
     - name: REST

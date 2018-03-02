@@ -1,3 +1,5 @@
+# [Dokumentace ke službě Media Services](index.md)
+
 # [Přehled](media-services-overview.md)
 ## [Scénáře a dostupnost](scenarios-and-availability.md)
 ## [Koncepty](media-services-concepts.md)

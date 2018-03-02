@@ -1,3 +1,5 @@
+# [Dokumentace k Azure AD B2C](index.md)
+
 # [Přehled](active-directory-b2c-overview.md)
 
 # Začínáme
