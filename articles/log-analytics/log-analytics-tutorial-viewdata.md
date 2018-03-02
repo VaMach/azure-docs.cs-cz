@@ -1,6 +1,6 @@
 ---
-title: "Zobrazit a analyzovat shromažďovaných dat Azure Log Analytics | Microsoft Docs"
-description: "Tento článek obsahuje kurz, který popisuje, jak vytvořit protokolu hledání a analyzovat data uložená v prostředku Log Analytics pomocí portálu hledání protokolů.  Tento kurz zahrnuje spustíte pár jednoduchých dotazů vrátit různé typy dat a analýza výsledků."
+title: "Zobrazení nebo analýza shromážděných dat služby Azure Log Analytics | Microsoft Docs"
+description: "Tento článek obsahuje kurz popisující vytváření prohledávání protokolů a analýzu dat uložených v prostředku Log Analytics pomocí portálu pro prohledávání protokolů.  Tento kurz zahrnuje spuštění několika jednoduchých dotazů, které vrátí různé typy dat, a analýzu výsledků."
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,48 +14,48 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: MT
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Zobrazit a analyzovat data shromážděná pomocí hledání protokolů analýzy protokolů
+# <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Zobrazení nebo analýza shromážděných dat pomocí prohledávání protokolů v Log Analytics
 
-V analýzy protokolů můžete využít vyhledávání protokolu vytvořením dotazy k analýze shromážděná data, používat existující řídicí panely, které můžete přizpůsobit s grafické zobrazení nejcennější hledání.  Teď, když jste definovali shromažďování provozních dat od protokoly aktivity a virtuální počítače Azure, v tomto kurzu zjistíte, jak:
+V Log Analytics můžete využít prohledávání protokolů vytvářením dotazů pro analýzu shromážděných dat a předem vytvořené řídicí panely, které si můžete přizpůsobit pomocí grafických zobrazení nejdůležitějších hledání.  Nadefinovali jste shromažďování provozních dat z virtuálních počítačů Azure a protokolů aktivit a v tomto kurzu se teď naučíte:
 
 > [!div class="checklist"]
-> * Upgrade na novou dotazovací jazyk prostředku Azure Log Analytics 
-> * Jednoduché hledání dat událostí a pomocí funkce upravit a filtrování výsledků 
-> * Naučte se pracovat s daty výkonu
+> * Upgrade prostředku Azure Log Analytics na nový dotazovací jazyk 
+> * Jednoduché hledání dat událostí a použití funkcí k úpravě a filtrování výsledků 
+> * Práce s daty výkonu
 
-Pokud chcete provést v příkladu v tomto kurzu, musí mít existující virtuální počítač [připojené k pracovní prostor analýzy protokolů](log-analytics-quick-collect-azurevm.md).  
+K dokončení příkladu v tomto kurzu potřebujete existující virtuální počítač [připojený k pracovnímu prostoru Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-Vytváření a úpravy dotazů, kromě interaktivně práce vrácená data, může být provedené jeden ze dvou způsobů.  Pro základní dotazy pomocí protokolu hledání stránky na portálu Azure nebo pro pokročilé dotazování, můžete použít portál pokročilou analýzu. Další informace o rozdílu ve funkcích mezi dva portály najdete v tématu [portály pro vytváření a úpravy dotazů protokolu v Azure Log Analytics](log-analytics-log-search-portals.md)
+Vytvářet a upravovat dotazy a také interaktivně pracovat s vrácenými daty můžete jedním ze dvou způsobů.  Pro základní dotazy použijte stránku Prohledávání protokolů na webu Azure Portal. Pro pokročilé dotazování můžete použít portál pro pokročilou analýzu. Další informace o rozdílech mezi funkcemi na těchto dvou portálech najdete v tématu [Portály pro vytváření a úpravy dotazů na protokoly v Azure Log Analytics](log-analytics-log-search-portals.md).
 
-V tomto kurzu jsme pracovat s protokolu Search na portálu Azure. 
+V tomto kurzu budeme pracovat s prohledáváním protokolů na webu Azure Portal. 
 
-## <a name="log-in-to-azure-portal"></a>Přihlaste se k portálu Azure
-Přihlaste se k portálu Azure v [https://portal.azure.com](https://portal.azure.com). 
+## <a name="log-in-to-azure-portal"></a>Přihlášení k webu Azure Portal
+Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="open-the-log-search-portal"></a>Otevřete portál hledání protokolů 
-Začněte otevřením portálu hledání protokolů.   
+## <a name="open-the-log-search-portal"></a>Otevření portálu pro prohledávání protokolů 
+Začněte otevřením portálu pro prohledávání protokolů.   
 
-1. Na portálu Azure klikněte na tlačítko **další služby** v levém dolním nalezen. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **protokolu analýzy**.
-2. V podokně analýzy protokolů předplatných, vyberte pracovní prostor a pak vyberte **hledání protokolů** dlaždici.<br> ![Tlačítko vyhledat protokolu](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
+1. Na webu Azure Portal klikněte na **Všechny služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
+2. V podokně předplatného Log Analytics vyberte pracovní prostor a pak vyberte dlaždici **Prohledávání protokolů**.<br> ![Tlačítko Prohledávání protokolů](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
-Jste si všimli hlavičky v horní části stránky analýzy protokolů prostředků na portálu pozvání můžete upgradovat.<br> ![Upozornění na portálu Azure na upgrade analýzy protokolů](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
+V horní části stránky prostředku Log Analytics na portálu jste si možná všimli banneru vybízejícího k upgradu.<br> ![Upozornění na upgrade Log Analytics na webu Azure Portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
 
-Analýzy protokolů pro usnadňují vytvořit dotazy díky nedávno zavést nové dotazovací jazyk, correlate data z různých zdrojů a analyzovat rychle identifikovat trendy a problémy.
+V Log Analytics se nedávno zavedl nový dotazovací jazyk, který usnadňuje vytváření dotazů, korelaci dat z různých zdrojů a analýzu pro rychlé zjišťování trendů nebo problémů.
 
-Upgrade je jednoduché.  Spustit proces kliknutím na informační zprávě, která uvádí, že **Další informace a upgradujte**.  Si přečíst další informace o upgradu na stránce informace o upgradu a potom klikněte na **upgradovat nyní**.
+Upgrade je jednoduchý.  Proces zahájíte kliknutím na banner s textem **Další informace a upgrade**.  Na stránce s informacemi o upgradu si pročtěte další informace o upgradu a pak klikněte na **Upgradovat**.
 
-Proces bude trvat několik minut a během této doby můžete sledovat průběh v části **oznámení** z nabídky. Další informace o [výhod nového dotazovací jazyk](log-analytics-log-search-upgrade.md#why-the-new-language).
+Dokončení tohoto procesu trvá několik minut, během kterých můžete sledovat jeho průběh prostřednictvím možnosti nabídky **Oznámení**. Další informace o [výhodách nového dotazovacího jazyka](log-analytics-log-search-upgrade.md#why-the-new-language).
 
-## <a name="create-a-simple-search"></a>Vytvoření jednoduché hledání
-Nejrychlejší způsob, jak načíst některá data pro práci s je jednoduchý dotaz, který vrátí všechny záznamy v tabulce.  Pokud máte jakékoli klienti systému Windows nebo Linux připojení do pracovního prostoru, pak budete mít data v událostí (Windows) nebo tabulka Syslog (Linux).
+## <a name="create-a-simple-search"></a>Vytvoření jednoduchého hledání
+Nejrychlejší způsob načtení nějakých dat, se kterými můžeme pracovat, je použít tento jednoduchý dotaz, který vrátí všechny záznamy v tabulce.  Pokud ke svému pracovnímu prostoru máte připojené nějaké klienty Windows nebo Linuxu, budete mít data v tabulce Event (Windows) nebo Syslog (Linux).
 
-Zadejte jednu následující dotazy do vyhledávacího pole a klikněte na tlačítko Hledat.  
+Zadejte do vyhledávacího pole jeden z následujících dotazů a klikněte na tlačítko Vyhledat.  
 
 ```
 Event
@@ -64,16 +64,16 @@ Event
 Syslog
 ```
 
-Data jsou vrácena ve výchozím zobrazení seznamu a můžete zobrazit celkový počet záznamů vrácených.
+Data se vrátí ve výchozím zobrazení seznamu a zobrazí se celkový počet vrácených záznamů.
 
 ![Jednoduchý dotaz](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-01.png)
 
-Zobrazí se pouze první několik vlastnosti každý záznam.  Klikněte na tlačítko **zobrazit další** zobrazíte všechny vlastnosti pro konkrétní záznam.
+Zobrazí se pouze několik prvních vlastností každého záznamu.  Kliknutím na **zobrazit více** zobrazíte všechny vlastnosti konkrétního záznamu.
 
 ## <a name="filter-results-of-the-query"></a>Filtrování výsledků dotazu
-Na levé straně obrazovky je podokno filtru, která umožňuje filtrování chcete do dotazu přidat bez změny přímo.  Zobrazí se několik záznamů vlastnosti pro tento typ záznamu a můžete vybrat jeden nebo více hodnot vlastností, které chcete-li zúžit výsledky vyhledávání.
+Na levé straně obrazovky je podokno filtru, ve kterém můžete do dotazu přidat filtrování, aniž byste ho upravovali přímo.  Pro daný typ záznamu se zobrazí několik vlastností a výběrem jedné nebo několika hodnot vlastností můžete zúžit výsledky hledání.
 
-Pokud pracujete s **událostí**, zaškrtněte políčko vedle **chyba** pod **EVENTLEVELNAME**.   Pokud pracujete s **Syslog**, zaškrtněte políčko vedle **chyba** pod **úroveň ZÁVAŽNOSTI**.  Tato operace změní dotaz na jednu z těchto omezit výsledky do chybové události.
+Pokud pracujete s tabulkou **Event**, zaškrtněte políčko vedle textu **Error** (Chyba) v části **EVENTLEVELNAME** (NÁZEV ÚROVNĚ UDÁLOSTI).   Pokud pracujete s tabulkou **Syslog**, zaškrtněte políčko vedle textu **err** (Chyba) v části **SEVERITYLEVEL** (ÚROVEŇ ZÁVAŽNOSTI).  Tím se dotaz změní na jeden následujících a výsledky se omezí na chybové události.
 
 ```
 Event | where (EventLevelName == "Error")
@@ -84,52 +84,52 @@ Syslog | where (SeverityLevel == "err")
 
 ![Filtr](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
 
-Přidání vlastnosti do podokna filtru tak, že vyberete **přidat do filtry** na jeden ze záznamů v nabídce vlastnost.
+Přidejte do podokna filtru vlastnosti tím, že v nabídce vlastností jednoho ze záznamů vyberete **Přidat do filtrů**.
 
-![Přidání do nabídky filtru](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-03.png)
+![Nabídka Přidat do filtrů](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-03.png)
 
-Stejný filtr můžete nastavit tak, že vyberete **filtru** z nabídky vlastnost pro záznam s hodnotou, který chcete filtrovat.  
+Stejný filtr můžete nastavit výběrem možnosti **Filtrovat** v nabídce vlastností záznamu s hodnotou, kterou chcete filtrovat.  
 
-Můžete mít pouze **filtru** možnost Vlastnosti s jejich název modře po přesunutí ukazatele myši je.  Jedná se o *prohledávatelné* pole, které jsou indexované pro podmínky vyhledávání.  Pole šedě jsou *volné text prohledávatelné* pole, které mají jenom **zobrazit odkazy** možnost.  Tato možnost vrátí záznamy, které mají tuto hodnotu v libovolné vlastnosti.
+Možnost **Filtrovat** se zobrazí pouze po najetí myši na vlastnosti, jejichž název je modře.  To jsou *prohledávatelná* pole, která se indexují pro vyhledávací podmínky.  Pole zobrazená šedě jsou pole *vhodná pro volnotextové prohledávání*, u kterých je dostupná pouze možnost **Zobrazit odkazy**.  Tato možnost vrátí záznamy obsahující danou hodnotu v jakékoli vlastnosti.
 
-Výsledky na jedinou vlastností můžete seskupovat podle výběru **Seskupit podle** možnost v nabídce záznam.  Bude přidáno [shrnout](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) operátor do dotazu, který zobrazí výsledky v grafu.  Můžete seskupit na více než jednu vlastnost, ale budete muset upravit dotaz přímo.  Vyberte nabídku záznam Další **počítače** vlastnost a vyberte **Seskupit podle "Počítač"**.  
+Výsledky můžete seskupit podle jedné vlastnosti výběrem možnosti **Seskupit podle** v nabídce záznamu.  Tím se do vašeho dotazu přidá operátor [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator), který zobrazí výsledky v grafu.  Seskupení můžete provést podle více než jedné vlastnosti, museli byste však upravit dotaz přímo.  Vyberte nabídku záznamu vedle vlastnosti **Computer** (Počítač) a vyberte **Seskupit podle „Computer“**.  
 
-![Seskupit podle počítače](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
+![Seskupení podle počítače](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
 ## <a name="work-with-results"></a>Práce s výsledky
-Portál vyhledávání protokolu obsahuje řadu funkcí pro práci s výsledky dotazu.  Můžete řadit, filtr a výsledky skupiny k analýze dat bez úpravy skutečné dotazu.  Ve výchozím nastavení nejsou seřazeny výsledků dotazu.
+Portál pro prohledávání protokolů obsahuje řadu funkcí pro práci s výsledky dotazu.  Výsledky můžete řadit, filtrovat a seskupovat a díky tomu můžete analyzovat data, aniž byste upravovali samotný dotaz.  Výsledky dotazu ve výchozím nastavení nejsou seřazené.
 
-Chcete-li zobrazit data v tabulce formulář, který nabízí další možnosti pro filtrování a řazení, klikněte na tlačítko **tabulky**.  
+Pokud chcete data zobrazit v podobě tabulky, která nabízí další možnosti filtrování a řazení, klikněte na **Tabulka**.  
 
 ![Zobrazení tabulky](media/log-analytics-tutorial-viewdata/log-search-portal-table-01.png)
 
-Klikněte na šipku podle záznam zobrazíte podrobnosti pro tento záznam.
+Kliknutím na šipku vedle záznamu zobrazíte podrobnosti o daném záznamu.
 
 ![Řazení výsledků](media/log-analytics-tutorial-viewdata/log-search-portal-table-02.png)
 
-Řazení v některém poli kliknutím na záhlaví sloupce.
+Výsledky můžete řadit podle jakéhokoli pole kliknutím na záhlaví příslušného sloupce.
 
 ![Řazení výsledků](media/log-analytics-tutorial-viewdata/log-search-portal-table-03.png)
 
-Filtrování výsledků na konkrétní hodnotu ve sloupci klepnutím na tlačítko filtru a poskytnutím podmínku filtrování.
+Výsledky můžete filtrovat podle konkrétní hodnoty ve sloupci kliknutím na tlačítko filtru a zadáním podmínky filtru.
 
 ![Filtrování výsledků](media/log-analytics-tutorial-viewdata/log-search-portal-table-04.png)
 
-Skupiny na sloupci, přetáhněte záhlaví sloupce na začátek výsledky.  Přetažením více sloupců do horní části můžete seskupit více polí.
+Výsledky můžete seskupit podle konkrétního sloupce přetažením záhlaví sloupce do horní části výsledků.  Přetažením více sloupců do horní části můžete výsledky seskupit podle více polí.
 
-![Výsledky skupiny](media/log-analytics-tutorial-viewdata/log-search-portal-table-05.png)
+![Seskupení výsledků](media/log-analytics-tutorial-viewdata/log-search-portal-table-05.png)
 
 
-## <a name="work-with-performance-data"></a>Práce s data výkonu
-Údaje o výkonu pro systém Windows a Linux agentů je uložen v prostoru analýzy protokolů **výkonu** tabulky.  Zaznamenává výkonu vypadají stejně jako jakýkoli jiný záznam, a přidáme pomocí jednoduchého dotazu, která vrátí že všechny záznamy výkonu stejně jako s událostmi.
+## <a name="work-with-performance-data"></a>Práce s daty výkonu
+Data výkonu agentů Windows i Linuxu se ukládají v pracovním prostoru Log Analytics v tabulce **Perf**.  Záznamy o výkonu vypadají stejně jako jakékoli jiné záznamy. Napíšeme jednoduchý dotaz, který stejně jako v případě událostí vrátí všechny záznamy o výkonu.
 
 ```
 Perf
 ```
 
-![Údaje o výkonu](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-01.png)
+![Data výkonu](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-01.png)
 
-Vrácení miliony záznamů pro všechny objekty výkonu a čítače, když není velmi užitečné.  Můžete použít stejné metody, které jste použili výše a filtrujte data nebo právě zadejte následující dotaz přímo do vyhledávacího pole protokolu.  Tento příkaz vrátí jenom procesoru záznamů využití pro počítače se systémy Windows a Linux.
+Vracení milionů záznamů pro všechny objekty a čítače výkonu však není moc užitečné.  Pomocí stejných metod jako výše můžete data filtrovat nebo zadejte následující dotaz přímo do pole prohledávání protokolů.  Tento dotaz vrátí pouze záznamy o využití procesoru pro počítače s Windows i Linuxem.
 
 ```
 Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
@@ -137,15 +137,15 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 
 ![Využití procesoru](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-Toto nastavení omezuje data na konkrétní čítače, ale je stále není pro něj formulář, který je obzvláště užitečné.  Můžete zobrazit data ve spojnicovém grafu, ale nejprve skupiny tak, že počítač a TimeGenerated.  K seskupení více polí, je nutné upravit dotaz přímo, takže upravit dotaz pro následující.  Tato služba využívá [průměr](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) na fungovat **přepočtené** vlastnost pro výpočet průměrné hodnoty přes každou hodinu.
+Tím se data omezí na konkrétní čítač, ale stále se nezobrazují v užitečném formátu.  Data můžete zobrazit ve spojnicovém grafu, ale nejprve je potřeba je seskupit podle polí Computer (Počítač) a TimeGenerated (Čas vygenerování).  Abyste mohli data seskupit podle více polí, musíte dotaz upravit přímo, takže ho upravte na následující dotaz.  Tento dotaz používá funkci [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) s vlastností **CounterValue** (Hodnota čítače) k výpočtu průměrných hodinových hodnot.
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
-![Data grafu výkonu](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
+![Graf dat výkonu](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Teď, když vhodně seskupuje data, můžete zobrazit jeho v visual graf tak, že přidáte [vykreslení](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) operátor.  
+Když jsou teď data vhodně seskupená, můžete je zobrazit ve vizuálním grafu přidáním operátoru [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
@@ -154,7 +154,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 ![Spojnicový graf](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
 
 ## <a name="next-steps"></a>Další kroky
-V tomto kurzu jste zjistili, jak vytvořit základní protokolu hledání k analýze dat událostí a výkonu.  Přechodu na v dalším kurzu se dozvíte, jak k vizualizaci dat vytvořením řídicího panelu.
+V tomto kurzu jste zjistili, jak vytvořit základní prohledávání protokolů pro analýzu dat událostí a výkonu.  Přejděte k dalšímu kurzu, kde se dozvíte, jak data vizualizovat vytvořením řídicího panelu.
 
 > [!div class="nextstepaction"]
-> [Vytvářet a sdílet řídicí panely analýzy protokolů](log-analytics-tutorial-dashboards.md)
+> [Vytváření a sdílená řídicích panelů Log Analytics](log-analytics-tutorial-dashboards.md)

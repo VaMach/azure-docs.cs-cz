@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Důležité informace pro virtuální počítače v Azure zásobníku
 
@@ -41,19 +41,25 @@ Virtuální počítače jsou na vyžádání, škálovatelných výpočetních p
 |Škálovací sady virtuálních počítačů|Podporované automatickému škálování|Automatické škálování není podporována.<br>Přidáte další instance škálování, nastavit pomocí portálu, šablony Resource Manageru nebo prostředí PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Velikosti virtuálních počítačů
+Systému Azure vynucuje omezení prostředků několika způsoby, aby se zabránilo overconsumption prostředků (server místní a úroveň služby). Bez uvedení některá omezení na klienty spotřeby prostředků, může být nižší činnost klienta, pokud aktivní sousedním overconsumes prostředky. 
+- Sítě odchozí z virtuálního počítače nejsou šířka pásma omezuje šířku na místě. CAP k vzdálené ploše v zásobníku Azure odpovídat CAP v Azure.  
+- Pro prostředky úložiště Azure zásobníku implementuje IOPs limity úložiště, aby se zabránilo základní overconsumption prostředků klienty pro přístup k úložišti. 
+- U virtuálních počítačů s více disky připojené dat maximální propustnost každé jednotlivé datový disk je 500 IOPS pro HHDs a 2300 IOPS pro jednotky SSD.
 
-Zásobník Azure podporuje následující formáty:
+Následující tabulka uvádí virtuální počítače, které jsou podporovány v zásobníku Azure spolu s jejich konfigurace:
 
-| Typ | Velikost | Rozsah podporovaných velikostí |
-| --- | --- | --- |
-|Obecné účely |Basic A|A0 - A4|
-|Obecné účely |Standardní A|A0 – A7|
-|Obecné účely |D-series|D1 - D4|
-|Obecné účely |Dv2-series|D1_v2 - D5_v2|
-|Obecné účely |DS-series|DS1 - DS4|
-|Obecné účely |DSv2-series|DS1_v2 - DS5_v2|
-|Optimalizované z hlediska paměti|DS-series|DS11 - DS14|
-|Optimalizované z hlediska paměti |DSv2-series|DS11_v2 - DS14_v2|
+| Typ           | Velikost          | Rozsah podporovaných velikostí |
+| ---------------| ------------- | ------------------------ |
+|Obecné účely |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Obecné účely |Standardní A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Obecné účely |D-series       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Obecné účely |Dv2-series     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Obecné účely |DS-series      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Obecné účely |DSv2-series    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Optimalizované z hlediska paměti|D-series       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Optimalizované z hlediska paměti|DS-series      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Optimalizované z hlediska paměti|Dv2-series     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Optimalizované z hlediska paměti|DSv2-series-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Velikosti virtuálních počítačů a jejich přidružených prostředků počty jsou konzistentní mezi zásobník Azure a Azure. Například tato konzistence zahrnuje množství paměti, počet jader a číslo nebo velikost datových disků, které lze vytvořit. Výkon stejnou velikost virtuálního počítače v Azure zásobníku však závisí na základní charakteristiky konkrétní prostředí Azure zásobníku.
 

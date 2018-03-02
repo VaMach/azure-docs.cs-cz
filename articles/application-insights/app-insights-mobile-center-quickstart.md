@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Začínáme s analýzou mobilní aplikace pomocí App Center a Application Insights
 
@@ -66,7 +66,7 @@ Pokud chcete ověřit přijímání vlastních událostí, přejděte v App Cent
 Jakmile vaše aplikace odesílá vlastní události a App Center tyto události přijímá, je potřeba na webu Azure Portal vytvořit prostředek Application Insights typu App Center:
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. Vyberte **Nový** > **Monitorování a správa** > **Application Insights**.
+2. Vyberte **Vytvořit prostředek** > **Monitorování a správa** > **Application Insights**.
 
     ![Přidání prostředku Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
 

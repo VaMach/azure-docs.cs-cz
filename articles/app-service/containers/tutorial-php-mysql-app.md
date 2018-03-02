@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace PHP využívající databázi MySQL ve službě Azure App Service v Linuxu
 
@@ -47,7 +47,7 @@ Pro absolvování tohoto kurzu potřebujete:
 * [Nainstalovat Git](https://git-scm.com/).
 * [Nainstalovat PHP 5.6.4 nebo novější](http://php.net/downloads.php)
 * [Nainstalovat Composer](https://getcomposer.org/doc/00-intro.md)
-* Povolit následující rozšíření PHP, která potřebuje Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer a XML
+* Povolit následující rozšíření PHP vyžadovaná aplikací Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer a XML
 * [Nainstalovat a spustit MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Příprava místního MySQL
@@ -253,7 +253,7 @@ MYSQL_SSL=true
 Uložte změny.
 
 > [!TIP]
-> Za účelem zabezpečení informací o vašem připojení k MySQL je tento soubor již vyloučený z úložiště Git (viz soubor _.gitignore_ v kořenovém adresáři úložiště). Později zjistíte, jak ve službě App Service nakonfigurovat proměnné prostředí pro připojení k vaší databázi v Azure Database for MySQL (Preview). S použitím proměnných prostředí nepotřebujete soubor *.env* ve službě App Service.
+> Za účelem zabezpečení informací o vašem připojení k MySQL je už tento soubor vyloučený z úložiště Git (viz soubor _.gitignore_ v kořenovém adresáři úložiště). Později se dozvíte, jak ve službě App Service nakonfigurovat proměnné prostředí pro připojení k vaší databázi v Azure Database for MySQL (Preview). S použitím proměnných prostředí nepotřebujete soubor *.env* ve službě App Service.
 >
 
 ### <a name="configure-ssl-certificate"></a>Konfigurace certifikátu SSL
@@ -320,7 +320,7 @@ V tomto kroku nasadíte aplikaci PHP připojenou k MySQL do služby Azure App Se
 Aplikace Laravel se spustí v adresáři _/public_. Výchozí image Dockeru s PHP pro službu App Service používá Apache a neumožňuje přizpůsobení `DocumentRoot` pro Laravel. Pomocí souboru `.htaccess` však můžete přepsat směrování všech požadavků do adresáře _/public_ místo kořenového adresáře. Kořenový adresář úložiště pro tyto účely již soubor `.htaccess` obsahuje. S tímto souborem je vaše aplikace Laravel připravená k nasazení.
 
 > [!NOTE] 
-> Pokud byste raději nepoužívali přepisování v souboru _.htaccess_, můžete místo toho nasadit svou aplikaci Laravel s použitím [vlastní image Dockeru](quickstart-custom-docker-image.md).
+> Pokud byste raději nepoužívali přepisování v souboru _.htaccess_, můžete místo toho nasadit svou aplikaci Laravel s použitím [vlastní image Dockeru](quickstart-docker-go.md).
 >
 >
 
@@ -361,7 +361,7 @@ Pro přístup k nastavení můžete použít metodu PHP [getenv](http://www.php.
 
 ### <a name="configure-laravel-environment-variables"></a>Konfigurace proměnných prostředí Laravel
 
-Laravel potřebuje klíč aplikace ve službě App Service. Můžete ho nakonfigurovat pomocí nastavení aplikace.
+Laravel potřebuje ve službě App Service klíč aplikace. Můžete ho nakonfigurovat pomocí nastavení aplikace.
 
 Pomocí příkazu `php artisan` vygenerujte nový klíč aplikace, aniž byste ho ukládali do souboru _.env_.
 
@@ -412,8 +412,8 @@ remote: Running deployment command...
 > Můžete si všimnout, že proces nasazení na konci nainstaluje balíčky [Composer](https://getcomposer.org/). Služba App Service tyto automatizace nespouští při výchozím nasazení, takže toto ukázkové úložiště obsahuje v kořenovém adresáři tři další soubory, které je povolují:
 >
 > - `.deployment` – Tento soubor informuje službu App Service, že má jako vlastní skript nasazení spustit `bash deploy.sh`.
-> - `deploy.sh` – Vlastní skript nasazení. Když se do souboru podíváte, zjistíte, že po příkazu `npm install` spouští příkaz `php composer.phar install`.
-> - `composer.phar` – Správce balíčků Composer.
+> - `deploy.sh` – vlastní skript nasazení. Když se do souboru podíváte, zjistíte, že po příkazu `npm install` spouští příkaz `php composer.phar install`.
+> - `composer.phar` – správce balíčků Composer.
 >
 > Pomocí tohoto postupu můžete přidat do služby App Service libovolný krok nasazení z Gitu. Další informace najdete v tématu [Vlastní skript nasazení](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >

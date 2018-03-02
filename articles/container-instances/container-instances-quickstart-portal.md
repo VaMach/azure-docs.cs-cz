@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 16e726d10b159d0a3f08f8bca197c675d748c764
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Vytvoření prvního kontejneru ve službě Azure Container Instances
 
@@ -27,7 +27,7 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Vytvoření instance kontejneru
 
-Vyberte **Nový** > **Kontejnery** > **Azure Container Instances (Preview)**.
+Vyberte **Vytvořit prostředek** > **Kontejnery** > **Azure Container Instances (Preview)**.
 
 ![Zahájení vytváření nové instance kontejneru na webu Azure Portal][aci-portal-01]
 

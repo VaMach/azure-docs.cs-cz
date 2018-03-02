@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Co je Azure SQL Database úrovně služeb?
 
@@ -35,8 +35,8 @@ Volba úrovně služby závisí hlavně na kontinuity podnikových procesů, úl
 |Smlouva SLA o provozuschopnosti|99,99 %|99,99 %|99,99 %|Není k dispozici při ve verzi preview|
 |Uchování záloh|7 dní|35 dní|35 dní|
 |Procesor|Nízká|Nízká, střední, vysoká|Střední, vysoká|
-|Propustnost vstupně-výstupní operace|Nízká  | Střednědobé používání | O řád vyšší než Standard|
-|Latence vstupně-výstupní operace|Vyšší než Premium|Vyšší než Premium|Nižší než Basic a Standard|
+|Propustnost vstupně-výstupní operace (přibližnou) |2.5 IOPS na DTU  | 2.5 IOPS na DTU | 48 IOPS na DTU|
+|Latence vstupně-výstupní operace (přibližnou)|5 ms (načíst), 10 ms (zápisu)|5 ms (načíst), 10 ms (zápisu)|2 ms (čtení a zápis)|
 |Indexu Columnstore a OLTP v paměti|neuvedeno|neuvedeno|Podporováno|
 |||||
 

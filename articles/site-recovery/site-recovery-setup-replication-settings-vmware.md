@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: sutalasi
-ms.openlocfilehash: a5d0eb5b8cd5ba49a602d7000291270af31fb222
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0a567f31bf1991d4c2a95468d2abc31c51a878f3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Správa zásad replikace pro VMware do Azure
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/22/2017
 
 7. V nastavení **Frekvence snímků konzistentní vzhledem k aplikacím** určete, jak často (v minutách) se mají vytvářet body obnovení obsahující snímky konzistentní vzhledem k aplikacím.
 
-8. Klikněte na tlačítko **OK**. Zásada by se měla vytvořit během přibližně 30–60 sekund.
+8. Klikněte na **OK**. Zásada by se měla vytvořit během přibližně 30–60 sekund.
 
 ![Generování zásad replikace](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/22/2017
 ![Přidružení konfiguračního serveru](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
 3. Ze seznamu serverů vyberte konfigurační server.
-4. Klikněte na tlačítko **OK**. Přidružení konfiguračního serveru by se mělo provést během přibližně 1 až 2 minut.
+4. Klikněte na **OK**. Přidružení konfiguračního serveru by se mělo provést během přibližně 1 až 2 minut.
 
 ![Přidružení konfiguračního serveru](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/22/2017
 1. Vyberte zásadu replikace, ke které chcete přidružit konfigurační server.
 2. Klikněte na **Zrušit přidružení**.
 3. Ze seznamu serverů vyberte konfigurační server.
-4. Klikněte na tlačítko **OK**. Přidružení konfiguračního serveru by se mělo zrušit během přibližně 1 až 2 minut.
+4. Klikněte na **OK**. Přidružení konfiguračního serveru by se mělo zrušit během přibližně 1 až 2 minut.
 
     > [!NOTE]
     > Přidružení konfiguračního serveru nejde zrušit, pokud existuje alespoň jedna replikovaná položka, která zásadu používá. Před zrušením přidružení konfiguračního serveru zkontrolujte, že žádné replikované položky zásadu nepoužívají.

@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-partition"></a>sfctl oddílu
+# <a name="sfctl-partition"></a>sfctl partition
 Dotazování a správu oddílů pro libovolnou službu.
 
 ## <a name="commands"></a>Příkazy
@@ -48,7 +48,7 @@ Dotazování a správu oddílů pro libovolnou službu.
 Získá stav zadaný oddíl Service Fabric.
 
 Získá informace o stavu zadaného oddílu. EventsHealthStateFilter použijte k filtrování kolekce události stavu ohlášeny služby založené na stav v pořádku.
-ReplicasHealthStateFilter použijte k filtrování kolekce objektů ReplicaHealthState v oddílu. Pokud zadáte oddílu, který neexistuje v úložišti stavů, tato rutina vrátí chybu. .
+ReplicasHealthStateFilter použijte k filtrování kolekce objektů ReplicaHealthState v oddílu. Pokud zadáte oddílu, který neexistuje v úložišti stavů, tato rutina vrátí chybu.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -101,7 +101,7 @@ Získá seznam oddílů služby Service Fabric. S ID oddílu, informace o vytvá
 
 |Argument|Popis|
 | --- | --- |
-| – id služby [vyžaduje]| Identita služby. Toto je obvykle úplný název služby bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například pokud je název služby "fabric://myapp/app1/svc1", identita služby by být "Moje aplikace ~ app1 ~ svc1" v 6.0 + a "myapp/app1/svc1" v předchozích verzích.|
+| – id služby [vyžaduje]| Identita služby. Toto je obvykle úplný název služby bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například, pokud je název služby "fabric: / myapp/app1/svc1", bude identita služby "Moje aplikace ~ app1 ~ svc1" v 6.0 + a "myapp/app1/svc1" v předchozích verzích.|
 | --token pokračování| Parametr token pokračování slouží k získání další sadu výsledků.         Token pokračování s hodnotou neprázdné je zahrnutý v odpovědi rozhraní API, když výsledky ze systému nelze uložit do odpověď o jedné. Pokud je tato hodnota předaná pro další volání rozhraní API, rozhraní API vrátí další sadu výsledků. Pokud nejsou žádné další výsledky, pak token pro pokračování neobsahuje hodnotu. Hodnota tohoto parametru by neměla být kódovaná adresou URL.|
 | časový limit – -t        | Server časový limit v sekundách.  Výchozí: 60.|
 
@@ -162,7 +162,7 @@ Do clusteru Service Fabric označuje, že mají pokusit o obnovení na konkrétn
 ## <a name="sfctl-partition-restart"></a>sfctl oddílu restartování
 Toto rozhraní API restartuje některé nebo všechny repliky nebo instancí zadaný oddíl.
 
-Toto rozhraní API je užitečné pro testování převzetí služeb při selhání. Pokud se používají k zaměření bezstavové služby oddíl, musí být RestartPartitionMode AllReplicasOrInstances. Volání rozhraní API GetPartitionRestartProgress pomocí stejné OperationId zobrazíte průběh. .
+Toto rozhraní API je užitečné pro testování převzetí služeb při selhání. Pokud se používají k zaměření bezstavové služby oddíl, musí být RestartPartitionMode AllReplicasOrInstances. Volání rozhraní API GetPartitionRestartProgress pomocí stejné OperationId zobrazíte průběh.
 
 ### <a name="arguments"></a>Argumenty
 
@@ -170,8 +170,8 @@ Toto rozhraní API je užitečné pro testování převzetí služeb při selhá
 | --- | --- |
 | – id operace [vyžaduje]| Identifikátor GUID, který identifikuje volání toto rozhraní API.  To je předán do odpovídající GetProgress API.|
 | – id oddílu [vyžaduje]| Identita oddílu.|
-| – restartování oddílu mode [vyžaduje]| -Neplatná - vyhrazené.  Nepředávejte do rozhraní API. -AllReplicasOrInstances - všech replik nebo instancí v oddílu se restartují najednou. -OnlyActiveSecondaries - pouze sekundární repliky se restartují. .|
-| – id služby [vyžaduje]| Identita služby. Toto je obvykle úplný název služby bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například pokud je název služby "fabric://myapp/app1/svc1", identita služby by být "Moje aplikace ~ app1 ~ svc1" v 6.0 + a "myapp/app1/svc1" v předchozí v ersions.|
+| – restartování oddílu mode [vyžaduje]| Popisují oddílů pro restartování.|
+| – id služby [vyžaduje]| Identita služby. Toto je obvykle úplný název služby bez ' prostředků infrastruktury:' schéma identifikátoru URI. Od verze 6.0, hierarchické oddělených středníky s "~" znak. Například, pokud je název služby "fabric: / myapp/app1/svc1", identita služby by být "Moje aplikace ~ app1 ~ svc1" v 6.0 + a "myapp/app1/svc1" v předchozí sunout rsions.|
 | časový limit – -t                    | Server časový limit v sekundách.  Výchozí: 60.|
 
 ### <a name="global-arguments"></a>Globální argumenty

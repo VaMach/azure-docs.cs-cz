@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Exchange X12 zprávy pro podnikové integrace s logic apps
 
@@ -31,37 +31,34 @@ Před výměnou X12 zprávy pro Azure Logic Apps, musíte vytvořit X12 smlouvy 
 
 Tady je položky, které budete potřebovat:
 
-* [Integrace účet](../logic-apps/logic-apps-enterprise-integration-accounts.md) který již má definovaný a přidružené k předplatnému Azure
+* [Integrace účet](logic-apps-enterprise-integration-create-integration-account.md) který již má definovaný a přidružené k předplatnému Azure
 * Alespoň dva [partnery](../logic-apps/logic-apps-enterprise-integration-partners.md) které jsou definované ve vašem účtu integrace a nakonfigurované X12 identifikátor pod **obchodní identit**    
-* Požadovanou [schématu](../logic-apps/logic-apps-enterprise-integration-schemas.md) nahrát do vaší [integrace účtu](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Požadovanou [schématu](../logic-apps/logic-apps-enterprise-integration-schemas.md) lze odeslat ke svému účtu integrace
 
-Po jste [vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integration-accounts.md), [přidat partnery](logic-apps-enterprise-integration-partners.md)a mít [schématu](../logic-apps/logic-apps-enterprise-integration-schemas.md) , kterou chcete použít, můžete vytvořit X12 smlouvy pomocí následujících kroků.
+Po jste [vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [přidat partnery](logic-apps-enterprise-integration-partners.md)a mít [schématu](../logic-apps/logic-apps-enterprise-integration-schemas.md) , kterou chcete použít, můžete vytvořit X12 smlouvy pomocí následujících kroků.
 
 ## <a name="create-an-x12-agreement"></a>Vytvoření X12 smlouvy
 
-1.  Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). V nabídce vlevo vyberte **všechny služby**. 
+1. Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Pokud nevidíte **všechny služby**, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **nabídky Zobrazit**.
+2. Z hlavní nabídky Azure, vyberte **všechny služby**. Do vyhledávacího pole zadejte "integraci" a potom vyberte **účty pro integraci**.  
 
-    ![V levé nabídce vyberte "Všechny služby"](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Najít váš účet integrace](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  Do vyhledávacího pole zadejte "integrace" jako filtr. V seznamu výsledků vyberte **účty pro integraci**.  
+   > [!TIP]
+   > Pokud **všechny služby** nezobrazí, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **nabídky Zobrazit**.
 
-    ![Filtrovat podle "integraci", vyberte "Účty pro integraci"](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. V části **účty pro integraci**, vyberte účet integrace, ve které chcete přidat smlouvu.
 
-3. V **účty pro integraci** okno, které se otevře, vyberte účet integrace, ve které chcete přidat smlouvu.
-Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/logic-apps-enterprise-integration-accounts.md "všechny informace o účtech integrace").
-
-    ![Vyberte účet integrace místo pro vytvoření této smlouvy](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Vyberte účet integrace místo pro vytvoření této smlouvy](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Vyberte **přehled**, vyberte **smlouvy** dlaždici. Pokud nemáte dlaždici smlouvy, přidejte nejprve dlaždici. 
 
-    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. V okně smlouvy, které se otevře, zvolte **přidat**.
+5. V části **smlouvy**, zvolte **přidat**.
 
-    ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. V části **přidat**, zadejte **název** pro vaše smlouvy. Pro typ smlouvy, vyberte **X12**. Vyberte **hostitele partnera**, **identitu hostitele**, **hosta partnera**, a **hosta Identity** pro vaše smlouvy. Další podrobnosti vlastnost najdete v tabulce v tomto kroku.
 
@@ -263,7 +260,7 @@ Jiného, než znaková sada, můžete u každého typu zprávy zadejte jinou sad
 | Vlastnost | Popis |
 | --- | --- |
 | Znakové sady, který se má použít |Ověření vlastnosti, vyberte X12 znakovou sadu. Možnosti jsou Basic, rozšířené a UTF8. |
-| Schéma |V rozevíracím seznamu vyberte schéma. Po dokončení každý řádek je automaticky přidán nový řádek. Pro vybrané schéma vyberte sadu oddělovačů, který chcete použít, na základě následující popisů oddělovače. |
+| Schéma |V rozevíracím seznamu vyberte schéma. Po dokončení každý řádek je automaticky přidán nový řádek. Pro vybrané schéma vyberte sadu oddělovačů, který chcete použít, na základě popisů oddělovače níže. |
 | Typ vstupu |V rozevíracím seznamu vyberte typ vstupu. |
 | Oddělovač komponent |Chcete-li samostatné složené datové prvky, zadejte jeden znak. |
 | Oddělovač datových prvků |Chcete-li samostatné jednoduché datové elementů v rámci složené datové prvky, zadejte jeden znak. |
@@ -291,13 +288,13 @@ Po dokončení každý řádek ověření jiné automaticky přidá. Pokud nezad
 
 ## <a name="find-your-created-agreement"></a>Najít vaší vytvořené smlouvy
 
-1.  Po dokončení nastavení na všechny vlastnosti vaše smlouvy **přidat** okně zvolte **OK** dokončit vytváření vaší smlouvy a vrátíte se do okna vaší integrace účtu.
+1.  Po dokončení nastavení na všechny vlastnosti vaše smlouvy **přidat** vyberte **OK** dokončit vytváření vaší smlouvy a vrátíte se k účtu integrace.
 
     Nově přidané smlouvy nyní se zobrazí v vaše **smlouvy** seznamu.
 
-2.  Můžete také zobrazit vaše smlouvy v váš účet Přehled integrace. V okně účtu vaší integrace, zvolte **přehled**, vyberte **smlouvy** dlaždici.
+2.  Můžete také zobrazit vaše smlouvy v váš účet Přehled integrace. V nabídce váš účet integrace zvolte **přehled**, vyberte **smlouvy** dlaždici.
 
-    ![Vyberte že dlaždici "Smlouvy" Chcete-li zobrazit všechny smlouvy](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>Zobrazení swagger
 Najdete v článku [swagger podrobnosti](/connectors/x12/). 

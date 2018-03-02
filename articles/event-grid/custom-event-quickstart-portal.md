@@ -8,15 +8,15 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Vytvoření a směrování vlastních událostí pomocí webu Azure Portal a Event Gridu
 
-Azure Event Grid je služba zpracování událostí pro cloud. V tomto článku pomocí webu Azure Portal vytvoříte vlastní téma, přihlásíte se k jeho odběru a aktivujete událost, abyste viděli výsledek. Obvykle odesíláte události do koncového bodu, který na událost reaguje například webhookem nebo funkcí Azure Functions. Pro zjednodušení tohoto článku však budete události odesílat na adresu URL, která jenom shromažďuje zprávy. Tuto adresu URL vytvoříte pomocí nástrojů třetích [RequestBin](https://requestb.in/) nebo [Hookbin](https://hookbin.com/).
+Azure Event Grid je služba zpracování událostí pro cloud. V tomto článku pomocí webu Azure Portal vytvoříte vlastní téma, přihlásíte se k jeho odběru a aktivujete událost, abyste viděli výsledek. Obvykle odesíláte události do koncového bodu, který na událost reaguje například webhookem nebo funkcí Azure Functions. Pro zjednodušení tohoto článku však budete události odesílat na adresu URL, která jenom shromažďuje zprávy. Tuto adresu URL vytvoříte pomocí nástrojů třetích stran [RequestBin](https://requestb.in/) nebo [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
 >**RequestBin** a **Hookbin** nejsou určené pro použití s vysokou propustností. Použití těchto nástrojů je čistě demonstrativní. Pokud najednou nabídnete více než jednu událost, možná se v nástroji nezobrazí všechny.
@@ -43,7 +43,7 @@ Témata služby Event Grid jsou prostředky Azure a musí být umístěné ve sk
 
 Téma poskytuje uživatelsky definovaný koncový bod, do kterého odesíláte události. 
 
-1. Pokud chcete vytvořit téma ve své skupině prostředků, vyberte **Další služby** a vyhledejte *event grid*. Z dostupných možností vyberte **Témata Event Gridu**.
+1. Pokud chcete vytvořit téma ve své skupině prostředků, vyberte **Všechny služby** a vyhledejte *event grid*. Z dostupných možností vyberte **Témata Event Gridu**.
 
    ![Vytvoření tématu Event Gridu](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Před přihlášením k odběru tématu vytvoříme koncový bod pro zprávy ud�
 
 K odběru tématu se přihlašujete, aby služba Event Grid věděla, které události chcete sledovat. 
 
-1. Pokud chcete vytvořit odběr Event Gridu, znovu vyberte **Další služby** a vyhledejte *event grid*. Z dostupných možností vyberte **Odběry Event Gridu**.
+1. Pokud chcete vytvořit odběr služby Event Grid, znovu vyberte **Všechny služby** a vyhledejte *event grid*. Z dostupných možností vyberte **Odběry Event Gridu**.
 
    ![Vytvoření odběru Event Gridu](./media/custom-event-quickstart-portal/create-subscription.png)
 

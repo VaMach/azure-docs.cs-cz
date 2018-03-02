@@ -11,24 +11,24 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Export šablony Azure Resource Manager pomocí rozhraní příkazového řádku Azure
 
 Resource Manager vám umožňuje exportovat šablonu Resource Manageru z existujících prostředků ve vašem předplatném. Z vygenerované šablony pak zjistíte syntaxi šablony a podle potřeby pak můžete automatizovat opakované nasazení svého řešení.
 
-Je důležité si uvědomit, že jsou dva různé způsoby exportu šablony:
+Je důležité si uvědomit, že se dvěma různými způsoby, jak vyexportovat šablonu:
 
-* Je možné exportovat skutečnou šablonu, kterou jste použili k nasazení. Exportovaná šablona zahrnuje všechny parametry a proměnné přesně tak, jak jsou uvedeny v původní šabloně. Tento přístup je užitečné, když potřebujete načíst šablonu.
-* Můžete exportovat šablonu, která představuje aktuální stav skupiny prostředků. Exportovaná šablona není založena na žádné šabloně, kterou jste použili k nasazení. Místo toho export vytvoří šablonu, která je snímkem aktuálního stavu skupiny prostředků. Exportovaná šablona má řadu pevně definovaných hodnot a pravděpodobně méně parametrů, než byste obvykle definovali. Tento přístup je užitečné, když jste změnili skupině prostředků. a teď potřebujete zachytit skupinu prostředků jako šablonu.
+* Můžete exportovat **skutečné šablony použité pro nasazení**. Exportovaná šablona zahrnuje všechny parametry a proměnné přesně tak, jak jsou uvedeny v původní šabloně. Tento přístup je užitečné, když potřebujete načíst šablonu.
+* Můžete exportovat **vygenerovanou šablonu, která představuje aktuální stav skupiny prostředků**. Exportovaná šablona není založena na žádné šabloně, kterou jste použili k nasazení. Místo toho vytvoří šablonu, která je "snímek" nebo "zálohování" skupiny prostředků. Exportovaná šablona má řadu pevně definovaných hodnot a pravděpodobně méně parametrů, než byste obvykle definovali. Tuto možnost použijte k opětovnému nasazení prostředků do stejné skupiny prostředků. Chcete-li tuto šablonu použít pro jiné skupině prostředků, může mít to výrazně změnit.
 
-Toto téma ukazuje oba přístupy.
+Tento článek ukazuje obou přístupů.
 
 ## <a name="deploy-a-solution"></a>Nasazení řešení
 
@@ -55,13 +55,13 @@ Vrátí šablony. Zkopírujte JSON a uložte jako soubor. Všimněte si, že je 
 
 ## <a name="export-resource-group-as-template"></a>Export skupiny prostředků jako šablony.
 
-Místo načítání šablonu z historie nasazení, můžete načíst šablonu, která představuje aktuální stav skupiny prostředků pomocí [export skupiny az](/cli/azure/group#az_group_export) příkaz. Tento příkaz používají, když jste provedli mnoho změn vaší skupiny prostředků a žádné existující šablona představuje všechny změny.
+Místo načítání šablonu z historie nasazení, můžete načíst šablonu, která představuje aktuální stav skupiny prostředků pomocí [export skupiny az](/cli/azure/group#az_group_export) příkaz. Tento příkaz používají, když jste provedli mnoho změn vaší skupiny prostředků a žádné existující šablona představuje všechny změny. Je určený jako snímek skupiny prostředků, který můžete použít k opětovnému nasazení do stejné skupiny prostředků. Pokud chcete použít pro jiná řešení vyexportované šablony, je třeba ji upravit výrazně.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Vrátí šablony. Zkopírujte JSON a uložte jako soubor. Všimněte si, že se liší od šablony na webu GitHub. Obsahuje různé parametry a žádné proměnné. Úložiště SKU a umístění jsou pevně zakódovaná na hodnoty. Následující příklad ukazuje vyexportované šablony, ale vaše šablona má název parametru mírně odlišný:
+Vrátí šablony. Zkopírujte JSON a uložte jako soubor. Všimněte si, že se liší od šablony na webu GitHub. Šablona má jiné parametry a žádné proměnné. Úložiště SKU a umístění jsou pevně zakódovaná na hodnoty. Následující příklad ukazuje vyexportované šablony, ale vaše šablona má název parametru mírně odlišný:
 
 ```json
 {

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2017
+ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: a9a2e2ace4c4b6867e5d8b318c5d80a9df124ecc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Vytvoření virtuálního počítače s Linuxem pomocí webu Azure Portal
 
@@ -46,7 +46,7 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Klikněte na **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Vyberte **Compute** a potom vyberte **Ubuntu Server 16.04 LTS**. 
 

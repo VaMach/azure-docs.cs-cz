@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Výměna zpráv AS2 pro podnikové integrace s logic apps
 
@@ -40,23 +40,22 @@ Po jste [vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integ
 
 1.  Přihlaste se na web [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  V nabídce vlevo vyberte **všechny služby**. Do vyhledávacího pole zadejte **integrace** jako filtr. V seznamu výsledků vyberte **účty pro integraci**.
+2. V hlavní nabídce Azure, vyberte **všechny služby**. Do vyhledávacího pole zadejte "integraci" a potom vyberte **účty pro integraci**.
 
-    > [!TIP]
-    > Pokud nevidíte **všechny služby**, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **nabídky Zobrazit**.
+   ![Najít váš účet integrace](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![Vyberte všechny služby, filtr na "integraci", "Účty pro integraci"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > Pokud nevidíte **všechny služby**, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **zobrazit text popisky**.
 
-3. V **účty pro integraci** okno, které se otevře, vyberte účet integrace, kde chcete vytvořit smlouvu.
-Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/logic-apps-enterprise-integration-accounts.md "všechny informace o účtech integrace").  
+3. V části **účty pro integraci**, vyberte účet integrace, kde chcete vytvořit smlouvu.
 
-    ![Vyberte účet, integrace místo pro vytvoření této smlouvy](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Vyberte účet, integrace místo pro vytvoření této smlouvy](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Vyberte **smlouvy** dlaždici. Pokud nemáte dlaždici smlouvy, přidejte nejprve dlaždici.
 
     ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. V okně smlouvy, které se otevře, zvolte **přidat**.
+5. V části **smlouvy**, zvolte **přidat**.
 
     ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Nyní je připraven pro zpracování odchozích zpráv, které v souladu s vámi
 
 ## <a name="find-your-created-agreement"></a>Najít vaší vytvořené smlouvy
 
-1.  Po dokončení nastavení na všechny vlastnosti vaše smlouvy **přidat** okně zvolte **OK** dokončit vytváření vaší smlouvy a vrátíte se do okna vaší integrace účtu.
+1. Po dokončení nastavení na všechny vlastnosti vaše smlouvy **přidat** vyberte **OK** dokončit vytváření vaší smlouvy a vrátíte se k účtu integrace.
 
     Nově přidané smlouvy nyní se zobrazí v vaše **smlouvy** seznamu.
 
-2.  Můžete také zobrazit vaše smlouvy v váš účet Přehled integrace. V okně účtu vaší integrace, zvolte **přehled**, vyberte **smlouvy** dlaždici. 
+2. Můžete také zobrazit vaše smlouvy v váš účet Přehled integrace. V nabídce váš účet integrace zvolte **přehled**, vyberte **smlouvy** dlaždici. 
 
-    ![Vyberte že dlaždici "Smlouvy" Chcete-li zobrazit všechny smlouvy](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Vyberte že dlaždici "Smlouvy" Chcete-li zobrazit všechny smlouvy](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Zobrazení swagger
 Najdete v článku [swagger podrobnosti](/connectors/as2/). 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Nastavení clusteru Linux Service Fabric na počítači pro vývojáře systému Windows
 
@@ -29,7 +29,6 @@ Clustery se systémem Linux Service Fabric nativně nespouštějte v systému Wi
 
 * Minimálně 4 GB RAM
 * Nejnovější verzi [Dockeru](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Přístup k [imagi](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) kontejneru Dockeru pro Service Fabric One-box
 
 >[!TIP]
 > * Můžete provést kroky uvedené v oficiální Docker [dokumentace](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) instalace Docker v systému Windows. 
@@ -42,7 +41,7 @@ Pokud chcete nastavit místní kontejner Dockeru a mít v něm spuštěný clust
 1. Stáhněte si image z úložiště Docker Hub:
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Následujícím způsobem aktualizujte konfiguraci démona Dockeru na hostiteli a potom démon Dockeru restartujte: 
@@ -58,11 +57,11 @@ Pokud chcete nastavit místní kontejner Dockeru a mít v něm spuštěný clust
 3. Spusťte instanci kontejneru Service Fabric One-box s touto imagí:
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * Pokud zadáte název instance kontejneru, můžete s ní pracovat srozumitelněji. 
-    > * Pokud vaše aplikace naslouchá na konkrétních portech, musí se zadat pomocí dalších značek -p. Pokud vaše aplikace například naslouchá na portu 8080, spusťte docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox.
+    > * Pokud vaše aplikace naslouchá na konkrétních portech, musí se zadat pomocí dalších značek -p. Například pokud aplikace naslouchá na portu 8080, spusťte docker spustit 8080:8080 -p - itd -p 19080:19080 – název sfonebox microsoft/service-prostředků infrastruktury – onebox
 
 4. Přihlaste se ke kontejneru Dockeru v interaktivním režimu SSH:
 
@@ -82,7 +81,7 @@ Pokud chcete nastavit místní kontejner Dockeru a mít v něm spuštěný clust
     > [!NOTE]
     > Modul plug-in Eclipse se v systému Windows aktuálně nepodporuje. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Začínáme s [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Podívejte se na jiné [ukázky Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

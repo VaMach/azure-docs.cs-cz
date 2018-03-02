@@ -11,10 +11,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Databáze Azure pro výkon a možnosti PostgreSQL: co je k dispozici v jednotlivých cenových úrovní
 Když vytvoříte databázi Azure pro PostgreSQL server, rozhodněte tři hlavní možnosti konfigurace prostředky přidělené pro tento server. Tyto možnosti vliv na výkon a škálování serveru.
@@ -78,7 +78,7 @@ Výpočetní že jednotky jsou měřítkem propustnost zpracování procesoru, k
 | Zřízení serveru maximální IOPS | 3000 IOPS | 3000 IOPS | 3000 IOPS | 3000 IOPS |
 | Zřízení serveru maximální IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB |
 
-\*Maximální velikost úložiště serveru odkazuje na maximální zřízené velikost úložiště pro váš server.
+\* Maximální velikost úložiště serveru odkazuje na maximální zřízené velikost úložiště pro váš server.
 
 ## <a name="storage"></a>Úložiště 
 Konfigurace úložiště definuje množství kapacity úložiště, které jsou k dispozici pro databázi Azure pro PostgreSQL server. Úložiště používá služba zahrnuje soubory databáze, dočasné soubory, transakční protokoly a protokoly serveru PostgreSQL. Zvažte velikost úložiště potřebné pro hostování své databáze a požadavky na výkon (IOPS) při výběru konfigurace úložiště.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Postupy: monitorování aplikací v Azure App Service
 [Služby App Service](http://go.microsoft.com/fwlink/?LinkId=529714) poskytuje integrované monitorování funkce v [portál Azure](https://portal.azure.com).
@@ -97,7 +97,7 @@ Pro **aplikace**, jsou dostupné metriky:
   * Počet požadavků, které jsou výsledkem stavový kód protokolu HTTP > = 500, ale < 600.
 * **Paměť pracovní sady**
   * Aktuální velikost paměti, které aplikace v MIB.
-* **Požadavky**
+* **požadavky**
   * Celkový počet požadavků bez ohledu na jejich výsledné stavový kód HTTP.
 
 Pro **plán služby App Service**, jsou dostupné metriky:
@@ -143,7 +143,7 @@ Můžete zkontrolovat stav různých **kvóty** a **metriky** ovlivnění aplika
 **Kvóty** naleznete v části Nastavení >**kvóty**. Uživatelského umožňuje zkontrolovat: (1) název kvóty, (2) jeho interval resetování, (3) jeho aktuální limit a (4) aktuální hodnotu.
 
 ![][metrics]
-**Metriky** může být přístup přímo ze stránky prostředky. Můžete také upravit graf podle: (1) **klikněte na tlačítko** na a vyberte (2) **upravit graf**.
+**Metriky** lze přistupovat přímo z stránce prostředků. Můžete také upravit graf podle: (1) **klikněte na tlačítko** na a vyberte (2) **upravit graf**.
 Odsud můžete změnit (3) **čas rozsah**, (4) **typ grafu**a (5) **metriky** k zobrazení.  
 
 Další informace o metrikách zde: [monitorovat metriky služby](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

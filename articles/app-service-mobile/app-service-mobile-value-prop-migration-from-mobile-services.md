@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"></a>Používám Mobile Services, jak mi pomůže App Service?
 ## <a name="overview"></a>Přehled
@@ -28,7 +28,7 @@ Vaše stávající služba Mobile Service je v bezpečí a bude i nadále podpor
 * Nové hostitelské funkce včetně webových úloh, vlastní záznamy CNAME, lepší monitorování
 * Integrace se službou Traffic Manager
 * Možnosti připojení k místním prostředkům a sítím VPN pomocí virtuální sítě a Hybrid Connections
-* Monitorování, výstrahy a řešení potíží pro aplikace pomocí nástrojů NewRelic a AppInsights
+* Monitorování, výstrahy a řešení potíží pro aplikace pomocí Application Insights
 * Širší spektrum využívaných výpočetních prostředků a cenových úrovní
 * Integrované automatické škálování, vyrovnávání zatížení a monitorování výkonu
 * Integrované funkce pro fázování, zálohování, vrácení zpět a testování za provozu
@@ -54,7 +54,7 @@ Služba *Azure App Service* nabízí širší a bohatší podporu platforem ASP.
 S Mobile Services běžely všechny instance back-end kódu na malých virtuálních počítačích. Služba *Azure App Services* umožňuje vybrat velikost virtuálního počítače z mnohem širší nabídky. Kromě toho je možné podle různých metrik výkonu rychle změnit škálování (vertikálně nebo horizontálně navýšit kapacitu), abyste zvládali zátěž vyplývající z příchozích zákaznických požadavků.
 
 ## <a name="be-in-the-know"></a>Neustálý přehled
-Na problémy dokážete reagovat v reálném čase díky monitorování a výstrahám, které vám a vašemu týmu automaticky odešlou oznámení. Integrací pokročilých funkcí analýzy a monitorování aplikací z New Relic a AppInsights získáte přehled o výkonu vaší mobilní aplikace. S *Azure App Service* nyní můžete nastavit upozornění na základě různých metrik výkonu, a to buď prostřednictvím kódu programu, nebo přes web Azure Portal.
+Na problémy dokážete reagovat v reálném čase díky monitorování a výstrahám, které vám a vašemu týmu automaticky odešlou oznámení. Integrací pokročilých funkcí analýzy a monitorování aplikací z Application Insights získáte přehled o výkonu vaší mobilní aplikace. S *Azure App Service* nyní můžete nastavit upozornění na základě různých metrik výkonu, a to buď prostřednictvím kódu programu, nebo přes web Azure Portal.
 
 ## <a name="keep-your-assets-safe"></a>Zabezpečení prostředků
 Back-end a databáze je možné automaticky zálohovat. Kód a data jsou zabezpečeny proti havárii a lze je snadno obnovit. Díky tomu můžete řídit svou firmu s jistotou.

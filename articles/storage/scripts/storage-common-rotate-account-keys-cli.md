@@ -1,6 +1,6 @@
 ---
-title: "Ukázka skriptu Azure CLI - přístupových klíčů k účtu úložiště otáčení | Microsoft Docs"
-description: "Vytvoření účtu úložiště Azure potom načíst a otočit jeho přístupových klíčů k účtu."
+title: "Ukázkový skript Azure CLI – Obměna přístupových klíčů účtu úložiště | Microsoft Docs"
+description: "Vytvoříte účet služby Azure Storage a pak načtete a obměníte přístupové klíče tohoto účtu."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Vytvoření účtu úložiště a otočit jeho přístupových klíčů k účtu
+# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Vytvoření účtu úložiště a obměna přístupových klíčů tohoto účtu
 
-Tento skript vytvoří účet úložiště Azure, zobrazí nový účet úložiště přístupové klávesy a potom obnovuje (otočí) klíče.
+Tento skript vytvoří účet služby Azure Storage, zobrazí přístupové klíče tohoto nového účtu úložiště a pak klíče obnoví (obmění).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,7 +35,7 @@ Tento skript vytvoří účet úložiště Azure, zobrazí nový účet úloži�
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení 
 
-Spusťte následující příkaz pro odebrání skupiny prostředků, účet úložiště a všechny související prostředky.
+Spuštěním následujícího příkazu odeberte skupinu prostředků, účet úložiště a všechny související prostředky.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -43,17 +43,17 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy k vytvoření účtu úložiště a načtení a otočit jeho přístupové klíče. Každou položku v tabulce odkazy na dokumentaci specifické pro příkaz.
+Tento skript k vytvoření účtu úložiště a načtení a obměně jeho přístupových klíčů používá následující příkazy. Každá položka v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvořit účet úložiště az](/cli/azure/storage/account#create) | Vytvoří účet úložiště Azure v zadaná skupina prostředků. |
-| [seznam klíčů účtu úložiště az](/cli/azure/storage/account/keys#list) | Zobrazí přístupové klíče účtu úložiště pro zadaný účet. |
-| [obnovit klíče účtu úložiště az](/cli/azure/storage/account/keys#renew) | Znovu generuje přístupový klíč účtu úložiště primární nebo sekundární. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet služby Azure Storage v zadané skupině prostředků. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Zobrazí přístupové klíče účtu úložiště pro zadaný účet. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Znovu vygeneruje primární nebo sekundární přístupový klíč účtu úložiště. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](/cli/azure/overview).
 
-Ukázky skriptu rozhraní příkazového řádku další úložiště najdete v [ukázky rozhraní příkazového řádku Azure pro úložiště objektů Azure Blob](../blobs/storage-samples-blobs-cli.md).
+Další ukázkové skripty rozhraní příkazového řádku pro úložiště najdete v tématu [Ukázky v Azure CLI pro úložiště objektů blob v Azure](../blobs/storage-samples-blobs-cli.md).

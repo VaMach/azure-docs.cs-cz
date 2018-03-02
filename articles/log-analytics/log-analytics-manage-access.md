@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Správa pracovních prostorů
 
@@ -34,7 +34,7 @@ K vytvoření pracovního prostoru budete muset:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Určení potřebného počtu pracovních prostorů
 Pracovní prostor je prostředek Azure v podobě kontejneru, ve kterém se data shromažďují, agregují, analyzují a zobrazují na webu Azure Portal.
 
-V rámci jednoho předplatného Azure můžete mít více pracovních prostorů a přístup k více než jednomu pracovnímu prostoru. Minimalizace počtu pracovních prostorů umožňuje dotazování a korelaci většiny dat, protože není možné dotazování napříč několika pracovními prostory. Tato část popisuje případy, kdy je užitečné mít víc než jeden pracovní prostor.
+V rámci jednoho předplatného Azure můžete mít více pracovních prostorů a přístup k více než jednomu pracovnímu prostoru. Dříve jste mohli analyzovat data pouze z aktuálního pracovního prostoru a to omezovalo možnost dotazování napříč několika pracovními prostory definovanými v rámci vašeho předplatného. Teď můžete provádět [dotazování napříč několika pracovními prostory](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) a získat tak zobrazení svých dat v rámci celého systému. Tato část popisuje případy, kdy je užitečné mít víc než jeden pracovní prostor.
 
 V současné době pracovní prostor nabízí:
 
@@ -62,10 +62,10 @@ Podrobnosti o pracovním prostoru můžete zobrazit na webu Azure Portal.
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Zobrazení informací o pracovním prostoru na webu Azure Portal
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Klikněte na **Další služby** v levém dolním rohu webu Azure Portal.  V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na **Log Analytics**.  
-    ![Centrum Azure](./media/log-analytics-manage-access/hub.png)  
-3. V okně Předplatná Log Analytics vyberte pracovní prostor.
-4. V okně pracovního prostoru se zobrazí podrobnosti o pracovním prostoru a odkazy na další informace.  
+2. Klikněte na **Všechny služby**.  V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na **Log Analytics**.  
+    ![Snímek obrazovky s levou nabídkou Azure](./media/log-analytics-manage-access/hub.png)  
+3. Na stránce Předplatná Log Analytics vyberte pracovní prostor.
+4. Na stránce pracovního prostoru se zobrazí podrobnosti o pracovním prostoru a odkazy na další informace.  
     ![Podrobnosti o pracovním prostoru](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -81,7 +81,7 @@ Existují dva modely oprávnění, které řídí přístup k pracovnímu prosto
 
 Následující tabulka shrnuje možná nastavení přístupu pomocí jednotlivých modelů oprávnění:
 
-|                          | Portál Log Analytics | portál Azure | Rozhraní API (včetně PowerShellu) |
+|                          | Portál Log Analytics | Azure Portal | Rozhraní API (včetně PowerShellu) |
 |--------------------------|----------------------|--------------|----------------------------|
 | Uživatelské role Log Analytics | Ano                  | Ne           | Ne                         |
 | Přístup na základě rolí Azure  | Ano                  | Ano          | Ano                        |
@@ -207,7 +207,7 @@ Pomocí následujícího postupu přidáte k pracovnímu prostoru uživatele neb
      >
      >
 4. Vyberte typ uživatele nebo skupiny pro přidání: **Správce**, **Přispěvatel** nebo **Jen pro čtení**.  
-5. Klikněte na tlačítko **Přidat**.
+5. Klikněte na tlačítko **Add** (Přidat).
 
    Pokud přidáváte účet Microsoft, bude pozvánka k připojení k danému pracovnímu prostoru odeslána na zadaný e-mail. Až uživatel provede postup připojení k OMS popsaný v e-mailové pozvánce, bude mít přístup k tomuto pracovnímu prostoru.
    Pokud přidáváte účet organizace, uživatel bude mít přístup ke službě Log Analysis okamžitě.  
@@ -259,7 +259,7 @@ Všechny pracovní prostory vytvořené po 26. září 2016 musí být propojen�
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Propojení pracovního prostoru s předplatným Azure na webu Azure Portal
 1. Přihlaste se k webu [Azure Portal](http://portal.azure.com).
 2. Přejděte na **Log Analytics** a vyberte tuto možnost.
-3. Uvidíte svůj seznam existujících pracovních prostorů. Klikněte na tlačítko **Přidat**.  
+3. Uvidíte svůj seznam existujících pracovních prostorů. Klikněte na tlačítko **Add** (Přidat).  
    ![seznam pracovních prostorů](./media/log-analytics-manage-access/manage-access-link-azure01.png)
 4. V oddílu **OMS Workspace** klikněte na možnost **Or link existing** (Nebo propojit existující).  
    ![propojení existujícího](./media/log-analytics-manage-access/manage-access-link-azure02.png)
@@ -273,7 +273,7 @@ Všechny pracovní prostory vytvořené po 26. září 2016 musí být propojen�
    * Umístění
    * Cenová úroveň  
      ![Změna hodnot](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8. Klikněte na tlačítko **OK**. Pracovní prostor je teď propojený s vaším účtem Azure.
+8. Klikněte na **OK**. Pracovní prostor je teď propojený s vaším účtem Azure.
 
 > [!NOTE]
 > Pokud nevidíte pracovní prostor, s kterým chcete účet propojit, znamená to, že vaše předplatné Azure nemá přístup k pracovnímu prostoru, který jste vytvořili na portálu OMS.  Informace o udělení přístupu k tomuto účtu z portálu OMS najdete v části [Přidání uživatele do existujícího pracovního prostoru](#add-a-user-to-an-existing-workspace).

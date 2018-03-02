@@ -16,16 +16,16 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Všechna témata týkající se služby Azure SQL Data Warehouse
 Toto téma obsahuje seznam každých téma, které se týkají přímo **SQL Data Warehouse** služby Azure. Tato webová stránka pro klíčová slova můžete hledat pomocí **Ctrl + F**, vyhledat témata týkající se aktuální.
 
-## <a name="new"></a>Nový
-| &nbsp; | Název | Popis |
+## <a name="new"></a>Nová
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 1 |[Zálohování SQL Data Warehouse](sql-data-warehouse-backups.md) |Další informace o zálohování integrovanou databází SQL Data Warehouse, které vám umožní obnovit do bodu obnovení nebo jiné zeměpisné oblasti Azure SQL Data Warehouse. |
 
@@ -34,11 +34,11 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 
 | &nbsp; | Článek | Aktualizovaný text, fragment kódu | Při aktualizaci |
 | ---:|:--- |:--- |:--- |
-| 2 |[Načtení dat z Azure blob storage do SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/-Ke sledování souborů a bajtů vyberte r.command, s.request_id, r.status, počet (odlišné input_name) jako nbr_files, sum (s.bytes_processed) / 1024/1024 jako gb_processed z sys.dm_pdw_exec_requests r vnitřní spojení sys.dm_pdw_dms_external_work s na r.request_id = s.request_id WHERE r. Popisek = ' funkce CTAS: cso zatížení. DimProduct ' OR r. Popisek = ' funkce CTAS: cso zatížení. 'FactOnlineSales GROUP BY r.command, s.request_id, r.status Order nbr_files desc, gb_processed desc; |2016-09-07 |
+| 2 |[Načtení dat z Azure blob storage do SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/-Ke sledování souborů a bajtů vyberte r.command, s.request_id, r.status, počet (odlišné input_name) jako nbr_files, sum (s.bytes_processed) / 1024/1024 jako gb_processed z sys.dm_pdw_exec_requests r vnitřní spojení sys.dm_pdw_dms_external_work s na r.request_id = s.request_id WHERE r. Popisek = ' funkce CTAS: cso zatížení. DimProduct ' OR r. Popisek = ' funkce CTAS: cso zatížení. FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc; |2016-09-07 |
 | 3 |[Obnovení SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** Lze obnovit pozastavenou datového skladu? ** obnovení datového skladu, který je pozastaven, je třeba nejprve převeďte ho zpátky do online režimu. Až datový sklad je zpět do režimu online, budete mít body obnovení pro výběr ze sedmi dnech. ** Obnovit do geograficky redundantní oblast ** Pokud používáte geograficky redundantní úložiště, můžete obnovit datového skladu v jiné zeměpisné oblasti spárované datové centrum. Datový sklad je obnoven ze poslední denní zálohování. ** Obnovte časová osa ** obnovení databáze do libovolného bodu obnovení v posledních sedmi dnů. Snímky spuštění každých čtyř do osmi hodin a jsou k dispozici sedm dní. Pokud snímek je starší než 7 dní, vypršení jeho platnosti a jeho bod obnovení již není k dispozici. ** Obnovte náklady **, které poplatků úložiště pro obnovená data warehouse se fakturuje rychlostí Azure Premium Storage. Pokud pozastavíte obnovené datového skladu, budou se vám účtovat pro úložiště rychlostí Azure Premium Storage. Výhodou pozastavení je, že nejste zdarma |2016-09-29 |
 
 ## <a name="get-started"></a>Začínáme
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 4 |[Ověřování do Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) |Azure Active Directory (AAD) a SQL Server ověřování pro Azure SQL Data Warehouse. |
 | 5 |[Osvědčené postupy pro službu Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) |Doporučení a osvědčené postupy, které byste měli znát, když budete vyvíjet řešení pro službu Azure SQL Data Warehouse. Pomohou vám stát se úspěšnými. |
@@ -56,7 +56,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 17 |[Dotazování Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Dotazování SQL Data Warehouse pomocí sady Visual Studio. |
 
 ## <a name="develop"></a>Vývoj
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 18 |[Optimalizace transakcí pro SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md) |Příručky nejlepších praktik o zápisu efektivní transakce aktualizace v Azure SQL Data Warehouse |
 | 19 |[Souběžnost a úlohy správy v SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md) |Porozumět souběžnosti a úlohy správy v Azure SQL Data Warehouse pro vývoj řešení. |
@@ -73,7 +73,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 30 |[Rozhodnutí o návrhu a kódování techniky pro SQL Data Warehouse](sql-data-warehouse-overview-develop.md) |Vývoj koncepty, rozhodnutí o návrhu, doporučení a kódování techniky pro SQL Data Warehouse. |
 
 ## <a name="manage"></a>Spravovat
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 31 |[Spravovat výpočetní výkon v Azure SQL Data Warehouse (přehled)](sql-data-warehouse-manage-compute-overview.md) |Výkon škálování možnosti v Azure SQL Data Warehouse. Horizontální navýšení kapacity úpravou Dwu nebo pozastavení a obnovení výpočetní prostředky, abyste ušetřili náklady. |
 | 32 |[Spravovat výpočetní výkon v Azure SQL Data Warehouse (portál Azure)](sql-data-warehouse-manage-compute-portal.md) |Azure úkoly portálu pro správu výpočetního výkonu. Škálovat výpočetní prostředky úpravou Dwu. Nebo, pozastavení a obnovení výpočetní prostředky, abyste ušetřili náklady. |
@@ -89,7 +89,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 42 |[Obnovit Azure SQL Data Warehouse (REST API)](sql-data-warehouse-restore-database-rest-api.md) |Úlohy REST API pro obnovení Azure SQL Data Warehouse. |
 
 ## <a name="tables-and-indexes"></a>Tabulky a indexy
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 43 |[Datové typy pro tabulky v SQL Data Warehouse](sql-data-warehouse-tables-data-types.md) |Začínáme s datovými typy pro tabulky Azure SQL Data Warehouse. |
 | 44 |[Distribuce tabulek v SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) |Začínáme s distribuci tabulek v Azure SQL Data Warehouse. |
@@ -100,7 +100,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 49 |[Dočasné tabulky v SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Začínáme s dočasných tabulek v Azure SQL Data Warehouse. |
 
 ## <a name="integrate"></a>Integrace
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 50 |[Použít pro vytváření dat Azure s datovým skladem SQL](sql-data-warehouse-integrate-azure-data-factory.md) |Tipy pro používání Azure Data Factory (ADF) s datovým skladem SQL Azure pro vývoj řešení. |
 | 51 |[SQL Data Warehouse pomocí Azure Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md) |Kurz pro používání Azure Machine Learning s Azure SQL Data Warehousem pro vývoj řešení. |
@@ -109,7 +109,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 54 |[Využít dalším službám pomocí SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Nástroje a partnery, se řešení, které se integrují se službou SQL Data Warehouse. |
 
 ## <a name="load"></a>Načtení
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 55 |[Načtení dat z Azure blob storage do Azure SQL Data Warehouse (Azure Data Factory)](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md) |Naučte se načítat data pomocí Azure Data Factory. |
 | 56 |[Načtení dat z Azure blob storage do SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |Naučte se používat k načtení dat z Azure blob storage do SQL Data Warehouse PolyBase. Načtení několik tabulek z veřejná data do schématu Contoso prodejní datového skladu. |
@@ -123,7 +123,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 64 |[Načtení dat do Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md) |Další běžné scénáře pro data načítání do SQL Data Warehouse. Patří sem pomocí PolyBase, úložiště objektů blob v Azure, plochých souborů a přesouvání disku. Můžete také použít nástroje třetích stran. |
 
 ## <a name="migrate"></a>Migrace
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 65 |[Migrace do SQL Data Warehouse kódu SQL](sql-data-warehouse-migrate-code.md) |Tipy k migraci kódu SQL Azure SQL Data Warehouse na vývoj řešení. |
 | 66 |[Migrace dat](sql-data-warehouse-migrate-data.md) |Tipy pro migraci dat do Azure SQL Data Warehouse na vývoj řešení. |
@@ -132,14 +132,14 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 69 |[Migrace řešení do SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Migrace pokyny k uvedení řešení pro platformu Azure SQL Data Warehouse. |
 
 ## <a name="partners"></a>Partneři
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 70 |[SQL Data Warehouse business intelligence partnery](sql-data-warehouse-partner-business-intelligence.md) |Seznamy partnerů třetích stran business intelligence s řešení, které podporují SQL Data Warehouse. |
 | 71 |[Partneři integraci dat SQL Data Warehouse](sql-data-warehouse-partner-data-integration.md) |Seznam partnerů třetích stran s řešeními integraci dat, které podporují Azure SQL Data Warehouse. |
 | 72 |[Partneři správy dat SQL Data Warehouse](sql-data-warehouse-partner-data-management.md) |Seznamy z partnerských serverů pro správu dat třetích stran s řešení, které podporují SQL Data Warehouse. |
 
 ## <a name="reference"></a>Referenční informace
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 73 |[Témata odkazů pro SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Referenční obsahu odkazy pro SQL Data Warehouse. |
 | 74 |[Rutiny prostředí PowerShell a rozhraní REST API pro SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md) |Najít nejvyšší rutin prostředí PowerShell pro Azure SQL Data Warehouse, včetně toho, jak pozastavení a obnovení databáze. |
@@ -148,7 +148,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 77 |[Systémová zobrazení](sql-data-warehouse-reference-tsql-system-views.md) |Odkazy na systémové zobrazení obsahu pro SQL Data Warehouse. |
 
 ## <a name="security"></a>Zabezpečení
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 78 |[SQL Data Warehouse – podpora klientů nižší úrovně pro auditování a dynamické maskování dat](sql-data-warehouse-auditing-downlevel-clients.md) |Další informace o podpoře klientů nižší úrovně SQL Data Warehouse pro auditování dat |
 | 79 |[Auditování v Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) |Začínáme s auditování v Azure SQL Data Warehouse |
@@ -157,7 +157,7 @@ Tato část obsahuje články, které byly aktualizovány nedávno, kde aktualiz
 | 82 |[Zabezpečení databáze v SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) |Tipy pro zabezpečení databáze v Azure SQL Data Warehouse na vývoj řešení. |
 
 ## <a name="miscellaneous"></a>Různé
-| &nbsp; | Název | Popis |
+| &nbsp; | Nadpis | Popis |
 | ---:|:--- |:--- |
 | 83 |[Instalace sady Visual Studio a SSDT pro SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Instalace sady Visual Studio a SQL Server Development Tools (SSDT) pro Azure SQL Data Warehouse |
 | 84 |[Migrace na podrobnosti o úložiště Premium](sql-data-warehouse-migrate-to-premium-storage.md) |Pokyny k migraci existující datový sklad SQL do úložiště úrovně premium |

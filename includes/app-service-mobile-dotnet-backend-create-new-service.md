@@ -1,6 +1,6 @@
-1. Přihlaste se k webu [Azure Portal].
+1. Přihlaste se k [portálu Azure].
 
-2. Klikněte na možnost **Nové**.
+2. Klikněte na **Vytvořit prostředek**.
 
 3. Do vyhledávacího pole zadejte **Mobile Apps**.
 
@@ -16,4 +16,4 @@
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[portálu Azure]: https://portal.azure.com/

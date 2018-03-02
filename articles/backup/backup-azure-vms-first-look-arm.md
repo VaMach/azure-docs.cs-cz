@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Zálohování virtuálních počítačů Azure do trezorů služby Recovery Services
 
@@ -50,9 +50,9 @@ V závislosti na počtu virtuálních počítačů, které chcete ochránit, mů
 Následující kroky použijte ke konfiguraci úlohy zálohování z okna správy virtuálního počítače na webu Azure Portal. Následující postup se vztahuje jenom na virtuální počítače na webu Azure Portal.
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
-2. V nabídce centra klikněte na **Další služby** a v dialogovém okně Filtr zadejte **Virtuální počítače**. Při psaní se seznam prostředků bude filtrovat. Až uvidíte položku Virtuální počítače, vyberte ji.
+2. V nabídce centra klikněte na **Všechny služby** a v dialogovém okně Filtr zadejte **Virtuální počítače**. Při psaní se seznam prostředků bude filtrovat. Až uvidíte položku Virtuální počítače, vyberte ji.
 
-  ![V nabídce centra kliknutím na Další služby otevřete dialogové okno textu a zadejte Virtuální počítače](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Snímek obrazovky ukazující přechod k virtuálním počítačům z části Všechny služby](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   Zobrazí se seznam virtuálních počítačů v rámci předplatného.
 
@@ -131,7 +131,7 @@ Trezor záloh Služeb zotavení je entita, která ukládá všechny vytvořené 
 Chcete-li vytvořit trezor Služeb zotavení:
 
 1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com/) pomocí svého předplatného Azure.
-2. V nabídce centra klikněte na **Další služby** a v dialogovém okně Filtr zadejte **Recovery Services**. Při psaní se seznam prostředků bude filtrovat. Až v seznamu uvidíte položku Trezory služby Recovery Services, klikněte na ni.
+2. V nabídce centra klikněte na **Všechny služby** a v dialogovém okně Filtr zadejte **Recovery Services**. Při psaní se seznam prostředků bude filtrovat. Až v seznamu uvidíte položku Trezory služby Recovery Services, klikněte na ni.
 
     ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Chcete-li upravit nastavení replikace úložiště:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Výběr cíle zálohování, nastavení zásad a určení položek k ochraně
 Před registrací virtuálních počítačů k trezoru spusťte proces vyhledávání, abyste se ujistili, že byly identifikované všechny nové virtuální počítače přidané k předplatnému. Proces se dotáže Azure na seznam virtuálních počítačů v rámci předplatného společně s dalšími informacemi, jako například název cloudové služby a oblast. Na webu Azure Portal výraz scénář vyjadřuje, co chcete vložit do trezoru Recovery Services. Zásada je plán, jak často a kdy jsou pořizovány body obnovení. Zásada také obsahuje rozsah uchování bodů obnovení.
 
-1. Pokud již máte otevřený trezor Recovery Services, pokračujte ke kroku 2. Jinak v nabídce centra klikněte na **Další služby**, v seznamu prostředků zadejte **Recovery Services** a klikněte na **Trezory služby Recovery Services**.
+1. Pokud již máte otevřený trezor Recovery Services, pokračujte ke kroku 2. Jinak klikněte na **Všechny služby**. Zadejte **Recovery Services** a klikněte na **Trezory služby Recovery Services**.
 
     ![Vytvoření trezoru Recovery Services – krok 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

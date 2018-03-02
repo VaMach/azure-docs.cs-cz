@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analýza využití dat v Log Analytics
 Log Analytics obsahuje informace o objemu shromážděných dat, systémech odesílajících data a různých typech odesílaných dat.  Pomocí řídicího panelu **Využití Log Analytics** můžete zobrazit objem dat odesílaných do služby Log Analytics. Řídicí panel ukazuje, kolik dat shromažďují jednotlivá řešení a kolik dat odesílají vaše počítače.
@@ -44,13 +44,17 @@ Log Analytics obsahuje informace o objemu shromážděných dat, systémech odes
 ![řídicí panel využití](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Práce s daty o využití
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.<br><br> ![portál Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. V seznamu pracovních prostorů Log Analytics vyberte pracovní prostor.
-4. Ze seznamu v levém podokně vyberte **Využití Log Analytics**.
-5. Na řídicím panelu **Využití Log Analytics** klikněte na **Čas: Posledních 24 hodin** a změňte časový interval.<br><br> ![časový interval](./media/log-analytics-usage/time.png)<br><br>
-6. Zobrazte okna kategorií využití s oblastmi, které vás zajímají. Vyberte okno a pak v něm klikněte na některou položku, abyste zobrazili další podrobnosti v [Prohledávání protokolů](log-analytics-log-searches.md).<br><br> ![příklad okna využití dat](./media/log-analytics-usage/blade.png)<br><br>
-7. Na řídicím panelu Prohledávání protokolů zkontrolujte vrácené výsledky hledání.<br><br> ![příklad prohledávání protokolů využití](./media/log-analytics-usage/usage-log-search.png)
+1. Pokud jste to ještě neudělali, přihlaste se na webu [Azure Portal](https://portal.azure.com) pomocí svého předplatného Azure.
+2. Klikněte na **Všechny služby** a v seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na **Log Analytics**.  
+    ![Centrum Azure](./media/log-analytics-usage/hub.png)
+3. Na řídicím panelu **Log Analytics** se zobrazí seznam vašich pracovních prostorů. Vyberte pracovní prostor.
+4. Na řídicím panelu *pracovního prostoru* klikněte na **Využití Log Analytics**.
+5. Na řídicím panelu **Využití Log Analytics** klikněte na **Čas: Posledních 24 hodin** a změňte časový interval.  
+    ![časový interval](./media/log-analytics-usage/time.png)
+6. Zobrazte okna kategorií využití s oblastmi, které vás zajímají. Vyberte okno a pak v něm klikněte na některou položku, abyste zobrazili další podrobnosti v [Prohledávání protokolů](log-analytics-log-searches.md).  
+    ![příklad okna využití dat](./media/log-analytics-usage/blade.png)
+7. Na řídicím panelu Prohledávání protokolů zkontrolujte vrácené výsledky hledání.  
+    ![příklad prohledávání protokolů využití](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Vytvoření upozornění při větším než očekávaném shromažďování dat
 Tato část popisuje postup vytvoření upozornění v těchto případech:

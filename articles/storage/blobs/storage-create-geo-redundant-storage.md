@@ -2,23 +2,19 @@
 title: "Zajištění vysoké dostupnosti dat aplikací v Azure | Microsoft Docs"
 description: "Zajištění vysoké dostupnosti dat aplikací pomocí geograficky redundantního úložiště jen pro čtení"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Zajištění vysoké dostupnosti dat aplikací pomocí úložiště Azure
 
@@ -27,8 +23,8 @@ Tento kurz je první částí série, která ukazuje, jak zajistit vysokou dostu
 V první části této série se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořit účet úložiště
-> * Stáhnout ukázku
+> * vytvořit účet úložiště
+> * Stažení ukázky
 > * Nastavit připojovací řetězec
 > * Spustit konzolovou aplikaci
 
@@ -46,7 +42,7 @@ Pro absolvování tohoto kurzu potřebujete:
  
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
-* Nainstalovat [Python](https://www.python.org/downloads/)
+* Nainstalovat [Python](https://www.python.org/downloads/).
 * Stáhnout a nainstalovat [sadu SDK služby Azure Storage pro Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
 * (Volitelné) Stáhnout a nainstalovat [Fiddler](https://www.telerik.com/download/fiddler)
 
@@ -58,13 +54,13 @@ Pro absolvování tohoto kurzu potřebujete:
 
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Vytvoření účtu úložiště
+## <a name="create-a-storage-account"></a>vytvořit účet úložiště
 
 Účet služby Storage poskytuje jedinečný obor názvů pro ukládání datových objektů Azure Storage a přístup k nim.
 
 Podle těchto kroků můžete vytvořit účet geograficky redundantního úložiště jen pro čtení:
 
-1. Vyberte tlačítko **Nový** v levém horním rohu portálu Azure Portal.
+1. Vyberte tlačítko **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
 2. Na stránce **Nový** vyberte **Storage** a v části **Doporučené** vyberte **Účet úložiště – objekt blob, soubor, tabulka, fronta**.
 3. Vyplňte formulář účtu úložiště následujícími informacemi, jak ukazuje následující obrázek, a vyberte **Vytvořit**:
@@ -77,7 +73,7 @@ Podle těchto kroků můžete vytvořit účet geograficky redundantního úlož
    | **Výkon** | Standard | Pro ukázkový scénář stačí Standard. |
    | **Replikace**| Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS) | To je nezbytné, aby ukázka fungovala. |
    |**Vyžádání bezpečného přenosu** | Zakázáno| Zabezpečený přenos se pro tento scénář nevyžaduje. |
-   |**Předplatné** | Vaše předplatné |Podrobnosti o svých předplatných najdete v tématu [Předplatná](https://account.windowsazure.com/Subscriptions). |
+   |**Předplatné** | Vaše předplatné |Podrobnosti o vašich předplatných najdete v tématu [Předplatná](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Platné názvy skupin prostředků najdete v tématu [Pravidla a omezení pojmenování](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Umístění** | Východ USA | Zvolte umístění. |
 
@@ -245,8 +241,8 @@ def response_callback(response):
 V první části série jste se dozvěděli o tom, jak zajistit vysokou dostupnost aplikace pomocí účtů geograficky redundantního úložiště jen pro čtení, například jak:
 
 > [!div class="checklist"]
-> * Vytvořit účet úložiště
-> * Stáhnout ukázku
+> * vytvořit účet úložiště
+> * Stažení ukázky
 > * Nastavit připojovací řetězec
 > * Spustit konzolovou aplikaci
 

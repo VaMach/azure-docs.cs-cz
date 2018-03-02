@@ -2,7 +2,7 @@
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. Vyberte **Nový** > **Web a mobilní zařízení** > **Centrum oznámení**.
+2. Vyberte **Vytvořit prostředek** > **Web a mobilní zařízení** > **Centrum oznámení**.
    
       ![Azure Portal – vytvoření centra oznámení](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

@@ -1,43 +1,41 @@
 ---
-title: "Stáhnout velkých objemů náhodná data ze služby Azure Storage | Microsoft Docs"
-description: "Naučte se používat sadu Azure SDK můžete stáhnout velkých objemů náhodná data z účtu Azure Storage"
+title: "Stahování velkých objemů náhodných dat ze služby Azure Storage | Microsoft Docs"
+description: "Zjistěte, jak pomocí sady Azure SDK stahovat velké objemy náhodných dat z účtu služby Azure Storage."
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Stáhnout velkých objemů náhodná data z úložiště Azure
+# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Stahování velkých objemů náhodných dat z úložiště Azure
 
-V tomto kurzu je součástí série, tři. Tento kurz ukazuje, jak stáhnout velkých objemů dat z úložiště Azure.
+Tento kurz je třetí částí série. V tomto kurzu se dozvíte, jak stahovat velké objemy dat z úložiště Azure.
 
-V rámci tři řady, zjistíte, jak:
+Ve třetí části této série se naučíte:
 
 > [!div class="checklist"]
 > * Aktualizace aplikace
 > * Spuštění aplikace
-> * Ověření počet připojení
+> * Ověření počtu připojení
 
 ## <a name="prerequisites"></a>Požadavky
 
-K dokončení tohoto kurzu, je nutné provést předchozí kurzu úložiště: [nahrát velkých objemů náhodná data souběžně do úložiště Azure][previous-tutorial].
+K dokončení tohoto kurzu je nutné dokončit předchozí kurz o službě Storage: [Paralelní nahrávání velkých objemů náhodných dat do úložiště Azure][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Vzdálené do virtuálního počítače
+## <a name="remote-into-your-virtual-machine"></a>Vzdálené připojení k virtuálnímu počítači
 
- Chcete-li vytvořit relaci vzdálené plochy s virtuálním počítačem, použijte následující příkaz na místním počítači. Nahraďte IP adresu publicIPAddress virtuálního počítače. Po zobrazení výzvy zadejte přihlašovací údaje, které jste použili při vytváření virtuálního počítače.
+ Pokud chcete s virtuálním počítačem vytvořit relaci vzdálené plochy, použijte na svém místním počítači následující příkaz. IP adresu nahraďte veřejnou IP adresou vašeho virtuálního počítače. Po zobrazení výzvy zadejte přihlašovací údaje, které jste použili při vytváření virtuálního počítače.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -45,7 +43,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>Aktualizace aplikace
 
-V tomto kurzu předchozí pouze nahrát soubory k účtu úložiště. Otevřete `D:\git\storage-dotnet-perf-scale-app\Program.cs` v textovém editoru. Nahraďte `Main` metoda pomocí následující ukázky. Tento příklad komentáře mimo úlohu odeslání a uncomments stahování úloh a odstraní se obsah v účtu úložiště po dokončení úlohy.
+V předchozím kurzu jste do účtu úložiště pouze nahrávali soubory. V textovém editoru otevřete soubor `D:\git\storage-dotnet-perf-scale-app\Program.cs`. Nahraďte metodu `Main` následující ukázkou. Tento příklad okomentuje úlohu nahrávání a odkomentuje úlohu stahování a úlohu, která po dokončení stahování odstraní příslušný obsah v účtu úložiště.
 
 ```csharp
 public static void Main(string[] args)
@@ -85,7 +83,7 @@ public static void Main(string[] args)
 }
 ```
 
-Po aktualizaci aplikace, budete muset vytvořit aplikaci znovu. Otevřete `Command Prompt` a přejděte do `D:\git\storage-dotnet-perf-scale-app`. Znovu sestavte aplikaci spuštěním `dotnet build` jak je vidět v následujícím příkladu:
+Po aktualizaci aplikace je potřeba ji znovu sestavit. Otevřete `Command Prompt` (příkazový řádek) a přejděte do umístění `D:\git\storage-dotnet-perf-scale-app`. Znovu sestavte aplikaci spuštěním příkazu `dotnet build`, jak je vidět v následujícím příkladu:
 
 ```
 dotnet build
@@ -93,23 +91,23 @@ dotnet build
 
 ## <a name="run-the-application"></a>Spuštění aplikace
 
-Teď, když byla znovu sestavena aplikace je čas ke spuštění aplikace s aktualizovaný kódu. Pokud už otevřený, otevřete `Command Prompt` a přejděte do `D:\git\storage-dotnet-perf-scale-app`.
+Když je teď aplikace znovu sestavená, je čas spustit aplikaci s aktualizovaným kódem. Pokud ještě není otevřený, otevřete `Command Prompt` (příkazový řádek) a přejděte do umístění `D:\git\storage-dotnet-perf-scale-app`.
 
-Typ `dotnet run` ke spuštění aplikace.
+Zadáním příkazu `dotnet run` spusťte aplikaci.
 
 ```
 dotnet run
 ```
 
-Aplikace načte kontejnery v účtu úložiště, zadaný v **storageconnectionstring**. Iteruje v rámci objektů BLOB 10 čas pomocí [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) metoda v kontejnerech a souborů ke stažení je místní počítač pomocí [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) metoda.
-Následující tabulce je zobrazena [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) , jsou definovány pro každý objekt blob během stahování.
+Aplikace načte kontejnery v účtu úložiště zadaném v hodnotě **storageconnectionstring** (připojovací řetězec úložiště). Pomocí metody [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) prochází objekty blob v kontejnerech po 10 najednou a pomocí metody [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) je stahuje do místního počítače.
+Následující tabulka obsahuje možnosti [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet), které se při stahování definují pro každý objekt blob.
 
 |Vlastnost|Hodnota|Popis|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true (pravda)| Tato vlastnost zakáže kontrola obsah odesílaný hodnotu hash MD5. Zakázání ověřování MD5 vytváří rychlejší přenos. Ale nevyžaduje potvrzení platnosti nebo integritu přenosu souborů. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false (nepravda)| Tato vlastnost určuje, pokud je hodnota hash MD5 vypočítat a uložit.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true (pravda)| Tato vlastnost zakazuje kontrolu hodnoty hash MD5 nahrávaného obsahu. Zakázáním ověřování MD5 dosáhnete rychlejšího přenosu. Neprovádí se však potvrzení platnosti ani integrity přenášených souborů. |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false (nepravda)| Tato vlastnost určuje, jestli se počítá a ukládá hodnota hash MD5.   |
 
-`DownloadFilesAsync` Úloh je znázorněno v následujícím příkladu:
+Úloha `DownloadFilesAsync` je znázorněná v následujícím příkladu:
 
 ```csharp
 private static async Task DownloadFilesAsync()
@@ -195,7 +193,7 @@ private static async Task DownloadFilesAsync()
 
 ### <a name="validate-the-connections"></a>Ověření připojení
 
-Během stahování souborů, můžete ověřit počet souběžných připojení k vašemu účtu úložiště. Otevřete `Command Prompt` a typ `netstat -a | find /c "blob:https"`. Tento příkaz zobrazí počet připojení, které jsou aktuálně otevřít pomocí `netstat`. Následující příklad ukazuje podobný výstup na co se zobrazí při spuštění tohoto kurzu sami. Jak je vidět z příkladu přes 280 připojení byly otevřeny při stahování náhodných soubory z účtu úložiště.
+V průběhu stahování souborů můžete ověřit počet souběžných připojení k vašemu účtu úložiště. Otevřete `Command Prompt` (příkazový řádek) a zadejte `netstat -a | find /c "blob:https"`. Tento příkaz zobrazí počet aktuálně otevřených připojení pomocí příkazu `netstat`. Když budete postupovat podle kurzu, zobrazí se podobný výstup jako v následujícím příkladu. Jak je vidět z příkladu, při stahování náhodných souborů z účtu úložiště se otevřelo více než 280 připojení.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -204,17 +202,17 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-V rámci tři řady jste se dozvěděli o stahování velkých objemů náhodná data z účtu úložiště, například jak:
+V třetí části série jste se seznámili se stahováním velkých objemů náhodných dat z účtu úložiště a naučili jste se například:
 
 > [!div class="checklist"]
 > * Spuštění aplikace
-> * Ověření počet připojení
+> * Ověření počtu připojení
 
-Přejděte k části čtyři řady ověření metriky propustnosti a latence na portálu.
+Přejděte ke čtvrté části série, kde na portálu ověříte metriky latence a propustnosti.
 
 > [!div class="nextstepaction"]
-> [Ověřte, propustnosti a latence metriky na portálu](storage-blob-scalable-app-verify-metrics.md)
+> [Ověření metrik latence a propustnosti na portálu](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

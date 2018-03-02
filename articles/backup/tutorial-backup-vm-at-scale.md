@@ -1,29 +1,29 @@
 ---
 title: "Zálohování virtuálních počítačů Azure ve velkém měřítku | Microsoft Docs"
-description: "Současně zálohovat více virtuálních počítačů do Azure"
+description: "Současné zálohování několika virtuálních počítačů do Azure"
 services: backup
-keywords: "zálohování virtuálních počítačů; zálohování virtuálního počítače; zálohování virtuálních počítačů; zálohování virtuálních počítačů; zálohování virtuálních počítačů Azure; zálohování a zotavení po havárii"
+keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
 author: markgalioto
 ms.author: markgal
-ms.date: 09/16/2017
+ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Zálohovat více virtuálních počítačů pomocí portálu Azure
+# <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Zálohování několika virtuálních počítačů pomocí webu Azure Portal
 
-Při zálohování dat v Azure, jsou data uložena v prostředek služby Azure, názvem trezoru služeb zotavení. Je k dispozici z nabídky nastavení služeb nejvíce Azure prostředek trezoru služeb zotavení. Výhodou vytvoření trezoru služeb zotavení, integrované do nabídky nastavení služeb nejvíce Azure lze velmi snadno zálohovat data. Jednotlivě práce každé databáze nebo virtuální počítač ve vašem podniku je však zdlouhavé. Co dělat, když chcete zálohovat data pro všechny virtuální počítače v jednom oddělení nebo na jednom místě? Je snadné zálohovat více virtuálních počítačů vytvořením zásady zálohování a použití zásad na požadovaný virtuální počítače. Tento kurz vysvětluje postup:
+Když zálohujete data v Azure, ukládáte tato data do prostředku Azure označovaného jako trezor služby Recovery Services. Prostředek trezoru služby Recovery Services je dostupný z nabídky Nastavení většiny služeb Azure. Výhodou integrace trezoru služby Recovery Services do nabídky Nastavení většiny služeb Azure je velmi snadné zálohování dat. Práce s každou databází nebo každým virtuálním počítačem ve vašem podniku zvlášť je však zdlouhavá. Co když chcete zálohovat data všech virtuálních počítačů v jednom oddělení nebo na jednom místě? Zálohování několika virtuálních počítačů je snadné. Stačí vytvořit zásadu zálohování a použít ji na požadované virtuální počítače. Tento kurz vysvětluje následující postupy:
 
 > [!div class="checklist"]
 > * Vytvoření trezoru Služeb zotavení
-> * Definování zásad zálohování
-> * Použít zásady zálohování pro ochranu více virtuálních počítačů
-> * Spustit úlohu zálohování na vyžádání pro chráněné virtuální počítače
+> * Definice zásady zálohování
+> * Použití zásady zálohování k ochraně několika virtuálních počítačů
+> * Aktivace úlohy zálohování na vyžádání pro chráněné virtuální počítače
 
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 
@@ -31,83 +31,83 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Vytvoření trezoru Služeb zotavení
 
-Trezor služeb zotavení obsahuje zálohovaná data a zásady zálohování u chráněných virtuálních počítačů. Zálohování virtuálních počítačů je místní proces. Do trezoru služeb zotavení v jiném umístění nelze zálohovat virtuální počítač z jednoho umístění. Ano pro každé umístění Azure, s virtuálními počítači zálohovat, musí existovat alespoň jeden trezor služeb zotavení v tomto umístění.
+Trezor služby Recovery Services obsahuje zálohovaná data a zásadu zálohování, která se používá pro chráněné virtuální počítače. Zálohování virtuálních počítačů je místní proces. Virtuální počítače z jedné oblasti nemůžete zálohovat do trezoru služby Recovery Services v jiné oblasti. Pro každou oblast Azure s virtuálními počítači, které se mají zálohovat, tedy musí existovat alespoň jeden trezor služby Recovery Services.
 
-1. V levé nabídce vyberte **další služby** a v seznamu služeb zadejte *služeb zotavení*. Při psaní se seznam prostředků bude filtrovat. Až uvidíte trezory služeb zotavení v seznamu, vyberte ho a otevřete nabídku trezory služeb zotavení.
+1. V nabídce vlevo vyberte **Všechny služby** a v seznamu služeb zadejte *Recovery Services*. Při psaní se seznam prostředků bude filtrovat. Až se v seznamu zobrazí položka Trezory služby Recovery Services, vyberte ji a otevřete nabídku Trezory služby Recovery Services.
 
-    ![Otevřít nabídku trezoru služeb zotavení](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Otevření nabídky trezoru služby Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 
-2. V **trezory služeb zotavení** nabídky, klikněte na tlačítko **přidat** otevřete nabídku trezoru služeb zotavení.
+2. V nabídce **Trezory služby Recovery Services** kliknutím na **Přidat** otevřete nabídku Trezor služby Recovery Services.
 
-    ![Otevřít trezor nabídky](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
+    ![Otevření nabídky trezoru](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. V služeb zotavení trezoru nabídce 
+3. V nabídce Trezor služby Recovery Services: 
 
-    - Typ *myRecoveryServicesVault* v **název**,
-    - ID se zobrazí v aktuálním předplatném **předplatné**. Pokud máte další odběry, může zvolit jiné předplatné pro nový trezor.
-    - Pro **skupiny prostředků** vyberte **použít existující** a zvolte *myResourceGroup*. Pokud *myResourceGroup* neexistuje, vyberte **vytvořit nový** a typ *myResourceGroup*.
-    - Z **umístění** rozevírací nabídky vyberte *západní Evropa*.
-    - Klikněte na tlačítko **vytvořit** pro vytvoření trezoru služeb zotavení.
+    - Jako **Název** zadejte *myRecoveryServicesVault*.
+    - V části **Předplatné** se zobrazí ID aktuálního předplatného. Pokud máte další předplatná, můžete pro nový trezor zvolit jiné předplatné.
+    - V části **Skupina prostředků** vyberte **Použít existující** a zvolte *myResourceGroup*. Pokud *myResourceGroup* neexistuje, vyberte **Vytvořit novou** a zadejte *myResourceGroup*.
+    - V rozevírací nabídce **Umístění** zvolte *Západní Evropa*.
+    - Kliknutím na **Vytvořit** vytvořte svůj trezor služby Recovery Services.
 
-Trezor služeb zotavení musí být ve stejném umístění jako virtuální počítače, který je chráněn. Pokud máte virtuální počítače v několika oblastech, vytvořte trezor služeb zotavení v každé oblasti. V tomto kurzu vytvoří trezoru služeb zotavení v *západní Evropa* vzhledem k tomu, který je tam, kde *Můjvp* (vytvoření virtuální počítače vytvořené pomocí rychlé spuštění).
+Trezor služby Recovery Services musí být ve stejném umístění jako chráněné virtuální počítače. Pokud máte virtuální počítače v několika oblastech, vytvořte trezor služby Recovery Services v každé z nich. V tomto kurzu se vytvoří trezor služby Recovery Services v oblasti *Západní Evropa*, protože tam se vytvořil virtuální počítač *myVM* (vytvořený pomocí rychlého startu).
 
 Vytvoření trezoru služby Recovery Services může trvat několik minut. Sledujte oznámení o stavu v pravé horní části portálu. Když je trezor vytvořený, zobrazí se v seznamu trezorů Služeb zotavení.
 
-Při vytváření trezoru služeb zotavení, má trezoru ve výchozím nastavení geograficky redundantní úložiště. K zajištění ochrany dat, geograficky redundantní úložiště replikuje data vícekrát rámci dvou oblastí Azure.
+Když vytvoříte trezor služby Recovery Services, ve výchozím nastavení využívá geograficky redundantní úložiště. Geograficky redundantní úložiště za účelem zajištění odolnosti dat několikrát replikuje data mezi dvěma oblastmi Azure.
 
-## <a name="set-backup-policy-to-protect-vms"></a>Nastavte zásady zálohování pro ochranu virtuálních počítačů
+## <a name="set-backup-policy-to-protect-vms"></a>Nastavení zásady zálohování pro ochranu virtuálních počítačů
 
-Po vytvoření trezoru služeb zotavení, dalším krokem je konfigurace úložiště pro typ dat a k nastavení zásad zálohování. Zásady zálohování je plán, jak často a kdy jsou pořizovány body obnovení. Zásada také obsahuje rozsah uchování bodů obnovení. V tomto kurzu Předpokládejme vaší společnosti sportu komplexní s hotelů, stadium a restaurace a koncese a chráníte data na virtuálních počítačích. Následující kroky slouží k vytvoření zásady zálohování pro finanční údaje.
+Po vytvoření trezoru služby Recovery Services je dalším krokem konfigurace trezoru pro příslušný typ dat a nastavení zásady zálohování. Zásada zálohování je plán frekvence a doby pořizování bodů obnovení. Zásada také obsahuje rozsah uchování bodů obnovení. Pro účely tohoto kurzu předpokládejme, že vaším podnikem je sportovní komplex s hotelem, stadionem, restauracemi a koncesemi, a že chráníte data na virtuálních počítačích. Následující kroky slouží k vytvoření zásady zálohování pro finanční data.
 
-1. V seznamu trezorů služeb zotavení vyberte **myRecoveryServicesVault** otevřete svůj řídicí panel.
+1. V seznamu trezorů služby Recovery Services výběrem trezoru **myRecoveryServicesVault** otevřete jeho řídicí panel.
 
-   ![Otevřete nabídku scénář](./media/tutorial-backup-vm-at-scale/open-vault-from-list.png)
+   ![Otevření nabídky Scénář](./media/tutorial-backup-vm-at-scale/open-vault-from-list.png)
 
-2. V nabídce řídícího panelu trezoru, klikněte na tlačítko **zálohování** otevřete nabídku zálohování.
+2. Kliknutím na **Zálohování** v nabídce řídicího panelu trezoru otevřete nabídku Zálohování.
 
-3. V nabídce Cíl zálohování v **kde běží vaše úlohy** rozevírací nabídky vyberte *Azure*. Z **co chcete zálohovat** rozevíracího seznamu, vyberte *virtuálního počítače*a klikněte na tlačítko **zálohování**.
+3. V nabídce Cíl zálohování v rozevírací nabídce **Kde je spuštěná vaše úloha?** zvolte *Azure*. V rozevírací nabídce **Co chcete zálohovat?** zvolte *Virtuální počítač* a klikněte na **Zálohovat**.
 
-    Tyto akce připravte trezor služeb zotavení pro interakci s virtuálním počítačem. Trezory služeb zotavení mít výchozí zásadu, která vytvoří bod obnovení každý den a uchovává body obnovení po dobu 30 dnů.
+    Tyto akce připraví trezor služby Recovery Services na práci s virtuálním počítačem. Trezory služby Recovery Services mají výchozí zásadu, která vytváří body obnovení každý den a uchovává je po dobu 30 dnů.
 
-    ![Otevřete nabídku scénář](./media/tutorial-backup-vm-at-scale/backup-goal.png)
+    ![Otevření nabídky Scénář](./media/tutorial-backup-vm-at-scale/backup-goal.png)
 
-4. Chcete-li vytvořit nové zásady, v nabídce zásady zálohování z **vyberte zásady zálohování** rozevírací nabídky vyberte *vytvořit nový*.
+4. Pokud chcete vytvořit novou zásadu, v nabídce Zásady zálohování v rozevírací nabídce **Výběr zásady zálohování** vyberte *Vytvořit novou*.
 
     ![Výběr úlohy](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. V **zálohování zásad** nabídce pro **název zásady** typ *finanční*. Zadejte zásady zálohování pro následující změny: 
-    - Pro **četnost záloh** nastavit časové pásmo pro *střední čas*. Protože je komplexní sportu Texas, vlastník chce načasování jako místní. Ponechte četnost zálohování nastavit na každý den ve 3:30:00.
-    - Pro **uchování denního bodu zálohy**, nastavení období na 90 dní.
-    - Pro **uchování týdenního bodu zálohy**, použijte *pondělí* bod obnovení a uchovávány 52 týdnů.
-    - Pro **uchování měsíčního bodu zálohy**pomocí bodu od neděle první den v měsíci a ukládat je 36 měsíců.
-    - Zrušte výběr **uchování ročního bodu zálohy** možnost. Vedoucí finanční nechce uchovávat data delší než 36 měsíců.
+5. V nabídce **Zásady zálohování** jako **Název zásady** zadejte *Finance*. Proveďte následující změny zásady zálohování: 
+    - V části **Frekvence zálohování** nastavte časové pásmo na *Střed*. Vzhledem k tomu, že se sportovní komplex nachází v Texasu, vlastník chce používat místní čas. Frekvenci zálohování ponechte nastavenou na Denní v 3:30.
+    - V části **Uchování denního bodu zálohy** nastavte období na 90 dnů.
+    - V části **Uchování týdenního bodu zálohy** použijte bod obnovení z *Pondělí* a nastavte dobu uchování na 52 týdnů.
+    - V části **Uchování měsíčního bodu zálohy** použijte bod obnovení z První neděle v měsíci a nastavte dobu uchování na 36 měsíců.
+    - Zrušte výběr možnosti **Uchování ročního bodu zálohy**. Vedoucí finančního oddělení nechce uchovávat data déle než 36 měsíců.
     - Kliknutím na **OK** vytvořte zásadu zálohování.
 
     ![Výběr úlohy](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
 
-    Po vytvoření zásady zálohování, přidružte zásady s virtuálními počítači.
+    Po vytvoření zásady zálohování tuto zásadu přidružte k virtuálním počítačům.
 
-6. V **vybrat virtuální počítače** dialogovém okně vyberte *Můjvp* a klikněte na tlačítko **OK** k nasazení zásady zálohování virtuálních počítačů. 
+6. V dialogovém okně **Výběr virtuálních počítačů** vyberte *myVM* a kliknutím na **OK** nasaďte zásadu zálohování do virtuálních počítačů. 
 
-    Zobrazí všechny virtuální počítače, které jsou ve stejném umístění a ještě nejsou přidružené k zásadě zálohování. *myVMH1* a *myVMR1* vybraných pro přidružen *finanční* zásad.
+    Zobrazí se všechny virtuální počítače ve stejném umístění, které ještě nemají přidruženou žádnou zásadu zálohování. Pro přidružení k zásadě *Finance* jsou vybrané virtuální počítače *myVMH1* a *myVMR1*.
 
     ![Výběr úlohy](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
 
-    Po dokončení nasazení, dostanete oznámení, že nasazení byla úspěšně dokončena.
+    Po dokončení nasazení se zobrazí oznámení o úspěšném dokončení nasazení.
 
 ## <a name="initial-backup"></a>Prvotní zálohování
 
-Jste povolili zálohování pro trezory služeb zotavení, ale nebyl vytvořen prvotní zálohování. Osvědčený postup obnovení po havárii pro aktivaci první zálohy je tak, aby vaše data jsou chráněna. 
+Povolili jste zálohování pro trezory služby Recovery Services, ale ještě se nevytvořila prvotní záloha. Osvědčeným postupem pro zotavení po havárii je aktivovat první zálohování, aby se zajistila ochrana vašich dat. 
 
-Spustit úlohu zálohování na vyžádání:
+Spuštění úlohy zálohování na vyžádání:
 
-1. Na řídicím panelu trezoru, klikněte na tlačítko **3** pod **zálohování položek**, otevřete nabídku zálohování položek.
+1. Na řídicím panelu trezoru klikněte na číslo **3** pod textem **Zálohování položek** a otevřete nabídku Zálohování položek.
 
     ![Ikona nastavení](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
-    **Zálohování položek** otevře se nabídka.
+    Otevře se nabídka **Zálohování položek**.
 
-2. Na **zálohování položek** nabídky, klikněte na tlačítko **virtuální počítač Azure** otevřete seznam virtuálních počítačů, které jsou přidružené k trezoru.
+2. V nabídce **Zálohování položek** klikněte na **Virtuální počítač Azure** a otevřete seznam virtuálních počítačů přidružených k trezoru.
 
     ![Ikona nastavení](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
 
@@ -117,72 +117,72 @@ Spustit úlohu zálohování na vyžádání:
 
 3. V seznamu **Zálohování položek** klikněte na **...** (tři tečky) a otevřete místní nabídku.
 
-4. V místní nabídce vyberte **zálohovat nyní**.
+4. V místní nabídce vyberte **Zálohovat nyní**.
 
     ![Místní nabídka](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
-    Otevře se nabídka zálohovat nyní.
+    Otevře se nabídka Zálohovat nyní.
 
-5. V nabídce Zálohovat nyní zadáním posledního dne uchování bodu obnovení, a klikněte na **zálohování**.
+5. V nabídce Zálohovat nyní zadejte poslední den uchování bodu obnovení a klikněte na **Zálohovat**.
 
     ![nastavte poslední den uchování bodu obnovení vytvořeného pomocí možnosti Zálohovat nyní](./media/tutorial-backup-vm-at-scale/backup-now-short.png)
 
-    Oznámení nasazení vás budou informovat o aktivaci úlohy zálohování a možnosti sledovat průběh úlohy na stránce Úlohy zálohování. V závislosti na velikosti virtuálního počítače vytváření prvotní zálohování může chvíli trvat.
+    Oznámení nasazení vás budou informovat o aktivaci úlohy zálohování a možnosti sledovat průběh úlohy na stránce Úlohy zálohování. V závislosti na velikosti virtuálního počítače může vytváření prvotní zálohy chvíli trvat.
 
-    Po dokončení počáteční úlohu zálohování, zobrazí se jeho stav v nabídce úlohy zálohování. Úloha zálohování na vyžádání vytvořit bod obnovení počáteční pro *Můjvp*. Pokud chcete zálohovat jiné virtuální počítače, opakujte tyto kroky pro každý virtuální počítač. 
+    Po dokončení úlohy prvotního zálohování se její stav zobrazí v nabídce úlohy zálohování. Úloha zálohování na vyžádání vytvořila prvotní bod obnovení pro virtuální počítač *myVM*. Pokud chcete zálohovat další virtuální počítače, zopakujte tento postup pro každý z nich. 
 
     ![Dlaždice Úlohy zálohování](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
   
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud máte v úmyslu pokračovat v pro práci s další kurzy, neprovádí vyčištění prostředky vytvořené v tomto kurzu. Pokud neplánujete, chcete-li pokračovat, pomocí následujících kroků můžete odstranit všechny prostředky, které jsou vytvořené v tomto kurzu na webu Azure portal.
+Pokud chcete pokračovat v práci s dalšími kurzy, neprovádějte čištění prostředků vytvořených v rámci tohoto kurzu. Pokud pokračovat nechcete, pomocí následujících kroků odstraňte všechny prostředky vytvořené v rámci tohoto kurzu na webu Azure Portal.
 
-1. Na **myRecoveryServicesVault** řídicí panel, klikněte na tlačítko **3** pod **zálohování položek**, otevřete nabídku zálohování položek.
+1. Na řídicím panelu trezoru **myRecoveryServicesVault** klikněte na číslo **3** pod textem **Zálohování položek** a otevřete nabídku Zálohování položek.
 
     ![Ikona nastavení](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 
-2. Na **zálohování položek** nabídky, klikněte na tlačítko **virtuální počítač Azure** otevřete seznam virtuálních počítačů, které jsou přidružené k trezoru.
+2. V nabídce **Zálohování položek** klikněte na **Virtuální počítač Azure** a otevřete seznam virtuálních počítačů přidružených k trezoru.
 
     ![Ikona nastavení](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
 
     Otevře se seznam **Zálohování položek**.
 
-3. V **zálohování položek** nabídky, klikněte na tlačítko se třemi tečkami otevřete v místní nabídce.
+3. V nabídce **Zálohování položek** klikněte na tři tečky a otevřete místní nabídku.
 
     ![Ikona nastavení](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. V místní nabídce vyberte **zastavení zálohování** otevřete nabídku zastavení zálohování. 
+4. V místní nabídce vyberte **Zastavit zálohování** a otevřete nabídku Zastavit zálohování. 
 
     ![Ikona nastavení](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
-5. V **zastavení zálohování** nabídce v horní nabídce rozevíracího seznamu vyberte a zvolte **odstranit Data zálohování**.
+5. V nabídce **Zastavit zálohování** vyberte horní rozevírací nabídku a zvolte **Odstranit zálohovaná data**.
 
-6. V **zadejte název zálohované položky** dialogové okno, typ *Můjvp*.
+6. V dialogovém okně **Zadejte název zálohované položky** zadejte *myVM*.
  
-7. Po ověření položky zálohování (zaškrtnout se zobrazí), **zastavení zálohování** tlačítko je k dispozici. Klikněte na tlačítko **zastavení zálohování** zásady zastavení a odstranění bodů obnovení. 
+7. Po ověření zálohované položky (zobrazí se značka zaškrtnutí) bude povolené tlačítko **Zastavit zálohování**. Kliknutím na **Zastavit zálohování** zastavte zásadu a odstraňte body obnovení. 
 
-    ![Klikněte na tlačítko Zastavit zálohy trezoru](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+    ![kliknutí na Zastavit zálohování a odstranění trezoru](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
 
-8. V **myRecoveryServicesVault** nabídky, klikněte na tlačítko **odstranit**.
+8. V nabídce trezoru **myRecoveryServicesVault** klikněte na **Odstranit**.
 
-    ![Klikněte na tlačítko Zastavit zálohy trezoru](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![kliknutí na Zastavit zálohování a odstranění trezoru](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
-    Po odstranění trezoru můžete vrátit do seznamu trezorů služeb zotavení.
+    Po odstranění trezoru se vrátíte k seznamu trezorů služby Recovery Services.
 
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste použili portál Azure:
+V tomto kurzu jste pomocí webu Azure Portal provedli následující kroky:
 
 > [!div class="checklist"]
 > * Vytvoření trezoru Služeb zotavení
-> * Nastavení trezoru k ochraně virtuálních počítačů
-> * Vytvořit vlastní zásady pro zálohování a uchovávání
-> * Přiřaďte zásady k ochraně více virtuálních počítačů
-> * Spustit na vyžádání zpět do virtuálních počítačů
+> * Nastavení trezoru pro ochranu virtuálních počítačů
+> * Vytvoření vlastní zásady zálohování a uchovávání informací
+> * Přiřazení zásady za účelem ochrany několika virtuálních počítačů
+> * Aktivace zálohování virtuálních počítačů na vyžádání
 
-Pokračujte v dalším kurzu k obnovení virtuálního počítače Azure z disku. 
+Přejděte k dalšímu kurzu, kde obnovíte virtuální počítač Azure z disku. 
 
 > [!div class="nextstepaction"]
 > [Obnovení virtuálních počítačů pomocí rozhraní příkazového řádku](./tutorial-restore-disk.md)

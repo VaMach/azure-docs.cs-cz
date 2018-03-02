@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e4d14f396b3a928975b671d10254cfbcc822a0d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a4d2ccb4b4ba27983537f26e66b5c279f427d466
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure SQL Database pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,12 @@ Můžete zkopírovat data z/do Azure SQL Database do úložiště dat žádné p
 
 Konkrétně tento konektor Azure SQL Database podporuje:
 
-- Kopírování dat pomocí ověřování SQL.
+- Kopírování dat pomocí **ověřování SQL**, a **ověření pomocí tokenu aplikace Azure Active Directory** s instanční objekt nebo spravovat Identity služby (MSI).
 - Jako zdroj načítání dat pomocí dotazu SQL nebo uloženou proceduru.
 - Jako jímku přidávání dat do cílové tabulky nebo volání uložené procedury s vlastní logikou během kopírování.
+
+> [!IMPORTANT]
+> Pokud zkopírujete data pomocí Runtime integrace Azure, nakonfigurujte [brány Firewall serveru SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) k [povolit službám Azure přístup k serveru](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Pokud zkopírujete data pomocí Self-hosted integrace Runtime, nakonfigurujte bránu firewall serveru SQL Azure umožňující odpovídající rozsah IP adres včetně IP počítače, který se používá k připojení k databázi SQL Azure.
 
 ## <a name="getting-started"></a>Začínáme
 
@@ -52,13 +55,21 @@ Pro databáze SQL Azure, propojené služby jsou podporovány následující vla
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **azuresqldatabase.** | Ano |
-| připojovací řetězec |Zadejte informace potřebné pro připojení k instanci databáze SQL Azure pro vlastnost connectionString. Podporováno je pouze základní ověřování. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
+| připojovací řetězec |Zadejte informace potřebné pro připojení k instanci databáze SQL Azure pro vlastnost connectionString. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). |Ano |
+| servicePrincipalId | Zadejte ID aplikace klienta. | Ano, při použití ověřování AAD s instanční objekt. |
+| servicePrincipalKey | Zadejte klíč aplikace. Toto pole označit jako SecureString bezpečně uložit v datové továrně nebo [odkazovat tajného klíče uložené v Azure Key Vault](store-credentials-in-key-vault.md). | Ano, při použití ověřování AAD s instanční objekt. |
+| tenant | Zadejte informace o klienta (název nebo klienta domény ID) v rámci které se nachází aplikace. Můžete ji načíst podržením ukazatele myši v pravém horním rohu portálu Azure. | Ano, při použití ověřování AAD s instanční objekt. |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
-> [!IMPORTANT]
-> Konfigurace [Firewall databáze Azure SQL](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) databázový server, který [povolit službám Azure přístup k serveru](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Kromě toho pokud data kopírujete do Azure SQL Database z mimo Azure, včetně zdrojů dat místně pomocí služby data factory vlastním hostováním integrace modulu Runtime, nakonfigurujte odpovídající rozsah IP adres pro počítač, který odesílá data do Azure SQL Databáze.
+Různými typy ověřování najdete v následujících částech na požadavky a ukázky JSON v uvedeném pořadí:
 
-**Příklad:**
+- [Pomocí ověřování SQL.](#using-sql-authentication)
+- [Pomocí ověření pomocí tokenu aplikace AAD - instanční objekt](#using-service-principal-authentication)
+- [Pomocí ověřování tokenu AAD aplikace - identita spravované služby](#using-managed-service-identity-authentication)
+
+### <a name="using-sql-authentication"></a>Pomocí ověřování SQL.
+
+**Propojenou službu příkladu pomocí ověřování SQL:**
 
 ```json
 {
@@ -69,6 +80,113 @@ Pro databáze SQL Azure, propojené služby jsou podporovány následující vla
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Pomocí objektu zabezpečení ověřování služby
+
+Služba hlavní ověřování založené na AAD aplikace tokenu, postupujte podle těchto kroků:
+
+1. **[Vytvoření aplikace Azure Active Directory z portálu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Poznamenejte si název aplikace a následující hodnoty, které můžete použít k definování propojené služby:
+
+    - ID aplikace
+    - Klíč aplikace
+    - ID tenanta
+
+2. **[Zřízení správcem služby Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  pro Server SQL Azure na portálu Azure, pokud jste tak dosud neučinili. Správce AAD musí být AAD uživatele nebo skupinu AAD aplikace, ale nemůže být instanční objekt. Tento krok se provádí tak, aby v následném kroku, můžete použít identita AAD vytvořte uživatele databáze s omezením pro službu objektu zabezpečení.
+
+3. **Vytvořte uživatele databáze s omezením pro objekt služby**, pomocí připojení k databázi z/do které chcete kopírovat data pomocí nástroje, například aplikace SSMS se s AAD identity s nejméně ALTER žádné oprávnění uživatele a provádění následující T-SQL. Další informace v databázi s omezením uživatele z [zde](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Udělte nezbytná oprávnění objektu služby** obvyklým způsobem pro uživatele SQL, například spuštěním níže:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. Ve službě ADF nakonfigurujte služby propojené databáze SQL Azure.
+
+
+**Příklad propojené služby pomocí ověřování hlavní služby:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Pomocí ověření identity spravované služby
+
+Objekt pro vytváření dat může být přidružen [identita spravované služby (MSI)](data-factory-service-identity.md), který představuje tuto konkrétní data factory. Tato identita služby můžete použít pro ověřování Azure SQL Database, která umožní tento určené pro vytváření pro přístup a kopírování dat z/do databáze.
+
+Použití Instalační služby MSI na základě tokenu ověřování AAD aplikace, postupujte takto:
+
+1. **Vytvoření skupiny ve službě Azure AD a nastavte objektu pro vytváření MSI jako člena skupiny**.
+
+    a. Vyhledejte identitu služby objektu pro vytváření dat z portálu Azure. Přejděte na datovou továrnu -> Vlastnosti -> kopie **ID služby pro IDENTITU**.
+
+    b. Nainstalujte [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modul přihlašování pomocí `Connect-AzureAD` příkaz, a spusťte následující příkazy a vytvořte skupinu a přidejte objekt pro vytváření dat MSI jako člena.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Zřízení správcem služby Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  pro Server SQL Azure na portálu Azure, pokud jste tak dosud neučinili. AAD správce může být AAD uživatele nebo skupinu AAD aplikace. Pokud udělit skupině s MSI roli správce, přeskočte krok 3 a 4 níže jako správce bude mít plný přístup k databázi.
+
+3. **Vytvořte uživatele databáze s omezením pro skupinu AAD**, pomocí připojení k databázi z/do které chcete kopírovat data pomocí nástroje, například aplikace SSMS se s AAD identity s nejméně ALTER žádné oprávnění uživatele a provádění následující T-SQL. Další informace v databázi s omezením uživatele z [zde](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Udělit skupině AAD nezbytná oprávnění** obvyklým způsobem pro uživatele SQL, například spuštěním níže:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. Ve službě ADF nakonfigurujte služby propojené databáze SQL Azure.
+
+**Propojenou službu příkladu pomocí Instalační služby MSI ověřování:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -455,9 +573,9 @@ Při kopírování dat z/do Azure SQL Database, se používají následující m
 | Binární |Byte[] |
 | Bit |Logická hodnota |
 | Char |Řetězec, Char] |
-| datum |Datum a čas |
-| Datum a čas |Datum a čas |
-| datetime2 |Datum a čas |
+| datum |DateTime |
+| Datum a čas |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atribut FILESTREAM (varbinary(max)) |Byte[] |
@@ -471,7 +589,7 @@ Při kopírování dat z/do Azure SQL Database, se používají následující m
 | nvarchar |Řetězec, Char] |
 | skutečné |Svobodný/svobodná |
 | ROWVERSION |Byte[] |
-| smalldatetime |Datum a čas |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | Smallmoney |Decimal |
 | sql_variant |Objekt * |

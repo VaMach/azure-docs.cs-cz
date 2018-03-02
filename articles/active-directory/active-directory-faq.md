@@ -1,5 +1,5 @@
 ---
-title: "Nejčastější dotazy ke službě Azure Active Directory | Microsoft Docs"
+title: "Nejčastější dotazy ke službě Azure Active Directory | Dokumentace Microsoftu"
 description: "V nejčastějších dotazech ke službě Azure Active Directory získáte odpovědi na obvyklé otázky týkající se Azure a Azure Active Directory, správy hesel a přístupu k aplikacím."
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-faq"></a>Nejčastější dotazy ke službě Azure Active Directory
 Azure Active Directory (Azure AD) je komplexní řešení Identity jako služby (IDaaS), které pokrývá všechny prvky identity, řízení přístupu a zabezpečení.
@@ -29,7 +29,7 @@ Další informace najdete v tématu [Co je Azure Active Directory?](active-direc
 ## <a name="access-azure-and-azure-active-directory"></a>Přístup ke službě Azure a Azure Active Directory
 **Otázka: Proč se při pokusu o přístup ke službě Azure AD na webu Azure Portal zobrazí zpráva „Žádné předplatné nenalezeno“?**
 
-**Odpověď:** Pro přístup k webu Azure Portal potřebuje každý uživatel oprávnění s předplatným Azure. Pokud máte placené předplatné Azure AD nebo Office 365, přejděte na [http://aka.ms/accessAAD](http://aka.ms/accessAAD), kde najdete jednorázovou aktivaci. Jinak si budete muset vytvořit bezplatný [účet Azure](https://azure.microsoft.com/pricing/free-trial/) nebo placené předplatné.
+**Odpověď:** Pro přístup k webu Azure Portal potřebuje každý uživatel oprávnění s předplatným Azure. Pokud máte placené předplatné Azure AD nebo Office 365, přejděte na adresu [https://aka.ms/accessAAD](https://aka.ms/accessAAD), kde najdete jednorázovou aktivaci. Jinak si budete muset vytvořit bezplatný [účet Azure](https://azure.microsoft.com/pricing/free-trial/) nebo placené předplatné.
 
 Další informace naleznete v tématu:
 

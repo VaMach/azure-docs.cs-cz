@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Osvědčené postupy pro službu Azure SQL Data Warehouse
 Tento článek je kolekcí mnoha osvědčených postupů, které vám pomohou dosáhnout optimálního výkonu vaší služby Azure SQL Data Warehouse.  Některé koncepty v tomto článku jsou základní a snadno se vysvětlují, další koncepty jsou pokročilejší a v tomto článku se jich jenom lehce dotýkáme.  Účelem tohoto článku je poskytnout vám základní pokyny a zvýšit povědomí o důležitých oblastech, na které byste se měli zaměřit, když budete sestavovat svůj datový sklad.  Každá část vám představí nějaký koncept a odkáže vás na podrobnější články, které se danému konceptu věnují více do hloubky.
@@ -29,14 +29,8 @@ Pokud se službou Azure SQL Data Warehouse teprve začínáte, nenechte se tímt
 Pokyny k načítání najdete v tématu [Doprovodné materiály k načítání dat](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Snižte náklady pomocí pozastavení a škálování
-Klíčovou funkcí služby SQL Data Warehouse je schopnost pozastavit se, když ji zrovna nepoužíváte, a zastavit tak účtování výpočetních prostředků.  Další klíčovou funkcí je schopnost škálovat prostředky.  Pozastavení a škálování můžete provádět přes Azure Portal nebo prostřednictvím příkazů prostředí PowerShell.  S těmito funkcemi se důkladně seznamte, protože mohou výrazně snížit náklady na datový sklad, když se zrovna nevyužívá.  Pokud chcete, aby váš datový sklad byl neustále přístupný, můžete zvážit vertikální snížení jeho kapacity na nejmenší možnou velikost DW100 místo jeho pozastavení.
+Další informace o snižování nákladů prostřednictvím pozastavování a škálování najdete v tématu [Správa výpočetních služeb](sql-data-warehouse-manage-compute-overview.md). 
 
-Viz také [Pozastavení výpočetních prostředků][Pause compute resources], [Obnovení výpočetních prostředků][Resume compute resources], [Škálování výpočetních prostředků].
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Vypusťte transakce před pozastavením nebo škálováním
-Když službu SQL Data Warehouse pozastavíte nebo škálujete, při vytvoření požadavku na pozastavení nebo škálování se na pozadí zruší vaše dotazy.  Zrušení jednoduchého dotazu SELECT je rychlá operace a nemá téměř žádný vliv na čas potřebný k pozastavení nebo škálování instance.  Nicméně zastavení transakčních dotazů, které upravují data nebo strukturu dat, může trvat mnohem déle.  **Transakční dotazy se podle definice musí dokončit v celém rozsahu, nebo musí vrátit zpět provedené změny.**  Vracení dokončené práce transakčního dotazu zpět může trvat stejně dlouho nebo dokonce déle, než původní změna, kterou dotaz prováděl.  Například pokud zrušíte dotaz, který odstraňoval řádky a už hodinu běžel, může systému hodinu trvat, než odstraněné řádky vloží zpět.  Pokud spustíte pozastavení nebo škálování zatímco probíhají transakce, může to vypadat, že vaše pozastavení nebo škálování trvá dlouho, protože pozastavení a škálování musí počkat na dokončení odvolání transakce, než budou moci pokračovat.
-
-Viz také [Vysvětlení transakcí][Understanding transactions], [Optimalizace transakcí][Optimizing transactions].
 
 ## <a name="maintain-statistics"></a>Udržujte statistiky
 Na rozdíl od systému SQL Server, který automaticky detekuje a vytváří nebo aktualizuje statistiky nad sloupci, služba SQL Data Warehouse vyžaduje ruční údržbu statistik.  I když to do budoucna plánujeme změnit, zatím si budete muset udržovat statistiky pro zajištění optimalizace plánů služby SQL Data Warehouse.  Plány vytvořené optimalizátorem jsou jenom tak dobré jako dostupné statistiky.  **Vytvoření vzorkové statistiky nad každým sloupcem je snadný způsob, jak začít se statistikami.**  Stejně důležité je aktualizovat statistiky, když dojde k významným změnám vašich dat.  Konzervativní přístup může být denní aktualizace statistik nebo aktualizace po každém načtení.  Vždy existují kompromisy mezi výkonem a náklady na vytvoření a aktualizaci statistik. Pokud si myslíte, že údržba všech vašich statistik trvá příliš dlouho, možná byste měli pečlivěji vybírat sloupce, které mají statistiky, nebo sloupce, které vyžadují časté aktualizace.  Například můžete chtít denně aktualizovat sloupce s datem, do kterých se mohou přidávat nové hodnoty. **Nejvíce výhod získáte tak, že budete mít statistiky nad sloupci používanými ve spojeních, sloupci používanými v klauzuli WHERE a sloupci používanými v příkazu GROUP BY.**
@@ -138,7 +132,7 @@ Nakonec můžete použít stránku [Zpětná vazba k službě Azure SQL Data War
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Škálování výpočetních prostředků]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

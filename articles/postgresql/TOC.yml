@@ -58,9 +58,7 @@
     - name: Zdroje a prostředky
       items:
         - name: Cenové úrovně
-          href: concepts-service-tiers.md
-        - name: Výpočetní jednotky
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Omezení
           href: concepts-limits.md
     - name: Přístup k datům a zabezpečení
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: Konfigurace SSL
           href: concepts-ssl-connection-security.md
+    - name: Kontinuita podnikových procesů
+      items:
+        - name: Přehled
+          href: concepts-business-continuity.md
+        - name: Zálohování a obnovení
+          href: concepts-backup.md
     - name: Monitorování
       href: concepts-monitoring.md
     - name: Vývoj
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Návody
   items:
-    - name: Pravidla brány firewall
+    - name: Vytvoření uživatelů
+      href: howto-create-users.md
+    - name: Správa brány firewall
       items:
         - name: Azure Portal
           href: howto-manage-firewall-using-portal.md

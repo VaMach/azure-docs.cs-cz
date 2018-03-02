@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Zahájení monitorování webové aplikace Node.js
 
@@ -40,7 +40,7 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 Application Insights může shromažďovat telemetrická data ze všech aplikací připojených k internetu bez ohledu na to, jestli jsou spuštěné místně nebo v cloudu. Pokud chcete tato data začít zobrazovat, použijte následující kroky.
 
-1. Vyberte **Nový** > **Monitorování a správa** > **Application Insights**.
+1. Vyberte **Vytvořit prostředek** > **Monitorování a správa** > **Application Insights**.
 
    ![Přidání prostředku Application Insights](./media/app-insights-nodejs-quick-start/001-u.png)
 

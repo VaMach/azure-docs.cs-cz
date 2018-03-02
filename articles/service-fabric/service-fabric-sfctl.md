@@ -12,29 +12,30 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7c8563539ca8507f05fa99fdeffbf511b1540a6a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl"></a>Sfctl 
-Příkazy pro správu clusterů Service Fabric a entity. Tato verze není kompatibilní s modulu runtime Service Fabric 6.0. Příkazy postupujte podle vzoru sloveso-podstatné jméno, viz následující podskupiny Další informace.
+Příkazy pro správu clusterů Service Fabric a entity. Tato verze není kompatibilní s modulu runtime Service Fabric 6.1. Příkazy postupujte podle vzoru sloveso-podstatné jméno, viz následující podskupiny Další informace.
 
 ## <a name="subgroups"></a>Podskupiny
 |Podskupinu|Popis|
 | --- | --- |
-| [aplikace](service-fabric-sfctl-application.md)| Vytvoření, odstranění a spravovali aplikace a typy aplikací.|
+| [Aplikace](service-fabric-sfctl-application.md)| Vytvoření, odstranění a spravovali aplikace a typy aplikací.|
 | [chaos](service-fabric-sfctl-chaos.md)   | Spuštění, zastavení a sestav ve službě chaos testu.|
 | [cluster](service-fabric-sfctl-cluster.md) | Vyberte, Správa a provoz clusterů Service Fabric.|
 | [compose](service-fabric-sfctl-compose.md) | Vytvoření, odstranění a spravovat Docker Compose aplikace.|
 | [je](service-fabric-sfctl-is.md)      | Dotaz a odeslat příkazy ke službě infrastruktury.|
-| [uzel](service-fabric-sfctl-node.md)    | Spravujte uzly, které vytvoří cluster.|
-| [oddíl](service-fabric-sfctl-partition.md)  | Dotazování a správu oddílů pro libovolnou službu.|
+| [Uzel](service-fabric-sfctl-node.md)    | Spravujte uzly, které vytvoří cluster.|
+| [Oddíl](service-fabric-sfctl-partition.md)  | Dotazování a správu oddílů pro libovolnou službu.|
+| vlastnost  | Úložiště a dotaz vlastnosti pod názvy Service Fabric.|
 | [rpm](service-fabric-sfctl-rpm.md)        | Dotaz a odesílat příkazy na service manager opravit.|
-| [repliky](service-fabric-sfctl-replica.md) | Spravujte repliky, které patří do oddílů služby.|
+| [Repliky](service-fabric-sfctl-replica.md) | Spravujte repliky, které patří do oddílů služby.|
 | [service](service-fabric-sfctl-service.md) | Vytvořit, odstranit a spravovat službu, typů služeb a balíčky služeb.|
 | [úložiště](service-fabric-sfctl-store.md)   | Proveďte základní souborové úrovni operace na clusteru úložiště bitových kopií.|
 

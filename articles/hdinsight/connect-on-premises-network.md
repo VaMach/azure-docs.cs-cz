@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Připojit k místní síti HDInsight
 
@@ -78,7 +78,7 @@ Chcete-li vytvořit virtuální počítač Linux, který používá [vazby](http
 
     ![Vytvoření virtuálního počítače Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Z __Základy__ části, zadejte následující informace:
+2. V části __Základy__ zadejte následující informace:
 
     * __Název__: popisný název, který identifikuje tento virtuální počítač. Například __DNSProxy__.
     * __Uživatelské jméno__: název účtu SSH.
@@ -332,7 +332,7 @@ K přímému připojení k HDInsight prostřednictvím virtuální sítě, použ
     >
     > Například Ambari je aktivní pouze jeden hlavního uzlu současně. Pokud se pokusíte přístup k Ambari na jeden hlavní uzel a vrátí chybu 404, je spuštěna z hlavního uzlu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Další informace o používání HDInsight ve virtuální síti, najdete v části [rozšířit HDInsight pomocí virtuálních sítí Azure](./hdinsight-extend-hadoop-virtual-network.md).
 

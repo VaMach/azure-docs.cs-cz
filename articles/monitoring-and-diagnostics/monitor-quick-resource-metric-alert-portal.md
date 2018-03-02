@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Přijímání oznámení, když hodnota metriky splní určitou podmínku
 
@@ -30,11 +30,11 @@ Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Vytvoření aplikace logiky
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Vytvořit prostředek** v levém horním rohu webu Azure Portal.
 
-2. Vyhledejte a vyberte **Aplikace logiky**. Vytvořte novou skupinu prostředků **myResourceGroup** a použijte výchozí umístění. Klikněte na tlačítko **Vytvořit**.
+2. Vyhledejte a vyberte **Aplikace logiky**. Klikněte na tlačítko **Vytvořit**.
 
-3. Zadejte informace o aplikaci logiky a zaškrtněte možnost **Připnout na řídicí panel**. Jakmile budete hotovi, klikněte na **Vytvořit**.
+3. Zadejte informace o aplikaci logiky, jak je znázorněno na následujícím obrázku.  Použijte výchozí umístění. Zaškrtněte možnost **Připnout na řídicí panel**.  Jakmile budete hotovi, klikněte na **Vytvořit**. 
 
     ![Zadání základních informací o aplikaci logiky na portálu](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
 12. Klikněte na **Uložit**.
 
+13. Spuštění akcí aplikací logiky může trvat až 5 minut.  
+
 ## <a name="view-metrics-for-your-logic-app"></a>Zobrazení metrik pro aplikaci logiky
 
 1. V levém navigačním podokně klikněte na možnost **Monitorování**.
@@ -71,7 +73,7 @@ Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
 4. Upravte **Časový rozsah** grafu tak, aby zobrazoval data za poslední hodinu.
 
-5. Nyní byste měli vidět, jak graf vykresluje celkový počet běhů, které vaše aplikace logiky spustila za poslední hodinu.
+5. Nyní byste měli vidět, jak graf vykresluje celkový počet běhů, které vaše aplikace logiky spustila za poslední hodinu. Pokud se žádné nezobrazí, ujistěte se, že jste počkali alespoň 5 minut, jak je uvedeno v předchozím kroku. Potok aktualizujte svůj prohlížeč. 
 
     ![Vykreslování grafu metrik pro prostředek aplikace logiky](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API pomocí
 
@@ -99,13 +99,13 @@ Aplikaci teď má také oprávnění k odstranění uživatelů z vašeho klient
 ## <a name="download-configure-and-build-the-sample-code"></a>Stáhněte si, konfigurace a sestavte ukázkový kód
 Nejprve stáhnout ukázkový kód a získat běh aplikace. Potom jsme bude trvat bližší pohled na ho.  Můžete [stáhnout ukázkový kód v souboru ZIP](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Můžete ho také klonovat do adresáře podle vašeho výběru:
 
-```
+```cmd
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
 Otevřete `B2CGraphClient\B2CGraphClient.sln` řešení sady Visual Studio v sadě Visual Studio. V `B2CGraphClient` projektu, otevřete soubor `App.config`. Nastavení tři aplikace nahraďte vlastními hodnotami:
 
-```
+```xml
 <appSettings>
     <add key="b2c:Tenant" value="{Your Tenant Name}" />
     <add key="b2c:ClientId" value="{The ApplicationID from above}" />
@@ -120,9 +120,9 @@ Pak klikněte pravým tlačítkem na `B2CGraphClient` řešení a znovu sestavit
 ## <a name="build-user-crud-operations-by-using-the-graph-api"></a>Vytvoření operace CRUD uživatele pomocí rozhraní Graph API
 Chcete-li použít B2CGraphClient, otevřete `cmd` Windows příkazového řádku a přejděte do adresáře `Debug` adresáře. Spusťte `B2C Help` příkaz.
 
-```
-> cd B2CGraphClient\bin\Debug
-> B2C Help
+```cmd
+cd B2CGraphClient\bin\Debug
+B2C Help
 ```
 
 Tato akce zobrazí stručný popis každého příkazu. Pokaždé, když vyvolat jeden z těchto příkazů `B2CGraphClient` odešle požadavek do Azure AD Graph API.
@@ -179,8 +179,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Pokud chcete zobrazit tento požadavek, spusťte příkaz:
 
- ```
- > B2C Get-User
+ ```cmd
+ B2C Get-User
  ```
 
 Všimněte si, dvě důležité věci:
@@ -245,9 +245,9 @@ Většina těchto vlastností v této žádosti o nutné vytvořit spotřebitels
 
 Pokud chcete zobrazit žádost, spusťte jeden z následujících příkazů:
 
-```
-> B2C Create-User ..\..\..\usertemplate-email.json
-> B2C Create-User ..\..\..\usertemplate-username.json
+```cmd
+B2C Create-User ..\..\..\usertemplate-email.json
+B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
 `Create-User` Příkaz má soubor .json jako vstupní parametr. Tato položka obsahuje reprezentaci JSON objektu uživatele. Existují dva ukázkové soubory .json v ukázkovém kódu: `usertemplate-email.json` a `usertemplate-username.json`. Můžete upravit tyto soubory tak, aby vyhovovala vašim potřebám. Kromě výše uvedených povinná pole jsou zahrnuty několik volitelná pole, které můžete použít v těchto souborech. Podrobnosti o volitelná pole lze nalézt v [odkaz na Azure AD Graph API entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
@@ -279,9 +279,9 @@ Content-Length: 37
 
 Zkuste provést aktualizaci uživatele tím, že aktualizuje vaše soubory JSON se nová data. Pak můžete použít `B2CGraphClient` spustit jeden z těchto příkazů:
 
-```
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
+```cmd
+B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
+B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
 
 Zkontrolujte `B2CGraphClient.SendGraphPatchRequest(...)` metoda podrobnosti o tom, jak odeslat tuto žádost.
@@ -291,16 +291,16 @@ Můžete hledat uživatele v svého klienta B2C v několika způsoby. Jednoho u�
 
 Spusťte jeden z následujících příkazů k vyhledání konkrétního uživatele:
 
-```
-> B2C Get-User <user-object-id>
-> B2C Get-User <filter-query-expression>
+```cmd
+B2C Get-User <user-object-id>
+B2C Get-User <filter-query-expression>
 ```
 
 Tady je několik příkladů:
 
-```
-> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
-> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```cmd
+B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
 ```
 
 ### <a name="delete-users"></a>Odstranit uživatele
@@ -313,8 +313,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Pokud chcete zobrazit příklad, zadejte tento příkaz a zobrazit odstranit požadavek, který je vytištěno do konzoly:
 
-```
-> B2C Delete-User <object-id-of-user>
+```cmd
+B2C Delete-User <object-id-of-user>
 ```
 
 Zkontrolujte `B2CGraphClient.SendGraphDeleteRequest(...)` metoda podrobnosti o tom, jak odeslat tuto žádost.
@@ -328,14 +328,14 @@ K definování vlastní atribut v svého klienta B2C, najdete v článku [odkaz 
 
 Můžete zobrazit vlastní atributy definované ve vašem klientovi B2C pomocí `B2CGraphClient`:
 
-```
-> B2C Get-B2C-Application
-> B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
+```cmd
+B2C Get-B2C-Application
+B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
 Výstup z těchto funkcí zobrazí podrobnosti o jednotlivých vlastních atributů, například:
 
-```JSON
+```json
 {
       "odata.type": "Microsoft.DirectoryServices.ExtensionProperty",
       "objectType": "ExtensionProperty",
@@ -353,8 +353,8 @@ Výstup z těchto funkcí zobrazí podrobnosti o jednotlivých vlastních atribu
 
 Úplný název, můžete použít jako `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, jako vlastnost na uživatelské objekty.  Aktualizujte si soubor .json nové vlastnosti a hodnotu pro vlastnost a potom spusťte:
 
-```
-> B2C Update-User <object-id-of-user> <path-to-json-file>
+```cmd
+B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
 Pomocí `B2CGraphClient`, máte aplikaci služby, která můžete spravovat vaše uživatele klienta B2C prostřednictvím kódu programu. `B2CGraphClient` vlastní identity aplikace se používá k ověření Azure AD Graph API. Je také získá tokeny pomocí tajný klíč klienta. Protože tato funkce se začlenit do vaší aplikace, mějte na paměti několik klíčových bodů pro B2C aplikace:

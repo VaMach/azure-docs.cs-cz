@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Řešení potíží s Azure soubory v systému Windows
 
@@ -141,7 +141,7 @@ Pomocí příkazu net use interpretuje jako možnost příkazového řádku lom�
 
 Chcete-li vyřešit tento problém můžete použít některý z následujících kroků:
 
-- Spusťte následující příkaz prostředí PowerShell:
+- Spusťte následující příkaz PowerShellu:
 
   `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
 
@@ -164,6 +164,12 @@ Použijte jedno z následujících řešení:
 
 -   Připojte jednotku ze stejného uživatelského účtu, který obsahuje aplikace. Můžete použít nástroje, jako je PsExec.
 - Předejte název účtu úložiště a klíč uživatelské jméno a heslo parametry sítě, použijte příkaz.
+- Pomocí příkazu cmdkey přidejte tato pověření do správce přihlašovacích údajů. Proveďte to z příkazového řádku v kontextu účtu služby, prostřednictvím interaktivní přihlášení nebo pomocí runas.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Mapovat sdílenou složku přímo bez použití mapovaná jednotka písmeno. Některé aplikace nemusí znovu písmeno jednotky správně, takže pomocí úplné cesty UNC může být spolehlivější. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 Až budete postupovat podle těchto pokynů, při spuštění příkazu net use pro účet služby systému nebo síti může zobrazit následující chybová zpráva: "došlo k systémové chybě 1312. Zadané přihlašovací relace neexistuje. Ho může již byla ukončena." Pokud k tomu dojde, ujistěte se, že zadané uživatelské jméno, který je předán příkazu net use obsahuje informace o doméně (například: "[název účtu úložiště]. file.core.windows .net").
 
@@ -180,9 +186,9 @@ Kopírování souboru přes síť, můžete ji nejprve dešifrovat. Použijte je
 
 - Použití **zkopírujte /d** příkaz. To umožňuje šifrované soubory uložit jako dešifrované soubory v cílovém umístění.
 - Nastavte následující klíč registru:
-  - Cesta = HKLM\Software\Policies\Microsoft\Windows\System
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Typ hodnoty = DWORD
-  - Název = CopyFileAllowDecryptedRemoteDestination
+  - Name = CopyFileAllowDecryptedRemoteDestination
   - Hodnota = 1
 
 Upozorňujeme, že nastavení klíče registru ovlivní všechny operace kopírování, které jsou vytvářeny do sdílené síťové složky.

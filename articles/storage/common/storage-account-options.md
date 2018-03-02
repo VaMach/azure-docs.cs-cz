@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Možnosti účtu Azure Storage
 
@@ -125,7 +125,7 @@ V následujících příkladech nejde nastavit úroveň přístupu Na Archive, p
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. V nabídce centra vyberte **Nový** > **Data a úložiště** > **Účet úložiště**.
+2. V nabídce centra vyberte **Vytvořit prostředek** > **Data a úložiště** > **Účet úložiště**.
 
 3. Zadejte název účtu úložiště.
 
@@ -159,7 +159,7 @@ V následujících příkladech nejde nastavit úroveň přístupu Na Archive, p
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. Klikněte na možnost Všechny prostředky a kliknutím na účet úložiště do účtu přejděte.
+2. Přejděte do svého účtu úložiště tak, že vyberete **Všechny prostředky** a pak vyberete svůj účet úložiště.
 
 3. V části Nastavení klikněte na **Konfigurace**.
 
@@ -173,7 +173,7 @@ V následujících příkladech nejde nastavit úroveň přístupu Na Archive, p
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. Klikněte na možnost Všechny prostředky a kliknutím na účet úložiště do účtu přejděte.
+2. Přejděte do svého účtu úložiště tak, že vyberete **Všechny prostředky** a pak vyberete svůj účet úložiště.
 
 3. V okně Nastavení klikněte na **Konfigurace**, odkud můžete zobrazit nebo změnit konfiguraci účtu.
 
@@ -185,7 +185,7 @@ V následujících příkladech nejde nastavit úroveň přístupu Na Archive, p
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-2. Pokud chcete přejít na objekt blob ve vašem účtu úložiště, vyberte Všechny prostředky, vyberte účet úložiště a potom vyberte objekt blob.
+2. Pokud chcete přejít na objekt blob ve vašem účtu úložiště, vyberte **Všechny prostředky**, vyberte svůj účet úložiště a pak vyberte objekt blob.
 
 3. V okně vlastností objektu blob klikněte v rozevírací nabídce **Úroveň přístupu** a vyberte úroveň úložiště (**horká**, **studená** nebo **Archive**).
 

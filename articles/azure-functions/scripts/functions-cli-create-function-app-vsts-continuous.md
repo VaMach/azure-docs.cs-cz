@@ -1,6 +1,6 @@
 ---
-title: "Vytvoří funkci, v Azure, který je nasazen z Visual Studio Team Services | Microsoft Docs"
-description: "Vytvoření funkce aplikace a nasazení funkce kód z Visual Studio Team Services"
+title: "Vytvoření funkce v Azure nasazené z Visual Studio Team Services | Microsoft Docs"
+description: "Vytvoření aplikace funkcí a nasazení kódu funkce z Visual Studio Team Services"
 services: functions
 keywords: 
 author: syntaxc4
@@ -9,28 +9,32 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Vytvoří funkci, v Azure, který je nasazen z Visual Studio Team Services
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Vytvoření aplikace funkcí a nasazení kódu funkce z Visual Studio Team Services
 
-Toto téma ukazuje, jak používat Azure Functions k vytvoření [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) funkce aplikace pomocí [plánu spotřeby](../functions-scale.md#consumption-plan). Funkce aplikace, která je kontejner pro funkce, nepřetržitě nasazení z Visual Studio Team Services (VSTS) úložiště. K dokončení tohoto tématu, musíte mít:
+Toto téma ukazuje použití služby Azure Functions k vytvoření aplikace funkcí [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) s použitím [plánu Consumption](../functions-scale.md#consumption-plan). Aplikace funkcí, což je kontejner pro vaše funkce, se průběžně nasazuje z úložiště Visual Studio Team Services (VSTS). 
 
-* Služby VSTS úložiště, který obsahuje projektu funkce aplikace a ke které máte oprávnění pro správu.
-* A [osobní přístupový token (Jan)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) pro přístup k vaší služby VSTS úložiště.
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+K dokončení tohoto tématu potřebujete:
+
+* Úložiště VSTS obsahující váš projekt aplikace funkcí, ke kterému máte oprávnění správce.
+* [Token PAT](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) pro přístup k vašemu úložišti VSTS.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud místo používáte Azure CLI místně, musíte nainstalovat a použít verze 2.0 nebo novější. Chcete-li určit verzi rozhraní příkazového řádku Azure, spusťte `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud raději používáte Azure CLI místně, musíte nainstalovat a používat verzi 2.0 nebo novější. Verzi Azure CLI zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Ukázkový skript
 
-Tato ukázka funkce Azure aplikace vytvoří a nasadí funkce kód z Visual Studio Team Services.
+Tato ukázka vytvoří aplikaci funkcí Azure a nasadí kód funkce z Visual Studio Team Services.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
@@ -38,17 +42,17 @@ Tato ukázka funkce Azure aplikace vytvoří a nasadí funkce kód z Visual Stud
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy k vytvoření skupiny prostředků, účet úložiště, aplikaci funkce a všechny související prostředky. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript k vytvoření skupiny prostředků, účtu úložiště, aplikace funkcí a všech souvisejících prostředků používá následující příkazy. Každý příkaz v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvořit účet úložiště az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Vytvoří plán služby App Service. |
-| [Vytvoření az functionapp](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [Konfigurace správy zdrojového kódu webové služby App Service az](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Přidruží aplikaci funkce Git nebo Mercurial úložiště. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Vytvoří plán služby App Service. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Přidruží aplikaci funkcí k úložišti Git nebo Mercurial. |
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Další ukázky skriptu rozhraní příkazového řádku funkce Azure lze nalézt v [dokumentace Azure Functions](../functions-cli-samples.md).
+Další ukázkové skripty rozhraní příkazového řádku pro službu Azure Functions najdete v [dokumentaci ke službě Azure Functions](../functions-cli-samples.md).

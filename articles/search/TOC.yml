@@ -5,6 +5,7 @@
     - name: Informace o službě Azure Search
       href: search-what-is-azure-search.md
 - name: Šablony Rychlý start
+  expanded: true
   items:
     - name: Vytvoření služby
       href: search-create-service-portal.md

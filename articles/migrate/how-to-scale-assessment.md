@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d588dc6037b6295594301b577fe9df31d169a9e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Zjišťovat a vyhodnocení velké prostředí VMware
 
@@ -84,7 +84,15 @@ Zkontrolujte, jestli soubor vajíčka zabezpečené před nasazením:
    Příklady použití: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Ujistěte se, že generované hodnoty hash odpovídá následující nastavení.
 
-    Pro verzi vajíčka 1.0.8.59
+    Pro verzi vajíčka 1.0.9.2
+
+    **Algoritmus** | **Hodnota hash**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+
+    Pro soubory OVA verze 1.0.8.59:
 
     **Algoritmus** | **Hodnota hash**
     --- | ---
@@ -158,7 +166,7 @@ Následující tabulka uvádí také výsledky hodnocení, které bude mít vliv
 U každého zjišťování, které je třeba provést spusťte kolekce k vyhledání virtuálních počítačů v oboru vyžaduje. Spusťte zjišťování jedna po druhé. Nejsou podporovány souběžných zjišťování a každého zjišťování musí mít jiný rozsah.
 
 1. V konzoli vSphere Client klikněte pravým tlačítkem na daný virtuální počítač a pak na **Open Console** (Otevřít konzolu).
-2. Zadejte jazyk, časové pásmo a heslo předvoleb pro zařízení.
+2. Nastavte pro zařízení preferovaný jazyk, časové pásmo a heslo.
 3. Na ploše, vyberte **spustit kolekce** zástupce.
 4. V kolekci Azure migrovat otevřete **nastavit požadavky** a pak:
 
@@ -168,7 +176,7 @@ U každého zjišťování, které je třeba provést spusťte kolekce k vyhled�
    
    b. Pokud virtuální počítač získá přístup k Internetu prostřednictvím proxy serveru, vyberte **nastavení proxy serveru**a zadat adresu proxy serveru a port naslouchání. Pokud proxy server potřebuje přihlašovací údaje, zadejte je.
 
-   Kolekce kontroluje, zda je spuštěna služba collector. Ta je ve výchozím nastavení nainstalovaná na virtuálním počítači kolektoru.
+   Kolektor zkontroluje, jestli je spuštěná služba kolektoru. Ta je ve výchozím nastavení nainstalovaná na virtuálním počítači kolektoru.
 
    c. Stáhněte a nainstalujte VMware PowerCLI.
 

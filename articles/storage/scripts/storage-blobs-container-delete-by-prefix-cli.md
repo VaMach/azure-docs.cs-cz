@@ -1,6 +1,6 @@
 ---
-title: "Ukázka skriptu Azure CLI - odstranění kontejnerů podle předpony | Microsoft Docs"
-description: "Odstranění kontejnerů objektů blob Azure Storage na základě předpony názvu kontejneru."
+title: "Ukázkový skript Azure CLI – Odstranění kontejnerů na základě předpony | Microsoft Docs"
+description: "Kontejnery objektů blob ve službě Azure Storage můžete odstranit na základě předpony názvu kontejneru."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: d14195abf1c17d11e259ed9edb5112626b063112
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Odstranění kontejnerů na základě předpony názvu kontejneru
 
-Tento skript nejprve vytvoří několik ukázkových kontejnerů v úložišti objektů Blob v Azure, a poté odstraní některé z kontejnerů na základě předpony v názvu kontejneru.
+Tento skript nejprve vytvoří několik ukázkových kontejnerů v úložišti objektů blob v Azure a pak některé z kontejnerů odstraní na základě předpony v názvu kontejneru.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,7 +35,7 @@ Tento skript nejprve vytvoří několik ukázkových kontejnerů v úložišti o
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení 
 
-Pomocí následujícího příkazu odeberte skupinu zdrojů, zbývající kontejnery, a všechny související prostředky.
+Spuštěním následujícího příkazu odeberte skupinu prostředků, zbývající kontejnery a všechny související prostředky.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -43,18 +43,18 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy k odstranění kontejnerů na základě předpony názvu kontejneru. Každou položku v tabulce odkazy na dokumentaci specifické pro příkaz.
+Tento skript k odstranění kontejnerů na základě předpony názvu kontejneru používá následující příkazy. Každá položka v tabulce odkazuje na příslušnou část dokumentace.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](/cli/azure/group#create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvořit účet úložiště az](/cli/azure/storage/account#create) | Vytvoří účet úložiště Azure v zadaná skupina prostředků. |
-| [Vytvoření kontejneru úložiště az](/cli/azure/storage/container#create) | Vytvoří kontejner v úložišti objektů Blob Azure. |
-| [AZ seznam kontejneru úložiště](/cli/azure/storage/container#list) | Uvádí kontejnery v účtu Azure Storage. |
-| [odstranit kontejner úložiště az](/cli/azure/storage/container#delete) | Odstraní kontejnery v účtu Azure Storage. |
+| [az group create](/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve které se ukládají všechny prostředky. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Vytvoří účet služby Azure Storage v zadané skupině prostředků. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Vytvoří kontejner v úložišti objektů blob v Azure. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Vypíše kontejnery v účtu služby Azure Storage. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Odstraní kontejnery v účtu služby Azure Storage. |
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rozhraní příkazového řádku Azure najdete v tématu [dokumentaci k rozhraní příkazového řádku Azure](/cli/azure/overview).
+Další informace o Azure CLI najdete v [dokumentaci k Azure CLI](/cli/azure/overview).
 
-Ukázky skriptu rozhraní příkazového řádku další úložiště najdete v [ukázky rozhraní příkazového řádku Azure pro Azure Storage](../blobs/storage-samples-blobs-cli.md).
+Další ukázkové skripty rozhraní příkazového řádku pro úložiště najdete v tématu [Ukázky v Azure CLI pro službu Azure Storage](../blobs/storage-samples-blobs-cli.md).

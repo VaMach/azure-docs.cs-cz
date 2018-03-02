@@ -1,84 +1,81 @@
 ---
-title: "Ověřte, propustnosti a latence metriky pro účet úložiště na portálu Azure | Microsoft Docs"
-description: "Zjistěte, jak ověřit, propustnosti a latence metriky pro účet úložiště na portálu."
+title: "Ověření metrik latence a propustnosti pro účet úložiště na webu Azure Portal | Microsoft Docs"
+description: "Zjistěte, jak ověřit metriky latence a propustnosti pro účet úložiště na webu Azure Portal."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Ověřte, propustnosti a latence metriky pro účet úložiště
+# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Ověření metrik latence a propustnosti pro účet úložiště
 
-V tomto kurzu je součástí čtyři a poslední část řady. V předchozích kurzech jste zjistili, jak nahrávání a stahování larges množství náhodná data k účtu úložiště Azure. Tento kurz ukazuje, jak metriky můžete zobrazit propustnosti a latence na portálu Azure.
+Tento kurz je čtvrtou a poslední částí série. V předchozích kurzech jste se naučili nahrávat a stahovat velké objemy náhodných dat do účtu úložiště Azure. V tomto kurzu se dozvíte, jak pomocí metrik zobrazit propustnost a latenci na webu Azure Portal.
 
-V rámci čtyři řady, zjistíte, jak:
+Ve čtvrté části této série se naučíte:
 
 > [!div class="checklist"]
-> * Konfigurace grafů na portálu Azure
+> * Konfigurace grafů na webu Azure Portal
 > * Ověření metrik latence a propustnosti
 
-[Úložiště Azure metriky](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Azure monitorování se používá k poskytnutí jednotný pohled na výkon a dostupnost účtu úložiště.
+Azure Monitor s využitím [metrik úložiště Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) poskytuje jednotný přehled o výkonu a dostupnosti vašeho účtu úložiště.
 
-## <a name="configure-metrics"></a>Konfigurace metriky
+## <a name="configure-metrics"></a>Konfigurace metrik
 
-Přejděte na **metriky (preview)** pod **nastavení** ve vašem účtu úložiště.
+V **NASTAVENÍ** svého účtu úložiště přejděte do části **Metriky (Preview)**.
 
-Vyberte objekt Blob z **SUB služby** rozevíracího seznamu.
+Z rozevíracího seznamu **DÍLČÍ SLUŽBA** zvolte objekt blob.
 
-V části **METRIKA**, vyberte jednu z metriky najít v následující tabulce:
+V části **METRIKA** vyberte jednu z metrik uvedených v následující tabulce:
 
-Následující metriky můžete získat představu o latence a propustnosti aplikace. Metriky, které jste nakonfigurovali v portálu jsou průměry 1 minutu. Pokud transakce dokončení uprostřed minutu minut dat je halfed pro průměr. V aplikaci byly vypršel časový limit operace nahrávání a stahování a zadaný výstup z skutečné množství času, kterou trvalo nahrávání a stahování souborů. Tyto informace můžete použít ve spojení s portálu metriky k plnému pochopení propustnost.
+Pomocí následujících metrik získáte představu o latenci a propustnosti aplikace. Metriky, které nakonfigurujete na portálu, používají průměrné hodnoty za 1 minutu. Pokud se transakce dokončí v půlce minuty, pro průměr se použije polovina těchto minutových dat. V aplikaci se měřil čas operací nahrávání a stahování a na výstupu se zobrazila skutečná doba, jakou trvalo nahrání a stažení souborů. Tyto informace můžete použít společně s metrikami na portálu k úplnému porozumění propustnosti.
 
 |Metrika|Definice|
 |---|---|
-|**Latence E2E úspěch**|Průměrná latence začátku do konce úspěšné požadavky na služby úložiště nebo zadaná operace rozhraní API. Tato hodnota zahrnuje požadovaná doba zpracování v rámci Azure Storage pro čtení požadavku, odeslání odpovědi a přijímat potvrzení odpovědi.|
-|**Latence serveru úspěšné**|Průměrná doba používá ke zpracování v případě úspěšné žádosti úložiště Azure. Tato hodnota nezahrnuje latenci sítě, zadaný v SuccessE2ELatency. |
-|**Transakce**|Počet požadavků na služby úložiště nebo zadaná operace rozhraní API. Toto číslo zahrnuje úspěšné i neúspěšné požadavky a požadavky, které vytváří chyby. V příkladu velikost bloku byl nastaven na hodnotu 100 MB. Každý blok 100 MB v takovém případě je považován za transakci.|
-|**Příjem příchozích dat**|Množství vstupní data. Tato hodnota zahrnuje příjem příchozích dat z externí klienta do Azure Storage, jakož i příjem příchozích dat v rámci Azure. |
-|**Odchozí**|Množství odchozí data. Tato hodnota zahrnuje odchozí z externí klienta do Azure Storage a také odchozí v rámci Azure. Toto číslo v důsledku toho nemusí odpovídat fakturovatelný odchozí. |
+|**Celková latence při úspěchu**|Průměrná celková latence úspěšných požadavků provedených na službu úložiště nebo zadanou operaci rozhraní API. Tato hodnota zahrnuje čas zpracování ve službě Azure Storage potřebný k přečtení požadavku, odeslání odpovědi a přijetí potvrzení dané odpovědi.|
+|**Latence serveru při úspěchu**|Průměrná doba zpracování úspěšného požadavku službou Azure Storage. Tato hodnota nezahrnuje latenci sítě zadanou v metrice Celková latence při úspěchu. |
+|**Transakce**|Počet požadavků provedených na službu úložiště nebo zadanou operaci rozhraní API. Toto číslo zahrnuje úspěšné i neúspěšné požadavky a také požadavky, u kterých došlo k chybě. V tomto příkladu byla velikost bloku nastavená na 100 MB. V tomto případě se každý 100MB blok považuje za transakci.|
+|**Příchozí přenos dat**|Množství příchozích dat. Toto číslo zahrnuje příchozí přenos dat z externího klienta do služby Azure Storage i příchozí přenos dat v rámci Azure. |
+|**Výchozí přenos dat**|Množství výchozích dat. Toto číslo zahrnuje výchozí přenos dat z externího klienta do služby Azure Storage i výchozí přenos dat v rámci Azure. Kvůli tomu toto číslo nepředstavuje fakturovatelný výchozí přenos dat. |
 
-Vyberte **posledních 24 hodin (Automatická)** vedle **čas**. Zvolte **poslední hodinu** a **minutu** pro **členitost času**, pak klikněte na tlačítko **použít**.
+Vedle možnosti **Čas** vyberte **Posledních 24 hodin (automaticky)**. Zvolte **Poslední hodina**, jako **Časové intervaly** zvolte **Minuta** a pak klikněte na **Použít**.
 
 ![Metriky účtu úložiště](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
-Grafy může mít více než jeden metriku, které jsou jim přiřazeny, ale přiřazení více než jeden metrika zakáže možnost do skupiny tím, že dimenze.
+Ke grafům může být přiřazených více metrik, ale přiřazením více než jedné metriky se vypne možnost seskupování podle dimenzí.
 
 ## <a name="dimensions"></a>Dimenze
 
-[Dimenze](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) se používají k hlubší viděl do grafy a získat podrobnější informace. Jiné metriky mají různé dimenze. Jednu dimenzi, která je k dispozici je **název rozhraní API** dimenze. Tato dimenze dělí na graf do každé samostatné volání rozhraní API. První následující obrázek ukazuje graf aplikace příklad celkový počet transakcí pro účet úložiště. Druhý obrázek ukazuje stejné grafu, ale s rozhraním API název dimenze vybrané. Jak můžete vidět, je uvedena každou transakci poskytnutí další podrobnosti do kolik volání byly provedeny podle názvu rozhraní API.
+[Dimenze](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) slouží k podrobnějšímu zkoumání grafů a získání podrobnějších informací. Různé metriky mají různé dimenze. Jednou z dostupných dimenzí je dimenze **Název rozhraní API**. Tato dimenze dělí graf na jednotlivá volání rozhraní API. První obrázek níže ukazuje příklad grafu celkových transakcí účtu úložiště. Druhý obrázek ukazuje stejný graf, ale s vybranou dimenzí Název rozhraní API. Jak je vidět, u každé transakce jsou uvedené další podrobnosti o počtu provedených volání podle názvu rozhraní API.
 
-![Metriky účet úložiště – transakce bez dimenze](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
+![Metriky účtu úložiště – transakce bez dimenze](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 
-![Metriky účet úložiště – transakce](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
+![Metriky účtu úložiště – transakce](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud už je nepotřebujete, odstraňte skupinu prostředků, virtuální počítač a všechny související prostředky. To pokud chcete udělat, vyberte skupinu prostředků pro virtuální počítač a klikněte na příkaz odstranit.
+Pokud už je nepotřebujete, odstraňte skupinu prostředků, virtuální počítač a všechny související prostředky. Provedete to tak, že vyberete skupinu prostředků příslušného virtuálního počítače a kliknete na Odstranit.
 
 ## <a name="next-steps"></a>Další kroky
 
-V části čtyři řady Seznámili jste se zobrazení metriky pro příklad řešení, jako například:
+Ve čtvrté části série jste se seznámili se zobrazováním metrik ukázkového řešení a naučili jste se například:
 
 > [!div class="checklist"]
-> * Konfigurace grafů na portálu Azure
+> * Konfigurace grafů na webu Azure Portal
 > * Ověření metrik latence a propustnosti
 
-Tento odkaz zobrazíte ukázky předdefinovaných úložiště.
+Pod tímto odkazem najdete ukázky předdefinovaných úložišť.
 
 > [!div class="nextstepaction"]
-> [Ukázky skriptu úložiště Azure](storage-samples-blobs-cli.md)
+> [Ukázky skriptů úložiště Azure](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-blob-scalable-app-download-files.md

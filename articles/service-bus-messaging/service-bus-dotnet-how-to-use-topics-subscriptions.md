@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Začínáme s tématy služby Service Bus
 
@@ -52,7 +52,7 @@ Pokud už máte vytvořený obor názvů pro zasílání zpráv služby Service 
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Vytvoření tématu pomocí webu Azure Portal
 
 1. Přihlaste se k webu [Azure Portal][azure-portal].
-2. V levém navigačním podokně portálu klikněte na **Service Bus** (pokud položku **Service Bus** nevidíte, klikněte na **Další služby**) nebo klikněte na **Všechny prostředky**. Klikněte na obor názvů, ve kterém chcete vytvořit téma. 
+2. V levém navigačním podokně portálu klikněte na **Service Bus** (pokud položku **Service Bus** nevidíte, klikněte na **Všechny služby**) nebo klikněte na **Všechny prostředky**. Klikněte na obor názvů, ve kterém chcete vytvořit téma. 
 3. Otevře se okno přehledu oboru názvů. Klikněte na **Témata**:
    
     ![Vytvoření tématu][createtopic1]

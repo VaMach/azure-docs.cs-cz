@@ -83,9 +83,9 @@
 
 ## [Azure CLI](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.js](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Služba Batch](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [Událost dokončení úlohy](batch-task-complete-event.md)
 ### [Událost selhání úlohy](batch-task-fail-event.md)
 ## [Proměnné prostředí výpočetních uzlů Batch](batch-compute-node-environment-variables.md)
-### [Šablona Resource Manageru](/templates/microsoft.batch/batchaccounts)
 
 # Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
@@ -110,6 +109,7 @@
 ## [Řešení HPC v Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Ceny](https://azure.microsoft.com/pricing/details/batch/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)
+## [Šablona Resource Manageru](/azure/templates/microsoft.batch/batchaccounts)
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=batch)

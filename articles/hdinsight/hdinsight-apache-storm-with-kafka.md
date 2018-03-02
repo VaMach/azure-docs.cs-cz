@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Pomocí Apache Kafka Storm v HDInsight
 
@@ -172,7 +172,7 @@ Další informace o topologiích tok najdete v tématu [https://storm.apache.org
     ```
 
     > [!IMPORTANT]
-    > Bash příklad předpokládá, že `$CLUSTERNAME` obsahuje název clusteru HDInsight. Dále předpokládá, že [jq](https://stedolan.github.io/jq/) je nainstalovaná. Po zobrazení výzvy zadejte heslo pro účet přihlášení clusteru.
+    > Bash příklad předpokládá, že `$CLUSTERNAME` obsahuje název clusteru HDInsight. Dále předpokládá, že [jq](https://stedolan.github.io/jq/) je nainstalována verze 1.5 nebo větší. Po zobrazení výzvy zadejte heslo pro účet přihlášení clusteru.
 
     Hodnota vrácená je podobná následující text:
 
@@ -218,7 +218,7 @@ Další informace o topologiích tok najdete v tématu [https://storm.apache.org
 4. Uložit `dev.properties` souboru a pak ji nahrát do clusteru Storm použijte následující příkaz:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Nahraďte **uživatelské jméno** s uživatelským jménem SSH pro cluster. Nahraďte **BASENAME** s základní název, který jste použili při vytvoření clusteru.
@@ -287,6 +287,9 @@ Další informace o topologiích tok najdete v tématu [https://storm.apache.org
     Zastavit tento skript pomocí kombinace kláves Ctrl + c.
 
 ## <a name="start-the-reader"></a>Spustit program pro čtení
+
+> [!NOTE]
+> Při zobrazení čtečky v uživatelském rozhraní Storm, mohou se zobrazit __funkcích spouts topologie funkce lag chyba__ části. V tomto příkladu tuto chybu můžete ignorovat.
 
 1. Z relace SSH do clusteru Storm použijte následující příkaz spusťte čtečky topologie:
 

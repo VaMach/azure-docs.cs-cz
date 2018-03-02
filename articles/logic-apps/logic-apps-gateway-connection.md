@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Připojení ke zdrojům dat místně z aplikací logiky s místní brány dat
 
@@ -75,7 +75,7 @@ Po instalaci brány na místním počítači, musíte vytvořit vaše brána dat
 
 1. Přihlaste se na web [Azure Portal](https://portal.azure.com "Azure Portal"). Nezapomeňte použít stejný Azure pracovní nebo školní e-mailovou adresu použitý k instalaci brány.
 
-2. V hlavní nabídce Azure, zvolte **vytvořit prostředek** > **Enterprise integrace** > **místní brána dat**:
+2. V hlavní nabídce Azure, zvolte **vytvořit prostředek** > **Enterprise integrace** > **místní brána dat**.
 
    ![Najít "místní brána dat"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -107,9 +107,10 @@ Po instalaci brány na místním počítači, musíte vytvořit vaše brána dat
 
     ![Zadejte podrobnosti vytvořit bránu, místní data](./media/logic-apps-gateway-connection/createblade.png)
 
-    K vyhledání nebo zobrazit vaše brána data gateway kdykoli z hlavní nabídky Azure, přejděte na **více služeb** > **Enterprise integrace** > **místní brány dat** .
+    Chcete-li najít nebo zobrazit vaše brána data gateway kdykoli z hlavní nabídky Azure, zvolte **všechny služby**. 
+    Do vyhledávacího pole zadejte "místní brány data gateways", a potom vyberte **místní brány Data Gateways**.
 
-    ![Přejděte na "Další služby", "Enterprise integraci", "místní Data Gateway"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Najít "místní brány Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

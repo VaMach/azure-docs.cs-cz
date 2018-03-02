@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Procházení databáze Azure SQL pomocí indexerů Azure Search
 
@@ -121,7 +121,7 @@ Následující cvičení předpokládá, že neexistuje žádný server ani data
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/). 
 
-2. Klikněte na **Nový** > **SQL Database** a vytvořte databázi, server a skupinu prostředků. Můžete použít výchozí hodnoty a nejnižší cenovou úroveň. Jednou z výhod vytvoření serveru je, že můžete zadat uživatelské jméno a heslo správce, které jsou potřeba k vytvoření a načtení tabulek v pozdějším kroku.
+2. Klikněte na **Vytvořit prostředek** > **SQL Database** a vytvořte databázi, server a skupinu prostředků. Můžete použít výchozí hodnoty a nejnižší cenovou úroveň. Jednou z výhod vytvoření serveru je, že můžete zadat uživatelské jméno a heslo správce, které jsou potřeba k vytvoření a načtení tabulek v pozdějším kroku.
 
    ![Stránka Nová databáze](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

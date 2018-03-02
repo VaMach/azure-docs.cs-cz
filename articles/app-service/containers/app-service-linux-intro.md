@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: c06270c75ae16ba516e71a5dde9db4a7277d7e38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 465e3d2c0c2b7c5d811441ede20adb9da2dbe847
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Seznámení se službou Azure App Service v Linuxu
 
@@ -90,7 +90,7 @@ Na web SCM můžete přejít přes možnost **Rozšířené nástroje** v nabíd
 
 Následující odkazy vám pomůžou začít se službou App Service v Linuxu. Otázky a připomínky můžete publikovat na [našem fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Jak používat vlastní image Dockeru pro službu Web App for Containers](quickstart-custom-docker-image.md)
+* [Jak používat vlastní image Dockeru pro službu Web App for Containers](quickstart-docker-go.md)
 * [Použití .NET Core ve službě Azure App Service v Linuxu](quickstart-dotnetcore.md)
 * [Použití Ruby ve službě Azure App Service v Linuxu](quickstart-ruby.md)
 * [Azure App Service Web App for Containers – Nejčastější dotazy](app-service-linux-faq.md)

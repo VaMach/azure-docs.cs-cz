@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitorujte místní infrastrukturu identity a synchronizačních služeb v cloudu.
 Služba Azure Active Directory (Azure AD) Connect Health pomáhá monitorovat místní infrastrukturu identity a synchronizační služby a lépe proniknout do jejich funkce. Umožňuje udržovat spolehlivé propojení s Office 365 a službami Microsoft Online Services tím, že zajišťuje monitorování klíčových komponent identity, jako jsou servery služby Active Directory Federation Services (AD FS), servery služby Azure AD Connect (neboli synchronizační stroj), řadiče domény služby Active Directory atd. Také udržuje klíčové datové body těchto komponent dobře přístupné, takže můžete snadno získat přehled o jejich používání a dalších důležitých statistikách, abyste se mohli kvalifikovaně rozhodnout.
@@ -110,7 +110,7 @@ Pokud chcete začít se službou Azure AD Connect Health, použijte následujíc
 Portál služby Azure AD Connect Health umožňuje zobrazovat upozornění, monitorování výkonu a analýzy využívání. Hlavního okno služby Azure AD Connect Health najdete na následující adrese URL: https://aka.ms/aadconnecthealth. Je to v podstatě hlavní obrazovka této služby. V hlavním okně uvidíte možnost **Rychlý start**, služby v rámci Azure AD Connect Health a další možnosti konfigurace. Prohlédněte si následující snímek obrazovky a stručné vysvětlení uvedené pod ním. Jakmile nasadíte agenty, služba Health automaticky identifikuje služby, které Azure AD Connect Health monitoruje.
 
 > [!NOTE]
-> Informace o licencích najdete v tématu s [nejčastějšími dotazy ke službě Azure AD Connect](active-directory-aadconnect-health-faq.md) nebo na [stránce s cenami služby Azure AD](https://aka.ms/aadpricing).
+> Informace o licencích najdete v [nejčastějších dotazech ke službě Azure AD Connect Health](active-directory-aadconnect-health-faq.md) nebo na [stránce s cenami služby Azure AD](https://aka.ms/aadpricing).
     
 ![Portál služby Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 

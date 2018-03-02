@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Konfigurace koncových bodů služby virtuální sítě
 
@@ -62,8 +62,8 @@ Během období Preview je funkce koncových bodů služby virtuální sítě pod
 
 1. Otevřete [Azure Portal](https://portal.azure.com/).
 Přihlaste se k Azure pomocí svého účtu Azure. Pokud účet Azure nemáte, můžete si zaregistrovat bezplatnou zkušební verzi. Účet musí mít potřebná [oprávnění](#provisioning) k vytvoření virtuální sítě a koncového bodu služby.
-2. Klikněte na + Nový > Sítě > Virtuální síť > + Přidat.
-3. V části Vytvořit virtuální síť zadejte následující hodnoty a potom klikněte na Vytvořit:
+2. Klikněte na **Vytvořit prostředek** > **Sítě** > **Virtuální síť** > **+ Přidat**.
+3. V části Vytvořit virtuální síť zadejte následující hodnoty a pak klikněte na **Vytvořit**:
 
 Nastavení | Hodnota
 ------- | -----

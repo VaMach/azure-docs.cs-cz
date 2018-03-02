@@ -43,6 +43,8 @@
               href: azure-stack-compute-overview.md
             - name: Aspekty virtuálních počítačů
               href: azure-stack-vm-considerations.md
+            - name: Velikost virtuálních počítačů
+              href: azure-stack-vm-sizes.md
             - name: Správa disků virtuálních počítačů
               href: azure-stack-manage-vm-disks.md
         - name: Úložiště

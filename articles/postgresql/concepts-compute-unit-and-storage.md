@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Kde vysvětluje výpočetní jednotky v Azure databázi PostgreSQL
 Toto téma vysvětluje Princip výpočetní jednotky a co se stane, když vaše úlohy dosáhne maximální úrovně výpočetní jednotky.
@@ -42,5 +42,5 @@ Pokud vaše úlohy dosáhne maximální limit v výpočetní jednotky nebo zří
 
 Pokud vaše úlohy dosáhne maximální limit počtu připojení, je vyvolána explicitní chyby. Další informace o omezení prostředků najdete v tématu [omezení v Azure databázi PostgreSQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o cenových úrovní najdete v tématu [databáze Azure pro PostgreSQL cenové úrovně](./concepts-service-tiers.md).

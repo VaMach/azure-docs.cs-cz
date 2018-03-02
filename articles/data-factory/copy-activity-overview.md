@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Aktivita kopírování v Azure Data Factory
 
@@ -152,11 +152,11 @@ Můžete monitorovat kopie aktivity při spuštění v Azure Data Factory "Autor
 
 Vizuální monitorování kopie aktivity při spuštění, přejděte na datovou továrnu -> **Autor & monitorování** -> **karta sledovat**, uvidíte seznam kanálu spustí pomocí odkazu v "Zobrazeníaktivityspouští" **Akce** sloupce. 
 
-![Spustí monitorování kanálu](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+![Monitorování spuštění kanálu](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
 Kliknutím zobrazíte seznam aktivit v tomto kanálu spuštění. V **akce** sloupce, máte odkazy na kopie aktivity vstupní, výstupní, chyby (Pokud se nezdaří spustit aktivitu kopírování) a podrobnosti.
 
-![Spustí monitorování aktivity](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+![Monitorování spuštění aktivit](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
 Klikněte "**podrobnosti**" v části **akce** zobrazíte podrobnosti o aktivitě kopírování provádění a výkonové charakteristiky. Zobrazuje informace včetně svazku nebo řádků nebo soubory dat kopírovány z zdroje jímky, propustnost, kroky se prochází s odpovídající doba trvání a použít konfigurace pro váš scénář kopírování.
 

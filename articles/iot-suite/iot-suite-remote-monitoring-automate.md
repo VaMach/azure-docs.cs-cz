@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Zjistit problémy při použití pravidla na základě prahové hodnoty
 
@@ -60,13 +60,13 @@ K zakázání, povolení nebo odstranění jednoho nebo více pravidel, vyberte 
 
 Chcete-li přidat nové pravidlo, které generuje upozornění při přetížení v **chladič** zařízení překračuje 150 PSI, zvolte **nové pravidlo**:
 
-![Vytvoření pravidla](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule.png)
+![Vytvořit pravidlo](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule.png)
 
 Vytvoření pravidla, použijte následující hodnoty:
 
 | Nastavení          | Hodnota                                 |
 | ---------------- | ------------------------------------- |
-| Name (Název)             | Chladič upozornění                       |
+| Název             | Chladič upozornění                       |
 | Zdroj           | **Dochlazovače** skupiny zařízení             |
 | Aktivační událost pole    | pressure                              |
 | Aktivační událost – operátor | Více než                          |
@@ -98,7 +98,7 @@ Pokud chcete trvale odstranit pravidlo, v seznamu pravidel příslušného vyber
 
 Pokud vyberete více pravidel v seznamu, můžete odstranit víc pravidel ve stejnou dobu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu ukázal, jak na:
 

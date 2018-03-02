@@ -1,10 +1,11 @@
 - name: Dokumentace k platformě Service Fabric
-  href: /azure/service-fabric
+  href: index.yml
 - name: Přehled
   items:
     - name: Co je Service Fabric?
       href: service-fabric-overview.md
 - name: Šablony Rychlý start
+  expanded: true
   items:
     - name: Vytvoření aplikace .NET
       href: service-fabric-quickstart-dotnet.md

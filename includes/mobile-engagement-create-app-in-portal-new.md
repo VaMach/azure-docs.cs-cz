@@ -1,6 +1,6 @@
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2. Klikněte na **Nový**, pak na **Web + mobilní zařízení** a potom na **Mobile Engagement**.
+2. Klikněte na **Vytvořit prostředek**, pak na **Web a mobilní zařízení** a pak na **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
 3. V zobrazeném okně **Nová kolekce aplikací Mobile Engagement** budete vytvářet kolekce aplikací. Zadejte následující informace:

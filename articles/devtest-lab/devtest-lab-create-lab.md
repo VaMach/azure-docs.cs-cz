@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 3fd1f0ca01e9a800eaf3ba9843c7e3165023ccef
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a2148f8891c94f457a95282b8a3b7067c86c62ed
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Vytvoření testovacího prostředí v Azure DevTest Labs
 Testovací prostředí ve službě Azure DevTest Labs je infrastruktura, která zahrnuje skupinu prostředků, třeba službu Virtual Machines, která vám umožní lépe spravovat tyto prostředky zadáním omezení a kvót. Tento článek vás provede procesem vytvoření testovacího prostředí pomocí webu Azure Portal.
@@ -32,9 +32,9 @@ K vytvoření testovacího prostředí potřebujete:
 Následující kroky ukazují postup vytvoření testovacího prostředí ve službě Azure DevTest Labs pomocí webu Azure Portal. 
 
 1. Přihlaste se k webu [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. V hlavní nabídce na levé straně vyberte **Další služby** (v dolní části seznamu).
+1. V hlavní nabídce na levé straně vyberte **Všechny služby** (v horní části seznamu).
 
-    ![Možnost nabídky Další služby](./media/devtest-lab-create-lab/more-services-menu-option.png)
+    ![Možnost nabídky Všechny služby](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. V seznamu dostupných služeb vyberte **DevTest Labs**.
 1. V oblasti **DevTest Labs** vyberte **Přidat**.

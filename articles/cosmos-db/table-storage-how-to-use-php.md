@@ -14,18 +14,18 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 4965247d77e8a3a9f5dbaa2e70952993b4bdf4ff
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Jak používat službu Azure Storage Table nebo Cosmos DB tabulky rozhraní API z PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Přehled
-Tento průvodce vám ukáže, jak provádět běžné scénáře s využitím služby Azure Storage Table a rozhraní API služby Azure Cosmos DB tabulky. Ukázky jsou napsané v PHP a použití [Azure SDK pro jazyk PHP][download]. Pokryté scénáře zahrnují **vytváření a odstraňování tabulek**, a **vkládání, odstraňování a dotazování entity v tabulce**. Další informace o službě Azure Table, najdete v článku [další kroky](#next-steps) části.
+Tento průvodce vám ukáže, jak provádět běžné scénáře s využitím služby Azure Storage Table a rozhraní API služby Azure Cosmos DB tabulky. Ukázky jsou napsané v PHP a použití [klientské knihovny pro Azure Storage tabulky PHP][download]. Pokryté scénáře zahrnují **vytváření a odstraňování tabulek**, a **vkládání, odstraňování a dotazování entity v tabulce**. Další informace o službě Azure Table, najdete v článku [další kroky](#next-steps) části.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 

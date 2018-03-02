@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Začínáme s DNS Azure pomocí webu Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-getstarted-portal.md)
+> * [portál Azure Portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
@@ -34,8 +34,8 @@ K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud c
 
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
-1. Přihlášení k webu Azure Portal
-2. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete stránku **Vytvořit zónu DNS**.
+1. Přihlaste se k portálu Azure.
+2. V nabídce centra klikněte na **Vytvořit prostředek > Sítě >** a pak klikněte na **Zóna DNS**. Otevře se stránka **Vytvořit zónu DNS**.
 
     ![Zóna DNS](./media/dns-getstarted-portal/openzone650.png)
 

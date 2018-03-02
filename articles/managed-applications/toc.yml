@@ -1,10 +1,11 @@
-- name: Spravované aplikace Azure
+- name: Dokumentace ke spravovaným aplikacím Azure
   href: index.yml
 - name: Přehled
   items:
     - name: Informace o spravovaných aplikacích
       href: overview.md
 - name: Šablony Rychlý start
+  expanded: true
   items:
     - name: Vytvoření spravované aplikace
       href: managed-apps-quickstart-cli.md
@@ -30,7 +31,7 @@
       href: update-managed-resources.md
     - name: Použití portálu k publikování
       href: publish-portal.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Azure CLI
       href: /cli/azure/managedapp

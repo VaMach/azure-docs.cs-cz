@@ -1,35 +1,33 @@
 ---
-title: "Vytvořte účet virtuálních počítačů a úložiště pro škálovatelná aplikaci v Azure | Microsoft Docs"
-description: "Zjistěte, jak nasadit virtuální počítač, který se má použít ke spuštění škálovatelné aplikace pomocí Azure blob storage"
+title: "Vytvoření virtuálního počítače a účtu úložiště pro škálovatelnou aplikaci v Azure | Microsoft Docs"
+description: "Zjistěte, jak nasadit virtuální počítač, který se použije ke spuštění škálovatelné aplikace využívající úložiště objektů blob v Azure."
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Vytvoření virtuálního počítače a účet úložiště pro škálovatelná aplikace
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Vytvoření virtuálního počítače a účtu úložiště pro škálovatelnou aplikaci
 
-V tomto kurzu je součástí, jednu z řady. Tento kurz ukazuje, že nasazujete aplikaci, která nahrávání a stahování velkých objemů náhodná data s účtem úložiště Azure. Jakmile budete hotovi, máte konzolové aplikace běžící na virtuálním počítači, že jste nahrávání a stahování velkých objemů dat do účtu úložiště.
+Tento kurz je první částí série. V tomto kurzu se dozvíte, jak nasadit aplikaci, která nahrává a stahuje velké objemy náhodných dat s využitím účtu úložiště Azure. Až budete hotovi, budete mít na virtuálním počítači spuštěnou konzolovou aplikaci, která nahrává a stahuje velké objemy dat do účtu úložiště.
 
-V rámci jedna řada, zjistíte, jak:
+V první části této série se naučíte:
 
 > [!div class="checklist"]
 > * vytvořit účet úložiště
 > * Vytvoření virtuálního počítače
-> * Konfigurovat rozšíření vlastních skriptů
+> * Konfigurace rozšíření vlastních skriptů
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
@@ -47,9 +45,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>vytvořit účet úložiště
  
-Ukázka ukládání 50 velkých souborů na kontejner objektů blob v účtu Azure Storage. Účet úložiště poskytuje jedinečný obor názvů pro ukládání a přístup k vaší datové objekty Azure storage. Vytvořit účet úložiště ve skupině prostředků, který jste vytvořili pomocí [nový AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) příkaz.
+Ukázka nahraje 50 velkých souborů do kontejneru objektů blob v účtu služby Azure Storage. Účet služby Storage poskytuje jedinečný obor názvů pro ukládání datových objektů Azure Storage a přístup k nim. Ve skupině prostředků, kterou jste vytvořili, vytvořte účet úložiště pomocí příkazu [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
 
-V následujícím příkazu nahraďte vlastní globálně jedinečný název pro účet úložiště Blob, kde uvidíte `<blob_storage_account>` zástupný symbol.
+V následujícím příkazu nahraďte zástupný symbol `<blob_storage_account>` vlastním globálně jedinečným názvem účtu služby Blob Storage.
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
@@ -102,19 +100,19 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 Write-host "Your public IP address is $($pip.IpAddress)"
 ```
 
-## <a name="deploy-configuration"></a>Konfigurace nasazení
+## <a name="deploy-configuration"></a>Nasazení konfigurace
 
-V tomto kurzu jsou předpoklady, které je třeba nainstalovat na virtuální počítač. Rozšíření vlastních skriptů se používá ke spuštění skriptu prostředí PowerShell, který dokončí následující úkoly:
+Tento kurz vyžaduje, aby na virtuálním počítači bylo nainstalovaných několik položek. Pomocí rozšíření vlastních skriptů se spustí skript PowerShellu, který provede následující úlohy:
 
 > [!div class="checklist"]
-> * Nainstalujte základní rozhraní .NET 2.0
-> * Instalace chocolatey
-> * Nainstalovat GIT
-> * Naklonujte úložiště ukázka
+> * Instalace .NET Core 2.0
+> * Instalace Chocolatey
+> * Instalace GITu
+> * Naklonování ukázkového úložiště
 > * Obnovení balíčků NuGet
-> * Vytvoří 50 1 GB soubory s náhodná data
+> * Vytvoření 50 1GB souborů s náhodnými daty
 
-Spusťte následující rutinu pro dokončení konfigurace virtuálního počítače. Tento krok bude dokončeno 5 až 15 minut.
+Spuštěním následující rutiny dokončete konfiguraci virtuálního počítače. Dokončení tohoto kroku trvá 5 až 15 minut.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
@@ -126,16 +124,16 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="next-steps"></a>Další postup
+## <a name="next-steps"></a>Další kroky
 
-V rámci jedna řada jste se dozvěděli o vytvoření účtu úložiště, nasazení virtuálního počítače a konfigurace virtuálního počítače s požadované požadavky například jak:
+V první části série jste se seznámili s vytvořením účtu úložiště, nasazením virtuálního počítače a konfigurací požadovaných součástí na virtuálním počítači a naučili jste se například:
 
 > [!div class="checklist"]
 > * vytvořit účet úložiště
 > * Vytvoření virtuálního počítače
-> * Konfigurovat rozšíření vlastních skriptů
+> * Konfigurace rozšíření vlastních skriptů
 
-Přechodu na dva součástí řady nahrát velké objemy dat na účet úložiště pomocí exponenciální opakování a stupně paralelního zpracování.
+Přejděte k druhé části série, kde do účtu úložiště nahrajete velké objemy dat s využitím exponenciálního opakování a paralelismu.
 
 > [!div class="nextstepaction"]
-> [Nahrát velkých objemů velkých souborů paralelně na účet úložiště](storage-blob-scalable-app-upload-files.md)
+> [Paralelní nahrání velkého množství velkých souborů do účtu úložiště](storage-blob-scalable-app-upload-files.md)

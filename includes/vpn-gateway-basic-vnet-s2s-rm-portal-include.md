@@ -6,7 +6,7 @@ Pokud chcete vytvořit virtuální síť v modelu nasazení Resource Manageru po
 >
 
 1. V prohlížeči přejděte na web [Azure Portal](http://portal.azure.com) a přihlaste se pomocí svého účtu Azure.
-2. Klikněte na možnost **Nové**. Do pole **Hledat na Marketplace** zadejte text „Virtuální síť“. Ve vráceném seznamu vyhledejte položku **Virtuální síť** a kliknutím otevřete stránku **Virtuální síť**.
+2. Klikněte na **Vytvořit prostředek**. Do pole **Hledat na Marketplace** zadejte text „Virtuální síť“. Ve vráceném seznamu vyhledejte položku **Virtuální síť** a kliknutím otevřete stránku **Virtuální síť**.
 3. U dolního okraje stránky Virtuální síť v seznamu **Vybrat model nasazení** vyberte **Resource Manager** a potom klikněte na **Vytvořit**. Tím otevřete stránku Vytvořit virtuální síť.
 
     ![Stránka pro vytvoření virtuální sítě](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Stránka pro vytvoření virtuální sítě")

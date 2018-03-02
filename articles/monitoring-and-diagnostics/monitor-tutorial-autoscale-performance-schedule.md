@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: tutorial
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f956a9436126c2a46d80b20770d7d86309e5b3af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Vytvoření nastavení automatického škálování prostředků Azure na základě údajů o výkonu nebo časového plánu
 
@@ -35,10 +35,8 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Vytvoření webové aplikace a plánu služby App Service
-1. V levém navigačním podokně klikněte na volbu **Nový**.
-
+1. V levém navigačním podokně klikněte na možnost **Vytvořit prostředek**.
 2. Vyhledejte položku *Webová aplikace*, klikněte na ni a pak klikněte na **Vytvořit**.
-
 3. Vyberte název aplikace, například *MyTestScaleWebApp*. Vytvořte novou skupinu prostředků *myResourceGroup* a umístěte ji do skupiny prostředků podle svého výběru.
 
 Během několika minut by mělo proběhnout zřízení vašich prostředků. Ve zbývající části tohoto kurzu budete používat webovou aplikaci a odpovídající plán služby App Service.
@@ -46,19 +44,19 @@ Během několika minut by mělo proběhnout zřízení vašich prostředků. Ve 
    ![Vytvoření nové služby App Service v portálu](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Přechod k nastavením automatického škálování
-1. V levém navigačním podokně vyberte možnost **Sledovat**. Po načtení stránky přejděte na kartu **Automatické škálování**.
+1. V levém navigačním podokně vyberte možnost **Sledovat**. Po načtení stránky vyberte kartu **Automatické škálování**.
 2. Je tam uveden seznam prostředků v rámci vašeho předplatného, které podporují automatické škálování. Najděte plán služby App Service vytvořený dříve v tomto kurzu a klikněte na něj.
 
     ![Přechod k nastavením automatického škálování](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. V nastaveních automatického škálování klikněte na tlačítko **Povolit automatické škálování**.
+3. V nastavení automatického škálování klikněte na tlačítko **Povolit automatické škálování**.
 
-Následujících několik kroků vás provede vyplňováním obrazovky automatického škálování tak, aby nastavení vypadala podobně jako na následujícím obrázku:
+Následujících několik kroků vás provede vyplněním obrazovky automatického škálování tak, aby nastavení vypadalo podobně jako na následujícím obrázku:
 
    ![Uložení nastavení automatického škálování](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
  ## <a name="configure-default-profile"></a>Konfigurace výchozího profilu
-1. Zadejte **název** pro nastavení automatického škálování.
+1. Zadejte **Název** pro nastavení automatického škálování.
 2. Ve výchozím profilu zkontrolujte, že je možnost **Režim škálování** nastavená na hodnotu Škálovat na konkrétní počet instancí.
 3. Nastavte počet instancí **1**. Toto nastavení zajistí, že když žádný jiný profil nebude aktivní nebo se nebude uplatňovat, výchozí profil obnoví počet instancí 1.
 
@@ -69,7 +67,7 @@ Následujících několik kroků vás provede vyplňováním obrazovky automatic
 
 1. Klikněte na odkaz **Přidat podmínku škálování** pod výchozím profilem.
 
-2. Upravte **název** tohoto profilu na text Monday to Friday profile (Profil od pondělí do pátku).
+2. Upravte **Název** tohoto profilu na text Monday to Friday profile (Profil od pondělí do pátku).
 
 3. Zkontrolujte, že je možnost **Režim škálování** nastavená na hodnotu Škálovat podle metriky.
 
@@ -81,7 +79,7 @@ Následujících několik kroků vás provede vyplňováním obrazovky automatic
 
 ## <a name="create-a-scale-out-rule"></a>Vytvoření pravidla pro škálování na více instancí
 
-1. V profilu Monday to Friday profile:
+1. V profilu Monday to Friday profile.
 
 2. Klikněte na odkaz **Přidat pravidlo**.
 
@@ -102,7 +100,7 @@ Toto pravidlo zajišťuje, že pokud vaše webová aplikace obdrží více než 
 ## <a name="create-a-scale-in-rule"></a>Vytvoření pravidla pro škálování na méně instancí
 Doporučujeme vám vždy mít pro pravidlo pro škálování na více instancí nastaveno i pravidlo pro škálování na méně instancí. Pokud máte obě, je zajištěno, že se vaše prostředky nebudou zřizovat v nadměrném množství. Zřizování v nadměrném množství znamená, že máte spuštěných víc instancí, než pro zpracování aktuální zátěže potřebujete. 
 
-1. V profilu Monday to Friday profile:
+1. V profilu Monday to Friday profile.
 
 2. Klikněte na odkaz **Přidat pravidlo**.
 

@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Databáze Azure pro výkon a možnosti MySQL: co je k dispozici v jednotlivých cenových úrovní
 Když vytvoříte databázi Azure pro server databáze MySQL, rozhodněte tři hlavní možnosti konfigurace prostředky přidělené pro tento server. Tyto možnosti vliv na výkon a škálování serveru.
@@ -45,8 +45,8 @@ Při rozhodování o cenovou úroveň, nejprve spusťte tak, že určíte, pokud
 | :------------------------ | :-------- | :----------- |
 | Maximální výpočetní jednotky | 100 | 800 | 
 | Maximální celková velikost úložiště | 1 TB | 1 TB | 
-| Záruku IOPS úložiště | Není k dispozici | Ano | 
-| Maximální velikost úložiště IOPS | Není k dispozici | 3000 | 
+| Záruku IOPS úložiště | neuvedeno | Ano | 
+| Maximální velikost úložiště IOPS | neuvedeno | 3000 | 
 | Doba uchovávání záloh databáze | 7 dní | 35 dní | 
 
 Období preview nelze změnit cenovou úroveň, jakmile je vytvořena serveru. V budoucnu bude možné upgradovat nebo starší verzi serveru z jednu cenovou úroveň na jinou vrstvu.
@@ -72,12 +72,12 @@ Výpočetní že jednotky jsou měřítkem propustnost zpracování procesoru, k
 | **Úroveň výkonu** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Maximální počet výpočetní jednotky | 100 | 200 | 400 | 800 |
-| Velikost zahrnuté úložiště a zřízené IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS |
+| Velikost zahrnuté úložiště a zřízené IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Maximální velikost úložiště serveru\* | 1 TB | 1 TB | 1 TB | 1 TB |
 | Zřízení serveru maximální IOPS | 3000 IOPS | 3000 IOPS | 3000 IOPS | 3000 IOPS |
 | Zřízení serveru maximální IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB | Opravené 3 IOPS za GB |
 
-\*Maximální velikost úložiště serveru odkazuje na maximální zřízené velikost úložiště pro váš server.
+\* Maximální velikost úložiště serveru odkazuje na maximální zřízené velikost úložiště pro váš server.
 
 ## <a name="storage"></a>Úložiště 
 Konfigurace úložiště definuje množství kapacity úložiště, které jsou k dispozici pro databázi Azure pro server databáze MySQL. Úložiště používá služba zahrnuje soubory databáze, transakční protokoly a protokoly serveru MySQL. Zvažte velikost úložiště potřebné pro hostování své databáze a požadavky na výkon (IOPS) při výběru konfigurace úložiště.
@@ -100,6 +100,6 @@ Na pozadí Změna úrovně výkonu serveru vytvoří kopii původního serveru n
 
 Dobu trvání procesu celý škálování závisí na velikosti i cenová úroveň serveru před a po provedení změny. Například server, který mění výpočetní jednotky v rámci standardní cenovou úroveň, provést v rámci několik minut. Nové vlastnosti pro server se nepoužívají, dokud nebudou dokončeny změny.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o výpočetní jednotky, najdete v části [vysvětlením výpočetní jednotky](concepts-compute-unit-and-storage.md)
 - Zjistěte, jak [sledování a škálování Azure Database pro MySQL server pomocí rozhraní příkazového řádku Azure](scripts/sample-scale-server.md)

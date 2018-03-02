@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Použít koncept s Azure Container Service (AKS)
 
@@ -27,28 +27,7 @@ Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili
 
 Budete také potřebovat privátní registru Docker v registru kontejner Azure (ACR). Pokyny pro nasazení ACR instance najdete v tématu [Azure kontejneru registru Quickstart][acr-quickstart].
 
-## <a name="install-helm"></a>Nainstalujte Helm
-
-Rozhraní příkazového řádku Helm je klient, který běží ve vývojovém systému a umožňuje spuštění, zastavení a správu aplikací s Helm grafy.
-
-Chcete-li nainstalovat rozhraní příkazového řádku Helm na Macu, použijte `brew`. Možnosti Další informace najdete v tématu [instalace Helm][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Výstup:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Helm musí být nainstalována také v AKS clusteru. Další informace o instalaci helm najdete v tématu [Helm použití s Azure Container Service (AKS)][aks-helm].
 
 ## <a name="install-draft"></a>Nainstalujte konceptu
 
@@ -227,13 +206,13 @@ Standardně *externí IP* pro služby se zobrazí jako `pending`.
 deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
-Jakmile externí IP adresu se změnil z hodnoty `pending` k `IP address`, použijte `Control+C` kubectl sledovat proces zastavíte.
+Jakmile se stav adresy EXTERNAL-IP změní ze stavu `pending` na `IP address`, pomocí klávesové zkratky `Control+C` zastavte sledovací proces kubectl.
 
 ```
 deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
-Informace o aplikaci, přejděte na externí IP adresu.
+Pokud se chcete na aplikaci podívat, přejděte na externí IP adresu.
 
 ```console
 curl 52.175.224.118
@@ -297,7 +276,7 @@ Výstup:
 Hello World, I'm Java - Draft Rocks!
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o používání koncept naleznete v dokumentaci k koncept na Githubu.
 
@@ -307,10 +286,10 @@ Další informace o používání koncept naleznete v dokumentaci k koncept na G
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

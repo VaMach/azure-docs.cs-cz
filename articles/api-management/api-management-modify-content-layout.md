@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Úprava obsahu a rozložení stránek na portálu pro vývojáře ve službě Azure API Management
 Existují tři základní způsoby, kterými jde přizpůsobit portál pro vývojáře ve službě Azure API Management:
 
 * [Úprava obsahu statických stránek a elementů rozložení stránek][modify-content-layout] (vysvětlení obsahuje tento průvodce)
 * [Aktualizace stylů použitých pro elementy stránek napříč portálem pro vývojáře][customize-styles]
-* [Úprava šablon použitých pro stránky generované portálem][portal-templates] (dokumentace rozhraní API, produkty, ověřování uživatelů atd.)
+* [Úprava šablon použitých pro stránky generované portálem][portal-templates] (například dokumentace rozhraní API, produkty, ověřování uživatelů atd.)
 
 ## <a name="page-structure"></a>Struktura stránek portálu pro vývojáře
 
@@ -35,43 +35,26 @@ Portál pro vývojáře je založený na systému CMS (Content Management System
 
 Všechny widgety se dají upravovat. 
 * Základní obsah specifický pro každou jednotlivou stránku se nachází ve widgetu Contents. Úprava stránky znamená úpravy obsahu tohoto widgetu.
-* Všechny prvky rozložení stránky jsou obsažené v ostatních widgetech. Změny provedené v těchto widgetech budou platit pro všechny stránky. Budeme je označovat jako widgety rozložení.
+* Všechny prvky rozložení stránky jsou obsažené v ostatních widgetech. Změny provedené v těchto widgetech se použijí pro všechny stránky. Označujeme je jako widgety rozložení.
 
-Při běžných úpravách stránek se obvykle mění jenom widget Content, který má pro každou jednotlivou stránku jiný obsah.
+Při běžných úpravách stránek se často mění jenom widget Content, který má pro každou jednotlivou stránku jiný obsah.
 
 ## <a name="modify-layout-widget"></a>Změně obsahu widgetu rozložení
 
-Obsah portálu pro vývojáře se mění prostřednictvím portálu vydavatele, který je přístupný z webu Azure Portal. Otevřete jej tak, že na panelu nástrojů služby svojí instance služby API Management kliknete na **Portál vydavatele**.
+Portál pro vývojáře je přístupný z webu Azure Portal. 
 
-![Portál vydavatele][api-management-management-console]
-
-Pokud chcete obsah takového widgetu upravit, klikněte v nabídce **Portál pro vývojáře** na levé straně na **Widgety**. V tomto příkladu upravíme obsah widgetu Header. V seznamu vyberte widget **Header**.
-
-![Záhlaví widgetů][api-management-widgets-header]
-
-Obsah záhlaví můžete upravovat v poli **Text**. Změňte text podle potřeby a potom v dolní části stránky klikněte na **Uložit**.
+1. Klikněte na **Portál pro vývojáře** na panelu nástrojů vaší instance služby API Management.
+2. Pokud chcete upravit obsah widgetů, klikněte na ikonu se dvěma štětci v nabídce portálu **Vývojář** na levé straně. 
+3. Pokud chcete upravit obsah záhlaví, v seznamu na levé straně se posuňte do části **Záhlaví**.
+    
+    Widgety můžete upravovat v rámci polí.
+4. Až budete připraveni publikovat provedené změny, klikněte na **Publikovat** v dolní části stránky.
 
 Nové záhlaví by se teď mělo zobrazovat na každé stránce portálu pro vývojáře.
 
-> Pokud chcete portál pro vývojáře otevřít, když jste na portálu vydavatele, klikněte na horním panelu na **Portál pro vývojáře**.
-> 
-> 
-
-## <a name="edit-page-contents"></a>Úprava obsahu stránky
-
-Pokud chcete zobrazit seznam všech existujících stránek s obsahem, klikněte v nabídce **Portál pro vývojáře** (na portálu vydavatele) na **Obsah**.
-
-![Správa obsahu][api-management-customization-manage-content]
-
-Pokud chcete upravit obsah zobrazený na domovské stránce portálu pro vývojáře, klikněte na stránku **Vítejte**. Proveďte požadované změny, v případě potřeby si zobrazte jejich náhled a potom je zpřístupněte všem uživatelům kliknutím na **Publikovat**.
-
-> Domovská stránka používá zvláštní rozložení, které umožňuje zobrazit banner v její horní části. Tento banner nemůžete v části **Obsah** upravovat. Pokud chcete banner upravit, klikněte v nabídce **Portál pro vývojáře** na **Widgety**, v rozevíracím seznamu **Aktuální vrstva** vyberte **Domovská stránka** a potom v části **Vybraná část** otevřete položku **Banner**. Obsah tohoto widgetu můžete upravovat stejně jako jakoukoli jinou stránku.
-> 
-> 
-
 ## <a name="next-steps"></a>Další kroky
 * [Aktualizace stylů použitých pro elementy stránek napříč portálem pro vývojáře][customize-styles]
-* [Úprava šablon použitých pro stránky generované portálem][portal-templates] (dokumentace rozhraní API, produkty, ověřování uživatelů atd.)
+* [Úprava šablon použitých pro stránky generované portálem][portal-templates] (například dokumentace rozhraní API, produkty, ověřování uživatelů atd.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget
