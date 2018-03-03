@@ -1,8 +1,11 @@
+# [Dokumentace ke službě Azure AD Domain Services](index.md)
+
 # Přehled
 ## [Co je služba Azure Active Directory Domain Services?](active-directory-ds-overview.md)
 ## Hodí se pro vás?
 ### [Porovnání s AD na Windows Serveru](active-directory-ds-comparison.md)
 ### [Porovnání se službou Azure AD Join](active-directory-ds-compare-with-azure-ad-join.md)
+## [Co je nového?](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Funkce](active-directory-ds-features.md)
 ## [Scénáře](active-directory-ds-scenarios.md)
 ## [Jak funguje synchronizace](active-directory-ds-synchronization.md)
@@ -16,8 +19,10 @@
 ## [Úloha 5: Povolení synchronizace hesel](active-directory-ds-getting-started-password-sync.md)
 
 # Postup
+## [Kontrola stavu spravované domény](active-directory-ds-check-health.md)
 ## [Použití Azure AD Domain Services v předplatných Azure CSP](active-directory-ds-csp.md)
 ## [Povolení služby Azure AD Domain Services pomocí PowerShellu](active-directory-ds-enable-using-powershell.md)
+## [Kontrola stavu domény](active-directory-ds-check-health.md)
 ## Připojení ke spravované doméně
 ### [Virtuální počítač s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Virtuální počítač s Windows Serverem ze šablony](active-directory-ds-join-windows-vm-template.md)
@@ -28,7 +33,6 @@
 ## Správa spravované domény
 ### [Správa spravované domény](active-directory-ds-admin-guide-administer-domain.md)
 ### [Správa DNS ve spravované doméně](active-directory-ds-admin-guide-administer-dns.md)
-### [Kontrola stavu domény](active-directory-ds-check-health.md)
 ### Konfigurace zabezpečeného protokolu LDAP pro spravovanou doménu
 #### [Úloha 1: získání certifikátu pro protokol LDAPS](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Úloha 2: Export certifikátu protokolu LDAPS](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

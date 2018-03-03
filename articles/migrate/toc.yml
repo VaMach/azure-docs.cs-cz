@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Koncepty
   items:
+    - name: Koncepty kolektoru
+      href: concepts-collector.md
     - name: Výpočty hodnocení
       href: concepts-assessment-calculation.md
     - name: Vizualizace závislostí
