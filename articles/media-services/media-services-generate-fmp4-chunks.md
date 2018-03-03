@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f497954f82e209c1547fca0943169d53f4ab517a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Vytvoření kódování úlohy, který generuje fMP4 bloky
 
@@ -25,10 +25,11 @@ ms.lasthandoff: 12/11/2017
 
 Tento článek ukazuje, jak vytvořit kódování úkol, který generuje fragmentovaných MP4 bloky dat (fMP4) namísto soubory ISO MP4. Chcete-li vygenerovat fMP4 bloky dat, použijte **Media Encoder Standard** nebo **Media Encoder Premium pracovního postupu** kodér vytvořit kódování úlohy a také určit **AssetFormatOption.AdaptiveStreaming**  možnost, jak ukazuje tento fragment kódu:  
     
+```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 
             formatOption: AssetFormatOption.AdaptiveStreaming);
-
+```
 
 ## <a id="encoding_with_dotnet"></a>Kódování pomocí služby Media Services .NET SDK
 
@@ -47,7 +48,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -171,7 +172,7 @@ namespace AdaptiveStreaming
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Viz také

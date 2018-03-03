@@ -6,17 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="discover-and-assess-a-large-vmware-environment"></a>Zjišťovat a vyhodnocení velké prostředí VMware
+# <a name="discover-and-assess-a-large-vmware-environment"></a>Zkoumání a vyhodnocení rozsáhlých prostředí VMware
 
 Tento článek popisuje, jak k vyhodnocení velkého počtu místní virtuální počítače (VM) pomocí [Azure migrovat](migrate-overview.md). Azure migrací vyhodnocuje počítače, které chcete zkontrolovat, zda jsou vhodné pro migraci na Azure. Služba poskytuje velikost a cenově odhady pro spouštění počítačů v Azure.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 - **VMware**: virtuálních počítačů, která chcete migrovat se musí spravovat přes vCenter Server 5.5, 6.0 nebo 6.5 verze. Kromě toho musíte jedna ESXi hostitele spuštěné verze 5.0 nebo novější k nasazení kolekcí virtuálních počítačů.
 - **účet vCenter**: je třeba účet jen pro čtení pro přístup k systému vCenter Server. Azure Migrate ho použije ke zjištění místních virtuálních počítačů.
@@ -29,16 +29,18 @@ Plánování zjišťování a vyhodnocování podle následující omezení:
 
 | **Entity** | **Limit pro počítače** |
 | ---------- | ----------------- |
-| Project    | 1,500              | 
-| Zjišťování  | 1 000              |
-| Posouzení | 400               |
+| Projekt    | 1,500              | 
+| Zjišťování  | 1,500              |
+| Posouzení | 1,500               |
 
-- Pokud máte méně než 400 počítače ke zjištění a vyhodnocení, budete potřebovat jeden projekt a jeden zjišťování. V závislosti na požadavcích můžete vyhodnotit všechny počítače v jedné assessment nebo na počítače rozdělí na několik vyhodnocování. 
-- Pokud máte 400 na 1000 počítače ke zjištění, je třeba jeden projekt pomocí jednoho zjišťování. Ale budete potřebovat více vyhodnocování k vyhodnocení tyto počítače, protože jeden assessment pojme až 400 počítače.
-- Pokud máte počítače 1,001 na 1 500, je třeba jeden projekt se dvěma zjišťování v ní.
-- Pokud máte více než 1 500 počítače, budete muset vytvořit více projektů a provádět více zjišťování, podle svých požadavků. Příklad:
-    - Pokud máte 3 000 počítačů, můžete nastavit dva projekty s zjišťování dvou nebo tří projektů pomocí jednoho zjišťování.
-    - Pokud máte 5 000 počítačů, můžete nastavit čtyři projekty: tři s 1 500 počítačů zjišťování a s zjišťování 500 počítačů. Alternativně můžete nastavit pět projekty s jeden zjišťování v každé z nich. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Plánování více zjišťování
 
@@ -149,8 +151,8 @@ Následující tabulka uvádí také výsledky hodnocení, které bude mít vliv
 
 |Čítač                                  |Úroveň    |Úroveň za zařízení  |Dopad hodnocení                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |Není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
-|mem.usage.average                        | 1       |Není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
+|cpu.usage.average                        | 1       |není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
+|mem.usage.average                        | 1       |není k dispozici                |Doporučená velikost virtuálního počítače a náklady                    |
 |virtualDisk.read.average                 | 2       |2                 |Velikost disku, náklady na úložiště a velikost virtuálního počítače         |
 |virtualDisk.write.average                | 2       |2                 |Velikost disku, náklady na úložiště a velikost virtuálního počítače         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Velikost disku, náklady na úložiště a velikost virtuálního počítače         |

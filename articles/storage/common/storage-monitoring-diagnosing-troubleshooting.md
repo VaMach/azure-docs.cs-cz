@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: bf6cf780867f9ecf5c5be93dc28fe3e00a0c3f82
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorování, diagnostika a řešení problémů s Microsoft Azure Storage
+# <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorováni, diagnostika a řešení problémů s Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>Přehled
-Diagnostika a řešení potíží v distribuované aplikace hostované v cloudovém prostředí může být složitější než v tradiční prostředích. V infrastruktuře PaaS nebo IaaS místně na mobilním zařízení, nebo určitou kombinaci těchto mohou být aplikace nasazeny. Obvykle síťový provoz vaší aplikace můžou procházet veřejné a privátní sítě a vaše aplikace může používat více technologií úložiště, jako je například Microsoft Azure úložiště tabulek, objekty BLOB, fronty nebo ukládá soubory kromě další data, například jako relační a databáze v dokumentu.
+Diagnostika a řešení potíží v distribuované aplikace hostované v cloudovém prostředí může být složitější než v tradiční prostředích. V infrastruktuře PaaS nebo IaaS místně na mobilních zařízeních nebo v některých kombinací těchto prostředích, mohou být aplikace nasazeny. Obvykle síťový provoz vaší aplikace můžou procházet veřejné a privátní sítě a vaše aplikace může používat více technologií úložiště, jako je například Microsoft Azure úložiště tabulek, objekty BLOB, fronty nebo ukládá soubory kromě další data, například jako relační a databáze v dokumentu.
 
 Ke správě těchto aplikací úspěšně by je aktivně sledovat a pochopit, jak diagnostikovat a vyřešit všechny aspekty je a jejich závislé technologie. Jako uživatel služby Azure Storage doporučujeme neustále monitorovat služby úložiště, které vaše aplikace používá pro všechny neočekávané změny v chování (například nižší než obvyklé odezvy) a ke shromažďování dat podrobnější a k analýze problému podrobněji, používat protokolování. Diagnostické informace, které můžete získat z monitorování i protokolování vám pomůže určit hlavní příčinu potíže vaší aplikace. Potom můžete při řešení potíží a určit příslušné kroky, které můžete provést při jeho řešení. Úložiště Azure je základní služby Azure a je důležitou součástí většina řešení, které zákazníci nasadit na infrastrukturu Azure. Úložiště Azure poskytuje funkce pro zjednodušení monitorování, Diagnostika a řešení potíží problémů s úložištěm ve vaší cloudové aplikace.
 
@@ -66,10 +66,11 @@ Praktické informace na začátku do konce odstraňování potíží v aplikací
   * [Klient je přijímání zpráv protokolu HTTP 409 (konflikt)]
   * [metriky ukazují nízkou PercentSuccess nebo položky protokolu analýzy mít operací s stav transakce ClientOtherErrors]
   * [Metriky kapacity způsobit neočekávané nárůst využití kapacity úložiště]
-  * [Dochází k neočekávané restartování virtuálních počítačů, které mají velký počet připojených virtuálních pevných disků]
   * [Problém vyplývá z pomocí emulátoru úložiště pro vývoj nebo testování]
   * [Narazíte na potíže s instalací sady Azure SDK pro .NET]
   * [Máte jiný problém se službou úložiště]
+  * [Řešení potíží virtuální pevné disky ve virtuálních počítačích s Windows](../../virtual-machines/windows/troubleshoot-vhds.md)   
+  * [Řešení potíží virtuální pevné disky na virtuální počítače s Linuxem](../../virtual-machines/linux/troubleshoot-vhds.md)
   * [Řešení potíží s Azure soubory s Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Řešení potíží s Azure soubory operačního systému Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [přílohy]
@@ -87,7 +88,7 @@ Tento průvodce vám ukáže, jak používat funkce, jako jsou například anal�
 Tato příručka je určena především číst vývojáři online služeb, které používají služby úložiště Azure a IT Profesionálové zodpovědní za správu těchto online služeb. Cílem této příručky je:
 
 * Chcete-li udržovat stav a výkon svých účtů Azure Storage.
-* Abyste si udělali potřebné procesy a nástroje, které vám pomohou rozhodnout, pokud se problém nebo potíže v aplikaci má vztah k Azure Storage.
+* Abyste si udělali potřebné procesy a nástroje, které vám pomohou rozhodnout, zda problém nebo potíže v aplikaci má vztah k Azure Storage.
 * Abyste měli řešitelné pokyny pro řešení problémů souvisejících s úložištěm Azure.
 
 ### <a name="how-this-guide-is-organized">Uspořádání Tato příručka</a>
@@ -102,7 +103,7 @@ V části "[pokyny při řešení potíží]" poskytuje pokyny při řešení po
 "[přílohy]" obsahují informace o použití jiných nástrojů, například Wireshark nebo Netmon pro analýzu síťových paketů data, Fiddler pro analýzu zprávy HTTP/HTTPS, a Microsoft Message Analyzer pro korelace protokolovat data.
 
 ## <a name="monitoring-your-storage-service">Monitorování služby úložiště</a>
-Pokud jste obeznámeni s sledování výkonu systému Windows, si můžete představit metriky úložiště jako ekvivalentní čítačů sledování výkonu systému Windows Azure Storage. Ve Storage Metrics zjistíte komplexní sadu metriky (čítače v terminologii sledování výkonu systému Windows), například dostupnost služby, celkový počet žádostí o služby nebo procento úspěšné žádosti o služby. Úplný seznam dostupné metriky, najdete v části [schématu tabulky metriky Analytics úložiště](http://msdn.microsoft.com/library/azure/hh343264.aspx). Můžete zadat, zda chcete službu úložiště k shromažďování a agregace metriky každou hodinu nebo každou minutu. Další informace o tom, jak povolit metriky a monitorování účtů úložiště najdete v tématu [zapnutí metrik úložiště a prohlížení dat metrik](http://go.microsoft.com/fwlink/?LinkId=510865).
+Pokud jste obeznámeni s sledování výkonu systému Windows, si můžete představit metriky úložiště jako ekvivalentní čítačů sledování výkonu systému Windows Azure Storage. V metriky úložiště zjistíte komplexní sadu metriky (čítače v terminologii sledování výkonu systému Windows), například dostupnost služby, celkový počet žádostí o služby nebo procento úspěšné žádosti o služby. Úplný seznam dostupné metriky, najdete v části [schématu tabulky metriky Analytics úložiště](http://msdn.microsoft.com/library/azure/hh343264.aspx). Můžete zadat, zda chcete službu úložiště k shromažďování a agregace metriky každou hodinu nebo každou minutu. Další informace o tom, jak povolit metriky a monitorování účtů úložiště najdete v tématu [zapnutí metrik úložiště a prohlížení dat metrik](http://go.microsoft.com/fwlink/?LinkId=510865).
 
 Můžete zvolit, které hodinové metriky, které chcete zobrazit v [portál Azure](https://portal.azure.com) a nakonfigurovat pravidla, která upozorní správce e-mailem, kdykoli po hodinách metrika překračuje prahovou hodnotu konkrétní. Další informace najdete v tématu [dostávat oznámení o výstrahách](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
 
@@ -124,12 +125,12 @@ Grafy na následujícím obrázku znázorňují, jak průměrování, ke kterém
 Zbytek této části popisuje, jaké metriky, měli byste sledovat a proč.
 
 ### <a name="monitoring-service-health">Monitorování stavu služby</a>
-Můžete použít [portál Azure](https://portal.azure.com) pro zobrazení stavu služby Storage (a jinými službami Azure) ve všech oblastech Azure po celém světě. Můžete zobrazit okamžitě, pokud se problém mimo váš dosah ovlivňuje služby úložiště v oblasti, které používáte pro vaši aplikaci.
+Můžete použít [portál Azure](https://portal.azure.com) pro zobrazení stavu služby Storage (a jinými službami Azure) ve všech oblastech Azure po celém světě. Monitorování umožňuje můžete okamžitě zjistěte, zda problém mimo váš dosah ovlivňuje služby úložiště v oblasti, které používáte pro vaši aplikaci.
 
 [Portál Azure](https://portal.azure.com) můžete zadat taky oznámení incidentů, které ovlivňují různé služby Azure.
 Poznámka: Tyto informace byl dříve k dispozici, spolu s historických dat, na [řídicího panelu služby Azure](http://status.azure.com).
 
-Když [portál Azure](https://portal.azure.com) shromažďuje informace o stavu z v datových centrech Azure (zevnitř monitorování), zvažte také přijetí přístup mimo in k vygenerování syntetické transakce, které pravidelně Azure hostovaná webovou aplikaci přístup z více umístění. Služeb, které [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) a Application Insights pro Visual Studio Team Services jsou příklady tohoto mimo přístupu. Další informace o Application Insights pro Visual Studio Team Services, najdete v příloze "[příloha 5: monitorování pomocí Application Insights pro Visual Studio Team Services](#appendix-5)."
+Když [portál Azure](https://portal.azure.com) shromažďuje informace o stavu z v datových centrech Azure (zevnitř monitorování), zvažte také přijetí přístup mimo in k vygenerování syntetické transakce, které pravidelně Azure hostovaná webovou aplikaci přístup z více umístění. Služeb, které [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) a Application Insights pro Visual Studio Team Services jsou příklady tohoto přístupu. Další informace o Application Insights pro Visual Studio Team Services, najdete v příloze "[příloha 5: monitorování pomocí Application Insights pro Visual Studio Team Services](#appendix-5)."
 
 ### <a name="monitoring-capacity">Monitorování kapacity</a>
 Metriky úložiště ukládá metriky kapacity pro službu blob jenom, protože objekty BLOB obvykle účet pro největší podíl uložená data (v době psaní, není možné používat úložiště metriky k monitorování kapacity tabulek a front). Tato data v můžete najít **$MetricsCapacityBlob** tabulky, pokud jste povolili monitorování pro služby objektů Blob. Metriky úložiště zaznamenává tato data jednou za den, a můžete použít hodnotu **RowKey** k určení, zda řádek obsahuje entity, která má vztah k uživatelským datům (hodnota **data**) nebo analytická data (hodnota **analytics**). Každá entita uložené obsahuje informace o velikosti použitého úložiště (**kapacity** měřená v bajtech) a aktuální počet kontejnerů (**ContainerCount**) a objekty BLOB (**ObjectCount**) používá v účtu úložiště. Další informace o metriky kapacity, které jsou uložené v **$MetricsCapacityBlob** tabulky najdete v tématu [schématu tabulky metriky Analytics úložiště](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -164,7 +165,7 @@ V [portál Azure](https://portal.azure.com), můžete přidat pravidla výstrah 
 "[pokyny při řešení potíží]" část tato příručka popisuje některé běžné problémy služby úložiště souvisejících s výkonem.
 
 ## <a name="diagnosing-storage-issues">Diagnostika problémů s úložištěm</a>
-Existuje několik způsobů, že jste může se dozvěděli o problém nebo problém v aplikaci, patří:
+Existuje několik způsobů, že jste může se dozvěděli o problém nebo problém v aplikaci, včetně:
 
 * Hlavní selhání, které způsobí, že aplikace došlo k chybě, nebo přestane fungovat.
 * Významné změny z hodnoty standardních hodnot v metriky, které monitorujete, jak je popsáno v předchozí části "[monitorování vaší služby úložiště]."
@@ -181,14 +182,14 @@ Problémy související s služby Azure storage obvykle spadají do jedné ze č
 Následující oddíly popisují postupujte podle kroků pro diagnostiku a řešení problémů v každé z těchto čtyř kategorií. V části "[pokyny při řešení potíží]" dál v této příručce poskytující víc podrobností pro některé běžné problémy, se můžete setkat.
 
 ### <a name="service-health-issues">Problémy v oblasti služby stavu</a>
-Problémům se stavem služby jsou obvykle mimo vlastního ovládacího prvku. [Portál Azure](https://portal.azure.com) poskytuje informace o probíhající problémy se službami Azure včetně služby úložiště. Pokud jste se rozhodli pro geograficky redundantní úložiště s přístupem pro čtení při vytvoření účtu úložiště, pak v případě vaše data, že není k dispozici v primárním umístění, vaše aplikace může dočasně přepnout kopie jen pro čtení v sekundárním umístění. K tomu, musí aplikace přepínat mezi použitím umístění primárního a sekundárního úložiště a mohli pracovat v režimu omezené funkčnosti daty jen pro čtení. Knihovny klienta úložiště Azure umožňují definovat zásady opakovaných pokusů, který může číst ze sekundární úložiště v případě, že pro čtení z primárního úložiště se nezdaří. Aplikace také musí být data v sekundárním umístění je, že nakonec byl konzistentní. Další informace naleznete v příspěvku blogu [možnosti redundance úložiště Azure a geograficky redundantní úložiště s přístupem pro čtení](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+Problémům se stavem služby jsou obvykle mimo vlastního ovládacího prvku. [Portál Azure](https://portal.azure.com) poskytuje informace o probíhající problémy se službami Azure včetně služby úložiště. Pokud jste se rozhodli pro geograficky redundantní úložiště s přístupem pro čtení při vytvoření účtu úložiště, pak data přestane být dostupný v primárním umístění, vaše aplikace můžete přepnout dočasně kopie jen pro čtení v sekundárním umístění. Číst ze sekundární, musí aplikace přepínat mezi použitím umístění primárního a sekundárního úložiště a mohli pracovat v režimu omezené funkčnosti daty jen pro čtení. Knihovny klienta úložiště Azure umožňují definovat zásady opakovaných pokusů, který může číst ze sekundární úložiště v případě, že pro čtení z primárního úložiště se nezdaří. Aplikace také musí být data v sekundárním umístění je, že nakonec byl konzistentní. Další informace naleznete v příspěvku blogu [možnosti redundance úložiště Azure a geograficky redundantní úložiště s přístupem pro čtení](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ### <a name="performance-issues">problémy s výkonem</a>
 Výkon aplikace může být subjektivní, zejména z pohledu uživatele. Proto je důležité mít k dispozici základní metriku, která vám pomůže identifikovat možné problémy s výkonem. Mnoha faktorech může ovlivnit výkon služby Azure storage z pohledu klienta aplikace. Tyto faktory mohou fungovat ve službě úložiště, v klientovi nebo v síťové infrastruktuře; Proto je důležité mít strategie pro identifikaci původ problémy s výkonem.
 
 Jakmile zjistíte příčinu problémy s výkonem z metriky pravděpodobně umístění, pak můžete soubory protokolu naleznete podrobné informace pro diagnostiku a řešení problému další.
 
-V části "[pokyny při řešení potíží]" dál v této příručce poskytuje další informace o některých běžných výkon související problémy, můžete setkat.
+V části "[pokyny při řešení potíží]" dál v této příručce poskytuje další informace o některé běžné související s výkonem problémy se můžete setkat.
 
 ### <a name="diagnosing-errors">Diagnostikování chyb</a>
 Uživatelům vaší aplikace může upozorňovat na chyby oznámené službou klientské aplikace. Úložiště metriky taky zaznamenává počty typů různé chyby z vaší služby úložiště, jako **NetworkError**, **ClientTimeoutError**, nebo **AuthorizationError**. Zatímco úložiště metriky pouze zaznamenává počty typů různých chyb, můžete získat více podrobností o jednotlivých požadavků prověřením na straně serveru, klienta a protokoly sítě. Stavový kód protokolu HTTP, který je vrácena službou úložiště obvykle získáte údaj o tom, proč se nezdařil požadavek.
@@ -214,7 +215,7 @@ Azure SDK zahrnuje emulátor úložiště, můžete spouštět na pracovní stan
 ### <a name="storage-logging-tools">Nástroje protokolování úložiště</a>
 Protokolování úložiště poskytuje serverové protokolování požadavků na úložiště v účtu úložiště Azure. Další informace o tom, jak povolit protokolování na straně serveru a získat přístup k datům protokolu najdete v tématu [povolení protokolování úložiště a přístup k datům protokolu](http://go.microsoft.com/fwlink/?LinkId=510867).
 
-Klientská knihovna pro úložiště pro .NET umožňuje shromažďovat data protokolu na straně klienta, která má vztah k operace úložiště, provádí aplikace. Další informace najdete v tématu [klienta protokolování s knihovnou klienta úložiště .NET](http://go.microsoft.com/fwlink/?LinkId=510868).
+Klientská knihovna pro úložiště pro .NET umožňuje shromažďovat data protokolu na straně klienta, která má vztah k operace úložiště, provádí aplikace. Další informace najdete v článku [Protokolování na straně klienta s klientskou knihovnou pro úložiště .NET](http://go.microsoft.com/fwlink/?LinkId=510868).
 
 > [!NOTE]
 > V některých případech (například selháním autorizace SAS) může uživatel sestavy k chybě, pro které můžete najít data žádosti nejsou v protokolech úložiště na straně serveru. Můžete použít možnosti protokolování Klientská knihovna pro úložiště zjistit, zda je příčinou problém na straně klienta nebo používat nástroje monitorování sítě k prošetření sítě.
@@ -245,7 +246,7 @@ Klientská knihovna pro úložiště automaticky vygeneruje ID žádosti klienta
 * ID žádosti klienta se v protokolu protokolování úložiště serverové zobrazí ve sloupci ID žádosti klienta.
 
 > [!NOTE]
-> Je možné, protože klient se může přiřadit tuto hodnotu (i když klientská knihovna pro úložiště automaticky přiřadí novou hodnotu) sdílejí stejné ID žádosti klienta více žádostí. V případě opakování z klienta všechny pokusy sdílejí stejné ID žádosti klienta. V případě dávky odeslaných z klienta má dávky ID. požadavek jednoho klienta
+> Je možné, protože klient se může přiřadit tuto hodnotu (i když klientská knihovna pro úložiště automaticky přiřadí novou hodnotu) sdílejí stejné ID žádosti klienta více žádostí. Pokud klient pokus obnovuje, všechny pokusy sdílejí stejné ID žádosti klienta. V případě dávky odeslaných z klienta má dávky ID. požadavek jednoho klienta
 > 
 > 
 
@@ -298,7 +299,7 @@ catch (StorageException storageException)
 ```
 
 ### <a name="timestamps">Časová razítka</a>
-Časová razítka můžete použít také k vyhledání položky související protokolu, ale buďte opatrní z jakékoli zkosení hodin mezi klientem a serverem, který může existovat. Vyhledávejte plus nebo minus 15 minut pro párování serverové položky podle časového razítka na straně klienta. Mějte na paměti, že metadata objektu blob pro objekty BLOB obsahující metriky Určuje časové rozmezí metrik, které jsou uložené v objektu blob; To je užitečné, pokud máte mnoho objektů BLOB metriky pro stejné minutu nebo hodinu.
+Časová razítka můžete použít také k vyhledání položky související protokolu, ale buďte opatrní z jakékoli zkosení hodin mezi klientem a serverem, který může existovat. Prohledávání plus nebo minus 15 minut pro párování serverové položky podle časového razítka na straně klienta. Mějte na paměti, že metadata objektu blob pro objekty BLOB obsahující metriky Určuje časové rozmezí metrik, které jsou uložené v objektu blob. Tento časový rozsah je užitečné, pokud máte mnoho objektů BLOB metriky pro stejné minutu nebo hodinu.
 
 ## <a name="troubleshooting-guidance"></a>Pokyny k odstraňování problémů
 V této části vám pomůžou s diagnostiku a řešení potíží s některé běžné problémy, vaše aplikace může dojít při používání služby Azure storage. Pomocí níže uvedeného seznamu vyhledejte informace, které jsou relevantní pro konkrétní problém.
@@ -334,7 +335,7 @@ Souvisí problém dostupnost jednoho ze služby storage?
 [Metriky kapacity způsobit neočekávané nárůst využití kapacity úložiště]
 
 ---
-[Dochází k neočekávané restartování virtuálních počítačů, které mají velký počet připojených virtuálních pevných disků]
+[Dochází neočekávané restartování virtuálních počítačů, které mají velký počet virtuálních pevných disků připojených]
 
 ---
 [Problém vyplývá z pomocí emulátoru úložiště pro vývoj nebo testování]
@@ -351,7 +352,7 @@ Na obrázku níže z [portál Azure](https://portal.azure.com) monitorování n�
 
 ![][4]
 
-Všimněte si, že službu úložiště pouze vypočítá metriku **AverageE2ELatency** pro úspěšné požadavky a na rozdíl od **AverageServerLatency**, zahrnuje čas klienta trvá odesílat data a přijímat potvrzení ze služby storage. Proto rozdíl mezi **AverageE2ELatency** a **AverageServerLatency** může být buď z důvodu klientská aplikace je pomalá reagovat, nebo kvůli podmínek v síti.
+Služba úložiště pouze vypočítá metriku **AverageE2ELatency** pro úspěšné požadavky a na rozdíl od **AverageServerLatency**, zahrnuje čas klienta trvá odesílat data a přijímat potvrzení ze služby storage. Proto rozdíl mezi **AverageE2ELatency** a **AverageServerLatency** může být buď z důvodu klientská aplikace je pomalá reagovat, nebo kvůli podmínek v síti.
 
 > [!NOTE]
 > Můžete také zobrazit **E2ELatency** a **ServerLatency** pro jednotlivé úložiště operace v protokolování úložiště protokolovat data.
@@ -361,7 +362,7 @@ Všimněte si, že službu úložiště pouze vypočítá metriku **AverageE2ELa
 #### <a name="investigating-client-performance-issues"></a>Prozkoumat problémy s výkonem klienta
 Možné důvody pro klienta reagovat pomalu zahrnují mají omezený počet připojení k dispozici nebo vláken, nebo se nedostatek prostředků, jako je například CPU, paměť či síťové šířky pásma. Bude pravděpodobně možné vyřešit problém úpravou kódu klienta efektivnější (například pomocí asynchronní volání služby storage) nebo pomocí větší virtuální počítač (s více jader a další paměť).
 
-Pro služby tabulky a fronty algoritmus Nagle taky může způsobit vysokou **AverageE2ELatency** ve srovnání s **AverageServerLatency**: Další informace najdete v příspěvku [na Nagle algoritmus není popisný směrem malé požadavky](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Algoritmus Nagle v kódu můžete zakázat pomocí **ServicePointManager –** třídy v **System.Net** oboru názvů. Bude třeba provést před všechny volání do tabulky nebo fronty služby ve vaší aplikaci, protože to nemá vliv na připojení, které jsou již otevřít. Následující příklad pochází z **Application_Start** metoda v roli pracovního procesu.
+Pro služby tabulky a fronty algoritmus Nagle taky může způsobit vysokou **AverageE2ELatency** ve srovnání s **AverageServerLatency**: Další informace najdete v příspěvku [na Nagle Algoritmus není popisný směrem malé požadavky](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Algoritmus Nagle v kódu můžete zakázat pomocí **ServicePointManager –** třídy v **System.Net** oboru názvů. Bude třeba provést před všechny volání do tabulky nebo fronty služby ve vaší aplikaci, protože to nemá vliv na připojení, které jsou již otevřít. Následující příklad pochází z **Application_Start** metoda v roli pracovního procesu.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -385,7 +386,7 @@ V tomto scénáři nejpravděpodobnější příčinou je zpoždění v žádost
 
 Jedním z možných důvodů pro klienta, čímž dochází ke zpoždění odesílání požadavků je, že jsou omezený počet připojení k dispozici nebo vláken.
 
-Musí také zkontrolujte, jestli klient provádí více opakování a prověřte důvod, pokud se jedná o tento případ. Chcete-li určit, zda klient pracuje více opakování, můžete:
+Také zkontrolujte, zda je klient provádění více pokusů a zjistěte příčinu, pokud se jedná. Chcete-li určit, zda klient pracuje více opakování, můžete:
 
 * Zkontrolujte protokoly analytika úložiště. Pokud první pokus se děje, zobrazí se více operací se stejným ID žádosti klienta, ale s požadavkem na jiný server ID.
 * Zkontrolujte protokoly klienta. Podrobné protokolování bude znamenat, že došlo k chybě a k opakování.
@@ -398,11 +399,11 @@ Další informace o používání Wireshark k řešení problémů se sítí, na
 Další informace o používání Microsoft Message Analyzer k řešení problémů se sítí, najdete v části "[příloha 3: použití Microsoft Message Analyzer pro zachycení síťového provozu]."
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Metriky ukazují vysoké AverageServerLatency
-V případě vysoce **AverageServerLatency** žádostí o stažení objektů blob, měli byste použít protokol úložiště protokolování Pokud jsou k dispozici opakované žádosti pro stejný objekt blob (nebo sadu objektů BLOB). Pro objekt blob odesílat žádosti, které byste měli prozkoumat co bloku používá velikost klienta (například blokuje menší než 64 tisíc velikost může vést režie Pokud čtení jsou i v méně než 64 tisíc skupiny), a v případě, že více klientů nahráváte bloky na stejný objekt blob paralelně. Také byste měli zkontrolovat za minutu metriky špiček v počet požadavků, jejichž výsledkem je vyšší než na druhý cíle škálovatelnosti: také najdete v části "[metriky způsobit nárůst PercentTimeoutError]."
+V případě vysoce **AverageServerLatency** žádostí o stažení objektů blob, měli byste použít protokol úložiště protokolování Pokud jsou k dispozici opakované žádosti pro stejný objekt blob (nebo sadu objektů BLOB). Pro žádostí o nahrání objektu blob které byste měli prozkoumat co bloku je velikost klienta pomocí (například bloků, které bloky dat je menší než 64 tisíc velikost může vést režie pouze v případě čtení jsou i v méně než 64 kB), a pokud více klientů nahráváte bloky na stejný objekt blob v odstavec paralelní. Také byste měli zkontrolovat za minutu metriky špiček v počet požadavků, jejichž výsledkem je vyšší než na druhý cíle škálovatelnosti: také najdete v části "[metriky způsobit nárůst PercentTimeoutError]."
 
 Pokud vidíte základní **AverageServerLatency** ke stažení objektů blob požadavky, když jsou opakována požádá o stejný objekt blob nebo sadu objektů BLOB, pak byste měli zvážit ukládání do mezipaměti tyto objekty BLOB pomocí Azure Cache nebo Azure Content Delivery Network (CDN). Pro nahrávání požadavky můžete zlepšit propustnost pomocí větší velikost bloku. Pro dotazy na tabulky je také možné implementovat ukládání do mezipaměti na straně klienta na klientech, provádět stejné operace dotazů a kde data nemění příliš často.
 
-Vysoká **AverageServerLatency** hodnoty mohou být také příznakem nesprávně navržen tabulky nebo dotazy, výsledek v operacích kontroly nebo který postupujte připojení nebo předřazení proti vzor. Najdete v části "[metriky způsobit nárůst PercentThrottlingError]" Další informace.
+Vysoká **AverageServerLatency** hodnoty mohou být také příznakem nesprávně navržen tabulky nebo dotazy, výsledek v operacích kontroly nebo který postupujte připojení nebo předřazení proti vzor. Další informace najdete v tématu "[metriky způsobit nárůst PercentThrottlingError]".
 
 > [!NOTE]
 > Můžete najít komplexní kontrolní seznam výkonu kontrolní seznam zde: [Microsoft Azure Storage výkon a škálovatelnost kontrolní seznam](storage-performance-checklist.md).
@@ -415,11 +416,11 @@ Pokud dochází ke zpoždění mezi aplikace přidá zprávu do fronty čas a č
 * Ověřte, že aplikace je úspěšně přidání zprávy do fronty. Zkontrolujte, zda není aplikace opakování **AddMessage** metody několikrát před úspěšné. Protokoly Klientská knihovna pro úložiště se zobrazí všechny opakovaných pokusech operace úložiště.
 * Ověřte, neexistuje žádný hodiny zkosení mezi role pracovního procesu, který přidá zprávu do fronty a role pracovního procesu, který čte zprávy z fronty, který umožňuje zobrazit, jako když dochází ke zpoždění při zpracování.
 * Zkontrolujte, pokud se nedaří role pracovního procesu, který čte zprávy z fronty. Fronty klienta volá-li **GetMessage** metoda, ale přestane reagovat s potvrzení, zpráva zůstane neviditelná ve frontě, dokud **invisibilityTimeout** období vyprší platnost. V tomto okamžiku zpráva bude k dispozici pro zpracování znovu.
-* Zkontrolujte, pokud se časem zvětšuje délka fronty. Tato situace může nastat, pokud nemáte dostatečnou pracovníci k dispozici pro zpracování všechny zprávy, které ostatní zaměstnanci jsou umístění na fronty. Také byste měli zkontrolovat, že podle metrik, které chcete zobrazit, pokud požadavky delete jsou selhání a počet dequeue na zprávy, jež mohou indikovat opakována neúspěšných pokusů o odstranění zprávy.
+* Zkontrolujte, pokud se časem zvětšuje délka fronty. Tato situace může nastat, pokud nemáte dostatečnou pracovníci k dispozici pro zpracování všechny zprávy, které ostatní zaměstnanci jsou umístění na fronty. Také zkontrolujte podle metrik, které chcete zobrazit, pokud odstranění dochází k selhání požadavků a dequeue počet u zpráv, jež mohou indikovat opakovaných neúspěšných pokusech o odstranění zprávy.
 * Zkontrolujte protokoly protokolování úložiště pro všechny operace fronty, které mají vyšší, než se očekávalo **E2ELatency** a **ServerLatency** hodnoty po dobu delší dobu než obvykle.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Metriky způsobit nárůst PercentThrottlingError
-Dochází k omezení chybám, když překročíte cíle škálovatelnosti služby úložiště. Služba úložiště nemá to zajistit, že žádné jednoho klienta nebo klienta můžete používat služby za cenu ostatní. Další informace najdete v tématu [a cíle výkonnosti služby Azure Storage Scalability](storage-scalability-targets.md) podrobné informace o cíle škálovatelnosti pro účty úložiště a cíle výkonnosti pro oddíly v rámci účty úložiště.
+Dochází k omezení chybám, když překročíte cíle škálovatelnosti služby úložiště. Omezení služby úložiště Ujistěte se, že žádná jednoho klienta nebo klienta pomocí služby za cenu ostatní. Další informace najdete v tématu [a cíle výkonnosti služby Azure Storage Scalability](storage-scalability-targets.md) podrobné informace o cíle škálovatelnosti pro účty úložiště a cíle výkonnosti pro oddíly v rámci účty úložiště.
 
 Pokud **PercentThrottlingError** metrika způsobit nárůst procento žádostí, které se selháním kvůli chybě omezení, budete muset prozkoumat jeden z těchto dvou scénářů:
 
@@ -429,7 +430,7 @@ Pokud **PercentThrottlingError** metrika způsobit nárůst procento žádostí,
 Zvýšení **PercentThrottlingError** často dochází ve stejnou dobu jako zvýšení počtu požadavků na úložiště nebo pokud jste původně zátěžové testování vaší aplikace. To může také projevit v klientovi jako "503 Server zaneprázdněn" nebo "500 časový limit operace" HTTP stavové zprávy z operace úložiště.
 
 #### <a name="transient-increase-in-PercentThrottlingError">Přechodný zvýšení PercentThrottlingError</a>
-Pokud vidíte špičky v hodnotě **PercentThrottlingError** , shoduje s období vysoké aktivity pro aplikaci, byste měli implementovat exponenciální (ne lineární) regrese strategie pro opakování vašeho klienta: tím snížit okamžitou zatížení v oddílu a pomáhají aplikace vyhlazení špičky v provozu. Další informace o tom, jak implementovat zásady opakování pomocí klientské knihovny pro úložiště najdete v tématu [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+Pokud vidíte špičky v hodnotě **PercentThrottlingError** , shoduje s období vysoké aktivity pro aplikaci, můžete implementovat exponenciální (ne lineární) back vypnout strategie pro opakování vašeho klienta. Back vypnout opakování snížení okamžitou zatížení oddílu a pomoci aplikace vyhlazení špičky v provozu. Další informace o tom, jak implementovat zásady opakování pomocí klientské knihovny pro úložiště najdete v tématu [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
 
 > [!NOTE]
 > Může se také zobrazit špičky v hodnotě **PercentThrottlingError** který nekolidují s období vysoké aktivity pro aplikaci: nejpravděpodobnější příčinou je služba úložiště přesunutí oddíly zvýšíte Vyrovnávání zatížení.
@@ -437,7 +438,7 @@ Pokud vidíte špičky v hodnotě **PercentThrottlingError** , shoduje s období
 > 
 
 #### <a name="permanent-increase-in-PercentThrottlingError">Trvalé zvýšení PercentThrottlingError chyba</a>
-Pokud vidíte konzistentně vysoké hodnoty pro **PercentThrottlingError** následující trvalé nárůstem svazků transakce, nebo při provádění počáteční zatížení testů na vaší aplikace a potřebujete vyhodnotit, jak vaše aplikace používá oddílů pro úložiště a zda se přiblíží cíle škálovatelnosti účtu úložiště. Například pokud vidíte omezení chyby ve frontě (který se počítá jako jeden oddíl), pak měli byste zvážit použití další fronty rozkládá transakce mezi více oddílů. Pokud vidíte omezení chyby v tabulce, je potřeba zvážit použití různých schéma rozdělení oddílů rozkládá vaší transakce mezi více oddílů s využitím širší rozsah hodnot klíče oddílu. Jednou z běžných příčin tohoto problému je prepend/připojovat proti vzor kde vyberte datum jako klíč oddílu a pak se všechna data v určitý den jsou zapsána do jednoho oddílu: zátěži, může být výsledkem kritický bod zápisu. Si zvažte různé rozdělení návrh nebo vyhodnocení, zda pomocí úložiště objektů blob může být lepším řešením. Musí také zkontrolujte, zda bude omezení dochází v důsledku špičky v provozu a prozkoumat způsoby vyhlazení vaší vzor požadavků.
+Pokud vidíte konzistentně vysoké hodnoty pro **PercentThrottlingError** následující trvalé nárůstem svazků transakce, nebo při provádění počáteční zatížení testů na vaší aplikace a potřebujete vyhodnotit, jak vaše aplikace používá oddílů pro úložiště a zda se přiblíží cíle škálovatelnosti účtu úložiště. Například pokud vidíte omezení chyby ve frontě (který se počítá jako jeden oddíl), pak měli byste zvážit použití další fronty rozkládá transakce mezi více oddílů. Pokud vidíte omezení chyby v tabulce, je potřeba zvážit použití různých schéma rozdělení oddílů rozkládá vaší transakce mezi více oddílů s využitím širší rozsah hodnot klíče oddílu. Jednou z běžných příčin tohoto problému je prepend/připojovat proti vzor kde vyberte datum jako klíč oddílu a pak se všechna data v určitý den jsou zapsána do jednoho oddílu: zátěži, může být výsledkem kritický bod zápisu. Buď zvažte jiného rozdělení návrhu nebo vyhodnocení, zda pomocí úložiště objektů blob může být lepším řešením. Také zkontrolujte, zda omezení dochází v důsledku špičky v provozu a prozkoumat způsoby vyhlazení vaší vzor požadavků.
 
 Pokud distribuujete vaší transakce napříč více oddílů, musíte stále být informace o limitech škálovatelnosti, nastavte pro účet úložiště. Například pokud jste použili deset fronty každé zpracování maximálně 2 000 1KB zpráv za sekundu, nebudete na celkový limit 20 000 zpráv za sekundu pro účet úložiště. Pokud potřebujete ke zpracování více než 20 000 entity za sekundu, měli byste zvážit použití více účtů úložiště. Vezměte také na paměti, že velikost žádosti a entity má dopad na při službu úložiště omezí generovaný vaši klienti: Pokud máte větší požadavky a entity, které může omezeny dříve.
 
@@ -465,19 +466,19 @@ Vaše metriky způsobit nárůst v **PercentTimeoutError** pro jednu z vaší sl
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Metriky způsobit nárůst PercentNetworkError
 Vaše metriky způsobit nárůst v **PercentNetworkError** pro jednu z vaší služby úložiště. **PercentNetworkError** metrika je agregaci následující metriky: **NetworkError**, **AnonymousNetworkError**, a **SASNetworkError**. Tyto nastane, když služba úložiště zjistí chybu v síti, když klient odešle žádost úložiště.
 
-Nejčastější příčinou této chyby je klient odpojení vyprší časový limit v rámci služby úložiště. Kód byste měli prozkoumat v vašeho klienta pochopit, proč a kdy se klient neodpojí ze služby storage. Můžete také použít Wireshark, Microsoft Message Analyzer nebo Tcping prozkoumat problémy se síťovým připojením z klienta. Tyto nástroje jsou popsány v [přílohy].
+Nejčastější příčinou této chyby je klient odpojení vyprší časový limit v rámci služby úložiště. Prozkoumejte kód z vašeho klienta pochopit, proč a kdy se klient neodpojí ze služby storage. Můžete také použít Wireshark, Microsoft Message Analyzer nebo Tcping prozkoumat problémy se síťovým připojením z klienta. Tyto nástroje jsou popsány v [přílohy].
 
 ### <a name="the-client-is-receiving-403-messages">Klient je přijímání zpráv protokolu HTTP 403 (zakázáno)</a>
 Pokud klientské aplikace způsobující chyby protokolu HTTP 403 (zakázáno), pravděpodobnou příčinou je, že klient při odesílání požadavku na úložiště (i když další možné příčiny patří hodiny zkosení, neplatné klíče a prázdný hlavičky) používá vypršenou platností sdíleného přístupového podpisu (SAS). Pokud vypršela platnost SAS klíč je příčinou, neuvidíte žádné položky v protokolu datům na serveru protokolování úložiště. Následující tabulka uvádí ukázku z klienta protokolu vygenerovaných Klientská knihovna pro úložiště, který znázorňuje výskytu tohoto problému:
 
-| Zdroj | Podrobnosti | Podrobnosti | Id žádosti klienta | Operace textu |
+| Zdroj | Podrobnosti | Podrobnosti | ID žádosti klienta | Operace textu |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informace |3 |85d077ab-… |Spuštění operace s umístěním primární umístění režim PrimaryOnly podle. |
 | Microsoft.WindowsAzure.Storage |Informace |3 |85d077ab -… |Starting synchronous request to https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Informace |3 |85d077ab -… |Čekání na odpověď. |
-| Microsoft.WindowsAzure.Storage |Upozornění |2 |85d077ab -… |Došlo k výjimce při čekání na odpověď: vzdálený server vrátil chybu: (403) zakázán... |
+| Microsoft.WindowsAzure.Storage |Varování |2 |85d077ab -… |Došlo k výjimce při čekání na odpověď: vzdálený server vrátil chybu: (403) zakázán. |
 | Microsoft.WindowsAzure.Storage |Informace |3 |85d077ab -… |Odpověď. Stavový kód = 403, ID žádosti = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, obsah MD5 =, značka ETag =. |
-| Microsoft.WindowsAzure.Storage |Upozornění |2 |85d077ab -… |Při operaci došlo k výjimce: vzdálený server vrátil chybu: (403) zakázán... |
+| Microsoft.WindowsAzure.Storage |Varování |2 |85d077ab -… |Při operaci došlo k výjimce: vzdálený server vrátil chybu: (403) zakázán... |
 | Microsoft.WindowsAzure.Storage |Informace |3 |85d077ab -… |Kontrola, pokud je třeba opakovat operaci. Počet opakování = 0, stavový kód HTTP = 403, výjimka = vzdálený server vrátil chybu: (403) zakázán... |
 | Microsoft.WindowsAzure.Storage |Informace |3 |85d077ab -… |Další umístění již byla nastavena na primární, na základě umístění režimu. |
 | Microsoft.WindowsAzure.Storage |Chyba |1 |85d077ab -… |Zásady opakování neumožňuje pro opakovaný pokus. Došlo k selhání s vzdálený server vrátil chybu: (403) zakázán. |
@@ -485,11 +486,11 @@ Pokud klientské aplikace způsobující chyby protokolu HTTP 403 (zakázáno), 
 V tomto scénáři které byste měli prozkoumat, proč je předtím, než klient odešle token do serveru vypršení platnosti tokenu SAS:
 
 * Obvykle neměli nastavit čas spuštění, když vytvoříte SAS pro klienta k použití okamžitě. Pokud existují malé hodiny rozdíly mezi hostiteli generování SAS pomocí aktuálního času a službu úložiště, je možné pro službu úložiště pro příjem SAS, který dosud není platný.
-* Čas vypršení platnosti velmi krátké nesmí nastavit na SAS. Znovu hodiny malé rozdíly mezi hostiteli generování SAS a službu úložiště může vést k SAS zjevně vypršení platnosti dříve, než se očekává.
+* Nenastavujte SAS čas vypršení platnosti velmi krátké. Znovu hodiny malé rozdíly mezi hostiteli generování SAS a službu úložiště může vést k SAS zjevně vypršení platnosti dříve, než se očekává.
 * Parametr verze v SAS klíč, který nemá (například **sv = 2015-04-05**), odpovídat verzi knihovny klienta úložiště používáte? Doporučujeme vždy použít nejnovější verzi [Klientská knihovna pro úložiště](https://www.nuget.org/packages/WindowsAzure.Storage/).
-* Pokud jste znovu vygenerovat přístupové klíče k úložišti, tím zneplatnit všechny existující tokeny SAS. To může být problém, pokud generovat tokeny SAS s dobou vypršení platnosti dlouhé pro klientské aplikace do mezipaměti.
+* Pokud jste znovu vygenerovat přístupové klíče k úložišti, všechny existující tokeny SAS může zrušena. Tento problém může nastat, pokud generovat tokeny SAS s dobou vypršení platnosti dlouhé pro klientské aplikace do mezipaměti.
 
-Pokud používáte Klientská knihovna pro úložiště ke generování tokenů SAS, je snadné sestavení platný token. Ale pokud používáte rozhraní API REST úložiště a vytvořením SAS tokeny ručně měli pečlivě si přečtěte téma [delegování přístupu k pomocí sdíleného přístupového podpisu](http://msdn.microsoft.com/library/azure/ee395415.aspx).
+Pokud používáte Klientská knihovna pro úložiště ke generování tokenů SAS, je snadné sestavení platný token. Ale pokud používáte rozhraní API REST úložiště a vytváření Tokeny SAS ručně, najdete v části [delegování přístupu k pomocí sdíleného přístupového podpisu](http://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages">Klient je přijímání zpráv HTTP 404 (není nalezena)</a>
 Pokud klientská aplikace obdrží zprávu HTTP 404 (není nalezena) ze serveru, znamená to, že objekt, který klient se pokouší použít (například entity, tabulka, objektů blob, kontejneru nebo fronty) neexistuje v úložišti služby. Existuje několik z možných důvodů, jako například:
@@ -500,7 +501,7 @@ Pokud klientská aplikace obdrží zprávu HTTP 404 (není nalezena) ze serveru,
 * [Selhání sítě]
 
 #### <a name="client-previously-deleted-the-object">Klient nebo jiným procesem dřív odstranit objekt</a>
-Ve scénářích, kde se klient pokouší číst, aktualizovat nebo odstranit data v úložišti služby je obvykle snadné identifikaci v protokolech serverové předchozí operace, které u daného objektu odstraněné ze služby storage. Data protokolu velmi často, ukazuje, že jiný uživatel nebo proces neodstranil tento objekt. V protokolování úložiště protokolu na straně serveru typ operace a požadovaný klíč objektu sloupce ukazují, když klient odstraněn objekt.
+Ve scénářích, kde se klient pokouší číst, aktualizovat nebo odstranit data v úložišti služby je obvykle snadné identifikaci v protokolech serverové předchozí operace, které u daného objektu odstraněné ze služby storage. Data protokolu často, ukazuje, že jiný uživatel nebo proces neodstranil tento objekt. V protokolování úložiště protokolu na straně serveru typ operace a požadovaný klíč objektu sloupce ukazují, když klient odstraněn objekt.
 
 Ve scénáři, kde se klient pokouší o vložení objektu nemusí být hned zjevné Proč to vede odpovědi HTTP 404 (není nalezena), vzhledem k tomu, že klient je vytvoření nového objektu. Ale pokud klient je vytvoření objektu blob musí být schopna nalézt kontejner objektů blob, pokud klient je vytvoření zprávy, musí být schopna nalézt fronty, a pokud klient je přidání řádku musí být schopna nalézt v tabulce.
 
@@ -557,14 +558,14 @@ Položky protokolu:
 | de8b1c3c-... |Zásady opakování neumožňuje pro opakovaný pokus. Došlo k selhání s vzdálený server vrátil chybu: (404) nebyl nalezen... |
 | e2d06d78-... |Zásady opakování neumožňuje pro opakovaný pokus. Došlo k selhání s vzdálený server vrátil chybu: (409) – konflikt... |
 
-V tomto příkladu protokol ukazuje, že klient je prokládání požadavky od **CreateIfNotExists** – metoda (žádost o id e2d06d78...) s požadavky z **UploadFromStream** metody (de8b1c3c...); k této situaci dochází klientská aplikace je asynchronně volání těchto metod. Změňte asynchronní kód klienta a ověřte, že vytvoří kontejner před pokusem o odeslání žádná data do objektu blob v tomto kontejneru. V ideálním případě byste měli předem vytvořit všechny kontejnery.
+V tomto příkladu protokol ukazuje, že klient je prokládání požadavky od **CreateIfNotExists** – metoda (žádost o ID e2d06d78...) s požadavky z **UploadFromStream** metody (de8b1c3c...). Tato prokládání dojde proto, že klientská aplikace je asynchronně volání těchto metod. Upravte asynchronní kód klienta a ověřte, že vytvoří kontejner před pokusem o odeslání žádná data do objektu blob v tomto kontejneru. V ideálním případě byste měli předem vytvořit všechny kontejnery.
 
 #### <a name="SAS-authorization-issue"></a>Chybu ověřování sdíleného přístupového podpisu (SAS)
 Pokud aplikace klienta se pokusí použít SAS klíč, který nezahrnuje potřebná oprávnění pro operaci, službu úložiště vrátí klientovi zprávu HTTP 404 (není nalezena). Ve stejnou dobu, zobrazí se také nenulové hodnoty pro **SASAuthorizationError** v metriky.
 
 V následující tabulce jsou uvedeny ukázkovou zprávu protokolu na straně serveru ze souboru protokolu protokolování úložiště:
 
-| Název | Hodnota |
+| Jméno | Hodnota |
 | --- | --- |
 | Žádost o spuštění | 2014-05-30T06:17:48.4473697Z |
 | Typ operace     | GetBlobProperties            |
@@ -574,11 +575,11 @@ V následující tabulce jsou uvedeny ukázkovou zprávu protokolu na straně se
 | Typ služby       | Objekt blob                         |
 | Adresa URL požadavku        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
-| Hlavičky id žádosti  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| Hlavičky ID žádosti  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID žádosti klienta  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
-Proč klientské aplikace se pokouší o provedení operace, které jí nebylo uděleno oprávnění, které byste měli prozkoumat.
+Zjistěte, proč se pokouší klientskou aplikaci k provedení určité operace, pro které jí nebylo uděleno oprávnění.
 
 #### <a name="JavaScript-code-does-not-have-permission"></a>Kód jazyka JavaScript na straně klienta nemá oprávnění pro přístup k objektu
 Pokud používáte JavaScript klienta a služby úložiště vrací zprávy HTTP 404, můžete zkontrolovat následující chyby jazyka JavaScript v prohlížeči:
@@ -618,7 +619,7 @@ client.SetServiceProperties(sp);
 #### <a name="network-failure"></a>Selhání sítě
 V některých případech může vést ke ztrátě síťové pakety k službu úložiště zpráv HTTP 404 vrácením klientovi. Například když klientské aplikace je odstranění entity ze služby table uvidíte klienta throw výjimka úložiště vytváření sestav "HTTP 404 (není nalezena)" stavovou zprávu ze služby table. Můžete prozkoumat v tabulce ve službě table storage, uvidíte, že služba odstranit entitu podle požadavku.
 
-Podrobnosti o výjimce v klientovi zahrnují id požadavku (7e84f12d...) přiřazené službou tabulky pro požadavek: tyto informace můžete najít podrobnosti požadavku v protokolech úložiště serverové ve vyhledávání v **hlavička požadavku id** sloupec v souboru protokolu. Metriky můžete také použít k identifikaci při selhání, jako je tato dojít a pak hledání souborů protokolu podle času metriky zaznamenávají této chybě. Tato položka protokolu ukazuje odstranění se nezdařilo se zpráva stav "Klient jiné chyby protokolu HTTP (404)". Stejné záznam protokolu také zahrnuje generované klientem v id požadavku **client-request-id** sloupce (813ea74f...).
+Podrobnosti o výjimce v klientovi zahrnují ID požadavku (7e84f12d...) přiřazené službou tabulky pro požadavek: tyto informace můžete najít podrobnosti požadavku v protokolech úložiště serverové ve vyhledávání v **hlavička požadavku id**  sloupec v souboru protokolu. Metriky můžete také použít k identifikaci při selhání, jako je tato dojít a pak hledání souborů protokolu podle času metriky zaznamenávají této chybě. Tato položka protokolu ukazuje odstranění se nezdařilo se zpráva stav "Klient jiné chyby protokolu HTTP (404)". Stejné záznam protokolu také zahrnuje generované klientem v ID požadavku **client-request-id** sloupce (813ea74f...).
 
 Na straně serveru protokolu obsahuje také jiný záznam se stejným **client-request-id** hodnotu (813ea74f...) úspěšně odstranit operaci pro stejnou entitu a ze stejného klienta. Tato operace úspěšné odstranění došlo velmi krátce před neúspěšný odstranit požadavek.
 
@@ -627,9 +628,9 @@ Nejpravděpodobnější příčinou tohoto scénáře je, že klient odeslal ž�
 Pokud tento problém opakuje často, které byste měli prozkoumat, proč klient nemůže na příjem potvrzení ze služby table. Pokud problém přerušované, by měl depeše chyby "HTTP (404) nebyl nalezen" a protokolu v klientovi ale povolit klientovi pokračovat.
 
 ### <a name="the-client-is-receiving-409-messages"></a>Klient je přijímání zpráv protokolu HTTP 409 (konflikt)
-V následující tabulce jsou uvedeny výpis z protokolu na straně serveru pro dva klientské operace: **DeleteIfExists** a okamžitě nástrojem **CreateIfNotExists** použití stejného názvu kontejneru objektů blob. Všimněte si, že výsledky jednotlivých operací klienta v dva požadavky odeslané na server, nejdřív **GetContainerProperties** požadavek na zkontrolujte, zda kontejner existuje, za nímž následuje **DeleteContainer** nebo **CreateContainer** požadavku.
+V následující tabulce jsou uvedeny výpis z protokolu na straně serveru pro dva klientské operace: **DeleteIfExists** a okamžitě nástrojem **CreateIfNotExists** použití stejného názvu kontejneru objektů blob. Výsledkem dva požadavky odeslané na server, nejdřív každé operace klienta **GetContainerProperties** požadavek na zkontrolujte, zda kontejner existuje, za nímž následuje **DeleteContainer** nebo  **CreateContainer** požadavku.
 
-| Časové razítko | Operace | Výsledek | Název kontejneru | Id žádosti klienta |
+| Časové razítko | Operace | Výsledek | Název kontejneru | ID žádosti klienta |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -654,12 +655,6 @@ Můžete najít seznam běžné kódy chyb rozhraní REST API, které vracejí s
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Metriky kapacity způsobit neočekávané nárůst využití kapacity úložiště
 Pokud se zobrazí nečekané, neočekávané změny využití kapacity ve vašem účtu úložiště můžete prozkoumat důvodů, proč nejprve kontrolou vaše dostupnosti metriky; například zvýšit počet neúspěšných požadavků může vést ke zvýšení množství úložiště objektů blob, který používáte jako operace čištění specifické pro aplikace, které může mít měla být uvolnění místa na nemusí fungovat podle očekávání (například odstranění protože vypršela platnost tokeny SAS používá pro uvolnění místa).
 
-### <a name="you-are-experiencing-unexpected-reboots"></a>Dochází k neočekávané restartování virtuálních počítačů Azure, které mají velký počet připojených virtuálních pevných disků
-Pokud virtuální počítač Azure (VM) má velký počet připojených virtuálních pevných disků, které jsou ve stejném účtu úložiště, může být vyšší než cíle škálovatelnosti pro účet úložiště jednotlivých způsobuje selhání virtuálního počítače. Měli byste zkontrolovat minutu metriky pro účet úložiště (**TotalRequests**/**TotalIngress**/**TotalEgress**) špiček, které překračují cíle škálovatelnosti účtu úložiště. Najdete v části "[metriky způsobit nárůst PercentThrottlingError]" pro pomoc při určování, zda omezení došlo k chybě na vašem účtu úložiště.
-
-Obecně platí, překládá každé jednotlivé vstupní nebo výstupní operace na virtuální pevný disk z virtuálního počítače do **získat stránky** nebo **Put stránky** operací na základní objekt blob stránky. Proto můžete odhadované IOPS pro vaše prostředí pro optimalizaci kolik virtuální pevné disky vám může mít v jednom úložném účtu na základě konkrétní chování vaší aplikace. Nedoporučujeme mít víc než 40 disky v jednom úložném účtu. V tématu [a cíle výkonnosti služby Azure Storage Scalability](storage-scalability-targets.md) podrobnosti o aktuální cíle škálovatelnosti pro účty úložiště, zejména celkový požadavek rychlost a celková šířka pásma pro typ účtu úložiště používáte.
-Pokud jsou překročení cíle škálovatelnosti účtu úložiště, měli byste umístit virtuální pevné disky v několika jiným účtům úložiště ke snížení aktivity v jednotlivé účty.
-
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Problém vyplývá z pomocí emulátoru úložiště pro vývoj nebo testování
 Obvykle pomocí emulátoru úložiště během vývoje a testování, aby se zabránilo požadavek pro účet úložiště Azure. Běžné problémy, které může dojít, když používáte emulátor úložiště jsou:
 
@@ -667,22 +662,22 @@ Obvykle pomocí emulátoru úložiště během vývoje a testování, aby se zab
 * [Chyba "hodnota pro jednu z hlaviček protokolu HTTP není ve správném formátu" při použití emulátoru úložiště]
 * [Spuštění emulátor úložiště vyžaduje oprávnění správce]
 
-#### <a name="feature-X-is-not-working">Funkce "X" nepracuje v emulátoru úložiště</a>
+#### <a name="feature-X-is-not-working"></a>Funkce "X" nepracuje v emulátoru úložiště
 Emulátor úložiště nepodporuje všechny funkce služby Azure storage, jako je například služba souborů. Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](storage-use-emulator.md).
 
 Pro tyto funkce, které nepodporuje emulátor úložiště použijte službu Azure storage v cloudu.
 
-#### <a name="error-HTTP-header-not-correct-format">Chyba "hodnota pro jednu z hlaviček protokolu HTTP není ve správném formátu" při použití emulátoru úložiště</a>
+#### <a name="error-HTTP-header-not-correct-format"></a>Chyba "hodnota pro jednu z hlaviček protokolu HTTP není ve správném formátu" při použití emulátoru úložiště
 Testování vaší aplikace, která používá Klientská knihovna pro úložiště pro místní úložiště emulátoru a metoda volání, jako **CreateIfNotExists** nezdaří s chybovou zprávou "hodnota pro jednu z hlaviček protokolu HTTP není ve správné formát." To znamená, že verze, kterou používáte emulátor úložiště nepodporuje verzi klientské knihovny pro úložiště, který používáte. Klientská knihovna pro úložiště přidá hlavičku **x-ms-version** pro všechny požadavky, které umožňuje. Pokud emulátor úložiště nebyla rozpoznána hodnota v **x-ms-version** záhlaví, jeho žádost odmítne.
 
 Protokoly úložiště knihovny klienta můžete zobrazit hodnotu **hlavičky x-ms-version** je odesílání. Můžete také zjistit hodnotu **hlavičky x-ms-version** Pokud použít aplikaci Fiddler Pokud chcete trasovat žádosti z klientské aplikace.
 
 Tento scénář obvykle dochází, je-li nainstalovat a použít nejnovější verzi klientské knihovny pro úložiště bez aktualizace emulátor úložiště. Měli buď nainstalovat nejnovější verze emulátoru úložiště nebo použijte cloudového úložiště místo emulátor pro vývoj a testování.
 
-#### <a name="storage-emulator-requires-administrative-privileges">Spuštění emulátor úložiště vyžaduje oprávnění správce</a>
+#### <a name="storage-emulator-requires-administrative-privileges"></a>Spuštění emulátor úložiště vyžaduje oprávnění správce
 Zobrazí se výzva k zadání pověření správce při spuštění emulátor úložiště. K tomu dochází pouze při emulátor úložiště jsou inicializaci poprvé. Poté, co jste inicializovali emulátor úložiště, není nutné oprávnění správce se spustit znovu.
 
-Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](storage-use-emulator.md). Všimněte si, že můžete také inicializovat emulátor úložiště v sadě Visual Studio, který bude také vyžadují oprávnění správce.
+Další informace najdete v článku [Použití emulátoru úložiště Azure pro vývoj a testování](storage-use-emulator.md). Můžete také provést inicializaci emulátor úložiště v sadě Visual Studio, který bude také vyžadují oprávnění správce.
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Narazíte na potíže s instalací sady Azure SDK pro .NET
 Když se pokusíte nainstalovat sadu SDK, dojde k chybě při pokusu o instalaci emulátor úložiště na místním počítači. V protokolu instalace obsahuje jednu z následujících zpráv:
@@ -755,7 +750,7 @@ WireShark bude zvýrazněte všechny chyby, které existují v **packetlist** ok
 
 ![][7]
 
-Můžete také zobrazit TCP data aplikační vrstvu, uvidí ho kliknutím pravým tlačítkem myši na data protokolu TCP a výběrem **podle datového proudu TCP**. To je zvlášť užitečné, pokud zaznamenat vaše výpisu bez zachycení filtru. Další informace najdete v tématu [následující datové proudy TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Můžete také zobrazit TCP data aplikační vrstvu, uvidí ho kliknutím pravým tlačítkem myši na data protokolu TCP a výběrem **podle datového proudu TCP**. To je užitečné v případě zaznamenat vaše výpisu bez zachycení filtru. Další informace najdete v tématu [následující datové proudy TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
@@ -813,7 +808,7 @@ V kroku 1 tohoto **Průvodce importem textu**, vyberte **středník** jako oddě
 Můžete také použít funkci Application Insights pro Visual Studio Team Services jako součást výkonu a dostupnosti monitorování. Tento nástroj můžete:
 
 * Ujistěte se, že webová služba je k dispozici a dobře reagovaly. Zda je vaše aplikace na web nebo aplikaci ze zařízení, která používá webovou službu, je otestovat adresu URL z umístění po celém světě každých několik minut a umožňují vědět, pokud dojde k problému.
-* Rychle diagnostikuje všechny problémy s výkonem nebo výjimky v webové služby. Zjistěte, pokud jsou jejich protažení procesoru nebo jiným prostředkům, sám trasování zásobníku výjimky a snadno prohledávat protokolu trasování. Pokud aplikace výkonu klesne pod přijatelnou omezení, můžeme vám pošleme e-mail. Můžete monitorovat webové služby .NET a Java.
+* Rychle diagnostikuje všechny problémy s výkonem nebo výjimky v webové služby. Zjistěte, pokud jsou jejich protažení procesoru nebo jiným prostředkům, sám trasování zásobníku výjimky a snadno prohledávat protokolu trasování. Pokud aplikace výkonu klesne pod přijatelnou omezení, Microsoft můžete odesílat e-mailu. Můžete monitorovat webové služby .NET a Java.
 
 Další informace najdete [co je Application Insights](../../application-insights/app-insights-overview.md).
 
@@ -863,7 +858,6 @@ Další informace najdete [co je Application Insights](../../application-insight
 
 [metriky ukazují nízkou PercentSuccess nebo položky protokolu analýzy mít operací s stav transakce ClientOtherErrors]: #metrics-show-low-percent-success
 [Metriky kapacity způsobit neočekávané nárůst využití kapacity úložiště]: #capacity-metrics-show-an-unexpected-increase
-[Dochází k neočekávané restartování virtuálních počítačů, které mají velký počet připojených virtuálních pevných disků]: #you-are-experiencing-unexpected-reboots
 [Problém vyplývá z pomocí emulátoru úložiště pro vývoj nebo testování]: #your-issue-arises-from-using-the-storage-emulator
 [Funkce "X" nepracuje v emulátoru úložiště]: #feature-X-is-not-working
 [Chyba "hodnota pro jednu z hlaviček protokolu HTTP není ve správném formátu" při použití emulátoru úložiště]: #error-HTTP-header-not-correct-format

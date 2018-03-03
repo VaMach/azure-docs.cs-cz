@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6801c5b62be08e4dcb32ad342b15e9ad3f3e20a8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 3e1eeb93ad066d3c5e8f33a945c24c4bd9db3a05
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Python SDK Cosmos DB pro SQL API: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 01/05/2018
 > * [Informační kanál změnu rozhraní .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Asynchronní Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -39,7 +40,7 @@ ms.lasthandoff: 01/05/2018
 
 <table>
 
-<tr><td>**Stáhněte si sadu SDK**</td><td>[Úložiště PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Stáhněte si sadu SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
 
 <tr><td>**Dokumentaci k rozhraní API**</td><td>[Referenční dokumentace rozhraní API jazyka Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 01/05/2018
 <tr><td>**Aktuální podporované platformy**</td><td>[Python 2.7](https://www.python.org/downloads/) a [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>Poznámky k verzi
+## <a name="release-notes"></a>Poznámky k verzi
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Aktualizované dokumentace k odkazu na Azure DB Cosmos místo Azure DocumentDB.
 

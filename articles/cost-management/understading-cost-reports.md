@@ -1,24 +1,24 @@
 ---
-title: "Seznámení s náklady na sestav v Azure náklady na správu | Microsoft Docs"
-description: "Tento článek vám pomůže pochopit základní strukturu Cloudyn sestavy a funkce."
+title: "Seznámení s náklady na správu sestav v Azure náklady na správu | Microsoft Docs"
+description: "Tento článek vám pomůže pochopit Cloudyn náklady na správu sestav základní strukturu a funkce."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Vysvětlení sestav nákladů
+# <a name="understanding-cost-management-reports"></a>Principy náklady na správu sestav
 
-Tento článek vám pomůže pochopit základní strukturu Cloudyn sestavy a funkce. Většina Cloudyn sestavy jsou intuitivní a mít jednotný vzhled a chování. Po přečtení tohoto článku, jsou připravené k použití všechny sestavy. Mnoho funkcí standard je k dispozici v rámci různých sestavy, umožňující snadno vyhledat sestavy. Sestavy jsou přizpůsobitelné, a můžete vybrat z několika možností k výpočtu a zobrazení výsledků.
+Tento článek vám pomůže pochopit Cloudyn náklady na správu sestav základní strukturu a funkce. Většina Cloudyn sestavy jsou intuitivní a mít jednotný vzhled a chování. Po přečtení tohoto článku, jsou připravené k použití všechny sestavy náklady na správu. Mnoho funkcí standard je k dispozici v rámci různých sestavy, umožňující snadno vyhledat sestavy. Sestavy jsou přizpůsobitelné, a můžete vybrat z několika možností k výpočtu a zobrazení výsledků.
 
 ## <a name="report-fields-and-options"></a>Pole sestavy a možnosti
 
@@ -77,7 +77,7 @@ Každou číslem oblast na předchozím obrázku je podrobně popsaná v násled
      - Prostředí
      - Náklady kódu
 
-5. **Filtry**
+5. **filtry**
 
     Pomocí jednoho nebo více vyberte filtry nastavte rozsahy na vybraných hodnot. Pokud chcete nastavit filtr, klikněte na tlačítko **přidat** a potom vyberte filtr kategorií a hodnoty.
 
@@ -102,7 +102,7 @@ Každou číslem oblast na předchozím obrázku je podrobně popsaná v násled
     Vyberte dobu řešení v rámci vybraného rozsahu dat pomocí řešení. Rozlišení vašeho doba určuje, jak se zobrazují v sestavě jednotky a může být:
     - Denně
     - Týdně
-    - Měsíční
+    - Měsíčně
     - Čtvrtletně
     - Roční
 
@@ -118,7 +118,7 @@ Každou číslem oblast na předchozím obrázku je podrobně popsaná v násled
 
     Zobrazit nebo skrýt možnost nemá žádný vliv v sestavách.
 
-12.   **Formáty zobrazení**
+12.   **formáty zobrazení**
 
     Formáty zobrazení slouží k výběru různých zobrazení grafu nebo tabulky.
 
@@ -131,6 +131,27 @@ Každou číslem oblast na předchozím obrázku je podrobně popsaná v násled
 14. **Akce**
 
     Pomocí akce Uložit, exportujte nebo plánování sestavy.
+
+## <a name="save-and-schedule-reports"></a>Uložte a plánování sestav
+
+Jakmile vytvoříte sestavu, můžete ho uložit pro budoucí použití. Jsou k dispozici v uložené sestavy **Moje nástroje** > **Moje sestavy**. Pokud provedete změny na existující sestavu a uložte ho, bude sestava uložena jako novou verzi. Nebo můžete ho uložit jako novou sestavu.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Uložit sestavu do portálu Cloudyn
+
+Při zobrazení žádnou sestavu, klikněte na tlačítko **akce** a pak vyberte **uložit do sestavy mých**. Název sestavy a pak přidejte vlastní adresu URL nebo použít automaticky vytvořený adresu URL. Volitelně můžete **sdílet** sestavu veřejně s jinými uživateli ve vaší organizaci nebo můžete sdílet k entitě. Pokud nesdílíte sestavy, zůstává osobní sestavu a pouze můžete zobrazit. Uložení sestavy.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Uložit sestavu do zprostředkovatele úložiště v cloudu
+
+Chcete-li uložit sestavu do poskytovatele cloudových služeb, musíte mít již nakonfigurovat účet úložiště. Při zobrazení žádnou sestavu, klikněte na tlačítko **akce** a pak vyberte **Naplánování sestavy**. Název sestavy a pak přidejte vlastní adresu URL nebo použít automaticky vytvořený adresu URL. Vyberte **uložit do úložiště** a potom vyberte účet úložiště nebo přidat nový. Zadejte předponu, která získá připojeným k názvu souboru sestavy. Vyberte formát souboru CSV nebo formátu JSON a potom uložte sestavu.
+
+### <a name="schedule-a-report"></a>Naplánování spuštění sestavy
+
+Můžete spouštět sestavy v naplánovaných intervalech a lze je odeslat k příjemce seznamu nebo cloudové služby zprostředkovatele účtu úložiště. Při zobrazení žádnou sestavu, klikněte na tlačítko **akce** a pak vyberte **Naplánování sestavy**. Můžete odeslat zprávu o e-mailem a uložit na účet úložiště. V části **plán**, vyberte intervalu (denně, týdně nebo měsíčně). Pro týdenní a měsíční vyberte den nebo kalendářní data k poskytování a vyberte čas. Uložte naplánovanou sestavu. Pokud vyberete formát sestavy aplikace Excel, sestava je odeslána jako příloha. Když vyberete formát obsahu e-mailu, výsledky sestavy, které se zobrazují ve formátu grafu se dodávají jako graf.
+
+### <a name="export-a-report-as-a-csv-file"></a>Export sestavy do souboru CSV
+
+Při zobrazení žádnou sestavu, klikněte na tlačítko **akce** a pak vyberte **Export všech dat sestavy**. Automaticky otevírané okno se zobrazí a stáhne se soubor CSV.
 
 ## <a name="next-steps"></a>Další postup
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2d1a635c1e2bde140df19f8c26f6ae5a6978eff5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Použití dynamické šifrování AES-128 a doručení klíče služby
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.lasthandoff: 01/05/2018
 > 
 
 > [!NOTE]
-> Získat nejnovější verzi sady Java SDK a začít s vývojem v jazyce Java, najdete v tématu [Začínáme s klientem nástroje Java SDK pro Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Chcete-li stáhnout nejnovější PHP SDK pro Media Services, vyhledejte verze 0.5.7 balíčku Microsoft/WindowsAzure v [Packagist úložiště](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Pokud chcete získat nejnovější verzi sady Java SDK a začít s vývojem v jazyce Java, přečtěte si článek [Začínáme s klientskou sadou Java SDK pro Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Pokud si chcete stáhnout nejnovější sadu PHP SDK pro službu Media Services, najděte si v [úložišti Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) balíček Microsoft/WindowsAzure verze 0.5.7.  
 
 ## <a name="overview"></a>Přehled
 > [!NOTE]
@@ -40,9 +40,9 @@ ms.lasthandoff: 01/05/2018
 
  Služba Media Services můžete použít k poskytování HTTP Live Streaming (HLS) a technologie Smooth Streaming šifrovaný pomocí klíče 128bitové šifrování AES. Služba Media Services také poskytuje službu doručení klíče, který doručí šifrovací klíče na oprávněné uživatele. Pokud chcete Media Services k šifrování prostředek, můžete přidružit šifrovací klíč assetu a také nakonfigurovat zásady autorizace pro klíč. Datový proud je žádost přehrávač, používá služba Media Services k zadanému klíči dynamicky šifrovat obsah pomocí šifrování AES. Přehrávač dešifrovat datový proud, požadavků klíč ze služby doručení klíče. Pokud chcete zjistit, zda je uživatel autorizovaný k získání klíče, služba vyhodnocuje zásady autorizace, které jste zadali pro klíč.
 
-Služba Media Services podporuje více způsobů ověřování uživatelů, kteří žádají o klíč. Zásady autorizace klíče obsahu může mít jeden nebo více omezení autorizace, buď otevřené nebo s tokenem omezení. Zásady omezený token musí být doplněny tokenem vydaným pomocí služby tokenů zabezpečení (STS). Služba Media Services podporuje tokeny ve [jednoduchého webového tokenu](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) a [webových tokenů JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) formátů (JWT). Další informace najdete v tématu [nakonfigurujte zásady autorizace klíče obsahu](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Služba Media Services podporuje více způsobů ověřování uživatelů, kteří žádají o klíč. Zásady autorizace pro klíč k obsahu mohou obsahovat jedno nebo více omezení autorizace: buď otevřená omezení, nebo omezení s tokenem. Zásady omezení tokenem musí být doplněny tokenem vydaným službou tokenů zabezpečení (STS). Služba Media Services podporuje tokeny ve formátu [jednoduchých webových tokenů](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) a [webových tokenů JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Další informace najdete v tématu [Konfigurace zásad autorizace klíče k obsahu](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
-Abyste mohli využívat dynamické šifrování, je třeba mít asset, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming s více přenosovými rychlostmi. Také musíte nakonfigurovat zásady doručení pro asset (popsáno dále v tomto článku). Pak na základě formátu zadaného v adrese URL streamování, serveru streamování na vyžádání zajistí, že datový proud doručen v protokolu, které jste vybrali. V důsledku toho musíte k ukládání a platit pouze pro soubory v jednom úložném formátu. Služba Media Services sestavení a slouží v příslušné reakci na požadavky klientů.
+Abyste mohli využívat dynamické šifrování, je třeba mít asset, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming s více přenosovými rychlostmi. Také musíte nakonfigurovat zásady doručení pro asset (popsáno dále v tomto článku). Potom, na základě formátu určeného v adrese URL streamování, server streamování na vyžádání zajistí, aby byl datový proud doručen v protokolu podle vašeho výběru. V důsledku toho musíte k ukládání a platit pouze pro soubory v jednom úložném formátu. Služba Media Services sestaví a odešle odpovídající odpověď na základě žádosti od klientů.
 
 Tento článek je užitečné pro vývojáře, kteří pracují v aplikacích, které doručují média chráněná. Článek ukazuje, jak nakonfigurovat službu doručení klíče pomocí zásad autorizace tak, aby pouze autorizovaní klienti mohou přijímat šifrovací klíče. Také ukazuje, jak používat dynamické šifrování.
 
@@ -55,13 +55,13 @@ Při šifrování vaše prostředky pomocí standardu AES pomocí doručení kl�
 
 2. [Zakódujte asset obsahující soubor do sady souborů MP4 s adaptivní přenosovou](media-services-protect-with-aes128.md#encode_asset).
 
-3. [Vytvořte klíč obsahu a přidružte ji k zakódovanému assetu](media-services-protect-with-aes128.md#create_contentkey). Klíč k obsahu ve službě Media Services obsahuje šifrovací klíč assetu.
+3. [Vytvořte klíč obsahu a přidružte ji k zakódovanému assetu](media-services-protect-with-aes128.md#create_contentkey). Ve službě Media Services obsahuje klíč obsahu šifrovací klíč prostředku.
 
-4. [Nakonfigurujte zásady autorizace klíče obsahu](media-services-protect-with-aes128.md#configure_key_auth_policy). Nakonfigurujte zásady autorizace klíče obsahu. Klient musí splňovat zásady, předtím, než je klientovi předána klíč obsahu.
+4. [Nakonfigurujte zásady autorizace klíče obsahu](media-services-protect-with-aes128.md#configure_key_auth_policy). Je třeba nakonfigurovat zásady autorizace klíče obsahu. Klient musí zásady splňovat, jinak mu nebude klíč obsahu poskytnut.
 
 5. [Konfigurace zásad doručení pro asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). Konfigurace zásad doručení zahrnuje adresu URL pro získání klíče a inicializační vektor (IV). (AES-128 vyžaduje stejné IV pro šifrování a dešifrování.) Konfigurace zahrnuje taky doručovací protokol (například MPEG-DASH, HLS, technologie Smooth Streaming nebo všechny) a typ dynamického šifrování (například obálky nebo žádné dynamické šifrování).
 
-    Můžete použít jiné zásady pro každý protokol na stejné asset. Můžete například použít šifrování PlayReady na protokol Smooth/DASH a pomocí standardu AES envelope na protokol HLS. Veškeré protokoly, které nejsou v zásadách doručení definovány jsou při streamování blokovány. (Příklad je, pokud přidáte jedinou zásadu, která jako protokol určuje pouze HLS.) Výjimkou je, pokud máte definovány vůbec žádné zásady doručení assetu. Potom všechny protokoly jsou povolené v nešifrované podobě.
+    Na každý protokol stejného prostředku můžete použít jiné zásady. Můžete například použít šifrování PlayReady na protokol Smooth/DASH a šifrování pomocí standardu AES Envelope na protokol HLS. Veškeré protokoly, které nejsou v zásadách doručení definovány jsou při streamování blokovány. (Příklad je, pokud přidáte jedinou zásadu, která jako protokol určuje pouze HLS.) Výjimkou je, pokud nemáte definovány vůbec žádné zásady doručení prostředku. Pak budou všechny protokoly povolené v nešifrované podobě.
 
 6. [Vytvořit lokátor OnDemand](media-services-protect-with-aes128.md#create_locator) získat adresu URL pro streamování.
 
@@ -69,55 +69,55 @@ Také se zde dozvíte [jak klientská aplikace požádejte o klíč ze služby d
 
 Můžete najít úplná [příklad rozhraní .NET](media-services-protect-with-aes128.md#example) na konci tohoto článku.
 
-Následující obrázek ukazuje pracovní postup popsaný dřív. Token se zde slouží k ověřování.
+Následující obrázek znázorňuje výše popsaný pracovní postup. Zde se k ověření používá token.
 
 ![Ochrana pomocí AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 Zbývající část tohoto článku poskytuje vysvětlení, ukázky kódu a odkazy na témata, která ukazují, jak můžete dosáhnout dříve popsané úlohy.
 
 ## <a name="current-limitations"></a>Aktuální omezení
-Pokud přidáte nebo aktualizujete zásady pro doručení assetu, musíte odstranit všechny existující Lokátor a vytvořit nový.
+Pokud přidáte nebo aktualizujete zásady pro doručení prostředku, musíte odstranit stávající lokátor a vytvořit nový.
 
 ## <a id="create_asset"></a>Vytvoření assetu a nahrání souborů do assetu
-Pokud chcete spravovat, kódovat a Streamovat videa, musíte nejprve nahrát obsah ve službě Media Services. Po odeslání, váš obsah bezpečně uložen v cloudu pro další zpracování a streamování. 
+Aby bylo možné spravovat, kódovat a streamovat videa, musíte nejprve nahrát obsah do služby Media Services. Po nahrání bude váš obsah bezpečně uložen v cloudu pro další zpracování a streamování. 
 
-Další informace najdete v tématu [nahrání souborů do účtu Media Services](media-services-dotnet-upload-files.md).
+Podrobné informace najdete v článku o [nahrání souborů do účtu služby Media Services](media-services-dotnet-upload-files.md).
 
 ## <a id="encode_asset"></a>Zakódujte asset obsahující soubor s adaptivní přenosovou rychlostí sady souborů MP4
-V případě dynamického šifrování vytvoříte asset, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming více přenosovými rychlostmi. Potom založené na formátu určeného v požadavek na manifest nebo fragment, server streamování na vyžádání zajistí datový proud obdrželi v protokolu, které jste vybrali. Pak stačí uložit (a platit) soubory v jednom úložném formátu. Služba Media Services sestavení a slouží v příslušné reakci na požadavky klientů. Další informace najdete v tématu [přehled dynamického balení](media-services-dynamic-packaging-overview.md).
+V případě dynamického šifrování je třeba pouze vytvořit prostředek, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming s více přenosovými rychlostmi. Potom založené na formátu určeného v požadavek na manifest nebo fragment, server streamování na vyžádání zajistí datový proud obdrželi v protokolu, které jste vybrali. Pak stačí uložit (a platit) soubory v jednom úložném formátu. Služba Media Services sestaví a odešle odpovídající odpověď na základě žádosti od klientů. Další informace najdete v tématu [Přehled dynamického balení](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
->Při vytvoření účtu Media Services, je výchozí koncový bod streamování přidána k vašemu účtu ve stavu "Stopped". Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamické šifrování, koncový bod streamování, ze kterého chcete Streamovat obsah musí být ve stavu "Spuštění". 
+>Po vytvoření účtu Media Services se do vašeho účtu přidá výchozí koncový bod streamování ve stavu Zastaveno. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu Spuštěno. 
 >
 >Navíc pokud chcete použít dynamické balení a dynamické šifrování, váš asset musí obsahovat sadu s adaptivní přenosovou rychlostí soubory MP4 s rychlostmi nebo soubory technologie Smooth Streaming s adaptivní přenosovou rychlostí.
 
-Pokyny ke kódování najdete v tématu [kódování assetu pomocí kodéru Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
+Pokyny ke kódování najdete v článku o [kódování prostředku pomocí kodéru Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ## <a id="create_contentkey"></a>Vytvoření klíče k obsahu a jeho přiřazení k zakódovanému assetu
 Klíč k obsahu ve službě Media Services obsahuje klíč, kterým chcete asset šifrovat.
 
-Další informace najdete v tématu [vytvořte klíč obsahu](media-services-dotnet-create-contentkey.md).
+Podrobné informace najdete v tématu [Vytvoření klíče k obsahu](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Nakonfigurujte zásady autorizace klíče obsahu
-Služba Media Services podporuje více způsobů ověřování uživatelů, kteří žádají o klíč. Nakonfigurujte zásady autorizace klíče obsahu. Klient (přehrávač) musí splňovat zásady, než klíč se dá doručit do klienta. Zásady autorizace klíče obsahu může mít jeden nebo více autorizace omezení, otevřete, token omezení nebo omezení IP adres.
+## <a id="configure_key_auth_policy"></a>Konfigurace zásad autorizace klíče obsahu
+Služba Media Services podporuje více způsobů ověřování uživatelů, kteří žádají o klíč. Je třeba nakonfigurovat zásady autorizace klíče obsahu. Klient (přehrávač) musí splňovat zásady, než klíč se dá doručit do klienta. Zásady autorizace klíče obsahu může mít jeden nebo více autorizace omezení, otevřete, token omezení nebo omezení IP adres.
 
-Další informace najdete v tématu [nakonfigurujte zásady autorizace klíče obsahu](media-services-dotnet-configure-content-key-auth-policy.md).
+Další informace najdete v tématu [Konfigurace zásad autorizace klíče k obsahu](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Konfigurace zásady pro doručení assetu
-Nakonfigurujte zásady doručení pro asset. Některé kroky, které zahrnuje konfigurace zásad doručení assetu jsou:
+## <a id="configure_asset_delivery_policy"></a>Konfigurace zásad doručení prostředku
+Nakonfigurujte zásady doručení pro asset. Konfigurace zásad doručení prostředku zahrnuje následující položky:
 
 * Adresa URL klíče pořízení. 
 * Inicializační vektor (IV) má použít pro šifrování obálku. AES-128 vyžaduje stejné IV pro šifrování a dešifrování. 
-* Doručovací protokol assetu (například MPEG-DASH, HLS, technologie Smooth Streaming nebo všechny).
+* Doručovací protokol prostředku (například MPEG DASH, HLS, technologie Smooth Streaming nebo všechny).
 * Typ dynamického šifrování (například pomocí standardu AES envelope) nebo žádné dynamické šifrování. 
 
-Další informace najdete v tématu [nakonfigurovat zásady pro doručení assetu](media-services-dotnet-configure-asset-delivery-policy.md).
+Podrobné informace najdete v tématu [Konfigurace zásad doručení prostředku](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Vytvoření získat adresu URL pro streamování Lokátor streamování OnDemand.
-Budete muset svým uživatelům poskytnout adresu URL streamování pro technologie Smooth Streaming, DASH nebo HLS.
+## <a id="create_locator"></a>Vytvoření lokátoru streamování OnDemand pro získání adresy URL streamování
+Uživateli je třeba poskytnout adresu URL streamování pro protokol Smooth Streaming, DASH nebo HLS.
 
 > [!NOTE]
-> Pokud přidáte nebo aktualizujete zásady pro doručení assetu, musíte odstranit všechny existující Lokátor a vytvořit nový.
+> Pokud přidáte nebo aktualizujete zásady pro doručení prostředku, musíte odstranit stávající lokátor a vytvořit nový.
 > 
 > 
 
@@ -126,6 +126,7 @@ Pokyny k publikování assetu a vytvoření adresy URL streamování najdete v �
 ## <a name="get-a-test-token"></a>Získání testovacího tokenu
 Získejte testovací token na základě omezení s tokenem, které se používá v zásadách autorizace klíče.
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -136,8 +137,9 @@ Získejte testovací token na základě omezení s tokenem, které se používá
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
-Můžete použít [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) k testování datového proudu.
+K testování datového proudu můžete použít [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a id="client_request"></a>Jak můžete vašeho klienta požadavku klíč ze služby doručení klíče?
 V předchozím kroku sestavit adresu URL, která odkazuje na soubor manifestu. Váš klient je potřeba extrahovat nezbytné informace z datových proudů souborů manifestu vytvořte žádost na službě doručení klíče.
@@ -145,6 +147,7 @@ V předchozím kroku sestavit adresu URL, která odkazuje na soubor manifestu. V
 ### <a name="manifest-files"></a>Soubory manifestu
 Klient musí k extrakci adresu URL (který také obsahuje obsah klíče ID [dětský]) hodnotu ze souboru manifestu. Klient se potom pokusí získat šifrovací klíč ze služby doručení klíče. Klient musí také rozbalte hodnotu IV a použít ho k dešifrování datového proudu. Následující fragment kódu ukazuje <Protection> element technologie Smooth Streaming manifestu:
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -156,6 +159,7 @@ Klient musí k extrakci adresu URL (který také obsahuje obsah klíče ID [dět
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 V případě HLS kořenové manifest je rozděleno do segmentu souborů. 
 
@@ -191,6 +195,7 @@ Pokud jeden ze souborů segment otevřete v textovém editoru (například http:
 
 Následující kód ukazuje, jak poslat žádost o doručení klíče služby Media Services pomocí doručení klíče identifikátor Uri (extrahovaný z manifestu) a token. (V tomto článku není vysvětlují, jak získat SWTs ze služby tokenů zabezpečení.)
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -230,32 +235,37 @@ Následující kód ukazuje, jak poslat žádost o doručení klíče služby Me
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>Chránit váš obsah s AES-128 pomocí rozhraní .NET
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
 
-1. Nastavení vývojového prostředí a naplnění souboru app.config se informace o připojení, jak je popsáno v [vývoj pro Media Services s .NET](media-services-dotnet-how-to-use.md).
+1. Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md).
 
 2. Přidejte následující prvky appSettings, jak jsou definovány v souboru app.config:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>Příklad
 
 Přepište kód v souboru Program.cs kódem zobrazeným v této části.
  
 >[!NOTE]
->Existuje omezení 1 000 000 zásad pro různé zásady Media Services (například pro Lokátor zásady nebo ContentKeyAuthorizationPolicy). Stejné ID zásady použijte, pokud vždy používat stejné dny/přístupová oprávnění. Příkladem je zásady pro lokátory, které jsou určeny k zůstat na místě po dlouhou dobu (bez odeslání zásady). Další informace najdete v části "Zásady omezení přístupu" v [spravovat prostředky a entit v relaci pomocí .NET SDK služby Media Services](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Existuje omezení 1 000 000 zásad pro různé zásady Media Services (například pro Lokátor zásady nebo ContentKeyAuthorizationPolicy). Stejné ID zásady použijte, pokud vždy používat stejné dny/přístupová oprávnění. Příkladem je zásada pro lokátory, které mají zůstat v platnosti delší dobu (zásady bez odesílání). Další informace najdete v části "Zásady omezení přístupu" v [spravovat prostředky a entit v relaci pomocí .NET SDK služby Media Services](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Nezapomeňte aktualizovat proměnné tak, aby odkazovaly do složek, ve kterých jsou umístěné vaše vstupní soubory.
 
+```csharp
     [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+```
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

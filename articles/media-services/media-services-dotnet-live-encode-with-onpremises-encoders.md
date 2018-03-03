@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5c59300cd5dc8dcb67ba3b2e035bb7a3b9dce216
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Jak provést živé streamování s místními kodéry, pomocí rozhraní .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Tento kurz vás provede kroky vytváření pomocí .NET SDK služby Azure Media Services **kanál** který je nakonfigurován pro průchozí doručování. 
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 K dokončení kurzu potřebujete následující:
 
 * Účet Azure.
@@ -47,11 +47,11 @@ Doporučujeme přečtení následujících článků:
 
 Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md). 
 
-## <a name="example"></a>Příklad:
+## <a name="example"></a>Příklad
 Následující příklad kódu ukazuje, jak dosáhnout následujících úloh:
 
 * Připojení ke službě Media Services
-* Vytvoření kanálu
+* Vytvořit kanál
 * Aktualizace kanál
 * Načtěte vstupní koncový bod v kanálu. Místní kodéru za provozu by měly být zadané vstupní koncový bod. Za provozu kodér převede signály z kamery do datových proudů, které se odesílají do tohoto kanálu vstup (ingestování) koncového bodu.
 * Načtení koncového bodu náhledu kanálu
@@ -69,7 +69,7 @@ Následující příklad kódu ukazuje, jak dosáhnout následujících úloh:
 
 Informace o tom, jak nakonfigurovat za provozu kodér najdete v tématu [podpora RTMP ve službě Azure Media Services a kodéry Live](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -394,6 +394,6 @@ Zkontrolujte kurzů ke službě Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

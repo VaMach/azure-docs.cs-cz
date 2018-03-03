@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6b26261994bd1e64bf998cf3838ec9e52f844e54
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Šifrování na straně klienta a Azure Key Vault pro Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +65,7 @@ Během šifrování se klientské knihovny bude generovat náhodných inicializa
 > 
 > 
 
-Stahování zašifrovaný objekt blob zahrnuje načítání obsah pomocí celý objekt blob **DownloadTo***/**BlobReadStream** usnadňující metody. Zabalená CEK je úkony, spočívající a společně s IV (uložené v tomto případě jako metadata objektu blob) používá k vrácení dešifrovaná data pro uživatele.
+Stahování zašifrovaný objekt blob zahrnuje načítání obsah pomocí celý objekt blob **DownloadTo *** /**BlobReadStream ** usnadňující metody. Zabalená CEK je úkony, spočívající a společně s IV (uložené v tomto případě jako metadata objektu blob) používá k vrácení dešifrovaná data pro uživatele.
 
 Stahování libovolný rozsah (**DownloadRange*** metody) v zašifrovaný objekt blob zahrnuje úpravy rozsahu poskytované uživatelé mohli malé množství další data, která slouží k dešifrování úspěšně požadovaný rozsah.
 
@@ -103,6 +103,10 @@ Pro tabulky, kromě zásady šifrování musí uživatelé zadat vlastnosti k za
 V dávkových operací stejné KEK se použije mezi všechny řádky v této dávkové operace protože klientské knihovny umožňuje pouze jeden objekt možnosti (a proto jednu zásadu nebo KEK) za dávkovou operaci. Však klientské knihovny bude interně vygenerujte nový náhodný IV a náhodných CEK na řádek v dávce. Uživatelé mohou také k šifrování různé vlastnosti pro všechny operace v dávce definováním toto chování v překladač šifrování.
 
 ### <a name="queries"></a>Dotazy
+> [!NOTE]
+> Protože entity, které jsou zašifrované, nelze spustit dotazy, které filtrovat v zašifrované vlastnosti.  Pokud se pokusíte, bude výsledky nesprávný, protože služba by pokusu porovnat šifrovaná data s nešifrovaným datům.
+> 
+> 
 K provedení operace dotazů, je nutné zadat klíče překladače, který se bude moct vyřešit všechny klíče v sadě výsledků dotazu. Pokud entity obsažené ve výsledku dotazu nelze přeložit na poskytovatele, knihovny klienta vyvolá chybu. Po jakémkoli dotazu, který provádí projekce na straně serveru přidá klientské knihovny vlastnosti metadat speciální šifrování (_ClientEncryptionMetadata1 a _ClientEncryptionMetadata2) ve výchozím nastavení vybrané sloupce.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
@@ -125,7 +129,7 @@ Key Vault je navržený pro vysoké hodnoty hlavního klíče a omezení omezen�
 
 Další informace o využití Key Vault naleznete v [ukázky kódu šifrování](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
-## <a name="best-practices"></a>Osvědčené postupy
+## <a name="best-practices"></a>Doporučené postupy
 Podpora šifrování je dostupné pouze v Klientská knihovna pro úložiště pro .NET. Windows Phone a prostředí Windows Runtime aktuálně nepodporují šifrování.
 
 > [!IMPORTANT]
@@ -241,7 +245,7 @@ Jak je uvedeno výše, pokud entity implementuje TableEntity, pak vlastnosti mů
 ## <a name="encryption-and-performance"></a>Šifrování a výkonu
 Všimněte si, že šifrování dat výsledky úložiště v dalších zatížení. Musí být generovány klíč obsahu a IV, musí být šifrovaný samotný obsah a další metadata musí být naformátovaná a nahrát. Tato dodatečná režie se bude lišit v závislosti na objemu dat šifrovaný. Doporučujeme vám, že zákazníci vždy testování aplikací pro výkon při vývoji.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Kurz: Šifrování a dešifrování objektů BLOB v úložišti Microsoft Azure pomocí Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Stažení [Klientská knihovna pro úložiště Azure pro balíček NuGet pro rozhraní .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Stažení Azure Key Vault NuGet [základní](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [klienta](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), a [rozšíření](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) balíčky  

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Přihlašovací údaje certifikátu pro ověřování aplikace
 
-Azure Active Directory umožňuje aplikacím používat svoje vlastní přihlašovací údaje pro ověřování, například v toku udělení pověření klienta OAuth 2.0 a tok On-Behalf-Of.
+Azure Active Directory umožňuje aplikacím používat svoje vlastní přihlašovací údaje pro ověřování, například v toku udělení pověření klienta OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) a tok On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Jednu formu přihlašovacích údajů, které je možné je Token(JWT) webové JSON kontrolní výraz systému podepsané certifikátem, který vlastní aplikace.
 
 ## <a name="format-of-the-assertion"></a>Formát kontrolní výraz
@@ -41,7 +41,7 @@ Vypočítat kontrolní výraz, budete pravděpodobně chtít použít jednu z da
 
 | Parametr |  Poznámka |
 | --- | --- | --- |
-| `aud` | Cílová skupina: By měla být **https://login.microsoftonline.com/*tenant_Id* /oauth2/token** |
+| `aud` | Cílová skupina: By měla být **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token** |
 | `exp` | Datum vypršení platnosti: datum vypršení platnosti tokenu. Čas je reprezentován jako počet sekund od 1. ledna 1970 (pod hodnotou 1970-01-01T0:0:0Z) UTC až do okamžiku vypršení platnosti tokenu.|
 | `iss` | Vystavitel: by měla být client_id (Id aplikace služby klienta) |
 | `jti` | Identifikátor GUID: JWT ID |

@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Šifrování na straně klienta s Python pro Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,6 +106,10 @@ Pokud dávky je vytvořen jako správce kontextu prostřednictvím metody batch(
 Všimněte si, že entit je jím zašifrovaná, jako jsou vloženy do dávky pomocí zásad šifrování batch (entit je jím zašifrovaná není v době potvrzení batch pomocí zásad šifrování tableservice).
 
 ### <a name="queries"></a>Dotazy
+> [!NOTE]
+> Protože entity, které jsou zašifrované, nelze spustit dotazy, které filtrovat v zašifrované vlastnosti.  Pokud se pokusíte, bude výsledky nesprávný, protože služba by pokusu porovnat šifrovaná data s nešifrovaným datům.
+> 
+>
 K provedení operace dotazů, je nutné zadat klíče překladače, který se bude moct vyřešit všechny klíče v sadě výsledků dotazu. Pokud entity obsažené ve výsledku dotazu nelze přeložit na poskytovatele, knihovny klienta vyvolá chybu. Po jakémkoli dotazu, který provádí projekce straně serveru, budou klientské knihovny přidat metadata vlastnosti speciální šifrování (\_ClientEncryptionMetadata1 a \_ClientEncryptionMetadata2) ve výchozím nastavení vybrané sloupce.
 
 > [!IMPORTANT]
@@ -238,6 +242,6 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="encryption-and-performance"></a>Šifrování a výkonu
 Všimněte si, že šifrování dat výsledky úložiště v dalších zatížení. Musí být generovány klíč obsahu a IV, musí být šifrovaný samotný obsah a další metadata musí být naformátovaná a nahrát. Tato dodatečná režie se bude lišit v závislosti na objemu dat šifrovaný. Doporučujeme vám, že zákazníci vždy testování aplikací pro výkon při vývoji.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Stažení [Klientská knihovna pro úložiště Azure pro úložiště PyPi Java balíček](https://pypi.python.org/pypi/azure-storage)
 * Stažení [Klientská knihovna pro úložiště Azure pro jazyk Python zdrojový kód z Githubu](https://github.com/Azure/azure-storage-python)

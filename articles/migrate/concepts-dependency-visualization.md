@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Vizualizace závislostí
 
@@ -34,6 +34,19 @@ Azure používá migrací [mapy služeb](../operations-management-suite/operatio
 Pokud chcete použít závislost vizualizace, musíte stáhnout a nainstalovat agenty na každý místní počítač, který chcete analyzovat.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Je potřeba věnovat pro ni?
+
+Služba Azure Migrate je dostupná bez dalších poplatků. Použití funkcí vizualizace závislostí v Azure migrace vyžadují mapy služeb. Při vytváření projektu Azure migrace migrace Azure automaticky vytvoří nový pracovní prostor analýzy protokolů vaším jménem.
+
+> [!NOTE]
+> Funkce vizualizace závislostí používá mapy služeb prostřednictvím pracovního prostoru analýzy protokolů. Od 28 února 2018 s oznámení Azure migraci obecné dostupnosti si tato funkce je k dispozici bez dalších poplatků. Budete muset vytvořit nový projekt, aby se pomocí pracovního prostoru volné využití. Existující pracovní prostory před obecné availaibility jsou stále chargable, proto doporučujeme pro přesun do nového projektu.
+
+1. Použití jakékoli řešení než mapy služeb v rámci tohoto pracovního prostoru analýzy protokolů bude platit poplatky standardní analýzy protokolů. 
+2. Pro podporu scénáře migrace bez dalších poplatků, řešení mapy služeb nebudou vám narůstat poplatky pro první 180 dnů od vytvoření projektu Azure migrovat, po které budou platit standardní poplatky.
+3. Pouze pracovním prostoru, které jsou vytvořené jako součást vytváření projektu bude zdarma pro použití.
+
+Při registraci agentů do pracovního prostoru, použijte ID a klíč zadaný v projektu na stránce Instalace agenta kroky. Nelze použít existujícímu pracovnímu prostoru a přidružte ji k projektu Azure migrovat.
+
+Při odstranění projektu Azure migraci se společně se neodstraní pracovním prostoru. Vystavení odstranění projektu, využití mapy služeb nebudou volné a každý uzel se bude účtovat poplatek podle placené úroveň pracovní prostor analýzy protokolů.
 
 Další informace o cenách služby Azure Migrate najdete [zde](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 

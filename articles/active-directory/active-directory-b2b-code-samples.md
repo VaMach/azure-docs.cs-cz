@@ -3,7 +3,7 @@ title: "Kód spolupráce Azure Active Directory s B2B a ukázky PowerShell | Mic
 description: "Ukázky kódu a prostředí PowerShell pro Azure Active Directory s B2B spolupráce"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/11/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 672eda222a0fa7d0e05dd2fc75ac743ec330463d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6006dde5ea34db9881a02550e7aff33e48c6498e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Kód spolupráce Azure Active Directory s B2B a ukázky prostředí PowerShell
 
@@ -28,7 +28,7 @@ Vám může hromadné pozvání externí uživatele organizaci z e-mailové adre
 
 1. Příprava. CSV soubor vytvořte nový soubor CSV a pojmenujte ji invitations.csv. V tomto příkladu soubor je uložen v C:\data a obsahuje následující informace:
   
-  Název                  |  InvitedUserEmailAddress
+  Jméno                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Pozvané Gmail B2B     | b2binvitee@gmail.com
   Pozvané B2B aplikace Outlook   | b2binvitee@outlook.com
@@ -101,7 +101,7 @@ namespace SampleInviteApp
         /// <summary>
         /// Client secret of the application.
         /// </summary>
-        private static readonly string TestAppClientSecret = @"
+        private static readonly string TestAppClientSecret = @"";
  
         /// <summary>
         /// This is the email address of the user you want to invite.

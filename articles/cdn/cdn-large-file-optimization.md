@@ -1,5 +1,5 @@
 ---
-title: "Optimalizace stahování velkých souborů přes síť doručování obsahu Azure"
+title: "Optimalizace stahování velkých souborů pomocí Azure CDN"
 description: "Optimalizace vysvětlené podrobněji stahování velkých souborů"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optimalizace stahování velkých souborů přes síť doručování obsahu Azure
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Optimalizace stahování velkých souborů pomocí Azure CDN
 
 Velikosti souborů obsahu doručit přes Internet pořád roste s tím kvůli rozšířené funkce, vylepšené grafika a bohatý mediální obsah. Tento nárůst vycházejí z hlavních faktorů: širokopásmové průnikům, větší zařízení nenákladné úložiště, zvýšení rozšířeným vysokým rozlišením video a připojené k Internetu zařízení (IoT). Doručení rychlé a efektivní mechanismus pro velkých souborů je velmi důležité, aby bylo prostředí hladký a zábavná příjemce.
 
@@ -63,14 +63,14 @@ Další informace o žádosti o rozsah bajtů, najdete v části [RFC 7233](http
 
 CDN ukládá do mezipaměti všechny bloky dat po přijetí. Celý soubor nemá ukládat do mezipaměti v mezipaměti CDN. Odeslání dalších žádostí o souboru nebo bajtů rozsahy se zpracovávají z mezipaměti CDN. Není-li všechny bloky dat jsou do mezipaměti na CDN, předběžné načtení slouží k vyžádání bloků dat z tohoto počátku. Tato optimalizace spoléhá na možnost na zdrojový server pro podporu požadavků rozsah bajtů. _Pokud je zdrojový server nepodporuje požadavky rozsah bajtů, optimalizace není platná._ 
 
-### <a name="caching"></a>Ukládání do mezipaměti
+### <a name="caching"></a>Mezipaměť
 Optimalizace velkých souborů používá jiný výchozí doba ukládání do mezipaměti vypršení platnosti z obecné webové doručení. Rozlišuje ukládání do mezipaměti kladné a záporné ukládání do mezipaměti na základě kódů odpovědi HTTP. Pokud je zdrojový server určuje čas vypršení platnosti prostřednictvím ovládacího prvku mezipaměti nebo vyprší platnost hlavičky v odpovědi, CDN ctí tuto hodnotu. Když soubor odpovídá podmínkám typ a velikost pro tento typ optimalizace počátek neuvádí, CDN použije výchozí hodnoty pro optimalizaci velkých souborů. CDN, jinak používá výchozí hodnoty pro obecné webové doručení.
 
 
 |    | Obecné web | Optimalizace velkých souborů 
 --- | --- | --- 
 Ukládání do mezipaměti: kladné <br> HTTP 200, 203, 300, <br> 301, 302 a 410 | 7 dní |1 den  
-Ukládání do mezipaměti: záporná <br> HTTP 204, 305, 404, <br> a 405 | Žádný | 1 sekunda 
+Ukládání do mezipaměti: záporná <br> HTTP 204, 305, 404, <br> a 405 | Žádná | 1 sekunda 
 
 ### <a name="deal-with-origin-failure"></a>Řešení s chybou počátek
 
@@ -84,7 +84,7 @@ Následující tabulka uvádí sadu kritérií, které je třeba splnit pro opti
 
 Podmínka | Hodnoty 
 --- | --- 
-Podporované typy souborů | 3g, 2, 3gp, amp, avi, bz2, dmg, exe, f4v, flv, <br> GZ, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, serveru mts, pkg, RT, rm, swf, vkládání, <br> TGZ, wdp, WBEM, webp, wma, wmv, zip  
+Podporované typy souborů | 3g, 2, 3gp, amp, avi, bz2, dmg, exe, f4v, flv, <br> GZ, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, serveru mts, pkg, RT, rm, swf, vkládání, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Minimální velikost souboru | 10 MB. 
 Maximální velikost souboru | 150 GB 
 Vlastnosti serveru počátek | Žádosti o rozsah bajtů musí podporovat. 

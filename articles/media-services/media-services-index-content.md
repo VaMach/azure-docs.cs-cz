@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: f75be3280ffd869339972859c028a178ec728480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9893372fe00cf1a6b15f9b358b64d77ee5d34872
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexování mediálních souborů pomocí Azure Media Indexer
 Azure Media Indexer umožňuje zajistit obsah souborů médií s možností vyhledávání a ke generování fulltextového přepis pro skryté titulky nebo klíčová slova. Mediální soubory můžete zpracovávat po jednom nebo v dávkách.  
 
 > [!IMPORTANT]
-> Během indexování obsah, nezapomeňte použít mediálních souborů, které mají velmi jasně řeči (bez pozadí Hudba, šumu, efekty nebo mikrofon hiss). Některé příklady příslušný obsah: zaznamenávají schůzek, přednášek nebo prezentací. Následující obsah nemusí být vhodný pro indexování: filmy, televizní pořady cokoli s smíšený zvuk a zvukové efekty špatně zaznamenány obsah s hluku na pozadí (hiss).
+> Během indexování obsah, nezapomeňte použít mediální soubory, které mají jasné řeči (bez pozadí Hudba, šumu, efekty nebo mikrofon hiss). Některé příklady příslušný obsah: zaznamenávají schůzek, přednášek nebo prezentací. Následující obsah nemusí být vhodný pro indexování: filmy, televizní pořady cokoli s smíšený zvuk a zvukové efekty špatně zaznamenány obsah s hluku na pozadí (hiss).
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Media Indexer umožňuje zajistit obsah souborů médií s možností vyhl
   
     Další informace najdete v tématu [pomocí AIB souborů pomocí Azure Media Indexer a SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
-Toto téma ukazuje, jak vytvořit indexování úloh **indexu prostředek** a **indexu více souborů**.
+Tento článek ukazuje, jak vytvořit indexování úloh **indexu prostředek** a **indexu více souborů**.
 
 Nejnovější aktualizace Azure Media Indexer, najdete v části [Media Services blogy](#preset).
 
@@ -52,8 +52,9 @@ Další informace najdete v tématu [přednastavení úloh pro Azure Media Index
 ## <a name="index-an-asset"></a>Index prostředek
 Následující metoda odešle soubor média jako prostředek a vytvoří úlohu indexování asset.
 
-Všimněte si, že pokud není zadán žádný konfigurační soubor, soubor média indexování s všechna výchozí nastavení.
+Pokud není zadán žádný konfigurační soubor, soubor média je indexovaný s všechna výchozí nastavení.
 
+```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
     {
         // Create an asset and upload the input media file to storage.
@@ -140,26 +141,29 @@ Všimněte si, že pokud není zadán žádný konfigurační soubor, soubor mé
 
         return processor;
     }  
+```
+
 <!-- __ -->
 ### <a id="output_files"></a>Výstupní soubory
-Ve výchozím nastavení úlohu indexování generuje následující výstupní soubory. Soubory budou uloženy v první výstupní asset.
+Ve výchozím nastavení úlohu indexování generuje následující výstupní soubory. Soubory jsou uloženy v první výstupní asset.
 
-Když je více než jeden soubor vstupními médii, Indexer vygeneruje soubor manifestu pro výstupy úlohy, s názvem 'JobResult.txt'. Pro každý vstupní soubor média, výsledná AIB, SAMI, TTML, WebVTT a soubory – klíčové slovo, jsou postupně číslované a s názvem pomocí "Alias".
+Když je více než jeden soubor vstupními médii, Indexer generuje soubor manifestu pro výstupy úlohy, s názvem 'JobResult.txt'. Pro každý vstupní soubor média, výsledná AIB, SAMI, TTML, WebVTT a soubory – klíčové slovo postupně číslované a s názvem pomocí "Alias".
 
 | Název souboru | Popis |
 | --- | --- |
-| **InputFileName.aib** |Zvukový soubor indexování objektů blob. <br/><br/> Zvukový soubor indexování Blob (AIB) je binární soubor, který lze vyhledat v systému Microsoft SQL server pomocí fulltextové vyhledávání.  Soubor AIB je výkonnější než soubory jednoduché titulku, protože obsahuje alternativami pro jednotlivých slov, což mnohem širší možnosti vyhledávání. <br/> <br/>Vyžaduje instalaci doplňku Indexer SQL na počítači spuštěné služby Microsoft SQL server 2008 nebo novější. Hledání AIB pomocí nástroje Microsoft SQL server fulltextové vyhledávání poskytuje přesnější výsledky hledání než hledání titulků soubory generované WAMI. Je to proto, že AIB obsahuje slovo alternativy které zvuk podobné zatímco soubory titulků obsahují nejvyšší word spolehlivosti pro každý segment zvukovém souboru. Pokud je hledání mluvené slovo upmost důležitost, pak se doporučuje použít AIB ve spojení se serverem Microsoft SQL Server.<br/><br/> Chcete-li stáhnout doplněk, klikněte na tlačítko <a href="http://aka.ms/indexersql">Azure Media Indexer SQL rozšíření</a>. <br/><br/>Je také možné využívat jiné vyhledávací weby, jako je například Apache Lucene/Solr jednoduše indexování video, na základě titulků a soubory XML – klíčové slovo, ale to bude mít za následek méně přesné výsledky hledání. |
+| **InputFileName.aib** |Zvukový soubor indexování objektů blob. <br/><br/> Zvukový soubor indexování Blob (AIB) je binární soubor, který lze vyhledat v systému Microsoft SQL server pomocí fulltextové vyhledávání.  Soubor AIB je výkonnější než soubory jednoduché titulku, protože obsahuje alternativami pro jednotlivých slov, což mnohem širší možnosti vyhledávání. <br/> <br/>Vyžaduje instalaci doplňku Indexer SQL na počítači spuštěné služby Microsoft SQL server 2008 nebo novější. Hledání AIB pomocí nástroje Microsoft SQL server fulltextové vyhledávání poskytuje přesnější výsledky hledání než hledání titulků soubory generované WAMI. Je to proto, že AIB obsahuje slovo alternativy, které zvukových podobné, zatímco soubory titulků obsahují nejvyšší word spolehlivosti pro každý segment zvukovém souboru. Pokud je hledání mluvené slovo upmost důležitost, pak se doporučuje použít AIB ve spojení se serverem Microsoft SQL Server.<br/><br/> Chcete-li stáhnout doplněk, klikněte na tlačítko <a href="http://aka.ms/indexersql">Azure Media Indexer SQL rozšíření</a>. <br/><br/>Je také možné využívat jiné vyhledávací weby, jako je například Apache Lucene/Solr jednoduše indexování video, na základě titulků a soubory XML – klíčové slovo, ale to bude mít za následek méně přesné výsledky hledání. |
 | **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |Uzavřené soubory popisek (kopie) v SAMI, TTML a WebVTT formáty.<br/><br/>Můžete se používají k Zpřístupněte soubory audia a videa pro osoby s postižením sluchu.<br/><br/>Uzavřené titulek soubory zahrnují značku <b>Recognizability</b> která skóre úlohu indexování, podle toho, jak rozpoznatelném řeči na videu zdroje.  Můžete použít hodnotu <b>Recognizability</b> na obrazovce výstupní soubory pro použitelnost. Nízké skóre bude znamenat nedostatečný indexování výsledky z důvodu kvalitu zvuku. |
 | **InputFileName.kw.xml<br/>InputFileName.info** |– Klíčové slovo a informace o soubory. <br/><br/>Soubor – klíčové slovo je soubor XML, který obsahuje klíčová slova extrahuje z obsahu řeči četnost a informace o posunu. <br/><br/>Informace o soubor je soubor ve formátu prostého textu, který obsahuje podrobné informace o jednotlivých termín rozpoznána. První řádek je speciální a obsahuje Recognizability skóre. Každý další řádek je karta oddělený seznam následující data: spuštění doba, čas ukončení, slovo nebo frázi, spolehlivosti. Časy jsou uvedeny v sekundách a je jistota je zadána jako číslo od 0-1. <br/><br/>Příklad řádku: "word 1,20 1,45 0.67" <br/><br/>Tyto soubory můžete použít z mnoha důvodů, jako je třeba provést analýzu řeči nebo vystavený pro vyhledávací weby, jako je Google nebo Bing, Microsoft SharePoint aby mediálních souborů zjistitelná nebo dokonce slouží k poskytování relevantnější reklamy. |
-| **JobResult.txt** |Výstup manifestu, pouze při indexování více souborů, který obsahuje následující informace:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Chyba</th></tr><tr><td>a.MP4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.MP4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.MP4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **JobResult.txt** |Výstup manifestu, pouze při indexování více souborů, který obsahuje následující informace:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Chyba</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
 Není-li všechny vstupní mediální soubory jsou úspěšně indexovaná, indexování úloha selže s kódem chyby 4000. Další informace najdete v tématu [kódy chyb](#error_codes).
 
 ## <a name="index-multiple-files"></a>Index více souborů
 Následující metodu odešle více souborů médií jako prostředek a vytvoří úlohu indexování všechny tyto soubory v dávce.
 
-Soubor manifestu s příponou .lst je vytvořený a nahrává do assetu. Soubor manifestu obsahuje seznam všech souborů asset. Další informace najdete v tématu [přednastavení úloh pro Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Soubor manifestu s příponou ".lst" je vytvořený a nahrává do assetu. Soubor manifestu obsahuje seznam všech souborů asset. Další informace najdete v tématu [přednastavení úloh pro Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
+```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
     {
         // Create an asset and upload to storage.
@@ -232,25 +236,26 @@ Soubor manifestu s příponou .lst je vytvořený a nahrává do assetu. Soubor 
 
         return asset;
     }
+```
 
 ### <a name="partially-succeeded-job"></a>Částečně úspěšně úlohy
 Není-li všechny vstupní mediální soubory jsou úspěšně indexovaná, indexování úloha selže s kódem chyby 4000. Další informace najdete v tématu [kódy chyb](#error_codes).
 
 Jsou generovány stejné výstupy (jako úspěšně úloh). Najdete do výstupního souboru manifestu a zjistěte, které vstupní soubory se nepodařilo podle hodnoty ve sloupcích chyby. Pro vstupní soubory, které se nezdařilo, výsledná AIB, SAMI, TTML, WebVTT a klíčové slovo není generovány soubory.
 
-### <a id="preset"></a>Přednastavení úloh pro Azure Media Indexer
+### <a id="preset"></a> Přednastavení úloh pro Azure Media Indexer
 Zpracování z Azure Media Indexer lze přizpůsobit zadáním nepovinná úloha přednastavení společně se úloha.  Následující text popisuje formát tento konfigurační soubor xml.
 
-| Name (Název) | Vyžadovat | Popis |
+| Jméno | Vyžadovat | Popis |
 | --- | --- | --- |
-| **vstup** |False |Soubory Asset, který chcete indexu.</p><p>Azure Media Indexer podporuje následující formáty souborů: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Můžete zadat název souboru (s) v **název** nebo **seznamu** atribut **vstupní** – element (jak je znázorněno níže). Pokud nezadáte, který soubor asset má index, primární soubor vydán. Pokud není nastaven žádný soubor primární asset, je indexovaný první soubor v vstupní prostředku.</p><p>Chcete-li explicitně zadat název souboru prostředku, proveďte:<br/>`<input name="TestFile.wmv">`<br/><br/>Můžete také indexu více asset soubory najednou (až 10). Použijte následující postup:<br/><br/><ol class="ordered"><li><p>Vytvořte textový soubor (soubor manifestu) a dejte mu .lst rozšíření. </p></li><li><p>Přidejte seznam všech názvů souborů asset ve vstupní asset do tohoto souboru manifestu. </p></li><li><p>Přidejte soubor thanifest (nahrávání) pro daný prostředek.  </p></li><li><p>Zadejte název souboru manifestu v atributu seznamu vstupu.<br/>`<input list="input.lst">`</li></ol><br/><br/>Poznámka: Pokud přidáte více než 10 souborů k souboru manifestu, indexování úloha selže s kódem chyby 2006. |
-| **metadata** |False |Metadata pro daný prostředek soubory, které používají pro úpravu termínů.  Užitečné připravit Indexer rozpoznat nestandardní termínů slova, jako jsou podstatná jména správné.<br/>`<metadata key="..." value="..."/>` <br/><br/>Můžete zadat **hodnoty** pro předdefinované **klíče**. Aktuálně jsou podporovány následující klíče:<br/><br/>"title" a "Popis" - použít pro přizpůsobení termínů k vylepšení jazyk, ve model pro úlohu a přesnosti rozpoznávání řeči.  Hodnoty počáteční hodnoty hledání na Internetu najít kontextově relevantní textu dokumentů, pomocí obsah k posílení interní slovník pro dobu trvání vašeho úkolu indexování.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **funkce** <br/><br/> Přidaná do verze 1.2. V současné době je jedinou podporovanou funkcí rozpoznávání řeči ("ASR"). |False |Rozpoznávání řeči funkce má následující nastavení klíče:<table><tr><th><p>Klíč</p></th>        <th><p>Popis</p></th><th><p>Příklad hodnoty</p></th></tr><tr><td><p>Jazyk</p></td><td><p>Přirozeného jazyka rozpoznat v multimediálních souborů.</p></td><td><p>Angličtina, španělština</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>středníky oddělený seznam titulek požadovaný výstupní formáty (pokud existuje)</p></td><td><p>ttml; sami; webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Logický příznak určující, zda je soubor AIB požadované (pro použití se službou SQL Server a zákazník Indexer IFilter).  Další informace najdete v tématu <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">pomocí AIB souborů pomocí Azure Media Indexer a SQL Server</a>.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Logický příznak určující, zda je požadovaný soubor XML – klíčové slovo.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Logický příznak určující, zda chcete-li vynutit úplnou titulky (bez ohledu na úroveň spolehlivosti).  </p><p>Výchozí hodnota je nastavena hodnota false, v takovém případě slova a slovní spojení, které mají méně než 50 % budou vynechaný výstupy poslední popisek a nahrazuje symbol tří teček ("...").  Na symbol tří teček jsou užitečné pro ovládací prvek popisek kvality a auditování.</p></td><td><p>True; False. </p></td></tr></table> |
+| **Vstup** |false |Soubory Asset, který chcete indexu.</p><p>Azure Media Indexer podporuje následující formáty souborů: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Můžete zadat název souboru (s) v **název** nebo **seznamu** atribut **vstupní** – element (jak je znázorněno níže). Pokud nezadáte, který soubor asset má index, primární soubor vydán. Pokud není nastaven žádný soubor primární asset, je indexovaný první soubor v vstupní prostředku.</p><p>Chcete-li explicitně zadat název souboru prostředku, proveďte:<br/>`<input name="TestFile.wmv">`<br/><br/>Můžete také indexu více asset soubory najednou (až 10). Použijte následující postup:<br/><br/><ol class="ordered"><li><p>Vytvořte textový soubor (soubor manifestu) a dejte mu .lst rozšíření. </p></li><li><p>Přidejte seznam všech názvů souborů asset ve vstupní asset do tohoto souboru manifestu. </p></li><li><p>Přidejte soubor thanifest (nahrávání) pro daný prostředek.  </p></li><li><p>Zadejte název souboru manifestu v atributu seznamu vstupu.<br/>`<input list="input.lst">`</li></ol><br/><br/>Poznámka: Pokud přidáte více než 10 souborů k souboru manifestu, indexování úloha selže s kódem chyby 2006. |
+| **metadata** |false |Metadata pro daný prostředek soubory, které používají pro úpravu termínů.  Užitečné připravit Indexer rozpoznat nestandardní termínů slova, jako jsou podstatná jména správné.<br/>`<metadata key="..." value="..."/>` <br/><br/>Můžete zadat **hodnoty** pro předdefinované **klíče**. Aktuálně jsou podporovány následující klíče:<br/><br/>"title" a "Popis" - použít pro přizpůsobení termínů k vylepšení jazyk, ve model pro úlohu a přesnosti rozpoznávání řeči.  Hodnoty počáteční hodnoty hledání na Internetu najít kontextově relevantní textu dokumentů, pomocí obsah k posílení interní slovník pro dobu trvání vašeho úkolu indexování.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **Funkce** <br/><br/> Přidaná do verze 1.2. V současné době je jedinou podporovanou funkcí rozpoznávání řeči ("ASR"). |false |Rozpoznávání řeči funkce má následující nastavení klíče:<table><tr><th><p>Klíč</p></th>        <th><p>Popis</p></th><th><p>Příklad hodnoty</p></th></tr><tr><td><p>Jazyk</p></td><td><p>Přirozeného jazyka rozpoznat v multimediálních souborů.</p></td><td><p>Angličtina, španělština</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>středníky oddělený seznam titulek požadovaný výstupní formáty (pokud existuje)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Logický příznak určující, zda je soubor AIB požadované (pro použití se službou SQL Server a zákazník Indexer IFilter).  Další informace najdete v tématu <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">pomocí AIB souborů pomocí Azure Media Indexer a SQL Server</a>.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Logický příznak určující, zda je požadovaný soubor XML – klíčové slovo.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Logický příznak určující, zda chcete-li vynutit úplnou titulky (bez ohledu na úroveň spolehlivosti).  </p><p>Výchozí hodnota je nastavena hodnota false, v takovém případě slova a slovní spojení, které mají méně než 50 % budou vynechaný výstupy poslední popisek a nahrazuje symbol tří teček ("...").  Na symbol tří teček jsou užitečné pro ovládací prvek popisek kvality a auditování.</p></td><td><p>True; False. </p></td></tr></table> |
 
 ### <a id="error_codes"></a>Kódy chyb
 V případě chybu, by měl sestav Azure Media Indexer zpět jednu z následujících kódů chyb:
 
-| Kód | Name (Název) | Možné příčiny |
+| Kód | Jméno | Možné příčiny |
 | --- | --- | --- |
 | 2000 |Neplatná konfigurace |Neplatná konfigurace |
 | 2001 |Neplatné vstupní prostředky |Chybí vstupní prostředky nebo prázdný asset. |
@@ -269,7 +274,7 @@ Aktuálně jsou podporované jazyky angličtinu a slovenštinu. Další informac
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Související odkazy

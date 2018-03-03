@@ -3,7 +3,7 @@ title: "Přidání uživatele spolupráce Azure Active Directory s B2B roli | Mi
 description: "Přidat uživatele guest do role v Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63281ed7e5560d82ce33648aa626a9566346be2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Udělení oprávnění uživatelům z partnerských organizací ve vašem klientu Azure Active Directory
 
@@ -38,7 +39,7 @@ Uživatelé spolupráce Azure Active Directory (Azure AD) s B2B jsou přidány j
 
 ![role omezené správce](./media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

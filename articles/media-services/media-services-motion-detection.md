@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Zjištění pohyby s Azure Media Analytics
 ## <a name="overview"></a>Přehled
 **Detektor pohybu médií Azure** procesor médií (PP) umožňuje efektivně identifikaci části týkající se v rámci souboru jinak dlouhé a bezproblémové video. Detekce pohybu dají použít na statické kamer k identifikaci části videa, kde dochází k pohybu. Vygeneruje soubor JSON obsahující metadata s časová razítka a ohraničující oblasti, kde došlo k události.
 
-Cílem směrem zabezpečení video informační kanály, tato technologie je možné zařadit do kategorií pohybu do příslušné události a falešně pozitivních například stínů a osvětlení změny. To umožňuje generovat výstrahy zabezpečení z fotoaparátu kanály bez nevyžádané pošty s nekonečná důležité události, při schopnost extrahovat z extrémně dlouhé sledováním videa situacích, které vás zajímají.
+Cílem směrem zabezpečení video informační kanály, tato technologie je možné zařadit do kategorií pohybu do příslušné události a falešně pozitivních například stínů a osvětlení změny. To umožňuje generovat výstrahy zabezpečení z fotoaparátu kanály bez nevyžádané pošty s nekonečná důležité události, při schopnost extrahovat z dlouho sledováním videa situacích, které vás zajímají.
 
 **Detektor pohybu médií Azure** MP je aktuálně ve verzi Preview.
 
@@ -38,15 +38,17 @@ Při vytváření úlohy s **detektor pohybu médií Azure**, je nutné zadat je
 ### <a name="parameters"></a>Parametry
 Můžete použít následující parametry:
 
-| Name (Název) | Možnosti | Popis | Výchozí |
+| Jméno | Možnosti | Popis | Výchozí |
 | --- | --- | --- | --- |
-| sensitivityLevel |Řetězce: "nízká", 'střední', 'vysoká. |Nastaví úroveň citlivosti, které pohyby se použije v hlášení. Upravte tak, aby upravit počet falešně pozitivních zjištění. |"střední" |
-| frameSamplingValue |Kladné celé číslo |Nastaví frekvenci, na kterých běží algoritmus. každý snímek se rovná 1, 2 znamená každé 2 rámce a tak dále. |1 |
-| detectLightChange |Logická hodnota: "PRAVDA", "Nepravda" |Nastaví, zda se ve výsledcích hlásí světla změny |"Nepravda" |
-| mergeTimeThreshold |Čas xs: Hh: mm:<br/>Příklad: 00:00:03 |Určuje časový interval mezi pohybu událostí, kde bude 2 události kombinaci a nahlášena jako 1. |00:00:00 |
+| sensitivityLevel |Řetězce: "nízká", 'střední', 'vysoká. |Nastaví úroveň citlivosti na pohyby, které jsou hlášeny. Upravte tak, aby upravit počet falešně pozitivních zjištění. |"střední" |
+| frameSamplingValue |Kladné celé číslo |Nastaví frekvenci, na kterých běží algoritmus. každý snímek se rovná 1, 2 znamená každý druhý snímek a tak dále. |1 |
+| detectLightChange |Logická hodnota: "PRAVDA", "Nepravda" |Nastaví, zda se ve výsledcích hlásí světla změny |'False' |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Příklad: 00:00:03 |Určuje časový interval mezi pohybu událostí, kde jsou 2 události být kombinaci a hlášený jako 1. |00:00:00 |
 | detectionZones |Pole detekce zóny:<br/>-Detekce zóny je pole 3 nebo více bodů<br/>– Bod je x a y souřadnic od 0 do 1. |Popisuje seznamu detekce polygonálních zón, který se má použít.<br/>Výsledky jsou uvedeny s zóny jako ID, se první z nich probíhá 'id': 0 |Jedné oblasti, které zahrnuje celou rámečku. |
 
 ### <a name="json-example"></a>Příklad JSON
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ Můžete použít následující parametry:
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Pohybu detektor výstupní soubory
-Úlohu detekce pohybu vrátí soubor JSON v výstupní asset, která popisuje výstrahy pohybu a jejich kategorie, v rámci videa. Soubor bude obsahovat informace o čas a dobu trvání pohybu zjistil ve videu.
+Úlohu detekce pohybu vrátí soubor JSON v výstupní asset, která popisuje výstrahy pohybu a jejich kategorie, v rámci videa. Soubor obsahuje informace o čas a dobu trvání pohybu zjistil ve videu.
 
 Rozhraní API detektor pohybu poskytuje indikátory, jakmile jsou objekty v pohybu pevné pozadí videa (například sledováním video). Detektor pohybu je vycvičena ke snížení falešné výstrahy, jako je například osvětlení a stínové změny. Aktuální omezení algoritmů zahrnují noci vize videa, poloprůhledné objekty a malé objekty.
 
@@ -93,10 +95,10 @@ Následující tabulka popisuje elementy výstupního souboru JSON.
 | --- | --- |
 | Verze |Vztahuje se na verzi rozhraní API Video. Aktuální verze je 2. |
 | Časová osa |"Rysky" za sekundu videa. |
-| Posun |Časový posun pro časová razítka v "rysky". Ve verzi 1.0 rozhraní API, Video bude vždy 0. V budoucích scénáře, které podporujeme, tato hodnota může změnit. |
+| Posun |Časový posun pro časová razítka v "rysky." Ve verzi 1.0 rozhraní API, Video bude vždy 0. V budoucích scénáře, které podporujeme, tato hodnota může změnit. |
 | kmitočet snímků |Počet snímků za sekundu videa. |
 | Šířka, Výška |Odkazuje na šířku a výšku videa v pixelech. |
-| Start |Razítka start "rysky". |
+| Začátek |Razítka start "rysky". |
 | Doba trvání |Délka události v "rysky". |
 | Interval |Interval každou položku v události v "rysky". |
 | Události |Každý fragment událostí obsahuje pohybu během této doby trvání. |
@@ -107,8 +109,9 @@ Následující tabulka popisuje elementy výstupního souboru JSON.
 | Hranaté závorky] |Každá závorka představuje jeden interval v události. Byla zjištěna prázdný závorky pro tento interval znamená, že žádné pohybu. |
 | Umístění |Tento nový záznam v části události uvádí umístění, kde došlo k chybě provozu. Toto je konkrétnější než detekce zóny. |
 
-Toto je příklad výstupu JSON
+Následující příklad JSON ukazuje výstup:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Toto je příklad výstupu JSON
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Omezení
 * Podporované formáty vstupní video zahrnují MP4, MOV a WMV.
 * Detekce pohybu je optimalizovaná pro stojící pozadí videa. Algoritmus se zaměřuje na snížení falešné výstrahy, jako je například změny osvětlení a stínů.
@@ -164,33 +167,36 @@ Program zobrazí následující postup:
 1. Vytvořte asset a nahrajte soubor média do assetu.
 2. Vytvořte úlohu s úkolem detekce pohybu na videu podle konfigurační soubor, který obsahuje následující přednastavení json: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Stáhněte soubory JSON výstupu. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
@@ -199,7 +205,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad
 
-```
+```csharp
 
 using System;
 using System.Configuration;
@@ -371,7 +377,7 @@ namespace VideoMotionDetection
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Související odkazy

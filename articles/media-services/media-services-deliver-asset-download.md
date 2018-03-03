@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7748c3058cd2aca907e3bc564b2ad18090db28
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Postupy: poskytování prostředek službou
-Toto téma popisuje možnosti pro doručování média prostředky nahrán do Media Services. V mnoha případech aplikace můžete doručování obsahu Media Services. Můžete stáhnout média prostředky, nebo k nim přistupovat pomocí lokátoru. Můžete odeslat mediální obsah do jiná aplikace nebo do jiného poskytovatele. Pro lepší výkon a škálovatelnost můžete také doručovat obsah pomocí sítě doručování obsahu (CDN).
+Tento článek popisuje možnosti pro doručování média prostředky nahrán do Media Services. V mnoha případech aplikace můžete doručování obsahu Media Services. Po kódování, stažení prostředky generovaného média nebo k nim přistupovat pomocí Lokátor streamování. Pro lepší výkon a škálovatelnost můžete také doručovat obsah pomocí sítě doručování obsahu (CDN).
 
 Tento příklad ukazuje, jak stáhnout datových zdrojů médií z Media Services do místního počítače. Kód dotazuje úlohy přidružené k účtu Media Services tak, že ID úlohy a přístupů jeho **OutputMediaAssets** kolekce (což je sada jeden nebo více prostředků výstup média, která je výsledkem spuštění úlohy). Tento příklad ukazuje, jak stáhnout prostředky média výstup z úlohy, ale můžete použít ve stejný přístup ke stažení dalších prostředků.
 
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) tématu.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Stejné ID zásady použijte, pokud vždy používají stejné dny / přístupová oprávnění, například zásady pro lokátory, které jsou určeny k zůstat na místě po dlouhou dobu (bez odeslání zásady). Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -76,13 +77,13 @@ Tento příklad ukazuje, jak stáhnout datových zdrojů médií z Media Service
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Viz také

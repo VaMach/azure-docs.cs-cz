@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Publikovat obsah Azure Media Services pomocí rozhraní .NET
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Pokud chcete vytvořit lokátor streamování OnDemand a získání adres URL, m
 ### <a name="use-media-services-net-sdk"></a>Používání Media Services .NET SDK
 Vytvoření datových proudů adres URL 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ Vytvoření datových proudů adres URL
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 Výstupy:
 
@@ -111,6 +113,7 @@ Výstupy:
 
 Vytvoření adres URL progresivního stahování 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ Vytvoření adres URL progresivního stahování
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 Výstupy:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ Výstupy:
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Pomocí rozšíření Media Services .NET SDK
 Následující kód volá metody rozšíření .NET SDK, které vytvořit Lokátor a generovat technologie Smooth Streaming, HLS a adres URL pro MPEG-DASH pro adaptivní streamování.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,15 +169,15 @@ Následující kód volá metody rozšíření .NET SDK, které vytvořit Lokát
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Stáhnout prostředky](media-services-deliver-asset-download.md)
 * [Konfigurace zásad doručení assetu](media-services-dotnet-configure-asset-delivery-policy.md)
 

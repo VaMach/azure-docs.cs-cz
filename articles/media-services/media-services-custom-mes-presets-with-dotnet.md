@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3354b0122b9025c5da2fb55439620a56c6c985d9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Přizpůsobení Media Encoder Standard nastaví aplikace
 
@@ -28,7 +28,7 @@ Tento článek ukazuje, jak provádět pokročilé kódování s Media Encoder S
 
 Tento článek ukazuje, jak přizpůsobit přednastavení provedením [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) přednastavení a snížit počet vrstev. [Přizpůsobení kodéru Media Encoder Standard přednastavení](media-services-advanced-encoding-with-mes.md) článek ukazuje vlastních předvoleb, které umožňuje provádět pokročilé úlohy kódování.
 
-## <a id="customizing_presets"></a>Přizpůsobení přednastavení MES
+## <a id="customizing_presets"></a> Přizpůsobení přednastavení MES
 
 ### <a name="original-preset"></a>Původní předvolbu
 
@@ -38,7 +38,7 @@ Uložit definované ve formátu JSON [H264 Multiple Bitrate 720p](media-services
 
 Otevřete **CustomPreset_JSON.json** souboru a odeberte první tři vrstvy ze **H264Layers** tak váš soubor bude vypadat takto.
 
-    
+```json 
     {  
       "Version": 1.0,  
       "Codecs": [  
@@ -107,7 +107,7 @@ Otevřete **CustomPreset_JSON.json** souboru a odeberte první tři vrstvy ze **
         }  
       ]  
     }  
-    
+```
 
 ## <a id="encoding_with_dotnet"></a>Kódování pomocí služby Media Services .NET SDK
 
@@ -132,7 +132,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -263,7 +263,7 @@ namespace CustomizeMESPresests
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Viz také

@@ -3,7 +3,7 @@ title: "Elementy pozvánku e-mail spolupráce B2B – Azure Active Directory | M
 description: "Azure Active Directory s B2B spolupráce pozvánku e-mailové šablony"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 0d26fc4758b2defc3f1b8b5643daafdac4d2baac
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy pozvánku e-mail spolupráce B2B – Azure Active Directory
 
@@ -32,7 +33,7 @@ Podívejme se na několik elementy e-mailu, abyste věděli, jak nejlépe použ�
 Předmět e-mailu se následující následující: přijměte naše pozvání &lt;tenantname&gt; organizace
 
 ### <a name="from-address"></a>Adresa odesílatele
-Používáme LinkedIn jako vzor pro adresa odesílatele.  Musí být jasné, kdo je pozvání odeslal a ze společnosti a také vysvětlení, že e-mailu, pochází z Microsoftu e-mailovou adresu. Formát je: &lt;zobrazovaný název pozvánky&gt; z &lt;tenantname&gt; (přes Microsoft)<invites@microsoft.com>
+Používáme LinkedIn jako vzor pro adresa odesílatele.  Musí být jasné, kdo je pozvání odeslal a ze společnosti a také vysvětlení, že e-mailu, pochází z Microsoftu e-mailovou adresu. Formát je: &lt;zobrazovaný název pozvánky&gt; z &lt;tenantname&gt; (přes Microsoft) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>Zpáteční adresa
 Odpověď pro e-mailu je nastavena k e-mailu pozval vás, pokud je k dispozici, takže odpovídání na e-mailu, odešle e-mailem zpátky do pozvání odeslal.
@@ -53,7 +54,7 @@ Pokud jste ještě profilový obrázek, se zobrazí ikona s iniciály pozvání 
 
   ![Zobrazení pozvánky iniciály](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
-### <a name="body"></a>Tělo
+### <a name="body"></a>Text
 Text obsahuje zprávu, která vytvoří pozvání odeslal nebo předána pozvánku rozhraní API. Je textová oblast, takže nezpracovává značky HTML z bezpečnostních důvodů.
 
 ### <a name="footer-section"></a>Sekce zápatí

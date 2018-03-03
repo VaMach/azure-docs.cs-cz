@@ -1,239 +1,161 @@
 ---
-title: "Vytvoření virtuální sítě Azure s několika podsítěmi | Microsoft Docs"
-description: "Naučte se vytvořit virtuální síť s více podsítěmi v Azure."
+title: "Vytvoření virtuální sítě Azure s několika podsítěmi - portál | Microsoft Docs"
+description: "Naučte se vytvořit virtuální síť s více podsítěmi pomocí portálu Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
+ms.assetid: 
 ms.service: virtual-network
-ms.devlang: NA
-ms.topic: article
+ms.devlang: na
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 201da4e6ec86a6c2a79a9e948245c0d83708c3f9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-with-multiple-subnets"></a>Vytvoření virtuální sítě s několika podsítěmi
+# <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Vytvoření virtuální sítě s několika podsítěmi pomocí portálu Azure
 
-V tomto kurzu zjistěte, jak vytvořit základní virtuální síť Azure, která má oddělené veřejné a privátní podsítě. Prostředky ve virtuálních sítích můžete komunikaci mezi sebou a s prostředky v jiných sítích připojené k virtuální síti. Prostředky Azure, jako jsou virtuální počítače, služby App Service Environment, sady škálování virtuálního počítače, Azure HDInsight a cloudové služby můžete vytvořit ve stejné nebo různých podsítích v rámci virtuální sítě. Vytváření prostředků v různých podsítích vám umožňuje filtrovat provoz sítě a odhlásit z podsítě nezávisle s [skupin zabezpečení sítě](virtual-networks-create-nsg-arm-pportal.md)a [směrovat přenos mezi podsítěmi](virtual-network-create-udr-arm-ps.md) přes síť virtuální zařízení, jako je například Brána firewall, pokud zvolíte možnost. 
+Virtuální síť umožňuje několik typů prostředků Azure pro komunikaci s Internetem a soukromě mezi sebou. Vytvoření více podsítí ve virtuální síti umožňuje segmentovat vaší síti, takže můžete filtrovat nebo řízení toku provozu mezi podsítěmi. V tomto článku zjistíte, jak:
 
-Následující části obsahují postupy, které můžete vytvořit virtuální síť pomocí [portál Azure](#portal), rozhraní příkazového řádku Azure ([rozhraní příkazového řádku Azure](#azure-cli)), [prostředí Azure PowerShell](#powershell)a [šablony Azure Resource Manageru](#resource-manager-template). Výsledkem je stejný, bez ohledu na to, jaký nástroj použijete k vytvoření virtuální sítě. Kliknutím na odkaz nástroj přejděte do části tohoto kurzu. Další informace o všech [virtuální sítě](virtual-network-manage-network.md) a [podsíť](virtual-network-manage-subnet.md) nastavení.
+> [!div class="checklist"]
+> * Vytvoření virtuální sítě
+> * Vytvoření podsítě
+> * Testování síťovou komunikaci mezi virtuální počítače
 
-Tento článek obsahuje kroky k vytvoření virtuální sítě pomocí modelu nasazení Resource Manager, který je model nasazení, které vám doporučujeme používat při vytváření nové virtuální sítě. Pokud potřebujete k vytvoření virtuální sítě (klasické), přečtěte si [vytvoření virtuální sítě (klasické)](create-virtual-network-classic.md). Pokud si nejste obeznámeni s modelech nasazení Azure, najdete v části [modelech nasazení Azure pochopit](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="portal"></a>Portál Azure
+## <a name="log-in-to-azure"></a>Přihlášení k Azure 
 
-1. V internetovém prohlížeči, přejděte na [portál Azure](https://portal.azure.com). Přihlaste se pomocí vaší [účet Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Pokud účet Azure nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Na portálu, klikněte na tlačítko **+ nový** > **sítě** > **virtuální síť**.
-3. Na **vytvořit virtuální síť** okno, zadejte následující hodnoty a pak klikněte na tlačítko **vytvořit**:
+Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
-    |Nastavení|Hodnota|
-    |---|---|
-    |Name (Název)|myVnet|
-    |Adresní prostor|10.0.0.0/16|
-    |Název podsítě|Veřejné|
-    |Rozsah adres podsítě|10.0.0.0/24|
-    |Skupina prostředků|Nechte **vytvořit nový** vybrané a potom zadejte **myResourceGroup**.|
-    |Předplatné a umístění|Vyberte vaše předplatné a umístění.
+## <a name="create-a-virtual-network"></a>Vytvoření virtuální sítě
 
-    Pokud jste Azure ještě nepoužívali, další informace o [skupiny prostředků](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [odběry](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), a [umístění](https://azure.microsoft.com/regions) (také označuje jako *oblasti*).
-4. Na portálu můžete vytvořit jenom jednu podsíť, když vytvoříte virtuální síť. V tomto kurzu vytvoříte druhou podsíť po vytvoření virtuální sítě. Můžete vytvořit později přístupné z Internetu prostředky v **veřejné** podsítě. Můžete také vytvořit prostředky, které nejsou přístupné z Internetu v **privátní** podsítě. Chcete-li vytvořit druhou podsíť v **vyhledávání prostředků** pole v horní části stránky, zadejte **myVnet**. Ve výsledcích hledání klikněte na tlačítko **myVnet**. Pokud máte více virtuálních sítí se stejným názvem v rámci vašeho předplatného, zkontrolujte skupiny prostředků, které jsou uvedeny v části každá virtuální síť. Ujistěte se, že kliknete **myVnet** hledání výsledek, který má skupinu prostředků **myResourceGroup**.
-5. Na **myVnet** okno v části **nastavení**, klikněte na tlačítko **podsítě**.
-6. Na **myVnet - podsítě** okně klikněte na tlačítko **+ podsítě**.
-7. Na **přidat podsíť** okně pro **název**, zadejte **privátní**. Pro **rozsahu adres**, zadejte **10.0.1.0/24**.  Klikněte na **OK**.
-8. Na **myVnet - podsítě** okně zkontrolujte podsítě. Můžete zobrazit **veřejné** a **privátní** podsítě, které jste vytvořili.
-9. **Volitelné:** dokončení další kurzy uvedené v části [další kroky](#next-steps) filtrování provozu sítě a odhlásit z každé podsíti se skupinami zabezpečení sítě, směrovat provoz mezi podsítěmi prostřednictvím sítě virtuálního zařízení , nebo pro připojení virtuální sítě k jiné virtuální sítě nebo místní sítě.
-10. **Volitelné:** odstranit prostředky, které v tomto kurzu vytvoříte pomocí kroků v [odstranit prostředky](#delete-portal).
+1. Vyberte **+ vytvořit prostředek** na horní, levého horního rohu portálu Azure.
+2. Vyberte **sítě**a potom vyberte **virtuální síť**.
+3. Jak je znázorněno na následujícím obrázku, zadejte *myVirtualNetwork* pro **název**, **myResourceGroup** pro **skupiny prostředků**, *Veřejné* pro podsíť **název**, 10.0.0.0/24 pro podsíť **rozsahu adres**, vyberte **umístění** a  **Předplatné**, přijměte zbývající výchozí hodnoty a pak vyberte **vytvořit**:
 
-## <a name="azure-cli"></a>Azure CLI
+    ![Vytvoření virtuální sítě](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
-Rozhraní příkazového řádku Azure jsou stejné, zda spuštěním příkazů z Windows, Linux nebo systému macOS. Existují však skriptování rozdíly mezi součásti pro operační systém. Skript v následujících krocích se spustí v prostředí Bash. 
+    **Adresní prostor** a **rozsahu adres** jsou zadat v notaci CIDR. Zadaný **adresní prostor** zahrnuje 10.0.0.0-10.0.255.254 adresy IP. **Rozsah adres** zadat pro podsítě, musí být v rámci **adresní prostor** definované pro virtuální síť. Azure DHCP přiřadí IP adres z rozsahu adres podsítě v podsíti nejsou nasazené prostředky. Azure přiřadí prostředky nasazené v rámci pouze adresy 10.0.0.4-10.0.0.254 **veřejné** podsíť, protože Azure si vyhrazuje první čtyři adres (10.0.0.0-10.0.0.3 podsítě, v tomto příkladu) a poslední adres ( 10.0.0.255 podsítě, v tomto příkladu) v každé podsíti.
 
-1. [Instalace a konfigurace rozhraní příkazového řádku Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Zajistěte, že abyste měli nejnovější verzi rozhraní příkazového řádku Azure, který je nainstalovaný. Chcete-li získat nápovědu pro příkazy rozhraní příkazového řádku, zadejte `az <command> --help`. Místo instalace rozhraní příkazového řádku a jeho požadavky, můžete použít prostředí cloudové služby Azure. Služba Azure Cloud Shell je volně dostupné prostředí Bash, které můžete spustit přímo z portálu Azure Portal. Cloudové prostředí má Azure CLI předem nainstalován a nakonfigurován pro použití s vaším účtem. Chcete-li použít cloudové prostředí, klikněte na tlačítko prostředí cloudu (**> _**) tlačítka v horní části [portál](https://portal.azure.com) nebo stačí kliknout na *vyzkoušet* tlačítko v krocích, které následují. 
-2. Pokud rozhraní příkazového řádku spuštěn místně, přihlaste se k Azure pomocí `az login` příkaz. Pokud používáte cloudové prostředí, jste již přihlášeni.
-3. Projděte si následující skript a její komentáře. V prohlížeči zkopírujte skript a vložte jej do relace rozhraní příkazového řádku:
+## <a name="create-a-subnet"></a>Vytvoření podsítě
 
-    ```azurecli-interactive
-    #!/bin/bash
+1. V **hledání prostředků, služeb a dokumentace** pole v horní části portálu, začněte psát *myVirtualNetwork*. Když **myVirtualNetwork** se zobrazí ve výsledcích hledání, vyberte ho.
+2. Vyberte **podsítě** a pak vyberte **+ podsítě**, jak je znázorněno na následujícím obrázku:
+
+     ![Přidat podsíť](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
+
+3. V **přidat podsíť** pole, která se zobrazí, zadejte *privátní* pro **název**, zadejte *10.0.1.0/24* pro **rozsahadres**a potom vyberte **OK**. 
+
+Před nasazením virtuálních sítí Azure a podsítě pro použití v provozním prostředí, doporučujeme, že jste důkladně Seznamte se s adresním prostorem [aspekty](virtual-network-manage-network.md#create-a-virtual-network) a [limity virtuální síťové](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Jakmile se prostředky nasadí do podsítí, může vyžadovat některé virtuální síť a podsíť změny, jako je například změna rozsahy adres, opakované nasazení existující prostředky Azure, které jsou nasazeny v rámci podsítě.
+
+## <a name="test-network-communication"></a>Test síťové komunikace
+
+Virtuální síť umožňuje několik typů prostředků Azure pro komunikaci s Internetem a soukromě mezi sebou. Virtuální počítač je jeden typ prostředku, který můžete nasadit do virtuální sítě. Vytvořte dva virtuální počítače ve virtuální síti, abyste je mohli otestovat síťovou komunikaci mezi nimi a Internetu v pozdější fázi.
+
+### <a name="create-virtual-machines"></a>Vytvoření virtuálních počítačů
+
+1. Vyberte **+ vytvořit prostředek** na horní, levého horního rohu portálu Azure.
+2. Vyberte **Compute** a potom vyberte **Windows Server 2016 Datacenter**. Můžete vybrat jiný operační systém, ale zbývající kroky předpokládají, že jste vybrali **Windows Server 2016 Datacenter**. 
+3. Vyberte nebo zadejte následující informace pro **Základy**, pak vyberte **OK**:
+    - **Name**: *myVmWeb*
+    - **Skupina prostředků**: vyberte **použít existující** a pak vyberte *myResourceGroup*.
+    - **Umístění**: vyberte *východní USA*.
+
+    **Uživatelské jméno** a **heslo** zadáte se používají v pozdější fázi. Heslo musí obsahovat nejméně 12 znaků a musí splňovat [zadané požadavky na složitost](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). **Umístění** a **předplatné** vybrané musí být stejné jako umístění a virtuální síť se předplatné. Není to nutné vybrat stejnou skupinu prostředků, který byl vytvořen virtuální sítě v, ale pro tento kurz je vybrán stejnou skupinu prostředků.
+4. Vyberte velikost virtuálního počítače v části **zvolte velikost**.
+5. Vyberte nebo zadejte následující informace pro **nastavení**, pak vyberte **OK**:
+    - **Virtuální síť**: Ujistěte se, že **myVirtualNetwork** je vybrána. Pokud ne, vyberte **virtuální síť** a pak vyberte **myVirtualNetwork** pod **zvolte virtuální sítě**.
+    - **Podsíť**: Ujistěte se, že **veřejné** je vybrána. Pokud ne, vyberte **podsíť** a pak vyberte **veřejné** pod **zvolte podsíť**, jak je znázorněno na následujícím obrázku:
     
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
-    
-    # Create a virtual network with one subnet named Public.
-    az network vnet create \
-      --name myVnet \
-      --resource-group myResourceGroup \
-      --subnet-name Public
-    
-    # Create an additional subnet named Private in the virtual network.
-    az network vnet subnet create \
-      --name Private \
-      --address-prefix 10.0.1.0/24 \
-      --vnet-name myVnet \
-      --resource-group myResourceGroup
+        ![Nastavení virtuálního počítače](./media/virtual-networks-create-vnet-arm-pportal/virtual-machine-settings.png)
+ 
+6. V části **vytvořit** v **Souhrn**, vyberte **vytvořit** ke spuštění nasazení virtuálního počítače.
+7. Proveďte kroky 1 – 6 znovu, ale zadat *myVmMgmt* pro **název** virtuálního počítače a vyberte **privátní** pro **podsítě**.
+
+Virtuální počítače trvat několik minut pro vytvoření. Příklady zbývajících kroků nepokračujte, dokud jsou oba virtuální počítače vytvořené.
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Komunikace mezi virtuálními počítači a s Internetem
+
+1. V *vyhledávání* pole v horní části portálu, začněte psát *myVmMgmt*. Když **myVmMgmt** se zobrazí ve výsledcích hledání, vyberte ho.
+2. Vytvoření připojení ke vzdálené ploše *myVmMgmt* virtuálního počítače tak, že vyberete **připojit**, jak je znázorněno na následujícím obrázku:
+
+    ![Připojení k virtuálnímu počítači](./media/virtual-networks-create-vnet-arm-pportal/connect-to-virtual-machine.png)  
+
+3. Chcete-li připojit k virtuálnímu počítači, otevřete stažený soubor RDP. Po zobrazení výzvy vyberte **Connect**.
+4. Zadejte uživatelské jméno a heslo, které jste zadali při vytváření virtuálního počítače (budete muset vybrat možnost **další možnosti**, pak **použít jiný účet**, zadat přihlašovací údaje, které jste zadali při zpracování je Vytvoření virtuálního počítače), pak vyberte **OK**.
+5. Během procesu přihlášení se může zobrazit upozornění certifikátu. Vyberte **Ano** pokračovat v připojení.
+6. V pozdější fázi, ping slouží ke komunikaci s *myVmMgmt* virtuální počítač z *myVmWeb* virtuálního počítače. Příkaz ping používá protokol ICMP, který byl odepřen přes bránu Windows Firewall ve výchozím nastavení. Povolte protokol ICMP přes bránu Windows firewall tak, že zadáte následující příkaz z příkazového řádku:
+
     ```
-    
-4. Po dokončení skript spuštěn, zkontrolujte podsítě virtuální sítě. Zkopírujte následující příkaz a pak ji vložit do relace rozhraní příkazového řádku:
-
-    ```azurecli
-    az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
     ```
 
-5. **Volitelné:** dokončení další kurzy uvedené v části [další kroky](#next-steps) filtrování provozu sítě a odhlásit z každé podsíti se skupinami zabezpečení sítě, směrovat provoz mezi podsítěmi prostřednictvím sítě virtuálního zařízení , nebo pro připojení virtuální sítě k jiné virtuální sítě nebo místní sítě.
-6. **Volitelné**: Odstraňte prostředky, které v tomto kurzu vytvoříte pomocí kroků v [odstranit prostředky](#delete-cli).
+    I když v tomto článku je použít příkaz ping, což ICMP přes bránu Windows Firewall pro nasazení v produkčním prostředí se nedoporučuje.
+7. Z bezpečnostních důvodů je běžné omezit počet virtuálních počítačů, které můžete vzdáleně připojit k ve virtuální síti. V tomto kurzu *myVmMgmt* virtuální počítač se používá ke správě *myVmWeb* virtuálního počítače ve virtuální síti. Pro vzdálenou plochu *myVmWeb* virtuální počítač z *myVmMgmt* virtuální počítač, zadejte následující příkaz z příkazového řádku:
 
-## <a name="powershell"></a>PowerShell
+    ``` 
+    mstsc /v:myVmWeb
+    ```
+8. Pro komunikaci se *myVmMgmt* virtuální počítač z *myVmWeb* virtuální počítač, zadejte následující příkaz z příkazového řádku:
 
-1. Nainstalujte nejnovější verzi modulu [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) pro PowerShell. Pokud s Azure PowerShellem začínáte, podívejte se na [Přehled Azure PowerShellu](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. V relaci prostředí PowerShell přihlášení k Azure s vaší [účet Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) pomocí `login-azurermaccount` příkaz.
+    ```
+    ping myvmmgmt
+    ```
 
-3. Projděte si následující skript a její komentáře. V prohlížeči zkopírujte skript a vložte ho do relace prostředí PowerShell:
+    Zobrazí se výstup podobný výstupu v následujícím příkladu:
+    
+    ```
+    Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+    Ping statistics for 10.0.1.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    ```
+      
+    Uvidíte, že adresa *myVmMgmt* 10.0.1.4 je virtuální počítač. 10.0.1.4 se první dostupná IP adresa v rozsahu adres *privátní* podsítě, které jste nasadili *myVmMgmt* virtuálního počítače v předchozím kroku.  Zjistíte, že plně kvalifikovaný název domény virtuálního počítače je *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. I když *dar5p44cif3ulfq00wxznl3i3f* část názvu domény se liší pro virtuální počítač, zbývající části názvu domény jsou stejné. Ve výchozím nastavení používají všechny virtuální počítače Azure výchozí služba Azure DNS. Všechny virtuální počítače v rámci virtuální sítě můžete vyřešit názvy všechny ostatní virtuální počítače ve stejné virtuální síti pomocí služby DNS Azure, je výchozí. Místo použití služba DNS výchozí Azure, můžete použít serveru DNS nebo funkcí privátní domény služby Azure DNS. Podrobnosti najdete v tématu [překladu IP adresy serveru DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) nebo [pomocí Azure DNS pro domény privátní](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+9. Instalace Internetové informační služby (IIS) pro systém Windows Server na *myVmWeb* virtuální počítač, zadejte následující příkaz z relace prostředí PowerShell:
 
     ```powershell
-    # Create a resource group.
-    New-AzureRmResourceGroup `
-      -Name myResourceGroup `
-      -Location eastus
-    
-    # Create the public and private subnets.
-    $Subnet1 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Public `
-      -AddressPrefix 10.0.0.0/24
-    $Subnet2 = New-AzureRmVirtualNetworkSubnetConfig `
-      -Name Private `
-      -AddressPrefix 10.0.1.0/24
-    
-    # Create a virtual network.
-    $Vnet=New-AzureRmVirtualNetwork `
-      -ResourceGroupName myResourceGroup `
-      -Location eastus `
-      -Name myVnet `
-      -AddressPrefix 10.0.0.0/16 `
-      -Subnet $Subnet1,$Subnet2
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
 
-4. Chcete-li zkontrolovat podsítě virtuální sítě, zkopírujte následující příkaz a pak ji vložit do relace prostředí PowerShell:
+10. Po dokončení instalace služby IIS odpojit *myVmWeb* relace vzdálené plochy, což zanechá v *myVmMgmt* relace vzdálené plochy. Otevřete webový prohlížeč a přejděte do http://myvmweb. Zobrazí úvodní stránce služby IIS.
+11. Odpojení *myVmMgmt* relace vzdálené plochy.
+12. Pokus o zobrazení úvodní stránka IIS ze svého počítače. Vytvoření Azure *myVmWeb* virtuální počítač, prostředek veřejné IP adresy s názvem *myVmWeb* také vytvořil a přiřazené k virtuálnímu počítači. Uvidíte, že byl přiřazen 52.170.5.92 *myVmMgmt* virtuálního počítače na obrázku v kroku 2. K vyhledání přiřazené veřejné IP adresy *myVmWeb* virtuální počítač, vyhledejte *myVmWeb* do vyhledávacího pole, pak ho vyberte když se objeví ve výsledcích hledání. 
 
-    ```powershell
-    $Vnet.subnets | Format-Table Name, AddressPrefix
-    ```
+    Když virtuální počítač není potřeba mít přiřazené veřejnou IP adresu, Azure přiřadí veřejnou IP adresu pro každý virtuální počítač, který vytvoříte, ve výchozím nastavení. K virtuálnímu počítači komunikovat z Internetu, musí mít veřejnou IP adresu přiřazenou k virtuálnímu počítači. Všechny virtuální počítače mohou komunikovat odchozí přes Internet, zda je k virtuálnímu počítači přiřazena veřejnou IP adresu. Další informace o odchozí připojení k Internetu v Azure najdete v tématu [odchozí připojení v Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-5. **Volitelné:** dokončení další kurzy uvedené v části [další kroky](#next-steps) filtrování provozu sítě a odhlásit z každé podsíti se skupinami zabezpečení sítě, směrovat provoz mezi podsítěmi prostřednictvím sítě virtuálního zařízení , nebo pro připojení virtuální sítě k jiné virtuální sítě nebo místní sítě.
-6. **Volitelné**: Odstraňte prostředky, které v tomto kurzu vytvoříte pomocí kroků v [odstranit prostředky](#delete-powershell).
+    Ve vašem počítači, přejděte na veřejnou IP adresu *myVmWeb* virtuálního počítače. Pokus o zobrazení úvodní stránka IIS ze svého počítače selže. Pokus selže, protože když byly nasazené virtuální počítače, Azure vytvoří skupinu zabezpečení sítě pro každý virtuální počítač, ve výchozím nastavení. 
 
-## <a name="resource-manager-template"></a>Šablona Resource Manageru
+    Skupina zabezpečení sítě obsahuje pravidla zabezpečení, která povolují nebo odepírají příchozí a odchozí síťový provoz pomocí portu a IP adresy. Výchozí skupina zabezpečení sítě, který vytvořili Azure umožňuje komunikaci přes všechny porty mezi prostředky ve stejné virtuální síti. Pro virtuální počítače s Windows skupinu zabezpečení sítě výchozí odmítne veškerý příchozí provoz z Internetu přes všechny porty, potvrďte TCP port 3389 (RDP). V důsledku toho ve výchozím nastavení, můžete také RDP přímo na *myVmWeb* virtuálního počítače z Internetu, i když není vhodné portu 3389 otevřete na webový server. Vzhledem k tomu, že procházení webu komunikuje přes port 80, komunikaci z Internetu se nezdaří, protože není pravidlo ve skupině zabezpečení výchozí sítě umožňuje provoz přes port 80.
 
-Virtuální síť můžete nasadit pomocí šablony Azure Resource Manager. Další informace o šablonách najdete v tématu [co je správce prostředků](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). Pro přístup k šabloně a další informace o jeho parametrech najdete v článku [vytvořit virtuální síť se dvěma podsítěmi](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) šablony. Šablony můžete nasadit pomocí [portál](#template-portal), [rozhraní příkazového řádku Azure](#template-cli), nebo [prostředí PowerShell](#template-powershell).
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Volitelné kroky po nasazení šablony:
+Pokud již nepotřebujete, odstraňte skupinu prostředků a všechny prostředky, které obsahuje: 
 
-1. Dokončení další kurzy uvedené v části [další kroky](#next-steps) vyfiltrujete síťový provoz do/z každé podsíti se skupinami zabezpečení sítě, směrovat provoz mezi podsítěmi prostřednictvím sítě virtuálního zařízení, nebo se připojit virtuální síť do jiných virtuálních sítí nebo místní sítě.
-2. Odstranit prostředky, které v tomto kurzu vytvoříte pomocí kroků v jakékoli pododdílu [odstranit prostředky](#delete).
+1. Zadejte *myResourceGroup* v **vyhledávání** pole v horní části portálu. Až se zobrazí **myResourceGroup** ve výsledcích hledání vyberte ho.
+2. Vyberte **Odstranit skupinu prostředků**.
+3. Zadejte *myResourceGroup* pro **název skupiny prostředků typu:** a vyberte **odstranit**.
 
-### <a name="template-portal"></a>Portál Azure
+## <a name="next-steps"></a>Další postup
 
-1. V prohlížeči otevřete [stránku šablony](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Klikněte **nasadit do Azure** tlačítko. Pokud jste již přihlášeni do Azure, přihlaste se na obrazovce přihlášení k portálu Azure, který se zobrazí.
-3. Přihlaste se k portálu pomocí vaší [účet Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Pokud účet Azure nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](https://azure.microsoft.com/offers/ms-azr-0044p).
-4. Zadejte následující hodnoty pro parametry:
+V tomto kurzu jste zjistili, jak nasadíte virtuální síť s více podsítěmi. Také jste zjistili, že při vytváření virtuálního počítače s Windows Azure vytvoří rozhraní sítě, připojí k virtuálnímu počítači a vytvoří skupinu zabezpečení sítě, který umožňuje pouze provoz přes port 3389, z Internetu. Přechodu na dalším kurzu se dozvíte, jak filtrovat síťový provoz do podsítí, nikoli pro jednotlivé virtuální počítače.
 
-    |Parametr|Hodnota|
-    |---|---|
-    |Předplatné|Vyberte předplatné|
-    |Skupina prostředků|myResourceGroup|
-    |Umístění|Vyberte umístění|
-    |Název virtuální sítě|myVnet|
-    |Předpona adresy virtuální sítě|10.0.0.0/16|
-    |Subnet1Prefix|10.0.0.0/24|
-    |Subnet1Name|Veřejné|
-    |Subnet2Prefix|10.0.1.0/24|
-    |Subnet2Name|Privátní|
-
-5. S podmínkami a ujednáními a potom klikněte na **nákupu** k nasazení virtuální sítě.
-
-### <a name="template-cli"></a>Rozhraní příkazového řádku Azure
-
-1. [Instalace a konfigurace rozhraní příkazového řádku Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Zajistěte, že abyste měli nejnovější verzi rozhraní příkazového řádku Azure, který je nainstalovaný. Chcete-li získat nápovědu pro příkazy rozhraní příkazového řádku, zadejte `az <command> --help`. Místo instalace rozhraní příkazového řádku a jeho požadavky, můžete použít prostředí cloudové služby Azure. Služba Azure Cloud Shell je volně dostupné prostředí Bash, které můžete spustit přímo z portálu Azure Portal. Cloudové prostředí má Azure CLI předem nainstalován a nakonfigurován pro použití s vaším účtem. Chcete-li použít cloudové prostředí, klikněte na tlačítko prostředí cloudu **> _** tlačítka v horní části [portál](https://portal.azure.com), nebo stačí kliknout na **vyzkoušet** tlačítko v krocích, které následují. 
-2. Pokud rozhraní příkazového řádku spuštěn místně, přihlaste se k Azure pomocí `az login` příkaz. Pokud používáte cloudové prostředí, jste již přihlášeni.
-3. Pokud chcete vytvořit skupinu prostředků pro virtuální síť, zkopírujte následující příkaz a vložte jej do relace rozhraní příkazového řádku:
-
-    ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
-    ```
-    
-4. Šablony můžete nasadit pomocí jedné z následujících možností parametry:
-    - **Výchozí hodnoty parametrů**. Zadejte následující příkaz:
-    
-        ```azurecli-interactive
-        az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
-        ```
-    - **Hodnoty parametru vlastní**. Stáhnout a upravit šablonu před nasazením šablon. Také můžete nasazení šablony pomocí parametry na příkazovém řádku, nebo se souborem samostatné parametry nasazení šablony. Chcete-li stáhnout soubory šablony a parametry, klikněte na tlačítko **Procházet na Githubu** na tlačítko [vytvořit virtuální síť se dvěma podsítěmi](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) stránku šablony. V Githubu, klikněte na **azuredeploy.parameters.json** nebo **azuredeploy.json** souboru. Potom klikněte **Raw** tlačítko Zobrazit soubor. V prohlížeči zkopírujte obsah souboru. Uložte obsah do souboru ve vašem počítači. Můžete změnit hodnoty parametrů v šabloně, nebo nasazení šablony souborem samostatné parametry.  
-
-    Další informace o tom, jak nasadit šablony pomocí těchto metod, zadejte `az group deployment create --help`.
-
-### <a name="template-powershell"></a>Prostředí PowerShell
-
-1. Nainstalujte nejnovější verzi modulu [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) pro PowerShell. Pokud s Azure PowerShellem začínáte, podívejte se na [Přehled Azure PowerShellu](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. V relaci prostředí PowerShell přihlásit vaše [účet Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), zadejte `login-azurermaccount`.
-3. Pokud chcete vytvořit skupinu prostředků pro virtuální síť, zadejte následující příkaz:
-
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
-    ```
-    
-4. Šablony můžete nasadit pomocí jedné z následujících možností parametry:
-    - **Výchozí hodnoty parametrů**. Zadejte následující příkaz:
-    
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
-        ```
-        
-    - **Hodnoty parametru vlastní**. Stáhnout a upravit šablonu před nasazením. Také můžete nasazení šablony pomocí parametry na příkazovém řádku, nebo se souborem samostatné parametry nasazení šablony. Chcete-li stáhnout soubory šablony a parametry, klikněte na tlačítko **Procházet na Githubu** na tlačítko [vytvořit virtuální síť se dvěma podsítěmi](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) stránku šablony. V Githubu, klikněte na **azuredeploy.parameters.json** nebo **azuredeploy.json** souboru. Potom klikněte **Raw** tlačítko Zobrazit soubor. V prohlížeči zkopírujte obsah souboru. Uložte obsah do souboru ve vašem počítači. Můžete změnit hodnoty parametrů v šabloně, nebo nasazení šablony souborem samostatné parametry.  
-
-    Další informace o tom, jak nasadit šablony pomocí těchto metod, zadejte `Get-Help New-AzureRmResourceGroupDeployment`. 
-
-## <a name="delete"></a>Odstraňte prostředky
-
-Po dokončení tohoto kurzu můžete chtít odstranit prostředky, které jste vytvořili, tak, aby vám zbytečně nenabíhaly poplatky za používání. Odstranění skupiny prostředků se také odstraní všechny prostředky, které jsou ve skupině prostředků.
-
-### <a name="delete-portal"></a>Portál Azure
-
-1. V dialogovém okně hledání portálu zadejte **myResourceGroup**. Ve výsledcích hledání klikněte na tlačítko **myResourceGroup**.
-2. Na **myResourceGroup** okně klikněte **odstranit** ikonu.
-3. Potvrďte odstranění, v **název skupiny prostředků typu** zadejte **myResourceGroup**a potom klikněte na **odstranit**.
-
-### <a name="delete-cli"></a>Rozhraní příkazového řádku Azure
-
-V relaci příkazového řádku zadejte následující příkaz:
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes
-```
-
-### <a name="delete-powershell"></a>Prostředí PowerShell
-
-V relaci prostředí PowerShell zadejte následující příkaz:
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
-
-## <a name="next-steps"></a>Další kroky
-
-- Další informace o všech virtuální síť a podsíť nastavení najdete v tématu [spravovat virtuální sítě](virtual-network-manage-network.md#view-vnet) a [spravovat podsítě virtuální sítě](virtual-network-manage-subnet.md#create-subnet). Máte různé možnosti pro splňují odlišné požadavky pomocí virtuální sítě a podsítě v produkčním prostředí.
-- Filtrovat podsíť příchozí a odchozí provoz vytvořením a použitím [skupin zabezpečení sítě](virtual-networks-nsg.md) k podsítím.
-- Směrovat provoz mezi podsítěmi prostřednictvím sítě virtuálního zařízení, tak, že vytvoříte [trasy definované uživatelem](virtual-network-create-udr-arm-ps.md) a použít trasy pro každou podsíť.
-- Vytvoření [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nebo [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuálního počítače ve stávající virtuální síť.
-- Připojení dvě virtuální sítě tak, že vytvoříte [partnerský vztah virtuální sítě](virtual-network-peering-overview.md) mezi virtuálními sítěmi.
-- Připojit virtuální síť k místní síti pomocí [brány VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nebo [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) okruh.
+> [!div class="nextstepaction"]
+> [Filtr síťový provoz do podsítí](./virtual-networks-create-nsg-arm-pportal.md)

@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: bc7d98851e8d84d7db8586138608220c838ca776
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uspořádání prostředků s skupin pro správu Azure 
 
-Pokud máte více předplatných, můžete je uspořádat do kontejnerů názvem "skupin pro správu" vám pomůžou spravovat přístup, zásady a dodržování předpisů ve vašich předplatných. Těmto kontejnerům získáte podnikové úrovni správy ve velkém měřítku bez ohledu na to, jaký typ předplatné můžete mít.  
+Pokud máte více předplatných, můžete je uspořádat do kontejnerů názvem "skupin pro správu" vám pomůžou spravovat přístup, zásady a dodržování předpisů ve vašich předplatných. Skupiny pro správu poskytují podnikové úrovni správy ve velkém měřítku bez ohledu na to, jaký typ předplatné můžete mít.  
 
 Funkce skupiny správy je dostupná ve verzi public preview. Chcete začít používat správu skupin, přihlášení, které [portál Azure](https://portal.azure.com) a vyhledejte **skupin pro správu** v **všechny služby** části. 
 
@@ -70,7 +70,7 @@ Při žádné [předdefinovaná role RBAC](../active-directory/role-based-access
 Další informace o skupinách správy najdete v tématu: 
 - [Vytvoření skupiny pro správu k uspořádání prostředků Azure](management-groups-create.md)
 - [Jak změnit, odstranit nebo spravovat skupiny pro správu](management-groups-manage.md)
-- [Instalace modulu Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Instalace modulu Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Zkontrolujte specifikace rozhraní API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
 - [Nainstalujte rozšíření rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

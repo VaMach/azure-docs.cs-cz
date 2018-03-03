@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Chránit váš obsah s Apple FairPlay nebo Microsoft PlayReady HLS
 Azure Media Services umožňuje dynamicky šifrovat obsah HTTP Live Streaming (HLS) pomocí následujících formátů:  
@@ -59,15 +59,15 @@ Na straně doručení klíče služby Media Services musí být nastavena násle
 
       Následující kroky popisují, jak generovat soubor .pfx certifikátu pro FairPlay:
 
-    1. Nainstalujte OpenSSL z https://slproweb.com/products/Win32OpenSSL.html.
+    1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html.
 
         Přejděte do složky, kde jsou FairPlay certifikátu a další soubory dodané společností Apple.
     2. V příkazovém řádku spusťte následující příkaz. Tento soubor .cer převede na soubor .pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informovat der – v FairPlay.cer-out FairPlay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. V příkazovém řádku spusťte následující příkaz. Tento soubor .pem převede do souboru .pfx s privátním klíčem. Heslo pro soubor .pfx pak požaduje od OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-export - out FairPlay out.pfx-inkey privatekey.pem-v - passin file:privatekey-pem-pass.txt FairPlay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **Heslo aplikace Cert**: heslo pro vytvoření souboru .pfx.
   * **ID aplikace Cert heslo**: je potřeba načíst heslo, podobně jako jak odesílají jiných klíčů Media Services. Použití **ContentKeyType.FairPlayPfxPassword** hodnota výčtu získat ID služby média. Toto je požadované použít uvnitř možnost zásady doručení klíče.
   * **IV**: je to hodnota náhodných 16 bajtů. Musí se shodovat iv do zásady doručení assetu. Generovat iv a umístí jej na obou místech: zásady doručení assetu a možnost zásady doručení klíče.
@@ -89,9 +89,9 @@ Následující klienti podporují HLS s **AES-128 CBC** šifrování: Safari v s
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>Konfigurace FairPlay dynamické šifrování a licencí služeb doručování
 Následují obecné kroky pro své assety chráníte pomocí FairPlay pomocí službu doručování licencí Media Services a také používáte dynamické šifrování.
 
-1. Vytvoření assetu a nahrání souborů do assetu.
-2. Zakódujte asset, který obsahuje soubor s adaptivní přenosovou rychlostí sady souborů MP4.
-3. Vytvořte klíč obsahu a přidružte ji k zakódovanému assetu.  
+1. Vytvořte prostředek a nahrajte do něj soubory.
+2. Zakódujte prostředek obsahující soubor do sady souborů MP4 s adaptivní přenosovou rychlostí.
+3. Vytvořte klíč k obsahu a přiřaďte ho k zakódovanému prostředku.  
 4. Nakonfigurujte zásady autorizace pro klíč k obsahu. Zadejte následující informace:
 
    * Metodu doručení (v tomto případě FairPlay).
@@ -116,7 +116,7 @@ Následují obecné kroky pro své assety chráníte pomocí FairPlay pomocí sl
      > * Jiné IAssetDeliveryPolicy konfigurace FairPlay pro HLS
      >
      >
-6. Vytvořte Lokátor OnDemand získat adresu URL pro streamování.
+6. Pokud chcete získat adresu URL streamování, vytvořte lokátor OnDemand.
 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>Použít doručení klíče FairPlay player aplikace
 Přehrávač aplikace můžete vyvíjet pomocí iOS SDK. Abyste mohli k přehrávání obsahu FairPlay, budete muset implementovat protokol exchange licence. Tato položka protocol není zadán společností Apple. Je na každou aplikaci, jak odesílat žádosti o doručení klíče. Služba Media Services FairPlay doručení klíče očekává SPC pocházet jako zprávu kódovaného post www-form-url v následující podobě:
@@ -128,7 +128,7 @@ Přehrávač aplikace můžete vyvíjet pomocí iOS SDK. Abyste mohli k přehrá
 >
 >
 
-## <a name="streaming-urls"></a>Adresy URL streamování
+## <a name="streaming-urls"></a>Adresy URL pro streamování
 Pokud váš asset byla zašifrována pomocí více než jeden DRM, ve adresu URL streamování byste měli používat značky šifrování: (formát = 'm3u8-aapl' šifrování = 'xxx').
 
 Platí následující aspekty:
@@ -146,21 +146,23 @@ Platí následující aspekty:
 1. Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md). 
 2. Do části **appSettings** definované ve vašem souboru app.config přidejte následující elementy:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 
 Následující příklad ukazuje možnost používat pro doručování obsahu šifrován FairPlay Media Services. Tato funkce byla zavedená v Azure Media Services SDK pro .NET verze 3.6.0. 
 
 Přepište kód v souboru Program.cs kódem zobrazeným v této části.
 
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v tématu [to](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
 Nezapomeňte aktualizovat proměnné tak, aby odkazovaly do složek, ve kterých jsou umístěné vaše vstupní soubory.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

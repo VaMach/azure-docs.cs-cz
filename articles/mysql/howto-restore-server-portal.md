@@ -1,54 +1,81 @@
 ---
-title: "Jak obnovit na Server v Azure databáze pro databázi MySQL | Microsoft Docs"
+title: "Jak obnovit na Server v Azure databáze pro databázi MySQL"
 description: "Tento článek popisuje, jak k obnovení serveru se ve službě Azure Database pro databázi MySQL pomocí portálu Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 6c1c0f8a0c0e59661b70b787b551b8cfdb024cda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: 5bef3f11d0b546fbd6b1161b20d7dfb81e975f99
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Postup zálohování a obnovení serveru ve službě Azure Database pro databázi MySQL pomocí portálu Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Postup zálohování a obnovení serveru ve službě Azure Database pro databázi MySQL pomocí portálu Azure
 
 ## <a name="backup-happens-automatically"></a>Zálohování se automaticky stane
-Při použití Azure databáze pro databázi MySQL, služba databáze automaticky provede zálohování služby každých pět minut. 
+Azure databáze MySQL servery jsou pravidelně zálohovány k povolení funkce obnovení. Pomocí této funkce můžete obnovit na server a všechny jeho databáze do starší bodu v čase, na nový server.
 
-Zálohy jsou k dispozici po dobu 7 dnů, při použití úroveň Basic a 35 dní při použití úrovně Standard. Další informace najdete v tématu [Azure databáze MySQL úrovně služeb](concepts-service-tiers.md)
+## <a name="prerequisites"></a>Požadavky
+Chcete-li provést tento postup průvodce, je třeba:
+- [Azure databáze MySQL server a databáze](quickstart-create-mysql-server-database-using-azure-portal.md)
 
-Pomocí této funkce automatického zálohování můžete obnovit na server a všechny jeho databáze do nového serveru starší v daném okamžiku.
+## <a name="set-backup-configuration"></a>Konfigurace zálohování sady
 
-## <a name="restore-in-the-azure-portal"></a>Obnovit na portálu Azure
-Databáze pro databázi MySQL Azure umožňuje obnovení serveru k určitému bodu v čase a do k o novou kopii tohoto serveru. Pokud chcete obnovit svá data, můžete použít tento nový server. 
+Zkontrolujte výběr mezi konfigurace vašeho serveru pro místně redundantní zálohy nebo geograficky redundantní zálohy při vytváření serveru v **cenová úroveň** okno.
 
-Například pokud tabulka byla vynechána neúmyslně v poledne dnes, můžete obnovit na čas těsně před poledne a načíst chybějící tabulku a dat z novou kopii tohoto serveru.
+> [!NOTE]
+> Po vytvoření serveru druh redundance, kterou má, nelze přepnout místně redundantní geograficky redundantní vs.
+>
 
-Následující postup obnovení serveru ukázka k určitému bodu v čase:
+Při vytváření serveru přes portál Azure, **cenová úroveň** je okno, kde můžete vybrat buď **místně redundantní** nebo **geograficky redundantní** zálohy pro váš server. Toto okno slouží také k výběru **dobu uchování zálohování** – jak dlouho (ve dnech) chcete uložených pro záloh serveru.
 
-1. Přihlaste se k [portálu Azure](https://portal.azure.com/)
+   ![Cenová úroveň - vyberte zálohování redundance](./media/howto-restore-server-portal/pricing-tier.png)
 
-2. Vyhledejte vaší databázi Azure pro server databáze MySQL. V levém podokně vyberte **všechny prostředky**a potom vyberte svůj server ze seznamu.
+Další informace o nastavení tyto hodnoty během vytváření najdete v tématu [databáze Azure pro rychlý start serveru MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-3.  Nahoře v okně Přehled serveru, klikněte na **obnovení** na panelu nástrojů. Otevře se okno obnovení.
-![Klikněte na tlačítko Obnovit](./media/howto-restore-server-portal/click-restore-button.png)
+Doba uchovávání záloh může být změněn na serveru pomocí následujících kroků:
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
+2. Vyberte svou databázi Azure pro server databáze MySQL. Tato akce otevře **přehled** stránky.
+3. Vyberte **cenová úroveň** v nabídce v části **nastavení**. Pomocí posuvníku můžete změnit **dobu uchování zálohování** na vaši volbu mezi 7 až 35 dnů.
+Na tomto snímku obrazovky má bylo zvýšeno na 34 dnů.
+![Doba uchovávání záloh vyšší](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-4. Vyplňte formulář obnovení potřebné informace:
+4. Klikněte na tlačítko **OK** pro potvrzení změny.
 
-- **Obnovení bodu (UTC)**: pomocí výběr data a času pro výběr, vyberte bod v čase k obnovení. Zadaný čas je ve formátu UTC, takže je pravděpodobně potřeba převést na místní čas UTC.
-- **Obnovit na nový server**: Zadejte nový název serveru a obnovte existující server do.
-- **Umístění**: volba oblast automaticky naplní s oblasti zdrojového serveru, a nelze ji změnit.
-- **Cenová úroveň**: cenová úroveň volba automaticky naplní s stejné cenovou úroveň, jako má zdrojový server, a nelze je zde změnit. 
-![Možnosti PITR obnovení](./media/howto-restore-server-portal/pitr-restore.png)
+Doba uchovávání záloh řídí jak daleko zpět v době obnovení bodu v čase se dá načíst, protože je založena na zálohování, které jsou k dispozici. Obnovení bodu v čase je popsána dále v následující části. 
 
-5. Klikněte na tlačítko **OK** k obnovení serveru pro zadaný bod v čase. 
+## <a name="point-in-time-restore-in-the-azure-portal"></a>Obnovení bodu v čase na portálu Azure
+Databáze pro databázi MySQL Azure umožňuje obnovení serveru zpět bodu v čase a do k o novou kopii tohoto serveru. Můžete použít tento nový server Pokud chcete obnovit svá data, nebo mají vaší klientské aplikace, přejděte na tento nový server.
 
-6. Po dokončení obnovení vyhledejte nový server, který byl vytvořen a potom ověřte, že databáze byly obnoveny podle očekávání.
+Například pokud tabulka byla omylem vyřadit v poledne v současné době můžete obnovit na čas těsně před poledne a načíst chybějící tabulku a data z této novou kopii tohoto serveru. Obnovení bodu v čase není na serveru úrovni, na úrovni databáze.
 
-## <a name="next-steps"></a>Další kroky
-- [Knihovny připojení pro databázi Azure pro databázi MySQL](concepts-connection-libraries.md).
+Následující kroky obnovit ukázkový server bodu v čase:
+1. Na portálu Azure vyberte svou databázi Azure pro server databáze MySQL. 
+
+2. Na panelu nástrojů serveru **přehled** vyberte **obnovení**.
+
+   ![Azure databáze pro obnovení databáze MySQL – přehled – tlačítko](./media/howto-restore-server-portal/2-server.png)
+
+3. Vyplňte formulář obnovení potřebné informace:
+
+   ![Azure databáze pro databázi MySQL - informace o obnovení ](./media/howto-restore-server-portal/3-restore.png)
+  - **Bod obnovení**: vyberte v daném okamžiku chcete obnovit.
+  - **Cílový server**: Zadejte název pro nový server.
+  - **Umístění**: nelze vybrat oblast. Ve výchozím nastavení je stejný jako zdrojový server.
+  - **Cenová úroveň**: při provádění obnovení bodu v čase nelze změnit tyto parametry. Je stejná jako u zdrojového serveru. 
+
+4. Klikněte na tlačítko **OK** k obnovení serveru k obnovení v daném okamžiku. 
+
+5. Po dokončení obnovení vyhledejte nový server, který je vytvořen k ověření, že data byla obnovena podle očekávání.
+
+>[!Note]
+>Poznámka: na nový server vytvořené v okamžiku obnovení má stejné přihlašovací jméno správce serveru a zvolili hesla, která byla platná pro existující server v bodu v čase. Heslo můžete změnit na nový server **přehled** stránky.
+
+## <a name="next-steps"></a>Další postup
+- Další informace o službě service [zálohování](concepts-backup.md).
+- Další informace o [kontinuity podnikových procesů](concepts-business-continuity.md) možnosti.

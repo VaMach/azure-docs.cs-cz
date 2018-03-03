@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Šifrování na straně klienta a Azure Key Vault s Javou pro Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -59,7 +59,7 @@ Během šifrování se klientské knihovny bude generovat náhodných inicializa
 > 
 > 
 
-Stahování zašifrovaný objekt blob zahrnuje načítání obsah pomocí celý objekt blob  **Stáhnout*/openInputStream** usnadňující metody. Zabalená CEK je úkony, spočívající a společně s IV (uložené v tomto případě jako metadata objektu blob) používá k vrácení dešifrovaná data pro uživatele.
+Stahování zašifrovaný objekt blob zahrnuje načítání obsah pomocí celý objekt blob **stažení * / openInputStream** usnadňující metody. Zabalená CEK je úkony, spočívající a společně s IV (uložené v tomto případě jako metadata objektu blob) používá k vrácení dešifrovaná data pro uživatele.
 
 Stahování libovolný rozsah (**downloadRange*** metody) v zašifrovaný objekt blob zahrnuje úpravy rozsahu poskytované uživatelé mohli malé množství další data, která slouží k dešifrování úspěšně žádost rozsah.  
 
@@ -99,6 +99,10 @@ Klientská knihovna podporuje šifrování vlastností entity pro vložení a na
 V dávkových operací stejné KEK se použije mezi všechny řádky v této dávkové operace protože klientské knihovny umožňuje pouze jeden objekt možnosti (a proto jednu zásadu nebo KEK) za dávkovou operaci. Však klientské knihovny bude interně vygenerujte nový náhodný IV a náhodných CEK na řádek v dávce. Uživatelé mohou také k šifrování různé vlastnosti pro všechny operace v dávce definováním toto chování v překladač šifrování.
 
 ### <a name="queries"></a>Dotazy
+> [!NOTE]
+> Protože entity, které jsou zašifrované, nelze spustit dotazy, které filtrovat v zašifrované vlastnosti.  Pokud se pokusíte, bude výsledky nesprávný, protože služba by pokusu porovnat šifrovaná data s nešifrovaným datům.
+> 
+>
 K provedení operace dotazů, je nutné zadat klíče překladače, který se bude moct vyřešit všechny klíče v sadě výsledků dotazu. Pokud entity obsažené ve výsledku dotazu nelze přeložit na poskytovatele, knihovny klienta vyvolá chybu. Po jakémkoli dotazu, který provádí projekce straně serveru přidá klientské knihovny vlastnosti metadat speciální šifrování (_ClientEncryptionMetadata1 a _ClientEncryptionMetadata2) ve výchozím nastavení vybrané sloupce.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
@@ -120,7 +124,7 @@ Existují tři balíčky Key Vault:
 3. Použijte překladač ukládání do mezipaměti jako vstup při vytváření zásady šifrování.
    Další informace o využití Key Vault naleznete v ukázky kódu šifrování. <fix URL>  
 
-## <a name="best-practices"></a>Osvědčené postupy
+## <a name="best-practices"></a>Doporučené postupy
 Podpora šifrování je dostupné pouze v Klientská knihovna pro úložiště pro jazyk Java.
 
 > [!IMPORTANT]
@@ -247,7 +251,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ## <a name="encryption-and-performance"></a>Šifrování a výkonu
 Všimněte si, že šifrování dat výsledky úložiště v dalších zatížení. Musí být generovány klíč obsahu a IV, musí být šifrovaný samotný obsah a další metadata musí být naformátovaná a nahrát. Tato dodatečná režie se bude lišit v závislosti na objemu dat šifrovaný. Doporučujeme vám, že zákazníci vždy testování aplikací pro výkon při vývoji.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Stažení [Klientská knihovna pro úložiště Azure pro balíček Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Stažení [Klientská knihovna pro úložiště Azure pro Javu zdrojového kódu z Githubu](https://github.com/Azure/azure-storage-java)   
 * Stáhněte si Maven knihovny Azure klíč trezoru pro balíčky Java Maven:

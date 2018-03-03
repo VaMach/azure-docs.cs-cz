@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Služba Azure AD Domain Services – řešení výstrah
 Tento článek obsahuje řešení problémů s příručky pro všechny výstrahy, které mohou nastat ve vaší spravované domény.
@@ -34,6 +34,13 @@ Vyberte kroky řešení potíží, které odpovídají nebo výstrah ID nebo zpr
 | AADDS102 | *Objekt služby vyžaduje pro správné fungování Azure AD Domain Services se odstranil z adresáře služby Azure AD. Tato konfigurace ovlivní schopnost společnosti Microsoft monitorovat, spravovat, opravy a synchronizovat vaší spravované domény.* | [Chybí instančního objektu](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Rozsah IP adres pro virtuální síť, ve kterém jste povolili službu Azure AD Domain Services je v rozsahu veřejné IP. Služba Azure AD Domain Services musí být povolena ve virtuální síti s rozsah privátních IP adres. Tato konfigurace ovlivní schopnost společnosti Microsoft monitorovat, spravovat, opravy a synchronizovat vaší spravované domény.* | [Adresa je v rozsahu veřejné IP](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Společnost Microsoft se nelze spojit s řadiče domény pro toto spravované domény. To může dojít, pokud skupina zabezpečení sítě (NSG) nakonfigurované na vaší virtuální sítě blokuje přístup k spravované doméně. Jiné možných příčin je, pokud je trasu definovanou uživatelem aby bloky příchozí provoz z Internetu.* | [Chyba sítě](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS500 | *Spravované doméně poslední synchronizace s Azure AD na {0}. Uživatelé nebudou moci přihlásit se na spravované doméně nebo členství ve skupinách pravděpodobně není synchronizována s Azure AD.* | [Synchronizaci nedošlo po dobu](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *Spravované doméně jeho poslední zálohy na XX.* | [Zálohování není přijato za chvíli](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | *Zabezpečený LDAP certifikát pro spravované doméně vyprší XX.* | [Vypršení platnosti certifikátu zabezpečeného LDAP](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *Spravované doméně je pozastaven, protože není aktivní předplatné Azure spojené s doménou.* | [Pozastavení z důvodu zakázaného předplatného](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | *Spravované doméně je pozastaven z důvodu neplatné konfigurace. Služba nelze spravovat, opravy, nebo aktualizaci řadiče domény pro vaší spravované domény po dlouhou dobu.* | [Pozastavení z důvodu neplatné konfigurace](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Chybí adresáře
 **Zpráva s výstrahou:**
@@ -75,7 +82,7 @@ Chcete-li obnovit služby, postupujte takto:
 
 Než začnete, přečtěte si **privátní v4 adresní prostor IP adres** kapitoly [v tomto článku](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-Počítače ve virtuální síti, může provádět požadavky prostředky Azure, které jsou v stejného rozsahu IP adres jako porty nakonfigurované pro podsíť. Ale vzhledem k tomu, že virtuální síť je konfigurována pro tento rozsah, v rámci virtuální sítě, budou směrovány tyto požadavky a nebude mít přístup k prostředkům určený web. To může vést k vést k neočekávaným chybám s Azure AD Domain Services.
+Počítače ve virtuální síti, může provádět požadavky prostředky Azure, které jsou v stejného rozsahu IP adres jako porty nakonfigurované pro podsíť. Ale vzhledem k tomu, že virtuální síť je konfigurována pro tento rozsah, v rámci virtuální sítě, budou směrovány tyto požadavky a nebude mít přístup k prostředkům určený web. Tato konfigurace může vést k vést k neočekávaným chybám s Azure AD Domain Services.
 
 **Pokud jste vlastníkem rozsahu IP adres v Internetu, který je konfigurován ve virtuální síti, tuto výstrahu můžete ignorovat. Ale Azure AD Domain Services nelze potvrzovat [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] pomocí této konfigurace, protože může vést k neočekávaným chybám.**
 
@@ -93,6 +100,47 @@ Počítače ve virtuální síti, může provádět požadavky prostředky Azure
 4. Připojení k doméně virtuální počítače do nové domény, postupujte podle [Tato příručka](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Kvůli zajištění bezpečnosti výstrahu vyřešit, zkontrolujte stav vaší doméně dvou hodin.
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Synchronizace nebyla dokončena v chvíli
+
+**Zpráva s výstrahou:**
+
+*Spravované doméně poslední synchronizace s Azure AD na {0}. Uživatelé nebudou moci přihlásit se na spravované doméně nebo členství ve skupinách pravděpodobně není synchronizována s Azure AD.*
+
+**Náprava:**
+
+[Zkontrolujte stav vaší doméně](active-directory-ds-check-health.md) pro všechny výstrahy, které mohou indikovat potíže v konfiguraci vaší spravované domény. Problémy s konfigurací v některých případech můžete zablokovat společnosti Microsoft možnost synchronizace vaší spravované domény. Pokud budete moci vyřešte všechny výstrahy, Počkejte dvě hodiny a zkontrolujte zpět Pokud chcete zobrazit, pokud byla dokončena synchronizace.
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Zálohu není přijato za chvíli
+
+**Zpráva s výstrahou:**
+
+*Spravované doméně jeho poslední zálohy na XX.*
+
+**Náprava:**
+
+[Zkontrolujte stav vaší doméně](active-directory-ds-check-health.md) pro všechny výstrahy, které mohou indikovat potíže v konfiguraci vaší spravované domény. Problémy s konfigurací v některých případech můžete zablokovat společnosti Microsoft možnost synchronizace vaší spravované domény. Pokud budete moci vyřešte všechny výstrahy, Počkejte dvě hodiny a zkontrolujte zpět Pokud chcete zobrazit, pokud byla dokončena synchronizace.
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Pozastavení z důvodu zakázaného předplatného
+
+**Zpráva s výstrahou:**
+
+*Spravované doméně je pozastaven, protože není aktivní předplatné Azure spojené s doménou.*
+
+**Náprava:**
+
+Chcete-li obnovit služby, [prodloužení předplatného Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) přidružené k vaší spravované domény.
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Pozastavení z důvodu neplatné konfigurace
+
+**Zpráva s výstrahou:**
+
+*Spravované doméně je pozastaven z důvodu neplatné konfigurace. Služba nelze spravovat, opravy, nebo aktualizaci řadiče domény pro vaší spravované domény po dlouhou dobu.*
+
+**Náprava:**
+
+[Zkontrolujte stav vaší doméně](active-directory-ds-check-health.md) pro všechny výstrahy, které mohou indikovat potíže v konfiguraci vaší spravované domény. Pokud některé z těchto výstrah vyřešíte učiňte. Po obraťte se na podporu znovu zapnout. vaše předplatné.
 
 ## <a name="contact-us"></a>Kontaktujte nás
 Obraťte se na produktový tým Azure Active Directory Domain Services na [sdílet zpětnou vazbu nebo pro podporu](active-directory-ds-contact-us.md).

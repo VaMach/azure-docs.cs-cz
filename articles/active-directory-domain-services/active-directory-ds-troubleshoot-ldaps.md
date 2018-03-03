@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f80de47f8e9ba326fc224a8bc09f8029b5afd1ca
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services – konfigurace řešení potíží s zabezpečení LDAP
 
@@ -51,6 +51,16 @@ Pokud je povoleno zabezpečené LDAP, doporučujeme vytvořit další pravidla p
 > [!TIP]
 > Port 636 není pouze pravidlo, které jsou potřebné pro Azure AD Domain Services plynulejší. Další informace najdete [sítě pokyny](active-directory-ds-networking.md) nebo [NSG řešení potíží s konfigurací](active-directory-ds-troubleshoot-nsg.md) články.
 >
+
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Zabezpečené vypršení platnosti certifikátu LDAP
+
+**Zpráva s výstrahou:**
+
+*Zabezpečený LDAP certifikát pro spravované doméně vyprší XX.*
+
+**Náprava:**
+
+Vytvořit nový certifikát zabezpečený LDAP podle kroků uvedených v [konfigurace zabezpečeného LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) článku.
 
 ## <a name="contact-us"></a>Kontaktujte nás
 Obraťte se na produktový tým Azure Active Directory Domain Services na [sdílet zpětnou vazbu nebo pro podporu](active-directory-ds-contact-us.md).

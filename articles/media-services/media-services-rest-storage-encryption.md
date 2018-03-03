@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Šifrování svůj obsah pomocí šifrování úložiště
 
@@ -29,7 +29,7 @@ Tento článek přináší přehled o šifrování úložiště AMS a ukazuje, j
 * Vytvořte klíč obsahu.
 * Vytvořte Asset. Nastavte AssetCreationOption StorageEncryption při vytváření prostředku.
   
-     Šifrované prostředky musí být přidružen klíčů k obsahu.
+     Šifrované prostředky jsou přidruženy k obsahu klíče.
 * Klíč k obsahu na odkaz pro daný prostředek.  
 * Nastavte parametry šifrování na AssetFile entity.
 
@@ -44,60 +44,62 @@ Při přístupu k entity ve službě Media Services, musíte nastavit specifick�
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="storage-encryption-overview"></a>Šifrování úložiště – přehled
-Šifrování úložiště AMS platí **AES PEV.cenu** režim šifrování pro celý soubor.  Režim PEV.cenu AES je blok šifer, které můžete šifrovat libovolné délce dat bez nutnosti odsazení. Funguje šifrování čítač blok s AES – algoritmus a XOR končící na-ing výstup AES s daty se zašifrovat nebo dešifrovat.  Čítač bloku používá je vytvořený tak, že zkopírujete hodnotu InitializationVector bajtů 0 až 7 hodnota čítače a bajtů 8 až 15 hodnota čítače je nastaven na hodnotu nula. Bloku 16 bajtů Čítač bajtů (který je nejméně významný bajtů) 8 až 15 slouží jako číslo bez znaménka jednoduché 64-bit, který se zvýší, jedna pro každou další blok dat zpracovat a je uložen v síťovém pořadí bajtů. Pokud toto celé číslo nedosáhne maximální hodnoty (0xFFFFFFFFFFFFFFFF) pak zvyšování ho obnoví čítač bloku na nulu (v bajtech 8 až 15) bez vlivu 64 bitů čítače (to znamená, bajty 0 až 7).   Chcete-li zajistit bezpečnost šifrování AES-PEV.cenu režimu, musí být jedinečný pro každý soubor InitializationVector hodnotu pro daný identifikátor klíče pro každý klíč k obsahu a soubory musí být menší než 2 ^ 64 bloky délku.  To je potřeba zajistit, že hodnota čítače se nikdy znovu použije k danému klíči. Další informace o režimu PEV.cenu najdete v tématu [této stránce wikiwebu](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (článku na wiki používá termín "Nonce" místo "InitializationVector").
+Šifrování úložiště AMS platí **AES PEV.cenu** režim šifrování pro celý soubor.  Režim PEV.cenu AES je blok šifer, které můžete šifrovat libovolné délce dat bez nutnosti odsazení. Funguje šifrování čítač blok s AES – algoritmus a XOR končící na-ing výstup AES s daty se zašifrovat nebo dešifrovat.  Čítač bloku používá je vytvořený tak, že zkopírujete hodnotu InitializationVector bajtů 0 až 7 hodnota čítače a bajtů 8 až 15 hodnota čítače je nastaven na hodnotu nula. Bloku 16 bajtů Čítač bajtů (který je nejméně významný bajtů) 8 až 15 slouží jako číslo bez znaménka jednoduché 64-bit, který se zvýší, jedna pro každou další blok dat zpracovat a je uložen v síťovém pořadí bajtů. Pokud toto celé číslo nedosáhne maximální hodnoty (0xFFFFFFFFFFFFFFFF), pak zvyšování ho obnoví čítač bloku na nulu (v bajtech 8 až 15) bez vlivu 64 bitů čítače (to znamená, bajty 0 až 7).   Chcete-li zajistit bezpečnost šifrování AES-PEV.cenu režimu, musí být jedinečný pro každý soubor InitializationVector hodnotu pro daný identifikátor klíče pro každý klíč k obsahu a soubory musí být menší než 2 ^ 64 bloky délku.  Tato jedinečná hodnota je zajistit, že hodnota čítače se nikdy znovu použije k danému klíči. Další informace o režimu PEV.cenu najdete v tématu [této stránce wikiwebu](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (článku na wiki používá termín "Nonce" místo "InitializationVector").
 
 Použití **šifrování úložiště** k zašifrování obsahu místně pomocí standardu AES 256 bitů šifrování a nahrajte ho do Azure Storage kde bude uložený v zašifrované podobě. Prostředky chráněné pomocí šifrování úložiště jsou automaticky bez šifrování umístěny do systému souborů EFS před kódování a volitelně se znovu zašifrují před jejich odesláním zpět v podobě nového výstupního prostředku. Případem primárního použití šifrování úložiště je, když chcete zabezpečit soubory vysoce kvalitními vstupními médii pomocí silného šifrování v klidovém stavu na disku.
 
 Aby bylo možné poskytovat asset šifrované úložiště, musíte nakonfigurovat zásady doručení assetu, aby věděl Media Services může způsob doručení obsahu. Před asset Streamovat, server datových proudů odebere šifrování úložiště a datové proudy svůj obsah pomocí zadaného doručování zásad (například AES, běžným šifrováním nebo žádné šifrování).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Vytvoření ContentKeys pro šifrování
-Šifrované prostředky musí být přidružen úložiště šifrovací klíč. Je nutné vytvořit klíč obsahu, který se má použít pro šifrování před vytvořením soubory prostředků. Tato část popisuje postup vytvoření klíče k obsahu.
+Šifrované prostředky jsou přidruženy k úložiště šifrovacích klíčů. Vytvořte klíč obsahu, který se má použít pro šifrování před vytvořením soubory prostředků. Tato část popisuje postup vytvoření klíče k obsahu.
 
 Následují obecné kroky pro generování obsahu klíčů, které spojují s prostředky, které chcete šifrovat. 
 
 1. Šifrování úložiště náhodně Generovat klíč standardu AES 32 bajtů. 
    
-    Toto je klíč k obsahu pro váš asset, což znamená, všechny soubory přidružené k této asset potřeba použít stejný klíč k obsahu během dešifrování. 
+    32bajtů AES klíč je klíč k obsahu pro váš asset, což znamená, všechny soubory přidružené k této asset potřeba použít stejný klíč k obsahu během dešifrování. 
 2. Volání [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) a [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metod k získání správného certifikátu X.509, který použije k zašifrování obsahu klíče.
 3. Zašifrování obsahu klíče pomocí veřejného klíče certifikátu X.509. 
    
    Media Services .NET SDK používá RSA s OAEP při provádění šifrování.  Vidíte příklad rozhraní .NET v [EncryptSymmetricKeyData funkce](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Vytvoří hodnotu kontrolního součtu vypočítává pomocí identifikátoru klíče a klíč obsahu. Následující příklad .NET vypočítá kontrolního součtu pomocí identifikátoru GUID části identifikátoru klíče a vymazat obsah klíče.
 
-        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-        {
-            const int ChecksumLength = 8;
-            const int KeyIdLength = 16;
-
-            byte[] encryptedKeyId = null;
-
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
-            using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+    ```csharp
+            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
             {
-                rijndael.Mode = CipherMode.ECB;
-                rijndael.Key = contentKey;
-                rijndael.Padding = PaddingMode.None;
+                const int ChecksumLength = 8;
+                const int KeyIdLength = 16;
 
-                ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                encryptedKeyId = new byte[KeyIdLength];
-                encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                byte[] encryptedKeyId = null;
+
+                // Checksum is computed by AES-ECB encrypting the KID
+                // with the content key.
+                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+                {
+                    rijndael.Mode = CipherMode.ECB;
+                    rijndael.Key = contentKey;
+                    rijndael.Padding = PaddingMode.None;
+
+                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
+                    encryptedKeyId = new byte[KeyIdLength];
+                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                }
+
+                byte[] retVal = new byte[ChecksumLength];
+                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+
+                return Convert.ToBase64String(retVal);
             }
+    ```
 
-            byte[] retVal = new byte[ChecksumLength];
-            Array.Copy(encryptedKeyId, retVal, ChecksumLength);
-
-            return Convert.ToBase64String(retVal);
-        }
-
-1. Vytvořte klíč obsahu se **EncryptedContentKey** (převést na řetězec s kódováním base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, a **kontrolního součtu** hodnoty, které jste dostali v předchozích krocích.
+5. Vytvořte klíč obsahu se **EncryptedContentKey** (převést na řetězec s kódováním base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, a **kontrolního součtu** hodnoty, které jste dostali v předchozích krocích.
 
     Šifrování úložiště by měla zahrnovat následující vlastnosti v textu požadavku.
 
     Vlastnost text žádosti    | Popis
     ---|---
-    ID | ContentKey Id, které jsme si generovat v následujícím formátu "nb:kid:UUID:<NEW GUID>".
-    ContentKeyType | Toto je typ obsahu klíče jako celé číslo pro tento klíč obsahu. Jsme předejte hodnotu 1 pro šifrování úložiště.
+    ID | ContentKey Id je generována pomocí následujícího formátu "nb:kid:UUID:<NEW GUID>".
+    ContentKeyType | Typ obsahu klíče je celé číslo, které definují klíč. Pro formát šifrování úložiště hodnota je 1.
     EncryptedContentKey | Vytvoříme nové obsahu klíče hodnotu, která je hodnota 256 bitů (32 bajtů). Klíč se šifruje pomocí certifikátu X.509 šifrování úložiště, který jsme načíst ze služby Microsoft Azure Media Services tak, že provádění požadavku HTTP GET pro GetProtectionKeyId a GetProtectionKey metody. Jako příklad, viz následující kód .NET: **EncryptSymmetricKeyData** metoda definované [zde](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Jedná se o ochranu id klíče pro certifikát X.509 šifrování úložiště, který slouží k šifrování naše klíč obsahu.
     ProtectionKeyType | Jedná se o typ šifrování pro ochranu klíč, který slouží k šifrování klíče obsahu. Tato hodnota je StorageEncryption(1) pro náš příklad.
@@ -172,11 +174,11 @@ Odpověď:
 ### <a name="create-the-content-key"></a>Vytvořte klíč obsahu
 Po načíst certifikát X.509 a používá svůj veřejný klíč k šifrování vašeho obsahu klíče, vytvoření **ContentKey** entity a sady jeho vlastnost hodnoty odpovídajícím způsobem.
 
-Jedna z hodnot musí nastavit při vytváření obsahu je typ klíče. V případě šifrování úložiště hodnota je '1'. 
+Jedna z hodnot musí nastavit při vytváření obsahu je typ klíče. Při použití šifrování úložiště, hodnota by měla být nastavena na '1'. 
 
 Následující příklad ukazuje, jak vytvořit **ContentKey** s **ContentKeyType** nastavit šifrování úložiště ("1") a **ProtectionKeyType** nastaven na hodnotu "0" k označení, že klíč ochrany Id je kryptografický otisk certifikátu X.509.  
 
-Žádost
+Vyžádat
 
     POST https://media.windows.net/api/ContentKeys HTTP/1.1
     Content-Type: application/json
@@ -226,7 +228,7 @@ Odpověď:
 ## <a name="create-an-asset"></a>Vytvořit prostředek
 Následující příklad ukazuje, jak vytvořit prostředek.
 
-**Požadavek HTTP**
+**HTTP Request**
 
     POST https://media.windows.net/api/Assets HTTP/1.1
     Content-Type: application/json
@@ -242,7 +244,7 @@ Následující příklad ukazuje, jak vytvořit prostředek.
 
 **Odpověď HTTP**
 
-V případě úspěchu se vrátí následující:
+V případě úspěchu se vrátí následující odpověď:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -294,11 +296,11 @@ Odpověď:
 ## <a name="create-an-assetfile"></a>Vytvoření AssetFile
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity představuje soubor video nebo zvuk, který je uložený v kontejneru objektů blob. Soubor asset je vždy přidružena k assetu a prostředek může obsahovat mnoho soubory asset. Media Services Encoder úloh selže, pokud objekt souboru asset není spojen s digitálnímu souboru v kontejneru objektů blob.
 
-Všimněte si, že **AssetFile** instance a samotný mediální soubor jsou dva odlišné objekty. AssetFile instance obsahuje metadata o souboru média, zatímco souboru média obsahuje samotný mediální obsah.
+**AssetFile** instance a samotný mediální soubor jsou dva odlišné objekty. AssetFile instance obsahuje metadata o souboru média, zatímco souboru média obsahuje samotný mediální obsah.
 
 Po odeslání souboru digitálního média do kontejneru objektů blob, kterou použijete **SLOUČENÍ** HTTP žádost o aktualizaci AssetFile s informacemi o souboru média (není zobrazen v tomto článku). 
 
-**Požadavek HTTP**
+**HTTP Request**
 
     POST https://media.windows.net/api/Files HTTP/1.1
     Content-Type: application/json

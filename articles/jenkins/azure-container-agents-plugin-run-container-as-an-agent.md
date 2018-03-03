@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Sestavení projektu v Azure pomocí volaných a instancí kontejnerů Azure
 
@@ -30,7 +30,7 @@ Získáte informace o těchto tématech:
 > * Instalace a konfigurace modulu plug-in Azure Container agentů pro volaných
 > * Použít k vytvoření instancí kontejnerů Azure [pružiny PetClinic ukázkové aplikace](https://github.com/spring-projects/spring-petclinic)
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 - **Předplatné Azure** – Pokud chcete další informace o možnostech nákupu Azure najdete v tématu [jak koupit Azure](https://azure.microsoft.com/pricing/purchase-options/) nebo [bezplatnou zkušební verzi jeden měsíc](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -51,7 +51,7 @@ Po instalaci volaných v Azure, budete muset připojit k volaných. Následujíc
 
 [!INCLUDE [jenkins-connect-to-jenkins-server-running-on-azure](../../includes/jenkins-connect-to-jenkins-server-running-on-azure.md)]
 
-## <a name="update-jenkins-dns"></a>Aktualizace volaných DNS
+## <a name="update-jenkins-dns"></a>Update Jenkins DNS
 
 Volaných musí znát vlastní adresu URL, když se vytváří odkazy, které odkazují na sebe sama. Například adresa URL se musí použít při volaných odešle e-mailů obsahujících přímé odkazy na sestavení výsledky. 
 
@@ -233,7 +233,7 @@ Po instalaci modulu plug-in Azure Container agentů v této části vás provede
 
     - **Název** -zadejte `ACI-container`.
     - **Popisky** -zadejte `ACI-container`.
-    - **Obrázek docker** -zadejte`cloudbees/jnlp-slave-with-java-build-tools`
+    - **Obrázek docker** -zadejte `cloudbees/jnlp-slave-with-java-build-tools`
 
     ![Definování vlastnosti bitové kopie Instance kontejner Azure](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
@@ -318,8 +318,8 @@ Je čas k sestavení projektu! Tato část vysvětluje postup sestavení projekt
 ## <a name="clean-up-azure-resources"></a>Vyčištění prostředků Azure
 
 V tomto kurzu jste vytvořili prostředky obsažené v rámci dvou skupin prostředků Azure: 
-    - `JenkinsResourceGroup`-Obsahuje prostředky Azure pro volaných server.
-    - `JenkinsAciResourceGroup`-Obsahuje prostředky Azure pro volaných agenta.
+    - `JenkinsResourceGroup` -Obsahuje prostředky Azure pro volaných server.
+    - `JenkinsAciResourceGroup` -Obsahuje prostředky Azure pro volaných agenta.
     
 Pokud již nepotřebujete používat kterýkoli z prostředků ve skupině prostředků Azure, můžete odstranit skupinu prostředků pomocí `az group delete` příkaz takto (nahrazení &lt;resourceGroup > zástupný symbol název skupiny prostředků, které chcete Odstraňte):
 

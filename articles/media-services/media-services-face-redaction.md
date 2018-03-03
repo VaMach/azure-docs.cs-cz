@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigovat řezy s Azure Media Analytics
 ## <a name="overview"></a>Přehled
@@ -37,7 +37,7 @@ To vytváří zredigované mp4 automaticky bez jakékoli ruční vstup.
 | --- | --- | --- |
 | Vstupní prostředek |foo.bar |Video ve formátu WMV, MOV nebo MP4 |
 | Vstupní konfigurace |Předvolby úlohy konfigurace |{'version':'1.0 ', 'možnosti': {"režim": "kombinovanou"}} |
-| Výstupní asset |foo_redacted.MP4 |Video s stírá použít |
+| Výstupní asset |foo_redacted.mp4 |Video s stírá použít |
 
 #### <a name="input-example"></a>Vstupní příklad:
 [přehrát toto video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
@@ -52,11 +52,12 @@ To vytváří zredigované mp4 automaticky bez jakékoli ruční vstup.
 | --- | --- | --- |
 | Vstupní prostředek |foo.bar |Video ve formátu WMV, MPV nebo MP4 |
 | Vstupní konfigurace |Předvolby úlohy konfigurace |{'version':'1.0 ', 'možnosti': {'režimu': 'analyzovat.}} |
-| Výstupní asset |foo_annotations.JSON |Poznámky data vzhled umístění ve formátu JSON. To se dá upravit uživatel k úpravě stírá ohraničujícího polí. Viz následující ukázka. |
+| Výstupní asset |foo_annotations.json |Poznámky data vzhled umístění ve formátu JSON. To se dá upravit uživatel k úpravě stírá ohraničujícího polí. Viz následující ukázka. |
 | Výstupní asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Oříznutý jpg jednotlivých zjistil vzhled, kde číslo udává labelId písmo |
 
 #### <a name="output-example"></a>Příklad výstupu:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ To vytváří zredigované mp4 automaticky bez jakékoli ruční vstup.
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Redigovat režimu
 Druhé fázi pracovního postupu přebírá větší počet vstupních hodnot, které musí zkombinovat do jednoho datového zdroje.
@@ -114,10 +116,10 @@ Výstup z průchodu analyzovat nezahrnuje původní video. Video je třeba nahra
 | Krok | Název souboru | Poznámky |
 | --- | --- | --- |
 | Vstupní prostředek |foo.bar |Video ve formátu WMV, MPV nebo MP4. Stejné jako v kroku 1 videa. |
-| Vstupní prostředek |foo_annotations.JSON |Soubor metadat poznámky z první fázi, pomocí volitelné úpravy. |
+| Vstupní prostředek |foo_annotations.json |Soubor metadat poznámky z první fázi, pomocí volitelné úpravy. |
 | Vstupní prostředek |foo_IDList.txt (volitelné) |Volitelné nový řádek oddělený seznam vzhled ID chcete redigovat. Pokud necháte prázdnou, tato rozostří všechny řezy. |
 | Vstupní konfigurace |Předvolby úlohy konfigurace |{'version':'1.0 ', 'možnosti': {'režimu': 'redigovat.}} |
-| Výstupní asset |foo_redacted.MP4 |Video s stírá použít podle poznámky |
+| Výstupní asset |foo_redacted.mp4 |Video s stírá použít podle poznámky |
 
 #### <a name="example-output"></a>Příklad výstupu
 Toto je výstup IDList s jedno ID vybrané.
@@ -138,7 +140,9 @@ Můžete najít ukázky níže rozostření typů.
 
 ### <a name="example-json"></a>Příklad JSON:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>Nízký
 
@@ -172,8 +176,16 @@ Program zobrazí následující postup:
 
 1. Vytvořte asset a nahrajte soubor média do assetu.
 2. Vytvořte úlohu s úkolem redigování vzhled podle konfigurační soubor, který obsahuje následující přednastavení json: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Stáhněte soubory JSON výstupu. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
@@ -182,7 +194,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -350,11 +362,11 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Související odkazy

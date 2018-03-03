@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Nasazení a volání vlastním rozhraním API z logiky pracovní postupy aplikace
 
@@ -35,17 +35,17 @@ Než bude možné volat vlastního rozhraní API z aplikace logiky, nasaďte sv�
 
 2. V nabídce aplikace, které se otevře v části **rozhraní API**, zvolte **definice rozhraní API**. Nastavte **umístění definice rozhraní API** na adresu URL pro váš soubor swagger.json OpenAPI.
 
-   Adresa URL obvykle, zobrazí se v tomto formátu:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Adresa URL obvykle, zobrazí se v tomto formátu: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Odkaz na soubor OpenAPI pro vaše vlastní rozhraní API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. V části **rozhraní API**, zvolte **CORS**. Nastavení zásad CORS pro **povolené zdroje** k  **'*'** (povolit všechny).
+3. V části **rozhraní API**, zvolte **CORS**. Nastavení zásad CORS pro **povolené zdroje** k **' *'** (povolit všechny).
 
    Toto nastavení umožňuje požadavky z návrháře aplikace logiky.
 
    ![Povolení požadavků z návrháře aplikace logiky do vlastního rozhraní API](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Další informace najdete v tématu [sestavení rozhraní Node.js RESTful API](../app-service/app-service-web-tutorial-rest-api.md).
+Další informace najdete v tématu [hostování rozhraní RESTful API s CORS v Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Volání vlastního rozhraní API z logiku aplikace pracovních postupů
 
@@ -57,6 +57,6 @@ Po nastavení vlastnosti definice rozhraní API a CORS by měla být k dispozici
 
 *  K volání jakéhokoli rozhraní API, včetně rozhraní API, která nesmí mít ani vystavit dokument OpenAPI můžete kdykoli vytvořit žádost o se [akce HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Vlastní konektor – přehled](../logic-apps/custom-connector-overview.md)

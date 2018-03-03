@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importovat soubor Power BI Desktop
 
-Můžete vytvořit nový model v Azure AS importováním souboru Power BI Desktop soubor (soubor pbix). Metadata modelu, data uložená v mezipaměti a připojení zdroje dat jsou importovány. Nelze importovat, sestavy a vizualizací. Jednou na vašem serveru modelu změny můžete provést aktualizaci a znovu importujte soubor pbix, pomocí funkce webové návrháře (preview) na portálu nebo pomocí SQL Server Management Studio (SSMS). Importované modely nelze otevřít ani exportovat k sadě Visual Studio.
+Můžete vytvořit nový model v Azure AS importováním souboru Power BI Desktop soubor (soubor pbix). Metadata modelu, data uložená v mezipaměti a připojení zdroje dat jsou importovány. Nelze importovat, sestavy a vizualizací.
 
-> [!NOTE]
-> Pokud se soubor pbix modelu připojuje k místním zdrojům dat, [místní brána](analysis-services-gateway.md) musí být nakonfigurované pro váš server.
+**Omezení**   
+- Soubor pbix modelu se musí připojit k [podporované zdroje dat služby Analysis Services](analysis-services-datasource.md) pouze. 
+- Soubor pbix model nemůže mít za provozu nebo DirectQuery připojení. 
+- Pokud se soubor pbix modelu připojuje k místním zdrojům dat, [místní brána dat](analysis-services-gateway.md) musí být nakonfigurované pro váš server služby Analysis Services.
+- Import se nemusí podařit, pokud váš model dat soubor pbix obsahuje metadata, která není podporována ve službě Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Chcete-li importovat z soubor pbix
 
