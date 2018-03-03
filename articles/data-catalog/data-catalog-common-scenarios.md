@@ -22,19 +22,19 @@ ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Běžné scénáře služby Azure Data Catalog
-Tento článek představuje běžné scénáře, kde Azure Data Catalog může pomoci organizaci získat větší hodnotu z její existující zdroje dat.
+Tento článek představuje běžné scénáře, ve kterých Azure Data Catalog může pomoci organizaci získat vyšší přínos z již existujících zdrojů dat.
 
 ## <a name="scenario-1-registration-of-central-data-sources"></a>Scénář 1: Registrace centrálních zdrojů dat
-Víc zdrojů dat vysoké hodnoty mají často organizace. Tyto zdroje dat zahrnují-obchodní, online zpracování systémy (OLTP), datových skladů a databází nástroje business intelligence nebo analytics transakcí. Počet systémů a překryv mezi nimi, obvykle v čase podnikání momentální a zvětšuje samotný podnik zpracovaní prostřednictvím, například fúze a akvizice.
+Více zdrojů dat znamená často jejich vyšší hodnotu pro organizaci. Jednotlivé zdroje dat přitom mohou zahrnovat obchodní údaje, údaje o online zpracování informačními systémy (OLTP), údaje z datových skladů a databází, nástroje business intelligence nebo analytické nástroje a údaje o transakcích. Počet informačních systémů a jejich vzájemný překryv se obvykle v čase podnikání aktuálně neustále mění. Organizace a jí zpracovávané údaje rostou společně s tím, jak roste samotný podnik, ale také například také tím, že dochází k fúzím a akvizicím.
 
-Může být složité pro členy organizace vědět, kde vyhledejte data v rámci těchto zdrojů dat. Jsou všechny příliš běžné otázky takto:
+Pro představitele organizace přitom může být velice složité zjistit, kde vyhledat konkrétní data v rámci jednotlivých zdrojů dat. Velice často se setkáte s otázkami typu:
 
-* Tři HR systémů používaných v rámci společnosti, který použít k vytvoření tohoto typu sestavy?
-* Kde najdu získat certifikovaných prodejní čísla pro fiskálního roku, který právě ukončen?
-* Kdo by měl požádejte nebo co je proces, který by měl pomůže získat přístup k datovému skladu?
-* Neznámého Pokud tato čísla jsou správná. I kdo pro náhled na tom, jak by měla tato data využít, než je možné sdílet tento řídicí panel se členy týmu?
+* V rámci společnosti se používají tři různé HR systémy a nevím, který použít k vytvoření tohoto typu sestavy?
+* Kde najdu ověřená a důvěryhodná čísla o prodejích za poslední fiskální rok, který právě skončil?
+* Koho bych měl požádat nebo jaký je proces pro žádost k získání oprávnění přístupu k datovému skladu?
+* Nemám jistotu, zda jsou konkrétní čísla správná. Kdo je schopen náhledu na to, jak by se mohla konkrétní data využít v rámci organizace, než je bude možné sdílet se členy týmu?
 
-Na tyto a další otázky můžete zadat Azure Data Catalog odpovědi. Zdroje dat centrální vysoké hodnoty, spravované IT, které se používají v organizacích jsou často logické výchozím bodem pro sestavování katalogu. I když každý uživatel může zaregistrovat zdroj dat, s katalogu kick-started se zdroji dat, které budou pravděpodobně definovat hodnotu pro maximální počet uživatelů, pomáhá jednotky přijetí a použití systému. 
+Na tyto a další otázky můžete žádat odpovědo od Azure Data Catalogu. Zdroje dat představují pro organizaci vysokou hodnotu, pokud jsou centralizované a řádně spravované oddělením IT. V organizacích jsou proto IT oddělení často logicky výchozím bodem pro sestavování katalogu údajů. I když každý uživatel si může zaregistrovat další zdroj dat, před zahájením používání katalogu pro práci se zdroji dat je důležité definovat maximální počet uživatelů, kteří budou pomáhat se správou a používáním systému. 
 
 Pokud jsou Začínáme s Azure Data Catalog, identifikujete a zaregistrujete klíčových zdrojích dat používané mnoha různými týmy spotřebitelé dat může být vaším prvním krokem na úspěšné provedení.
 
