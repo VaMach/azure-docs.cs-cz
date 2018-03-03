@@ -3,8 +3,8 @@ title: "Správa systému Windows Azure Pack virtuálních počítačů z Azure z
 description: "Zjistěte, jak spravovat virtuální počítače Windows Azure Pack (WAP) z portálu user portal v Azure zásobníku."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Správa systému Windows Azure Pack virtuálních počítačů z Azure zásobníku
 
@@ -93,11 +93,11 @@ Před konfigurací konektoru služby Windows Azure Pack, musíte povolit režim 
 Pokud chcete povolit režim více cloudu, musí spusťte skript přidat AzurePackConnector.ps1 po nasazení Azure zásobníku. Následující tabulka popisuje parametry skriptu.
 
 
-|  Parametr | Popis | Příklad |   
+|  Parametr | Popis | Příklad: |   
 | -------- | ------------- | ------- |  
 | AzurePackClouds | Identifikátory URI konektorů Windows Azure Pack. Tyto identifikátory URI by měl odpovídat portály klientů Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Ve výchozím nastavení je hodnota portu 40005.) |  
 | AzureStackCloudName | Popisek představují místní cloudu Azure zásobníku.| "AzureStack" |
-| DisableMultiCloud | Přepínač zakázat režim více cloudu.| Není k dispozici |
+| DisableMultiCloud | Přepínač zakázat režim více cloudu.| neuvedeno |
 | | |
 
 Přidat AzurePackConnector.ps1 skript můžete spustit okamžitě po nasazení nebo novější. Pro spuštění skriptu okamžitě po nasazení, použijte stejné relaci prostředí Windows PowerShell, kde Azure zásobníku nasazení dokončit. Jinak můžete otevřít novou relaci prostředí Windows PowerShell jako správce (přihlášení jako účet azurestackadmin).
@@ -128,7 +128,7 @@ Přidat AzurePackConnector.ps1 skript můžete spustit okamžitě po nasazení n
     * **AuthenticationIdentityProviderPartner**: obsahuje následující dvojice hodnot:
         * Podpisový certifikát, který rozhraní API klienta služby Windows Azure Pack musí důvěřovat přijímat volání z portálu rozšíření Azure zásobníku ověřovací Token.
 
-        * "Sféry" přidružené podpisový certifikát. Příklad: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
+        * "Sféry" přidružené podpisový certifikát. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
 3.  Přejděte do složky, která obsahuje výstupní soubory (\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput) a zkopírujte soubory do místního počítače. Soubory bude vypadat podobně jako tento: AzurePack-06-27-15-50.txt.
 
@@ -163,11 +163,11 @@ Pro tuto verzi preview pomocí konektoru služby Windows Azure Pack pouze v test
     ```
      d. Přejděte do adresáře **c:\inetpub** a ověřte, zda jsou nainstalovány tři nové lokality:
 
-       * MgmtSvc konektoru
+       * MgmtSvc-Connector
 
-       * MgmtSvc ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-       * MgmtSvc ConnectorController
+       * MgmtSvc-ConnectorController
 
     e. Ze stejné **c:\temp\wapconnector\setup\scripts** složky, spusťte **konfigurace Certificates.ps1** skriptu instalace certifikátů. Ve výchozím nastavení použije stejný certifikát, který je k dispozici pro web portál klienta v systému Windows Azure Pack. Ujistěte se, že toto je platný certifikát (důvěřují virtuální počítač Azure zásobníku AzS-WASP01 a klientský počítač, který má přístup k portálu Azure zásobníku). Komunikace, jinak nebude fungovat. (Alternativně můžete explicitně předat kryptografický otisk certifikátu jako parametr pomocí parametru - kryptografický otisk.)
 
@@ -179,11 +179,11 @@ Pro tuto verzi preview pomocí konektoru služby Windows Azure Pack pouze v test
 
     f. Chcete-li dokončit konfiguraci tyto tři služby, spusťte **konfigurace WapConnector.ps1** skript pro aktualizaci parametry v souboru Web.config.
 
-    |  Parametr | Popis | Příklad |   
+    |  Parametr | Popis | Příklad: |   
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Portál klienta Windows Azure Pack plně kvalifikovaný název domény. | tenant.contoso.com | 
     | TenantAPIFQDN | Systému Windows Azure Pack klienta API plně kvalifikovaný název domény. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | Zásobník Azure portál user portal plně kvalifikovaný název domény. | Portal.Local.azurestack.external |
+    | AzureStackPortalFQDN | Zásobník Azure portál user portal plně kvalifikovaný název domény. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -214,9 +214,9 @@ Pro tuto verzi preview pomocí konektoru služby Windows Azure Pack pouze v test
     f.  Opakujte krok 2 na žádným jiným virtuálním počítačem spuštěno rozhraní API klienta.
 3. Z **pouze jeden** virtuálních počítačů rozhraní API klienta, spusťte skript TrustAzureStack.ps1 konfigurace, který chcete přidat vztah důvěryhodnosti mezi rozhraní API pro klienty a instance služby AD FS v zásobníku Azure. Musíte použít účet správce systému přístup k databázi Microsoft.MgmtSvc.Store. Tento skript má následující parametry:
 
-    | Parametr | Popis | Příklad |
+    | Parametr | Popis | Příklad: |
     | --------- | ------------| ------- |
-   | SQL Server | Název systému SQL Server, který obsahuje databázi Microsoft.MgmtSvc.Store. Tento parametr je povinný. | SQL Server | 
+   | SqlServer | Název systému SQL Server, který obsahuje databázi Microsoft.MgmtSvc.Store. Tento parametr je povinný. | SQLServer | 
    | datový soubor | Výstupního souboru, který byl vygenerován při konfiguraci režimu více cloudu Azure zásobníku dříve. Tento parametr je povinný. | AzurePack-06-27-15-50.txt | 
    | PromptForSqlCredential | Označuje, že skript by se zobrazit výzva interaktivně pro ověřování SQL pověření použít při připojení k instanci systému SQL Server. Zadané přihlašovací údaje musí mít dostatečná oprávnění k odinstalaci databází, schémat a odstranit přihlášení uživatele. Pokud je zadaný none, skript předpokládá, že tento aktuální uživatelský kontext má přístup. | Je potřeba žádná hodnota. |
    |  |  |
@@ -230,7 +230,7 @@ Pro tuto verzi preview pomocí konektoru služby Windows Azure Pack pouze v test
        -DataFile "C:\temp\wapconnector\AzurePackConnectorOutput.txt"
   ```
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 Následující příklad ukazuje dokončení nasazení konektoru služby Windows Azure Pack v konfiguraci s jedním uzlem zásobník Azure a dvě instalace systému Windows Azure Pack Express. (Každý Expresní instalace je v jednom počítači, s názvy příklad *wapcomputer1* a*wapcomputer2*.)
 
 ```powershell
@@ -277,5 +277,5 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. Známé problémy najdete v tématu [řešení potíží s Microsoft Azure zásobníku](azure-stack-troubleshooting.md).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Používání portálů správce a uživatele v Azure zásobníku](azure-stack-manage-portals.md)

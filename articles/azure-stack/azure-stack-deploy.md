@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Požadavky nasazení Azure Stack
 
@@ -58,7 +58,7 @@ Před nasazením [Azure zásobníku Development Kit](azure-stack-poc.md), zajist
 * SAS SSD + pevný disk SAS
 * NVMe
 
-\*Řadičů RAID bez průchozí schopnosti nemůže rozpoznat typ média. Tyto řadiče označí pevný disk i SSD jako Neurčeno. V takovém případě se místo mezipaměťových zařízení použije SSD jako trvalé úložiště. Proto můžete nasadit development kit na těchto jednotkách SSD.
+\* Řadičů RAID bez průchozí schopnosti nemůže rozpoznat typ média. Tyto řadiče označí pevný disk i SSD jako Neurčeno. V takovém případě se místo mezipaměťových zařízení použije SSD jako trvalé úložiště. Proto můžete nasadit development kit na těchto jednotkách SSD.
 
 **Příklad HBA**: LSI 9207-8i, LSI-9300-8i nebo LSI-9265-8i v režimu průchodu
 
@@ -122,9 +122,9 @@ Ověřte si dostupnost serveru DHCP v síti, do které se síťová karta připo
 ### <a name="internet-access"></a>Přístup k internetu
 Zásobník Azure vyžaduje přístup k Internetu, buď přímo nebo prostřednictvím proxy serveru transparentní. Azure zásobník nepodporuje konfiguraci webového proxy serveru pro povolení přístupu k Internetu. IP adresa hostitele a nových IP přiřazená MAS-BGPNAT01 (pomocí protokolu DHCP nebo statickou IP adresu) musí být mít přístup k Internetu. V rámci domény graph.windows.net a login.microsoftonline.com používají porty 80 a 443.
 
+Otázka: je možné spustit ASDK na virtuální počítač Azure? Odpověď: Ne. K dnešnímu dni ho není oficiálně podporován.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Stažení balíčku pro nasazení Azure zásobníku development kit](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Nasazení zásobník Azure development kit](azure-stack-run-powershell-script.md)
-

@@ -3,21 +3,21 @@ title: "Vytvořit objekt služby pro Azure zásobníku | Microsoft Docs"
 description: "Popisuje, jak vytvořit nový objekt služby, které je možné pomocí řízení přístupu na základě rolí ve službě Správce prostředků Azure, které pokud chcete spravovat přístup k prostředkům."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
-ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Uveďte přístup aplikace k Azure zásobníku
 
@@ -57,7 +57,7 @@ Při prostřednictvím kódu programu přihlášení, použijete Identifikátor 
 
 2. Kopírování **ID aplikace** a ukládá je v kódu aplikace. Aplikace v [ukázkové aplikace](#sample-applications) části odkazují na tuto hodnotu jako ID klienta.
 
-     ![id klienta](./media/azure-stack-create-service-principal/image12.png)
+     ![ID klienta](./media/azure-stack-create-service-principal/image12.png)
 3. Generovat ověřovací klíč, vyberte **klíče**.
 
 4. Zadejte popis klíč a dobu trvání pro klíč. Až budete hotoví, vyberte **Uložit**.
@@ -83,9 +83,9 @@ Požadavky:
 Tyto informace o požadované jako vstup pro automatizaci parametry:
 
 
-|Parametr|Popis|Příklad|
+|Parametr|Popis|Příklad:|
 |---------|---------|---------|
-|Name (Název)|Název SPN účtu|Moje aplikace|
+|Název|Název SPN účtu|Moje aplikace|
 |ClientCertificates|Pole objektů certifikátu|X509 certifikátu|
 |ClientRedirectUris<br>(Volitelné)|Aplikace identifikátor URI pro přesměrování|         |
 
@@ -111,7 +111,7 @@ Tyto informace o požadované jako vstup pro automatizaci parametry:
 
 2. Po dokončení automatizace zobrazí požadované podrobnosti používat hlavní název služby. 
 
-   Například:
+   Příklad:
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -160,7 +160,7 @@ Rozsah můžete nastavit na úrovni předplatné, skupinu prostředků nebo pros
 
 Teď, když jste vytvořili objekt služby a přiřazenou roli, můžete začít používat to v rámci vaší aplikace pro přístup k prostředkům Azure zásobníku.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Přidat uživatele pro AD FS](azure-stack-add-users-adfs.md)
 [Správa oprávnění uživatele](azure-stack-manage-permissions.md)

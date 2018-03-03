@@ -3,22 +3,21 @@ title: "Služba DNS v Azure zásobníku | Microsoft Docs"
 description: DNS v Azure Stacku
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: byronr
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dns-in-azure-stack"></a>DNS v Azure Stacku
 
@@ -84,7 +83,7 @@ Na úrovni rozhraní API REST služby Azure zásobníku DNS jsou značky etag bi
 
 | Záhlaví | Chování|
 |--------|---------|
-| Žádný   | PUT vždy úspěšné (žádná značka Etag kontrola)|
+| Žádné   | PUT vždy úspěšné (žádná značka Etag kontrola)|
 | If-match| PUT pouze úspěšná, pokud prostředek existuje a Značka Etag odpovídá|
 | If-match *| PUT pouze úspěšná, pokud existuje prostředek|
 | If-none-match *| PUT pouze úspěšná, pokud prostředek neexistuje.|
@@ -99,5 +98,5 @@ Následující výchozí omezení platí při použití Azure DNS zásobníku:
 | Sady záznamů na zóny| 5000|
 | Záznamů na sady záznamů| 20|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Představení IDN pro Azure zásobníku](azure-stack-understanding-dns.md)

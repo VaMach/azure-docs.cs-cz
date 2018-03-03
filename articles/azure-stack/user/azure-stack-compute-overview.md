@@ -2,16 +2,17 @@
 title: "Úvod do Azure zásobníku virtuálních počítačů"
 description: "Další informace o virtuálních počítačích Azure zásobníku"
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Úvod do Azure zásobníku virtuálních počítačů
 
@@ -22,7 +23,7 @@ Virtuální počítač Azure zásobníku (VM) je jeden typ na vyžádání, šk�
 
 Virtuální počítač Azure zásobníku poskytuje flexibilitu virtualizace bez nutnosti spravovat jednotlivé clustery nebo počítače. Nevyhnete se však údržbě virtuálního počítače prováděním úloh, jako jsou konfigurace, aplikování oprav chyb a instalace softwaru, který na něm běží.
 
-Virtuální počítače Azure zásobníku lze různými způsoby. Například:
+Virtuální počítače Azure zásobníku lze různými způsoby. Příklad:
 
 * **Vývoj a testování** – virtuální počítače Azure zásobníku nabízejí nějakou rychlou a jednoduchý způsob, jak vytvořit počítač s určitou konfiguraci vyžaduje kód a testování aplikací.
 
@@ -128,6 +129,6 @@ Následující tabulka ukazuje některé způsoby, které můžete získat infor
 
 Můžete použít **Connect** tlačítko na portálu Azure zásobníku se připojit k virtuálnímu počítači.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Důležité informace pro virtuální počítače v Azure zásobníku](azure-stack-vm-considerations.md)
 

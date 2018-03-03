@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/01/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 5cd8d4045764b753c5fdd81ade98d69c72709881
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f7157f8ab826553d8fb638b9f28d5594f68ed6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-telemetry"></a>Azure telemetrie zásobníku
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Data systému Azure zásobníku nebo telemetrických dat, je automaticky odeslán společnosti Microsoft prostřednictvím uživatelského prostředí připojené. Data shromážděná z Azure zásobníku telemetrie se používá týmy Microsoft hlavně kvůli zlepšení našeho zákazníka prostředí a pro analýzu zabezpečení, stavu, kvality a výkonu.
+Data systému Azure zásobníku nebo telemetrických dat, je automaticky odeslán společnosti Microsoft prostřednictvím uživatelského prostředí připojené. Data shromážděná z Azure zásobníku telemetrie se používá týmy Microsoft hlavně kvůli zlepšení prostředí zákazníků a zabezpečení, stavu, kvality a analýza výkonu.
 
 Jakožto Obsluha zásobník Azure telemetrie může poskytnout cenné informace do podnikového nasazení a poskytuje hlasové, který pomáhá tvar budoucích verzích zásobník Azure.
 
@@ -38,11 +38,11 @@ Azure zásobníku telemetrie podle součásti systému Windows Server 2016 přip
 > Pro podporu tok dat telemetrie, musí být otevřen ve vaší síti port 443 (HTTPS). Součást připojené činnost koncového uživatele a Telemetrie připojí ke službě pro správu dat společnosti Microsoft na https://v10.vortex-win.data.microsoft.com. Součásti připojení činnost koncového uživatele a Telemetrie také připojí k https://settings-win.data.microsoft.com stáhnout informace o konfiguraci.
 
 ## <a name="privacy-considerations"></a>Aspekty ochrany osobních údajů
-Trasování událostí pro Windows služby směrování telemetrická data zpět do chráněného cloudového úložiště. Princip nejméně privilegovaných příručky přístup k telemetrická data. Pouze Microsoft pracovníky s platnou obchodních potřeb mají povolen přístup k datům telemetrie. Společnost Microsoft neposkytuje osobních údajů naše zákazníky s třetími stranami, s výjimkou, uvážení zákazníka nebo pro omezené účely popsané v [prohlášení o ochraně osobních údajů zásobník Azure](http://windows.microsoft.com/windows/preview-privacy-statement). Obchodní sestavy můžeme sdílet s výrobci OEM a partnery, které zahrnují agregované, anonymizovaná telemetrické informace. Rozhodnutí o sdílení dat jsou vytvářeny k interní tým Microsoft, včetně ochrany osobních údajů, právních a data správy zúčastněným stranám.
+Trasování událostí pro Windows služby směrování telemetrická data zpět do chráněného cloudového úložiště. Princip nejméně privilegovaných příručky přístup k telemetrická data. Pouze Microsoft pracovníky s platnou obchodních potřeb mají povolen přístup k datům telemetrie. Společnost Microsoft neposkytuje osobní zákaznická data s třetími stranami, s výjimkou, uvážení zákazníka nebo pro omezené účely popsané v [prohlášení o ochraně osobních údajů Microsoft](https://privacy.microsoft.com/PrivacyStatement). Obchodní sestavy jsou sdíleny s výrobci OEM a partnery, které zahrnují agregované, anonymizovaná telemetrické informace. Rozhodnutí o sdílení dat jsou vytvářeny k interní tým Microsoft, včetně ochrany osobních údajů, právních a data správy zúčastněným stranám.
 
-Společnost Microsoft domnívá, v a postupů minimalizace informace. Se snažíme získat pouze informace, budeme potřebovat jsme ji a uložit pouze po dobu jako je třeba k poskytování služeb nebo pro analýzu. Většinu informací o tom, jak funguje systému zásobník Azure a službami Azure se odstraní šest měsíců. Souhrnu nebo agregovaná data se budou uchovávat po delší dobu.
+Společnost Microsoft domnívá, v a postupů minimalizace informace. Se snažíme získat pouze informace, které je potřeba jsme ji a uložit pouze po dobu jako je třeba k poskytování služeb nebo pro analýzu. Většinu informací o tom, jak funguje systému zásobník Azure a službami Azure se odstraní šest měsíců. Souhrnu nebo agregovaná data se budou uchovávat po delší dobu.
 
-Chápeme, ochrany osobních údajů a zabezpečení informací našich zákazníků je velmi důležité.  Přesměrovali jsme žádný jazyk a komplexní přístup na ochrana osobních údajů zákazníků a ochranu dat zákazníka se zásobníkem Azure. Správci IT mají ovládací prvky pro přizpůsobení funkce a nastavení ochrany osobních údajů kdykoli. Projektech pro průhlednost a vztah důvěryhodnosti je zrušte:
+Jsme uvědomit, že je důležité o ochraně osobních údajů a zabezpečení informací o zákaznících.  Přesměrovali jsme žádný jazyk a komplexní přístup na ochrana osobních údajů zákazníků a ochranu dat zákazníka se zásobníkem Azure. Správci IT mají ovládací prvky pro přizpůsobení funkce a nastavení ochrany osobních údajů kdykoli. Projektech pro průhlednost a vztah důvěryhodnosti je zrušte:
 - Nepovedlo se otevřít protokolem zákazníků týkající se typy dat, které jsme shromažďovat.
 - Můžeme uvést podnikových zákazníků v ovládacím prvku – mohou upravovat vlastní nastavení ochrany osobních údajů.
 - Můžeme uvést ochrana osobních údajů zákazníků a zabezpečení nejdřív.
@@ -59,12 +59,12 @@ Telemetrie také pomáhá tak společnosti Microsoft lépe pochopit, jak zákazn
 Mezi příklady patří použití zákazníka kontejnery, úložiště a síťové konfigurace, které jsou spojeny s rolemi zásobník Azure. Používáme Statistika vylepšení jednotky a intelligence do některé z našich správy a sledování řešení.  To pomáhá zákazníkům diagnostikovat problémy kvality a uložit peníze tím, že méně podporu volá společnosti Microsoft.
 
 ## <a name="manage-telemetry-collection"></a>Spravovat kolekce telemetrie
-Nedoporučujeme vypnout telemetrie ve vaší organizaci telemetrie, které poskytuje data, která jednotky vylepšené produktu, funkce a stability. Uvědomujeme si ale, že v některých případech to může být nutné. 
+Není doporučeno telemetrii ve vaší organizaci vypnout telemetrie, které poskytuje data, která jednotky vylepšené produktu, funkce a stability. Uvědomujeme si ale, že v některých případech to může být nutné. 
 
 V těchto případech můžete nakonfigurovat úroveň telemetrie odesílány společnosti Microsoft pomocí před nasazením nastavení registru nebo nasazení post koncové body Telemetrie.
 
 ### <a name="asdk-set-telemetry-level-in-the-windows-registry"></a>ASDK: Nastaví úroveň telemetrie v registru systému Windows
-Editor registru systému Windows slouží k ručně nastavit úroveň telemetrie ve fyzickém hostitelském počítači před nasazením Azure zásobníku. Pokud již existuje zásadu správy, například zásady skupiny, přepíše nastavení registru. 
+Editor registru systému Windows slouží k ručně nastavit úroveň telemetrie ve fyzickém hostitelském počítači před nasazením Azure zásobníku. Pokud je k zásadě správy již existuje, například zásady skupiny, přepíše nastavení registru. 
 
 Před nasazením Azure zásobníku na hostiteli development kit, přihlaste se do CloudBuilder.vhdx a v okně Powershellu se zvýšenými oprávněními spusťte následující skript:
 
@@ -83,7 +83,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 **0 (zabezpečení)**. Pouze data zabezpečení. Informace, které je nutné zajistit, aby byl operační systém zabezpečení, včetně dat o nastavení součásti připojení činnost koncového uživatele a Telemetrie a programem Windows Defender. Žádná konkrétní telemetrie zásobník Azure jsou vydávány na této úrovni.
 
-**1 (základní)**. Zabezpečení a základní stav a kvalita data. Informace o základní zařízení, včetně: data související s kvality, kompatibility aplikací, data o využití aplikace a data z úrovně zabezpečení. Nastavení úrovně vaší telemetrie na základní umožňuje Azure zásobníku telemetrie. Data shromážděná na této úrovni zahrnují:
+**1 (Basic)**. Zabezpečení a základní stav a kvalita data. Informace o základní zařízení, včetně: data související s kvality, kompatibility aplikací, data o využití aplikace a data z úrovně zabezpečení. Nastavení úrovně vaší telemetrie na základní umožňuje Azure zásobníku telemetrie. Data shromážděná na této úrovni zahrnují:
 
 - **Informace o základní zařízení** , pomáhá poskytovat představu o typech a konfigurace nativní a virtualizované instance Windows Server 2016 v ekosystému, včetně:
  - Počítač atributy, jako například OEM, modelu, 
@@ -91,8 +91,8 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
  - Procesor a paměť atributy, jako například počet jader, velikost paměti 
  - Úložiště atributů, jako je počet jednotek, typ a velikost.
 - **Funkce telemetrie**, včetně procent nahrané události, vynechaných události a posledních nahrát čas.
-- **Související kvality získáte** který pomáhá společnosti Microsoft základní znalosti jak zásobník Azure provádí vývoj. Příkladem je počet kritické výstrahy na konkrétní hardwarová konfigurace.
-- **Údaje o kompatibilitě** což pomáhá poskytovat představu o tom, které zprostředkovatelé prostředků jsou nainstalovány na systém a virtuální počítač a identifikuje potenciální problémy s kompatibilitou.
+- **Informace týkající se kvality** který pomáhá společnosti Microsoft základní znalosti jak zásobník Azure provádí vývoj. Příkladem je počet kritické výstrahy na konkrétní hardwarová konfigurace.
+- ** Data kompatibility, který pomáhá zajistit představu o tom, které zprostředkovatelé prostředků jsou nainstalovány na systém a virtuální počítač a identifikuje potenciální problémy s kompatibilitou.
 
 **2 (rozšířené)**. Další statistiky, včetně: použití operačního systému a dalším službám Azure zásobníku, jak fungují, pokročilé spolehlivosti dat a dat z úrovní Basic i zabezpečení. 
 
@@ -101,7 +101,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 > [!NOTE]
 > Výchozí hodnota úrovně telemetrie je 2 (rozšířené).
 
-Poznámka: telemetrie SQL zakáže také vypnutí telemetrie pro systém Windows a protokolů Azure. Další informace o důsledky telemetrii serveru Windows nastavení najdete odkaz [Windows Telemetrie dokument White Paper](https://aka.ms/winservtelemetry). 
+Vypnutí telemetrie pro systém Windows a protokolů Azure také zakáže SQL telemetrie. Další informace o důsledcích nastavení telemetrie systému Windows Server najdete v tématu [Windows Telemetrie dokument White Paper](https://aka.ms/winservtelemetry). 
 
 > [!IMPORTANT]
 > Tyto úrovně telemetrie platí pouze pro komponenty Microsoft Azure zásobníku. Software od jiných výrobců součástmi a službami, které jsou spuštěny v hostiteli hardwaru životního cyklu od partnerů hardwaru zásobník Azure může komunikovat s jejich cloudových služeb mimo tyto úrovně telemetrie. Měli byste spolupracovat s svého poskytovatele hardwaru řešení Azure zásobníku pochopit svoje zásady telemetrie a jak můžete vyjádřit výslovný souhlas nebo výslovný. 
@@ -109,8 +109,8 @@ Poznámka: telemetrie SQL zakáže také vypnutí telemetrie pro systém Windows
 ### <a name="asdk-and-multinode-enable-or-disable-telemetry-after-deployment"></a>ASDK a MultiNode: Povolit nebo zakázat telemetrii po nasazení
 
 Pokud chcete povolit nebo zakázat telemetrii po nasazení, musíte mít přístup k privilegovaný koncový bod období která je vystavená na virtuálních počítačích ERCS.
-1.  Postup při povolení:`Set-Telemetry -Enable`
-2.  Postup při zakázání:`Set-Telemetry -Disable`
+1.  Postup při povolení: `Set-Telemetry -Enable`
+2.  Postup při zakázání: `Set-Telemetry -Disable`
 
 Parametr podrobností: 
 > . Parametr Enable - nahrání dat je zapnout telemetrii 
@@ -143,7 +143,7 @@ if($psSession)
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Stažení balíčku pro nasazení Azure zásobníku development kit](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Nasazení zásobník Azure development kit](azure-stack-run-powershell-script.md)

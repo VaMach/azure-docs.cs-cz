@@ -3,8 +3,8 @@ title: "Pochopení ovládacích prvků zabezpečení zásobník Azure | Microsof
 description: "Jako správce služby Další informace o ovládací prvky zabezpečení u Azure zásobníku"
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure postavení zabezpečení infrastruktury zásobníku
 
@@ -31,10 +31,10 @@ V zásobníku Azure existují dvě vrstvy postavení zabezpečení, které spole
 ## <a name="security-approach"></a>Zabezpečení přístupu
 Azure zásobníku byl vytvořen s postavení zabezpečení bránit zranitelná moderními hrozbami a byl vytvořen, aby splňoval požadavky z standardů hlavní dodržování předpisů. V důsledku toho postavení zabezpečení infrastruktury Azure zásobníku je založený na dva pilíře:
 
- - **Předpokládejme, porušení zabezpečení.** Od se předpokládá, že v systému již došlo k nedodržení, zaměříme na *detekovat a omezení dopad narušení* versus pouze pokusu zabránit útokům. 
- - **Posílené zabezpečení, ve výchozím nastavení.**  Vzhledem k tomu, že infrastruktura běží na dobře definovaný hardwaru a softwaru, jsme *povolení, konfiguraci a ověření funkcí zabezpečení* , většinou zůstává zákazníkům k implementaci.
+ - **Předpokládejme, porušení zabezpečení.** Od se předpokládá, že v systému již došlo k nedodržení, soustředit na *detekovat a omezení dopad narušení* versus pouze pokusu zabránit útokům. 
+ - **Posílené zabezpečení, ve výchozím nastavení.**  Vzhledem k tomu, že infrastruktura běží na dobře definovaný hardwaru a softwaru, *povolení, konfiguraci a ověření funkcí zabezpečení* , jsou ponechána zákazníkům k implementaci.
 
-Protože zásobník Azure je dodávána jako integrovaný systém, je definována postavení zabezpečení infrastruktury Azure zásobníku společností Microsoft.  Stejně jako v Azure, klienti jsou zodpovědní za definování postavení zabezpečení zatížení klienta. Tento dokument obsahuje základní znalosti postavení zabezpečení infrastruktury Azure zásobníku.
+Protože zásobník Azure je dodávána jako integrovaný systém, je definována postavení zabezpečení infrastruktury Azure zásobníku společností Microsoft. Stejně jako v Azure, klienti jsou zodpovědní za definování postavení zabezpečení zatížení klienta. Tento dokument obsahuje základní znalosti postavení zabezpečení infrastruktury Azure zásobníku.
 
 ## <a name="data-at-rest-encryption"></a>Data šifrování neaktivních dat
 Všechna data zásobník Azure infrastruktury a klientů je zašifrovaná přinejmenším pomocí nástroje Bitlocker. Toto šifrování chrání před fyzické ztráty či odcizení komponent Azure zásobníku úložiště. 
@@ -54,7 +54,7 @@ Zbývající tajemství, které nejsou, že účty spravované služby skupiny l
 ## <a name="code-integrity"></a>Integrity kódu
 Azure zásobníku využívá nejnovější Windows Server 2016 funkce zabezpečení. Jeden z nich je Windows Defender ochranou zařízení, která zajišťuje vytvoření seznamu povolených aplikací a zajišťuje, že pouze ověřené spustí kód v rámci infrastruktury Azure zásobníku. 
 
-Autorizovaný kód je podepsán společností Microsoft nebo výrobce OEM partnera a je zahrnutý do seznamu povolených software, který je uveden v zásadách, definovaná společností Microsoft. Jinými slovy lze provést pouze software, který byl schválen ke spuštění v infrastruktuře Azure zásobníku. Pokusy o spouštění kódu vytvořeného neoprávněným blokovány a je generována auditování.
+Autorizovaný kód je podepsán společností Microsoft nebo výrobce OEM partnera a je zahrnutý do seznamu povolených software, který je uveden v zásadách, definovaná společností Microsoft. Jinými slovy lze provést pouze software, který byl schválen ke spuštění v infrastruktuře Azure zásobníku. Jakýkoli pokus o spuštění neoprávněný kód je blokovaný a je vygenerována auditu.
 
 Ochrana zařízení zásady také zabrání třetích stran agentů nebo softwaru spouštět v infrastruktuře Azure zásobníku.
 
@@ -71,7 +71,7 @@ Správa v zásobníku Azure je řízena pomocí tří vstupním bodům, každý 
 3. Pro konkrétní operace nízké úrovně, například data center integrace nebo podporu scénářů, zásobník Azure zpřístupní koncový bod prostředí PowerShell názvem [privilegované koncový bod](azure-stack-privileged-endpoint.md). Tento koncový bod zpřístupní pouze seznam povolených adres sadu rutin a výraznou se neaudituje.
 
 ## <a name="network-controls"></a>Ovládací prvky sítě
-Infrastrukturu Azure zásobníku se dodává s více vrstev sítě List(ACL) řízení přístupu.  Seznamy ACL znemožníte neoprávněný přístup k součásti infrastruktury a infrastruktury komunikace se jenom cesty, které jsou požadovány pro fungování omezit. 
+Infrastrukturu Azure zásobníku se dodává s více vrstev sítě List(ACL) řízení přístupu. Seznamy ACL znemožníte neoprávněný přístup k součásti infrastruktury a infrastruktury komunikace se jenom cesty, které jsou požadovány pro fungování omezit. 
 
 Seznamy ACL sítě se vynucují v tři vrstvy:
 1.  Začátek přepínače Rack

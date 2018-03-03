@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Přidání poskytovatele prostředků služby App Service se zásobníkem Azure
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
@@ -70,7 +70,7 @@ K nasazení zprostředkovatele prostředků služby App Service, postupujte takt
 
     ![Instalační program aplikace služby](media/azure-stack-app-service-deploy/image03.png)
 
-7. Zadejte informace pro sdílené složky a potom klikněte na **Další**. Adresu sdílené složky musí použít plně kvalifikovaný název domény souborového serveru, například \\\appservicefileserver.local.cloudapp.azurestack.external\websites nebo IP adresa, například \\\10.0.0.1\websites.
+7. Zadejte informace pro sdílené složky a potom klikněte na **Další**. Adresu sdílené složky, musíte použít plně kvalifikovaný název domény souborového serveru nebo adresu IP. Například \\\appservicefileserver.local.cloudapp.azurestack.external\websites, nebo \\\10.0.0.1\websites.
 
     ![Instalační program aplikace služby](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ K nasazení zprostředkovatele prostředků služby App Service, postupujte takt
 
     ![Instalační program aplikace služby](media/azure-stack-app-service-deploy/image05.png)
 
-9. Pro každou z jsou tři políčka soubor certifikátu, klikněte na tlačítko **Procházet** a přejděte k souboru příslušný certifikát. Pro každý certifikát, je nutné zadat heslo. Tyto certifikáty jsou ty, které jste vytvořili v [vytvořit požadované certifikáty krok](azure-stack-app-service-deploy.md#create-the-required-certificates). Klikněte na tlačítko **Další** po zadání všech informací.
+9. Pro každou z jsou tři políčka soubor certifikátu, klikněte na tlačítko **Procházet** a přejděte k souboru příslušný certifikát. Zadejte heslo pro každý certifikát. Tyto certifikáty jsou ty, které jste vytvořili v [vytvořit požadované certifikáty krok](azure-stack-app-service-deploy.md#create-the-required-certificates). Klikněte na tlačítko **Další** po zadání všech informací.
 
     | Box | Příklad názvu souboru certifikátu |
     | --- | --- |
@@ -99,7 +99,7 @@ K nasazení zprostředkovatele prostředků služby App Service, postupujte takt
 
     ![Instalační program aplikace služby](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Zkontrolujte možnosti role instance a SKU. Výchozí hodnoty se naplní minimální počet instancí a minimální SKU pro každou roli v ASDK nasazení. Souhrn požadavků virtuální procesory a paměť je určena k plánování nasazení. Po provedení výběru klikněte na tlačítko **Další**.
+11. Zkontrolujte možnosti role instance a SKU. Výchozí hodnoty naplnění minimální počet instancí a minimální SKU pro každou roli v ASDK nasazení. Souhrn požadavků virtuální procesory a paměť je určena k plánování nasazení. Po provedení výběru klikněte na tlačítko **Další**.
 
     > [!NOTE]
     > Pro nasazení v produkčním prostředí, následující pokyny v [kapacitní plánování rolí serveru služby Azure App Service v Azure zásobníku](azure-stack-app-service-capacity-planning.md).
