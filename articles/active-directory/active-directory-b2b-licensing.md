@@ -3,7 +3,7 @@ title: "Spolupráce Azure Active Directory s B2B licencování pokyny | Microsof
 description: "Azure Active Directory s B2B, které nevyžaduje žádný spolupráce placené licence služby Azure AD, ale můžete také platby funkce za uživatele typu Host B2B"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 08/09/2017
-ms.author: curtand
+ms.author: twooley
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.openlocfilehash: 664398eb71501ff450b785928992729f91740a19
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d4a739e5cb4dc4a6ccafac683fe913592f985ce2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Doprovodné materiály k licencování spolupráce Azure Active Directory s B2B
 
@@ -69,7 +69,7 @@ Uživatel typu Host B2B je ten, který je pro práci s organizace hostitele pozv
 
       * Konglomerátu organizace nepoužívá Azure AD nebo nemá dostatek licencí: V tomto případě postupujte podle 1:5 vzorec nastíněny dříve v tomto dokumentu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

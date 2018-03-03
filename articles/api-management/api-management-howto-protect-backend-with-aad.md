@@ -13,36 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak chránit, back-endu webového rozhraní API pomocí Azure Active Directory a API Management
-Následující video ukazuje, jak vytvářet back-end webového rozhraní API a chránit pomocí Azure Active Directory a rozhraní API správy protokolu OAuth 2.0.  Tento článek obsahuje přehled a další informace o kroky v videa. Následující 24 minutu video ukazuje, jak na:
 
-* Sestavení webového rozhraní API back-end a zabezpečte ji pomocí AAD - počínaje 1:30
-* Importovat rozhraní API do rozhraní API Management – počínaje 7:10
-* Konfigurace portálu pro vývojáře pro volání rozhraní API – počínaje 9:09
-* Konfigurace aplikace pro volání rozhraní API – od 18:08
-* Konfigurace zásad ověřování tokenů JWT předem autorizovat požadavky - začínající na 20:47
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+Toto téma ukazuje, jak vytvářet back-end webového rozhraní API a chránit pomocí Azure Active Directory a rozhraní API správy protokolu OAuth 2.0.  
 
 ## <a name="create-an-azure-ad-directory"></a>Vytvořte adresář služby Azure AD
-K zabezpečení vašeho webového rozhraní API back-end pomocí Azure Active Directory musíte nejprve mít klienta služby AAD. V tomto videu se s názvem klienta **APIMDemo** se používá. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
+K zabezpečení vašeho webového rozhraní API back-end pomocí Azure Active Directory musíte nejprve mít klienta služby AAD. Vytvoření klienta služby AAD, přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com) a klikněte na tlačítko **nový**->**App Services**->**služby Active Directory**->**Directory**->**vytvořit vlastní**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-V tomto příkladu adresář s názvem **APIMDemo** je vytvořena s výchozí doménu s názvem **DemoAPIM.onmicrosoft.com**. Tento adresář se používá napříč videa.
+V tomto příkladu adresář s názvem **APIMDemo** je vytvořena s výchozí doménu s názvem **DemoAPIM.onmicrosoft.com**. 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Vytvoření webového rozhraní API služby Zabezpečené přes Azure Active Directory
-V tomto kroku se vytvoří webového rozhraní API back-end pomocí Visual Studio 2013. Tento krok videa se spustí v 1:30. Vytvoření projektu webového rozhraní API back-end v sadě Visual Studio klikněte na položku **soubor**->**nový**->**projektu**a zvolte **webové aplikace ASP.NET** z **webové** seznamu šablon. V tomto videu projektu jmenuje **APIMAADDemo**. Projekt vytvoříte kliknutím na **OK**. 
+V tomto kroku se vytvoří webového rozhraní API back-end pomocí Visual Studio 2013. Vytvoření projektu webového rozhraní API back-end v sadě Visual Studio klikněte na položku **soubor**->**nový**->**projektu**a zvolte **webové aplikace ASP.NET** z **webové** seznamu šablon. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -68,14 +59,13 @@ Konfigurace tohoto projektu jako webového rozhraní API Azure, zaškrtněte pol
 
 Můžete být vyzváni k přihlášení do Azure a pak můžete nakonfigurovat webové aplikace.
 
-![Konfigurace][api-management-configure-web-app]
+![Konfigurovat][api-management-configure-web-app]
 
 V tomto příkladu novou **plán služby App Service** s názvem **APIMAADDemo** je zadán.
 
 Klikněte na tlačítko **OK** ke konfiguraci webové aplikace a vytvořte tak projekt.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Přidejte do projektu webového rozhraní API kód
-Dalším krokem při přehrávání videa kód přidá do projektu webového rozhraní API. Tento krok se spustí při 4:35.
 
 Webové rozhraní API v tomto příkladu implementuje základní kalkulačky služby pomocí modelu a kontroler. Chcete-li přidat model pro službu, klikněte pravým tlačítkem **modely** v **Průzkumníku řešení** a zvolte **přidat**, **třída**. Název třídy `CalcInput` a klikněte na tlačítko **přidat**.
 
@@ -161,20 +151,19 @@ public class CalcController : ApiController
 Stiskněte klávesu **F6** sestavení a ověřte řešení.
 
 ## <a name="publish-the-project-to-azure"></a>Publikování projektu do Azure
-V tomto kroku sady Visual Studio publikování projektu do Azure. Tento krok videa začíná na 5:45.
 
 K publikování tohoto projektu v Azure, klikněte pravým tlačítkem myši **APIMAADDemo** projektu v sadě Visual Studio a zvolte **publikovat**. Potvrďte výchozí nastavení **Publikovat Web** dialogové okno a klikněte na tlačítko **publikovat**.
 
 ![Publikování webu][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Udělení oprávnění k back-end aplikace služby Azure AD
-V adresáři služby Azure AD jako součást procesu konfigurace a publikování projektu webového rozhraní API je vytvořena nová aplikace pro back-end službu. V tomto kroku videa, od 6:13 jsou udělena oprávnění pro back-end webového rozhraní API.
+V adresáři služby Azure AD jako součást procesu konfigurace a publikování projektu webového rozhraní API je vytvořena nová aplikace pro back-end službu.
 
 ![Aplikace][api-management-aad-backend-app]
 
 Klikněte na název aplikace a nakonfigurujte požadovaná oprávnění. Přejděte na **konfigurace** kartě a přejděte dolů k položce **oprávnění k ostatním aplikacím** části. Klikněte **oprávnění aplikací** rozevíracího seznamu vedle položky **Windows** **Azure Active Directory**, zaškrtněte políčko pro **čtení dat adresáře**a klikněte na tlačítko **Uložit**.
 
-![Přidat oprávnění][api-management-aad-add-permissions]
+![Přidejte oprávnění.][api-management-aad-add-permissions]
 
 > [!NOTE]
 > Pokud **Windows** **Azure Active Directory** nejsou uvedené v části oprávnění k ostatním aplikacím, klikněte na tlačítko **přidat aplikaci** a přidejte ji ze seznamu.
@@ -188,7 +177,7 @@ Poznamenejte si **identifikátor Id URI aplikace** pro použití v následném k
 ## <a name="import-the-web-api-into-api-management"></a>Importovat webové rozhraní API do rozhraní API Management
 Rozhraní API se konfigurují na rozhraní API portálu vydavatele, který je přístupný prostřednictvím portálu Azure. K dosažení ho, klikněte na tlačítko **portál vydavatele** na panelu nástrojů služby API Management. Pokud jste instanci služby API Management ještě nevytvořili, přečtěte si téma [vytvoření instance API Management] [ Create an API Management service instance] v [Správa vašeho prvního rozhraní API] [ Manage your first API] kurzu.
 
-![Portál vydavatele][api-management-management-console]
+![Portál pro vydavatele][api-management-management-console]
 
 Operace jde [ručně přidat do rozhraní API](api-management-howto-add-operations.md), nebo může být importován. V tomto videu se operace importují ve formátu Swagger od 6:40.
 
@@ -352,7 +341,7 @@ Proveďte následující kroky konfigurace rozhraní API kalkulačky.
 Po importu rozhraní API se na portálu vydavatele zobrazí souhrnná stránka rozhraní.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Volání rozhraní API neúspěšně z portálu pro vývojáře
-V tomto okamžiku rozhraní API byla naimportována do rozhraní API správy, ale nejde ještě volat úspěšně z portálu pro vývojáře protože službě back-end je chráněn pomocí ověřování Azure AD. Tento postup je znázorněn ve videu od 7:40 pomocí následujících kroků.
+V tomto okamžiku rozhraní API byla naimportována do rozhraní API správy, ale nejde ještě volat úspěšně z portálu pro vývojáře protože službě back-end je chráněn pomocí ověřování Azure AD. 
 
 Klikněte na tlačítko **portál pro vývojáře** z pravé horní části portálu vydavatele.
 
@@ -368,14 +357,14 @@ Klikněte na tlačítko **vyzkoušet**.
 
 Klikněte na tlačítko **odeslat** a poznamenejte si stav odpovědi **401 – Neověřeno**.
 
-![Odeslat][api-management-dev-portal-send-401]
+![Poslat][api-management-dev-portal-send-401]
 
 Požadavek není autorizovaný, protože rozhraní API back-end je chráněn službou Azure Active Directory. Před úspěšně voláním rozhraní API vývojář portál musí být nakonfigurované k autorizaci vývojáře, kteří používají OAuth 2.0. Tento proces je popsán v následujících částech.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Zaregistrujte se jako aplikaci AAD portál pro vývojáře
-Prvním krokem při konfiguraci portálu pro vývojáře k autorizaci vývojáře, kteří používají OAuth 2.0 je k registraci portál pro vývojáře jako aplikaci AAD. Tento postup je znázorněn od 8:27 na videu.
+Prvním krokem při konfiguraci portálu pro vývojáře k autorizaci vývojáře, kteří používají OAuth 2.0 je k registraci portál pro vývojáře jako aplikaci AAD. 
 
-Přejděte na klienta Azure AD v prvním kroku toto video, v tomto příkladu **APIMDemo** a přejděte do **aplikace** kartě.
+Přejděte do klienta Azure AD. V tomto příkladu vyberte **APIMDemo** a přejděte do **aplikace** kartě.
 
 ![Nová aplikace][api-management-aad-new-application-devportal]
 
@@ -394,7 +383,7 @@ Pro **URL Id aplikace** zadejte adresu URL služby API Management a připojit n�
 ![Nová aplikace][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Konfigurace serveru autorizace OAuth 2.0 rozhraní API Management
-Dalším krokem je konfigurace serveru autorizace OAuth 2.0 ve službě API Management. Tento krok je znázorněn v videa začínající na 9:43.
+Dalším krokem je konfigurace serveru autorizace OAuth 2.0 ve službě API Management. 
 
 Klikněte na tlačítko **zabezpečení** nabídce API Management na levé straně klikněte na **OAuth 2.0**a potom klikněte na **přidat autorizační** serveru.
 
@@ -455,18 +444,18 @@ Okamžitě následující pověření klienta je udělení autorizačního kódu
 
 Dalším krokem je konfigurace oprávnění pro portál pro vývojáře AAD aplikace. Klikněte na tlačítko **oprávnění aplikací** a zaškrtněte políčko pro **čtení dat adresáře**. Klikněte na tlačítko **Uložit** uložte tuto změnu, a pak klikněte na **přidat aplikaci**.
 
-![Přidat oprávnění][api-management-add-devportal-permissions]
+![Přidejte oprávnění.][api-management-add-devportal-permissions]
 
 Klikněte na ikonu hledání typu **APIM** do počáteční s poli, vyberte **APIMAADDemo**a klikněte na políčko pro uložení.
 
-![Přidat oprávnění][api-management-aad-add-app-permissions]
+![Přidejte oprávnění.][api-management-aad-add-app-permissions]
 
 Klikněte na tlačítko **delegovaná oprávnění** pro **APIMAADDemo** a zaškrtněte políčko pro **přístup APIMAADDemo**a klikněte na tlačítko **Uložit**. To umožňuje vývojáři aplikace portálu přístup ke službě back-end.
 
-![Přidat oprávnění][api-management-aad-add-delegated-permissions]
+![Přidejte oprávnění.][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>Povolení autorizace uživatelů OAuth 2.0 pro rozhraní API kalkulačky
-Teď, když server OAuth 2.0 je nakonfigurovaný, můžete v nastavení zabezpečení pro vaše rozhraní API. Tento krok je znázorněn v videa začínající na 14:30.
+Teď, když server OAuth 2.0 je nakonfigurovaný, můžete v nastavení zabezpečení pro vaše rozhraní API. 
 
 Klikněte na tlačítko **rozhraní API** v levé nabídce a klikněte na **kalkulačky** můžete zobrazit a konfigurovat jeho nastavení.
 
@@ -477,7 +466,7 @@ Přejděte na **zabezpečení** zaškrtněte políčko **OAuth 2.0** zaškrtáva
 ![API kalkulačky][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Rozhraní API kalkulačky úspěšně volejte z portálu pro vývojáře
-Teď, když autorizace OAuth 2.0 je nakonfigurovaná na volání rozhraní API, můžete jeho operace úspěšně volat z středisku pro vývojáře. Tento krok je znázorněn v videa začínající na 15:00.
+Teď, když autorizace OAuth 2.0 je nakonfigurovaná na volání rozhraní API, můžete jeho operace úspěšně volat z středisku pro vývojáře. 
 
 Přejděte zpět **přidat dvě celá čísla** operaci kalkulačky služby v portálu pro vývojáře a klikněte na **vyzkoušet**. Poznámka: novou položku **autorizace** části odpovídající serveru ověřování, který jste právě přidali.
 
@@ -492,10 +481,12 @@ Klikněte na tlačítko **odeslat** a poznamenejte si **stav odpovědi** z **200
 ![API kalkulačky][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>Konfigurace aplikace pro volání rozhraní API
-Následující postup ve videu začíná na 16:30 a nakonfiguruje jednoduché aplikace pracovní plochy pro volání rozhraní API. Prvním krokem je registrace klientů aplikace ve službě Azure AD a poskytněte přístup k adresáři a ke službě back-end. Na 18:25 je ukázka aplikace pracovní plochy volání operace na rozhraní API kalkulačky.
+
+Nakonfigurujte jednoduché aplikace pracovní plochy pro volání rozhraní API. Prvním krokem je registrace klientů aplikace ve službě Azure AD a poskytněte přístup k adresáři a ke službě back-end. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Konfigurace zásad ověřování JWT předem autorizovat požadavků
-Poslední postup ve videu začíná na 20:48 a ukazuje, jak používat [ověření JWT](api-management-access-restriction-policies.md#ValidateJWT) zásad předem autorizovat požadavky ověřením přístupových tokenů každého příchozího požadavku. Pokud požadavek není ověřen pomocí zásad ověřování tokenů JWT, žádost je blokována API Management a není předají back-end.
+
+Použití [ověření JWT](api-management-access-restriction-policies.md#ValidateJWT) zásad předem autorizovat požadavky ověřením přístupových tokenů každého příchozího požadavku. Pokud požadavek není ověřen pomocí zásad ověřování tokenů JWT, žádost je blokována API Management a není předají back-end.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +499,7 @@ Poslední postup ve videu začíná na 20:48 a ukazuje, jak používat [ověřen
 </validate-jwt>
 ```
 
-Jiné předvedení konfiguraci a použití této zásady, najdete v části [cloudu zahrnují díl 177: víc funkcí správy rozhraní API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) a rychlé převíjení vpřed na 13:50. Rychlé převinutí vpřed do 15:00 v tématu Zásady nakonfigurované v editoru zásad a potom do 18:50 pro předvedení volání operace z portálu pro vývojáře s i bez požadované autorizační token.
+Další informace najdete v tématu [cloudu zahrnují díl 177: víc funkcí správy rozhraní API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) a rychlé převíjení vpřed na 13:50. Rychlé převinutí vpřed do 15:00 v tématu Zásady nakonfigurované v editoru zásad a potom do 18:50 pro předvedení volání operace z portálu pro vývojáře s i bez požadované autorizační token.
 
 ## <a name="next-steps"></a>Další postup
 * Podívejte se na další [videa](https://azure.microsoft.com/documentation/videos/index/?services=api-management) o službě API Management.

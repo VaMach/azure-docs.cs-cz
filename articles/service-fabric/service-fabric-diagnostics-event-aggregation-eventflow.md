@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Seskupení událostí a kolekce pomocí EventFlow
 
@@ -32,12 +32,12 @@ Binární soubory EventFlow jsou k dispozici jako sada balíčků NuGet. Pokud c
 
 Zobrazí se seznam různých balíčků objeví, s popiskem "Vstup" a "Výstupy". EventFlow podporuje různé zprostředkovatelé různých protokolování a analyzátory. Služby hostování EventFlow by měla obsahovat příslušné balíčky v závislosti na zdroj a cíl pro protokoly aplikací. Kromě základní ServiceFabric balíčku musíte také aspoň jeden vstup a výstup nakonfigurovaný. Můžete například přidat následující balíčky odeslané události EventSource Application insights:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource`k zaznamenání dat od služby EventSource – třída a od standardní EventSources například *služby společnosti Microsoft ServiceFabric* a *Microsoft-ServiceFabric-aktéři*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`(přidáme poslat protokoly prostředek Azure Application Insights)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` k zaznamenání dat od služby EventSource – třída a od standardní EventSources například *služby společnosti Microsoft ServiceFabric* a *Microsoft-ServiceFabric-aktéři*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (přidáme poslat protokoly prostředek Azure Application Insights)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(umožňuje inicializaci kanálu EventFlow z konfigurace služby Service Fabric a ohlásí případné potíže s odesílání diagnostických dat jako sestav stavu Service Fabric)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource`balíček vyžaduje projekt služby, který má cílové rozhraní .NET Framework 4.6 nebo novější. Ujistěte se, že nastavíte příslušné cílové rozhraní v okně Vlastnosti projektu před instalací tohoto balíčku.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` balíček vyžaduje projekt služby, který má cílové rozhraní .NET Framework 4.6 nebo novější. Ujistěte se, že nastavíte příslušné cílové rozhraní v okně Vlastnosti projektu před instalací tohoto balíčku.
 
 Po instalaci všech balíčků, dalším krokem je ke konfiguraci a povolení EventFlow ve službě.
 
@@ -147,7 +147,7 @@ EventFlow podporuje konfiguraci nastavení EventFlow pomocí Service Fabric nast
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`představuje název konfiguračního oddílu Service Fabric a `<setting-name>` je zajištění hodnotu, která se použije ke konfiguraci nastavení EventFlow nastavení konfigurace. Číst informace o tom, jak to provést, přejděte na [podporu pro Service Fabric nastavení a aplikace parametry](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` představuje název konfiguračního oddílu Service Fabric a `<setting-name>` je zajištění hodnotu, která se použije ke konfiguraci nastavení EventFlow nastavení konfigurace. Číst informace o tom, jak to provést, přejděte na [podporu pro Service Fabric nastavení a aplikace parametry](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Ověření
 

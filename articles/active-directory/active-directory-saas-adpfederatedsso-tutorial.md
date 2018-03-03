@@ -1,6 +1,6 @@
 ---
-title: "Kurz: Azure Active Directory integrace s Federovanému ADP | Microsoft Docs"
-description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a ADP federovaného jednotného přihlašování k."
+title: 'Kurz: Azure Active Directory integrace s ADP | Microsoft Docs'
+description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a ADP."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Kurz: Azure Active Directory integrace s Federovanému ADP
+# <a name="tutorial-azure-active-directory-integration-with-adp"></a>Kurz: Azure Active Directory integrace s ADP
 
-V tomto kurzu zjistěte, jak integrovat ADP federovaného jednotného přihlašování k službě Azure Active Directory (Azure AD).
+V tomto kurzu zjistěte, jak integrovat ADP s Azure Active Directory (Azure AD).
 
-ADP federovaného jednotného přihlašování k integraci s Azure AD poskytuje následující výhody:
+Integrace ADP s Azure AD poskytuje následující výhody:
 
-- Můžete ovládat ve službě Azure AD, který má přístup k Federovanému ADP.
-- Můžete povolit uživatelům, aby automaticky získat přihlášení k ADP Federovanému (jednotné přihlášení) s jejich účty Azure AD.
+- Můžete ovládat ve službě Azure AD, který má přístup k ADP.
+- Můžete povolit uživatelům, aby automaticky získat přihlášení k ADP (jednotné přihlášení) s jejich účty Azure AD.
 - Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure.
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
-Konfigurace integrace Azure AD s Federovanému ADP, potřebujete následující položky:
+Konfigurace integrace Azure AD s ADP, potřebujete následující položky:
 
 - Předplatné služby Azure AD
-- ADP Federovanému povolené předplatné
+- Předplatné ADP povoleno
 
 > [!NOTE]
 > K testování kroky v tomto kurzu, nedoporučujeme používání provozním prostředí.
@@ -50,13 +50,13 @@ Chcete-li otestovat kroky v tomto kurzu, postupujte podle těchto doporučení:
 ## <a name="scenario-description"></a>Popis scénáře
 V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovacím prostředí. Scénáři uvedeném v tomto kurzu se skládá ze dvou hlavních stavebních bloků:
 
-1. Přidání Federovanému ADP z Galerie
+1. Přidání ADP z Galerie
 2. Konfigurace a testování Azure AD jednotného přihlašování
 
-## <a name="adding-adp-federated-sso-from-the-gallery"></a>Přidání Federovanému ADP z Galerie
-Při konfiguraci integrace Federovanému ADP do služby Azure AD potřebujete přidat Federovanému ADP z Galerie si na seznam spravovaných aplikací SaaS.
+## <a name="adding-adp-from-the-gallery"></a>Přidání ADP z Galerie
+Při konfiguraci integrace ADP do služby Azure AD potřebujete přidat ADP z Galerie si na seznam spravovaných aplikací SaaS.
 
-**Chcete-li přidat Federovanému ADP z galerie, proveďte následující kroky:**
+**Pokud chcete přidat ADP z galerie, proveďte následující kroky:**
 
 1.  Přihlaste se k prostředí zprostředkovatele identity Microsoft Azure jako správce.
 
@@ -72,35 +72,35 @@ Při konfiguraci integrace Federovanému ADP do služby Azure AD potřebujete p�
 
     ![Tlačítko nové aplikace][3]
 
-5. Do vyhledávacího pole zadejte **Federovanému ADP**, vyberte **Federovanému ADP** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
+5. Do vyhledávacího pole zadejte **ADP**, vyberte **ADP** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
 
-    ![ADP Federovanému v seznamu výsledků](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
+    ![ADP v seznamu výsledků](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
 
-V této části nakonfigurovat a otestovat Azure AD jednotné přihlašování s ADP federovaného jednotného přihlašování k podle testovacího uživatele názvem "Britta Simon".
+V této části nakonfigurovat a otestovat Azure AD jednotné přihlašování s ADP podle testovacího uživatele názvem "Britta Simon".
 
-Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v ADP federovaného jednotného přihlašování k je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v Federovanému ADP musí navázat.
+Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v ADP je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v ADP musí navázat.
 
-V ADP Federovanému přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
+V ADP, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
 
-Nakonfigurovat a otestovat Azure AD jednotné přihlašování pomocí jednotného přihlašování federovaného ADP, je třeba dokončit následující stavební bloky:
+Nakonfigurovat a otestovat Azure AD jednotné přihlašování s ADP, je třeba dokončit následující stavební bloky:
 
 1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
 2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
-3. **[Vytvořit uživatele s ADP federovaného jednotného přihlašování k testu](#create-an-adp-federated-sso-test-user)**  – Pokud chcete mít protějšek Britta Simon v ADP federovaného jednotného přihlašování k propojeném s Azure AD reprezentace daného uživatele.
+3. **[Vytvořit testovací uživatele s ADP](#create-an-adp-test-user)**  – Pokud chcete mít protějšek Britta Simon v ADP propojeném s Azure AD reprezentace daného uživatele.
 4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
 5. **[Test jednotného přihlašování](#test-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurovat Azure AD jednotné přihlašování
 
-V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v ADP federovaného jednotného přihlašování k aplikaci.
+V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v aplikaci ADP.
 
-**Ke konfiguraci Azure AD jednotné přihlašování pomocí jednotného přihlašování federovaného ADP, proveďte následující kroky:**
+**Ke konfiguraci Azure AD jednotné přihlašování s ADP, proveďte následující kroky:**
 
-1. Na portálu Azure na **ADP federovaného jednotného přihlašování k** stránky integrace aplikací, klikněte na **karta Vlastnosti** a proveďte následující kroky: 
+1. Na portálu Azure na **ADP** stránky integrace aplikací, klikněte na **karta Vlastnosti** a proveďte následující kroky: 
 
-    ![Vlastnosti přihlášení](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
+    ![Vlastnosti přihlášení](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
     a. Nastavte **povolit pro uživatele k přihlášení** pole hodnotu **Ano**.
 
@@ -110,25 +110,25 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     d. Nastavte **viditelný pro uživatele** pole hodnotu **ne**.
 
-2. Klikněte na tlačítko **jednotného přihlašování** na **Federovanému ADP** stránky integrace aplikace.
+2. Klikněte na tlačítko **jednotného přihlašování** na **ADP** stránky integrace aplikace.
 
     ![Konfigurace propojení přihlášení][4]
 
 3. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
  
-    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
+    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_samlbase.png)
 
-4. Na **ADP federovaného jednotného přihlašování k doméně a adresy URL** část, proveďte následující kroky:
+4. Na **ADP domény a adresy URL** část, proveďte následující kroky:
 
-    ![ADP federovaného jednotného přihlašování k doméně a adresy URL jednotné přihlašování informace](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
+    ![ADP domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
     V **identifikátor** textovému poli, zadejte adresu URL: `https://fed.adp.com/` 
     
-5. Aplikace Federovanému ADP očekává SAML kontrolní výrazy ve specifickém formátu, který vyžaduje, můžete přidat mapování vlastních atributů do vaší konfigurace atributy tokenu SAML. Následující snímek obrazovky ukazuje příklad pro tento. Název deklarací bude vždy **"PersonImmutableID"** a hodnoty, které jsme mít mapované na **employeeid**. 
+5. Aplikace ADP očekává SAML kontrolní výrazy ve specifickém formátu, který vyžaduje, můžete přidat mapování vlastních atributů do vaší konfigurace atributy tokenu SAML. Následující snímek obrazovky ukazuje příklad pro tento. Název deklarací bude vždy **"PersonImmutableID"** a hodnoty, které jsme mít mapované na **employeeid**. 
 
-    Zde bude provedeno namapování uživatele z Azure AD na Federovanému ADP na **employeeid** , ale to můžete namapovat na jinou hodnotu, na základě svého nastavení aplikace. Proto prosím práci s [tým podpory ADP](https://www.adp.com/contact-us/overview.aspx) nejprve k použijte správný identifikátor uživatele a mapování danou hodnotu s **"PersonImmutableID"** deklarace identity.
+    Zde bude provedeno namapování uživatele z Azure AD na ADP na **employeeid** , ale to můžete namapovat na jinou hodnotu, na základě svého nastavení aplikace. Proto prosím práci s [tým podpory ADP](https://www.adp.com/contact-us/overview.aspx) nejprve k použijte správný identifikátor uživatele a mapování danou hodnotu s **"PersonImmutableID"** deklarace identity.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_attribute.png)
 
 6. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je znázorněno na obrázku a proveďte následující kroky:
     
@@ -153,9 +153,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 7. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
 
-    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
 
-8. Konfigurace jednotného přihlašování na **Federovanému ADP** straně, budete muset nahrát stažené **soubor XML s metadaty** na [ADP federovaného jednotného přihlašování k webu](https://adpfedsso.adp.com/public/login/index.fcc).
+8. Konfigurace jednotného přihlašování na **ADP** straně, budete muset nahrát stažené **soubor XML s metadaty** na [ADP webu](https://adpfedsso.adp.com/public/login/index.fcc).
 
 > [!NOTE]  
 > Tento proces může trvat několik dní. 
@@ -178,13 +178,13 @@ Po obdržení potvrzení z vaším zástupcem ADP nakonfigurujte pro řízení p
 
     ![Tlačítko nové aplikace][3]
 
-4. Do vyhledávacího pole zadejte **Federovanému ADP**, vyberte **Federovanému ADP** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
+4. Do vyhledávacího pole zadejte **ADP**, vyberte **ADP** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
 
-    ![ADP Federovanému v seznamu výsledků](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
+    ![ADP v seznamu výsledků](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
 
-5. Na portálu Azure na vaše **Federovanému ADP** stránky integrace aplikací, klikněte na **karta Vlastnosti** a proveďte následující kroky:  
+5. Na portálu Azure na vaše **ADP** stránky integrace aplikací, klikněte na **karta Vlastnosti** a proveďte následující kroky:  
 
-    ![Linkedproperties přihlášení](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
+    ![Linkedproperties přihlášení](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Nastavte **povolit pro uživatele k přihlášení** pole hodnotu **Ano**.
 
@@ -192,19 +192,19 @@ Po obdržení potvrzení z vaším zástupcem ADP nakonfigurujte pro řízení p
 
     c.  Nastavte **viditelný pro uživatele** pole hodnotu **Ano**.
 
-6. Klikněte na tlačítko **jednotného přihlašování** na **Federovanému ADP** stránky integrace aplikace.
+6. Klikněte na tlačítko **jednotného přihlašování** na **ADP** stránky integrace aplikace.
 
     ![Konfigurace propojení přihlášení][4]
 
-7. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **propojené přihlášení** propojení aplikace **Federovanému ADP**.
+7. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **propojené přihlášení**. propojení aplikace **ADP**.
 
-    ![Jednotné přihlašování propojené](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Jednotné přihlašování propojené](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
 8. Přejděte na **konfigurovat přihlašovací adresa URL** část, proveďte následující kroky:
 
-    ![Prop přihlášení](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
+    ![Prop přihlášení](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
                                                               
-    a. Vložení **adresu URL pro přístup uživatelů**, který jste zkopírovali z výše **karta Vlastnosti** (z hlavní aplikace Federovanému ADP).
+    a. Vložení **adresu URL pro přístup uživatelů**, který jste zkopírovali z výše **karta Vlastnosti** (z hlavní aplikace ADP).
                                                              
     b. Následují 5 aplikace, které podporují různé **adresy URL stavu předávání**. Budete muset připojit příslušné **předávání stavu URL** ručně na hodnotu pro konkrétní aplikaci **adresu URL pro přístup uživatelů**.
     
@@ -274,25 +274,25 @@ Cílem této části je vytvoření zkušebního uživatele na portálu Azure, n
 
     d. Klikněte na možnost **Vytvořit**.
  
-### <a name="create-an-adp-federated-sso-test-user"></a>Vytvořit uživatele s ADP federovaného jednotného přihlašování k testu
+### <a name="create-an-adp-test-user"></a>Vytvořit uživatele s ADP testu
 
-Cílem této části je vytvoření uživatele volal Britta Simon v ADP federovaného jednotného přihlašování k. Práce s [tým podpory ADP](https://www.adp.com/contact-us/overview.aspx) přidat uživatele do ADP federovaného jednotného přihlašování k účtu.
+Cílem této části je vytvoření uživatele v ADP nazývá Britta Simon. Práce s [tým podpory ADP](https://www.adp.com/contact-us/overview.aspx) přidat uživatele do ADP účtu.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
-V této části povolíte Britta Simon k používání Azure jednotné přihlašování v ADP federovaného jednotného přihlašování k udělení přístupu.
+V této části povolíte Britta Simon používat Azure jednotné přihlašování pomocí udělení přístupu ADP.
 
 ![Přiřadit role uživatele][200] 
 
-**Pokud chcete přiřadit Britta Simon Federovanému ADP, proveďte následující kroky:**
+**Pokud chcete přiřadit Britta Simon ADP, proveďte následující kroky:**
 
 1. Na portálu Azure otevřete zobrazení aplikací a pak přejděte do zobrazení adresáře a přejděte na **podnikové aplikace, které** klikněte **všechny aplikace**.
 
     ![Přiřadit uživatele][201] 
 
-2. V seznamu aplikací vyberte **Federovanému ADP**.
+2. V seznamu aplikací vyberte **ADP**.
 
-    ![Odkaz Federovanému ADP v seznamu aplikací](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
+    ![V seznamu aplikací na ADP odkaz](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_app.png)  
 
 3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
 
@@ -312,15 +312,13 @@ V této části povolíte Britta Simon k používání Azure jednotné přihlaš
 
 V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
 
-Když kliknete na dlaždici Federovanému ADP na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci ADP federovaného jednotného přihlašování k.
+Když kliknete na dlaždici ADP na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci ADP.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje informací:
+## <a name="additional-resources"></a>Další materiály
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

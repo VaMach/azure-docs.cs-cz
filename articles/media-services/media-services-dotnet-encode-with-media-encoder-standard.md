@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 793dc7d4c06b18e01242726eff476253e3a3ea88
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f9108beba69e52398f16e2b9055c7a2f2d04f48
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Kódování assetu pomocí kodéru Media Encoder Standard pomocí rozhraní .NET
 Kódování úloh je jednou z nejběžnějších operací zpracování ve službě Media Services. K převodu mediálních souborů z jednoho kódování do druhého se využívají kódovací úlohy. Při kódování, můžete použít předdefinované Media Encoder Media Services. Můžete také použít kodér poskytovanými partnerem Media Services; třetí strany kodéry jsou k dispozici prostřednictvím Azure Marketplace. 
@@ -71,7 +71,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad 
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;
@@ -203,10 +203,10 @@ namespace MediaEncoderStandardSample
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Jak vygenerovat miniaturu pomocí kodéru Media Encoder Standard s .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [kódování Přehled služby Media Services](media-services-encode-asset.md)
 

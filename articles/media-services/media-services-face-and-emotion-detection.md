@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Zjistit vzhled a emoce s Azure Media Analytics
 ## <a name="overview"></a>Přehled
@@ -64,21 +64,24 @@ Zjištěné a sledovaných řezy jsou vráceny pomocí souřadnic (vlevo, top, �
 ### <a name="task-configuration-preset"></a>Konfigurace úlohy (přednastavených)
 Při vytváření úlohy s **Azure Media vzhled detektor**, je nutné zadat jedno z přednastavení konfigurace. Následující předvolba konfigurace je jen pro zjišťování řez.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Atribut popisy
 | Název atributu | Popis |
 | --- | --- |
-| Mode |Rychlé - se rychlé zpracování rychlostí, ale méně přesný (výchozí).|
+| Režim |Rychlé - se rychlé zpracování rychlostí, ale méně přesný (výchozí).|
 
 ### <a name="json-output"></a>Výstup JSON
 Následující příklad výstupu JSON byl zkrácen.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ Následující příklad výstupu JSON byl zkrácen.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Emocí vstup a výstup příklad
 ### <a name="input-video"></a>Vstupní video
@@ -133,6 +136,7 @@ Následující příklad výstupu JSON byl zkrácen.
 ### <a name="task-configuration-preset"></a>Konfigurace úlohy (přednastavených)
 Při vytváření úlohy s **Azure Media vzhled detektor**, je nutné zadat jedno z přednastavení konfigurace. Následující konfigurace přednastavení určuje vytvořit JSON podle detekce rozpoznávání emocí úrovně.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,12 +145,13 @@ Při vytváření úlohy s **Azure Media vzhled detektor**, je nutné zadat jedn
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Atribut popisy
 | Název atributu | Popis |
 | --- | --- |
-| Mode |Řezy: Pouze čelí detekce.<br/>PerFaceEmotion: Vrátí rozpoznávání emocí úrovně nezávisle pro každý řez zjišťování.<br/>AggregateEmotion: Návratový průměrná rozpoznávání emocí úrovně hodnoty pro všechny tyto řezy v rámečku. |
+| Režim |Řezy: Pouze čelí detekce.<br/>PerFaceEmotion: Vrátí rozpoznávání emocí úrovně nezávisle pro každý řez zjišťování.<br/>AggregateEmotion: Návratový průměrná rozpoznávání emocí úrovně hodnoty pro všechny tyto řezy v rámečku. |
 | AggregateEmotionWindowMs |Použijte, pokud je vybrána AggregateEmotion režimu. Určuje délku video, na které se používají k vytvoření každý agregační výsledek v milisekundách. |
 | AggregateEmotionIntervalMs |Použijte, pokud je vybrána AggregateEmotion režimu. Určuje, jak často k vytvoření agregačních výsledků. |
 
@@ -161,6 +166,7 @@ Níže jsou doporučené hodnoty pro nastavení agregační okno a intervalu. Ag
 ### <a name="json-output"></a>Výstup JSON
 Výstup pro agregační rozpoznávání emocí úrovně (zkrácený) ve formátu JSON:
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ Výstup pro agregační rozpoznávání emocí úrovně (zkrácený) ve formátu
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Omezení
 * Podporované formáty vstupní video zahrnují MP4, MOV a WMV.
@@ -324,10 +331,12 @@ Program zobrazí následující postup:
 
 1. Vytvořte asset a nahrajte soubor média do assetu.
 2. Vytvořte úlohu s úkolem detekce vzhled podle konfigurační soubor, který obsahuje následující přednastavení json: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Stáhněte soubory JSON výstupu. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
@@ -336,7 +345,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -506,7 +515,7 @@ namespace FaceDetection
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Související odkazy

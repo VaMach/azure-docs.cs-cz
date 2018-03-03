@@ -13,6 +13,6 @@ Tajné klíče, spravovat klíče účtu úložiště a transakce úložiště:
 | Všechny transakce |2000 |
 |
 
-V tématu [Azure Key Vault omezení pokyny](../key-vault/key-vault-ovw-throttling.md) informace o tom, jak zpracovat omezení při překročení těchto limitů.
+V tématu [Azure Key Vault omezení pokyny](../articles/key-vault/key-vault-ovw-throttling.md) informace o tom, jak zpracovat omezení při překročení těchto limitů.
 
 <sup>1</sup> existuje omezení celé předplatné pro všechny typy transakcí, který je 5 x za limit trezoru klíčů. Například HSM - dalších transakcí podle předplatného jsou omezeny na 5000 transakce za 10 sekund na jedno předplatné.

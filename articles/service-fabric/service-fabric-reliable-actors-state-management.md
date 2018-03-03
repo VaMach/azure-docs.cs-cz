@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fae68c9fb40951e3f7a6fce67d75872cecfc52bd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reliable-actors-state-management"></a>Spolehlivé aktéři řízení stavu
-Reliable Actors jsou jedním podprocesem objekty, které může zapouzdřit logiku a stavu. Protože aktéři spustit na spolehlivé služby, jejich stavu udržovat spolehlivé pomocí stejné trvalosti a mechanismech replikace, které používá spolehlivé služby. Tímto způsobem Neztraťte aktéři jejich stav po selhání při opětovné aktivaci po uvolnění paměti, nebo při jejich přesunu mezi uzly v clusteru s podporou kvůli vyrovnávání prostředků nebo upgradu.
+Reliable Actors jsou jedním podprocesem objekty, které může zapouzdřit logiku a stavu. Protože aktéři spustit na spolehlivé služby, jejich stavu udržovat spolehlivé pomocí stejné trvalosti a mechanismech replikace. Tímto způsobem Neztraťte aktéři jejich stav po selhání při opětovné aktivaci po uvolnění paměti, nebo při jejich přesunu mezi uzly v clusteru s podporou kvůli vyrovnávání prostředků nebo upgradu.
 
 ## <a name="state-persistence-and-replication"></a>Trvalost stavu a replikace
 Jsou považovány za všechny Reliable Actors *stateful* vzhledem k tomu, že každá instance objektu actor se mapuje na jedinečný identifikátor. To znamená, že opakovaná volání stejné ID objektu actor jsou směrované na stejnou instanci objektu actor. V systému bezstavové naopak volání klienta není zaručena bezpečnost pro směrované na stejný server pokaždé, když. Z tohoto důvodu služby objektu actor jsou vždy stavové služby.
 
 I když aktéři jsou považovány za stateful, který neznamená, že musí spolehlivě uložení stavu. Aktéři můžete vybrat úroveň trvalost stavu a replikace na základě jejich dat požadavky na úložiště:
 
-* **Trvalý stav**: je uložen stav disku a se replikují do 3 nebo více replik. Toto je nejvíce trvanlivá možnost úložiště stavu, kde můžete zachovat stav prostřednictvím clusterů výpadku.
-* **Volatile stavu**: stav se replikují do 3 nebo více replik a pouze uchovává se v paměti. To zajišťuje odolnost proti selhání uzlu a selhání objektu actor a během upgradu a vyrovnávání prostředků. Však není trvalý stav na disk. Proto všechny repliky byly ztraceny najednou, stav dojde ke ztrátě také.
-* **Žádné trvalého stavu**: stav není replikované nebo zapsaný na disk. Tato úroveň je actor je jednoduše nemusíte spolehlivě Udržovat stav.
+* **Trvalý stav**: je uložen stav disku a se replikují do tři nebo více replik. Trvalého stavu je možnost nejvíce odolná úložiště stavu, kde můžete zachovat stav prostřednictvím clusterů výpadku.
+* **Volatile stavu**: stav se replikovat na tři nebo více replik a pouze uchovává se v paměti. Volatile stavu poskytuje odolnost proti selhání uzlu a selhání objektu actor a během upgradu a vyrovnávání prostředků. Však není trvalý stav na disk. Proto všechny repliky byly ztraceny najednou, stav dojde ke ztrátě také.
+* **Žádné trvalého stavu**: stav není replikovat nebo zapsaných na disk, používají jenom pro objekty actor nemusíte spolehlivě Udržovat stav.
 
 Každou úroveň trvalost je jednoduše jiné *zprostředkovatele stavu* a *replikace* konfigurace služby. Zda je stav zapsán do disku závisí na poskytovateli stavu--součástí spolehlivá služba, která ukládá stav. Replikace závisí na tom, kolik repliky může služba nasazený s. Stejně jako u spolehlivé služby zprostředkovatele stavu i počet replik jde snadno nastavit ručně. Rozhraní objektu actor poskytuje atribut, který, když použije na objekt actor, automaticky vybere výchozí poskytovatel stavu a automaticky vygeneruje nastavení pro repliky počet dosáhnout jednoho z těchto tří nastavení trvalosti. Atribut StatePersistence není zdědí odvozené třídy, každý typ objektu Actor musíte zadat jeho StatePersistence úroveň.
 
@@ -111,7 +111,7 @@ Správce stavu klíče musí být řetězce. Hodnoty jsou obecné a mohou být j
 
 Správce stavu zpřístupní běžné metody slovník pro správu stavu, podobné těm, které jsou obsaženy ve slovníku pro spolehlivé.
 
-### <a name="accessing-state"></a>Přístup ke stavu
+## <a name="accessing-state"></a>Přístup ke stavu
 Stav je přístupná prostřednictvím Správce stavu podle klíče. Metody správce stavu jsou všechny asynchronní, protože v/v disku může vyžadují při aktéři držena formou stavu. Při prvním přístupu jsou uložená v mezipaměti objektů stavu. Opakujte přístup operations přístup k objektům přímo z paměti a vrátí synchronně, aniž by docházelo k vstupně-výstupní diskové nebo asynchronní režií přepínání kontextu. Stav objektu se odebere z mezipaměti v následujících případech:
 
 * Po ho načte objekt z správce stavu, vyvolá metoda objektu actor k neošetřené výjimce.
@@ -193,7 +193,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-### <a name="saving-state"></a>Ukládání stavu
+## <a name="saving-state"></a>Ukládání stavu
 Metody načtení stavu manager vrátí odkaz na objekt v místní paměti. Úprava tento objekt v místní paměti samostatně nezpůsobí, je bezpečně uložit. Pokud objekt je načtena z správce stavu a upravit, musíte znovu vložit do Správce stavu bezpečně uložit.
 
 Můžete vložit stavu pomocí nepodmíněné *nastavit*, což je ekvivalentem `dictionary["key"] = value` syntaxe:
@@ -328,7 +328,7 @@ interface MyActor {
 }
 ```
 
-### <a name="removing-state"></a>Odebrání stavu
+## <a name="removing-state"></a>Odebrání stavu
 Můžete odebrat stavu trvale ze Správce stavu objektu actor voláním *odebrat* metoda. Tato metoda vyvolá `KeyNotFoundException`(C#) nebo `NoSuchElementException`(Java) při pokusu o odstranění klíče, který neexistuje.
 
 ```csharp
@@ -405,7 +405,18 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="best-practices"></a>Doporučené postupy
+Tady jsou některé navrhované postupy a tipy k řešení potíží pro správu vašeho stavu objektu actor.
+
+### <a name="make-the-actor-state-as-granular-as-possible"></a>Zkontrolujte jako podrobné nejblíže stavu objektu actor
+To je důležité pro výkon a využití prostředků aplikace. Vždy, když je všechny aktualizace nebo zápisu "s názvem stavu" objektu actor, celou hodnotu odpovídající této "s názvem stavu" se serializovat a odesílá přes síť na sekundárních replikách.  Sekundárních zapisují na místní disk a odpověď zpět na primární repliku. Když primární obdrží potvrzení z kvora sekundárních replikách, zapíše stav jeho místní disk. Předpokládejme například, zda že je hodnota třídu, která má 20 členy a jejich velikost je 1 MB. I když mezi členy třídy, které je pouze změnit velikost 1 KB, end až platícího náklady na serializaci a sítě a disku zápisy pro úplné 1 MB. Podobně pokud je hodnota kolekce (například seznam, pole nebo slovník), platíte náklady na úplnou kolekci i v případě, že upravíte jednoho z jeho členů. Rozhraní StateManager třídy objektu actor je jako slovník. Vždy by měl model datovou strukturu představující stavu objektu actor nad tohoto slovníku.
+ 
+### <a name="correctly-manage-the-actors-life-cycle"></a>Správně spravovat životní cyklus objektu actor
+Měli byste mít jasné zásady o správě velikosti stavu v každém oddílu služby objektu actor. Služby objektu actor by měl mít pevný počet aktéři a znovu použít, je velmi míře. Pokud vytvoříte nepřetržitě nové aktéři, musíte je odstranit, jakmile se provádějí v práci. Rozhraní objektu actor ukládá některé metadata o každém objektu actor, který již existuje. Odstranění všech stavu objektu actor metadata o tomto objektu actor neodebere. Je nutné odstranit objektu actor (viz [odstraňování aktéři a jejich stavu](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) k odebrání všech informací o je uložená v systému. Jako další kontrolu, musí zadat dotaz na službu objektu actor (najdete v části [vytváření výčtu aktéři](service-fabric-reliable-actors-platform.md)) v k zkontrolujte, zda jsou čísla aktéři očekávaný rozsah.
+ 
+Pokud někdy uvidíte, že velikost souboru databáze služby objektu Actor roste překračuje očekávanou velikost, ujistěte se, že jsou následující výše uvedených pokynů. Pokud postupujete podle těchto pokynů a jsou stále databáze problémům s velikostí souboru, měli byste [otevřete lístek podpory](service-fabric-support.md) s produktový tým jak získat nápovědu.
+
+## <a name="next-steps"></a>Další postup
 
 Musí být serializované stavu, který je uložen v Reliable Actors před jeho zapsaný na disk a replikované pro vysokou dostupnost. Další informace o [serializace typu objektu Actor](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

@@ -3,7 +3,7 @@ title: "Mapování v Azure Active Directory deklarace identity uživatele spolup
 description: "referenční dokumentace pro Azure Active Directory s B2B spolupráce mapování deklarace identity"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: 439219087d0a5027c729e9d0e0ecb90bd2a9de3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapování v Azure Active Directory deklarace identity uživatele spolupráce B2B
 
@@ -36,7 +37,7 @@ Existují dvě možné důvody, proč je potřeba upravit deklarace identity vys
 Informace o tom, jak přidávat a upravovat deklarace identity, podívejte se na tento článek na přizpůsobení deklarace identity, [přizpůsobení deklarace identity vystavené v tokenu SAML pro předběžně integrované aplikace v Azure Active Directory](develop/active-directory-saml-claims-customization.md). Pro spolupráci B2B uživatelů, mapování NameID a UPN mezi klienta nelze z bezpečnostních důvodů.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

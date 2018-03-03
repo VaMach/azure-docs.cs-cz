@@ -14,17 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Poznámky k verzi Microsoft Azure Storage Explorer (Preview)
 
-Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer 0.9.5 (Preview), a také poznámky k verzi pro předchozí verze.
+Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer 0.9.6 (Preview), a také poznámky k verzi pro předchozí verze.
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) je samostatná aplikace, která umožňuje snadno pracovat s daty Azure Storage ve Windows, systému macOS a Linux.
+
+## <a name="version-096"></a>Verze 0.9.6
+02/28/2018
+
+### <a name="download-azure-storage-explorer-096-preview"></a>Stažení Azure Storage Explorer 0.9.6 (Preview)
+- [Azure Storage Explorer (Preview) 0.9.6 pro Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer (Preview) 0.9.6 pro Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer (Preview) 0.9.6 pro Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="fixes"></a>Opravy
+* Problém zabránila očekávané objektů BLOB nebo soubory není uvedena v editoru. To byl opraven.
+* Problém způsobila přepínání mezi snímku pohledů pro zobrazení položek nesprávně. To byl opraven.
+
+### <a name="known-issues"></a>Známé problémy
+* Storage Explorer nepodporuje účty služby AD FS.
+* Pokud je cílem zásobník Azure, odesílání určité soubory jako doplňovací objekty BLOB může selhat.
+* Po kliknutí na tlačítko Storno"na úlohu, může trvat nějakou dobu tuto úlohu zrušit. Důvodem je, že používáme popsané řešení filtru Storno [zde](https://github.com/Azure/azure-storage-node/issues/317).
+* Pokud si zvolíte nesprávný certifikát PIN kód nebo čipová karta, je potřeba restartovat, aby bylo možné používat Storage Explorer zapomněli rozhodnutí.
+* Panel nastavení účtu může zobrazovat, je potřeba zadat přihlašovací údaje k filtrování odběry.
+* Přejmenování objekty BLOB (samostatně nebo v kontejneru objektů blob přejmenovat) nezachovává snímky. Během přejmenovat se zachovají všechny ostatní vlastnosti a metadat pro objekty BLOB, soubory a entity.
+* I když zásobník Azure aktuálně nepodporuje sdílených složek, sdílených složek uzel se objeví stále v připojené účtu úložiště Azure zásobníku.
+* Prostředí elektronovým používáno Průzkumníkem úložiště má potíže s hardwarovou akceleraci některé grafický procesor (grafický procesor). Pokud Storage Explorer je zobrazení prázdné hlavní okno (prázdná), můžete zkusit spustit Průzkumníka úložiště z příkazového řádku a zákaz akcelerace GPU přidáním `--disable-gpu` přepínače:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Pro uživatele v Ubuntu 14.04, budete muset zajistit RSZ je aktuální – tento krok můžete provést spuštěním následujících příkazů a restartujte svůj počítač:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pro uživatele v Ubuntu č. 17.04 budete muset nainstalovat GConf – to můžete provést spuštěním následujících příkazů a restartujte svůj počítač:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Předchozí verze
+
+* [Verze 0.9.5](#version-095)
+* [Verze 0.9.4 a 0.9.3](#version-094-and-093)
+* [Verze 0.9.2](#version-092)
+* [Verze 0.9.1 a 0.9.0](#version-091-and-090)
+* [Verze 0.8.16](#version-0816)
+* [Verze 0.8.14](#version-0814)
+* [Verze 0.8.13](#version-0813)
+* [Verze 0.8.12 a 0.8.11 a 0.8.10](#version-0812-and-0811-and-0810)
+* [Verze 0.8.9 a 0.8.8](#version-089-and-088)
+* [Verze 0.8.7](#version-087)
+* [Verze 0.8.6](#version-086)
+* [Verze 0.8.5](#version-085)
+* [Verze 0.8.4](#version-084)
+* [Verze 0.8.3](#version-083)
+* [Verze 0.8.2](#version-082)
+* [Verze 0.8.0](#version-080)
+* [Verze 0.7.20160509.0](#version-07201605090)
+* [Verze 0.7.20160325.0](#version-07201603250)
+* [Verze 0.7.20160129.1](#version-07201601291)
+* [Verze 0.7.20160105.0](#version-07201601050)
+* [Verze 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Verze 0.9.5
 02/06/2018
@@ -34,7 +99,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 - [Azure Storage Explorer (Preview) 0.9.5 pro Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer (Preview) 0.9.5 pro Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nová
+### <a name="new"></a>Nové
 
 * Podpora pro sdílené složky snímky:
     * Vytvořit a spravovat snímky pro sdílené složky.
@@ -80,7 +145,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-094--093"></a>Verze 0.9.4 nebo 0.9.3
+## <a name="version-094-and-093"></a>Verze 0.9.4 a 0.9.3
 01/21/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Stažení Azure Storage Explorer 0.9.4 (Preview)
@@ -88,7 +153,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 * [Stažení Azure Storage Explorer (Preview) 0.9.4 pro Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
 * [Stažení Azure Storage Explorer (Preview) 0.9.4 pro Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
-### <a name="new"></a>Nová
+### <a name="new"></a>Nové
 * Vaše stávající okno Průzkumníka úložiště bude znovu použít při:
     * Otevírání přímé odkazy vygenerovaných Storage Explorer.
     * Otevřete Storage Explorer z portálu.
@@ -130,28 +195,6 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Předchozí verze
-
-* [Verze 0.9.2](#version-092)
-* [Verze 0.9.1 nebo 0.9.0](#version-091)
-* [Verze 0.8.16](#version-0816)
-* [Verze 0.8.14](#version-0814)
-* [Verze 0.8.13](#version-0813)
-* [Verze 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Verze 0.8.9 nebo 0.8.8](#version-089--088)
-* [Verze 0.8.7](#version-087)
-* [Verze 0.8.6](#version-086)
-* [Verze 0.8.5](#version-085)
-* [Verze 0.8.4](#version-084)
-* [Verze 0.8.3](#version-083)
-* [Verze 0.8.2](#version-082)
-* [Verze 0.8.0](#version-080)
-* [Verze 0.7.20160509.0](#version-07201605090)
-* [Verze 0.7.20160325.0](#version-07201603250)
-* [Verze 0.7.20160129.1](#version-07201601291)
-* [Verze 0.7.20160105.0](#version-07201601050)
-* [Verze 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-092"></a>Verze 0.9.2
 11/01/2017
 
@@ -162,7 +205,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 * V doméně koncové body Azure US Government byla chybná. Byl opraven.
 * Tlačítko použít na panelu Spravovat účty se někdy těžko klikněte na tlačítko. K tomu by už dojít.
 
-### <a name="new"></a>Nová
+### <a name="new"></a>Nové
 * Náhled podpora pro Azure Cosmos DB:
     * [Online dokumentace](./cosmos-db/storage-explorer.md)
     * Vytvoření databáze a kolekce
@@ -214,9 +257,9 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-091--090-preview"></a>Verze 0.9.1 nebo 0.9.0 (Preview)
+## <a name="version-091-and-090"></a>Verze 0.9.1 a 0.9.0
 10/20/2017
-### <a name="new"></a>Nová
+### <a name="new"></a>Nové
 * Náhled podpora pro Azure Cosmos DB:
     * [Online dokumentace](./cosmos-db/storage-explorer.md)
     * Vytvoření databáze a kolekce
@@ -271,7 +314,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 ## <a name="version-0816"></a>Verze 0.8.16
 8/21/2017
 
-### <a name="new"></a>Nová
+### <a name="new"></a>Nové
 * Při otevření objektu blob Storage Explorer zobrazí výzvu k nahrání stažený soubor, pokud je zjištěna změna
 * Rozšířené zásobník Azure přihlašování uživatelů
 * Zvýšení výkonu nahrávání nebo stahování mnoho malých souborů ve stejnou dobu
@@ -311,7 +354,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 ### <a name="version-0814"></a>Verze 0.8.14
 06/22/2017
 
-### <a name="new"></a>Nová
+### <a name="new"></a>Nové
 
 * Aktualizovaná verze elektronovým k 1.7.2 chcete využít několik důležité aktualizace zabezpečení
 * Nyní můžete rychle k online průvodci odstraňováním potíží z nabídky Nápověda
@@ -338,7 +381,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 ### <a name="version-0813"></a>Verze 0.8.13
 05/12/2017
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Storage Explorer řešení potíží s [Průvodce][2]
 * [Pokyny] [ 3] o připojení k předplatnému Azure zásobníku
@@ -370,10 +413,10 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
     ```
 
 
-### <a name="version-0812--0811--0810"></a>Verze 0.8.12 / 0.8.11 / 0.8.10
+### <a name="version-0812-and-0811-and-0810"></a>Verze 0.8.12 a 0.8.11 a 0.8.10
 04/07/2017
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Storage Explorer se teď automaticky zavře po instalaci aktualizace z oznámení o aktualizaci
 * Rychlý přístup na místě poskytuje lepší prostředí pro práci se často používané prostředky
@@ -413,7 +456,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
     ```
 
 
-### <a name="version-089--088"></a>Verze 0.8.9 nebo 0.8.8
+### <a name="version-089-and-088"></a>Verze 0.8.9 a 0.8.8
 02/23/2017
 
 >[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
@@ -421,7 +464,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 >[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Storage Explorer 0.8.9 automaticky stáhne nejnovější aktualizace.
 * Opravy hotfix: portálu generovaný identifikátor URI SAS pro připojení k účtu úložiště by způsobilo chybu.
@@ -451,7 +494,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 >[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Můžete vybrat, jak se vyřešit konflikty na začátku relaci aktualizace, stažení nebo kopírování v okně aktivity
 * Najeďte myší na kartě zobrazit úplnou cestu prostředků úložiště
@@ -478,7 +521,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 11/18/2016
 ### <a name="version-086"></a>Verze 0.8.6
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Můžete teď pin nejčastěji používá služby pro rychlý přístup snadno navigace
 * Nyní lze otevřít více editory v různých kartách. Jedním kliknutím zobrazíte dočasné kartu; Poklikejte na kartě trvalé. Můžete také kliknutím na kartu dočasné aby trvalé karta
@@ -516,7 +559,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 10/03/2016
 ### <a name="version-085"></a>Verze 0.8.5
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Teď můžete připojit k účtům úložiště a prostředky použít klíče generované portál SAS
 
@@ -539,7 +582,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 >[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Generovat přímé odkazy na účty úložiště, kontejnery, fronty, tabulky nebo sdílené složky pro sdílení a podporu snadný přístup k prostředkům – Windows a Mac OS
 * Hledat kontejnery objektů blob, tabulek, front, sdílené složky nebo účty úložiště ze do vyhledávacího pole
@@ -560,7 +603,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 >[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Přejmenujte kontejnery, tabulky, sdílené složky
 * Vylepšené prostředí Tvůrce dotazů
@@ -586,7 +629,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 >[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Účty úložiště jsou seskupené podle odběry; vývoj pro úložiště a prostředky, které jsou připojené prostřednictvím klíč nebo SAS se zobrazují v uzlu (místní a připojené)
 * Odhlaste se z účtů v panelech "Nastavení účtu Azure"
@@ -613,7 +656,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 >[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Podpora sdílení souborů: zobrazení, odesílání, stahování, kopírování souborů a adresářů, identifikátory URI SAS (vytvořit a připojit)
 * Vylepšené uživatelské prostředí pro připojování k úložišti s identifikátory URI SAS nebo účet klíče
@@ -636,7 +679,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 05/17/2016
 ### <a name="version-07201605090"></a>Verze 0.7.20160509.0
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Lepší zpracování chyb pro aplikace, dojde k chybě
 
@@ -656,7 +699,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 >[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Tabulka podporu: zobrazení, dotazování, export, jejich import a operace CRUD pro entity
 * Podpora ve frontě: zobrazení, přidání, dequeueing zprávy
@@ -688,7 +731,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 
 ### <a name="version-07201601050"></a>Verze 0.7.20160105.0
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * Podpora Linuxu (parity funkcí OSX)
 * Přidat kontejnery objektů blob s podpisy sdíleného přístupu (SAS) klíčem.
@@ -718,7 +761,7 @@ Tento článek obsahuje verze, kterou verzi poznámky pro Azure Storage Explorer
 11/18/2015
 ### <a name="version-07201511160"></a>Verze 0.7.20151116.0
 
-#### <a name="new"></a>Nová
+#### <a name="new"></a>Nové
 
 * systému macOS a verze systému Windows
 * Přihlaste se k zobrazení účtů úložiště – pomocí účtu organizace, Microsoft Account, 2FA atd.

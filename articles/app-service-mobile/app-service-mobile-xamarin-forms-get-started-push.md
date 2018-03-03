@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Přidání nabízených oznámení do vaší aplikace na platformě Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -28,7 +28,7 @@ V tomto kurzu přidání nabízených oznámení na všechny projekty, které je
 
 Pokud použijete serverový projekt stažené rychlý start, budete potřebovat balíček rozšíření nabízená oznámení. Další informace najdete v tématu [pracovat s .NET back-end serveru SDK pro Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 Pro iOS, budete potřebovat [programu pro vývojáře Apple členství](https://developer.apple.com/programs/ios/) a fyzickém zařízení iOS. [Simulátoru iOS nabízená oznámení nepodporuje](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
 ## <a name="configure-hub"></a>Konfigurace centra oznámení
@@ -152,6 +152,7 @@ S back-end FCM nakonfigurované můžete přidat součásti a kódy pro klienta 
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -182,7 +183,7 @@ S back-end FCM nakonfigurované můžete přidat součásti a kódy pro klienta 
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -202,7 +203,7 @@ Teď můžete je připraven nabízená oznámení v aplikaci spuštěnou na zař
 ### <a name="test-push-notifications-in-your-android-app"></a>Nabízená oznámení v aplikacích pro Android
 První dva kroky jsou povinné, jenom v případě, že testujete na emulátor.
 
-1. Ujistěte se, že nasazení nebo ladění na virtuální zařízení, které má rozhraní Google API nastavenou jako cíl, jak je znázorněno níže ve Správci virtuálního zařízení se systémem Android.
+1. Ujistěte se, že nasazení nebo ladění na zařízení nebo emulátoru, která je konfigurovaná pomocí služby Google Play. To můžete ověřit kontrolou, která **přehrání** aplikace jsou nainstalovány na emulátoru nebo zařízení.
 2. Kliknutím na Přidat účet Google do zařízení s Androidem **aplikace** > **nastavení** > **přidejte účet**. Potom postupujte podle pokynů, které chcete přidat existující účet Google do zařízení, nebo vytvořte novou.
 3. V sadě Visual Studio nebo Xamarin Studio, klikněte pravým tlačítkem **Droid** projektu a klikněte na tlačítko **nastavit jako spouštěný projekt**.
 4. Klikněte na tlačítko **spustit** pro sestavení projektu a spusťte aplikaci v emulátoru nebo zařízení s Androidem.

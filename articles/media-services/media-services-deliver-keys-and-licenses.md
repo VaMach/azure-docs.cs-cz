@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Pomocí Azure Media Services pro doručování licencí DRM nebo klíčů AES
 Azure Media Services umožňuje ingestovat, kódovat, přidat ochranu obsahu a Streamovat obsah. Další informace najdete v tématu [použití PlayReady nebo Widevine běžného dynamického šifrování](media-services-protect-with-playready-widevine.md). Někteří zákazníci chtějí média služby použijete jen k doručování licencí nebo klíče a kódování, šifrování a stream pomocí jejich místních serverů. Tento článek popisuje, jak můžete použít Media Services k doručování licencí PlayReady nebo Widevine, ale udělá zbytek s vašimi místními servery. 
@@ -26,7 +26,7 @@ Azure Media Services umožňuje ingestovat, kódovat, přidat ochranu obsahu a S
 ## <a name="overview"></a>Přehled
 Služba Media Services poskytuje službu k doručování PlayReady a Widevine licence digitální rights management (DRM) a klíčů AES-128. Služba Media Services také poskytuje rozhraní API umožňující nakonfigurovat práva a omezení, které chcete použít pro modul runtime DRM vynucovat, když uživatel přehrává obsah chráněný DRM. Když si uživatel vyžádá chráněný obsah, aplikace přehrávače vyžádá licenci z licenční služby Media Services. Pokud je povoleno licenci, licence Media Services problémů služby licence na přehrávač. Licence PlayReady a Widevine obsahuje dešifrovací klíč, který lze použít klientský přehrávač dešifrovat a Streamovat obsah.
 
-Služba Media Services podporuje více způsobů autorizace uživatelů, kteří žádají licence nebo o klíč. Můžete nakonfigurovat zásady autorizace klíče obsahu. Zásady můžete mít jeden nebo více omezení. Možnosti jsou otevřené nebo s tokenem omezení. Zásady omezený token musí být doplněny tokenem vydaným pomocí služby tokenů zabezpečení (STS). Služba Media Services podporuje tokeny ve formátu jednoduchého webového tokenu (SWT) a formát JSON Web Token (JWT).
+Služba Media Services podporuje více způsobů autorizace uživatelů, kteří žádají licence nebo o klíč. Můžete nakonfigurovat zásady autorizace klíče obsahu. Zásady můžete mít jeden nebo více omezení. Možnosti jsou otevřené nebo s tokenem omezení. Zásady omezení tokenem musí být doplněny tokenem vydaným službou tokenů zabezpečení (STS). Služba Media Services podporuje tokeny ve formátu jednoduchého webového tokenu (SWT) a formát JSON Web Token (JWT).
 
 Následující diagram znázorňuje hlavní kroky, že které je třeba provést používání Media Services k doručování licencí PlayReady nebo Widevine, ale udělá zbytek s vašimi místními servery:
 
@@ -37,18 +37,18 @@ Chcete-li stáhnout ukázku popsanou v tomto článku, přečtěte si téma [pom
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
 
-1. Nastavení vývojového prostředí a naplnění souboru app.config se informace o připojení, jak je popsáno v [vývoj pro Media Services s .NET](media-services-dotnet-how-to-use.md).
+1. Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md).
 
 2. Do části **appSettings** definované ve vašem souboru app.config přidejte následující elementy:
 
-    Přidejte klíč = "Vystavitele" value = "http://testacs.com" /
+    add key="Issuer" value="http://testacs.com"/
     
-    Přidejte klíč = "Cílová skupina" value = "urn: test" /
+    add key="Audience" value="urn:test"/
 
 ## <a name="net-code-example"></a>Příklad kódu rozhraní .NET
 Následující příklad kódu ukazuje, jak vytvořit běžné klíč obsahu a získání PlayReady nebo Widevine získání adres URL licence. Ke konfiguraci vaší místní server, je nutné klíč obsahu klíč ID a adresa URL pro získání licence. Po dokončení konfigurace na místním serveru, dá Streamovat ze serveru streamování. Protože body šifrovaného datového proudu ke službě Media Services licenční server, vaše player požadavků licenci ze služby Media Services. Pokud si zvolíte ověřování tokenem, licenční server Media Services ověří token, které jste poslali prostřednictvím protokolu HTTPS. Pokud je token platný, server licenční poskytuje licenci zpět do přehrávače. Následující příklad kódu ukazuje jenom postup vytvoření běžné klíč obsahu a získání PlayReady nebo Widevine získání adres URL licence. Pokud chcete poskytovat klíče AES-128, budete muset vytvořit klíč obsahu pomocí obálky a získat adresu URL, získávání klíčů. Další informace najdete v tématu [dynamického šifrování pomocí standardu AES-128 a doručení klíče služby](media-services-protect-with-aes128.md).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -340,7 +340,7 @@ namespace DeliverDRMLicenses
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Další informace najdete v tématech

@@ -4,20 +4,20 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Kurz: Azure Active Directory integrace s Slack
 
@@ -31,7 +31,7 @@ Integrace systému Slack s Azure AD poskytuje následující výhody:
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Konfigurace integrace Azure AD s Slack, potřebujete následující položky:
 
@@ -59,7 +59,7 @@ Pokud chcete nakonfigurovat integraci systému Slack do služby Azure AD, potře
 
 1. V  **[portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
 
-    ![Active Directory][1]
+    ![Služba Active Directory][1]
 
 2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
@@ -110,9 +110,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-slack-tutorial/tutorial_slack_url.png)
 
-    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.slack.com`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce: `https://<companyname>.slack.com`
 
-    b. V **identifikátor** textovému poli, zadejte adresu URL:`https://slack.com`
+    b. V **identifikátor** textovému poli, zadejte adresu URL: `https://slack.com`
 
     > [!NOTE] 
     > Hodnota není skutečné. Budete muset aktualizovat hodnotu s skutečné přihlašovací na adresy URL. Obraťte se na [tým podpory Slack](https://slack.com/help/contact) k získání hodnoty
@@ -121,14 +121,17 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Pokud má uživatel **e-mailová adresa** přiřazená pomocí Office 365, pak pouze se vyplní, v opačném případě **e-mailová adresa** deklarace identity se nezobrazí v tokenu SAML.
+
 5. V **uživatelské atributy** části na **jednotného přihlašování** dialogovém okně, vyberte **user.mail** jako **uživatelský identifikátor** a pro každý řádek v tabulce níže, proveďte následující kroky:
     
     | Název atributu | Hodnota atributu |
     | --- | --- |
-    | křestní_jméno | User.givenName |
-    | Příjmení | User.Surname |
-    | User.Email | User.Mail |  
-    | User.Username | User.userPrincipalName |
+    | first_name | user.givenname |
+    | last_name | user.surname |
+    | User.Email | user.mail |  
+    | User.Username | user.userprincipalname |
 
     a. Klikněte na **atribut** otevřete **Upravit atribut** dialogové okno pole a proveďte následující kroky:
 
@@ -137,8 +140,10 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     a. V **název** textovému poli, zadejte název atributu, který je uvedený na příslušném řádku.
     
     b. Z **hodnotu** vyberte hodnotu atributu zobrazený pro tento řádek.
+
+    c. Ponechte **Namespace** prázdné.
     
-    c. Klikněte na tlačítko **OK**.
+    d. Klikněte na tlačítko **OK**.
 
 6. Na **SAML podpisový certifikát** klikněte na tlačítko **certifikátu (Base64)** a potom uložte soubor certifikátu v počítači.
 
@@ -262,7 +267,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 
 Když kliknete na dlaždici Slack na přístupovém panelu jste měli získat automaticky přihlášení k aplikaci Slack.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další materiály
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

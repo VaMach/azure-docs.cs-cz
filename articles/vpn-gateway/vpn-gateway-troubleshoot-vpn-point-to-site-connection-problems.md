@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Řešení potíží: Problémy Azure připojení point-to-site
 
@@ -40,15 +40,17 @@ K tomuto problému dochází, pokud je klientský certifikát chybí **certifik�
 
 Chcete-li vyřešit tento problém, postupujte takto:
 
-1. Ujistěte se, že tyto certifikáty jsou ve správném umístění:
+1. Klikněte na tlačítko Otevřít správce certifikátů: **spustit**, typ **spravovat certifikáty počítače**a potom klikněte na **spravovat certifikáty počítače** ve výsledku hledání.
 
-    | Certifikát | Umístění |
+2. Ujistěte se, že tyto certifikáty jsou ve správném umístění:
+
+    | Certifikát | Místo |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuální User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Aktuální User\Trusted kořenové certifikační autority|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Místní počítač\Důvěryhodné kořenové certifikační autority|
 
-2. Přejděte na uživatele\<uživatelské jméno > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, je nutné ručně nainstalovat certifikát (*.cer soubor) v úložišti počítače a uživatele.
+3. Přejděte na uživatele\<uživatelské jméno > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, je nutné ručně nainstalovat certifikát (*.cer soubor) v úložišti počítače a uživatele.
 
 Další informace o tom, jak nainstalovat certifikát klienta najdete v tématu [generování a exportu certifikátů pro připojení point-to-site](vpn-gateway-certificates-point-to-site.md).
 
@@ -90,7 +92,7 @@ Když se pokusíte připojit k virtuální sítě Azure s použitím klienta VPN
 
 1. Ujistěte se, že tyto certifikáty jsou ve správném umístění:
 
-    | Certifikát | Umístění |
+    | Certifikát | Místo |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuální User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Aktuální User\Trusted kořenové certifikační autority|
@@ -335,7 +337,7 @@ Ovladače NIC je zastaralé.
 Aktualizujte ovladač síťovou kartu:
 
 1. Klikněte na tlačítko **spustit**, typ **Správce zařízení**a vyberte ji ze seznamu výsledků. Pokud se zobrazí výzva k zadání hesla správce nebo k potvrzení, zadejte heslo nebo potvrďte akci.
-2. V ** síťové adaptéry ** kategorií, najít na síťový adaptér, který chcete aktualizovat.  
+2. V **síťové adaptéry** kategorií, najít na síťový adaptér, který chcete aktualizovat.  
 3. Dvakrát klikněte na název zařízení, vyberte **aktualizovat ovladač**, vyberte **vyhledání automaticky aktualizovaný ovladač softwaru**.
 4. Pokud Windows nenalezne nový ovladač, můžete zkuste vyhledávání pro jednu na webové stránce výrobce zařízení a postupujte podle pokynů.
 5. Restartujte počítač a zkuste připojení znovu.

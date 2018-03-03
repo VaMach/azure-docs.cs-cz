@@ -3,7 +3,7 @@ title: "Přidání uživatelů spolupráce B2B do Azure Active Directory bez poz
 description: "Můžete je nechat uživatele guest, přidat další uživatele typu Host do služby Azure AD bez uplatňuje Pozvánka v Azure Active Directory s B2B spolupráce."
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: aa0d8dc9bed0a56d998e782283c84e7d2571b1f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 68d828b8fb23f7074be5fe691a4250d0fa653ab7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Přidat uživatele typu Host spolupráce B2B bez Pozvánka
 
@@ -31,7 +32,7 @@ Udělení těchto oprávnění, když:
 2. Správce v organizaci hostitele nastavuje zásady, které umožňují Sam identifikovat a přidat další uživatele od organizace partnera (Litware).
 3. Nyní Sam můžete přidat další uživatele z Litware do adresáře WoodGrove, skupiny nebo aplikace bez nutnosti pozvánek k uplatnit. Pokud Sam má odpovídající výčtu oprávnění v Litware, probíhá automaticky.
 
-### <a name="next-steps"></a>Další kroky
+### <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

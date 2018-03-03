@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Použít ke zjištění možných obsah pro dospělé a zájem moderátora obsah média Azure
 
@@ -61,13 +61,13 @@ Výstup JSON obsahuje následující prvky:
 | start |Čas zahájení první událost v "rysky." |
 | Doba trvání |Délka fragment v "rysky." |
 | interval |Interval každé události položky v rámci fragment v "rysky." |
-| [události](#events-json-elements) |Každá událost představuje klip a každý klip obsahuje klíčové snímky zjištěn a sledují v rámci této doby trvání. Je pole události. Vnější pole představuje jeden časový interval. Vnitřní pole se skládá z 0 nebo více událostí, které bylo provedeno v tomto bodě v čase.|
+| [Události](#events-json-elements) |Každá událost představuje klip a každý klip obsahuje klíčové snímky zjištěn a sledují v rámci této doby trvání. Je pole události. Vnější pole představuje jeden časový interval. Vnitřní pole se skládá z 0 nebo více událostí, které bylo provedeno v tomto bodě v čase.|
 
 ### <a name="events-json-elements"></a>Elementy JSON události
 
 |Element|Popis|
 |---|---|
-| reviewRecommended | `true`nebo `false` podle toho, jestli **adultScore** nebo **racyScore** překročit prahovou hodnotu interní. |
+| reviewRecommended | `true` nebo `false` podle toho, jestli **adultScore** nebo **racyScore** překročit prahovou hodnotu interní. |
 | adultScore | Spolehlivosti skóre pro možné obsah pro dospělé, na škále od 0,00 a 0,99. |
 | racyScore | Spolehlivosti skóre pro možné zájem obsah na škále od 0,00 a 0,99. |
 | index | index rámečku na škále od první snímek indexu na poslední index rámečku. |
@@ -90,6 +90,7 @@ Následující ukázka kódu .NET používá ke spuštění úlohy obsahu moder�
 Najdete v článku [video rychlý start obsahu moderátora](../cognitive-services/Content-Moderator/video-moderation-api.md) úplný zdrojový kód a projekt Visual Studio.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Najdete v článku [video rychlý start obsahu moderátora](../cognitive-service
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Úplný zdrojový kód a projekt Visual Studio, podívejte se [video rychlý start obsahu moderátora](../cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>Výstup JSON
+### JSON output
 
-Následující příklad výstupu obsahu moderátora JSON byl zkrácen.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Umístění klíčových v sekundách = časového razítka nebo časová osa
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,12 +214,12 @@ Následující příklad výstupu obsahu moderátora JSON byl zkrácen.
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Související odkazy

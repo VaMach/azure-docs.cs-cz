@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorování Azure Functions
 
@@ -82,7 +82,7 @@ Informace o tom, jak použít Application Insights, najdete v článku [Applicat
 
 V [Průzkumníku metrik](../application-insights/app-insights-metrics-explorer.md), můžete vytvořit grafy a výstrahy podle metriky, například jako počet volání funkce, čas spuštění a míra úspěšnosti.
 
-![Průzkumníku metrik](media/functions-monitoring/metrics-explorer.png)
+![Průzkumník metrik](media/functions-monitoring/metrics-explorer.png)
 
 Na [selhání](../application-insights/app-insights-asp-net-exceptions.md) kartě, můžete vytvořit grafy a výstrahy na základě selhání funkce a server výjimky. **Název operace** je název funkce. Selhání v závislosti nejsou zobrazeny. Pokud budete implementovat [vlastní telemetrii](#custom-telemetry-in-c-functions) závislosti.
 
@@ -156,12 +156,12 @@ Také zahrnuje protokolovacího nástroje Azure functions *úrovně protokolová
 |LogLevel    |Kód|
 |------------|---|
 |Trasování       | 0 |
-|Ladění       | 1 |
+|Ladit       | 1 |
 |Informace | 2 |
-|Upozornění     | 3 |
+|Varování     | 3 |
 |Chyba       | 4 |
 |Kritické    | 5 |
-|Žádný        | 6 |
+|Žádná        | 6 |
 
 Úrovně protokolování `None` je vysvětleno v následující části. 
 
@@ -354,6 +354,7 @@ Tady je příklad kódu C#, který používá [vlastní rozhraní API telemetrie
 using System;
 using System.Net;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure.WebJobs;
 using System.Net.Http;
@@ -370,7 +371,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetry = 
+        private static TelemetryClient telemetryClient = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -391,35 +392,51 @@ namespace functionapp0915
 
             // Set name to query string or body data
             name = name ?? data?.name;
-
-            telemetry.Context.Operation.Id = context.InvocationId.ToString();
-            telemetry.Context.Operation.Name = "cs-http";
-            if (!String.IsNullOrEmpty(name))
-            {
-                telemetry.Context.User.Id = name;
-            }
-            telemetry.TrackEvent("Function called");
-            telemetry.TrackMetric("Test Metric", DateTime.Now.Millisecond);
-            telemetry.TrackDependency("Test Dependency", 
-                "swapi.co/api/planets/1/", 
-                start, DateTime.UtcNow - start, true);
-
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+            
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
                     "Please pass a name on the query string or in the request body")
                 : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
-    }
+        
+        // This correllates all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
 }
 ```
 
 Nemůžete volat `TrackRequest` nebo `StartOperation<RequestTelemetry>`, protože uvidíte duplicitní požadavky pro volání funkce.  Modul runtime funkce automaticky sleduje žádosti.
 
-Nastavit `telemetry.Context.Operation.Id` volané ID pokaždé, když je funkce spuštěná. To umožňuje korelovat všechny položky telemetrie pro vyvolání dané funkce.
-
-```cs
-telemetry.Context.Operation.Id = context.InvocationId.ToString();
-```
+Není nastavený `telemetryClient.Context.Operation.Id`. Toto je globální nastavení a způsobí, že nesprávné correllation při mnoho funkcí běží současně. Místo toho vytvořte novou instanci telemetrie (`DependencyTelemetry`, `EventTelemetry`) a upravte jeho `Context` vlastnost. Pak předejte instance telemetrie do odpovídajících `Track` metodu `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Tím se zajistí, že telemetrii má správný correllation podrobnosti aktuální volání funkce.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Vlastní telemetrii v funkce jazyka JavaScript
 
@@ -503,6 +520,10 @@ PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
 Další informace najdete v tématu [postup stream protokoly](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+
+### <a name="viewing-log-files-locally"></a>Zobrazení protokolu soubory místně
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="next-steps"></a>Další postup
 

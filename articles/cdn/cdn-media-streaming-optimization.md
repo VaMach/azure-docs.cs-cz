@@ -1,5 +1,5 @@
 ---
-title: "Optimalizace prostřednictvím Azure Content Delivery Network streamování médií"
+title: "Optimalizace prostřednictvím Azure CDN streamování médií"
 description: "Optimalizovat datové proudy mediálních souborů pro smooth doručení"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c42f54a99a85377ebe4df6959237f906d37591b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Optimalizace prostřednictvím Azure Content Delivery Network streamování médií 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>Optimalizace prostřednictvím Azure CDN streamování médií 
  
 Použití vysokým rozlišením video roste na Internetu, které vytvoří problémy pro efektivní doručování velkých souborů. Zákazníci očekávat plynulé přehrávání videa na vyžádání nebo live video prostředků v různých sítí a klienti po celém světě. Doručení rychlé a efektivní mechanismus pro streamování soubory médií je velmi důležité, aby bylo prostředí hladký a zábavná příjemce.  
 
@@ -53,17 +53,17 @@ Médium, které za provozu je platná pro streamování optimalizace společnost
 
 Obecné doručení nebo na vyžádání video-on-demand média doručení optimalizace typy médií používají název CDN s back-end optimalizace pro doručování média prostředky rychlejší. Také používají konfigurace pro média prostředky na základě osvědčených postupů se naučili v čase.
 
-### <a name="caching"></a>Ukládání do mezipaměti
+### <a name="caching"></a>Mezipaměť
 
 Pokud Azure Content Delivery Network společnosti Akamai zjistí, že je asset streamování manifest nebo fragment, používá ukládání do mezipaměti vypršení platnosti odděleně od obecné webové doručení. (Viz úplný seznam v následující tabulce.) Jako vždy jsou dodržení cache-control nebo Expires hlavičky odeslaných z tohoto počátku. Pokud prostředku není asset média, se ukládá do mezipaměti pomocí dobu vypršení platnosti pro obecné webové přenosy.
 
 Krátký záporný čas ukládání do mezipaměti je užitečné pro přesměrování zpracování počátku, když mnoho uživatelů požaduje fragment, která ještě neexistuje. Příkladem je živý datový proud, kde pakety nejsou k dispozici z tohoto počátku této sekundu. Již ukládání do mezipaměti interval také pomáhá přesměrovat zpracování požadavky z tohoto počátku, protože obsahu videa se obvykle nemění.
  
 
-|   | Obecné webové doručení | Obecné streamování médií | Streamování videa na přání médií  
+|   | Obecné doručování webu | Streamování obecných médií | Streamování videa na přání médií  
 --- | --- | --- | ---
 Ukládání do mezipaměti: kladné <br> HTTP 200, 203, 300, <br> 301, 302 a 410 | 7 dní |365 dnů | 365 dnů   
-Ukládání do mezipaměti: záporná <br> HTTP 204, 305, 404, <br> a 405 | Žádný | 1 sekunda | 1 sekunda
+Ukládání do mezipaměti: záporná <br> HTTP 204, 305, 404, <br> a 405 | Žádná | 1 sekunda | 1 sekunda
  
 ### <a name="deal-with-origin-failure"></a>Řešení s chybou počátek  
 

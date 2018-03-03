@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Řešení potíží s nasazením s instancemi Azure kontejneru
 
@@ -91,6 +91,10 @@ Výstup obsahuje základní vlastnosti kontejneru, společně s událostí nasaz
 ## <a name="common-deployment-issues"></a>Běžné problémy při nasazení
 
 Tento účet pro většinu chyb v nasazení existuje několik běžných problémů.
+
+## <a name="image-version-not-supported"></a>Nepodporovaná verze bitové kopie
+
+Pokud bitovou kopii není zadaný, že kontejner instancí Azure nepodporuje, bude vrácena chyba formuláře `ImageVersionNotSupported`. Hodnota chyby zobrazí `The version of image '{0}' is not supported.`. Tato chyba se uplatní bitové kopie systému Windows. 1709 zmírnit použijte bitovou kopii systému Windows LTS. Podpora pro bitové kopie systému Windows. 1709 probíhá.
 
 ## <a name="unable-to-pull-image"></a>Nelze pro vyžádání obsahu image
 

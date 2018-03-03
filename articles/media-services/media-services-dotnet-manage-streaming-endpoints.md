@@ -1,5 +1,5 @@
 ---
-title: "Správa koncových bodů streamování pomocí .NET SDK. | Dokumentace Microsoftu"
+title: "Správa koncových bodů streamování pomocí .NET SDK. | Dokumenty Microsoft"
 description: "Tento článek ukazuje, jak spravovat koncových bodů streamování pomocí portálu Azure."
 services: media-services
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73a2dc47a6502712ebd1879170be552c9459b741
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Správa koncových bodů streamování pomocí .NET SDK
 
@@ -55,7 +55,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
     
 Nahraďte kód souboru Program.cs následujícím kódem:
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -142,11 +142,11 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Prohlédněte si mapy kurzů k Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

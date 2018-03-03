@@ -3,21 +3,21 @@ title: "Změňte konfiguraci modulu runtime integrace Azure SSIS | Microsoft Doc
 description: "Zjistěte, jak změnit konfiguraci modulu runtime integrace Azure SSIS v Azure Data Factory po jste ho už zřízené."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: 
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: f1745df7bafc4b5fa6f04cbfbc81a7a70a233d23
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: douglasl
+ms.openlocfilehash: 752640552a7af307bb54f3c0e4bc7fa0f3009d48
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Správa modulu runtime integrace Azure SSIS
 [Vytvoření modulu runtime integrace Azure SSIS](create-azure-ssis-integration-runtime.md) článek ukazuje, jak vytvořit modulu runtime integrace Azure SSIS (IR) pomocí Azure Data Factory. Tento článek obsahuje informace o změnu konfigurace modulu runtime pro existující integrace Azure SSIS.  

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Použití Azure Media Analytics k převodu textového obsahu v videosouborů na digitální text
 ## <a name="overview"></a>Přehled
@@ -51,6 +51,7 @@ Konfigurace úlohy (přednastavených). Při vytváření úlohy s **rozpoznáv�
 
 #### <a name="json-preset-example"></a>Příklad přednastavené JSON
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Konfigurace úlohy (přednastavených). Při vytváření úlohy s **rozpoznáv�
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Příklad přednastavené XML
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Konfigurace úlohy (přednastavených). Při vytváření úlohy s **rozpoznáv�
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>Rozpoznávání znaků výstupní soubory
 Výstup procesor médií rozpoznávání znaků je soubor JSON.
@@ -109,7 +114,7 @@ Výstup obsahuje následující atributy:
 | Doba trvání |Délka fragment v "rysky" |
 | interval |Interval jednotlivých událostí v rámci dané fragment |
 | stránka events |pole obsahující oblastí |
-| Oblast |objekt představující zjistil slova nebo fráze |
+| oblast |objekt představující zjistil slova nebo fráze |
 | Jazyk |jazyk textu zjistil v rámci oblasti |
 | orientace |orientaci textu zjistil v rámci oblasti |
 | řádky |pole řádků textu zjistil v rámci oblasti |
@@ -118,6 +123,7 @@ Výstup obsahuje následující atributy:
 ### <a name="json-output-example"></a>Příklad výstupu JSON
 Následující příklad výstupu obsahuje obecné informace videa a několik video fragmenty. V každé video fragmentu obsahuje každou oblast, který je zjišťován pomocí MP rozpoznávání znaků s jazyk a jeho orientaci textu. Oblast také obsahuje každý řádek aplikace word v této oblasti na řádku textu, pozice na řádku a každý word informace (word obsahu, pozice a spolehlivosti) v tomto řádku. Následuje příklad a umístíte některé vložené komentáře.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ Následující příklad výstupu obsahuje obecné informace videa a několik vi
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Ukázkový kód rozhraní .NET
 
@@ -183,9 +190,9 @@ Program zobrazí následující postup:
 
 Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Příklad
+#### <a name="example"></a>Příklad:
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

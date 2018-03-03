@@ -5,16 +5,16 @@ services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ef1486bb65da7ca49e2d03273a47a3a3ee05150e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Nejčastější dotazy k Azure Machine Learning
 
@@ -23,14 +23,6 @@ ms.lasthandoff: 12/18/2017
 **Co je Azure Machine Learning?**
 
 Azure Machine Learning je plně spravovaná služba Azure, která umožňuje vytváření, testování, správu a nasazení strojového učení a AI modelů. Naše nových služeb a ke stažení aplikace nabízejí přístup první kód, který využívá cloud, místní a hraniční síti, aby poskytují vlaku, nasazovat a spravovat a monitorovat modelů pomocí možnosti, rychlost a pružnost. Alternativně Azure Machine Learning Studio nabízí založené na prohlížeči visual přetažení myší pro tvorbu prostředí a kde není vyžadováno žádné kódování. 
-
-**Jak můžu začít pracovat s ve verzi preview?**
-
-Nejjednodušší způsob, jak začít pracovat se při registraci k experimentování služby v Azure. Z portálu můžete také stáhnout náš bezplatnou aplikaci Workbench nebo zaregistrujte si účet modelu správy. Kromě toho můžete navštívit web naše dokumentace pro články s návody, videa, ukázky kódu a další. 
-
-**Nemám předplatné Azure. Zkuste nových služeb**
-
-V rámci Microsoft Azure portfolia naší nové služby vyžadují předplatné Azure. Kromě toho musí mít odpovídající oprávnění k vytvoření prostředky, například skupin prostředků, virtuální počítače atd. 
 
 **Ve které oblasti jsou že nových služeb být k dispozici?**
 
@@ -52,7 +44,7 @@ Momentálně podporujeme aplikace Python jenom. Jsme práce na integraci R a oč
 
 **Jak Azure Machine Learning souvisí s Microsoft Machine Learning pro Spark?**
 
-Odpověď: MMLSpark poskytuje hloubkové learning a datové vědy nástroje pro Apache Spark, s důrazem na produktivitu, usnadňují experimentování a stavu techniky algoritmů. MMLSpark nabízí integraci kanály Spark Machine Learning s Microsoft kognitivní Toolkit a OpenCV. Můžete vytvořit výkonné a vysoce škálovatelného modely prediktivní a analytické pro data bitové kopie a text. MMLSpark je k dispozici v části licenci open source a je součástí AML Workbench jako sada použití modelů a algoritmy. Další informace o MMLSpark najdete na naší dokumentaci produktu. 
+MMLSpark poskytuje přímý učení a datové vědy nástroje pro Apache Spark, s důrazem na produktivitu, usnadňují experimentování a stavu techniky algoritmů. MMLSpark nabízí integraci kanály Spark Machine Learning s Microsoft kognitivní Toolkit a OpenCV. Můžete vytvořit výkonné a vysoce škálovatelného modely prediktivní a analytické pro data bitové kopie a text. MMLSpark je k dispozici v části licenci open source a je součástí AML Workbench jako sada použití modelů a algoritmy. Další informace o MMLSpark najdete na naší dokumentaci produktu. 
 
 **Jaké verze Spark podporuje nové nástroje a služby? Horní části**
 
@@ -135,7 +127,7 @@ Ne. Azure Machine Learning Workbench je bezplatná aplikace. Můžete ji stáhno
 
 **Podporuje možnosti příkazového řádku?**
 
-Odpověď: Ano, Azure Machine Learning nabízí úplné rozhraní CLI. Rozhraní příkazového řádku Machine Learning je nainstalována ve výchozím nastavení s Azure Machine Learning Workbench. To je k dispozici jako součást vědecké zpracování dat Linux virtuálního počítače na Azure a budete integrovat do [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Ano, Azure Machine Learning nabízí úplné rozhraní CLI. Rozhraní příkazového řádku Machine Learning je nainstalována ve výchozím nastavení s Azure Machine Learning Workbench. To je k dispozici jako součást vědecké zpracování dat Linux virtuálního počítače na Azure a budete integrovat do [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 
 
 **Můžete použít Jupyter Notebooks s Workbench?**
@@ -144,7 +136,7 @@ Ano! Poznámkové bloky Jupyter v Workbench s Workbench jako hostitelskou aplika
 
 **Které Poznámkový blok Jupyter jádra jsou podporovány?**
 
-Odpověď: aktuální verze Jupyter součástí Workbench spouští Python 3 jádra a další jádra pro každý soubor "runconfig" ve složce aml_config. Podporované konfigurace zahrnují:
+Aktuální verze Jupyter součástí Workbench spouští Python 3 jádra a další jádra pro každý soubor "runconfig" ve složce aml_config. Podporované konfigurace zahrnují:
 - Místní Python
 - Python v místním nebo vzdáleném Docker
 
@@ -166,7 +158,7 @@ Nástroje pro přípravu dat v Workbench aktuálně podporují přijímání z n
 Pro verzi public preview podporuje Workbench přijímání dat od: 
 - Místní pevný disk nebo namapované síťové umístění úložiště
 - Azure BLOB nebo Azure Storage (vyžaduje předplatné služby Azure)
-- Server Azure SQL
+- Azure SQL Server
 - Microsoft SQL Server
 
 
@@ -176,7 +168,7 @@ Pro verzi public preview podporuje Workbench "Odvozena sloupec podle příkladu"
 
 **Existují nějaká omezení dat vynuceny Azure Machine Learning Workbench, experimentování nebo Model správy?**
 
-Odpověď: Ne, nových služeb neukládají žádné omezení data. Existují však omezení zavedených v prostředí, ve kterém provádíte Příprava dat, školení modelu, experimentování nebo nasazení. Například pokud cílíte na místním prostředí pro školení, je omezen pomocí dostupné místo v pevném disku. Pokud cílíte na HDInsight, nebo jsou omezena jakékoli přidružené velikosti nebo výpočetní omezení. 
+Ne, nových služeb neukládají žádné omezení data. Existují však omezení zavedených v prostředí, ve kterém provádíte Příprava dat, školení modelu, experimentování nebo nasazení. Například pokud cílíte na místním prostředí pro školení, je omezen pomocí dostupné místo v pevném disku. Pokud cílíte na HDInsight, nebo jsou omezena jakékoli přidružené velikosti nebo výpočetní omezení. 
 
 ## <a name="algorithms-and-libraries"></a>Algoritmy a knihovny
 
@@ -187,45 +179,3 @@ Naše náhled produktů a služeb zahrnují nejvhodnější komunitou s otevřen
 **Jak Azure Machine Learning vztahují k kognitivní nástrojů Microsoft?**
 
 [Kognitivní nástrojů Microsoft](https://www.microsoft.com/cognitive-toolkit/) je jedním z mnoha rozhraní podporovaných funkcí našeho nových nástrojů a služeb. Kognitivní Toolkit je sada jednotná nástrojů přímým učení vám umožní využívat a kombinovat oblíbených modelů strojového učení informačního kanálu dopředného hluboké Neuronové sítě, Convolutional sítěmi, včetně pořadí pořadí a opakující sítě. Další informace o Microsoft kognitivní Toolkit, navštivte naše [dokumentaci k produktu](https://docs.microsoft.com/cognitive-toolkit/). 
-
-## <a name="pricing-and-billing"></a>Ceny a fakturace
-
-**Jsou vám poplatků za Azure Machine Learning verzi Preview?** 
-
-Aplikace Azure Machine Learning Workbench A: je k dispozici zdarma předplatitelům služby Azure. Služba experimentování a modelu správy nabízejí volné vrstvy, kromě placených úrovní, není k dispozici slevou verzi Public Preview.
-
-**I odečte závislosti na tom, kolik experimenty spustit?**
-
-Ne, služba Experimentování umožňuje tolik experimentů, kolik potřebujete, a účtuje se pouze podle počtu uživatelů. Výpočetní prostředky Experimentování se účtují samostatně.  Doporučujeme provádět více experimenty přijaty ve model doporučené pro vaše řešení. 
-
-**Je volána bude I budou účtovat na počet použití mých webových služeb na základě?**
-
-Ne. Webové služby je možné volat tak často, podle potřeby, bez jakékoli důsledky fakturační Model správy. Máte plnou kontrolu nad škálováním svých nasazení pro splnění potřeb vašich aplikací.
-
-**Jak můžete škálovat počet jednotek, které I zakoupili v modelu služby Azure Machine Learning Management?**
-
-Počet jednotek, můžete změnit nahoru nebo dolů, pomocí portálu Azure nebo rozhraní příkazového řádku. 
-
-**Co se jako můj podívejte faktury?**
-
-Faktur vytváří denně. Pro účely účtování začíná den o půlnoci UTC. Faktury se generují každý měsíc. Za služby Azure využívat ve spojení s Azure Machine Learning se vám neúčtují poplatky za samostatný. Poplatky za zahrnout, ale nejsou omezeny na: 
-- Poplatky za výpočetní
-- HDInsight
-- Azure Container Service
-- Azure Container Registry 
-- Azure Blob Storage
-- Application Insights
-- Azure Key Vault
-- Visual Studio Team Services
-- Centra událostí Azure
-- Analýza Azure datového proudu pro další podrobnosti nebo ukázka faktury, naleznete naší stránce s cenami. 
-
-## <a name="support-and-training"></a>Podpora a školení
-
-**Kde získám školení pro Azure Machine Learning?**
-
-V [centru dokumentace Azure Machine Learning](./overview-what-is-azure-ml.md) najdete videokurzy a návody. Tyto podrobné návody zavedení služby a popisují životní cyklus vědecké účely data. Průběžně do centra pro Machine Learning přidáváme nové materiály. Můžete odeslat žádostí o další výukové materiály na fóru pro zpětnou vazbu uživatelů.
-
-**Jak je možné získat podporu pro Azure Machine Learning?**
-
-Technickou podporu přejděte na podporu Azure a vyberte Machine Learning. Aktivní komunitě Azure Machine Learning má i [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) označené "Azure-Machine-Learning", tým.  Návrhy a žádosti o funkce lze odesílat na [Azure Machine Learning zpětné vazby](https://feedback.azure.com/forums/257792-machine-learning) lokality. 

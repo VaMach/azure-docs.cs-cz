@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Živé streamování s místními kodéry, které vytvářejí proudy s více přenosovými rychlostmi
 ## <a name="overview"></a>Přehled
@@ -135,7 +135,7 @@ Můžete definovat IP adresy, které mají povoleno publikování videa tohoto k
 
 Pokud nejsou zadány žádné IP adresy a neexistuje žádná definice pravidla, je povolená žádná IP adresa. Pokud chcete povolit libovolnou IP adresy, vytvořte pravidlo a nastavte 0.0.0.0/0.
 
-### <a name="channel-preview"></a>Kanál preview
+### <a name="channel-preview"></a>Náhled kanálu
 #### <a name="preview-urls"></a>Adresy URL Preview
 Kanály zadejte koncový bod preview (URL náhledu), který používáte pro zobrazení náhledu a ověřit před další zpracování a doručení datového proudu.
 
@@ -171,15 +171,15 @@ I po zastavení a odstranění programu můžou uživatelé Streamovat archivova
 ## <a id="states"></a>Stavy kanál a fakturace
 Možné hodnoty pro aktuální stav kanál:
 
-* **Zastavit**: Toto je počáteční stav kanálu po jeho vytvoření. V tomto stavu můžete aktualizovat vlastnosti kanálu, ale datový proud není povolen.
+* **Zastavit**: Toto je počáteční stav kanálu po jeho vytvoření. V tomto stavu je možné aktualizovat vlastnosti kanálu, ale streamování není povolené.
 * **Spouštění**: spuštění kanálu. V tomto stavu nejsou povolené žádné aktualizace ani streamování. Pokud dojde k chybě, kanál vrátí **Zastaveno** stavu.
 * **Spuštění**: kanál může zpracovat datových proudů za provozu.
 * **Zastavení**: kanál se zastaví. V tomto stavu nejsou povolené žádné aktualizace ani streamování.
 * **Odstranění**: kanál se odstraňuje. V tomto stavu nejsou povolené žádné aktualizace ani streamování.
 
-Následující tabulka ukazuje, jak kanál stavy mapu, která fakturace režimu.
+Následující tabulka uvádí přiřazení stavů kanálu k režimu fakturace.
 
-| Stav kanálu | Indikátory portálu uživatelského rozhraní | Fakturováno? |
+| Stav kanálu | Indikátory v uživatelském rozhraní portálu | Fakturováno? |
 | --- | --- | --- | --- |
 | **Spouštění** |**Spouštění** |Ne (přechodný stav) |
 | **Spuštění** |**Připraveno** (žádné spuštěné programy)<p><p>nebo<p>**Streamování** (alespoň jeden spuštěným programem) |Ano |
@@ -189,11 +189,11 @@ Následující tabulka ukazuje, jak kanál stavy mapu, která fakturace režimu.
 ## <a id="cc_and_ads"></a>Uzavřené přidávání titulků a ad vložení
 Následující tabulka ukazuje podporované standardy pro uzavřené přidávání titulků a ad vložení.
 
-| Standard | Poznámky |
+| Úroveň Standard | Poznámky |
 | --- | --- |
 | CEA 708 a EIA 608 (708/608) |Titulky jsou CEA 708 a EIA 608 standardy pro Spojené státy americké a Kanadu.<p><p>V současné době přidávání titulků je podporována pouze v případě, že se provádí v kódovaného vstupního datového proudu. Budete muset použít kodér médií za provozu, která můžete vložit 608 nebo 708 titulky v kódovaného datový proud, který je odeslán Media Services. Služba Media Services doručí obsah s titulky vložené do vašeho prohlížeče. |
 | TTML uvnitř .ismt (technologie Smooth Streaming textové stopy) |Dynamické balení Media Services umožňuje vašim klientům ke streamování obsahu v některém z následujících formátů: DASH, HLS nebo technologie Smooth Streaming. Ale pokud jste ingestování fragmentovaný soubor MP4 (technologie Smooth Streaming) s titulky uvnitř .ismt (technologie Smooth Streaming textové stopy), abyste mohli zajistit datový proud jenom pro klienty technologie Smooth Streaming. |
-| SCTE 35 |SCTE 35 je digitální signalizační systém, který se používá k převinutí vložení inzerování. Podřízené příjemci pomocí signál splice – reklamu do datového proudu pro přiděleném čase. SCTE 35, musí se poslat jako zhuštěné sledování v vstupního datového proudu.<p><p>V současné době pouze podporované vstupního datového proudu formátu této má u sebe ad signály fragmentován MP4 (technologie Smooth Streaming). Jediný podporovaný výstupní formát je také technologie Smooth Streaming. |
+| SCTE-35 |SCTE 35 je digitální signalizační systém, který se používá k převinutí vložení inzerování. Podřízené příjemci pomocí signál splice – reklamu do datového proudu pro přiděleném čase. SCTE 35, musí se poslat jako zhuštěné sledování v vstupního datového proudu.<p><p>V současné době pouze podporované vstupního datového proudu formátu této má u sebe ad signály fragmentován MP4 (technologie Smooth Streaming). Jediný podporovaný výstupní formát je také technologie Smooth Streaming. |
 
 ## <a id="considerations"></a>Důležité informace
 Pokud používáte místní kodér za provozu na odesílat datový proud s více přenosovými rychlostmi do kanálu, platí následující omezení:
@@ -209,6 +209,10 @@ Pokud používáte místní kodér za provozu na odesílat datový proud s více
 Zde jsou další důležité informace týkající se práce s kanály a související součásti:
 
 * Pokaždé, když překonfigurujete kodér za provozu, volání **resetovat** metoda na kanálu. Před resetujete kanál, budete muset, zastavte program. Po resetování kanálu restartujte program.
+
+  > [!NOTE]
+  > Při dalším spuštění programu, musíte ji přidružit nového prostředku a vytvořit nový. 
+  
 * Kanál se dá zastavit jenom v případě, že se **systémem** byly zastaveny stavu a všechny programy na kanálu.
 * Ve výchozím nastavení můžete přidat pouze pět kanály pro váš účet Media Services. Další informace najdete v tématu [kvóty a omezení](media-services-quotas-and-limitations.md).
 * Fakturuje se jenom v případě, že je kanál v **systémem** stavu. Další informace najdete v tématu [kanálu stavy a fakturace](media-services-live-streaming-with-onprem-encoders.md#states) části.
@@ -216,7 +220,7 @@ Zde jsou další důležité informace týkající se práce s kanály a souvise
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>Váš názor
+## <a name="feedback"></a>Odezva
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Související témata

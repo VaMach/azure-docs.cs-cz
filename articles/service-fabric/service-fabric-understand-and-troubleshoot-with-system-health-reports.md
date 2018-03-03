@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a402c1ab3b4e481cb75ec291949c6f523e162103
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Řešení problémů pomocí sestav o stavu systému
 Azure Service Fabric součásti poskytují sestavy stavu systému na všechny entity v clusteru okamžitě po nasazení. [Úložiště stavu](service-fabric-health-introduction.md#health-store) vytvoří nebo odstraní entit na základě sestav systému. Také slouží k uspořádání je v hierarchii, která zaznamená interakce entity.
@@ -124,7 +124,7 @@ Sestavy System.Hosting upozornění, pokud uzel kapacity definovaná v manifestu
 ## <a name="application-system-health-reports"></a>Aplikace sestav o stavu systému
 **System.CM**, který představuje službu Správce clusteru, je že úřad, který spravuje informace o aplikaci.
 
-### <a name="state"></a>Stav
+### <a name="state"></a>Okres
 System.CM nahlásí jako OK když aplikace byly vytvořeny nebo aktualizovány. Informuje úložiště zdravotní po odstranění aplikace tak, aby bylo možné odebrat z úložiště.
 
 * **SourceId**: System.CM
@@ -157,7 +157,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Služba sestav o stavu systému
 **System.FM**, který představuje službu Failover Manager je autority, který spravuje informace o službách.
 
-### <a name="state"></a>Stav
+### <a name="state"></a>Okres
 System.FM sestavy jako OK po vytvoření služby. Odstraní entitu z health store, pokud služba je Odstraněná.
 
 * **SourceId**: System.FM
@@ -199,7 +199,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Oddíl sestav o stavu systému
 **System.FM**, který představuje službu Failover Manager je autority, který spravuje informace o oddílech služby.
 
-### <a name="state"></a>Stav
+### <a name="state"></a>Okres
 System.FM nahlásí jako OK když oddíl existuje a je v pořádku. Odstraní entitu z health store při odstranění oddílu.
 
 Pokud oddílu je menší než počet minimální repliky, nahlásí chybu. Pokud oddíl není nižší než počet minimální repliky, ale je nižší než počtu cílových replik, sestavy upozornění. Pokud oddíl je ve ztrátě kvora, System.FM nahlásí chybu.
@@ -376,7 +376,7 @@ V případě jako v příkladu další šetření je nutná. Prozkoumat stav ka�
 ## <a name="replica-system-health-reports"></a>Repliky sestav o stavu systému
 **System.RA**, která představuje součást reconfiguration agent, je autorita pro stav repliky.
 
-### <a name="state"></a>Stav
+### <a name="state"></a>Okres
 System.RA hlásí OK po vytvoření repliky.
 
 * **SourceId**: System.RA
@@ -758,7 +758,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Ke stažení
+### <a name="download"></a>Stáhnout
 System.Hosting nahlásí chybu, pokud stahování balíčku aplikace selže.
 
 * **SourceId**: System.Hosting
@@ -836,7 +836,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Ke stažení
+### <a name="download"></a>Stáhnout
 System.Hosting nahlásí chybu, pokud služba stahování balíčku selže.
 
 * **SourceId**: System.Hosting

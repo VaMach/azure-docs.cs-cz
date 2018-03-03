@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Přehled služby Azure standardní nástroje pro vyrovnávání zatížení (preview)
 
@@ -302,9 +302,11 @@ SKU nejsou měnitelný. Postupujte podle kroků v této části přesunuty z jed
 
 1. Vytvoření nového prostředku standardní (nástroj pro vyrovnávání zatížení a veřejné IP adresy, podle potřeby). Pravidla znovu vytvořit a sběru dat definice.
 
-2. Základní SKU prostředků (nástroj pro vyrovnávání zatížení a veřejné IP adresy, podle vhodnosti) odeberte ze všech instancí virtuálních počítačů. Nezapomeňte také odebrat všechny instance virtuálních počítačů sady dostupnosti.
+2. Vytvořit nový nebo aktualizovat existující skupina NSG na síťový adaptér nebo podsíť, do seznamu povolených IP adres skupinu s vyrovnáváním zatížení provozu, test, stejně jako všechny ostatní přenosy, který chcete povolit.
 
-3. Připojte všechny instance virtuálních počítačů k nové prostředky standardní SKU.
+3. Základní SKU prostředků (nástroj pro vyrovnávání zatížení a veřejné IP adresy, podle vhodnosti) odeberte ze všech instancí virtuálních počítačů. Nezapomeňte také odebrat všechny instance virtuálních počítačů sady dostupnosti.
+
+4. Připojte všechny instance virtuálních počítačů k nové prostředky standardní SKU.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrace z Standard na základní SKU
 
@@ -323,7 +325,7 @@ SKU nejsou měnitelný. Postupujte podle kroků v této části přesunuty z jed
 >Odpovídající identifikátory SKU musí použít pro nástroj pro vyrovnávání zatížení a veřejnou IP adresu prostředky. Nemůžete mít směs základní SKU a standardní SKU prostředků. Nelze připojit virtuální počítač, virtuální počítače v skupiny dostupnosti, nebo nastavte škálování virtuálních počítačů na obě položky současně.
 >
 
-## <a name="region-availability"></a>Dostupnost v oblastech
+## <a name="region-availability"></a>Regionální dostupnost
 
 Standardní nástroje pro vyrovnávání zatížení je aktuálně k dispozici ve všech oblastech veřejného cloudu.
 
@@ -337,29 +339,29 @@ Azure [omezení služby pro sítě](https://docs.microsoft.com/azure/azure-subsc
 
 Následující tabulka porovnává omezení a dalo základní nástroje pro vyrovnávání zatížení a standardní SKU:
 
-| Load Balancer | Basic | Standard |
+| Load Balancer | Basic | Úroveň Standard |
 | --- | --- | --- |
 | Velikost fondu back-end | až 100 | až 1 000 |
 | Fond back-end hranic | Skupina dostupnosti | virtuální síť, oblast |
 | Fond back-end návrhu | Virtuální počítače ve skupině dostupnosti, nastavte ve skupině dostupnosti škálování virtuálních počítačů | Všechny instance virtuálního počítače ve virtuální síti |
-| HA porty | Nepodporuje se | Dostupné |
-| Diagnostika | Omezené, veřejné pouze | Dostupné |
-| Dostupnost virtuálních IP adres  | Nepodporuje se | Dostupné |
-| Rychlé IP Mobility | Nepodporuje se | Dostupné |
+| HA porty | Nepodporováno | Dostupný |
+| Diagnostika | Omezené, veřejné pouze | Dostupný |
+| Dostupnost virtuálních IP adres  | Nepodporováno | Dostupný |
+| Rychlé IP Mobility | Nepodporováno | Dostupný |
 |Scénáře dostupnosti zóny | Pouze oblastmi | Oblastmi, Zónově redundantní, Vyrovnávání zatížení mezi zóny |
 | Odchozí překládat pomocí SNAT algoritmus | On-demand | Souhrnů ještě neumístěných |
 | Odchozí překládat pomocí SNAT front-end výběr | Nejde konfigurovat více kandidáty | Volitelné konfigurace pro snížení kandidáty |
-| Skupina zabezpečení sítě | Volitelné na síťový adaptér a podsítě | Požaduje se |
+| Skupina zabezpečení sítě | Volitelné na síťový adaptér a podsítě | Požadováno |
 
 Následující tabulka porovnává omezení a dalo veřejné IP Basic a standardní SKU:
 
-| Veřejná IP adresa | Basic | Standard |
+| Veřejná IP adresa | Basic | Úroveň Standard |
 | --- | --- | --- |
 | Scénáře dostupnosti zóny | Pouze oblastmi | Zónově redundantní (výchozí), oblastmi (volitelné) | 
-| Rychlé IP Mobility | Nepodporuje se | Dostupné |
-| Dostupnost virtuálních IP adres | Nepodporuje se | Dostupné |
-| Čítače | Nepodporuje se | Dostupné |
-| Skupina zabezpečení sítě | Volitelné na síťový adaptér | Požaduje se |
+| Rychlé IP Mobility | Nepodporováno | Dostupný |
+| Dostupnost virtuálních IP adres | Nepodporováno | Dostupný |
+| Čítače | Nepodporováno | Dostupný |
+| Skupina zabezpečení sítě | Volitelné na síťový adaptér | Požadováno |
 
 
 ## <a name="preview-sign-up"></a>Náhled registrace
@@ -444,7 +446,7 @@ K účasti ve verzi preview pro standardní SKU pro vyrovnávání zatížení a
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     ```
  
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cena
 
 Fakturace standardní SKU pro vyrovnávání zatížení je založena na nakonfigurovaných pravidel a zpracovaná data. Během období preview se vám neúčtují žádné poplatky. Další informace najdete v článku [nástroj pro vyrovnávání zatížení](https://aka.ms/lbpreviewpricing) a [veřejnou IP adresu](https://aka.ms/lbpreviewpippricing) ceny stránky.
 
@@ -464,6 +466,7 @@ Tato omezení platí v době preview a se mohou změnit:
 - V kontextu dostupnosti zóny nelze z jedné zóny na jiný přesunout oblastmi veřejnou IP adresu.
 - [Azure monitorování výstrah](../monitoring-and-diagnostics/monitoring-overview-alerts.md) nejsou podporovány v tuto chvíli.
 - Portál zatím nepodporuje rozšířené preview oblasti.  Použijte nástroje klienta, například šablony, Azure CLI 2.0 nebo prostředí PowerShell jako alternativní řešení.
+- Operace přesunutí předplatné nejsou podporovány.
 
 
 ## <a name="next-steps"></a>Další postup

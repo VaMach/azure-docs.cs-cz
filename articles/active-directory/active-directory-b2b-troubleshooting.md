@@ -3,7 +3,7 @@ title: "Řešení potíží s Azure Active Directory s B2B spolupráce | Microso
 description: "Náhrad pro běžné problémy se spoluprací Azure Active Directory s B2B"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
-ms.openlocfilehash: 6773aeb6f8470bb8d35764d579681b4167e5175d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Řešení potíží s spolupráce Azure Active Directory s B2B
 
@@ -70,7 +71,7 @@ Externí uživatelé lze přidat pouze do "přiřazené" nebo "Zabezpečení" sk
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Moje externí uživatel neobdržel uplatnit e-mailu
 
-Pozvané potřeba zkontrolovat u svého poskytovatele internetových služeb nebo nevyžádané pošty filtru zajistit, že je povolené následující adresy:Invites@microsoft.com
+Pozvané potřeba zkontrolovat u svého poskytovatele internetových služeb nebo nevyžádané pošty filtru zajistit, že je povolené následující adresy: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Všimli jsme si, že vlastní zprávu nezíská součástí pozvánku zprávy v některých případech
 
@@ -81,7 +82,7 @@ Abyste dosáhli souladu s zákony o ochraně osobních údajů, rozhraní API ne
 
 Pokud tento scénář je pro vás důležité, můžete potlačit e-mailová pozvánka naše API a odeslat e-mailu mechanismem podle svého výběru. Poraďte vaší organizace právního zástupce a ujistěte se všechny e-mailu, že odesílat, že tak také odpovídá zákony o ochraně osobních údajů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

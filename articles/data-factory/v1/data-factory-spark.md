@@ -3,9 +3,9 @@ title: "Vyvolání Spark programy z Azure Data Factory | Microsoft Docs"
 description: "Zjistěte, jak má být vyvolán Spark programy ze služby Azure data factory pomocí činnost MapReduce."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Vyvolání Spark programy z kanálů služby Azure Data Factory
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/23/2018
 > * [Vlastní aktivita .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Tento článek se týká verze 1 Azure Data Factory, která je obvykle dostupná. Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [transformace dat pomocí aktivity Apache Spark v datové továrně verze 2](../transform-data-using-spark.md).
+> Tento článek se týká verze 1 služby Azure Data Factory, která je všeobecně dostupná. Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [transformace dat pomocí aktivity Apache Spark v datové továrně verze 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Úvod
 Aktivita Spark je jedním z [aktivit transformace dat](data-factory-data-transformation-activities.md) podporovaných službou Data Factory. Tato aktivita běží zadaný program Spark na váš cluster Spark v Azure HDInsight. 
@@ -54,7 +54,7 @@ Tady jsou obvyklá kroky k vytvoření objektu pro vytváření dat kanál s akt
 * Vytvořte datovou sadu, která odkazuje propojenou službu úložiště. V současné době je třeba zadat datovou sadu výstupů pro aktivitu i v případě, že neexistuje žádný výstup se vytváří. 
 * Vytvoření kanálu s aktivitou Spark, která odkazuje propojená služba HDInsight, kterou jste vytvořili. Aktivita je nakonfigurován s datovou sadou, kterou jste vytvořili v předchozím kroku jako výstupní datové. Výstupní datové sady je určuje plán (každou hodinu, každý den). Proto je nutné zadat výstupní datovou sadu, i když aktivita neobsahuje skutečně výstup.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 1. Vytvořit účet úložiště pro obecné účely podle pokynů v [vytvořit účet úložiště](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 2. Vytvořte Spark cluster v HDInsight postupujte podle pokynů v tomto kurzu [vytvořte Spark cluster v HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Přidružte účet úložiště, kterou jste vytvořili v kroku 1 s tímto clusterem.
@@ -64,31 +64,31 @@ Tady jsou obvyklá kroky k vytvoření objektu pro vytváření dat kanál s akt
 4. Nahrát **test.py** k **pyFiles** složku **adfspark** kontejneru ve službě blob storage. Vytvořte kontejner, složku, pokud ještě neexistují.
 
 ### <a name="create-a-data-factory"></a>Vytvoření datové továrny
-Pokud chcete vytvořit objekt pro vytváření dat, postupujte takto:
+Pokud chcete vytvořit datovou továrnu, postupujte následovně:
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
-2. Vyberte **nové** > **Data + analýzy** > **objekt pro vytváření dat**.
+2. Vyberte **Nový** > **Data a analýzy** > **Datová továrna**.
 
 3. Na **nový objekt pro vytváření dat** okno, v části **název**, zadejte **SparkDF**.
 
    > [!IMPORTANT]
-   > Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí chyba "název objektu pro vytváření dat SparkDF není k dispozici", změňte název objektu pro vytváření dat. Například použijte yournameSparkDFdate a objektu pro vytváření dat vytvořit znovu. Další informace o pravidla pojmenování najdete v tématu [Data Factory: pravidla po pojmenování](data-factory-naming-rules.md).
+   > Název objektu pro vytváření dat Azure musí být globálně jedinečný. Pokud se zobrazí chyba "název objektu pro vytváření dat SparkDF není k dispozici", změňte název objektu pro vytváření dat. Například použijte yournameSparkDFdate a objektu pro vytváření dat vytvořit znovu. Další informace o pravidlech pojmenování najdete v tématu [Data Factory: Pravidla pojmenování](data-factory-naming-rules.md).
 
-4. V části **předplatné**, vyberte předplatné Azure, kam chcete objekt pro vytváření dat vytvořit.
+4. V části **Předplatné** vyberte předplatné Azure, ve kterém chcete datovou továrnu vytvořit.
 
 5. Vyberte existující skupinu prostředků nebo vytvořte skupinu prostředků Azure.
 
-6. Vyberte **připnout na řídicí panel** zaškrtávací políčko.
+6. Zaškrtněte políčko **Připnout na řídicí panel**.
 
 7. Vyberte **Vytvořit**.
 
    > [!IMPORTANT]
-   > K vytvoření instance objektu pro vytváření dat, musíte být členem skupiny [Data Factory Přispěvatel](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role na úrovni předplatného nebo prostředků skupiny.
+   > Pokud chcete vytvářet instance služby Data Factory, musíte být členem role [Přispěvatel Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) na úrovni předplatného nebo skupiny prostředků.
 
 8. Objekt pro vytváření dat uvidíte, jak je zadáno v řídicím panelu portálu Azure.
 
-9. Po vytvoření objektu pro vytváření dat se zobrazí **objekt pro vytváření dat** stránku, která zobrazuje obsah objektu pro vytváření dat. Pokud nevidíte **objekt pro vytváření dat** vyberte dlaždici objektu pro vytváření dat na řídicím panelu.
+9. Po vytvoření datové továrny se zobrazí stránka **Datová továrna** s obsahem datové továrny. Pokud nevidíte **objekt pro vytváření dat** vyberte dlaždici objektu pro vytváření dat na řídicím panelu.
 
     ![Okno Objekt pro vytváření dat](./media/data-factory-spark/data-factory-blade.png)
 
@@ -96,11 +96,11 @@ Pokud chcete vytvořit objekt pro vytváření dat, postupujte takto:
 V tomto kroku vytvoříte dvě propojené služby. Jedna služba odkazuje na datovou továrnu váš cluster Spark a jiné služby odkazuje na datovou továrnu úložiště. 
 
 #### <a name="create-a-storage-linked-service"></a>Vytvoření propojené služby Storage
-V tomto kroku propojíte svůj účet úložiště pro vytváření dat. Datové sady, které vytvoříte v kroku později v tomto názorném postupu odkazuje na tato propojená služba. Propojená služba HDInsight, kterou definujete v dalším kroku odkazuje na tato propojená služba příliš. 
+V tomto kroku s datovou továrnou propojíte svůj účet úložiště. Datové sady, které vytvoříte v kroku později v tomto názorném postupu odkazuje na tato propojená služba. Propojená služba HDInsight, kterou definujete v dalším kroku odkazuje na tato propojená služba příliš. 
 
 1. Na **objekt pro vytváření dat** vyberte **vytvořit a nasadit**. Zobrazí se editoru služby Data Factory.
 
-2. Vyberte **nové datové úložiště**a zvolte **Azure Storage**.
+2. Vyberte **Nové úložiště dat** a zvolte **Azure Storage**.
 
    ![Nové datové úložiště](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
@@ -108,9 +108,9 @@ V tomto kroku propojíte svůj účet úložiště pro vytváření dat. Datové
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Nahraďte **název účtu** a **klíč účtu** s názvem a přístupovým klíčem účtu úložiště. Zjistěte, jak získat přístupový klíč k úložišti, naleznete v části Jak zobrazení, kopírování a opětovné vygenerování přístupových klíčů úložiště v [spravovat váš účet úložiště](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+4. Nahraďte **název účtu** a **klíč účtu** s názvem a přístupovým klíčem účtu úložiště. Pokud chcete zjistit, jak získat přístupový klíč k úložišti, přečtěte si, jak zobrazit, kopírovat a znovu vygenerovat přístupové klíče k úložišti, v tématu [Správa účtu úložiště](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Chcete-li nasadit propojené služby, vyberte **nasadit** na panelu příkazů. Po úspěšném nasazení propojené služby zmizí okna koncept-1. Zobrazí **AzureStorageLinkedService** ve stromovém zobrazení na levé straně.
+5. Chcete-li nasadit propojené služby, vyberte **nasadit** na panelu příkazů. Po úspěšném nasazení propojené služby okno Koncept-1 zmizí. Ve stromovém zobrazení na levé straně se zobrazí **AzureStorageLinkedService**.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Vytvoření propojené služby HDInsight
 V tomto kroku vytvoříte propojené služby HDInsight propojit k objektu pro vytváření dat cluster HDInsight Spark. HDInsight cluster se používá ke spuštění programu Spark určeného v aktivitě Spark kanálu v této ukázce. 
@@ -155,7 +155,7 @@ V tomto kroku vytvoříte propojené služby HDInsight propojit k objektu pro vy
 ### <a name="create-the-output-dataset"></a>Vytvoření výstupní datové sady
 Výstupní datové sady je určuje plán (každou hodinu, každý den). Proto je nutné zadat výstupní datovou sadu aktivity Spark v kanálu, i když aktivita neobsahuje žádný výstup. Určení vstupní datové sady pro aktivitu je volitelné.
 
-1. V editoru služby Data Factory, vyberte **Další** > **nová datová sada** > **úložiště objektů Azure Blob**.
+1. V editoru služby Data Factory vyberte **Další** > **Nová datová sada** > **Úložiště objektů blob v Azure**.
 
 2. Následující fragment kódu zkopírujte a vložte ho do okna Koncept-1. Fragmentu kódu JSON Určuje datovou sadu s názvem **OutputDataset**. Kromě toho určíte, že se mají výsledky ukládat do kontejneru objektů blob s názvem **adfspark** a ve složce s názvem **pyFiles výstupní**. Jak je uvedeno nahoře, je tato datová sada fiktivní datová sada. Program Spark v tomto příkladu neobsahuje žádný výstup. **Dostupnosti** části určuje, že se výstupní sada vytváří denně. 
 
@@ -184,9 +184,9 @@ Výstupní datové sady je určuje plán (každou hodinu, každý den). Proto je
 
 
 ### <a name="create-a-pipeline"></a>Vytvoření kanálu
-V tomto kroku vytvoříte kanál s aktivitou HDInsightSpark. V současné době výstupní datovou sadu se řídí plán, takže je nutné vytvořit datovou sadu výstupů i v případě, že aktivita neobsahuje žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte. Proto žádné vstupní datové sady je zadána v tomto příkladu.
+V tomto kroku vytvoříte kanál s aktivitou HDInsightSpark. V současnosti určuje plán výstupní datová sada, takže musíte výstupní datovou sadu vytvořit i v případě, že aktivita negeneruje žádný výstup. Pokud aktivita nemá žádný vstup, vstupní datovou sadu vytvářet nemusíte. Proto žádné vstupní datové sady je zadána v tomto příkladu.
 
-1. V editoru služby Data Factory, vyberte **Další** > **nový kanál**.
+1. V editoru služby Data Factory vyberte **Další** > **Nový kanál**.
 
 2. Skript v okna koncept-1 nahraďte následující skript:
 
@@ -270,7 +270,7 @@ V tomto kroku vytvoříte kanál s aktivitou HDInsightSpark. V současné době 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 Podrobné pokyny najdete v části [spuštění dotazů Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
-### <a name="troubleshooting"></a>Řešení potíží
+### <a name="troubleshooting"></a>Poradce při potížích
 Vzhledem k tomu, že nastavíte getdebuginfo – na **vždy**, najdete v části protokolu podsložky ve složce pyFiles v kontejnerech objektů blob. Další informace najdete v souboru protokolu ve složce protokolů. Tento soubor protokolu je obzvláště užitečná, když dojde k chybě. V produkčním prostředí, můžete chtít nastavit na **selhání**.
 
 Pro další informace o řešení, proveďte následující kroky:
@@ -327,11 +327,11 @@ Zde je ukázka definici JSON kanálu s aktivitou Spark:
 
 Následující tabulka popisuje vlastnostech JSON použitých v definici JSON.
 
-| Vlastnost | Popis | Požaduje se |
+| Vlastnost | Popis | Požadováno |
 | -------- | ----------- | -------- |
 | jméno | Název aktivity v kanálu. | Ano |
-| description | Text, který popisuje, jakým způsobem aktivita naloží. | Ne |
-| type | Tato vlastnost musí být nastavená na HDInsightSpark. | Ano |
+| popis | Text, který popisuje, jakým způsobem aktivita naloží. | Ne |
+| typ | Tato vlastnost musí být nastavená na HDInsightSpark. | Ano |
 | linkedServiceName | Název propojená služba HDInsight na kterém běží Spark program. | Ano |
 | rootPath | Kontejner objektů blob a složky, která obsahuje soubor Spark. Název souboru je malá a velká písmena. | Ano |
 | entryFilePath | Relativní cesta ke kořenové složce Spark kódu nebo balíčku. | Ano |
@@ -347,10 +347,10 @@ Aktivita Spark nepodporuje vloženého skriptu jako Pig a do aktivity Hive. Spar
 
 Vytvořte následující strukturu složek ve službě blob storage, na kterou odkazuje propojená služba HDInsight. Potom obsah nahrajete soubory závislé na příslušné podsložky v kořenové složce reprezentována **entryFilePath**. Například nahrání souborů Python do podsložky pyFiles a jar soubory do podsložky JAR kořenové složky. Služba Data Factory v době běhu očekává následující strukturu složek ve službě blob storage: 
 
-| Cesta | Popis | Požaduje se | Typ |
+| Cesta | Popis | Požadováno | Typ |
 | ---- | ----------- | -------- | ---- |
 | . | Kořenová cesta úlohy Spark v úložišti propojená služba. | Ano | Složka |
-| &lt;uživatelem definované&gt; | Cesta, která odkazuje na soubor položka úlohy Spark. | Ano | File |
+| &lt;Uživatelem definované &gt; | Cesta, která odkazuje na soubor položka úlohy Spark. | Ano | Soubor |
 | ./jars | Všechny soubory v této složce se nahrála a umístit na cestě třídy Java clusteru. | Ne | Složka |
 | . / pyFiles | Všechny soubory v této složce se nahrála a umístit do PYTHONPATH clusteru. | Ne | Složka |
 | . / soubory | Všechny soubory v této složce se nahrála a umístit na vykonavatele pracovní adresář. | Ne | Složka |

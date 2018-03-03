@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Upravit škálovací sadu virtuálních počítačů
 Tento článek popisuje, jak upravit existující sady škálování. Jedná se o tom, jak změnit konfiguraci měřítka nastavit, jak změnit konfiguraci aplikací běžících na rozsahu sady, Správa dostupnosti a další.
@@ -255,7 +255,7 @@ Můžete také [sady Azure SDK](https://azure.microsoft.com/downloads/) provedet
 > Clusterů Service Fabric lze použít pouze automatickém režimu, ale aktualizace se proto liší. Další informace o aktualizacích služby infrastruktury, najdete v části [v Service Fabric dokumentaci](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> Neexistuje jeden typ změny globálním měřítku umožňuje nastavit vlastnosti, která neodpovídá pravidlům pro zásady upgradu. Toto jsou změny ke stupnici nastavit profil operačního systému (například uživatelské jméno správce a heslo). Tyto změny se uplatní jenom na virtuální počítače vytvořené po změnu v hodnotě stupnice nastavit modelu. Chcete-li převést stávající virtuální počítače aktuální, musíte udělat "obnovení z Image" každý existujícího virtuálního počítače. Toto obnovení z Image prostřednictvím můžete provést:
+> Neexistuje jeden typ změny globálním měřítku umožňuje nastavit vlastnosti, která neodpovídá pravidlům pro zásady upgradu. Toto jsou změny ke stupnici nastavit profil operačního systému (například uživatelské jméno správce a heslo). Tyto vlastnosti lze pouze změněné ve verzi rozhraní API 2017-12-01 nebo novější. Tyto změny se uplatní jenom na virtuální počítače vytvořené po změnu v hodnotě stupnice nastavit modelu. Chcete-li převést stávající virtuální počítače aktuální, musíte udělat "obnovení z Image" každý existujícího virtuálního počítače. Toto obnovení z Image prostřednictvím můžete provést:
 
 Rozhraní API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (Další informace najdete v tématu [dokumentace k REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 

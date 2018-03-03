@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Úvod do monitorování stavu Service Fabric
 Azure Service Fabric zavádí stavu model, který poskytuje bohatý, flexibilní a rozšiřitelný stavu vyhodnocení a vytváření sestav. Model umožňuje téměř v reálném čase monitorování stavu clusteru a služby spuštěné v ní. Můžete snadno získat informace o stavu a opravte potenciální problémy předtím, než v kaskádě a způsobit masivní výpadků. V typické modelu služby odesílat sestavy založené na jejich místní zobrazení, a že informace se shromažďují zajistit celkovou clusteru úrovni zobrazení.
 
 Komponenty Service Fabric pomocí tohoto bohaté stavu modelu sestavy jejich aktuálního stavu. Můžete použít stejný mechanismus stav sestavy z aplikace. Pokud jste investovat do stavu vysoce kvalitní reporting shromažďuje vaše vlastní podmínky, můžete zjistit a opravit problémy mnohem snadněji pro běžící aplikaci.
 
-V následujícím videu Microsoft Virtual Academy také popisuje model stavu Service Fabric a jak se používají:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+V následujícím videu Microsoft Virtual Academy také popisuje model stavu Service Fabric a jak se používají: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -76,7 +76,7 @@ Možné [stavů](https://docs.microsoft.com/dotnet/api/system.fabric.health.heal
 
 * **OK**. Entita je v pořádku. Neexistují žádné známé problémy, které jsou ohlášeny ho nebo jejích podřízených objektech (v případě potřeby).
 * **Upozornění**. Entita, která má některé problémy, ale mohou i nadále fungovat správně. Například je, ale nezpůsobí ještě všechny funkční problémy. V některých případech může opravit podmínky upozornění bez zásahu externí sám sebe. V těchto případech sestav stavu zvýšení povědomí a poskytují přehled o co se děje. V jiných případech může snížit podmínky upozornění do k závažnému problému bez zásahu uživatele.
-* **Chyba**. Entita není v pořádku. Chcete-li vyřešit stav entity, by měla provedena akce, protože nemůže správně fungovat.
+* **Error** (Chyba). Entita není v pořádku. Chcete-li vyřešit stav entity, by měla provedena akce, protože nemůže správně fungovat.
 * **Neznámý**. Entita neexistuje v health store. Tento výsledek je možné získat z distribuované dotazy, které sloučení výsledky z několika součástí. Například dotaz get uzel přejde k **FailoverManager**, **ClusterManager**, a **HealthManager**; získat aplikaci dotaz přejde na **ClusterManager** a **HealthManager**. Tyto dotazy sloučení výsledky z několika komponent systému. Pokud součást jiného systému vrací entity, která se nenachází v health store, výsledného má neznámý stav. Entity není v úložišti, protože stav sestavy nebyly dosud zpracovány nebo entita byla vyčištěna po jeho odstranění.
 
 ## <a name="health-policies"></a>Zásady stavu
@@ -199,7 +199,7 @@ Zpravodaje, která pokud chcete odeslat data o stavu k úložišti stavů, musí
 * **SourceId**. Řetězec, který jednoznačně identifikuje ohlašování stavu události.
 * **Identifikátor entity**. Identifikuje entity, kde je použito sestavy. Liší se i na základě [typ entity](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. Žádné.
+  * Cluster. Žádné
   * Uzel. Název uzlu (string).
   * Aplikace. Název aplikace (URI). Představuje název instance aplikace nasazené v clusteru.
   * Služba. Název služby (URI). Představuje název instance služby, který je nasazen v clusteru.

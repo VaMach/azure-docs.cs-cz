@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Pomocí Azure Media Balíčkovač k provádění úloh statické balení
 > [!NOTE]
@@ -58,6 +58,7 @@ V této části ukazuje, jak ke zpracování úloh ověření. Také ukazuje, ja
 
 Pro ověření, vaše soubory MP4 s Balíčkovač Media Services, musíte vytvořit vlastní soubor manifestu (.ism) a nahrát ho spolu s zdrojových souborů do účtu Media Services. Níže je ukázkový soubor .ism produkovaný Media Encoder Standard. Názvy souborů rozlišují velká a malá písmena. Taky se ujistěte, že je text v souboru .ism zakódovaných pomocí znakové sady UTF-8.
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -76,11 +77,13 @@ Pro ověření, vaše soubory MP4 s Balíčkovač Media Services, musíte vytvo�
         </switch>
       </body>
     </smil>
+```
 
 Až budete mít s adaptivní přenosovou rychlostí sady souborů MP4 můžete využít výhod dynamického balení. Dynamické balení umožňuje doručovat datové proudy v zadaný protokol bez další balení. Další informace najdete v tématu [dynamické balení](media-services-dynamic-packaging-overview.md).
 
 Následující příklad kódu používá rozšíření Azure Media Services .NET SDK.  Nezapomeňte aktualizovat kód tak, aby odkazoval na složku, kde jsou umístěné vaše vstupní soubory MP4 a soubor .ism. A také kde je umístěn soubor MediaPackager_ValidateTask.xml. Tento soubor XML je definována v [přednastavení úloh pro Azure Media Balíčkovač](http://msdn.microsoft.com/library/azure/hh973635.aspx) článku.
 
+```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -244,6 +247,7 @@ Následující příklad kódu používá rozšíření Azure Media Services .NE
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Použití statické šifrování k ochraně vaší Smooth a MPEG DASH s technologií PlayReady
 Pokud chcete chránit svůj obsah pomocí PlayReady, máte možnost volby použití [dynamického šifrování](media-services-protect-with-playready-widevine.md) (doporučená možnost) nebo statické šifrování (jak je popsáno v této části).
@@ -263,6 +267,7 @@ A také k umístění souborů MediaPackager_MP4ToSmooth.xml a MediaEncryptor_Pl
 
 V příkladu definuje UpdatePlayReadyConfigurationXMLFile metodu, která vám pomůže dynamicky aktualizovat soubor MediaEncryptor_PlayReadyProtection.xml. Pokud máte k dispozici klíče počáteční hodnoty, můžete použít metodu CommonEncryption.GeneratePlayReadyContentKey vygenerovat klíč k obsahu na základě keySeedValue a KeyId hodnot.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -694,6 +699,7 @@ V příkladu definuje UpdatePlayReadyConfigurationXMLFile metodu, která vám po
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Použití statické šifrování k ochraně HLSv3 s AES-128
 Pokud chcete zašifrovat vaší HLS s AES-128, máte možnost volby použití dynamického šifrování (doporučená možnost) nebo statické šifrování (jak je znázorněno v této části). Pokud se rozhodnete používat dynamické šifrování, najdete v části [pomocí dynamického šifrování AES-128 a služba pro přenos klíče](media-services-protect-with-aes128.md).
@@ -707,6 +713,7 @@ Pokud chcete zašifrovat vaší HLS s AES-128, máte možnost volby použití dy
 
 Příklad v této části kóduje soubor mezzanine (v tomto případě MP4) do multibitrate soubory MP4 a pak balíčky soubory MP4 s rychlostmi do technologie Smooth Streaming. Ji pak balíčky technologie Smooth Streaming do HTTP Live Streaming (HLS) šifrován Advanced Encryption (Standard AES) datového proudu 128bitové šifrování. Nezapomeňte aktualizovat následující kód tak, aby odkazoval na složku, kde je umístěna vaše vstupní soubor MP4. A také k umístění MediaPackager_MP4ToSmooth.xml a MediaPackager_SmoothToHLS.xml konfigurační soubory. Můžete najít definici těchto souborů v [přednastavení úloh pro Azure Media Balíčkovač](http://msdn.microsoft.com/library/azure/hh973635.aspx) článku.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -975,6 +982,7 @@ Příklad v této části kóduje soubor mezzanine (v tomto případě MP4) do m
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Použití statické šifrování k ochraně HLSv3 s technologií PlayReady
 Pokud chcete chránit svůj obsah pomocí PlayReady, máte možnost volby použití [dynamického šifrování](media-services-protect-with-playready-widevine.md) (doporučená možnost) nebo statické šifrování (jak je popsáno v této části).
@@ -990,6 +998,7 @@ Služba Media Services nyní poskytuje službu k doručování licencí PlayRead
 
 Nezapomeňte aktualizovat následující kód tak, aby odkazoval na složku, kde je umístěna vaše vstupní soubor MP4. A také k umístění MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml a MediaEncryptor_PlayReadyProtection.xml souborů. MediaPackager_MP4ToSmooth.xml a MediaPackager_SmoothToHLS.xml jsou definovány v [přednastavení úloh pro Azure Media Balíčkovač](http://msdn.microsoft.com/library/azure/hh973635.aspx) a MediaEncryptor_PlayReadyProtection.xml je definována v [přednastavení úloh pro Azure Media Modul pro šifrování](http://msdn.microsoft.com/library/azure/hh973610.aspx) článku.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1452,10 +1461,11 @@ Nezapomeňte aktualizovat následující kód tak, aby odkazoval na složku, kde
 
         }
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

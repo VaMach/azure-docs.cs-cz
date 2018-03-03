@@ -3,7 +3,7 @@ title: "Vytvořit clustery se Azure Service Fabric na serveru Windows a Linux | 
 description: "Spusťte na serveru Windows a Linux, tzn., budete moci nasadit a hostování aplikací Service Fabric kdekoli clusterů Service Fabric můžete spustit systém Windows Server nebo Linux."
 services: service-fabric
 documentationcenter: .net
-author: Chackdan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
-ms.author: chackdan
-ms.openlocfilehash: e3cfad19e42af24edd68befd7b1eac8cef41a1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: dekapur
+ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Vytvoření clusterů Service Fabric na Windows Server nebo Linux
 Cluster služby Azure Service Fabric je sada virtuální nebo fyzické počítače, do kterých jsou nasazené a spravovat vaše mikroslužeb připojené k síti. Počítač nebo virtuální počítač, který je součástí clusteru, se nazývá uzlem clusteru. Clustery můžete škálovat na tisících uzlů. Pokud přidáte nové uzly do clusteru, Service Fabric znovu vytvoří rovnováhu repliky oddílu služby a instance napříč vyšší počet uzlů. Celkové zlepšuje výkon aplikace a snižuje kolize pro přístup do paměti. Pokud uzly v clusteru nejsou používány efektivně, můžete snížit počet uzlů v clusteru. Service Fabric opakujte znovu vytvoří rovnováhu repliky oddílu a instance napříč ke snížení počtu uzlů zajistit lepší využití hardwaru na každém uzlu.
@@ -33,7 +33,12 @@ Budete moci vytvořit clustery se u virtuálních počítačů s těmito operač
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04  
+* Windows Server 1709
+* Linux Ubuntu 16.04
+
+> [!NOTE]
+> Pokud se rozhodnete nasadit Service Fabric na Windows Server. 1709, Upozorňujeme, že (1) není dlouhou dobu údržby větve, takže možná budete muset v budoucnu přesunout verze a (2) Pokud nasadíte kontejnery, kontejnery postavené na systému Windows Server 2016 nejsou funkční v systému Windows Server  . 1709 a naopak (budete muset znovu vytvořit, je jejich nasazení).
+>
 
 ## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Vytvořit samostatný Service Fabric clustery v místě nebo kteréhokoli poskytovatele cloudových služeb
 Service Fabric nabízí balíček instalace vytvořit samostatnou Service Fabric clustery místně nebo na všechny poskytovatele cloudových služeb.
@@ -71,7 +76,7 @@ Clusterů Service Fabric systémem Azure poskytuje možnost výhod oproti místn
 * **Diagnostika:** v Azure, poskytujeme integraci s Azure diagnostiku a analýzy protokolů.
 * **Automatické škálování:** pro clustery v Azure, poskytujeme integrovanou funkci automatického škálování z důvodu sady škálování virtuálního počítače. V jiných prostředích cloudu a místní budete muset vytvořit vlastní automatické škálování funkce nebo škálování ručně pomocí rozhraní API, která zveřejňuje Service Fabric pro škálování clusterů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Vytvoření clusteru s podporou na virtuální počítače nebo počítače se systémem Windows Server: [vytváření clusteru Service Fabric pro systém Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Vytvoření clusteru s podporou na virtuální počítače nebo počítače se systémem Linux: [vytvoření clusteru s podporou systému Linux](service-fabric-cluster-creation-via-portal.md)

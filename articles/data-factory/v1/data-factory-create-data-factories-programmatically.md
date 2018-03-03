@@ -3,7 +3,7 @@ title: "Vytvoření datových kanálů pomocí sady Azure .NET SDK | Microsoft D
 description: "Naučte se vytvořit prostřednictvím kódu programu, sledovat a spravovat objekty pro vytváření dat Azure pomocí sady SDK Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1ac3dd85b95e021581fbf86d590f3b43ee1cdacc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Vytvoření, sledovat a spravovat Azure data Factory pomocí .NET SDK služby Azure Data Factory
 > [!NOTE]
@@ -31,7 +31,7 @@ Můžete vytvořit, sledovat a spravovat Azure data Factory programově pomocí 
 > [!NOTE]
 > Tento článek nepopisuje všechny možnosti rozhraní .NET API služby Data Factory. V tématu [Data Factory .NET API – referenční informace](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) úplnou dokumentaci o .NET API pro Data Factory. 
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 * Visual Studio 2012 nebo 2013 nebo 2015
 * Stáhněte a nainstalujte [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 * Azure Powershell Podle pokynů v článku [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) si na počítač nainstalujte prostředí Azure PowerShell. K vytvoření aplikace v Azure Active Directory použijete Azure PowerShell.

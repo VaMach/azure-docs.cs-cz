@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9e81bbff7c09f3bfb60fcdeda5cd3c8faf23adc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: bc82b41554eff4e9cdefa1a3848a4a11c954d33c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK pro rozhraní API pro SQL: stažení a poznámky k verzi
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/27/2018
 > * [Informační kanál změnu rozhraní .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Asynchronní Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -52,7 +53,7 @@ ms.lasthandoff: 02/27/2018
 <tr><td>**Aktuální podporovaných prostředí**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>Poznámky k verzi
+## <a name="release-notes"></a>Poznámky k verzi
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Opravené chybu, která je přístupů za určitých podmínek soupeření, jejímž výsledkem přerušované "Microsoft.Azure.Documents.NotFoundException: čtení relace není k dispozici pro vstupní relace token" chyby při použití úrovně konzistence relace.

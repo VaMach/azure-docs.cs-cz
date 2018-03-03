@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fd8f89bc842b33576dc0f85ab606dfe3628480ed
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Správa prostředků a související entity pomocí služby Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -32,13 +32,14 @@ Toto téma ukazuje, jak spravovat entit služby Azure Media Services pomocí roz
 >[!NOTE]
 > Od 1. dubna 2017 se automaticky odstraní libovolný záznam úlohy ve vašem účtu, který je starší než 90 dní. Spolu s ním se odstraní přidružené záznamy úkolů, a to i v případě, že celkový počet záznamů je nižší než maximální kvóta. Například na 1. dubna 2017 záznam všechny úlohy ve vašem účtu, který je starší než 31. prosinci 2016, se automaticky odstraní. Pokud potřebujete úloh informace archivovat, můžete použít kód popsaných v tomto tématu.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Získat odkaz na prostředek
 Časté úlohy je získat odkaz na prostředek existující ve službě Media Services. Následující příklad kódu ukazuje, jak můžete získat odkaz na prostředek z kolekce prostředků na serveru objekt kontextu, v závislosti na prostředek ID. Následující příklad kódu používá k získání odkazu na existující objekt IAsset dotaz Linq.
 
+```csharp
     static IAsset GetAsset(string assetId)
     {
         // Use a LINQ Select query to get an asset.
@@ -51,10 +52,12 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
         return asset;
     }
+```
 
 ## <a name="list-all-assets"></a>Zobrazí seznam všech prostředků
 S růstem počtu prostředků, které máte v úložišti je užitečné k zobrazení seznamu vaše prostředky. Následující příklad kódu ukazuje, jak k iteraci v rámci kolekce prostředky na objekt kontextu serveru. S každou asset příklad kódu se zapisují taky do některé z jeho hodnot vlastností ke konzole. Každý prostředek může například obsahovat mnoho mediálních souborů. Příklad kódu vypisuje všechny soubory, které jsou spojené s každou asset.
 
+```csharp
     static void ListAssets()
     {
         string waitMessage = "Building the list. This may take a few "
@@ -90,6 +93,7 @@ S růstem počtu prostředků, které máte v úložišti je užitečné k zobra
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="get-a-job-reference"></a>Získejte odkaz na úlohu
 
@@ -97,6 +101,7 @@ Při práci s zpracování úlohy v kódu Media Services, můžete často potře
 
 Musíte získat odkaz na úlohu při spouštění úlohy kódování dlouho běžící a potřebují kontrolovat stav úlohy na vlákno. V takových případech když se metoda vrátí z vlákna, budete muset načíst aktualizovat odkaz na úlohu.
 
+```csharp
     static IJob GetJob(string jobId)
     {
         // Use a Linq select query to get an updated 
@@ -110,12 +115,14 @@ Musíte získat odkaz na úlohu při spouštění úlohy kódování dlouho bě�
 
         return job;
     }
+```
 
 ## <a name="list-jobs-and-assets"></a>Seznam úloh a prostředky
 Seznam prostředků s jejich přidruženou úlohu ve službě Media Services je důležitá související úloha. Následující příklad kódu ukazuje, jak zobrazit každý objekt IJob a potom pro každou úlohu, se zobrazí vlastnosti úlohy, všechny související úkoly, všechny vstupní prostředky a všechny prostředky výstup. Kód v tomto příkladu může být užitečné pro mnoho dalších úkolů. Například pokud chcete do seznamu prostředků výstup z jednoho nebo více úloh kódování, které jste spustili dříve, tento kód ukazuje, jak pro přístup k výstupu prostředky. Až budete mít odkaz na výstupní asset, abyste pak zajistit obsah na jiné uživatele nebo aplikace stáhnout nebo poskytnutím adresy URL. 
 
 Další informace o možnostech pro různé prostředky naleznete v části [poskytovat prostředky pomocí sady Media Services SDK pro .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     // List all jobs on the server, and for each job, also list 
     // all tasks, all input assets, all output assets.
 
@@ -190,12 +197,14 @@ Další informace o možnostech pro různé prostředky naleznete v části [pos
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="list-all-access-policies"></a>Zobrazí seznam všech zásad přístupu
 Ve službě Media Services můžete definovat zásady přístupu na prostředek nebo jeho soubory. Zásady přístupu definuje oprávnění pro soubor nebo prostředek (jaký typ přístupu, a jeho trvání). V kódu Media Services obvykle definovat zásady přístupu vytvořením objektu IAccessPolicy a přiřadí se mu existující prostředek. Poté vytvoříte objekt ILocator, který vám umožňuje poskytuje přímý přístup k prostředkům ve službě Media Services. Projekt Visual Studio, který doprovází tato řada dokumentace obsahuje několik příkladů kódu, které ukazují, jak vytvořit a přiřadit zásady přístupu a lokátory k prostředkům.
 
 Následující příklad kódu ukazuje, jak zobrazit seznam všech zásad přístupu na serveru a zobrazuje typ oprávnění spojená s každým. Další užitečné možností zobrazení zásady přístupu je seznam všech objektů ILocator na serveru, a pak pro každý Lokátor můžete vytvořit seznam svých zásad přidružené přístup pomocí jeho AccessPolicy vlastnost.
 
+```csharp
     static void ListAllPolicies()
     {
         foreach (IAccessPolicy policy in _context.AccessPolicies)
@@ -208,6 +217,7 @@ Následující příklad kódu ukazuje, jak zobrazit seznam všech zásad přís
 
         }
     }
+```
     
 ## <a name="limit-access-policies"></a>Zásady omezení přístupu 
 
@@ -216,6 +226,7 @@ Následující příklad kódu ukazuje, jak zobrazit seznam všech zásad přís
 
 Můžete například vytvořit obecné sady zásad s následující kód, který by spustit pouze jednou v aplikaci. ID může přihlásit do souboru protokolu pro pozdější použití:
 
+```csharp
     double year = 365.25;
     double week = 7;
     IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
@@ -225,9 +236,11 @@ Můžete například vytvořit obecné sady zásad s následující kód, který
     Console.WriteLine("One year policy ID is: " + policyYear.Id);
     Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+```
 
 Pak můžete použít existující ID ve vašem kódu takto:
 
+```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
 
 
@@ -247,6 +260,7 @@ Pak můžete použít existující ID ve vašem kódu takto:
         policy1Year,
         DateTime.UtcNow.AddMinutes(-5));
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
+```
 
 ## <a name="list-all-locators"></a>Zobrazí seznam všech lokátory
 Lokátor je adresu URL, která poskytuje přímý cestu pro přístup k assetu, společně s oprávnění pro daný prostředek podle definice zásady přidružené přístup lokátoru. Každý prostředek může mít na kolekci objektů ILocator u jeho vlastnost lokátory přidruženo. Kontext server má také lokátory kolekce, která obsahuje všechny lokátory.
@@ -255,6 +269,7 @@ Následující příklad kódu zobrazuje seznam všech lokátory na serveru. Pro
 
 Všimněte si, že Lokátor cesty pro prostředek jenom základní adresu URL pro daný prostředek. Vytvořit přímé cestu pro jednotlivé soubory, které by mohly vyhledejte uživatele nebo aplikace, musí váš kód přidejte cestu konkrétní soubor lokátoru cesty. Další informace o tom, jak to udělat, najdete v tématu [poskytovat prostředky pomocí sady Media Services SDK pro .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     static void ListAllLocators()
     {
         foreach (ILocator locator in _context.Locators)
@@ -272,12 +287,14 @@ Všimněte si, že Lokátor cesty pro prostředek jenom základní adresu URL pr
             Console.WriteLine("");
         }
     }
+```
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Výčet prostřednictvím rozsáhlých kolekcí entit
 Při dotazování entity, existuje omezení 1000 entit vrátí najednou, protože veřejné v2 REST omezí výsledky dotazu a 1000 výsledky. Budete muset použít přeskočit a proveďte při vytváření výčtu prostřednictvím rozsáhlých kolekcí entit. 
 
 Následující funkce projde všechny úlohy v zadané účtu Media Services. Služba Media Services vrátí 1000 úloh v kolekci úloh. Funkce využívá přeskočit a provést, abyste měli jistotu, že všechny úlohy budou vyčísleny (v případě, že máte více než 1 000 úloh ve vašem účtu).
 
+```csharp
     static void ProcessJobs()
     {
         try
@@ -313,10 +330,12 @@ Následující funkce projde všechny úlohy v zadané účtu Media Services. Sl
             Console.WriteLine(ex.Message);
         }
     }
+```
 
 ## <a name="delete-an-asset"></a>Odstranit prostředek
 Následující příklad odstraní prostředek.
 
+```csharp
     static void DeleteAsset( IAsset asset)
     {
         // delete the asset
@@ -327,12 +346,14 @@ Následující příklad odstraní prostředek.
             Console.WriteLine("Deleted the Asset");
 
     }
+```
 
 ## <a name="delete-a-job"></a>Odstranit úlohu
 Pokud chcete odstranit úlohu, je nutné zkontrolovat stav úlohy, které je uvedené ve vlastnosti stavu. Úlohy, které jsou po dokončení nebo zrušení můžete odstranit, zatímco úlohy, které jsou v některých stavech, jako jsou ve frontě, plánované nebo zpracování, je nutné nejprve zrušit, a pak můžete je odstranit.
 
 Následující příklad kódu ukazuje metodu pro odstranění úlohy stavy úlohy a pak odstranění, když se stav Dokončeno nebo došlo ke zrušení. Tento kód závisí na předchozí části v tomto tématu pro získání odkaz na úlohu: Získejte odkaz na úlohu.
 
+```csharp
     static void DeleteJob(string jobId)
     {
         bool jobDeleted = false;
@@ -377,11 +398,13 @@ Následující příklad kódu ukazuje metodu pro odstranění úlohy stavy úlo
 
         }
     }
+```
 
 
 ## <a name="delete-an-access-policy"></a>Odstranit zásady přístupu
 Následující příklad kódu ukazuje, jak získat odkaz na zásady přístupu na základě zásad Id a pak ji odstraňte.
 
+```csharp
     static void DeleteAccessPolicy(string existingPolicyId)
     {
         // To delete a specific access policy, get a reference to the policy.  
@@ -395,12 +418,12 @@ Následující příklad kódu ukazuje, jak získat odkaz na zásady přístupu 
         policy.Delete();
 
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

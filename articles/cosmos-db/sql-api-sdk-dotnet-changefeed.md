@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 7aa58b9a0fe4ca9e162722d277a951f8ac25013a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Informační kanál procesor změnu .NET SDK: Stažení a poznámky k verzi
 > [!div class="op_single_selector"]
@@ -26,6 +26,7 @@ ms.lasthandoff: 12/18/2017
 > * [Informační kanál změnu rozhraní .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Asynchronní Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/18/2017
 |**Začínáme**|[Začínáme s změnu kanálu procesoru .NET SDK](change-feed.md)|
 |**Aktuální podporovaných prostředí**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Rozhraní Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
-## <a name="release-notes"></a>Poznámky k verzi
+## <a name="release-notes"></a>Poznámky k verzi
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Přidává podporu pro standardní rozhraní .NET 2.0. Balíček teď podporuje `netstandard2.0` a `net451` monikery framework.
@@ -80,6 +81,6 @@ Každá žádost o DB Cosmos pomocí vyřazeno sady SDK budou odmítnuty službo
 ## <a name="faq"></a>Nejčastější dotazy
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 Další informace o Cosmos DB najdete v tématu [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) stránku služby. 
 

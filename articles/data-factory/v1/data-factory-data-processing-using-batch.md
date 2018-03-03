@@ -3,7 +3,7 @@ title: "Pomocí objektu pro vytváření dat a dávkové zpracování rozsáhlý
 description: "Popisuje, jak zpracovávat obrovské objemy dat v kanál služby Azure Data Factory pomocí paralelní zpracování funkce Azure Batch."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Proces rozsáhlých datových sad pomocí objektu pro vytváření dat a Batch
 > [!NOTE]
-> Tento článek se týká verze 1 Azure Data Factory, která je obvykle dostupná. Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [vlastní aktivity v datové továrně verze 2](../transform-data-using-dotnet-custom-activity.md).
+> Tento článek se týká verze 1 služby Azure Data Factory, která je všeobecně dostupná. Pokud používáte verze 2 služby Data Factory, který je ve verzi preview, najdete v části [vlastní aktivity v datové továrně verze 2](../transform-data-using-dotnet-custom-activity.md).
 
 Tento článek popisuje architekturu ukázkové řešení, které přesune a zpracuje rozsáhlých datových sad automatické a naplánované způsobem. Je také začátku do konce návod k implementaci řešení pomocí služby Data Factory a Azure Batch.
 
@@ -130,7 +130,7 @@ Používáte [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.co
 
    ![Struktura složky a podsložky](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`a `outputfolder` jsou nejvyšší úrovně složky v `mycontainer`. `inputfolder` Složka obsahuje podsložky razítka data a času (rrrr-MM-DD-HH).
+   `Inputfolder` a `outputfolder` jsou nejvyšší úrovně složky v `mycontainer`. `inputfolder` Složka obsahuje podsložky razítka data a času (rrrr-MM-DD-HH).
 
    Pokud používáte Storage Explorer, v dalším kroku, můžete odeslat soubory s těmito názvy: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`a tak dále. Tento krok automaticky vytvoří složky.
 
@@ -556,9 +556,9 @@ Propojené služby propojují úložiště dat nebo výpočetní služby s služ
 
    ![Nové datové úložiště](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Nahraďte **název účtu** s názvem účtu úložiště. Nahraďte **klíč účtu** přístupovým klíčem k účtu úložiště. Zjistěte, jak získat přístupový klíč k úložišti, najdete v tématu [zobrazení, kopírování a opětovné vytváření úložiště přístupové klíče](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Nahraďte **název účtu** názvem vašeho účtu úložiště. Nahraďte **klíč účtu** přístupovým klíčem účtu úložiště. Zjistěte, jak získat přístupový klíč k úložišti, najdete v tématu [zobrazení, kopírování a opětovné vytváření úložiště přístupové klíče](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Vyberte **nasadit** na panelu příkazů na propojenou službu nasadíte.
+4. Vyberte **Nasadit** na panelu příkazů a nasaďte propojenou službu.
 
    ![Nasazení](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -593,7 +593,7 @@ V tomto kroku vytvoříte propojené služby pro účet Batch, který se použí
    
    e. Zadejte **StorageLinkedService** pro **linkedServiceName** vlastnost. Tuto propojenou službu jste vytvořili v předchozím kroku. Toto úložiště se používá jako pracovní oblast pro soubory a protokoly.
 
-3. Vyberte **nasadit** na panelu příkazů na propojenou službu nasadíte.
+3. Vyberte **Nasadit** na panelu příkazů a nasaďte propojenou službu.
 
 #### <a name="step-3-create-datasets"></a>Krok 3: Vytvoření datové sady
 V tomto kroku vytvoříte datové sady, které představují vstupní a výstupní data.
@@ -803,7 +803,7 @@ V tomto kroku vytvoříte kanál s jedna aktivita, vlastní aktivitu, kterou jst
     - **IsPaused** je nastavena na hodnotu false ve výchozím nastavení. Kanál se spustí okamžitě v tomto příkladu protože řezy spustit v minulosti. Tuto vlastnost lze nastavit **true** pozastavit do kanálu a nastavte ji zpět do **false** restartovat.
     -   **Spustit** a **end** časy jsou od sebe pět hodin. Řezy vytváří každou hodinu, takže pět řezy vytváří v kanálu.
 
-3. Vyberte **nasadit** na panelu příkazů na nasaďte kanál.
+3. Vyberte **Nasadit** na panelu příkazů a nasaďte kanál.
 
 #### <a name="step-5-test-the-pipeline"></a>Krok 5: Testování kanálu
 V tomto kroku otestovat kanálu přetažením souborů do vstupní složky. Spuštění testování kanál s jedním souborem pro každý vstupní složky.

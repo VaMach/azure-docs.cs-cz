@@ -3,7 +3,7 @@ title: "Dynamické skupiny a spolupráce Azure Active Directory s B2B | Microsof
 description: "Ukazuje, jak používat Azure AD dynamických skupin se spoluprací Azure Active Directory s B2B"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: d60b7f70332d6183a67003c1dceb96241fc6bae4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: cbb700e513947034a783c6b6574c8daddf96844b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dynamické skupiny a spolupráce Azure Active Directory s B2B
 
@@ -45,7 +45,7 @@ Jak taková skupina může vypadat:
 
 ![Pravidlo ukazuje, kde typ uživatele rovná hosta](media/active-directory-b2b-dynamic-groups/only-guest-users.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

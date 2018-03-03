@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexování mediálních souborů pomocí Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Přehled
@@ -56,6 +56,7 @@ Při vytváření indexovat úloh s **Azure Media Indexer 2 Preview**, je nutné
 
 Následujícím kódu JSON nastaví dostupné parametry.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ Následujícím kódu JSON nastaví dostupné parametry.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Podporované jazyky
 Azure Media Indexer 2 ve verzi Preview podporuje řeči na text pro následující jazyky (při zadávání názvu jazyka v konfiguraci úloh, použijte znak 4 kódu v závorkách, jak je uvedeno níže):
@@ -96,20 +98,23 @@ Program zobrazí následující postup:
 
 1. Vytvořte asset a nahrajte soubor média do assetu.
 2. Vytvořte úlohu indexování úlohy podle konfigurační soubor, který obsahuje následující přednastavení json:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Stáhněte výstupní soubory. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
@@ -118,7 +123,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -289,7 +294,7 @@ namespace IndexContent
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Související odkazy

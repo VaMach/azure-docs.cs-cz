@@ -3,7 +3,7 @@ title: "Monitorování a Správa kanálů data - Azure | Microsoft Docs"
 description: "Naučte se používat monitorování a správu aplikace ke sledování a správě Azure data Factory a kanály."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorování a Správa kanálů služby Azure Data Factory pomocí monitorování a správy aplikace
 > [!div class="op_single_selector"]
@@ -150,10 +150,10 @@ V dolní části zobrazení diagramu, zobrazí tato tlačítka: přiblížení p
 
 ![Diagram příkazy přiblížení zobrazení](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-### <a name="activity-windows-list"></a>Seznam aktivit Windows
+### <a name="activity-windows-list"></a>Seznam Okna aktivit
 V seznamu okna aktivity v dolní části v prostředním podokně se zobrazí všechny aktivity windows pro datovou sadu, který jste vybrali v Průzkumníku prostředků nebo zobrazení diagramu. Ve výchozím nastavení je v seznamu v sestupném pořadí, což znamená, že vidíte nejnovější okna aktivita v horní části.
 
-![Seznam aktivit Windows](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+![Seznam Okna aktivit](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
 Tento seznam není aktualizuje automaticky, takže použijte tlačítko Aktualizovat na panelu nástrojů jej ručně aktualizovat.  
 
@@ -161,7 +161,7 @@ Okna aktivity může být v jednom z následujících stavů:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Podřízený stav</th><th align="left">Popis</th>
+    <th align="left">Stav</th><th align="left">Podřízený stav</th><th align="left">Popis</th>
 </tr>
 <tr>
     <td rowspan="8">Čekání</td><td>ScheduleTime</td><td>Čas ještě nenastal pro okna aktivity ke spuštění.</td>
@@ -179,40 +179,40 @@ Okna aktivity může být v jednom z následujících stavů:
 <td>ActivityResume</td><td>Aktivita je pozastavená a aktivity windows nelze spustit, dokud nebude obnovená.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Probíhá pokus o spuštění aktivity je zopakován.</td>
+<td>Zkusit znovu</td><td>Probíhá pokus o spuštění aktivity je zopakován.</td>
 </tr>
 <tr>
-<td>Ověření</td><td>Ověření se ještě nespustilo.</td>
+<td>Ověřování</td><td>Ověření se ještě nespustilo.</td>
 </tr>
 <tr>
 <td>ValidationRetry</td><td>Ověření čeká na opakovat.</td>
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Probíhá zpracování.</td><td>Ověřování platnosti</td><td>Probíhá ověřování.</td>
+<td rowspan="2">Probíhá zpracování.</td><td>Ověřuje se</td><td>Probíhá ověřování.</td>
 </tr>
 <td>-</td>
 <td>Okna aktivity je zpracovávána.</td>
 </tr>
 <tr>
-<td rowspan="4">Neúspěch</td><td>TimedOut</td><td>Provedení aktivity trvalo déle, než je povolené aktivitou.</td>
+<td rowspan="4">Selhání</td><td>TimedOut</td><td>Provedení aktivity trvalo déle, než je povolené aktivitou.</td>
 </tr>
 <tr>
 <td>Zrušeno</td><td>Okno aktivity zrušil akce uživatele.</td>
 </tr>
 <tr>
-<td>Ověření</td><td>Ověření selhalo.</td>
+<td>Ověřování</td><td>Ověření selhalo.</td>
 </tr>
 <tr>
 <td>-</td><td>Okno aktivity se nepodařilo vygenerovat nebo ověřit.</td>
 </tr>
-<td>Připraveno</td><td>-</td><td>Okna aktivity je připraven ke spotřebování.</td>
+<td>Připravené</td><td>-</td><td>Okna aktivity je připraven ke spotřebování.</td>
 </tr>
 <tr>
 <td>Vynecháno</td><td>-</td><td>Okno aktivity nebyla zpracována.</td>
 </tr>
 <tr>
-<td>Žádné</td><td>-</td><td>Okno s aktivity měl dříve jiný stav, ale byl obnoven.</td>
+<td>Žádná</td><td>-</td><td>Okno s aktivity měl dříve jiný stav, ale byl obnoven.</td>
 </tr>
 </table>
 
@@ -322,14 +322,14 @@ V seznamu výstrah pomocí tlačítek, které jsou přidruženy výstrahu, ktero
 ### <a name="eventstatussubstatus"></a>Události, stav/substatus
 Následující tabulka obsahuje seznam dostupných událostí a stavy (a dílčí stavy).
 
-| Název události | Status | Podřízený stav |
+| Název události | Stav | Podřízený stav |
 | --- | --- | --- |
-| Aktivity při spuštění Začínáme |Spuštěno |Spouštění |
-| Aktivity při spuštění bylo dokončeno |Úspěch |Úspěch |
-| Aktivity při spuštění bylo dokončeno |Neúspěch |Přidělení prostředků se nezdařilo<br/><br/>Spuštění se nezdařilo<br/><br/>Vypršení časového limitu<br/><br/>Ověření se nezdařilo<br/><br/>Abandoned |
-| Vytvoření clusteru HDI na vyžádání Začínáme |Spuštěno |-|
-| Clusteru HDI na vyžádání úspěšně vytvořena. |Úspěch |-|
-| Odstranit clusteru HDI na vyžádání |Úspěch |-|
+| Aktivity při spuštění Začínáme |Spuštěné |Spouštění |
+| Aktivity při spuštění bylo dokončeno |Úspěšně dokončeno |Úspěšně dokončeno |
+| Aktivity při spuštění bylo dokončeno |Selhání |Přidělení prostředků se nezdařilo<br/><br/>Spuštění se nezdařilo<br/><br/>Vypršel časový limit.<br/><br/>Ověření se nezdařilo<br/><br/>Abandoned |
+| Vytvoření clusteru HDI na vyžádání Začínáme |Spuštěné |-|
+| Clusteru HDI na vyžádání úspěšně vytvořena. |Úspěšně dokončeno |-|
+| Odstranit clusteru HDI na vyžádání |Úspěšně dokončeno |-|
 
 ### <a name="to-edit-delete-or-disable-an-alert"></a>Chcete-li upravit, odstranit nebo zakázat výstrahy
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Export rozhraní API Azure hostovaná PowerApps a Microsoft toku
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 Podobně vývojáře, která chcete vystavit příslušných rozhraní API více široce v rámci organizace, můžete zpřístupnit příslušných rozhraní API na aplikaci a toku Tvůrce. Toto téma ukazuje, jak exportovat rozhraní API vytvořené s [Azure Functions](../azure-functions/functions-overview.md) nebo [Azure App Service](../app-service/app-service-web-overview.md). Bude exportovaný rozhraní API *vlastní konektor*, která je použita v PowerApps a Microsoft Flow stejně jako integrovaného konektoru.
 
 ## <a name="create-and-export-an-api-definition"></a>Vytvořit a exportovat definice rozhraní API.
-Před exportem rozhraní API, musí popisovat, rozhraní API pomocí definici OpenAPI (dříve označovaný jako [Swagger](http://swagger.io/) souboru). Tato definice obsahuje informace o jaké operace jsou k dispozici v rozhraní API a jak by měla strukturovaná data požadavku a odpovědi pro rozhraní API. PowerApps a Flow Microsoft můžete vytvořit vlastní konektory pro všechny definice OpenAPI 2.0. Azure funkce a služby Azure App Service mít integrovanou podporu pro vytváření, hostování a správě OpenAPI definice. Další informace najdete v tématu [vytvořit rozhraní RESTful API v Azure Web Apps](../app-service/app-service-web-tutorial-rest-api.md).
+Před exportem rozhraní API, musí popisovat, rozhraní API pomocí definici OpenAPI (dříve označovaný jako [Swagger](http://swagger.io/) souboru). Tato definice obsahuje informace o tom, jaké operace jsou v rozhraní API dostupné a jakou strukturu by měla mít data požadavku a odpovědi pro toto rozhraní API. PowerApps a Flow Microsoft můžete vytvořit vlastní konektory pro všechny definice OpenAPI 2.0. Azure funkce a služby Azure App Service mít integrovanou podporu pro vytváření, hostování a správě OpenAPI definice. Další informace najdete v tématu [hostování rozhraní RESTful API s CORS v Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > Můžete také vytvořit vlastní konektory v PowerApps a Microsoft toku uživatelského rozhraní, bez použití OpenAPI definice. Další informace najdete v tématu [registrace a použít vlastní konektor (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) a [registrace a použít vlastní konektor (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -99,15 +99,15 @@ Teď, když jste exportovali definice rozhraní API, importujete ho a vytvořte 
 
 Import definice rozhraní API do PowerApps a Flow Microsoft, postupujte takto:
 
-1. Přejděte na [powerapps.com](https://web.powerapps.com) nebo [flow.microsoft.com](https://flow.microsoft.com).
+1. Přejděte na adresu [powerapps.com](https://web.powerapps.com) nebo [flow.microsoft.com](https://flow.microsoft.com).
 
 2. V pravém horním rohu klikněte na ikonu zařízení a pak klikněte na **vlastní konektory**.
 
-   ![Ikona zařízení ve službě](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
+   ![Ikona ozubeného kola ve službě](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
 3. Klikněte na tlačítko **vytvořte vlastní konektor**, pak klikněte na tlačítko **importovat definici OpenAPI**.
 
-   ![Vytvořte vlastní konektor](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
+   ![Vytvoření vlastního konektoru](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
 4. Zadejte název pro vlastní konektor, pak přejděte k definici OpenAPI, který jste exportovali a klikněte na tlačítko **pokračovat**.
 
@@ -132,7 +132,7 @@ Import definice rozhraní API do PowerApps a Flow Microsoft, postupujte takto:
 Nyní můžete připojit k vlastní konektor v PowerApps a Flow společnosti Microsoft. Další informace týkající se vytváření konektory portálů PowerApps a Flow Microsoft najdete v tématu [zaregistrovat vlastní spojnici (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) a [zaregistrovat vlastní spojnici (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
 
 <a name="auth"></a>
-## <a name="specify-authentication-type"></a>Zadejte typ ověřování
+## <a name="specify-authentication-type"></a>Zadání typu ověřování
 
 PowerApps a Flow Microsoft podporují kolekci zprostředkovatelů identity, které zajišťují ověřování pro vlastní konektory. Pokud vaše rozhraní API vyžaduje ověření, ujistěte se, že se zaznamená jako _zabezpečení definice_ v dokumentu OpenAPI, jako v následujícím příkladu:
 

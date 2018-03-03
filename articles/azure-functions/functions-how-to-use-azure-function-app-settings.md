@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Správa funkce aplikace na portálu Azure 
 
@@ -66,7 +66,7 @@ Další informace o tom, jak pracovat s nastavením služby App Service najdete 
 
 ![Editor služby App Service](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>Nastavení aplikace
+### <a name="settings">Nastavení aplikace</a>
 
 | | |
 |-|-|
@@ -82,11 +82,11 @@ Další informace o tom, jak pracovat s nastavením služby App Service najdete 
 
 ![Funkce aplikace konzoly](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu"></a>Pokročilé nástroje (Kudu)
+### <a name="kudu">Pokročilé nástroje (Kudu)</a>
 
 | | |
 |-|-|
-| ![Funkce aplikace Kudu na portálu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Rozšířené nástroje pro službu App Service (také označované jako Kudu) poskytují přístup k funkcím pro správu pokročilé funkce aplikace. Z modulu Kudu spravovat informace o systému, nastavení aplikace, proměnné prostředí, rozšíření lokality, hlaviček protokolu HTTP a proměnných serveru. Můžete také spustit **Kudu** procházením SCM koncový bod pro funkce aplikace, jako je třeba`https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Funkce aplikace Kudu na portálu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Rozšířené nástroje pro službu App Service (také označované jako Kudu) poskytují přístup k funkcím pro správu pokročilé funkce aplikace. Z modulu Kudu spravovat informace o systému, nastavení aplikace, proměnné prostředí, rozšíření lokality, hlaviček protokolu HTTP a proměnných serveru. Můžete také spustit **Kudu** procházením SCM koncový bod pro funkce aplikace, jako je třeba `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Konfigurace modulu Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,11 +115,11 @@ Další informace o tom, jak pracovat s nastavením služby App Service najdete 
 ![Konfigurovat ověřování pro aplikaci funkce](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger"></a>Definice rozhraní API.
+### <a name="swagger">Definice rozhraní API.</a>
 
 | | |
 |-|-|
-| ![Funkce aplikace API swagger definice na portálu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Funkce podporuje Swagger tak, aby klienti snadno využívat funkce aktivované protokolem HTTP. Další informace týkající se vytváření se Swagger definice rozhraní API najdete v článku [začít pracovat s aplikacemi API a Swaggerem v Azure](../app-service/app-service-web-tutorial-rest-api.md). Funkce proxy lze také definovat jeden prostor rozhraní API pro víc funkcí. Další informace najdete v tématu [práce s Azure funkce proxy](functions-proxies.md). |
+| ![Funkce aplikace API swagger definice na portálu Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Funkce podporuje Swagger tak, aby klienti snadno využívat funkce aktivované protokolem HTTP. Další informace týkající se vytváření se Swagger definice rozhraní API najdete v článku [hostování rozhraní RESTful API s CORS v Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). Funkce proxy lze také definovat jeden prostor rozhraní API pro víc funkcí. Další informace najdete v tématu [práce s Azure funkce proxy](functions-proxies.md). |
 
 ![Konfigurace funkce aplikace API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

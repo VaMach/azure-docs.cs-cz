@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Omezení prostředí cloudu Azure
 
@@ -54,11 +54,11 @@ Cloudové prostředí je určen pro případy použití interaktivní. V důsled
 
 ### <a name="user-permissions"></a>Uživatelská oprávnění
 
-Máte nastavená oprávnění jako běžní uživatelé bez přístupu sudo. Všechny instalace mimo vaší `$Home` nebo `clouddrive` adresáře není trvalý.
+Máte nastavená oprávnění jako běžní uživatelé bez přístupu sudo. Všechny instalace mimo vaší `$Home` adresáře není trvalý.
 
 ### <a name="editing-bashrc"></a>Úpravy .bashrc
 
-Proveďte opatrní při úpravě .bashrc, tak může způsobit neočekávané chyby s Bash v prostředí cloudu.
+Proveďte opatrní při úpravě .bashrc, tak může způsobit neočekávané chyby v prostředí cloudu.
 
 ## <a name="powershell-limitations"></a>Omezení prostředí PowerShell
 
@@ -68,7 +68,7 @@ Prostředí PowerShell v prostředí cloudu Azure (Preview) může trvat až 60 
 
 ### <a name="no-home-directory-persistence"></a>Trvalost No $Home adresáře
 
-Data zapsaná do `$Home` všechny aplikace (například: git, vim a dalších) není zachována mezi relace prostředí PowerShell. Alternativní řešení [zde](troubleshooting.md#powershell-resolutions).
+Data zapsaná do `$Home` všechny aplikace (například: git, vim a dalších) není zachována mezi relace prostředí PowerShell. Alternativní řešení [zde](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Výchozí umístění souboru při vytvoření z disku Azure:
 

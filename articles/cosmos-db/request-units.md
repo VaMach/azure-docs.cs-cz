@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Požadované jednotky v Azure Cosmos DB
 Nyní k dispozici: Azure Cosmos DB [kalkulačky jednotek žádosti](https://www.documentdb.com/capacityplanner). Další informace v [odhadnout, musí vaše propustnost](request-units.md#estimating-throughput-needs).
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 Neexistuje žádný vliv na dostupnost vaší kontejneru při změně propustnost. Nové vyhrazenou propustností je obvykle efektivní během několika sekund na použití nové propustnost.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Izolace propustnost v globálně distribuované databáze
+
+Při replikaci databáze k více než jedné oblasti Azure Cosmos DB poskytuje izolaci propustnost zajistit, aby využití RU v jedné oblasti neměla vliv RU využití v jiné oblasti. Například pokud zapsat data do jedné oblasti a čtení dat z jiné oblasti, RUs použít k provedení operace zápisu v oblasti A nepřebírají od RUs používat pro operace čtení v oblasti, které nejsou B. RUs rozdělit do oblasti, ve kterých jste nasadili. Každou oblast, ve kterém se replikují databáze má v plné výši RUs zřízený. Další informace o globální replikace najdete v tématu [distribuci dat globálně pomocí Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Aspekty jednotek žádosti
 Při odhadování počet jednotek žádosti můžete vyhradit pro váš kontejner Azure Cosmos DB, je důležité vzít v úvahu následující proměnné:
@@ -209,7 +213,7 @@ Příklad:
 6. Vypočítejte jednotky požadované žádosti dané odhadovaný počet operací, které předpokládáte spouštět každou sekundu.
 
 ## <a id="GetLastRequestStatistics"></a>Použití rozhraní API pro příkaz GetLastRequestStatistics pro MongoDB
-Rozhraní API pro MongoDB podporuje vlastního příkazu *getLastRequestStatistics*, pro načítání poplatků požadavku pro zadané operace.
+Rozhraní API MongoDB podporuje vlastního příkazu *getLastRequestStatistics*, pro načítání poplatků požadavku pro zadané operace.
 
 Například v prostředí Mongo provést operaci chcete ověřit žádost zdarma pro.
 ```
@@ -235,10 +239,10 @@ Myslete na to je záznam zřizování jednotky žádosti přidružené spuštěn
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Použít rozhraní API pro portál metriky pro MongoDB
-Nejjednodušší způsob, jak získat dobrý odhad požadavku poplatky jednotky pro vaše rozhraní API pro databázi MongoDB má použít [portál Azure](https://portal.azure.com) metriky. S *počet požadavků, které* a *požadavek poplatků* grafy, můžete získat odhad, kolik jednotek žádosti ze každý je náročné operace a kolik jednotek žádosti, které budou využívat relativně k jinému.
+## <a name="use-mongodb-api-portal-metrics"></a>Použití portálu metriky rozhraní API MongoDB
+Nejjednodušší způsob, jak získat dobrý odhad požadavku poplatky jednotky pro vaši databázi MongoDB rozhraní API je použití [portál Azure](https://portal.azure.com) metriky. S *počet požadavků, které* a *požadavek poplatků* grafy, můžete získat odhad, kolik jednotek žádosti ze každý je náročné operace a kolik jednotek žádosti, které budou využívat relativně k jinému.
 
-![Rozhraní API pro MongoDB portálu metriky][6]
+![Rozhraní API MongoDB portálu metriky][6]
 
 ## <a name="a-request-unit-estimation-example"></a>V příkladu odhad jednotek žádosti
 Vezměte v úvahu následující ~ 1 KB dokumentu:
@@ -343,8 +347,8 @@ Pokud používáte klienta SDK rozhraní .NET a LINQ dotazů a potom ve většin
 
 Pokud máte více než jednoho klienta kumulativně operační vyšší rychlost požadavků nemusí stačit výchozí chování opakování a klient vyvolá výjimku DocumentClientException se stavovým kódem 429 k aplikaci. V případech, jako je tato zvažte zpracování logiky aplikace chyba zpracování rutiny nebo zvýšení vyhrazenou propustností kontejneru a postup pro opakované.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Překročení omezení vyhrazenou propustností v rozhraní API pro MongoDB
-Aplikace, které překračují jednotek zřízené žádosti pro kolekci budou omezeny, dokud rychlost klesne pod úroveň vyhrazené. Když dojde omezení, back-end se ukončí ho preventivně požadavek s *16500* kód chyby - *příliš mnoho požadavků*. Ve výchozím nastavení, rozhraní API pro MongoDB bude automaticky opakovat až 10krát před vrácením *příliš mnoho požadavků* kód chyby. Pokud se zobrazuje řada *příliš mnoho požadavků* kódy chyb, můžete zvážit buď přidání opakování chování vaší aplikace chyba zpracování rutiny nebo [zvýšení vyhrazenou propustností pro kolekci](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Překročení omezení vyhrazenou propustností v rozhraní API MongoDB
+Aplikace, které překračují jednotek zřízené žádosti pro kolekci budou omezeny, dokud rychlost klesne pod úroveň vyhrazené. Když dojde omezení, back-end se ukončí ho preventivně požadavek s *16500* kód chyby - *příliš mnoho požadavků*. Ve výchozím nastavení, rozhraní API MongoDB automaticky opakovat až 10krát před vrácením *příliš mnoho požadavků* kód chyby. Pokud se zobrazuje řada *příliš mnoho požadavků* kódy chyb, můžete zvážit buď přidání opakování chování vaší aplikace chyba zpracování rutiny nebo [zvýšení vyhrazenou propustností pro kolekci](set-throughput.md).
 
 ## <a name="next-steps"></a>Další postup
 Další informace o vyhrazenou propustností s databázemi Azure Cosmos DB najdete v těchto zdrojích:

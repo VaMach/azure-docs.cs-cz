@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Zpracování mediálních souborů pomocí Azure Media Hyperlapse
 Azure Media Hyperlapse je média procesoru (PP) vytvářející smooth vypršelo čas videa z první osoba nebo akce fotoaparát obsahu.  Na stejné úrovni cloudu k [plochy Hyperlapse Pro a mobilního telefonu Hyperlapse Microsoft Research](http://aka.ms/hyperlapse), Microsoft Hyperlapse pro službu Azure Media Services využívá masivním měřítku na platformě Azure Media Services média zpracování vodorovně škálování a paralelní hromadné Hyperlapse zpracování.
@@ -47,7 +47,7 @@ Jakmile vašeho obsahu v váš účet Media Services, musíte vytvořit přednas
 Následuje příklad vyhovující konfiguračního souboru XML a JSON:
 
 **Přednastavení XML:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -57,9 +57,10 @@ Následuje příklad vyhovující konfiguračního souboru XML a JSON:
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **Přednastavení JSON:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -73,8 +74,9 @@ Následuje příklad vyhovující konfiguračního souboru XML a JSON:
             "Stabilize":false
         }
     }
+```
 
-### <a id="sample_code"></a>Microsoft Hyperlapse pomocí .NET SDK služby AMS
+### <a id="sample_code"></a> Microsoft Hyperlapse pomocí .NET SDK služby AMS
 Následující metoda odešle soubor média jako prostředek a vytvoří úlohu s procesorem Azure Media Hyperlapse média.
 
 > [!NOTE]
@@ -85,6 +87,7 @@ Následující metoda odešle soubor média jako prostředek a vytvoří úlohu 
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -197,6 +200,7 @@ Následující metoda odešle soubor média jako prostředek a vytvoří úlohu 
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Podporované typy souborů
 * MP4

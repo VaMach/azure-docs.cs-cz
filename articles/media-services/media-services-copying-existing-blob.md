@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Kopírování do služby Asset média existující objekty BLOB
 Tento článek ukazuje, jak chcete zkopírovat objekty BLOB z účtu úložiště do nového prostředku Azure Media Services (AMS) pomocí [rozšíření Azure Media Services .NET SDK](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -39,7 +39,7 @@ Rozšiřující metody pracovat:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Kopírování objektů BLOB mezi dva účty AMS  
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Dva účty služby Media Services. Najdete v článku [postup vytvoření účtu Media Services](media-services-portal-create-account.md).
 
@@ -51,7 +51,7 @@ Můžete provést kroky v tomto článku nebo si můžete stáhnout vzorek, kter
 1. Nastavení vývojového prostředí, jak je popsáno v [vývoj pro Media Services s .NET](media-services-dotnet-how-to-use.md). 
 2. Přidejte oddíl appSettings do souboru .config a aktualizujte hodnoty na základě svých účtů Media Services, cílový účet úložiště a ID zdroje asset.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ Můžete provést kroky v tomto článku nebo si můžete stáhnout vzorek, kter
 
 Následující kód používá rozšíření **IAsset.Copy** metoda zkopíruje všechny soubory v prostředku zdrojového do cílového prostředku pomocí jedné rozšíření.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Kopírování objektů blob z účtu úložiště k účtu AMS 
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 - Jeden účet úložiště, ze kterého chcete zkopírovat objekty BLOB.
 - Jeden účet AMS, do kterého chcete zkopírovat objekty BLOB.
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Nastavení vývojového prostředí, jak je popsáno v [vývoj pro Media Services s .NET](media-services-dotnet-how-to-use.md). 
 2. Přidejte oddíl appSettings do souboru .config a aktualizujte hodnoty na základě vaší zdrojové úložiště a cílový účtů AMS.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -187,9 +187,9 @@ namespace CopyExistingBlobsIntoAsset
 Následující kód zkopíruje objekty BLOB z účtu úložiště do asset Media Services. 
 
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v tématu [to](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,7 +371,8 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
-## <a name="next-steps"></a>Další kroky
+
+## <a name="next-steps"></a>Další postup
 
 Nyní můžete kódovat nahrané assety. Další informace najdete v tématu [Kódování assetů](media-services-portal-encode.md).
 
@@ -380,6 +381,6 @@ Můžete také použít službu Azure Functions k aktivaci úlohy kódování p�
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Poskytnutí zpětné vazby
+## <a name="provide-feedback"></a>Poslat názor
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
