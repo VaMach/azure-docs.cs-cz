@@ -3,17 +3,18 @@ title: "Zásobník datacenter integrace se službou Azure - DNS"
 description: "Zjistěte, jak integrovat Azure zásobníku DNS s vaším datovým centrem DNS"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Zásobník datacenter integrace se službou Azure - DNS
 Pro přístup k koncové body Azure zásobníku (`portal`, `adminportal`, `management`, `adminmanagement`atd.)  ze zásobníku mimo Azure budete muset integraci služby Azure DNS zásobníku se servery DNS, které jsou hostiteli zóny DNS, kterou chcete použít v zásobníku Azure.
@@ -125,8 +126,8 @@ Ve scénářích, kde jste zadali externí zónu DNS zásobník Azure, aby vypad
 
 Příklad:
 
-- Název domény podnikový server DNS:`contoso.com`
-- Název domény DNS externí Azure zásobníku:`azurestack.contoso.com`
+- Název domény podnikový server DNS: `contoso.com`
+- Název domény DNS externí Azure zásobníku: `azurestack.contoso.com`
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegování externí zóny DNS se zásobníkem Azure
 

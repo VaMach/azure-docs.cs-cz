@@ -3,21 +3,21 @@ title: "Vytvořit objekt služby pro Azure zásobníku | Microsoft Docs"
 description: "Popisuje, jak vytvořit nový objekt služby, které je možné pomocí řízení přístupu na základě rolí ve službě Správce prostředků Azure, které pokud chcete spravovat přístup k prostředkům."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 058b01a37e2858801895fd22cf73dd6bd342ca04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 3a22efa4ace8b779f51ca5036b7df536b8c39313
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Uveďte přístup aplikace k Azure zásobníku
 
@@ -57,7 +57,7 @@ Při prostřednictvím kódu programu přihlášení, použijete Identifikátor 
 
 2. Kopírování **ID aplikace** a ukládá je v kódu aplikace. Aplikace v [ukázkové aplikace](#sample-applications) části odkazují na tuto hodnotu jako id klienta.
 
-     ![id klienta](./media/azure-stack-create-service-principal/image12.png)
+     ![ID klienta](./media/azure-stack-create-service-principal/image12.png)
 3. Generovat ověřovací klíč, vyberte **klíče**.
 
 4. Zadejte popis klíč a dobu trvání pro klíč. Až budete hotoví, vyberte **Uložit**.
@@ -137,6 +137,6 @@ Rozsah můžete nastavit na úrovni předplatné, skupinu prostředků nebo pros
 
 Teď, když jste vytvořili objekt služby a přiřazenou roli, můžete začít používat to v rámci vaší aplikace pro přístup k prostředkům Azure zásobníku.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Správa uživatelských oprávnění](azure-stack-manage-permissions.md)

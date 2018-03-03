@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Zpřístupnit sady škálování virtuálního počítače v Azure zásobníku
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Sady škálování virtuálního počítače jsou výpočetní prostředek Azure zásobníku. Můžete je používat k nasazení a správě sadu identickými virtuálními počítači. S všechny virtuální počítače nakonfigurované stejně, nevyžadují předem zřizování virtuálních počítačů sady škálování. Aby bylo jednodušší vytváření rozsáhlých služeb, které se zaměřují velkých výpočetních, velké objemy dat a kontejnerizované úlohy.
 
-Toto téma vás provede procesem vytvoření sady škálování dostupné v Azure Marketplace zásobníku. Po dokončení tohoto postupu můžete přidat uživatele sady škálování virtuálních počítačů do svých předplatných.
+Tento článek vás provede procesem vytvoření sady škálování dostupné v Azure Marketplace zásobníku. Po dokončení tohoto postupu můžete přidat uživatele sady škálování virtuálních počítačů do svých předplatných.
 
 Sady škálování virtuálního počítače v Azure zásobníku jsou stejné jako sady škálování virtuálního počítače na platformě Azure. Další informace najdete na následující videa:
 * [Mark Russinovich hovoří o škálovacích sadách Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Odebrat virtuální počítač škálování položky galerie sady, spusťte ná
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> Položky galerie nemusí být okamžitě odstraněna. Musíte aktualizovat na portálu několikrát, než bude odebrána z Marketplace.
+> Položky galerie nemusí být okamžitě odstraněna. Noční potřebujete aktualizujte portál několikrát, než položka ukazuje, jak odebrat z Marketplace.
 
 
 ## <a name="next-steps"></a>Další postup

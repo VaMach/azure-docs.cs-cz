@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architektura identity pro Azure zásobníku
 Než si zvolíte zprostředkovatele identity pro použití s Azure zásobníku, pochopit důležité rozdíly mezi možnosti služby Azure Active Directory (Azure AD) a Active Directory Federated Services (AD FS). 
@@ -86,7 +86,7 @@ S touto topologií:
 
   Pro interakci s služby AD, rozhraní Graph API vyžaduje pověření uživatele ze služby AD, které mají oprávnění jen pro čtení služby AD. 
   - Integrované služby AD FS je založena na Server 2016. 
-  - Vaše AD FS a musí být založený na Server 2012 nebo dřívější. 
+  - Vaše AD FS a musí být založený na Server 2012 nebo novější.  
   
   Mezi služby AD a integrované služby AD FS interakce nejsou omezena na OpenID Connect a můžete použít libovolný protokol pro vzájemně podporované.  
   - Uživatelské účty se vytváří a spravují v místní AD.

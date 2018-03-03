@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegování nabídek v Azure Stacku
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Jako operátor zásobník Azure budete chtít často put jiní lidé starosti vytvoření nabídky a přihlašování uživatelů. Například pokud jste poskytovatel služeb, můžete prodejce zapsat odběratele a spravovat je vaším jménem. Nebo pokud jste součástí centrální skupinu IT v podniku, můžete chtít pobočky k registraci uživatelů bez zásahu uživatele.
+Jako operátor zásobník Azure budete chtít často put jiní lidé starosti vytvoření nabídky a přihlašování uživatelů. Například pokud jste poskytovatel služeb, můžete si zaregistrovat zákazníků a spravovat je vaším jménem prodejce. Nebo pokud jste součástí centrální skupinu IT v podniku, můžete chtít pobočky k registraci uživatelů bez zásahu uživatele.
 
 Delegování vám pomůže se tyto úlohy tak, že je možné k dosažení a správě více uživatelů, než můžete přímo. Následující obrázek znázorňuje jednu úroveň delegování, ale zásobník Azure podporuje více úrovních. Delegované zprostředkovatelé (distribučních bodů) můžete zase delegovat na jiných poskytovatelů, až pěti úrovněmi.
 
@@ -58,7 +58,7 @@ Následující části popisují, jak vytvořit poskytovatele delegovanou, deleg
 
 ## <a name="set-up-roles"></a>Nastavit role
 
-K poskytovatele delegovanou v práci, budete potřebovat další Azure AD účty kromě vašeho účtu operátor zásobník Azure. Pokud je nemáte, vytvořte dva účty. Účty mohou patřit do žádné uživatele Azure AD. Označujeme je jako poskytovatele delegovanou a uživatele.
+K poskytovatele delegovanou v práci, budete potřebovat další Azure AD účty kromě vašeho účtu operátor zásobník Azure. Pokud jste tyto dva účty, vytvořte je. Účty, můžou patřit do žádné uživatele Azure AD a jsou označovány jako poskytovatele delegovanou a uživatele.
 
 | **Role** | **Organizační práva** |
 | --- | --- |
@@ -71,9 +71,9 @@ K poskytovatele delegovanou v práci, budete potřebovat další Azure AD účty
 2. Vytvořte nabídku, která umožní uživatelům stane delegované zprostředkovatelé:
    
    a.  [Vytvoření plánu](azure-stack-create-plan.md).
-       Tento plán by měly obsahovat pouze službu odběry. V tomto článku používáme plán nazvaný **PlanForDelegation**.
+       Tento plán by měly obsahovat pouze službu odběry. Tento článek používá plán nazvaný **PlanForDelegation**.
    
-   b.  [Vytvořit nabídku](azure-stack-create-offer.md) na základě tohoto plánu. V tomto článku používáme nabídku názvem **OfferToDP**.
+   b.  [Vytvořit nabídku](azure-stack-create-offer.md) na základě tohoto plánu. Tento článek používá nabídku názvem **OfferToDP**.
    
    c.  Po dokončení vytvoření nabídky přidáte poskytovatele delegovanou jako odběratel v rámci této nabídky. To provedete zaškrtnutím **odběry** > **přidat** > **nové předplatné klienta**.
    
@@ -86,9 +86,9 @@ K poskytovatele delegovanou v práci, budete potřebovat další Azure AD účty
 
 ## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Nabídku delegované vytvoří Azure operátor zásobníku
 
-Nyní jste vytvořili poskytovatele delegovanou. Dalším krokem je vytvoření plánu a nabídky, který chcete delegovat a který bude používat vaši zákazníci. Je vhodné definovat v rámci této nabídky přesně tak, jak chcete, aby zákazníci ji zobrazit, protože poskytovatele delegovanou nebude možné změnit plány a kvóty, které obsahuje.
+Nyní jste vytvořili poskytovatele delegovanou. Dalším krokem je vytvoření plánu a nabídky, který chcete delegovat a který bude používat vaši zákazníci. Je vhodné definovat v rámci této nabídky přesně tak, jak chcete, aby zákazníci ji zobrazit, protože poskytovatele delegovanou nelze změnit plány a kvóty, které obsahuje.
 
-1. Jakožto Obsluha zásobník Azure [vytvořit plán](azure-stack-create-plan.md) a [nabídku](azure-stack-create-offer.md) založených na. V tomto článku používáme nabídku názvem **DelegatedOffer.**
+1. Jakožto Obsluha zásobník Azure [vytvořit plán](azure-stack-create-plan.md) a [nabídku](azure-stack-create-offer.md) založených na. Tento článek používá nabídku názvem **DelegatedOffer.**
    
    > [!NOTE]
    > Tato nabídka nemusí být veřejné. Pokud si zvolíte, může být veřejné. Ve většině případů se však pouze chcete delegované zprostředkovatelé tak, aby měl přístup k němu. Po privátní nabídka delegovat, jak je popsáno v následujících krocích, poskytovatele delegovanou k němu má přístup.
@@ -104,14 +104,14 @@ Nyní jste vytvořili poskytovatele delegovanou. Dalším krokem je vytvoření 
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Poskytovatele delegovanou přizpůsobí nabídky
 
-Přihlaste se k portálu user portal jako delegovaný zprostředkovatele. Pak vytvořte nové nabídky pomocí nabídku delegované jako šablona.
+Přihlaste se k portálu user portal jako poskytovatele delegovanou a poté vytvořit novou nabídku pomocí nabídku delegované jako šablona.
 
 1. Vyberte **nové** > **klienta nabízí + plány** > **nabízejí**.
 
     ![Vytvoření nové nabídky](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Přiřadíte název nabídky. Zde jsme zvolte **ResellerOffer**. Vyberte nabídku delegované na kterém chcete základní ho a pak vyberte **vytvořit**.
+1. Přiřadíte název nabídky. Tento článek používá **ResellerOffer**. Vyberte nabídku delegované na kterém chcete základní ho a pak vyberte **vytvořit**.
    
    ![Přiřadit název](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Přihlaste se k portálu user portal jako delegovaný zprostředkovatele. Pak vy
 
 2. Delegované zprostředkovatel poskytuje tyto nabídky prostřednictvím svých vlastních portálu adresy URL. Tyto nabídky jsou viditelné pouze prostřednictvím portálu delegovaní. K vyhledání a změňte tuto adresu URL:
    
-    a.  Vyberte **Procházet** > **další služby** >  **odběry**. Potom vyberte poskytovatele delegovanou předplatné. V našem případě má **DPSubscription** > **vlastnosti**.
+    a.  Vyberte **Procházet** > **další služby** > **odběry**. Potom vyberte poskytovatele delegovanou předplatné. Například **DPSubscription** > **vlastnosti**.
    
     b.  Zkopírujte portálu adresu URL do samostatných umístění, například Poznámkový blok.
    
@@ -134,7 +134,7 @@ Přihlaste se k portálu user portal jako delegovaný zprostředkovatele. Pak vy
 1. V nové okno prohlížeče, přejděte na portál delegované adresu URL, který jste uložili v předchozím kroku. Přihlaste se k portálu jako uživatel. 
    
    >[!NOTE]
-   > Použití portálu delegované pro tento krok. Nabídky delegované jinak nejsou viditelné.
+   >Delegované nabídky se nezobrazí, pokud nepoužíváte delegované portálu. 
 
 2. Na řídicím panelu, vyberte **získat předplatné**. Zobrazí sdělit pouze delegované nabídky, které byly vytvořeny poskytovatele delegovanou uživateli:
 

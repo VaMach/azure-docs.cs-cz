@@ -3,22 +3,21 @@ title: "Úvod do Azure zásobník úložiště"
 description: "Další informace o Azure zásobník úložiště"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/29/2018
+ms.author: mabrigg
+ms.openlocfilehash: dbc2ffb7540feb91b14c3d502e7f4007a0751ebd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Úvod do Azure zásobník úložiště
 
@@ -84,7 +83,7 @@ Při navrhování aplikací pro škálování ve větším měřítku jsou jedno
 
 Účet úložiště může obsahovat libovolný počet front a fronty může obsahovat libovolný počet zpráv až do limitu kapacity účtu úložiště. Jednotlivé zprávy můžou mít velikost až 64 KB.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Konzistentní s Azure storage: rozdíly a důležité informace](azure-stack-acs-differences.md)
 
 * Další informace o službě Azure Storage najdete v tématu [Úvod do Microsoft Azure Storage](../../storage/common/storage-introduction.md)
